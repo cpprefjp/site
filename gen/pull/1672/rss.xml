@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-07-29T02:39:09.414377</updated>
+  <id>c38ab11b-7e45-42bd-a85d-a13c481d6544</id>
+
+  
+    <entry>
+      <title>year_month -- どこからも参照されていないページ (リンクミスを思われる) のチェックを追加</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/year_month.html"/>
+      <id>e8debbee22ff9a862eab2b10065ca632754f07ea:reference/chrono/year_month.md</id>
+      <updated>2026-07-29T11:35:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/year_month.md b/reference/chrono/year_month.md
+index fe4de94b2..1468ff671 100644
+--- a/reference/chrono/year_month.md
++++ b/reference/chrono/year_month.md
+@@ -57,7 +57,7 @@ namespace std::chrono {
+ 
+ | 名前 | 説明 | 対応バージョン |
+ |------|------|----------------|
+-| [`operator/`](month_day/op_append.md) | カレンダー要素同士をつなぎ合わせる | C++20 |
++| [`operator/`](year_month/op_append.md) | カレンダー要素同士をつなぎ合わせる | C++20 |
+ 
+ 
+ ### 算術演算
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>execution -- どこからも参照されていないページ (リンクミスを思われる) のチェックを追加</title>
+      <link href="https://cpprefjp.github.io/reference/execution.html"/>
+      <id>e8debbee22ff9a862eab2b10065ca632754f07ea:reference/execution.md</id>
+      <updated>2026-07-29T11:35:16+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;execution&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;execution&lt;/span&gt;&lt;span class=&#34;cpp cpp17&#34; title=&#34;C++17で追加&#34;&gt;(C++17)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;execution&amp;gt;&lt;/code&gt;ヘッダでは、アルゴリズムの並列実行を許可するための実行ポリシー、汎用的な非同期実行フレームワークとしての実行制御ライブラリを定義する。&lt;/p&gt;
+&lt;h2&gt;実行ポリシー(C++17)&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;execution/execution.html&#34;&gt;execution&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実行ポリシー用の名前空間 (namespace)&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;execution/is_execution_policy.html&#34;&gt;is_execution_policy&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型が実行ポリシーかを判定する (class template)&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;execution/execution-policy.html&#34;&gt;execution-policy&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型が実行ポリシーであることを表す (説明専用concept)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;実行制御ライブラリ(C++26)&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;execution/execution.html&#34;&gt;execution&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実行制御ライブラリの名前空間 (namespace)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;execution/this_thread.html&#34;&gt;this_thread&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実行制御ライブラリ／Senderコンシューマの名前空間 (namespace)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バージョン&lt;/h2&gt;
+&lt;h3&gt;言語&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++17&lt;/li&gt;
+&lt;li&gt;C++26 実行制御ライブラリ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html&#34; target=&#34;_blank&#34;&gt;P0024R2 The Parallelism TS Should be Standardized&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html&#34; target=&#34;_blank&#34;&gt;P2300R10 &lt;code&gt;std::execution&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html&#34; target=&#34;_blank&#34;&gt;P3179R9 C++ parallel range algorithms&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>counting_scope -- どこからも参照されていないページ (リンクミスを思われる) のチェックを追加</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/counting_scope.html"/>
+      <id>e8debbee22ff9a862eab2b10065ca632754f07ea:reference/execution/execution/counting_scope.md</id>
+      <updated>2026-07-29T11:35:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/counting_scope.md b/reference/execution/execution/counting_scope.md
+index bbabbdbf3..9e24d9b6a 100644
+--- a/reference/execution/execution/counting_scope.md
++++ b/reference/execution/execution/counting_scope.md
+@@ -32,6 +32,14 @@ namespace std::execution {
+ | [`join`](counting_scope/join.md) | 非同期スコープを合流する[Sender](sender.md)取得 | C++26 |
+ | [`request_stop`](counting_scope/request_stop.md) | 停止要求を作成する | C++26 |
+ 
++### 説明専用メンバ関数
++
++| 名前 | 説明 | 対応バージョン |
++|------|------|----------------|
++| [`try-associate`](counting_scope/try-associate.md) | 関連付けを試行 | C++26 |
++| [`disassociate`](counting_scope/disassociate.md) | 関連付けを解除 | C++26 |
++| [`start-join-sender`](counting_scope/start-join-sender.md) | 合流[Sender](sender.md)を開始 | C++26 |
++
+ ## メンバ型
+ 
+ | 名前 | 説明 | 対応バージョン |
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>let_value -- どこからも参照されていないページ (リンクミスを思われる) のチェックを追加</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/let_value.html"/>
+      <id>e8debbee22ff9a862eab2b10065ca632754f07ea:reference/execution/execution/let_value.md</id>
+      <updated>2026-07-29T11:35:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/let_value.md b/reference/execution/execution/let_value.md
+index 7ec457abc..b3a485448 100644
+--- a/reference/execution/execution/let_value.md
++++ b/reference/execution/execution/let_value.md
+@@ -238,6 +238,7 @@ struct let-state {
+ ```
+ * connect_result_t[link connect_result_t.md]
+ * connect[link connect.md]
++* emplace-from[link emplace-from.md]
+ * start[link start.md]
+ * receiver_tag[link receiver.md]
+ * execution::set_value[link set_value.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>piecewise_constant_distribution -- どこからも参照されていないページ (リンクミスを思われる) のチェックを追加</title>
+      <link href="https://cpprefjp.github.io/reference/random/piecewise_constant_distribution.html"/>
+      <id>e8debbee22ff9a862eab2b10065ca632754f07ea:reference/random/piecewise_constant_distribution.md</id>
+      <updated>2026-07-29T11:35:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/piecewise_constant_distribution.md b/reference/random/piecewise_constant_distribution.md
+index 52dcda07b..5a25d4007 100644
+--- a/reference/random/piecewise_constant_distribution.md
++++ b/reference/random/piecewise_constant_distribution.md
+@@ -60,6 +60,16 @@ namespace std {
+ | `param_type`  | 分布パラメータの型。未規定。  | C++11 |
+ 
+ 
++## 非メンバ関数
++
++| 名前 | 説明 | 対応バージョン |
++|------------------------------------------------------------------|----------------------|-------|
++| [`operator==`](piecewise_constant_distribution/op_equal.md)     | 等値比較             | C++11 |
++| [`operator!=`](piecewise_constant_distribution/op_not_equal.md) | 非等値比較           | C++11 |
++| [`operator&amp;lt;&amp;lt;`](piecewise_constant_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
++| [`operator&amp;gt;&amp;gt;`](piecewise_constant_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
++
++
+ ## 例
+ ```cpp example
+ #include &amp;lt;fstream&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>piecewise_linear_distribution -- どこからも参照されていないページ (リンクミスを思われる) のチェックを追加</title>
+      <link href="https://cpprefjp.github.io/reference/random/piecewise_linear_distribution.html"/>
+      <id>e8debbee22ff9a862eab2b10065ca632754f07ea:reference/random/piecewise_linear_distribution.md</id>
+      <updated>2026-07-29T11:35:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/piecewise_linear_distribution.md b/reference/random/piecewise_linear_distribution.md
+index 45612a6e0..094709d8b 100644
+--- a/reference/random/piecewise_linear_distribution.md
++++ b/reference/random/piecewise_linear_distribution.md
+@@ -60,6 +60,16 @@ namespace std {
+ | `param_type`  | 分布パラメータの型。未規定。  | C++11 |
+ 
+ 
++## 非メンバ関数
++
++| 名前 | 説明 | 対応バージョン |
++|--------------------------------------------------------------|----------------------|-------|
++| [`operator==`](piecewise_linear_distribution/op_equal.md)     | 等値比較             | C++11 |
++| [`operator!=`](piecewise_linear_distribution/op_not_equal.md) | 非等値比較           | C++11 |
++| [`operator&amp;lt;&amp;lt;`](piecewise_linear_distribution/op_ostream.md)   | ストリームへの出力   | C++11 |
++| [`operator&amp;gt;&amp;gt;`](piecewise_linear_distribution/op_istream.md)   | ストリームからの入力 | C++11 |
++
++
+ ## 例
+ ```cpp example
+ #include &amp;lt;fstream&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>標準規格と処理系 -- nasal demonsのページがサーバーダウンしてるようなのでWeb Archiveに差し替え #1668</title>
+      <link href="https://cpprefjp.github.io/implementation-compliance.html"/>
+      <id>c3eaa66732fd7c76c6f0d73078e2fbb13222eb13:implementation-compliance.md</id>
+      <updated>2026-07-27T17:27:15+09:00</updated>
+      
+        <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;標準規格と処理系&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;h2&gt;&lt;a href=&#34;#summary&#34; id=&#34;summary&#34;&gt;概要&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;※ここでは各用語の日本語訳については、できるだけ JIS C++ (JIS X 3014:2003) に倣った。例外についてはそれぞれ注釈で説明を与える。&lt;/p&gt;
+&lt;h3&gt;&lt;a href=&#34;#implementation-compliance&#34; id=&#34;implementation-compliance&#34;&gt;処理系の適合 (implementation compliance)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;処理系&lt;/strong&gt; (implementation) または&lt;strong&gt;実装&lt;/strong&gt;とはプログラムの&lt;strong&gt;翻訳&lt;/strong&gt; (translation) と&lt;strong&gt;実行&lt;/strong&gt; (execution) をする一連の枠組み・ソフトウェアのことである。
+C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレーティングシステムから構成されるのが普通だが、後者は前提として特に前者を処理系と考えることも多い。
+&lt;strong&gt;標準規格&lt;/strong&gt; (standard) または&lt;strong&gt;規格&lt;/strong&gt;とは、C++ の&lt;strong&gt;適合する処理系&lt;/strong&gt; (conforming implementation) が満たすべき&lt;strong&gt;要件&lt;/strong&gt; (requirement) を取り決めた文書である。&lt;/p&gt;
+&lt;h3&gt;&lt;a href=&#34;#behavior&#34; id=&#34;behavior&#34;&gt;動作&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;適合する処理系は標準規格が定める&lt;strong&gt;抽象機械&lt;/strong&gt; (abstract machine) の&lt;strong&gt;外から見た動作&lt;/strong&gt; (observable behavior) を&lt;strong&gt;模倣&lt;/strong&gt; (emulate) しなければならない。
+外から見た動作は&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;volatile&lt;/code&gt; &lt;a href=&#34;lang/cpp11/rvalue_ref_and_move_semantics.html&#34;&gt;glvalue&lt;/a&gt; を通した抽象機械の読み書き操作&lt;/li&gt;
+&lt;li&gt;実行終了後の、ファイルに出力された内容&lt;/li&gt;
+&lt;li&gt;対話的な入出力装置の読み書きの順序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;からなる。但し、一部の動作については処理系に対して自由度が認められている。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;dfn id=&#34;dfn-implementation-defined-behavior&#34;&gt;処理系定義の動作&lt;/dfn&gt; (implementation-defined behavior) または&lt;dfn&gt;実装定義の動作&lt;/dfn&gt;とされた動作に対しては、処理系は考えられる動作の内の1つを行って良い。処理系はその説明書にその動作を定義する必要がある。&lt;/li&gt;
+&lt;li&gt;&lt;dfn id=&#34;dfn-unspecified-behavior&#34;&gt;未規定の動作&lt;/dfn&gt; (unspecified behavior) とされた動作に対しては、処理系は考えられる動作の内の1つを行って良い。処理系は説明書にその動作を定義しなくて良い。&lt;/li&gt;
+&lt;li&gt;&lt;dfn id=&#34;dfn-undefined-behavior&#34;&gt;未定義の動作&lt;/dfn&gt; (undefined behavior; 通称 UB) は、処理系が実際に行う動作について標準規格が如何なる要件もおかないことを表す。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文化圏固有動作&lt;/strong&gt; (locale-specific behavior) に対しては、処理系は現地の国家・文化・言語の風習に依存した動作を行う。処理系はその動作を説明書に記述する必要がある。&lt;/li&gt;
+&lt;li&gt;&lt;dfn id=&#34;dfn-erroneous-behavior&#34;&gt;エラー性の動作&lt;/dfn&gt; (erroneous behavior; 通称 EB) は、定義された動作であるが、処理系は診断情報を出力することが推奨される。その後に未規定の時点で、処理系は実行を終了しても良い。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;これらの用語は処理系が取りうる動作の範囲を示すものであって、例えば &#34;未定義の動作&#34; という名前の具体的な動作がある訳ではないことに注意する。&lt;/p&gt;
+&lt;h3&gt;&lt;a href=&#34;#rule&#34; id=&#34;rule&#34;&gt;規則&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;標準規格の定める要件は、処理系 (抽象機械) に対する直接の要件と、処理系が受け入れるべきプログラムが満たす&lt;strong&gt;規則&lt;/strong&gt; (rule) で構成される。
+規則には幾つかの分類があるが、C++ の標準規格内では具体的な分類基準は示されていない。C言語に倣えば以下の解釈になる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;構文規則&lt;/strong&gt; (syntactic rule, syntax rule): 拡張バッカス・ナウア記法の亜種である&lt;strong&gt;構文記法&lt;/strong&gt; (syntax notation) によって指定されるプログラムの構文&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;制約&lt;/strong&gt; (constraints): C言語において構文記法によって表現しきれない構文的な制限を文章で述べたもの。C++ には現れない&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;意味規則&lt;/strong&gt; (semantic rule): 構文規則と制約のどちらでもないプログラムに対する規則&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;各規則には&lt;dfn id=&#34;dfn-no-diagnostic-required&#34;&gt;診断不要&lt;/dfn&gt;&lt;sup&gt;&lt;a href=&#34;#note-1&#34; id=&#34;note_ref-1&#34;&gt;[注1]&lt;/a&gt;&lt;/sup&gt; (no diagnostic required; 通称 NDR) や「違反すると未定義の動作になる」などの属性が明記されることがあり、
+診断不要とも未定義の動作になるとも明記されない規則を&lt;strong&gt;診断対象規則&lt;/strong&gt; (diagnosable rule) と呼ぶ。
+&lt;strong&gt;単一定義規則&lt;/strong&gt; (ODR; one definition rule) は &#34;使用される変数・関数・クラスについてただ1つの定義を与えなければならない&#34; という一連の規則である。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;dfn id=&#34;dfn-well-formed&#34;&gt;適格&lt;/dfn&gt; (well-formed) とはプログラムが全ての構文規則・診断対象の意味規則・単一定義規則を満たすことである&lt;/li&gt;
+&lt;li&gt;&lt;dfn id=&#34;dfn-ill-formed&#34;&gt;不適格&lt;/dfn&gt; (ill-formed) とはプログラムが適格でないことである&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;プログラムが規則に違反するとき、処理系はエラーメッセージまたは警告などを出力する。
+この出力を総称して&lt;dfn id=&#34;dfn-diagnostic-message&#34;&gt;診断情報&lt;/dfn&gt; (diagnostic message) または&lt;dfn&gt;診断メッセージ&lt;/dfn&gt;&lt;sup&gt;&lt;a href=&#34;#note-2&#34; id=&#34;note_ref-2&#34;&gt;[注2]&lt;/a&gt;&lt;/sup&gt; と呼び、その内容は処理系定義である。&lt;/p&gt;
+&lt;p&gt;適合する処理系は、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;規則を全て満たすプログラムをそのリソースの範囲で正しく実行 (外から見た動作を模倣) する必要がある。&lt;/li&gt;
+&lt;li&gt;診断対象規則に違反するプログラムに対して診断情報を出力する必要がある。&lt;/li&gt;
+&lt;li&gt;診断不要な規則に違反するプログラムの翻訳・実行について、標準規格によって如何なる要件もおかれない。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;a href=&#34;#conditionally-supported&#34; id=&#34;conditionally-supported&#34;&gt;条件付き対応の構成&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;一部の C++ の機能は&lt;strong&gt;条件付き対応の構成&lt;/strong&gt;&lt;sup&gt;&lt;a href=&#34;#note-3&#34; id=&#34;note_ref-3&#34;&gt;[注3]&lt;/a&gt;&lt;/sup&gt; (conditionally-supported constructs) とされ、処理系はこれに対応しなくても良い。
+対応する場合にはその動作は処理系定義である。&lt;/p&gt;
+&lt;h3&gt;&lt;a href=&#34;#implementation-limit&#34; id=&#34;implementation-limit&#34;&gt;処理系限界&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;変数名の最大の長さや仮引数の最大の数など、処理系が対応する様々なプログラムの大きさのことを&lt;strong&gt;処理系限界&lt;/strong&gt; (implementation limit, implementation quantity) と呼ぶ。
+処理系は処理系限界についての情報を説明書に記述する必要がある。&lt;/p&gt;
+&lt;h3&gt;&lt;a href=&#34;#relations&#34; id=&#34;relations&#34;&gt;規則違反と動作の包含関係&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;規則に違反するプログラム・処理系依存の動作を行うプログラムの包含関係について以下の図に示す。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;俯瞰図&#34; src=&#34;static/image/implementation-compliance/overview.png&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;但し、一つのプログラムが複数の規則に違反する場合については考慮していない。&lt;/li&gt;
+&lt;li&gt;構文規則の範囲は規格上曖昧なので、診断不要 (NDR) の規則を含むかどうかは解釈による。&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;cpprefjp-defined-word&#34;&gt;不適格&lt;/a&gt;かつ診断不要の規則 (ill-formed; NDR) が、規格上矛盾なく定義されているかどうかは議論が分かれる。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;a href=&#34;#informal-terms&#34; id=&#34;informal-terms&#34;&gt;慣用語&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;処理系の性質についての慣用語&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;合法&lt;/strong&gt; (legal): 処理系が適合することを指す。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;違法&lt;/strong&gt; (illegal): 処理系が適合しないことを指す。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;QoI&lt;/strong&gt; (quality of implementation; QOI): 処理系の実装品質のこと。適合する処理系であっても処理系依存な部分で粗末な動作をするものが考えうる。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;normative&lt;/strong&gt;: (ある規格の記述が) 適合する処理系に対して強制力を持つさまを表す&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;informative&lt;/strong&gt;: (ある規格の記述が) 強制力を持たないさまを表す&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;プログラムの性質についての慣用語&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;処理系依存&lt;/strong&gt; (implementation-dependent): プログラムの動作が処理系によって異なりうること。
+  条件付き対応の機能を使用している場合や、処理系定義の動作・未規定の動作・未定義の動作・文化圏固有動作を起こす場合、処理系限界を超える場合、規則に違反している場合を含む。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合法&lt;/strong&gt; (legal)・&lt;strong&gt;違法&lt;/strong&gt; (illegal): これらの語はプログラムに対しても慣用されるが、具体的な意味は明確でない。
+  プログラムの正しさには複数の水準があるためである。
+  適格、またはすべての規則を満たす、または未定義の動作を含まないなどが考えられる。
+  曖昧さを避けるため、このサイトではプログラムに対して合法・違法という語は用いない。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;a href=&#34;#nasal-demon&#34; id=&#34;nasal-demon&#34;&gt;「鼻から悪魔」とプログラムの可搬性&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;プログラムが&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;未定義の動作 (UB) を引き起こすとき、&lt;/li&gt;
+&lt;li&gt;または診断不要 (NDR) の規則に違反している&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;とき、標準規格は適合する処理系に対して何らの要件も課さない。
+つまり、UB または NDR 違反を含むプログラムに対して処理系がいかなる動作をしても規格には抵触しないということを表す。
+例えば、このことで処理系が鼻から悪魔を出しても、それはプログラムの作者の責任であり、その処理系を責めることはできない。
+この冗談を&lt;strong&gt;鼻から悪魔&lt;/strong&gt; (nasal demons)&lt;sup&gt;&lt;a href=&#34;#cite-1&#34; id=&#34;cite_ref-1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;sup&gt;&lt;a href=&#34;#cite-2&#34; id=&#34;cite_ref-2&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt; と呼ぶ。鼻から悪魔を出す処理系は今のところ実在しないが、
+実際の未定義の動作として最適化の過程で或る種の「タイムトラベル」を起こす処理系は実在する&lt;sup&gt;&lt;a href=&#34;#cite-3&#34; id=&#34;cite_ref-3&#34;&gt;[3]&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;処理系依存のプログラムは、たとえ或る処理系の上で期待する動作をしたとしても、他の処理系でも正しく動作することは保証されない。
+可搬なプログラムを書くためには、未定義の動作を引き起こさずかつ診断不要の規則に違反しないプログラムを書くように心懸ける必要がある。
+更に、処理系定義の動作や未規定の動作は、(内部的に起こしても良いが) 外から見える動作として現れて問題を起こさないようにする必要がある。
+余裕があれば、文化圏固有動作や条件付き対応の構成についても気を配ると良い。&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&#34;#list-of-locale-specific&#34; id=&#34;list-of-locale-specific&#34;&gt;文化圏固有動作の一覧&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;ToDo&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&#34;#list-of-conditionally-supported&#34; id=&#34;list-of-conditionally-supported&#34;&gt;条件付き対応の一覧&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;ToDo&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&#34;#list-of-implementation-limit&#34; id=&#34;list-of-implementation-limit&#34;&gt;処理系限界の一覧&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;ToDo&lt;/p&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/akinomyoga/items/592e5a3b8438a0c8556b&#34; target=&#34;_blank&#34;&gt;C++er は“合法”だとか“違法”だとか言いたくて仕方がないけれど、結局どういう意味? それより適合・適格・○○動作・○○規則・診断不要いろいろの関係が謎 - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.c-lang.org/detail/implementation_defined_behavior.html&#34; target=&#34;_blank&#34;&gt;処理系定義の動作&lt;/a&gt; - C言語の処理系定義の動作の一覧&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.c-lang.org/detail/undefined_behavior.html&#34; target=&#34;_blank&#34;&gt;未定義の動作&lt;/a&gt; - C言語の未定義の動作の一覧&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.c-lang.org/detail/unspecified_behavior.html&#34; target=&#34;_blank&#34;&gt;未規定の動作&lt;/a&gt; - C言語の未規定の動作の一覧&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.c-lang.org/detail/locale_specific_behavior.html&#34; target=&#34;_blank&#34;&gt;文化圏固有動作&lt;/a&gt; - C言語の文化圏固有動作の一覧&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cpplover.blogspot.jp/2014/06/old-new-thing.html&#34; target=&#34;_blank&#34;&gt;本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jpcert.or.jp/sc-rules/c-msc15-c.html&#34; target=&#34;_blank&#34;&gt;MSC15-C. 未定義の動作に依存しない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;出典&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;#cite_ref-1&#34; id=&#34;cite-1&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; &lt;cite&gt;&lt;a href=&#34;https://web.archive.org/web/20250103122205/http://catb.org/jargon/html/N/nasal-demons.html&#34; target=&#34;_blank&#34;&gt;nasal demons&lt;/a&gt;&lt;/cite&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cite_ref-2&#34; id=&#34;cite-2&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; &lt;cite&gt;&lt;a href=&#34;https://cpplover.blogspot.jp/2010/01/c0x_14.html&#34; target=&#34;_blank&#34;&gt;本の虫: C++0x本：鼻から悪魔&lt;/a&gt;&lt;/cite&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cite_ref-3&#34; id=&#34;cite-3&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; &lt;cite&gt;&lt;a href=&#34;https://cpplover.blogspot.jp/2014/06/old-new-thing.html&#34; target=&#34;_blank&#34;&gt;本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）&lt;/a&gt;&lt;/cite&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;注釈&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-1&#34; id=&#34;note-1&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; no diagnostic required: JIS C++ では一定の訳は与えられず、登場する度に異なる翻訳のされ方をしている。
+  ここでは &#34;診断不要&#34; という語を割り当てることにする。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-2&#34; id=&#34;note-2&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; diagnostic message: JIS C++ では &#34;診断情報&#34; としている。
+  JIS C言語 (JIS X 3010:2003) では &#34;診断メッセージ&#34; としている。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-3&#34; id=&#34;note-3&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; conditionally-supported constructs: C++11 で導入されたものなので、JIS C++ には対応訳は存在しない。
+  ここでは &#34;条件付き対応の構成&#34; と訳す。
+  因みに JIS C++ では constructs は &#34;構文&#34; と訳している。
+  現に C++98/03 で constructs という単語が使われているのは構文に対してのみである。
+  しかし conditionally-supported constructs が導入された今、
+  constructs という単語は構文とは言い難いものにも使われている。
+  因みに、本来 constructs というのは構成要素というぐらいの意味である。&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>function_ref -- function_ref : Clangで実装された</title>
+      <link href="https://cpprefjp.github.io/reference/functional/function_ref.html"/>
+      <id>6fb929b66d12c8b26626abd5a3b7bc5e3c6338ab:reference/functional/function_ref.md</id>
+      <updated>2026-07-27T16:58:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/function_ref.md b/reference/functional/function_ref.md
+index f77eba736..57297617d 100644
+--- a/reference/functional/function_ref.md
++++ b/reference/functional/function_ref.md
+@@ -104,7 +104,7 @@ int main()
+ - C++26
+ 
+ ### 処理系
+-- [Clang](/implementation.md#clang): ??
++- [Clang](/implementation.md#clang): 24 [mark verified]
+ - [GCC](/implementation.md#gcc): 16.1 [mark verified]
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- function_ref : Clangで実装された</title>
+      <link href="https://cpprefjp.github.io/reference/functional/function_ref/op_assign.html"/>
+      <id>6fb929b66d12c8b26626abd5a3b7bc5e3c6338ab:reference/functional/function_ref/op_assign.md</id>
+      <updated>2026-07-27T16:58:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/function_ref/op_assign.md b/reference/functional/function_ref/op_assign.md
+index 284ae5679..e6e6059ed 100644
+--- a/reference/functional/function_ref/op_assign.md
++++ b/reference/functional/function_ref/op_assign.md
+@@ -65,7 +65,7 @@ int main()
+ - C++26
+ 
+ ### 処理系
+-- [Clang](/implementation.md#clang): ??
++- [Clang](/implementation.md#clang): 24 [mark verified]
+ - [GCC](/implementation.md#gcc): 16.1 [mark verified]
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator() -- function_ref : Clangで実装された</title>
+      <link href="https://cpprefjp.github.io/reference/functional/function_ref/op_call.html"/>
+      <id>6fb929b66d12c8b26626abd5a3b7bc5e3c6338ab:reference/functional/function_ref/op_call.md</id>
+      <updated>2026-07-27T16:58:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/function_ref/op_call.md b/reference/functional/function_ref/op_call.md
+index e0d500feb..adaba89af 100644
+--- a/reference/functional/function_ref/op_call.md
++++ b/reference/functional/function_ref/op_call.md
+@@ -59,7 +59,7 @@ int main()
+ - C++26
+ 
+ ### 処理系
+-- [Clang](/implementation.md#clang): ??
++- [Clang](/implementation.md#clang): 24 [mark verified]
+ - [GCC](/implementation.md#gcc): 16.1 [mark verified]
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- function_ref : Clangで実装された</title>
+      <link href="https://cpprefjp.github.io/reference/functional/function_ref/op_constructor.html"/>
+      <id>6fb929b66d12c8b26626abd5a3b7bc5e3c6338ab:reference/functional/function_ref/op_constructor.md</id>
+      <updated>2026-07-27T16:58:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/function_ref/op_constructor.md b/reference/functional/function_ref/op_constructor.md
+index 0e741337a..f072819cc 100644
+--- a/reference/functional/function_ref/op_constructor.md
++++ b/reference/functional/function_ref/op_constructor.md
+@@ -162,7 +162,7 @@ int main()
+ - C++26
+ 
+ ### 処理系
+-- [Clang](/implementation.md#clang): ??
++- [Clang](/implementation.md#clang): 24 [mark verified]
+ - [GCC](/implementation.md#gcc): 16.1 [mark verified]
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>推論補助 -- function_ref : Clangで実装された</title>
+      <link href="https://cpprefjp.github.io/reference/functional/function_ref/op_deduction_guide.html"/>
+      <id>6fb929b66d12c8b26626abd5a3b7bc5e3c6338ab:reference/functional/function_ref/op_deduction_guide.md</id>
+      <updated>2026-07-27T16:58:34+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/function_ref/op_deduction_guide.md b/reference/functional/function_ref/op_deduction_guide.md
+index 876ad7081..31c1023d2 100644
+--- a/reference/functional/function_ref/op_deduction_guide.md
++++ b/reference/functional/function_ref/op_deduction_guide.md
+@@ -82,7 +82,7 @@ int main()
+ - C++26
+ 
+ ### 処理系
+-- [Clang](/implementation.md#clang): ??
++- [Clang](/implementation.md#clang): 24 [mark verified]
+ - [GCC](/implementation.md#gcc): 16.1 [mark verified]
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
