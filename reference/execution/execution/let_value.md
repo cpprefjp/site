@@ -238,6 +238,7 @@ struct let-state {
 ```
 * connect_result_t[link connect_result_t.md]
 * connect[link connect.md]
+* emplace-from[link emplace-from.md]
 * start[link start.md]
 * receiver_tag[link receiver.md]
 * execution::set_value[link set_value.md]
