@@ -168,6 +168,7 @@
     * identity[link /reference/functional/identity.md]
 * <future>[link /reference/future.md]
 * <generator>[link /reference/generator.md]
+* <hive>[link /reference/hive.md]
 * <initializer_list>[link /reference/initializer_list.md]
     * std::initializer_list[link /reference/initializer_list/initializer_list.md]
     * il.begin()[link /reference/initializer_list/initializer_list/begin.md]

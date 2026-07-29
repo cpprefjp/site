@@ -104,6 +104,7 @@
 | [`<array>`](/reference/array.md)                 | 配列                  | C++11          |
 | [`<deque>`](/reference/deque.md)                 | 両端キュー            |                |
 | [`<forward_list>`](/reference/forward_list.md)   | 単方向リスト          | C++11          |
+| [`<hive>`](/reference/hive.md)                   | 要素のメモリ位置が安定したコンテナ | C++26 |
 | [`<list>`](/reference/list.md)                   | 双方向リスト          |                |
 | [`<queue>`](/reference/queue.md)                 | FIFOキュー            |                |
 | [`<stack>`](/reference/stack.md)                 | LIFOスタック          |                |
