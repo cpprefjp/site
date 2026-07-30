@@ -299,7 +299,7 @@
 | P2169R4: [宣言のみで使用しない変数の名前として`_`をサポート](/lang/cpp26/nice_placeholder_with_no_name.md) | 変数名`_`は暗黙で`[[maybe_unused]]`が指定される | 14 | 18 | | |
 | P1854R4: [文字列リテラルの文字エンコーディング失敗を不適格とする](/lang/cpp26/making_non-encodable_string_literals_ill-formed.md) | 文字列リテラルのエンコーディング時に文字表現が失われる場合にコンパイルエラーにする | 14 | 14 | | |
 | P2361R6: [コンパイル時にのみ使用される文字列の扱いを明確化](/lang/cpp26/unevaluated_strings.md) | `static_assert`や`[[deprecated]]`などで使用されるコンパイル時の文字列について、文字コードの指定を禁止し、実行時エンコーディングが行われないことを規定 | 14 | 18 | | |
-| P2552R3: [属性の無視性を見直し](/lang/cpp26/on_the_ignorability_of_standard_attributes.md) | 構文として適格な属性のみを無視できるようにし、そうでない属性の使用を不適格とする | 15 | | | |
+| P2552R3: [属性の無視性を見直し](/lang/cpp26/on_the_ignorability_of_standard_attributes.md) | 構文として適格な属性のみを無視できるようにし、そうでない属性の使用を不適格とする | 15 | Yes | | |
 | P2738R1: [定数式での`void*`からポインタ型へのキャストを許可](/lang/cpp26/constexpr_cast_from_voidptr.md) | 型消去のために`void*`からポインタ型へのキャストを許可する | 14 | 17 | | |
 | P2741R3: [`static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md) | `constexpr`な`S.size()`と`S.data()`メンバ関数をもつオブジェクトをコンパイル時文字列として指定できるようにする | 14 | 17 | | |
 | P2558R2: [基本文字集合に@、$、\`を追加](/lang/cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.md) | C言語との互換性のためにこれらの文字を基本文字集合に追加 | 15 | Yes | | |
@@ -316,7 +316,7 @@
 | P2747R2: [`constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md) | 定数式の文脈での配置`new`を許可 | 15 | 20 | | |
 | P3144R2: [不完全型へのポインタに対する`delete`を不適格とする](/lang/cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.md) | 未定義動作を引き起こす操作をコンパイルエラーとする | 15 | 19 | | |
 | P2963R3: [制約式内での畳み込み式の順序付け](/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md) | 畳み込み式を含む制約の包摂関係を認識できるようにし、オーバーロード解決の曖昧さを解消する | | 19 | | |
-| P0963R3: [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする | 15 | | | |
+| P0963R3: [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする | 15 | 21 | | |
 | P2686R5: [`constexpr`構造化束縛の許可と、`constexpr`参照の制限緩和](/lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.md) | 定数式に対する構造化束縛を許可し、関連して`constexpr`参照の制限を緩和して自動変数も参照できるようにする | 16 | | | |
 | P3068R6: [定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md) | 定数式の文脈での例外の送出と捕捉を許可 | 16 | | | |
 | P2865R6: [非推奨だった組み込み配列の比較を削除](/lang/cpp26/remove_deprecated_array_comparisons.md) | C++20で非推奨となっていた配列比較を削除 | 15 | 20 | | |
