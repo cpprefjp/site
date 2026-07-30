@@ -90,7 +90,7 @@ auto dot_product(P p, Q q) {
   return std::apply([&](auto... p_elems){
     return std::apply([&](auto... q_elems){
       return (... + (p_elems * q_elems));
-    }, q)
+    }, q);
   }, p);
 }
 ```
