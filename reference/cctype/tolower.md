@@ -47,7 +47,7 @@ tolower('$') = $
 ```cpp
 int tolower(int ch) {
   if (isupper(ch)) {
-    ch ^= 32
+    ch ^= 32;
   }
   return ch;
 }
