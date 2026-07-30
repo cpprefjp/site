@@ -16,7 +16,7 @@ namespace std {
   T&& get(array<T, N>&& x) noexcept;                       // (2) C++11
 
   template <std::size_t I, class T, std::size_t N>
-  T&& get(array<T, N>&& x) noexcept;                       // (2) C++14
+  constexpr T&& get(array<T, N>&& x) noexcept;                       // (2) C++14
 
   template <std::size_t I, class T, std::size_t N>
   const T& get(const array<T, N>& x) noexcept;             // (3) C++11
