@@ -20,7 +20,7 @@ size_type unique(BinaryPredicate binary_pred = BinaryPredicate()); // (1) C++26
 
 
 ## 効果
-連続する等価な要素群のそれぞれについて、先頭以外の全ての要素を削除する。すなわち、空でない`hive`に対して、イテレータ範囲`[`[`begin()`](begin.md)` + 1,` [`end()`](end.md)`)`に含まれるイテレータ`i`のうち、`binary_pred(*i, *(i - 1))`が`true`となる要素を全て削除する。
+連続する等価な要素群のそれぞれについて、先頭以外の全ての要素を削除する。すなわち、空でない`hive`に対して、イテレータ範囲`[`[`begin()`](begin.md) `+ 1,` [`end()`](end.md)`)`に含まれるイテレータ`i`のうち、`binary_pred(*i, *(i - 1))`が`true`となる要素を全て削除する。
 
 
 ## 戻り値
