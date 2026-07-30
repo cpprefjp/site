@@ -167,7 +167,7 @@ struct search_n_impl {
     requires indirectly_comparable<I, const T*, Pred, Proj>
   constexpr subrange<I> operator()(I first, S last, iter_difference_t<I> count, const T& value, Pred pred = {}, Proj proj = {}) const {
     if (first == last || count <= 0)
-      return first;
+      return {first, first};
 
     while (first != last) {
       if (*first == value) {
@@ -177,20 +177,21 @@ struct search_n_impl {
         for (; i < count && it != last && invoke(pred, invoke(proj, *it), value); ++i, ++it)
           ;
         if (i == count)
-          return {first, i};
+          return {first, it};
         else if (it == last)
-          return {last, last};
+          return {it, it};
         else
           first = it;
       }
       ++first;
     }
+    return {first, first};
   }
 
   template<forward_range R, class T, class Pred = ranges::equal_to, class Proj = identity>
     requires indirectly_comparable<iterator_t<R>, const T*, Pred, Proj>
   constexpr borrowed_subrange_t<R> operator()(R&& r, range_difference_t<R> count, const T& value, Pred pred = {}, Proj proj = {}) const {
-    return (*this)(begin(r1), end(r1), count, value, ref(pred), ref(proj));
+    return (*this)(begin(r), end(r), count, value, ref(pred), ref(proj));
   }
 };
 
