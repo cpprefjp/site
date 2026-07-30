@@ -8,14 +8,14 @@
 namespace std {
   void
     atomic_flag_notify_all(
-      volatile atomic_flag* object) const noexcept; // (1) C++20
+      volatile atomic_flag* object) noexcept; // (1) C++20
 
   void
     atomic_flag_notify_all(
-      atomic_flag* object) const noexcept;          // (2) C++20
+      atomic_flag* object) noexcept;          // (2) C++20
   constexpr void
     atomic_flag_notify_all(
-      atomic_flag* object) const noexcept;          // (2) C++26
+      atomic_flag* object) noexcept;          // (2) C++26
 }
 ```
 
