@@ -50,8 +50,8 @@ int main() {
 
   // 曜日は循環する
   chrono::weekday u = chrono::Saturday;
-  v += chrono::days{2};
-  assert(v == chrono::Monday);
+  u += chrono::days{2};
+  assert(u == chrono::Monday);
 }
 ```
 * chrono::Sunday[color ff0000]
