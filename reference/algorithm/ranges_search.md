@@ -163,11 +163,12 @@ struct search_impl {
       I2 p2 = first2;
       while (true) {
         if (p2 == last2) return {first1, p1};
-        if (p1 == last1) return {last1, last1};
+        if (p1 == last1) return {p1, p1};
         if (!invoke(pred, invoke(proj1, *p1), invoke(proj2, *p2))) break;
         ++p1, ++p2;
       }
-    }
+    return {first1, first1};
+   }
   }
 
   template<forward_range R1, forward_range R2, class Pred = ranges::equal_to, class Proj1 = identity, class Proj2 = identity>
