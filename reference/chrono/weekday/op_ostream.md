@@ -21,10 +21,10 @@ namespace std::chrono {
 
 - (1) : 以下と等価：
     ```cpp
-    return os << (m.ok() ?
-      format(os.getloc(), STATICALLY-WIDEN<charT>("{:L%a}"), m) :
+    return os << (wd.ok() ?
+      format(os.getloc(), STATICALLY-WIDEN<charT>("{:L%a}"), wd) :
       format(os.getloc(), STATICALLY-WIDEN<charT>("{} is not a valid weekday"),
-             static_cast<unsigned int>(m)));
+             static_cast<unsigned int>(wd)));
     ```
     * format[link /reference/format/format.md]
     * os.getloc()[link /reference/ios/ios_base/getloc.md]
