@@ -172,7 +172,7 @@ template <class InputIterator, class OutputIterator, class Predicate, class T>
 OutputIterator replace_copy_if(InputIterator first, InputIterator last, OutputIterator result,
                                Predicate pred, const T& new_value) {
   for ( ; first != last; ++first)
-    *result++ = pred(*first, old_value) ? new_value : *first;
+    *result++ = pred(*first) ? new_value : *first;
   return result;
 }
 ```
