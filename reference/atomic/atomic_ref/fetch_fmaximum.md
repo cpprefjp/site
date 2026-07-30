@@ -41,8 +41,8 @@ constexpr T
 
 int main()
 {
-  int x = 2;
-  int ret = std::atomic_ref{x}.fetch_fmaximum(3);
+  double x = 2;
+  double ret = std::atomic_ref{x}.fetch_fmaximum(3.0);
 
   std::cout << ret << std::endl;
   std::cout << x << std::endl;
