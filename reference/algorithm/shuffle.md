@@ -112,7 +112,7 @@ void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRando
 
   using distance_type   = typename iterator_traits<RandomAccessIterator>::difference_type;
   using unsigned_type   = typename make_unsigned<distance_type>::type;
-  using distribute_type = typename uniform_int_distribution<unsigned_type>;
+  using distribute_type =          uniform_int_distribution<unsigned_type>;
   using param_type      = typename distribute_type::param_type;
 
   distribute_type d;
