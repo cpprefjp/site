@@ -14,7 +14,6 @@ namespace std::ranges {
       (is_lvalue_reference_v<T> || (movable<remove_reference_t<T>> && !is-initializer-list<T>))));
 }
 ```
-* constructible_from[link /reference/concepts/constructible_from.md]
 * is_lvalue_reference_v[link /reference/type_traits/is_lvalue_reference.md]
 * movable[link /reference/concepts/movable.md]
 * is-initializer-list[italic]

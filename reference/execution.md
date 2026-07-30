@@ -19,7 +19,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`execution`](execution/execution.md) | 実行制御ライブラリの名前空間 (namespace) | C++26 |
-| [`this_thread`](execution/execution.md) | 実行制御ライブラリ／Senderコンシューマの名前空間 (namespace) | C++26 |
+| [`this_thread`](execution/this_thread.md) | 実行制御ライブラリ／Senderコンシューマの名前空間 (namespace) | C++26 |
 
 
 ## バージョン

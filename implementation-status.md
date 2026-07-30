@@ -299,14 +299,14 @@
 | P2169R4: [宣言のみで使用しない変数の名前として`_`をサポート](/lang/cpp26/nice_placeholder_with_no_name.md) | 変数名`_`は暗黙で`[[maybe_unused]]`が指定される | 14 | 18 | | |
 | P1854R4: [文字列リテラルの文字エンコーディング失敗を不適格とする](/lang/cpp26/making_non-encodable_string_literals_ill-formed.md) | 文字列リテラルのエンコーディング時に文字表現が失われる場合にコンパイルエラーにする | 14 | 14 | | |
 | P2361R6: [コンパイル時にのみ使用される文字列の扱いを明確化](/lang/cpp26/unevaluated_strings.md) | `static_assert`や`[[deprecated]]`などで使用されるコンパイル時の文字列について、文字コードの指定を禁止し、実行時エンコーディングが行われないことを規定 | 14 | 18 | | |
-| P2552R3: [属性の無視性を見直し](/lang/cpp26/on_the_ignorability_of_standard_attributes.md) | 構文として適格な属性のみを無視できるようにし、そうでない属性の使用を不適格とする | 15 | | | |
+| P2552R3: [属性の無視性を見直し](/lang/cpp26/on_the_ignorability_of_standard_attributes.md) | 構文として適格な属性のみを無視できるようにし、そうでない属性の使用を不適格とする | 15 | Yes | | |
 | P2738R1: [定数式での`void*`からポインタ型へのキャストを許可](/lang/cpp26/constexpr_cast_from_voidptr.md) | 型消去のために`void*`からポインタ型へのキャストを許可する | 14 | 17 | | |
 | P2741R3: [`static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md) | `constexpr`な`S.size()`と`S.data()`メンバ関数をもつオブジェクトをコンパイル時文字列として指定できるようにする | 14 | 17 | | |
 | P2558R2: [基本文字集合に@、$、\`を追加](/lang/cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.md) | C言語との互換性のためにこれらの文字を基本文字集合に追加 | 15 | Yes | | |
 | P2662R3: [パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md) | 可変引数テンプレートのパラメータパックに添字アクセスできるようにする | 15 | 19 | | |
 | P2864R2: [非推奨となっていた列挙値から算術型への暗黙変換を削除](/lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.md) | C++20から非推奨となっていた列挙値への算術演算で算術型に暗黙変換される仕様を削除 | 14 | 18 | | |
 | P2748R5: [返却された左辺値から暗黙変換された一時オブジェクトが参照に束縛されることを禁止する](/lang/cpp26/disallow_binding_a_returned_glvalue_to_a_temporary.md) | 寿命切れの変数によって引き起こされるバグを防止する | 14 | 19 | | |
-| P3106R1: [要素数不明の配列を集成体初期化する規則を明確化](/lang/cpp26/clarifying_rules_for_brace_elision_in_aggregate_initialization.md) | 配列要素の集成体初期化で`{}`が省略された場合の矛盾していた規定を修正 | yes | 17 | | |
+| P3106R1: [要素数不明の配列を集成体初期化する規則を明確化](/lang/cpp26/clarifying_rules_for_brace_elision_in_aggregate_initialization.md) | 配列要素の集成体初期化で`{}`が省略された場合の矛盾していた規定を修正 | Yes | 17 | | |
 | P0609R3: [構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md) | `auto [a, b [[maybe_unused]], c] = f();`のように構造化束縛の要素に対して属性を付加できるようにする | 15 | 19 | | |
 | P3034R1: [モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md) | `export module MACRO_NAME;`を禁止 | 15 | | | |
 | P2809R3: [空の無限ループは未定義動作ではないと規定](/lang/cpp26/trivial_infinite_loops_are_not_undefined_behavior.md) | 並行プログラムの進行保証などを考慮して空の無限ループを未定義動作ではないものとする | 14 | 19 | | |
@@ -316,7 +316,7 @@
 | P2747R2: [`constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md) | 定数式の文脈での配置`new`を許可 | 15 | 20 | | |
 | P3144R2: [不完全型へのポインタに対する`delete`を不適格とする](/lang/cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.md) | 未定義動作を引き起こす操作をコンパイルエラーとする | 15 | 19 | | |
 | P2963R3: [制約式内での畳み込み式の順序付け](/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md) | 畳み込み式を含む制約の包摂関係を認識できるようにし、オーバーロード解決の曖昧さを解消する | | 19 | | |
-| P0963R3: [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする | 15 | | | |
+| P0963R3: [条件式での構造化束縛の使用を許可](/lang/cpp26/structured_binding_declaration_as_a_condition.md) | 式全体を`bool`値に変換できる場合に条件式で構造化束縛を使用できることとする | 15 | 21 | | |
 | P2686R5: [`constexpr`構造化束縛の許可と、`constexpr`参照の制限緩和](/lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.md) | 定数式に対する構造化束縛を許可し、関連して`constexpr`参照の制限を緩和して自動変数も参照できるようにする | 16 | | | |
 | P3068R6: [定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md) | 定数式の文脈での例外の送出と捕捉を許可 | 16 | | | |
 | P2865R6: [非推奨だった組み込み配列の比較を削除](/lang/cpp26/remove_deprecated_array_comparisons.md) | C++20で非推奨となっていた配列比較を削除 | 15 | 20 | | |
@@ -332,7 +332,7 @@
 | P3533R2: [`constexpr`仮想継承を許可](/lang/cpp26/constexpr_virtual_inheritance.md) | 定数式の文脈での仮想継承を許可 | 16 | | | |
 | P2843R3: [プリプロセッサ仕様での「未定義動作」を不適格 (診断不要) に変更](/lang/cpp26/preprocessing_is_never_undefined.md) | プリプロセッサとレキサーの文脈での「未定義動作」用語を不適格 (診断不要) に変更 | 16 | | | |
 | P3868R1: [モジュール宣言より前での`#line`ディレクティブの使用を許可する](/lang/cpp26/allow_line_before_module_declarations.md) | モジュール宣言より前での`#line`ディレクティブの使用を禁止していたのは過度な制限だった | | | | |
-| P4136R2: [`#line`ディレクティブの制約を現実の実装に合わせて緩和する](/lang/cpp26/line_is_not_in_line_with_existing_implementation.md) | `#line 0`や`#line 2147483648`のような行番号指定を不適格としていたが、条件付きサポートとして許可する | | yes | | |
+| P4136R2: [`#line`ディレクティブの制約を現実の実装に合わせて緩和する](/lang/cpp26/line_is_not_in_line_with_existing_implementation.md) | `#line 0`や`#line 2147483648`のような行番号指定を不適格としていたが、条件付きサポートとして許可する | | Yes | | |
 | P4004R1: [可変引数テンプレートの半順序を再検討する](/lang/cpp26/reconsider_partial_ordering_of_variadic_templates.md) | 可変引数テンプレートの部分特殊化の半順序ルールを再検討して、より一貫したルールにする | | | | |
 | P3865R3: [テンプレートテンプレートパラメータに対するクラステンプレートパラメータ引数推論](/lang/cpp26/class_template_argument_deduction_for_type_template_template_parameters.md) | テンプレートテンプレートパラメータからクラステンプレート引数を推論できるようにクラステンプレートのテンプレート引数推論を拡張する | | | | |
 | P3726R2: [共用体の生存期間ルールの調整](/lang/cpp26/adjustments_to_union_lifetime_rules.md.nolink) | `union`メンバの活性化や生存期間に関する規則を整理して`constexpr`評価などの一貫性を改善する | | | | |

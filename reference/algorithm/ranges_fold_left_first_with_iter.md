@@ -18,7 +18,6 @@ namespace std::ranges {
 }
 ```
 * indirectly-binary-left-foldable[link ./ranges_fold_left.md]
-* constructible_from[link /reference/concepts/constructible_from.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 
 ## 概要

@@ -33,7 +33,6 @@ concept default_initializable = constructible_from<T> &&
                                 requires { T{}; } &&
                                 is-default-initializable<T>;
 ```
-* constructible_from[link /reference/concepts/constructible_from.md]
 
 
 ## 例

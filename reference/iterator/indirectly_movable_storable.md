@@ -18,7 +18,6 @@ namespace std {
 * indirectly_movable[link /reference/iterator/indirectly_movable.md]
 * indirectly_writable[link /reference/iterator/indirectly_writable.md]
 * movable[link /reference/concepts/movable.md]
-* constructible_from[link /reference/concepts/constructible_from.md]
 * assignable_from[link /reference/concepts/assignable_from.md]
 
 ## 概要

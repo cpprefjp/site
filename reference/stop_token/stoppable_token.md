@@ -65,7 +65,6 @@ concept stoppable-callback-for =
   requires { typename stop_callback_for_t<Token, CallbackFn>; } &&
   constructible_from<stop_callback_for_t<Token, CallbackFn>, const Token&, Initializer>;
 ```
-* constructible_from[link /reference/concepts/constructible_from.md]
 * stop_callback_for_t[link stop_callback_for_t.md]
 
 説明用の`init`を[`same_as`](/reference/concepts/same_as.md)`<decltype(init), Initializer>`を満たす式、型`SCB`を[`stop_callback_for_t`](stop_callback_for_t.md)`<Token, CallbackFn>`とする。

@@ -21,7 +21,6 @@ namespace std {
 * indirectly_copyable[link /reference/iterator/indirectly_copyable.md]
 * indirectly_writable[link /reference/iterator/indirectly_writable.md]
 * copyable[link /reference/concepts/copyable.md]
-* constructible_from[link /reference/concepts/constructible_from.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * assignable_from[link /reference/concepts/assignable_from.md]
 

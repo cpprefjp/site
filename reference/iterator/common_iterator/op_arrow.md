@@ -25,7 +25,6 @@ indirectly_readable<const I> &&
 * indirectly_readable[link /reference/iterator/indirectly_readable.md]
 * is_reference_v[link /reference/type_traits/is_reference.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
-* constructible_from[link /reference/concepts/constructible_from.md]
 
 ## 堅牢化された事前条件
 
