@@ -41,9 +41,9 @@ constexpr T
 
 int main()
 {
-  std::atomic<int> x(2);
+  std::atomic<double> x(2);
 
-  int ret = x.fetch_fmaximum_num(3);
+  double ret = x.fetch_fmaximum_num(3);
 
   std::cout << ret << std::endl;
   std::cout << x.load() << std::endl;

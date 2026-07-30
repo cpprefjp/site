@@ -64,7 +64,7 @@ constexpr void
 
 int main()
 {
-  std::atomic<int> x(2);
+  std::atomic<double> x(2);
 
   x.store_fminimum(3);
 
