@@ -39,7 +39,7 @@ constexpr explicit bitset(
   basic_string_view<CharT, Traits> str,
   typename basic_string_view<CharT, Traits>::size_type pos = 0,
   typename basic_string_view<CharT, Traits>::size_type n =
-    basic_string_view<charT, Traits>::npos,
+    basic_string_view<CharT, Traits>::npos,
   CharT zero = CharT('0'),
   CharT one = CharT('1'));                          // (4) C++26
 
