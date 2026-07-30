@@ -4,6 +4,7 @@
 * hive[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
+* [mathjax enable]
 
 ```cpp
 template <class Compare = less<T>>
