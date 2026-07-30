@@ -59,7 +59,7 @@ int main()
   std::thread t1 {f};
   std::thread t2 {f};
 
-  std::atomic_flag_clear(&x);
+  std::atomic_flag_test_and_set(&x);
   std::atomic_flag_notify_all(&x);
 
   t1.join();
