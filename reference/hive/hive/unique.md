@@ -32,7 +32,7 @@ size_type unique(BinaryPredicate binary_pred = BinaryPredicate()); // (1) C++26
 
 
 ## 計算量
-[`empty()`](empty.md)が`false`である場合、述語をちょうど[`size()`](size.md)` - 1`回適用する。そうでなければ、述語を適用しない。
+[`empty()`](empty.md)が`false`である場合、述語をちょうど[`size()`](size.md) `- 1`回適用する。そうでなければ、述語を適用しない。
 
 
 ## 備考
