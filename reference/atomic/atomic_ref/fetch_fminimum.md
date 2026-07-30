@@ -41,8 +41,8 @@ constexpr T
 
 int main()
 {
-  int x = 3;
-  int ret = std::atomic_ref{x}.fetch_fminimum(2);
+  double x = 3;
+  double ret = std::atomic_ref{x}.fetch_fminimum(2.0);
 
   std::cout << ret << std::endl;
   std::cout << x << std::endl;
