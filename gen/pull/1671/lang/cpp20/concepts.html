@@ -189,12 +189,12 @@
     <p class="text-right"><small>
       最終更新日時:
       <time itemprop="datePublished" class="js-local-time"
-            datetime="2026-07-22T22:45:37+09:00">
-        2026年07月22日 22時45分37秒 (JST)
+            datetime="2026-07-30T00:18:32+09:00">
+        2026年07月30日 00時18分32秒 (JST)
       </time>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">rotarymars</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -414,7 +414,7 @@
 <span class="cp">#include <a href="../../reference/cassert.html">&lt;cassert&gt;</a></span>
 <span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
 
-<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n"><a href="../../reference/concepts/constructible_from.html">std::constructible_from</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
 <span class="n">T</span><span class="w"> </span><span class="n">make_from_int</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="p">}</span>
@@ -440,7 +440,7 @@
 <span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
 
 <span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<span class="k">requires</span><span class="w"> </span><span class="n"><a href="../../reference/concepts/constructible_from.html">std::constructible_from</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="../../reference/concepts/move_constructible.html">std::move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="k">requires</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n"><a href="../../reference/concepts/move_constructible.html">std::move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
 <span class="n">T</span><span class="w"> </span><span class="n">make_from_int</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="p">}</span>
@@ -1243,8 +1243,8 @@ World
 <div class="codehilite"><pre><span></span><code><span class="c1">// <a href="../../reference/concepts/copy_constructible.html">std::copy_constructible</a>&lt;decltype(x)&gt;を意味する</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n"><a href="../../reference/concepts/copy_constructible.html">std::copy_constructible</a></span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 
-<span class="c1">// <a href="../../reference/concepts/constructible_from.html">std::constructible_from</a>&lt;decltype(x), int&gt;を意味する</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n"><a href="../../reference/concepts/constructible_from.html">std::constructible_from</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="c1">// std::<a href="../../reference/concepts/constructible_from.html">constructible_from</a>&lt;decltype(x), int&gt;を意味する</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 </code></pre></div>
 </p>
 </li>

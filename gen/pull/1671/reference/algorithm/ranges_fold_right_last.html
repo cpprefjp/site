@@ -189,12 +189,12 @@
     <p class="text-right"><small>
       最終更新日時:
       <time itemprop="datePublished" class="js-local-time"
-            datetime="2026-07-22T22:54:10+09:00">
-        2026年07月22日 22時54分10秒 (JST)
+            datetime="2026-07-30T00:18:32+09:00">
+        2026年07月30日 00時18分32秒 (JST)
       </time>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">rotarymars</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -353,7 +353,7 @@
 <h2>実装例</h2>
 <p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../iterator/bidirectional_iterator.html">bidirectional_iterator</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">,</span>
 <span class="w">         </span><span class="n">indirectly</span><span class="o">-</span><span class="n">binary</span><span class="o">-</span><span class="n">right</span><span class="o">-</span><span class="n">foldable</span><span class="o">&lt;</span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span><span class="w"> </span><span class="n">F</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n">constructible_from</span><span class="o">&lt;</span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">iter_reference_t</span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">iter_reference_t</span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span>
 <span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">fold_right_last</span><span class="p">(</span><span class="n">I</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../type_traits/decay.html">decay_t</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">iter_reference_t</span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;&gt;</span><span class="p">;</span>
 

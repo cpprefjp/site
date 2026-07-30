@@ -201,8 +201,8 @@
     <p class="text-right"><small>
       最終更新日時:
       <time itemprop="datePublished" class="js-local-time"
-            datetime="2026-02-08T18:00:28+09:00">
-        2026年02月08日 18時00分28秒 (JST)
+            datetime="2026-07-30T00:26:31+09:00">
+        2026年07月30日 00時26分31秒 (JST)
       </time>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -254,6 +254,8 @@
 <span class="w">  </span><span class="n">Tag</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Env</span><span class="o">&amp;</span><span class="w"> </span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="n">Default</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>
 </code></pre></div>
 </p>
+<p>
+</p>
 <h2>概要</h2>
 <p><code>query-with-default</code>は、Senderアルゴリズム動作仕様定義で用いられる説明専用の関数テンプレートである。</p>
 <p>説明用の式<code>e</code>を、<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば<code>Tag()(env)</code>とする。そうでなければ、<code>static_cast&lt;Default&gt;(<a href="../../utility/forward.html">std::forward</a>&lt;Default&gt;(value))</code>とする。</p>
@@ -266,13 +268,8 @@
 <ul>
 <li>C++26</li>
 </ul>
-<h2>関連項目</h2>
-<ul>
-<li><code><a href="on.html">execution::on</a></code></li>
-</ul>
 <h2>参照</h2>
 <ul>
-<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 </ul></div>
 

@@ -201,8 +201,8 @@
     <p class="text-right"><small>
       最終更新日時:
       <time itemprop="datePublished" class="js-local-time"
-            datetime="2026-07-29T11:07:26+09:00">
-        2026年07月29日 11時07分26秒 (JST)
+            datetime="2026-07-30T14:44:08+09:00">
+        2026年07月30日 14時44分08秒 (JST)
       </time>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -258,13 +258,13 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
 <p><code>binary_pred</code>が同値関係であること。</p>
 <h2>効果</h2>
-<p>連続する等価な要素群のそれぞれについて、先頭以外の全ての要素を削除する。すなわち、空でない<code>hive</code>に対して、<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[<a href="begin.html">begin()</a>+ 1, <a href="end.html">end()</a>)</code>に含まれるイテレータ<code>i</code>のうち、<code>binary_pred(*i, *(i - 1))</code>が<code>true</code>となる要素を全て削除する。</p>
+<p>連続する等価な要素群のそれぞれについて、先頭以外の全ての要素を削除する。すなわち、空でない<code>hive</code>に対して、<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[<a href="begin.html">begin()</a> + 1, <a href="end.html">end()</a>)</code>に含まれるイテレータ<code>i</code>のうち、<code>binary_pred(*i, *(i - 1))</code>が<code>true</code>となる要素を全て削除する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>削除された要素数を返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p><code>binary_pred</code>が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する場合を除き、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しない。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
-<p><code><a href="empty.html">empty()</a></code>が<code>false</code>である場合、<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>をちょうど<code><a href="size.html">size()</a>- 1</code>回適用する。そうでなければ、<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>を適用しない。</p>
+<p><code><a href="empty.html">empty()</a></code>が<code>false</code>である場合、<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>をちょうど<code><a href="size.html">size()</a> - 1</code>回適用する。そうでなければ、<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>を適用しない。</p>
 <h2>備考</h2>
 <p>削除された要素を指す参照・ポインタ・イテレータを無効化する。<code>*this</code>の末尾の要素が削除された場合、終端イテレータも無効化する。</p>
 <h2>例</h2>

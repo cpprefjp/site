@@ -49,6 +49,22 @@
 
         
   
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true
+      },
+      chtml: {
+        displayAlign: 'left',
+        displayIndent: '2.0em',
+      },
+    };
+    </script>
+    <!-- IEはサポートしないので https://polyfill.io/v3/polyfill.min.js?features=es6 は読み込まない -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
 
 
 <link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=db63b9464ef04c8d746bff2df3d787ac93391f53" rel="stylesheet">
@@ -201,8 +217,8 @@
     <p class="text-right"><small>
       最終更新日時:
       <time itemprop="datePublished" class="js-local-time"
-            datetime="2026-07-29T11:07:26+09:00">
-        2026年07月29日 11時07分26秒 (JST)
+            datetime="2026-07-30T14:44:33+09:00">
+        2026年07月30日 14時44分33秒 (JST)
       </time>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">

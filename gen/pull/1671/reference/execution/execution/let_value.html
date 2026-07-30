@@ -201,12 +201,12 @@
     <p class="text-right"><small>
       最終更新日時:
       <time itemprop="datePublished" class="js-local-time"
-            datetime="2026-06-08T10:13:52+09:00">
-        2026年06月08日 10時13分52秒 (JST)
+            datetime="2026-07-29T11:35:16+09:00">
+        2026年07月29日 11時35分16秒 (JST)
       </time>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -404,7 +404,7 @@
 <span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">sender_type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span>
 <span class="w">                          </span><span class="n">receiver_type</span><span class="p">{</span><span class="n">rcvr</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">});</span>
 <span class="w">        </span><span class="p">};</span>
-<span class="w">        </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ops</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n">emplace</span><span class="o">&lt;</span><span class="n">op_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">emplace</span><span class="o">-</span><span class="n">from</span><span class="p">{</span><span class="n">mkop2</span><span class="p">});</span>
+<span class="w">        </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ops</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n">emplace</span><span class="o">&lt;</span><span class="n">op_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="emplace-from.html">emplace-from</a></span><span class="p">{</span><span class="n">mkop2</span><span class="p">});</span>
 <span class="w">        </span><span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">op</span><span class="p">);</span>
 <span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">nothrow</span><span class="w"> </span><span class="o">=</span>
