@@ -15,10 +15,13 @@
 <!-- `[meta cpp]`は、機能が追加・非推奨・削除されたバージョンを表すメタ情報。改行して複数指定ができる。 -->
 <!--    `cpp23[meta cpp]` : C++23で追加された機能 -->
 <!--    `cpp26[meta cpp]` : C++26で追加された機能 -->
+<!--    `cpp29[meta cpp]` : C++29で追加された機能 -->
 <!--    `cpp23deprecated[meta cpp]` : C++23で非推奨になった機能 -->
 <!--    `cpp23removed[meta cpp]` : C++23で削除された機能 -->
 <!--    `cpp26deprecated[meta cpp]` : C++26で非推奨になった機能 -->
 <!--    `cpp26removed[meta cpp]` : C++26で削除された機能 -->
+<!--    `cpp29deprecated[meta cpp]` : C++29で非推奨になった機能 -->
+<!--    `cpp29removed[meta cpp]` : C++29で削除された機能 -->
 <!--    `future[meta cpp]` : 将来のC++で検討されている機能 -->
 <!--    `archive[meta cpp]` : 廃案になったが記録として残す価値のあるC++機能 -->
 

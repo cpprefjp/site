@@ -24,6 +24,7 @@
 <!--    `cpp20[meta cpp]` : C++20で追加された機能 -->
 <!--    `cpp23[meta cpp]` : C++23で追加された機能 -->
 <!--    `cpp26[meta cpp]` : C++26で追加された機能 -->
+<!--    `cpp29[meta cpp]` : C++29で追加された機能 -->
 <!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 -->
 <!--    `cpp11removed[meta cpp]` : C++11で削除された機能 -->
 <!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 -->
@@ -36,6 +37,8 @@
 <!--    `cpp23removed[meta cpp]` : C++23で削除された機能 -->
 <!--    `cpp26deprecated[meta cpp]` : C++26で非推奨になった機能 -->
 <!--    `cpp26removed[meta cpp]` : C++26で削除された機能 -->
+<!--    `cpp29deprecated[meta cpp]` : C++29で非推奨になった機能 -->
+<!--    `cpp29removed[meta cpp]` : C++29で削除された機能 -->
 <!--    `future[meta cpp]` : 将来のC++で検討されている機能 -->
 <!--    `archive[meta cpp]` : 廃案になったが記録として残す価値のあるC++機能 -->
 <!-- `[meta alias]`は、検索エンジン用にページの別名を追加登録するためのメタ情報。カンマ区切りで複数登録できる。名前空間は各ページで指定されたものに準じる。例としてbasic_stringページには以下のように登録されている。 `* string,u8string,u16string,u32string,wstring[meta alias]` -->
