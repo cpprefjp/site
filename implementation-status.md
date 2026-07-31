@@ -9,6 +9,7 @@
 - [C++20](#cpp20)
 - [C++23](#cpp23)
 - [C++26](#cpp26)
+- [C++29](#cpp29)
 
 ## <a id="cpp11" href="#cpp11">C++11言語機能の実装状況</a>
 
@@ -350,6 +351,12 @@
 - Visual C++ (MSVC):
     - [Microsoft C/C++ language conformance by Visual Studio version](https://learn.microsoft.com/en-us/cpp/overview/visual-cpp-language-conformance?view=msvc-170)
     - [C++ Conformance improvements, behavior changes, and bug fixes in Visual Studio 2022](https://learn.microsoft.com/en-us/cpp/overview/cpp-conformance-improvements?view=msvc-170)
+
+
+## <a id="cpp29" href="#cpp29">C++29言語機能の実装状況</a>
+
+| 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICX][icx] | [MSVC][msvc] |
+|----------|------|------------|----------------|------------|--------------|
 
 
 [gcc]: ./implementation.md#gcc
