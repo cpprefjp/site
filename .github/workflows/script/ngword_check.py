@@ -78,6 +78,25 @@ def check_ngword(text: str, filename: str) -> bool:
             found_error = True
     return not found_error
 
+# 名前付きHTMLエンティティ（&radic; &nbsp; &times; 等）は、CIのビルドが
+# 生成HTMLをXMLとしてパースする際に "undefined entity" エラーになる。
+# XMLで有効なのは &amp; &lt; &gt; &quot; &apos; と数値文字参照 &#...; のみ。
+# 数値文字参照（&#x221A; 等）か、実際のUnicode文字（√ 等）を使うこと。
+NAMED_HTML_ENTITY_RE = re.compile(r'&(?!(?:amp|lt|gt|quot|apos);|#)[A-Za-z][A-Za-z0-9]*;')
+
+def remove_code(text: str) -> str:
+    # コード中の `return &x;` 等を誤検出しないよう、コードブロック／インラインコードを除去する
+    text = re.sub(r'```.*?```', '', text, flags=re.DOTALL)
+    text = re.sub(r'`[^`]*`', '', text)
+    return text
+
+def check_named_html_entity(text: str, filename: str) -> bool:
+    found_error: bool = False
+    for m in NAMED_HTML_ENTITY_RE.finditer(remove_code(text)):
+        print("{}: the file includes a named HTML entity \"{}\" which is undefined in the XML build. use a numeric character reference instead (e.g. \"&#x221A;\" for √, \"&#xA0;\" for nbsp).".format(filename, m.group(0)))
+        found_error = True
+    return not found_error
+
 def check() -> bool:
     found_error = False
     for p in sorted(list(glob.glob("**/*.md", recursive=True))):
@@ -88,6 +107,9 @@ def check() -> bool:
             text = f.read()
 
         if not check_ngword(text, p):
+            found_error = True
+
+        if not check_named_html_entity(text, p):
             found_error = True
 
     return not found_error
