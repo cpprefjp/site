@@ -144,9 +144,9 @@
 |`__cpp_lib_reflection`|`202506L`|[静的リフレクション](/lang/cpp26/reflection.md)のライブラリ機能|[`<meta>`](/reference/meta.md)|
 |`__cpp_lib_saturation_arithmetic`|`202603L`|[`<numeric>`](/reference/numeric.md)に飽和演算 (Saturation Arithmetic) として[`std::saturating_add()`](/reference/numeric/saturating_add.md)などの関数を追加|[`<numeric>`](/reference/numeric.md)|
 |`__cpp_lib_senders`|`202506L`||[`<execution>`](/reference/execution.md)|
-|`__cpp_lib_simd`|`202506L`|データ並列ライブラリとして、[`<simd>`](/reference/simd.md.nolink)を追加|[`<simd>`](/reference/simd.md.nolink)|
-|`__cpp_lib_simd_complex`|`202502L`|[`<simd>`](/reference/simd.md.nolink)が[`std::complex`](/reference/complex/complex.md)をサポートする|[`<simd>`](/reference/simd.md.nolink)|
-|`__cpp_lib_simd_permutations`|`202506L`|[`<simd>`](/reference/simd.md.nolink)に`permute()`などを追加する|[`<simd>`](/reference/simd.md.nolink)|
+|`__cpp_lib_simd`|`202506L`|データ並列ライブラリとして、[`<simd>`](/reference/simd.md)を追加|[`<simd>`](/reference/simd.md)|
+|`__cpp_lib_simd_complex`|`202502L`|[`<simd>`](/reference/simd.md)が[`std::complex`](/reference/complex/complex.md)をサポートする|[`<simd>`](/reference/simd.md)|
+|`__cpp_lib_simd_permutations`|`202506L`|[`<simd>`](/reference/simd.md)に`permute()`などを追加する|[`<simd>`](/reference/simd.md)|
 |`__cpp_lib_smart_ptr_owner_equality`|`202306L`|[`<memory>`](/reference/memory.md)に[`std::owner_hash`](/reference/memory/owner_hash.md)と[`std::owner_equal`](/reference/memory/owner_equal.md)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_span`|`202311L`|[`std::mdspan`](/reference/mdspan/mdspan.md)に[`at()`](/reference/mdspan/mdspan/at.md)メンバ関数を追加|[`<span>`](/reference/span.md)|
 |`__cpp_lib_span_initializer_list`|`202311L`|[`std::span`](/reference/span/span.md)に[`std::initializer_list`](/reference/initializer_list/initializer_list.md)をとるコンストラクタを追加|[`<span>`](/reference/span.md)|

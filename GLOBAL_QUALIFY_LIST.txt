@@ -310,6 +310,7 @@
 * <set>[link /reference/set.md]
     * std::set[link /reference/set/set.md]
 * <shared_mutex>[link /reference/shared_mutex.md]
+* <simd>[link /reference/simd.md]
 * <source_location>[link /reference/source_location.md]
     * std::source_location[link /reference/source_location/source_location.md]
 * <span>[link /reference/span.md]
