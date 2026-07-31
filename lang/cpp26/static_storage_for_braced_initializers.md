@@ -60,7 +60,7 @@ void q(std::initializer_list<A>);
 void r() {
   q({A{1}, A{2}, A{3}});
 
-  // mutableにするため、静的記憶域に保持される。
+  // mutableメンバを持つため、静的記憶域に保持されない。
   // 以下と等価：
   // const A __c[3] = {A{1}, A{2}, A{3}};
   // q(std::initializer_list<A>(__c, __c+3));
