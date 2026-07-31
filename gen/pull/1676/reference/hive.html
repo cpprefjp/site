@@ -1,0 +1,334 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>hive - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,hive,cpp26
+">
+        <meta name="title" content="hive - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="hive - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="hive - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/hive.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;hive&amp;gt;hive(C++26) &amp;lt;hive&amp;gt;ヘッダでは、要素のメモリ位置が安定したシーケンスコンテナであるhiveを提供する。 hiveは、要素の挿入・削除を定数時間で行いつつ、削除されなかった要素のポインタ・参照・イテレータを無効化しないコンテナである。要素は複数のメモリブロック（要素ブロック）に格納され、削除された要素の位置はスキップされる。挿入位置はコンテナが決定" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="hive - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/hive.html" />
+        <meta name="twitter:description" content="&amp;lt;hive&amp;gt;hive(C++26) &amp;lt;hive&amp;gt;ヘッダでは、要素のメモリ位置が安定したシーケンスコンテナであるhiveを提供する。 hiveは、要素の挿入・削除を定数時間で行いつつ、削除されなかった要素のポインタ・参照・イテレータを無効化しないコンテナである。要素は複数のメモリブロック（要素ブロック）に格納され、削除された要素の位置はスキップされる。挿入位置はコンテナが決定" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<link rel="manifest" href="../manifest.json?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;hive&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;hive&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">hive</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-07-29T11:07:26+09:00">
+        2026年07月29日 11時07分26秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/hive.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/hive.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;hive&gt;</div><h1 itemprop="name"><span class="token">hive</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><code>&lt;hive&gt;</code>ヘッダでは、要素のメモリ位置が安定したシーケンスコンテナである<code><a href="hive/hive.html">hive</a></code>を提供する。</p>
+<p><code>hive</code>は、要素の挿入・削除を定数時間で行いつつ、削除されなかった要素のポインタ・参照・イテレータを無効化しないコンテナである。要素は複数のメモリブロック（要素ブロック）に格納され、削除された要素の位置はスキップされる。挿入位置はコンテナが決定するため、要素の順序は指定できない。</p>
+<p>このヘッダでは、以下の標準ヘッダをインクルードする：</p>
+<ul>
+<li><code><a href="initializer_list.html">&lt;initializer_list&gt;</a></code> (C++11)</li>
+<li><code><a href="compare.html">&lt;compare&gt;</a></code> (C++20)</li>
+</ul>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="hive/hive.html">hive</a></code></td>
+<td>要素のメモリ位置が安定したシーケンスコンテナ (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/hive_limits.html">hive_limits</a></code></td>
+<td>要素ブロックの容量の下限・上限を指定する構造体 (class)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/hive/swap_free.html">swap</a></code></td>
+<td>2つの<code>hive</code>オブジェクトを入れ替える (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/hive/erase_free.html">erase</a></code></td>
+<td>指定した値の要素を削除する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/hive/erase_if_free.html">erase_if</a></code></td>
+<td>条件を満たす要素を削除する (function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<p><code>std::pmr</code>名前空間には、以下の型の別名が定義される。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="hive/hive.html">pmr::hive</a></code></td>
+<td>アロケータとして<code><a href="memory_resource/polymorphic_allocator.html">pmr::polymorphic_allocator</a></code>を使用する<code>hive</code>の別名 (alias template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../implementation.html#clang">Clang</a>: 22 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../implementation.html#gcc">GCC</a>: 16.1 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../implementation.html#visual_cpp">Visual C++</a>: 2026 Update 2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="list.html">std::list</a></code></li>
+<li><code><a href="deque.html">std::deque</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0447r28.html" target="_blank">P0447R28 Introduction of <code>std::hive</code> to the standard library</a><ul>
+<li>C++26で<code>&lt;hive&gt;</code>ヘッダが追加された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

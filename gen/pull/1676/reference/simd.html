@@ -1,0 +1,1271 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>simd - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,simd,cpp26
+">
+        <meta name="title" content="simd - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="simd - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="simd - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/simd.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;simd&amp;gt;simd(C++26) &amp;lt;simd&amp;gt;ヘッダでは、データ並列型（data-parallel types）のライブラリを提供する。SIMD命令やSIMDレジスタといったデータ並列実行資源を活用して、複数の値に対する演算を一度に適用するための型と操作を定義する。 このライブラリの機能はstd::simd名前空間で定義される。中心となる型は、ベクトル型basic_vec" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="simd - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/simd.html" />
+        <meta name="twitter:description" content="&amp;lt;simd&amp;gt;simd(C++26) &amp;lt;simd&amp;gt;ヘッダでは、データ並列型（data-parallel types）のライブラリを提供する。SIMD命令やSIMDレジスタといったデータ並列実行資源を活用して、複数の値に対する演算を一度に適用するための型と操作を定義する。 このライブラリの機能はstd::simd名前空間で定義される。中心となる型は、ベクトル型basic_vec" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<link rel="manifest" href="../manifest.json?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;simd&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;simd&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">simd</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-07-31T23:18:35+09:00">
+        2026年07月31日 23時18分35秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/simd.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/simd.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;simd&gt;</div><h1 itemprop="name"><span class="token">simd</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><code>&lt;simd&gt;</code>ヘッダでは、データ並列型（data-parallel types）のライブラリを提供する。SIMD命令やSIMDレジスタといったデータ並列実行資源を活用して、複数の値に対する演算を一度に適用するための型と操作を定義する。</p>
+<p>このライブラリの機能は<code>std::simd</code>名前空間で定義される。中心となる型は、ベクトル型<code><a href="simd/basic_vec.html">basic_vec</a></code>（および別名<code>vec</code>）と、マスク型<code><a href="simd/basic_mask.html">basic_mask</a></code>（および別名<code>mask</code>）である。</p>
+<h2><a href="#vectorizable-type" id="vectorizable-type">vectorizable type（ベクトル化可能型）</a></h2>
+<p>「vectorizable type」は、データ並列型（<code><a href="simd/basic_vec.html">basic_vec</a></code>・<code><a href="simd/basic_mask.html">basic_mask</a></code>）の要素型として使用できる型である。次の型が該当する。</p>
+<ul>
+<li>すべての標準の整数型・文字型、および<code>float</code>・<code>double</code>（<code>long double</code>は含まない）</li>
+<li><code><a href="stdfloat/float16_t.html">std::float16_t</a></code>・<code><a href="stdfloat/float32_t.html">std::float32_t</a></code>・<code><a href="stdfloat/float64_t.html">std::float64_t</a></code>（定義されている場合）</li>
+<li>要素型が浮動小数点数の「vectorizable type」である<code><a href="complex/complex.html">std::complex</a></code></li>
+</ul>
+<h2>クラス</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simd/basic_vec.html">basic_vec</a></code></td>
+<td>データ並列のベクトル型 (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/basic_vec.html">vec</a></code></td>
+<td>要素数を指定する<code>basic_vec</code>の別名 (alias template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/basic_mask.html">basic_mask</a></code></td>
+<td>データ並列のマスク型 (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/basic_mask.html">mask</a></code></td>
+<td>要素数を指定する<code>basic_mask</code>の別名 (alias template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/flags.html">flags</a></code></td>
+<td>読み込み／書き込みの動作フラグ (class template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>型特性</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simd/alignment.html">alignment</a></code></td>
+<td>読み込み／書き込みに必要なアライメントを取得する (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/rebind.html">rebind</a></code></td>
+<td>要素数を維持して要素型を変更する (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/resize.html">resize</a></code></td>
+<td>要素型を維持して要素数を変更する (class template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>説明専用コンセプト</h2>
+<p>以下は規格の説明専用（exposition-only）のコンセプトであり、各関数の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a>として使用される。規格の宣言では、<code><a href="simd/math-floating-point.html">math-floating-point</a></code>のように斜体のハイフン区切り名で示される。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simd/simd-vec-type.html">simd-vec-type</a></code></td>
+<td>データ並列のベクトル型（<code>basic_vec</code>の特殊化）を表す (説明専用concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/simd-mask-type.html">simd-mask-type</a></code></td>
+<td>データ並列のマスク型（<code>basic_mask</code>の特殊化）を表す (説明専用concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/simd-floating-point.html">simd-floating-point</a></code></td>
+<td>要素型が浮動小数点数の<code>basic_vec</code>を表す (説明専用concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/simd-integral.html">simd-integral</a></code></td>
+<td>要素型が整数の<code>basic_vec</code>を表す (説明専用concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/simd-complex.html">simd-complex</a></code></td>
+<td>要素型が複素数の<code>basic_vec</code>を表す (説明専用concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/math-floating-point.html">math-floating-point</a></code></td>
+<td>数学関数向けに、浮動小数点数の<code>basic_vec</code>またはスカラーを表す (説明専用concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/explicitly-convertible-to.html">explicitly-convertible-to</a></code></td>
+<td>型<code>From</code>が型<code>To</code>へ明示的に変換可能であることを表す (説明専用concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/reduction-binary-operation.html">reduction-binary-operation</a></code></td>
+<td><code>reduce</code>の二項演算として使用できることを表す (説明専用concept)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>説明専用の型・変数</h2>
+<p>以下は規格の説明専用（exposition-only）の型エイリアス・変数であり、宣言の記述に使用される。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simd/simd-size-type.html">simd-size-type</a></code></td>
+<td>要素数・インデックスを表す符号付き整数型 (説明専用type-alias)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/deduced-vec-t.html">deduced-vec-t</a></code></td>
+<td>型<code>T</code>から導出されるデータ並列型（スカラーは対応する<code>basic_vec</code>） (説明専用type-alias)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/simd-complex-value-type.html">simd-complex-value-type</a></code></td>
+<td>複素数要素の実数部・虚数部の型 (説明専用type-alias)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/simd-size-v.html">simd-size-v</a></code></td>
+<td><code>basic_vec</code>の幅（要素数） (説明専用variable)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/mask-size-v.html">mask-size-v</a></code></td>
+<td><code>basic_mask</code>の幅（要素数） (説明専用variable)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/mask-element-size.html">mask-element-size</a></code></td>
+<td><code>basic_mask</code>の要素1つが対応するバイトサイズ (説明専用variable)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/native-abi.html">native-abi</a></code></td>
+<td>要素型<code>T</code>に対する既定のABIタグ (説明専用type-alias)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/deduce-abi-t.html">deduce-abi-t</a></code></td>
+<td>要素型<code>T</code>と要素数<code>N</code>から導出されるABIタグ (説明専用type-alias)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>集計</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simd/reduce.html">reduce</a></code></td>
+<td>全要素を二項演算で集計し、単一の値を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/reduce_min.html">reduce_min</a></code></td>
+<td>全要素の最小値を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/reduce_max.html">reduce_max</a></code></td>
+<td>全要素の最大値を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/all_of.html">all_of</a></code></td>
+<td>マスクの全要素が<code>true</code>かを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/any_of.html">any_of</a></code></td>
+<td>マスクのいずれかの要素が<code>true</code>かを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/none_of.html">none_of</a></code></td>
+<td>マスクの全要素が<code>false</code>かを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/reduce_count.html">reduce_count</a></code></td>
+<td>マスクの<code>true</code>である要素数を数える (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/reduce_min_index.html">reduce_min_index</a></code></td>
+<td>マスクで最初に<code>true</code>となる要素のインデックスを求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/reduce_max_index.html">reduce_max_index</a></code></td>
+<td>マスクで最後に<code>true</code>となる要素のインデックスを求める (function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>読み込み／書き込み</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simd/unchecked_load.html">unchecked_load</a></code></td>
+<td>メモリから要素をまとめて読み込む（境界チェックなし） (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/partial_load.html">partial_load</a></code></td>
+<td>メモリから要素を安全にまとめて読み込む（範囲外は<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>） (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/unchecked_store.html">unchecked_store</a></code></td>
+<td>全要素をメモリへまとめて書き込む（境界チェックなし） (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/partial_store.html">partial_store</a></code></td>
+<td>要素をメモリへ安全にまとめて書き込む（範囲外は書き込まない） (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/unchecked_gather_from.html">unchecked_gather_from</a></code></td>
+<td>インデックスで指定した飛び飛びの位置から要素を集めて読み込む（境界チェックなし） (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/partial_gather_from.html">partial_gather_from</a></code></td>
+<td>インデックスで指定した飛び飛びの位置から要素を安全に集めて読み込む (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/unchecked_scatter_to.html">unchecked_scatter_to</a></code></td>
+<td>各要素をインデックスで指定した飛び飛びの位置へ書き出す（境界チェックなし） (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/partial_scatter_to.html">partial_scatter_to</a></code></td>
+<td>各要素をインデックスで指定した飛び飛びの位置へ安全に書き出す (function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>要素の置換・生成</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simd/permute.html">permute</a></code></td>
+<td>要素を指定したインデックスのマッピングに従って並べ替える (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/compress.html">compress</a></code></td>
+<td>マスクが<code>true</code>である要素だけを先頭に詰める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/expand.html">expand</a></code></td>
+<td>先頭に詰められた要素をマスクが<code>true</code>である位置へ展開する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/chunk.html">chunk</a></code></td>
+<td>大きなデータ並列オブジェクトを小さなオブジェクトへ分割する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/cat.html">cat</a></code></td>
+<td>複数のデータ並列オブジェクトを連結する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/select.html">select</a></code></td>
+<td>条件に応じて2つの値のうちいずれかを要素ごとに選択する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/iota.html">iota</a></code></td>
+<td>各要素がインデックスに等しい連番（<code>0, 1, 2, …</code>）を表す定数 (variable template)</td>
+<td>C++29</td>
+</tr>
+</tbody>
+</table>
+<h2>アルゴリズム</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simd/min.html">min</a></code></td>
+<td>2つのオブジェクトを要素ごとに比較して小さいほうを返す (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/max.html">max</a></code></td>
+<td>2つのオブジェクトを要素ごとに比較して大きいほうを返す (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/minmax.html">minmax</a></code></td>
+<td>要素ごとの最小値と最大値をまとめて取得する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/clamp.html">clamp</a></code></td>
+<td>各要素を指定した範囲に収める (function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>数学関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simd/exp.html">exp</a></code></td>
+<td>各要素に指数関数を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/exp2.html">exp2</a></code></td>
+<td>各要素に2を底とする指数関数を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/expm1.html">expm1</a></code></td>
+<td>各要素に<code>e^x - 1</code>を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/log.html">log</a></code></td>
+<td>各要素に自然対数を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/log10.html">log10</a></code></td>
+<td>各要素に常用対数を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/log2.html">log2</a></code></td>
+<td>各要素に2を底とする対数を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/log1p.html">log1p</a></code></td>
+<td>各要素に<code>log(1 + x)</code>を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/pow.html">pow</a></code></td>
+<td>各要素の累乗を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/sqrt.html">sqrt</a></code></td>
+<td>各要素の平方根を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/cbrt.html">cbrt</a></code></td>
+<td>各要素の立方根を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/hypot.html">hypot</a></code></td>
+<td>各要素の平方和の平方根（斜辺の長さ）を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/sin.html">sin</a></code></td>
+<td>各要素の正弦を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/cos.html">cos</a></code></td>
+<td>各要素の余弦を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/tan.html">tan</a></code></td>
+<td>各要素の正接を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/asin.html">asin</a></code></td>
+<td>各要素の逆正弦を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/acos.html">acos</a></code></td>
+<td>各要素の逆余弦を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/atan.html">atan</a></code></td>
+<td>各要素の逆正接を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/atan2.html">atan2</a></code></td>
+<td>各要素について<code>y/x</code>の逆正接を象限を考慮して求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/sinh.html">sinh</a></code></td>
+<td>各要素の双曲線正弦を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/cosh.html">cosh</a></code></td>
+<td>各要素の双曲線余弦を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/tanh.html">tanh</a></code></td>
+<td>各要素の双曲線正接を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/asinh.html">asinh</a></code></td>
+<td>各要素の逆双曲線正弦を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/acosh.html">acosh</a></code></td>
+<td>各要素の逆双曲線余弦を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/atanh.html">atanh</a></code></td>
+<td>各要素の逆双曲線正接を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/abs.html">abs</a></code></td>
+<td>各要素の絶対値を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/fabs.html">fabs</a></code></td>
+<td>各要素の絶対値を求める（浮動小数点数） (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/fmod.html">fmod</a></code></td>
+<td>各要素の浮動小数点剰余を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/remainder.html">remainder</a></code></td>
+<td>各要素のIEEE浮動小数点剰余を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/remquo.html">remquo</a></code></td>
+<td>各要素のIEEE剰余と商の下位ビットを求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/fma.html">fma</a></code></td>
+<td>各要素の積和演算<code>x*y+z</code>を1回の丸めで求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/fmax.html">fmax</a></code></td>
+<td>各要素の大きいほうの値を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/fmin.html">fmin</a></code></td>
+<td>各要素の小さいほうの値を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/fdim.html">fdim</a></code></td>
+<td>各要素の正の差（<code>x-y</code>が正ならその値、それ以外は<code>0</code>）を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/ceil.html">ceil</a></code></td>
+<td>各要素を切り上げる (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/floor.html">floor</a></code></td>
+<td>各要素を切り捨てる (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/trunc.html">trunc</a></code></td>
+<td>各要素を0方向へ切り捨てる (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/round.html">round</a></code></td>
+<td>各要素を四捨五入する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/nearbyint.html">nearbyint</a></code></td>
+<td>各要素を現在の丸めモードで整数に丸める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/rint.html">rint</a></code></td>
+<td>各要素を現在の丸めモードで整数に丸める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/lrint.html">lrint</a></code></td>
+<td>各要素を現在の丸めモードで<code>long</code>の整数に丸める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/llrint.html">llrint</a></code></td>
+<td>各要素を現在の丸めモードで<code>long long</code>の整数に丸める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/lround.html">lround</a></code></td>
+<td>各要素を四捨五入して<code>long</code>にする (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/llround.html">llround</a></code></td>
+<td>各要素を四捨五入して<code>long long</code>にする (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/lerp.html">lerp</a></code></td>
+<td>各要素を線形補間する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/frexp.html">frexp</a></code></td>
+<td>各要素を仮数部と指数部に分解する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/ldexp.html">ldexp</a></code></td>
+<td>各要素に2の累乗を掛ける (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/modf.html">modf</a></code></td>
+<td>各要素を整数部と小数部に分解する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/scalbn.html">scalbn</a></code></td>
+<td>各要素に基数<code>FLT_RADIX</code>の累乗を掛ける (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/scalbln.html">scalbln</a></code></td>
+<td>各要素に基数<code>FLT_RADIX</code>の累乗を掛ける (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/ilogb.html">ilogb</a></code></td>
+<td>各要素の指数部を整数で求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/logb.html">logb</a></code></td>
+<td>各要素の指数部を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/nextafter.html">nextafter</a></code></td>
+<td>各要素の次に表現可能な値を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/copysign.html">copysign</a></code></td>
+<td>各要素の大きさに別の値の符号を合成する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/erf.html">erf</a></code></td>
+<td>各要素の誤差関数を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/erfc.html">erfc</a></code></td>
+<td>各要素の相補誤差関数を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/lgamma.html">lgamma</a></code></td>
+<td>各要素のガンマ関数の絶対値の自然対数を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/tgamma.html">tgamma</a></code></td>
+<td>各要素のガンマ関数を求める (function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>数学関数（分類・比較）</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simd/fpclassify.html">fpclassify</a></code></td>
+<td>各要素の浮動小数点数分類を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/isfinite.html">isfinite</a></code></td>
+<td>各要素が有限値かを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/isinf.html">isinf</a></code></td>
+<td>各要素が無限大かを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/isnan.html">isnan</a></code></td>
+<td>各要素がNaNかを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/isnormal.html">isnormal</a></code></td>
+<td>各要素が正規化数かを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/signbit.html">signbit</a></code></td>
+<td>各要素の符号ビットが立っているかを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/isgreater.html">isgreater</a></code></td>
+<td>各要素について<code>x &gt; y</code>かを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/isgreaterequal.html">isgreaterequal</a></code></td>
+<td>各要素について<code>x &gt;= y</code>かを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/isless.html">isless</a></code></td>
+<td>各要素について<code>x &lt; y</code>かを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/islessequal.html">islessequal</a></code></td>
+<td>各要素について<code>x &lt;= y</code>かを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/islessgreater.html">islessgreater</a></code></td>
+<td>各要素について<code>x &lt; y || x &gt; y</code>かを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/isunordered.html">isunordered</a></code></td>
+<td>各要素が順序付けできない（いずれかがNaN）かを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>数学関数（特殊関数）</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simd/assoc_laguerre.html">assoc_laguerre</a></code></td>
+<td>各要素にラゲール陪多項式を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/assoc_legendre.html">assoc_legendre</a></code></td>
+<td>各要素にルジャンドル陪関数を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/beta.html">beta</a></code></td>
+<td>各要素にベータ関数を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/comp_ellint_1.html">comp_ellint_1</a></code></td>
+<td>各要素に第一種完全楕円積分を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/comp_ellint_2.html">comp_ellint_2</a></code></td>
+<td>各要素に第二種完全楕円積分を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/comp_ellint_3.html">comp_ellint_3</a></code></td>
+<td>各要素に第三種完全楕円積分を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/cyl_bessel_i.html">cyl_bessel_i</a></code></td>
+<td>各要素に第一種変形ベッセル関数を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/cyl_bessel_j.html">cyl_bessel_j</a></code></td>
+<td>各要素に第一種ベッセル関数を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/cyl_bessel_k.html">cyl_bessel_k</a></code></td>
+<td>各要素に第二種変形ベッセル関数を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/cyl_neumann.html">cyl_neumann</a></code></td>
+<td>各要素に第二種ベッセル関数（ノイマン関数）を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/ellint_1.html">ellint_1</a></code></td>
+<td>各要素に第一種不完全楕円積分を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/ellint_2.html">ellint_2</a></code></td>
+<td>各要素に第二種不完全楕円積分を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/ellint_3.html">ellint_3</a></code></td>
+<td>各要素に第三種不完全楕円積分を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/expint.html">expint</a></code></td>
+<td>各要素に指数積分を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/hermite.html">hermite</a></code></td>
+<td>各要素にエルミート多項式を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/laguerre.html">laguerre</a></code></td>
+<td>各要素にラゲール多項式を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/legendre.html">legendre</a></code></td>
+<td>各要素にルジャンドル多項式を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/riemann_zeta.html">riemann_zeta</a></code></td>
+<td>各要素にリーマンゼータ関数を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/sph_bessel.html">sph_bessel</a></code></td>
+<td>各要素に第一種球ベッセル関数を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/sph_legendre.html">sph_legendre</a></code></td>
+<td>各要素に球面調和関数のルジャンドル陪関数部分を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/sph_neumann.html">sph_neumann</a></code></td>
+<td>各要素に第二種球ベッセル関数（球ノイマン関数）を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>ビット操作</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simd/byteswap.html">byteswap</a></code></td>
+<td>各要素のバイト順を反転する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/has_single_bit.html">has_single_bit</a></code></td>
+<td>各要素が2の累乗（1ビットのみ）かを判定する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/bit_ceil.html">bit_ceil</a></code></td>
+<td>各要素以上で最小の2の累乗を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/bit_floor.html">bit_floor</a></code></td>
+<td>各要素以下で最大の2の累乗を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/bit_width.html">bit_width</a></code></td>
+<td>各要素を表現するのに必要なビット数を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/rotl.html">rotl</a></code></td>
+<td>各要素を左に循環ビットシフトする (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/rotr.html">rotr</a></code></td>
+<td>各要素を右に循環ビットシフトする (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/countl_zero.html">countl_zero</a></code></td>
+<td>各要素の最上位から連続する0ビットの数を数える (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/countl_one.html">countl_one</a></code></td>
+<td>各要素の最上位から連続する1ビットの数を数える (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/countr_zero.html">countr_zero</a></code></td>
+<td>各要素の最下位から連続する0ビットの数を数える (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/countr_one.html">countr_one</a></code></td>
+<td>各要素の最下位から連続する1ビットの数を数える (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/popcount.html">popcount</a></code></td>
+<td>各要素の1になっているビットの数を数える (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/bit_compress.html">bit_compress</a></code></td>
+<td>各要素について、マスクのビットが立つ位置の値を下位へ詰める (function template)</td>
+<td>C++29</td>
+</tr>
+<tr>
+<td><code><a href="simd/bit_expand.html">bit_expand</a></code></td>
+<td>各要素について、下位ビットをマスクのビットが立つ位置へ展開する (function template)</td>
+<td>C++29</td>
+</tr>
+<tr>
+<td><code><a href="simd/bit_reverse.html">bit_reverse</a></code></td>
+<td>各要素のビット列の並びを反転する (function template)</td>
+<td>C++29</td>
+</tr>
+<tr>
+<td><code><a href="simd/bit_repeat.html">bit_repeat</a></code></td>
+<td>各要素の最下位<code>l</code>ビットのパターンを幅いっぱいに繰り返す (function template)</td>
+<td>C++29</td>
+</tr>
+<tr>
+<td><code><a href="simd/shl.html">shl</a></code></td>
+<td>各要素を論理左シフトする (function template)</td>
+<td>C++29</td>
+</tr>
+<tr>
+<td><code><a href="simd/shr.html">shr</a></code></td>
+<td>各要素を論理右シフトする (function template)</td>
+<td>C++29</td>
+</tr>
+</tbody>
+</table>
+<h2>複素数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simd/real.html">real</a></code></td>
+<td>各要素の実部を取得する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/imag.html">imag</a></code></td>
+<td>各要素の虚部を取得する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/arg.html">arg</a></code></td>
+<td>各要素の偏角を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/norm.html">norm</a></code></td>
+<td>各要素のノルム（絶対値の2乗）を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/conj.html">conj</a></code></td>
+<td>各要素の共役複素数を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/proj.html">proj</a></code></td>
+<td>各要素をリーマン球面へ射影する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simd/polar.html">polar</a></code></td>
+<td>絶対値と偏角から複素数を生成する (function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../implementation.html#clang">Clang</a>: 22 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../implementation.html#gcc">GCC</a>: 16.1 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../implementation.html#visual_cpp">Visual C++</a>: 2026 Update 2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p1928r15.pdf" target="_blank">P1928R15 std::simd — merge data-parallel types from the Parallelism TS 2</a><ul>
+<li>C++26で<code>&lt;simd&gt;</code>ヘッダが追加された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

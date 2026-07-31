@@ -1,0 +1,378 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::simd::partial_scatter_to - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,simd,std::simd,function template,cpp26
+">
+        <meta name="title" content="std::simd::partial_scatter_to - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::simd::partial_scatter_to - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::simd::partial_scatter_to - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/simd/partial_scatter_to.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="[`basic_vec`](basic_vec.md)の各要素を、インデックスを表すデータ並列型`indices`で指定した連続メモリ領域`out`の飛び飛びの位置へ書き出す（scatter）。`v`の`i`番目の要素は、`out`の`indices[i]`番目の位置へ書き込まれる。インデックスが範囲外を指す場合でも安全に書き出せ、その位置へは書き込まれない。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::simd::partial_scatter_to - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/simd/partial_scatter_to.html" />
+        <meta name="twitter:description" content="[`basic_vec`](basic_vec.md)の各要素を、インデックスを表すデータ並列型`indices`で指定した連続メモリ領域`out`の飛び飛びの位置へ書き出す（scatter）。`v`の`i`番目の要素は、`out`の`indices[i]`番目の位置へ書き込まれる。インデックスが範囲外を指す場合でも安全に書き出せ、その位置へは書き込まれない。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<link rel="manifest" href="../../manifest.json?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;simd&#34;], &#34;namespace&#34;: [&#34;std::simd&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c70594be7b5ccabb543e66ffc760862a56bcff9f&#34;, &#34;source&#34;: &#34;#include &lt;simd&gt;\n#include &lt;array&gt;\n#include &lt;print&gt;\n\nnamespace simd = std::simd;\n\nint main()\n{\n  simd::vec&lt;int, 4&gt; v([](int i) { return (i + 1) * 10; }); // {10, 20, 30, 40}\n\n  // \u30a4\u30f3\u30c7\u30c3\u30af\u30b9 {0, 2, 4, 6} \u306e\u3046\u3061\u3001\u7bc4\u56f2\u5916(4, 6)\u3078\u306f\u66f8\u304d\u8fbc\u307e\u308c\u306a\u3044\n  simd::vec&lt;int, 4&gt; indices([](int i) { return i * 2; });\n\n  std::array&lt;int, 4&gt; out{};\n  simd::partial_scatter_to(v, out, indices);\n\n  for (int x : out) {\n    std::print(\&#34;{} \&#34;, x);\n  }\n  std::println(\&#34;\&#34;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;simd&#34;, &#34;partial_scatter_to&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/simd.html" itemprop="url">
+              
+                <span itemprop="name">simd</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">partial_scatter_to</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-07-31T23:18:35+09:00">
+        2026年07月31日 23時18分35秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/simd/partial_scatter_to.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/simd/partial_scatter_to.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;simd&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::simd">std::simd::</span><span class="token">partial_scatter_to</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">simd</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="simd-vec-type.html">simd-vec-type</a></span><span class="w"> </span><span class="n">V</span><span class="p">,</span>
+<span class="w">           </span><span class="n"><a href="../ranges/contiguous_range.html">ranges::contiguous_range</a></span><span class="w"> </span><span class="n">R</span><span class="p">,</span>
+<span class="w">           </span><span class="n"><a href="simd-integral.html">simd-integral</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span>
+<span class="w">           </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Flags</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../ranges/sized_range.html">ranges::sized_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span>
+<span class="w">    </span><span class="n">partial_scatter_to</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">V</span><span class="o">&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">,</span>
+<span class="w">                       </span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">,</span>
+<span class="w">                       </span><span class="k">const</span><span class="w"> </span><span class="n">I</span><span class="o">&amp;</span><span class="w"> </span><span class="n">indices</span><span class="p">,</span>
+<span class="w">                       </span><span class="n">flags</span><span class="o">&lt;</span><span class="n">Flags</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{});</span><span class="w">  </span><span class="c1">// (1) C++26</span>
+
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="simd-vec-type.html">simd-vec-type</a></span><span class="w"> </span><span class="n">V</span><span class="p">,</span>
+<span class="w">           </span><span class="n"><a href="../ranges/contiguous_range.html">ranges::contiguous_range</a></span><span class="w"> </span><span class="n">R</span><span class="p">,</span>
+<span class="w">           </span><span class="n"><a href="simd-integral.html">simd-integral</a></span><span class="w"> </span><span class="n">I</span><span class="p">,</span>
+<span class="w">           </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Flags</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../ranges/sized_range.html">ranges::sized_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span>
+<span class="w">    </span><span class="n">partial_scatter_to</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">V</span><span class="o">&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">,</span>
+<span class="w">                       </span><span class="n">R</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">,</span>
+<span class="w">                       </span><span class="k">const</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">I</span><span class="o">::</span><span class="n">mask_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">mask</span><span class="p">,</span>
+<span class="w">                       </span><span class="k">const</span><span class="w"> </span><span class="n">I</span><span class="o">&amp;</span><span class="w"> </span><span class="n">indices</span><span class="p">,</span>
+<span class="w">                       </span><span class="n">flags</span><span class="o">&lt;</span><span class="n">Flags</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{});</span><span class="w">  </span><span class="c1">// (2) C++26</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code><a href="basic_vec.html">basic_vec</a></code>の各要素を、インデックスを表すデータ並列型<code>indices</code>で指定した連続メモリ領域<code>out</code>の飛び飛びの位置へ書き出す（scatter）。<code>v</code>の<code>i</code>番目の要素は、<code>out</code>の<code>indices[i]</code>番目の位置へ書き込まれる。インデックスが範囲外を指す場合でも安全に書き出せ、その位置へは書き込まれない。</p>
+<ul>
+<li>(1) : 全要素を書き出す</li>
+<li>
+<p>(2) : <code>mask</code>の各要素が<code>true</code>である位置の要素のみを書き出す</p>
+</li>
+<li>
+<p><code>v</code> : scatterするデータ並列型の値</p>
+</li>
+<li><code>indices</code> : 各要素が書き込み位置のインデックスを表す、整数要素のデータ並列型</li>
+<li><code>f</code> : scatterの動作を指定する<code>flags</code>オブジェクト。既定値は<code>flag_default</code>。要素型が異なるメモリへの変換書き込みを許可する<code>flag_convert</code>や、メモリのアライメントを仮定する<code>flag_aligned</code>／<code>flag_overaligned&lt;N&gt;</code>を指定できる</li>
+</ul>
+<p><code><a href="unchecked_scatter_to.html">unchecked_scatter_to</a></code>との違いは、インデックスが<code>out</code>の範囲外を指してもよい点である。範囲外の位置へは書き込まれない。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li><code>V::size() == I::size()</code>が<code>true</code>であること</li>
+<li><code>std::ranges::iterator_t&lt;R&gt;</code>が<code>std::indirectly_writable&lt;std::ranges::range_value_t&lt;R&gt;&gt;</code>のモデルであること</li>
+<li><code>V::value_type</code>が<code>std::ranges::range_value_t&lt;R&gt;</code>へ明示的に変換可能であること</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li><code>std::ranges::range_value_t&lt;R&gt;</code>が<a href="../simd.html#vectorizable-type">「vectorizable type」</a>であること</li>
+<li>テンプレートパラメータパック<code>Flags</code>が<code>flag_convert</code>を含まない場合、<code>V::value_type</code>から<code>std::ranges::range_value_t&lt;R&gt;</code>への変換が値を保存すること</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
+<ul>
+<li>選択されたすべてのインデックス<code>i</code>について、<code>indices[i]</code>の値が一意であること</li>
+<li><code>Flags</code>が<code>flag_aligned</code>を含む場合、<code>std::ranges::data(out)</code>が<code>alignment_v&lt;V, std::ranges::range_value_t&lt;R&gt;&gt;</code>でアライメントされた領域を指すこと</li>
+<li><code>Flags</code>が<code>flag_overaligned&lt;N&gt;</code>を含む場合、<code>std::ranges::data(out)</code>が<code>N</code>でアライメントされた領域を指すこと</li>
+</ul>
+<h2>効果</h2>
+<p><code>0</code>以上<code>I::size()</code>未満の各<code>i</code>について、<code>mask[i] &amp;&amp; (indices[i] &lt; std::ranges::size(out))</code>が<code>true</code>であれば、以下を評価する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">ranges</span><span class="o">::</span><span class="n">data</span><span class="p">(</span><span class="n">out</span><span class="p">)[</span><span class="n">indices</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../ranges/range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</code></pre></div>
+</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>なし。</p>
+<h2>例</h2>
+<p><div class="yata" id="c70594be7b5ccabb543e66ffc760862a56bcff9f"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../simd.html">&lt;simd&gt;</a></span>
+<span class="cp">#include <a href="../array.html">&lt;array&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">simd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">simd</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="basic_vec.html">simd::vec</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">([](</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="p">});</span><span class="w"> </span><span class="c1">// {10, 20, 30, 40}</span>
+
+<span class="w">  </span><span class="c1">// インデックス {0, 2, 4, 6} のうち、範囲外(4, 6)へは書き込まれない</span>
+<span class="w">  </span><span class="n"><a href="basic_vec.html">simd::vec</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;</span><span class="w"> </span><span class="n">indices</span><span class="p">([](</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+
+<span class="w">  </span><span class="n"><a href="../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;</span><span class="w"> </span><span class="n">out</span><span class="p">{};</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">simd::partial_scatter_to</span></span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="n">indices</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">print</span><span class="p">(</span><span class="s">"{} "</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>10 0 20 0 
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 22 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 16.1 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2026 Update 2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="unchecked_scatter_to.html">std::simd::unchecked_scatter_to</a></code></li>
+<li><code><a href="partial_gather_from.html">std::simd::partial_gather_from</a></code></li>
+<li><code><a href="basic_vec.html">std::simd::basic_vec</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p1928r15.pdf" target="_blank">P1928R15 std::simd — merge data-parallel types from the Parallelism TS 2</a><ul>
+<li>C++26で<code>std::simd</code>ライブラリに追加された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

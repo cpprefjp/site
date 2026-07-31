@@ -1,0 +1,752 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::hive - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,hive,std,class template,cpp26
+">
+        <meta name="title" content="std::hive - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::hive - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::hive - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/hive/hive.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`std::hive`クラスは、要素のメモリ位置が安定したシーケンスコンテナである。要素の挿入と削除を定数時間で行いつつ、削除されなかった要素へのポインタ・参照・イテレータを無効化しない。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::hive - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/hive/hive.html" />
+        <meta name="twitter:description" content="`std::hive`クラスは、要素のメモリ位置が安定したシーケンスコンテナである。要素の挿入と削除を定数時間で行いつつ、削除されなかった要素へのポインタ・参照・イテレータを無効化しない。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<link rel="manifest" href="../../manifest.json?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=f694438c355f5972fa4805cb7cc4e5a553f7f4e9"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;hive&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;5c588a37a04e59dbf90e8548e062bf59aacea541&#34;, &#34;source&#34;: &#34;#include &lt;hive&gt;\n#include &lt;print&gt;\n\nint main()\n{\n  std::hive&lt;int&gt; h;\n\n  // \u8981\u7d20\u3092\u633f\u5165\u3059\u308b\u3002\u633f\u5165\u4f4d\u7f6e\u306f\u30b3\u30f3\u30c6\u30ca\u304c\u6c7a\u5b9a\u3059\u308b\n  h.insert(1);\n  h.insert(2);\n  h.insert(3);\n\n  // \u8981\u7d20\u3092\u9806\u756a\u306b\u51fa\u529b\u3059\u308b\n  for (int x : h) {\n    std::print(\&#34;{} \&#34;, x);\n  }\n  std::println(\&#34;\&#34;);\n\n  std::println(\&#34;size = {}\&#34;, h.size());\n}\n&#34;}, {&#34;id&#34;: &#34;252f7f7a89f5d269b0856848bdb0826d685b59e0&#34;, &#34;source&#34;: &#34;#include &lt;hive&gt;\n#include &lt;print&gt;\n\nint main()\n{\n  std::hive&lt;int&gt; h;\n\n  // \u8981\u7d20\u3092\u633f\u5165\u3057\u3001\u305d\u306e\u30dd\u30a4\u30f3\u30bf\u3092\u4fdd\u6301\u3057\u3066\u304a\u304f\n  int* p = &amp;*h.insert(42);\n\n  // \u5225\u306e\u8981\u7d20\u306e\u30a4\u30c6\u30ec\u30fc\u30bf\u3082\u4fdd\u6301\u3057\u3066\u304a\u304f\n  auto other = h.insert(99);\n\n  // \u5927\u91cf\u306e\u8981\u7d20\u3092\u8ffd\u52a0\u3057\u3066\u3082\u3001\u65e2\u5b58\u8981\u7d20\u3078\u306e\u30dd\u30a4\u30f3\u30bf\u306f\u7121\u52b9\u5316\u3055\u308c\u306a\u3044\n  // (std::vector\u3067\u306f\u518d\u78ba\u4fdd\u306b\u3088\u3063\u3066p\u304c\u7121\u52b9\u5316\u3055\u308c\u3046\u308b)\n  for (int i = 0; i &lt; 10000; ++i) {\n    h.insert(i);\n  }\n  std::println(\&#34;{}\&#34;, *p); // 42\n\n  // \u4efb\u610f\u306e\u8981\u7d20\u3092\u5b9a\u6570\u6642\u9593\u3067\u524a\u9664\u3067\u304d\u3001\u4ed6\u306e\u8981\u7d20\u306e\u30dd\u30a4\u30f3\u30bf\u30fb\u30a4\u30c6\u30ec\u30fc\u30bf\u306f\u7121\u52b9\u5316\u3055\u308c\u306a\u3044\n  // (std::vector\u306eerase\u306f\u5f8c\u7d9a\u8981\u7d20\u3092\u79fb\u52d5\u3055\u305b\u3001\u30dd\u30a4\u30f3\u30bf\u3092\u7121\u52b9\u5316\u3059\u308b)\n  h.erase(other);\n  std::println(\&#34;{}\&#34;, *p); // 42\uff08\u524a\u9664\u3057\u305f\u306e\u306f\u5225\u306e\u8981\u7d20\u306a\u306e\u3067\u6709\u52b9\u306a\u307e\u307e\uff09\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;hive&#34;, &#34;hive&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/hive.html" itemprop="url">
+              
+                <span itemprop="name">hive</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">hive</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-07-29T11:07:26+09:00">
+        2026年07月29日 11時07分26秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/hive/hive.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/hive/hive.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;hive&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">hive</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Allocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">hive</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">pmr</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">hive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">hive</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../memory_resource/polymorphic_allocator.html">polymorphic_allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>std::hive</code>クラスは、要素のメモリ位置が安定したシーケンスコンテナである。要素の挿入と削除を定数時間で行いつつ、削除されなかった要素へのポインタ・参照・イテレータを無効化しない。</p>
+<p>要素は複数のメモリブロック（要素ブロック、element block）に格納される。削除された要素の位置は、後続の要素を移動させる代わりに、定数時間の手法によってイテレーション時にスキップされる。削除によって空になった要素ブロックは、解放されるか、再利用のために予約ブロックとして保持される。</p>
+<p>挿入位置はコンテナが決定し、削除された要素のメモリ位置が再利用されることがある。このため、<code>std::hive</code>クラスは要素の順序を指定した挿入をサポートしない（順序は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>である）。この性質により、<code>std::hive</code>クラスは<code><a href="../list/list.html">std::list</a></code>クラスよりもキャッシュ効率のよいメモリレイアウトと高速なイテレーションを実現しつつ、<code><a href="../vector/vector.html">std::vector</a></code>クラスとは異なり要素の挿入・削除でポインタ・参照が無効化されない。</p>
+<p>テンプレートパラメータは、以下を意味する：</p>
+<ul>
+<li><code>T</code>: 格納される要素の型</li>
+<li><code>Allocator</code>: メモリ確保に使用されるアロケータの型。デフォルトでは標準の<code><a href="../memory/allocator.html">std::allocator</a></code>クラスが使用される。</li>
+</ul>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>ゲーム開発やシミュレーション、GUIなどの分野では、多数のオブジェクトを頻繁に生成・破棄しながら、それらのオブジェクトを互いにポインタや参照で参照し合うことが多い。このような用途では、次の性質を同時に満たすコンテナが求められる。</p>
+<ul>
+<li>要素の挿入・削除が高速（定数時間）であること</li>
+<li>既存の要素へのポインタ・参照・イテレータが、他の要素の挿入・削除によって無効化されないこと</li>
+<li>イテレーションがキャッシュ効率よく行えること</li>
+</ul>
+<p><code><a href="../vector/vector.html">std::vector</a></code>は連続したメモリにより高速なイテレーションが可能だが、再確保や要素の削除によってポインタ・参照が無効化される。<code><a href="../list/list.html">std::list</a></code>や<code><a href="../forward_list/forward_list.html">std::forward_list</a></code>は挿入・削除でポインタ・参照が無効化されないが、要素ごとにノードを個別確保するためイテレーションのキャッシュ効率が悪い。</p>
+<p><code>std::hive</code>クラスは、複数の要素ブロックに要素をまとめて格納し、削除された位置をスキップすることで、これらの要求を同時に満たす。この設計は、以前は「colony」という名称でBoost C++ Libraries等で提供されていたデータ構造をC++標準ライブラリに導入したものである。</p>
+<h2>メンバ関数</h2>
+<h3>構築／コピー／破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="hive/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/assign.html">assign</a></code></td>
+<td>コンテナに値を代入する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/assign_range.html">assign_range</a></code></td>
+<td>コンテナにRangeを代入する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/get_allocator.html">get_allocator</a></code></td>
+<td>アロケータを取得する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>イテレータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="hive/begin.html">begin</a></code></td>
+<td>先頭要素を指すイテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/end.html">end</a></code></td>
+<td>末尾の次を指すイテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/cbegin.html">cbegin</a></code></td>
+<td>先頭要素を指す読み取り専用イテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/cend.html">cend</a></code></td>
+<td>末尾の次を指す読み取り専用イテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/rbegin.html">rbegin</a></code></td>
+<td>末尾要素を指す逆イテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/rend.html">rend</a></code></td>
+<td>先頭の前を指す逆イテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/crbegin.html">crbegin</a></code></td>
+<td>末尾要素を指す読み取り専用逆イテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/crend.html">crend</a></code></td>
+<td>先頭の前を指す読み取り専用逆イテレータを取得する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>領域</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="hive/empty.html">empty</a></code></td>
+<td>コンテナが空かどうかを判定する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/size.html">size</a></code></td>
+<td>要素数を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/max_size.html">max_size</a></code></td>
+<td>格納可能な最大の要素数を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/capacity.html">capacity</a></code></td>
+<td>要素ブロックを追加確保せずに保持できる要素数を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/reserve.html">reserve</a></code></td>
+<td>指定した要素数を格納できるよう容量を確保する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/shrink_to_fit.html">shrink_to_fit</a></code></td>
+<td>容量を要素数に近づける</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/trim_capacity.html">trim_capacity</a></code></td>
+<td>予約ブロックを解放して容量を削減する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/block_capacity_limits.html">block_capacity_limits</a></code></td>
+<td>要素ブロックの容量制限を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/reshape.html">reshape</a></code></td>
+<td>要素ブロックの容量制限を変更する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>変更</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="hive/emplace.html">emplace</a></code></td>
+<td>要素を直接構築で挿入する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/emplace_hint.html">emplace_hint</a></code></td>
+<td>ヒント付きで要素を直接構築で挿入する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/insert.html">insert</a></code></td>
+<td>要素を挿入する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/insert_range.html">insert_range</a></code></td>
+<td>Rangeの要素を挿入する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/erase.html">erase</a></code></td>
+<td>要素を削除する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/swap.html">swap</a></code></td>
+<td>他の<code>hive</code>オブジェクトと内容を入れ替える</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/clear.html">clear</a></code></td>
+<td>全要素を削除する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3><code>hive</code>操作</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="hive/splice.html">splice</a></code></td>
+<td>他の<code>hive</code>の全要素を移動して連結する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/unique.html">unique</a></code></td>
+<td>連続した重複要素を削除する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/sort.html">sort</a></code></td>
+<td>要素を並べ替える</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/get_iterator.html">get_iterator</a></code></td>
+<td>要素へのポインタからイテレータを取得する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>静的メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="hive/block_capacity_default_limits.html">block_capacity_default_limits</a></code></td>
+<td>処理系のデフォルトの容量制限を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/block_capacity_hard_limits.html">block_capacity_hard_limits</a></code></td>
+<td>処理系のハード制限を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/is_within_hard_limits.html">is_within_hard_limits</a></code></td>
+<td>指定した容量制限がハード制限の範囲内か判定する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>value_type</code></td>
+<td>要素の型<code>T</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>allocator_type</code></td>
+<td>アロケータの型<code>Allocator</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>pointer</code></td>
+<td>要素へのポインタ型 <code>allocator_traits&lt;Allocator&gt;::pointer</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>const_pointer</code></td>
+<td>要素への<code>const</code>ポインタ型 <code>allocator_traits&lt;Allocator&gt;::const_pointer</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td>要素への参照型 <code>value_type&amp;</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td>要素への<code>const</code>参照型 <code>const value_type&amp;</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td>要素数を表す符号なし整数型 (<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>要素間の距離を表す符号付き整数型 (<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>iterator</code></td>
+<td>双方向イテレータ (<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>const_iterator</code></td>
+<td>読み取り専用双方向イテレータ (<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>reverse_iterator</code></td>
+<td>逆順双方向イテレータ <code><a href="../iterator/reverse_iterator.html">reverse_iterator&lt;iterator&gt;</a></code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>const_reverse_iterator</code></td>
+<td>読み取り専用逆順双方向イテレータ <code><a href="../iterator/reverse_iterator.html">reverse_iterator&lt;const_iterator&gt;</a></code></td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="hive/swap_free.html">swap</a></code></td>
+<td>2つの<code>hive</code>オブジェクトを入れ替える</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/erase_free.html">erase</a></code></td>
+<td>指定した値の要素を削除する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hive/erase_if_free.html">erase_if</a></code></td>
+<td>条件を満たす要素を削除する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="hive/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="5c588a37a04e59dbf90e8548e062bf59aacea541"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../hive.html">&lt;hive&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::hive</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// 要素を挿入する。挿入位置はコンテナが決定する</span>
+<span class="w">  </span><span class="n"><a href="hive/insert.html">h.insert</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="hive/insert.html">h.insert</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="hive/insert.html">h.insert</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// 要素を順番に出力する</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">print</span><span class="p">(</span><span class="s">"{} "</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"size = {}"</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="hive/size.html">h.size()</a></span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>1 2 3 
+size = 3
+</code></pre></p>
+<h3>要素のポインタ・参照が安定していることを利用する</h3>
+<p><code>std::hive</code>の最大の特徴は、要素の挿入・削除によって、削除されなかった要素へのポインタ・参照・イテレータが無効化されないことである。多数のオブジェクトを動的に生成・破棄しつつ、それらを互いにポインタで参照し合うような状況で有用となる。</p>
+<p><div class="yata" id="252f7f7a89f5d269b0856848bdb0826d685b59e0"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../hive.html">&lt;hive&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::hive</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// 要素を挿入し、そのポインタを保持しておく</span>
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;*</span><span class="n"><a href="hive/insert.html">h.insert</a></span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// 別の要素のイテレータも保持しておく</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="hive/insert.html">h.insert</a></span><span class="p">(</span><span class="mi">99</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// 大量の要素を追加しても、既存要素へのポインタは無効化されない</span>
+<span class="w">  </span><span class="c1">// (<a href="../vector/vector.html">std::vector</a>では再確保によってpが無効化されうる)</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="hive/insert.html">h.insert</a></span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">);</span><span class="w"> </span><span class="c1">// 42</span>
+
+<span class="w">  </span><span class="c1">// 任意の要素を定数時間で削除でき、他の要素のポインタ・イテレータは無効化されない</span>
+<span class="w">  </span><span class="c1">// (<a href="../vector/vector.html">std::vector</a>のeraseは後続要素を移動させ、ポインタを無効化する)</span>
+<span class="w">  </span><span class="n"><a href="hive/erase.html">h.erase</a></span><span class="p">(</span><span class="n">other</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">);</span><span class="w"> </span><span class="c1">// 42（削除したのは別の要素なので有効なまま）</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>42
+42
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 22 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 16.1 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2026 Update 2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../list/list.html">std::list</a></code></li>
+<li><code><a href="../forward_list/forward_list.html">std::forward_list</a></code></li>
+<li><code><a href="../deque/deque.html">std::deque</a></code></li>
+<li><code><a href="../vector/vector.html">std::vector</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0447r28.html" target="_blank">P0447R28 Introduction of <code>std::hive</code> to the standard library</a><ul>
+<li>C++26で<code>hive</code>が追加された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
