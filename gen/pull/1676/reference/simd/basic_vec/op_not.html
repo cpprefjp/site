@@ -201,8 +201,8 @@
     <p class="text-right"><small>
       最終更新日時:
       <time itemprop="datePublished" class="js-local-time"
-            datetime="2026-07-31T23:18:35+09:00">
-        2026年07月31日 23時18分35秒 (JST)
+            datetime="2026-08-01T17:37:52+09:00">
+        2026年08月01日 17時37分52秒 (JST)
       </time>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -271,7 +271,7 @@
 <span class="w">  </span><span class="n"><a href="../basic_vec.html">simd::vec</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">// {0, 1, 2, 3}</span>
 
 <span class="w">  </span><span class="c1">// 各要素を論理反転し、マスクとして得る</span>
-<span class="w">  </span><span class="n"><a href="../basic_vec.html">simd::vec</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;::</span><span class="n"><a href="../basic_vec.html">mask_type</a></span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">!a</span></span><span class="p">;</span><span class="w">            </span><span class="c1">// {true, false, false, false}</span>
+<span class="w">  </span><span class="n"><a href="../basic_vec.html">simd::vec</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;::</span><span class="n"><a href="../basic_mask.html">mask_type</a></span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">!a</span></span><span class="p">;</span><span class="w">            </span><span class="c1">// {true, false, false, false}</span>
 
 <span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n"><a href="../basic_mask/size.html">m.size()</a></span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n"><a href="../../print/print.html">std::print</a></span><span class="p">(</span><span class="s">"{} "</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../basic_mask/op_at.html">m[i]</a></span><span class="p">);</span>

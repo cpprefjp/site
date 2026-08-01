@@ -1,8 +1,8 @@
 # PR [\#1676](https://github.com/cpprefjp/site/pull/1676) プレビュー
-- &#x231a; 更新時刻: 2026-08-01 00:50:35 JST
+- &#x231a; 更新時刻: 2026-08-01 17:40:25 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1676)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Asimd)
-- **&#x2AEF;** ソースの変更: [`4c1bff0..1431546`](https://github.com/cpprefjp/site/compare/4c1bff08527236a7ec84896e6f5ba2d5914d4a85..1431546be5ee5a071ffa9c0f8c87d205ed1c9a86)
+- **&#x2AEF;** ソースの変更: [`4c1bff0..dec5db0`](https://github.com/cpprefjp/site/compare/4c1bff08527236a7ec84896e6f5ba2d5914d4a85..dec5db02c5a9565b4227e18d5a69ba627c6094e0)
 
 ## 変更記事一覧 (247件)
 
