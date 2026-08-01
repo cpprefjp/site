@@ -47,7 +47,7 @@ int main()
 ```
 * !a[color ff0000]
 * simd::vec[link ../basic_vec.md]
-* mask_type[link ../basic_vec.md]
+* mask_type[link ../basic_mask.md]
 * m.size()[link ../basic_mask/size.md]
 * m[i][link ../basic_mask/op_at.md]
 
