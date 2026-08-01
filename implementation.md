@@ -53,6 +53,10 @@
 - Clang 17.0以降は、`-std=c++2c`オプションを使用する。
     - GNU拡張を有効にする`-std=gnu++2c`オプションもある。
 
+### C++29の機能を有効にする
+- Clang 22以降は、`-std=c++2d`オプションを使用する。
+    - GNU拡張を有効にする`-std=gnu++2d`オプションもある。
+
 
 ## <a id="gcc" href="#gcc">GNU Compiler Collection</a>
 このサイトでは GCC と呼ぶ
