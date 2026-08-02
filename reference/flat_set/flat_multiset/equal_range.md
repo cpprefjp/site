@@ -58,7 +58,6 @@ constexpr pair<const_iterator, const_iterator>
 ```cpp example
 #include <flat_set>
 #include <iostream>
-#include <string>
 #include <utility>
 
 int main()

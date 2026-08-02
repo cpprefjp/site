@@ -47,7 +47,6 @@ namespace std {
 ```cpp example
 #include <flat_set>
 #include <iostream>
-#include <string>
 
 int main()
 {

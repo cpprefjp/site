@@ -42,7 +42,6 @@ any& operator=(T&& rhs);            // (3)
 ```cpp example
 #include <any>
 #include <string>
-#include <vector>
 #include <cassert>
 #include <utility>
 

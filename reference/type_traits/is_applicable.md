@@ -34,7 +34,6 @@ namespace std {
 ```cpp example
 #include <tuple>
 #include <type_traits>
-#include <string>
 #include <iostream>
 
 int add(int a, int b) { return a + b; }
