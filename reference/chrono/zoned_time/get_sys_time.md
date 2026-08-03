@@ -34,11 +34,12 @@ int main()
 {
   auto now = chrono::system_clock::now();
   chrono::local_time local_now{now.time_since_epoch()};
+  chrono::local_time local_jst_now = local_now + chrono::hours{9};
 
   chrono::zoned_time zt1{"Asia/Tokyo", now};
   assert(zt1.get_sys_time() == now);
 
-  chrono::zoned_time zt2{"Asia/Tokyo", local_now};
+  chrono::zoned_time zt2{"Asia/Tokyo", local_jst_now};
   assert(zt2.get_sys_time() == now);
 }
 ```
