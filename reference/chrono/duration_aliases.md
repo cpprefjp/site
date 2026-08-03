@@ -125,7 +125,7 @@ int main()
   auto y4 = duration_cast<years>(days{366});
   assert(y4.count() == 1);
 
-  // 週から月への変換。端数が発生するため、duration_castが必要
+  // 月から週への変換。端数が発生するため、duration_castが必要
   auto w5 = duration_cast<weeks>(months{1});
   assert(w5.count() == 4);
 
