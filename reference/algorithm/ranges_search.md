@@ -167,8 +167,8 @@ struct search_impl {
         if (!invoke(pred, invoke(proj1, *p1), invoke(proj2, *p2))) break;
         ++p1, ++p2;
       }
+    }
     return {first1, first1};
-   }
   }
 
   template<forward_range R1, forward_range R2, class Pred = ranges::equal_to, class Proj1 = identity, class Proj2 = identity>
