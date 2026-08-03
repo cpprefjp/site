@@ -68,9 +68,9 @@ TAI時間の一点を指す[`time_point`](time_point.md)に対する別名。
 - (5) :
     - `%Z` (タイムゾーンの略称) が指定された場合、`STATICALLY-WIDEN<charT>("TAI")`で置き換えられる
     - `%z`もしくはその改良コマンドが指定された場合、`0`[`min`](duration/op_min.md)が使用される
-    - この日付と時間のフォーマットは、`gps_time<Duration>`型変数`tp`を以下のように変換した[`sys_time`](sys_time.md)をフォーマットした場合と等価：
+    - この日付と時間のフォーマットは、`tai_time<Duration>`型変数`tp`を以下のように変換した[`sys_time`](sys_time.md)をフォーマットした場合と等価：
         ```cpp
-        sys_time<Duration>{tp.time_since_epoch()} + (sys_days{1970y/January/1} - sys_days{1958y/January/1})
+        sys_time<Duration>{tp.time_since_epoch()} - (sys_days{1970y/January/1} - sys_days{1958y/January/1})
         ```
         * sys_time[link sys_time.md]
         * tp.time_since_epoch()[link time_point/time_since_epoch.md]
