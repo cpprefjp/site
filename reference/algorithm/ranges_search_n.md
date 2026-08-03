@@ -170,7 +170,7 @@ struct search_n_impl {
       return {first, first};
 
     while (first != last) {
-      if (*first == value) {
+      if (invoke(pred, invoke(proj, *first), value)) {
         I it = first;
         ++it;
         iter_difference_t<I> i = 1;
