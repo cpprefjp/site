@@ -150,6 +150,7 @@
 | [`<bit>`](/reference/bit.md)           | ビット操作       | C++20          |
 | [`<random>`](/reference/random.md)     | 乱数生成         | C++11          |
 | [`<valarray>`](/reference/valarray.md) | 数値の配列       |                |
+| [`<simd>`](/reference/simd.md)         | データ並列型     | C++26          |
 | [`<numeric>`](/reference/numeric.md)   | 一般的な数値操作 |                |
 | [`<numbers>`](/reference/numbers.md)   | 数値             | C++20          |
 | [`<linalg>`](/reference/linalg.md)     | 線形代数 | C++26 |
@@ -213,7 +214,7 @@
 | [`<future>`](/reference/future.md)                         | Future                | C++11          |
 | [`<rcu>`](/reference/rcu.md)                               | データの参照・更新    | C++26          |
 | [`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)         | ハザードポインタ      | C++26          |
-| [`<simd>`](/reference/simd.md.nolink) | データ並列 | C++26 |
+| [`<simd>`](/reference/simd.md) | データ並列 | C++26 |
 
 
 ## <a id="clib-facilities" href="#clib-facilities">C言語互換ライブラリ</a>

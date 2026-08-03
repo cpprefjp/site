@@ -38,6 +38,24 @@
 | [`rotr`](bit/rotr.md) | 右循環ビットシフト (function template) | C++20 |
 
 
+## ビットシフト
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`shl`](bit/shl.md) | 左ビットシフト（未定義動作にならない） (function template) | C++29 |
+| [`shr`](bit/shr.md) | 右ビットシフト（未定義動作にならない） (function template) | C++29 |
+
+
+## ビット並べ替え
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`bit_reverse`](bit/bit_reverse.md) | ビット列の並びを反転する (function template) | C++29 |
+| [`bit_repeat`](bit/bit_repeat.md) | 最下位`l`ビットのパターンを繰り返す (function template) | C++29 |
+| [`bit_compress`](bit/bit_compress.md) | マスクで立っている位置のビットを下位へ詰める (function template) | C++29 |
+| [`bit_expand`](bit/bit_expand.md) | 下位ビットをマスクで立っている位置へ展開する (function template) | C++29 |
+
+
 ## ビットカウント
 
 | 名前 | 説明 | 対応バージョン |
