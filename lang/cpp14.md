@@ -73,7 +73,7 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 
 
 ### 汎用的なユーティリティ
-- 2つの値を入れ替える関数[`std::exchange()`](/reference/utility/exchange.md)を追加
+- オブジェクトに新しい値を設定し、以前の値を返す関数[`std::exchange()`](/reference/utility/exchange.md)を追加
 - コンパイル時整数シーケンス[`std::integer_sequence`](/reference/utility/integer_sequence.md)を追加
 - タプルを型の集合と見なし、型を指定して対応する値を取得する[`std::get()`](/reference/tuple/tuple/get.md)のオーバーロードを追加
 - [`<type_traits>`](/reference/type_traits.md)ヘッダの、メンバ型`type`を定義するクラステンプレートに、エイリアステンプレート版を追加。そのバージョンには、`_t`サフィックスが付く
