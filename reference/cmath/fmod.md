@@ -14,9 +14,9 @@ namespace std {
     fmod(floating-point-type x,
          floating-point-type y);   // (4) C++23
 
-  Integral
+  double
     fmod(Integral x, Integral y);  // (5) C++11
-  constexpr Integral
+  constexpr double
     fmod(Integral x, Integral y);  // (5) C++23
 
   float
