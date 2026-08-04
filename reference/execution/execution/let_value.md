@@ -103,7 +103,7 @@ namespace std::execution {
 
     ```cpp
     variant<monostate,
-            connect_result_t<child_t, let-state::receiver,
+            connect_result_t<child_t, let-state::receiver>,
             connect_result_t<as-sndr2<LetSigs>, receiver2<Rcvr, env_t>>...>
     ```
     * variant[link /reference/variant/variant.md]
