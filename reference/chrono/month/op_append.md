@@ -94,10 +94,10 @@ int main()
   assert(mdl1 == mdl2);
 
   // 3月の最初の日曜日 (年の情報をもたないため、日を算出できない状態)
-  chrono::month_weekday mw1 = chrono::March/chrono::Sunday[0];
-  chrono::month_weekday mw2 = 3/chrono::Sunday[0];
+  chrono::month_weekday mw1 = chrono::March/chrono::Sunday[1];
+  chrono::month_weekday mw2 = 3/chrono::Sunday[1];
   assert(mw1.month() == chrono::March);
-  assert(mw1.weekday_indexed() == chrono::Sunday[0]);
+  assert(mw1.weekday_indexed() == chrono::Sunday[1]);
   assert(mw1 == mw2);
 
   // 3月の最後の日曜日 (年の情報をもたないため、日を算出できない状態)
