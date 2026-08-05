@@ -37,7 +37,7 @@ return a + t * (b - a);
     - `t >= 0 && t <= 1`である場合、[`isfinite`](isfinite.md)`(r) != 0`
     - [`isfinite`](isfinite.md)`(t) && a == b`である場合、`r == a`
     - [`isfinite`](isfinite.md)`(t) || !`[`isnan`](isnan.md)`(t) && b - a != 0`である場合、`!`[`isnan`](isnan.md)`(r)`
-- 比較関数`CMP(x, y)`を、`x > y`であれば1、`x < y`であれば-1、そうでなければ0を返すものであるとして、あらゆる時間値`t1`と`t2`について`CMP(lerp(a,b,t2), lerp(a,b,t1))`、`CMP(t2, t1)`、`CMP(b,a)`はいずれも非負となる
+- 比較関数`CMP(x, y)`を、`x > y`であれば1、`x < y`であれば-1、そうでなければ0を返すものであるとして、あらゆる時間値`t1`と`t2`について`CMP(lerp(a,b,t2), lerp(a,b,t1))`、`CMP(t2, t1)`、`CMP(b,a)`の積は非負となる
 
 
 ## 例
