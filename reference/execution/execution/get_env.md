@@ -22,7 +22,7 @@ namespace std::execution {
 ## 効果
 呼び出し式`get_env(o)`は下記と等価。
 
-- 式が適格であるならば、[`MANDATE-NOTHROW`](MANDATE-NOTHROW.md)`(`[`AS-CONST`](AS-CONST.md)`(o).query(get_env))`
+- 式が適格であるならば、[`MANDATE-NOTHROW`](MANDATE-NOTHROW.md)`(`[`AS-CONST`](AS-CONST.md)`(o).get_env())`
     - 上記の式の型は[`queryable`](../queryable.md)を満たすこと。
 - そうでなければ、空のクエリ可能オブジェクト[`env<>{}`](env.md)
 
