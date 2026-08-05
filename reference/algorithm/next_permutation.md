@@ -30,7 +30,7 @@ namespace std {
 
 
 ## テンプレートパラメータ制約
-`BidriectionalIterator`が`ValueSwappable`の要件を満たしていること。
+`BidirectionalIterator`が`ValueSwappable`の要件を満たしていること。
 
 
 ## 効果
