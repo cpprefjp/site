@@ -12,9 +12,9 @@ namespace std {
   constexpr T
     real(const complex<T>& x); // (1) C++14
 
-  complex<Promoted>
+  Promoted
     real(Arithmetic x);        // (2) C++11
-  constexpr complex<Promoted>
+  constexpr Promoted
     real(Arithmetic x);        // (2) C++26
 }
 ```

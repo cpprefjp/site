@@ -10,9 +10,9 @@ namespace std {
   template <class T>
   constexpr T imag(const complex<T>& x); // (1) C++14
 
-  complex<Promoted>
+  Promoted
     imag(Arithmetic x);                 // (2) C++11
-  constexpr complex<Promoted>
+  constexpr Promoted
     imag(Arithmetic x);                 // (2) C++26
 }
 ```

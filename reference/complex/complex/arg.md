@@ -12,9 +12,9 @@ namespace std {
   constexpr T
     arg(const complex<T>& x); // (1) C++26
 
-  complex<Promoted>
+  Promoted
     arg(Arithmetic x);        // (2) C++11
-  constexpr complex<Promoted>
+  constexpr Promoted
     arg(Arithmetic x);        // (2) C++26
 }
 ```
