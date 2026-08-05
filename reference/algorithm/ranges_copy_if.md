@@ -82,10 +82,12 @@ namespace std::ranges {
 ```cpp
 copy_if_result {
   .in  = last,
-  .out = result + (last - first),
+  .out = result + N,
 }
 ```
 * copy_if_result[link ranges_in_out_result.md]
+
+ここで`N`は、`pred`を満たしてコピーされた要素の個数である。
 
 ## 計算量
 正確に `last - first` 回述語を適用する。

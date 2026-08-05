@@ -102,7 +102,9 @@ namespace std::ranges {
 
 
 ## 戻り値
-`{ .in = last, .out = result + (last - first) }`
+`{ .in = last, .out = result + N }`
+
+ここで`N`は、コピーされた要素の個数である。
 
 ## 計算量
 `[first,last)` が空の範囲でない場合、正確に `last - first - 1` 回の比較または述語の適用を行う
