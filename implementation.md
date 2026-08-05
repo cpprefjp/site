@@ -156,7 +156,7 @@
 | 2022 Update 12 | Visual Studio 2022 Version 17.12.4    | 14.42           | 1942       | 194234436       |
 | 2022 Update 12 | Visual Studio 2022 Version 17.12.3    | 14.42           | 1942       | 194234435       |
 | 2022 Update 11 | Visual Studio 2022 Version 17.11.0    | 14.41           | 1941       | 194134120       |
-| 2022 Update 10 | Visual Studio 2022 Version 17.10.5    | 14.40           | 1939       | 194033811       |
+| 2022 Update 10 | Visual Studio 2022 Version 17.10.5    | 14.40           | 1940       | 194033811       |
 | 2022 Update 9 | Visual Studio 2022 Version 17.9.2      | 14.39           | 1939       | 193933521       |
 | 2022 Update 8 | Visual Studio 2022 Version 17.8.3      | 14.38           | 1938       | 193833133       |
 | 2022 Update 7 | Visual Studio 2022 Version 17.7.0      | 14.37           | 1937       | 193732822       |
@@ -284,7 +284,7 @@
 
 ### C++20の機能を有効にする
 
-- 2019 Update 11以降は`/std:c++23`オプションを使用する。それ以前は`/std:c++latest`オプションを使用する
+- 2019 Update 11以降は`/std:c++20`オプションを使用する。それ以前は`/std:c++latest`オプションを使用する
 
 
 ### C++23の機能を有効にする
