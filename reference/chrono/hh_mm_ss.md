@@ -49,7 +49,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------|--------------------------------------------------------|-------|
-| `static constexpr bool` [`fractional_width`](hh_mm_ss/fractional_width.md) | `precision`によって表現される小数の小数桁数 | C++20 |
+| `static constexpr unsigned` [`fractional_width`](hh_mm_ss/fractional_width.md) | `precision`によって表現される小数の小数桁数 | C++20 |
 
 
 ## メンバ型

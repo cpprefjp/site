@@ -10,7 +10,7 @@ namespace std::chrono {
   template <class Duration>
   class hh_mm_ss {
   public:
-    static constexpr bool fractional_width = see below;
+    static constexpr unsigned fractional_width = see below;
   };
 }
 ```
