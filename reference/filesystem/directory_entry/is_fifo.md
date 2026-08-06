@@ -16,7 +16,7 @@ FIFOまたはパイプを指しているか確認する。
 
 ## 戻り値
 - (1) : [`std::filesystem::is_fifo`](/reference/filesystem/is_fifo.md)`(this->`[`status()`](status.md)`)`を返す
-- (2) : [`std::filesystem::is_fifo`](/reference/filesystem/is_fifo.md)`(this->`[`status()`](status.md)`, ec)`を返す
+- (2) : [`std::filesystem::is_fifo`](/reference/filesystem/is_fifo.md)`(this->`[`status`](status.md)`(ec))`を返す
 
 
 ## 例外

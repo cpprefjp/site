@@ -11,12 +11,12 @@ bool is_other(std::error_code& ec) const noexcept; // (2)
 ```
 
 ## 概要
-パスが存在していない、もしくはシステム依存の種別のファイルを指しているかを確認する。
+パスが存在しており、かつシステム依存の種別のファイルを指しているかを確認する。
 
 
 ## 戻り値
 - (1) : [`std::filesystem::is_other`](/reference/filesystem/is_other.md)`(this->`[`status()`](status.md)`)`を返す
-- (2) : [`std::filesystem::is_other`](/reference/filesystem/is_other.md)`(this->`[`status()`](status.md)`, ec)`を返す
+- (2) : [`std::filesystem::is_other`](/reference/filesystem/is_other.md)`(this->`[`status`](status.md)`(ec))`を返す
 
 
 ## 例外

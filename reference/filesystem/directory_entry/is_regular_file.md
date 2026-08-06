@@ -16,7 +16,7 @@ bool is_regular_file(std::error_code& ec) const noexcept; // (2)
 
 ## 戻り値
 - (1) : [`std::filesystem::is_regular_file`](/reference/filesystem/is_regular_file.md)`(this->`[`status()`](status.md)`)`を返す
-- (2) : [`std::filesystem::is_regular_file`](/reference/filesystem/is_regular_file.md)`(this->`[`status()`](status.md)`, ec)`を返す
+- (2) : [`std::filesystem::is_regular_file`](/reference/filesystem/is_regular_file.md)`(this->`[`status`](status.md)`(ec))`を返す
 
 
 ## 例外

@@ -16,7 +16,7 @@ bool is_socket(std::error_code& ec) const noexcept; // (2)
 
 ## 戻り値
 - (1) : [`std::filesystem::is_socket`](/reference/filesystem/is_socket.md)`(this->`[`status()`](status.md)`)`を返す
-- (2) : [`std::filesystem::is_socket`](/reference/filesystem/is_socket.md)`(this->`[`status()`](status.md)`, ec)`を返す
+- (2) : [`std::filesystem::is_socket`](/reference/filesystem/is_socket.md)`(this->`[`status`](status.md)`(ec))`を返す
 
 
 ## 例外

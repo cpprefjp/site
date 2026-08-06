@@ -15,8 +15,8 @@ bool is_symlink(std::error_code& ec) const noexcept; // (2)
 
 
 ## 戻り値
-- (1) : [`std::filesystem::is_symlink`](/reference/filesystem/is_symlink.md)`(this->`[`status()`](status.md)`)`を返す
-- (2) : [`std::filesystem::is_symlink`](/reference/filesystem/is_symlink.md)`(this->`[`status()`](status.md)`, ec)`を返す
+- (1) : [`std::filesystem::is_symlink`](/reference/filesystem/is_symlink.md)`(this->`[`symlink_status()`](symlink_status.md)`)`を返す
+- (2) : [`std::filesystem::is_symlink`](/reference/filesystem/is_symlink.md)`(this->`[`symlink_status`](symlink_status.md)`(ec))`を返す
 
 
 ## 例外
