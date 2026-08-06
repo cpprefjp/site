@@ -12,7 +12,7 @@ namespace std::ranges {
             class Proj = identity>
     requires sortable<I, Comp, Proj>
   constexpr prev_permutation_result<I>
-    next_permutation(I first,
+    prev_permutation(I first,
                      S last,
                      Comp comp = {},
                      Proj proj = {}); // (1) C++20
@@ -22,7 +22,7 @@ namespace std::ranges {
             class Proj = identity>
     requires sortable<iterator_t<R>, Comp, Proj>
   constexpr prev_permutation_result<borrowed_iterator_t<R>>
-    next_permutation(R&& r,
+    prev_permutation(R&& r,
                      Comp comp = {},
                      Proj proj = {}); // (2) C++20
 }
