@@ -14,7 +14,7 @@
 
 
 ## 効果
-`count`が非`0`かつ`state`が[実行中(running)](run.md)のとき、[`terminate`](/reference/exception/terminate.md)を呼び出してプログラムを異常終了させる。
+`count`が非`0`もしくは`state`が[実行中(running)](run.md)のとき、[`terminate`](/reference/exception/terminate.md)を呼び出してプログラムを異常終了させる。
 それ以外のとき、効果を持たない。
 
 
