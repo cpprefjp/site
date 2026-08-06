@@ -54,7 +54,7 @@ return result;
 
 
 ## 例外
-- (1) : ファイルが見つからない場合、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+- (1) : ファイルの属性を決定できなかった場合 ([`file_type::none`](file_type.md))、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
 - (2) : 投げない
 
 
