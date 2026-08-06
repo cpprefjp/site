@@ -30,7 +30,7 @@ return static_cast<reference>(*p.value_);
 
 
 ## 例外
-[`is_nothrow_copy_constructible_v`](/reference/type_traits/is_nothrow_copy_constructible.md)`<reference>`が`true`のとき、`reference`コピーコンストラクタから送出された例外。
+[`is_nothrow_copy_constructible_v`](/reference/type_traits/is_nothrow_copy_constructible.md)`<reference>`が`false`のとき、`reference`コピーコンストラクタから送出された例外。
 
 
 ## バージョン
