@@ -110,10 +110,10 @@ namespace std::chrono {
 
 ## テンプレートパラメータ制約
 - (7) :
-    - 式`DestClock::from_sys(t)`が妥当でない場合、関数呼び出し演算子のオーバーロード解決に参加しない
+    - 式`SourceClock::to_sys(t)`が妥当でない場合、関数呼び出し演算子のオーバーロード解決に参加しない
     - `Duration`が[`chrono::duration`](duration.md)の特殊化でない場合、プログラムは不適格となる
 - (8) :
-    - 式`SourceClock::to_sys(t)`が妥当でない場合、関数呼び出し演算子のオーバーロード解決に参加しない
+    - 式`DestClock::from_sys(t)`が妥当でない場合、関数呼び出し演算子のオーバーロード解決に参加しない
     - `Duration`が[`chrono::duration`](duration.md)の特殊化でない場合、プログラムは不適格となる
 - (9) :
     - 式`SourceClock::to_utc(t)`が妥当でない場合、関数呼び出し演算子のオーバーロード解決に参加しない
