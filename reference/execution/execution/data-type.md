@@ -24,7 +24,7 @@ namespace std::execution {
 ## 関連項目
 - [`execution::read_env`](read_env.md)
 - [`execution::write_env`](write_env.md)
-- [`execution::schedule_from`](schedule_from.md)
+- [`execution::continues_on`](continues_on.md)
 - [`execution::then`](then.md)
 - [`execution::let_value`](let_value.md)
 - [`execution::bulk`](bulk.md)

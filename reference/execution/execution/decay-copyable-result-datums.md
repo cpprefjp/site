@@ -33,7 +33,7 @@ constexpr void decay-copyable-result-datums(auto cs) {
 
 
 ## 関連項目
-- [`execution::schedule_from`](schedule_from.md)
+- [`execution::continues_on`](continues_on.md)
 - [`execution::when_all`](when_all.md)
 - [`execution::into_variant`](into_variant.md)
 

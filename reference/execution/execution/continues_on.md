@@ -17,14 +17,15 @@ namespace std::execution {
 
 
 ## 効果
-説明用の式`sch`と`sndr`に対して、`decltype((sch))`が[`scheduler`](scheduler.md)を満たさない、もしくは`decltype((sndr))`が[`sender`](sender.md)を満たさないとき、呼び出し式`continues_on(sch, sndr)`は不適格となる。
+説明用の式`sch`と`sndr`に対して、`decltype((sch))`が[`scheduler`](scheduler.md)を満たさない、もしくは`decltype((sndr))`が[`sender`](sender.md)を満たさないとき、呼び出し式`continues_on(sndr, sch)`は不適格となる。
 
-そうでなければ、呼び出し式`continues_on(sch, sndr)`は下記と等価。
+そうでなければ、呼び出し式`continues_on(sndr, sch)`は下記と等価。
 
 ```cpp
-make-sender(continues_on, sch, sndr)
+make-sender(continues_on, sch, schedule_from(sndr))
 ```
 * make-sender[link make-sender.md]
+* schedule_from[link schedule_from.md]
 
 
 ### Senderアルゴリズムタグ `continues_on`

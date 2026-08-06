@@ -23,7 +23,7 @@ namespace std::execution {
 
 ## 関連項目
 - [`execution::write_env`](write_env.md)
-- [`execution::schedule_from`](schedule_from.md)
+- [`execution::continues_on`](continues_on.md)
 - [`execution::let_value`](let_value.md)
 - [`execution::into_variant`](into_variant.md)
 - [`execution::stopped_as_optional`](stopped_as_optional.md)
