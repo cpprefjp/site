@@ -17,11 +17,15 @@ constexpr T
 ## 概要
 最小値を設定・取得する。
 
-この関数は、`*this`が保持する値と`operand`の小さい方を求め、その値を`this`に保持させた上でその値を返す。
+この関数は、`*this`が保持する値と`operand`の小さい方を求め、その値を`this`に保持させる。戻り値は変更前の値である。
 
 
 ## 効果
-`order`で指定されたメモリオーダーにしたがって、`*this`が保持する値と`operand`の最小値を求めて、その値を`this`に保持させ、その値を返す
+`order`で指定されたメモリオーダーにしたがって、`*this`が保持する値と`operand`の最小値を求めて、その値でアトミックに置き換える
+
+
+## 戻り値
+変更前の値が返される
 
 
 ## 例外
@@ -41,9 +45,9 @@ constexpr T
 
 int main()
 {
-  std::atomic<int> x(3);
+  std::atomic<double> x(3);
 
-  int ret = x.fetch_fminimum(2);
+  double ret = x.fetch_fminimum(2);
 
   std::cout << ret << std::endl;
   std::cout << x.load() << std::endl;
@@ -54,7 +58,7 @@ int main()
 
 ### 出力
 ```
-2
+3
 2
 ```
 
