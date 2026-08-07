@@ -24,7 +24,7 @@ namespace std::chrono {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `template<class Duration>`<br/> `ambiguous_local_time(const local_time<Duration>& tp, const local_info& i);` | デフォルトコンストラクタ | C++20 |
+| `template<class Duration>`<br/> `ambiguous_local_time(const local_time<Duration>& tp, const local_info& i);` | コンストラクタ | C++20 |
 | `virtual const char* what() const noexcept;` | エラー理由となる文字列 | C++20 |
 
 `what()`メンバ関数は、以下と等価な文字列を返す：
