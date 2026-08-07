@@ -28,7 +28,6 @@ constexpr void
 
 
 ## テンプレートパラメータ制約
-- `std::atomic<T*>`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
 - (1) : `atomic<T>::is_always_lock_free`が`true`であること
 
 
