@@ -57,8 +57,8 @@ namespace std {
 
 ## 備考
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。（複号同順）
-    - `value = ±∞` の場合、戻り値は `±0` となり、`*exp` には `±∞` が設定される。
-    - `value` が NaN の場合、戻り値は NaN となり、`*exp` には NaN が設定される。
+    - `value = ±∞` の場合、戻り値は `±0` となり、`*iptr` には `±∞` が設定される。
+    - `value` が NaN の場合、戻り値は NaN となり、`*iptr` には NaN が設定される。
     - 戻り値は正確で、現在の丸め方式には依存しない。
 
 - C++11 で `value` が整数型のオーバーロードが追加されているが、`iptr` の型によって呼び出されるオーバーロードが一意に決まるため、存在意義は無いものと思われる。  
