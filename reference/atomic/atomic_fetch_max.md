@@ -30,7 +30,11 @@ namespace std {
 
 
 ## 効果
-[`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって、[`std::max()`](/reference/algorithm/max.md)アルゴリズムのように`*object`が保持する値と`operand`の最大値を求め、アトミックにその値で置き換えて返す
+[`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって、[`std::max()`](/reference/algorithm/max.md)アルゴリズムのように`*object`が保持する値と`operand`の最大値を求め、アトミックにその値で置き換える
+
+
+## 戻り値
+変更前の値が返される
 
 
 ## 例外
