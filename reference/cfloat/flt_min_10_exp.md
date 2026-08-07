@@ -24,7 +24,7 @@ $b$ や $e_{\rm min}$ については [`<cfloat>`](../cfloat.md) のモデルも
 ## 備考
 - 規格で -37 以下であることが規定されている。
 - 本マクロは `#if` プリプロセッサディレクティブに使用可能な定数式である。
-- `FLT_MIN_10_EXP` は DouBLe MINimum base-10 EXPonent（minimum：最小値、base-10：10を底とした、exponent：指数）に由来する。
+- `FLT_MIN_10_EXP` は FLoaT MINimum base-10 EXPonent（minimum：最小値、base-10：10を底とした、exponent：指数）に由来する。
 
 
 ## 例
