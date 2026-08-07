@@ -8,7 +8,7 @@
 namespace std::chrono {
   template <class charT, class traits>
   std::basic_ostream<charT, traits>&
-    operator<<(std::basic_ostream<charT, traits>& os, const local_info& li); // (2) C++20
+    operator<<(std::basic_ostream<charT, traits>& os, const local_info& li); // (1) C++20
 }
 ```
 
