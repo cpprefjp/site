@@ -394,7 +394,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::fmaximum()`](/reference/cmath/fmaximum.md) (-0.0と+0.0では+0.0を返し、NaNと数値ではNaNを返す)
     - [`std::fmaximum_num()`](/reference/cmath/fmaximum_num.md) (-0.0と+0.0では+0.0を返し、NaNと数値では数値を返す)
     - [`std::fminimum()`](/reference/cmath/fminimum.md) (-0.0と+0.0では-0.0を返し、NaNと数値ではNaNを返す)
-    - [`std::fminimum_num()`](/reference/cmath/fminimum_num.md) (-0.0と-0.0では+0.0を返し、NaNと数値では数値を返す)
+    - [`std::fminimum_num()`](/reference/cmath/fminimum_num.md) (-0.0と+0.0では-0.0を返し、NaNと数値では数値を返す)
 - [`<numeric>`](/reference/numeric.md)に、飽和演算 (Saturation Arithmetic) として、型の表現可能な範囲で演算を行う以下の関数を追加
     - [`std::saturating_add()`](/reference/numeric/saturating_add.md)
     - [`std::saturating_sub()`](/reference/numeric/saturating_sub.md)
