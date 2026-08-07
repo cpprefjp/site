@@ -40,7 +40,7 @@ int main() {
 
 `delete`式は指定されたポインタの指しているオブジェクトを破棄した後にそのオブジェクトが占めていたメモリ領域を解放するが、`operator delete`のオーバーロードはオブジェクト破棄後のメモリ領域解放のみを担うため、`operator delete`のオーバーロードが呼ばれた時点でその対象の領域上のオブジェクトは生存期間を終えている。
 
-C++20から、第ニ引数に[`std::destroying_delete_t`](/reference/new/destroying_delete_t.md)を取るように`operator delete`をオーバーロードすることで、`delete`式の行う全ての振る舞いをハンドリングできるようになり、`operator delete`のオーバーロード内から`delete`対象のオブジェクトに安全にアクセスすることができる。
+C++20から、第二引数に[`std::destroying_delete_t`](/reference/new/destroying_delete_t.md)を取るように`operator delete`をオーバーロードすることで、`delete`式の行う全ての振る舞いをハンドリングできるようになり、`operator delete`のオーバーロード内から`delete`対象のオブジェクトに安全にアクセスすることができる。
 
 ```cpp
 #include <iostream>
@@ -122,7 +122,7 @@ int main() {
 }
 ```
 
-また、配列板の`operator delete[]`を*destroying operator delete*としてオーバーロードすることもできない。
+また、配列版の`operator delete[]`を*destroying operator delete*としてオーバーロードすることもできない。
 
 ```cpp
 struct S {
