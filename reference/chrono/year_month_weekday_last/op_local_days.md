@@ -11,7 +11,7 @@ constexpr explicit operator local_days() const noexcept; // (1) C++20
 * local_days[link /reference/chrono/local_time.md]
 
 ## 概要
-`year_month_weekday`オブジェクトをローカル時間の日付に、明示的に型変換する。
+`year_month_weekday_last`オブジェクトをローカル時間の日付に、明示的に型変換する。
 
 
 ## 戻り値
