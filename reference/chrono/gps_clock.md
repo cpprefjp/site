@@ -49,7 +49,7 @@ GPS時間ではうるう秒 (leap second) 補正が行われないため、2017�
 | `rep`        | 時間間隔の内部表現となる符号付き算術型。具体的な型は未規定    | C++20 |
 | `period`     | 時間の周期を表す`ratio`型 [`ratio`](/reference/ratio/ratio.md)`<unspecified, unspecified>` | C++20 |
 | `duration`   | 時間間隔の型 [`duration`](duration.md)`<rep, period>`         | C++20 |
-| `time_point` | 時間の一点を指す型 [`time_point`](time_point.md)`<utc_clock>` | C++20 |
+| `time_point` | 時間の一点を指す型 [`time_point`](time_point.md)`<gps_clock>` | C++20 |
 
 
 ## メンバ定数
