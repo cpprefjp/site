@@ -12,7 +12,7 @@ namespace std {
 ```
 
 ## 概要
-`year_month_day`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。
+`year_month`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。
 
 [`month`](/reference/chrono/month/formatter.md)と[`year`](/reference/chrono/year/formatter.md)で利用可能なフォーマットフラグを使用できる。
 
