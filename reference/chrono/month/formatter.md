@@ -39,7 +39,7 @@ int main()
 
   std::cout << std::format("{:%b}", chrono::April) << std::endl; // 略称
   std::cout << std::format("{:%B}", chrono::April) << std::endl; // 完全名
-  std::cout << std::format("{:%m}", chrono::April) << std::endl; // 完全名
+  std::cout << std::format("{:%m}", chrono::April) << std::endl; // 10進数での月
 
   // ロケール依存の出力
   std::cout << std::format(std::locale("ja_JP.UTF-8"), "{:%b}", chrono::April) << std::endl;
