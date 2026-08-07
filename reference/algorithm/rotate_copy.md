@@ -42,7 +42,7 @@ namespace std {
 
 
 ## 戻り値
-回転前の先頭の要素を指すイテレータ`result + (last - first)`
+出力範囲の終端を指すイテレータ`result + (last - first)`
 
 
 ## 計算量
