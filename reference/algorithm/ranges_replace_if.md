@@ -75,7 +75,7 @@ namespace std::ranges {
 
 
 ## 効果
-`[first,last)` 内のイテレータ `i` について、`pred(*i) != false` であるものは `*i = new_value` という式によってに置き換えられる。
+`[first,last)` 内のイテレータ `i` について、`pred(*i) != false` であるものは `*i = new_value` という式によって置き換えられる。
 
 
 ## 戻り値

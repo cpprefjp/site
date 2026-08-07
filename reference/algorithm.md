@@ -192,7 +192,7 @@ ranges::sort(pv, {}, &Person::name);
 | [`transform`](algorithm/transform.md)             | 全ての要素に関数を適用する               | |
 | [`replace`](algorithm/replace.md)                 | 指定された値と一致する要素を指定された値に置き換える | |
 | [`replace_if`](algorithm/replace_if.md)           | 条件を満たす要素を指定された値に置き換える | |
-| [`replace_copy`](algorithm/replace_copy.md)       | 指定された値を一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする | |
+| [`replace_copy`](algorithm/replace_copy.md)       | 指定された値と一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする | |
 | [`replace_copy_if`](algorithm/replace_copy_if.md) | 条件を満たす要素を指定された値に置き換え、その結果を出力の範囲へコピーする | |
 | [`fill`](algorithm/fill.md)                       | 指定された値で出力の範囲に書き込む | |
 | [`fill_n`](algorithm/fill_n.md)                   | 指定された値で出力の範囲に n 個書き込む | |
@@ -228,7 +228,7 @@ ranges::sort(pv, {}, &Person::name);
 | [`ranges::transform`](algorithm/ranges_transform.md)               | 全ての要素に関数を適用する                                                                                      | C++20 |
 | [`ranges::replace`](algorithm/ranges_replace.md)                   | 指定された値と一致する要素を指定された値に置き換える                                                            | C++20 |
 | [`ranges::replace_if`](algorithm/ranges_replace_if.md)             | 条件を満たす要素を指定された値に置き換える                                                                      | C++20 |
-| [`ranges::replace_copy`](algorithm/ranges_replace_copy.md)         | 指定された値を一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする                            | C++20 |
+| [`ranges::replace_copy`](algorithm/ranges_replace_copy.md)         | 指定された値と一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする                            | C++20 |
 | [`ranges::replace_copy_if`](algorithm/ranges_replace_copy_if.md)   | 条件を満たす要素を指定された値に置き換え、その結果を出力の範囲へコピーする                                      | C++20 |
 | [`ranges::fill`](algorithm/ranges_fill.md)                         | 指定された値で出力の範囲に書き込む                                                                              | C++20 |
 | [`ranges::fill_n`](algorithm/ranges_fill_n.md)                     | 指定された値で出力の範囲に n 個書き込む                                                                         | C++20 |
