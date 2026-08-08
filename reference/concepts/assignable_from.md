@@ -70,13 +70,13 @@ struct S {
 
 int main() {
   f<int&, short>("int&", "short");
-  f<std::vector<int>&, std::vector<int>>("std::vector<int>&", "std::vector<short>");
+  f<std::vector<int>&, std::vector<int>>("std::vector<int>&", "std::vector<int>");
   f<std::unique_ptr<int>&, std::unique_ptr<int>>("std::unique_ptr<int>&", "std::unique_ptr<int>");
   f<S&, S&>("S&", "S&");
   
   std::cout << "\n";
 
-  f<std::unique_ptr<int>&, std::unique_ptr<int>&>("std::unique_ptr<int>&", "std::unique_ptr<short>&");
+  f<std::unique_ptr<int>&, std::unique_ptr<int>&>("std::unique_ptr<int>&", "std::unique_ptr<int>&");
   f<S&, S>("S&", "S");
 }
 ```
@@ -85,11 +85,11 @@ int main() {
 ### 出力
 ```
 int& is assignable from short
-std::vector<int>& is assignable from std::vector<short>
+std::vector<int>& is assignable from std::vector<int>
 std::unique_ptr<int>& is assignable from std::unique_ptr<int>
 S& is assignable from S&
 
-std::unique_ptr<int>& is not assignable from std::unique_ptr<short>&
+std::unique_ptr<int>& is not assignable from std::unique_ptr<int>&
 S& is not assignable from S
 ```
 

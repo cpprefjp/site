@@ -48,7 +48,7 @@ int main() {
 
   f<int>("int");
   f<std::int64_t>("std::int64_t");
-  f<int>("char");
+  f<char>("char");
   f<int*>("int*");
   f<int&>("int&");
   f<std::integral_constant<unsigned int, 1>>("std::integral_constant<unsigned int, 1>");

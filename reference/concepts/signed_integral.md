@@ -41,7 +41,7 @@ void f(const char* name) {
 int main() {
   f<int>("int");
   f<std::int64_t>("std::int64_t");
-  f<int>("char");
+  f<char>("char");
 
   std::cout << "\n";
 
