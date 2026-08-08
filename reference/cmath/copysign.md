@@ -21,10 +21,10 @@ namespace std {
              floating-point-type y); // (4) C++23
 
   Integral
-    copysign(Integral x
+    copysign(Integral x,
              Integral y);            // (5) C++11
   constexpr Integral
-    copysign(Integral x
+    copysign(Integral x,
              Integral y);            // (5) C++23
 
   float

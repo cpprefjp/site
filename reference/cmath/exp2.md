@@ -23,7 +23,7 @@ namespace std {
 
   float
     exp2f(float x);                // (6) C++17
-  float
+  constexpr float
     exp2f(float x);                // (6) C++26
 
   long double
