@@ -41,7 +41,7 @@ using namespace std::chrono_literals;
 
 int main()
 {
-  // 月、インデックス付き曜日のカレンダー要素を順に指定して構築
+  // 月、最終曜日のカレンダー要素を順に指定して構築
   chrono::month_weekday_last mwdl1{chrono::March, chrono::Sunday[chrono::last]};
   chrono::month_weekday_last mwdl2{chrono::month{3}, chrono::weekday_last{chrono::Sunday}};
   assert(mwdl1 == chrono::March/chrono::Sunday[chrono::last]);

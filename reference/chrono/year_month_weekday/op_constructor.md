@@ -39,7 +39,7 @@ year_month_weekday(year_month_weekday&&) = default;      // (6) C++20
 ## 効果
 - (1) : デフォルト初期化では年、月、曜日とN回目の値がそれぞれ符号なし整数の未初期化値となり、値初期化では値0となる
 - (2) : `y`、`m`、`wdi`をメンバ変数として保持する
-- (3) : `dp`が指すシステム時間に対応する年、月、日の値を求めて構築する
+- (3) : `dp`が指すシステム時間に対応する年、月、N回目の曜日の値を求めて構築する
 - (4) : [`sys_days`](/reference/chrono/sys_time.md)`{dp.`[`time_since_epoch()`](/reference/chrono/time_point/time_since_epoch.md)`}`と等価
 
 
