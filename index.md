@@ -171,7 +171,7 @@ Googleによるデータ使用の詳細は、以下のURLで確認すること�
 
 
 ## ライセンスについて
-本サイトの情報は、[クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)](https://creativecommons.org/licenses/by/4.0/)の下に提供しています。
+本サイトの情報は、[クリエイティブ・コモンズ 表示 4.0 国際 ライセンス(CC BY)](https://creativecommons.org/licenses/by/4.0/)の下に提供しています。
 
 ![](https://i.creativecommons.org/l/by/4.0/88x31.png)
 
