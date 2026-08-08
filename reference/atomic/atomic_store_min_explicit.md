@@ -25,7 +25,7 @@ namespace std {
 * memory_order[link memory_order.md]
 
 ## 概要
-値を読み込まずにアトミックに最小値を設定する。アトミックに最小値を設定する。
+値を読み込まずにアトミックに最小値を設定する。
 
 この関数は、[`atomic_fetch_min_explicit()`](atomic_fetch_min_explicit.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
 
