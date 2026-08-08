@@ -46,7 +46,7 @@ return fe.query(q, std::forward<Args>(args)...);
 #include <execution>
 #include <cstddef>
 #include <memory>
-using ex = std::execution;
+namespace ex = std::execution;
 
 int main()
 {

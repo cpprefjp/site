@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std::execution {
-  struct get_scheduler { unspecified };
+  struct get_scheduler_t { unspecified };
   inline constexpr get_scheduler_t get_scheduler{};
 }
 ```
