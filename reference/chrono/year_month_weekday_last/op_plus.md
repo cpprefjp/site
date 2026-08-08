@@ -6,17 +6,17 @@
 
 ```cpp
 namespace std::chrono {
-  constexpr year_month_weekday
+  constexpr year_month_weekday_last
     operator+(const year_month_weekday_last& ymwdl,
               const months& dm) noexcept;                     // (1) C++20
-  constexpr year_month_weekday
+  constexpr year_month_weekday_last
     operator+(const months& dm,
               const year_month_weekday_last& ymwdl) noexcept; // (2) C++20
 
-  constexpr year_month_weekday
+  constexpr year_month_weekday_last
     operator+(const year_month_weekday_last& ymwdl,
               const years& dy) noexcept;                      // (3) C++20
-  constexpr year_month_weekday
+  constexpr year_month_weekday_last
     operator+(const years& dy,
               const year_month_weekday_last& ymwdl) noexcept; // (4) C++20
 }

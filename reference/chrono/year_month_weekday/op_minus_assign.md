@@ -6,8 +6,8 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr year_month_day& operator-=(const months& m) noexcept; // (1) C++20
-constexpr year_month_day& operator-=(const years& y) noexcept;  // (2) C++20
+constexpr year_month_weekday& operator-=(const months& m) noexcept; // (1) C++20
+constexpr year_month_weekday& operator-=(const years& y) noexcept;  // (2) C++20
 ```
 
 ## 概要
