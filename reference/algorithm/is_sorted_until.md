@@ -92,7 +92,7 @@ ForwardIterator is_sorted_until(ForwardIterator first, ForwardIterator last)
   auto it = first;
   if (it == last || ++it == last)
     return last;
-  while (it != last && *first <= *it)
+  while (it != last && !(*it < *first))
     ++first, ++it;
   return it;
 }
