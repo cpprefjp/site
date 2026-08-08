@@ -34,8 +34,8 @@ namespace std::execution {
 - `Token`型オブジェクトのコピー構築、ムーブ構築、コピー代入、ムーブ代入から例外送出しない、かつ
 - `Token`型のオブジェクト`token`に対して、`token.try_associate()`は有効でない(not engaged)オブジェクト、もしくは`token`の関連スコープとの新しい関連付けを取得して関連付けを所有する[有効な(engaged)](scope_association.md)オブジェクトのいずれかを返す。
 - （const修飾の可能性のある）型`Token`の左辺値`token`が与えられたとき、型`decltype((sndr))`が[`sender`](sender.md)のモデルである全ての式`sndr`に対して、
-    - `token.warp(sndr)`が有効な式、かつ
-    - `decltype(token.warp(sndr))`は[`sender`](sender.md)のモデルであり、かつ
+    - `token.wrap(sndr)`が有効な式、かつ
+    - `decltype(token.wrap(sndr))`は[`sender`](sender.md)のモデルであり、かつ
     - [`sender_in`](sender_in.md)`<decltype((sndr)), E>`のモデルである全ての`E`型に対して、[`completion_signatures_of_t`](completion_signatures_of_t.md)`<decltype(token.wrap(sndr)), E>`は[`completion_signatures_of_t`](completion_signatures_of_t.md)`<decltype((sndr)), E>`と同一の完了シグネチャを含むこと。
 
 

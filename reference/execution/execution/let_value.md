@@ -110,7 +110,7 @@ namespace std::execution {
     * monostate[link /reference/variant/monostate.md]
     * connect_result_t[link connect_result_t.md]
 
-- 型`args_variant_t`および`ops2_variant_t`が適格なときに限って、上記ラムダ式のrequires節が満たされる。
+- 型`args_variant_t`および`ops_variant_t`が適格なときに限って、上記ラムダ式のrequires節が満たされる。
 
 `impls-for<let-tag>::start`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 

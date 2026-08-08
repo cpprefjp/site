@@ -20,7 +20,7 @@ Senderと[Receiver](receiver.md)との[接続(connect)](connect.md)時のカス�
 
 下記手順によってSender変換が行われる。
 
-- Receiverの環境`evn`に[開始ドメイン](get_domain.md)を、Sender`sndr`に[完了ドメイン](get_completion_domain.md)をそれぞれ問い合わせる。
+- Receiverの環境`env`に[開始ドメイン](get_domain.md)を、Sender`sndr`に[完了ドメイン](get_completion_domain.md)をそれぞれ問い合わせる。
 - 開始ドメインの上で、恒等変換となるまで（Sender型が変化しなくなるまで）再帰的にSender変換を適用する。
 - 完了ドメインの上で再帰的にSender変換を適用する。同過程でSender型が変化したときは完了ドメインを再度問い合わせる。
 

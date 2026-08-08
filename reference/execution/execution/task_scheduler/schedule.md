@@ -18,15 +18,15 @@ see below schedule();
 
 - [`get_completion_scheduler`](../get_completion_scheduler.md)`<`[`set_value_t`](../set_value.md)`>(`[`get_env`](../get_env.md)`(ts-sndr))`が`*this`と等しい。
 - [`get_completion_domain`](../get_completion_domain.md)`<`[`set_value_t`](../set_value.md)`>(`[`get_env`](../get_env.md)`(ts-sndr))`が`ts-domain()`と等価な式である。
-- [Receiver](../receiver.md)`rcvr`が`ts-sndr`に接続され、結果の[Opearation State](../operation_state.md)が開始されるとき、次の値で`sch_->`[`schedule`](../parallel_scheduler_replacement/parallel_scheduler_backend/schedule.md)`(r, s)`を呼び出す。
+- [Receiver](../receiver.md)`rcvr`が`ts-sndr`に接続され、結果の[Operation State](../operation_state.md)が開始されるとき、次の値で`sch_->`[`schedule`](../parallel_scheduler_replacement/parallel_scheduler_backend/schedule.md)`(r, s)`を呼び出す。
     - `r`は基底クラス[`parallel_scheduler_replacement::receiver_proxy`](../parallel_scheduler_replacement/receiver_proxy.md)を持つ`rcvr`のプロキシであり、かつ
     - `s`は`r`に対する[事前確保バックエンドストレージ](../parallel_scheduler.md)である。
 - 任意の型`E`に対して、[`unstoppable_token`](/reference/stop_token/unstoppable_token.md)`<`[`stop_token_of_t`](../../stop_token_of_t.md)`<E>>`が`true`のとき、[`completion_signatures_of_t`](../completion_signatures_of_t.md)`<decltype(ts-sndr)>, E>`は[`completion_signatures`](../completion_signatures.md)`<`[`set_value_t`](../set_value.md)`()>`を表す。そうでなければ、[`completion_signatures`](../completion_signatures.md)`<`[`set_value_t`](../set_value.md)`(),` [`set_stopped_t`](../set_stopped.md)`()>`を表す。
 
 
 ## 説明専用エンティティ
-### 式`WARP-RCVR`
-[`receiver_proxy`](../parallel_scheduler_replacement/receiver_proxy.md)から派生した型の左辺値`r`に対して、`WARP-RCVR(r)`を[`receiver`](../receiver.md)のモデルであり、その完了ハンドラが`r`の対応する完了ハンドラを呼び出すような型のオブジェクトとする。
+### 式`WRAP-RCVR`
+[`receiver_proxy`](../parallel_scheduler_replacement/receiver_proxy.md)から派生した型の左辺値`r`に対して、`WRAP-RCVR(r)`を[`receiver`](../receiver.md)のモデルであり、その完了ハンドラが`r`の対応する完了ハンドラを呼び出すような型のオブジェクトとする。
 
 ### クラステンプレート`backend-for`
 ```cpp
@@ -73,7 +73,7 @@ void schedule_bulk_chunked(size_t shape, bulk_item_receiver_proxy& r,
 * span[link /reference/span/span.md]
 * byte[link /reference/cstddef/byte.md]
 
-- 効果 : 説明用の`chunk_size`を`shape`以下の整数、`chunk_num`を`(shape + chunk_size - 1) / chunk_size`、`m`を`(i + 1) * chunk_size`と`shape`のうち小さい方として、整数`i`に対して`fn(i)`が`r.execute(i * chunk_sie, m)`を呼び出す関数オブジェクト`fn`とする。下記の式によって[Operation State](../operation_state.md)`os`を構築し、[`start`](../start.md)`(os)`を呼び出す。
+- 効果 : 説明用の`chunk_size`を`shape`以下の整数、`chunk_num`を`(shape + chunk_size - 1) / chunk_size`、`m`を`(i + 1) * chunk_size`と`shape`のうち小さい方として、整数`i`に対して`fn(i)`が`r.execute(i * chunk_size, m)`を呼び出す関数オブジェクト`fn`とする。下記の式によって[Operation State](../operation_state.md)`os`を構築し、[`start`](../start.md)`(os)`を呼び出す。
 
     ```cpp
     connect(bulk(just-sndr-like, par, num_chunks, fn), WRAP-RCVR(r))
@@ -143,7 +143,7 @@ static constexpr auto transform_sender(BulkSndr&& bulk_sndr, const Env& env)
     * get_env[link ../get_env.md]
     * FWD-ENV[link ../../forwarding_query.md]
 
-    ここで、`sch`の型が[`task_scheduler`](../task_scheduler.md)ではないとき、`e`は[`not-a-sender()`](../not-a-sender.md)とする。そうでなければ、[Receiver](../receiver.md)`rvcr`と[接続(connect)](../connect.md)され結果の[Operation State](../operation_state.md)が[開始(start)](../start.md)されたとき、`child`が未規定のReceiver`R`と接続されて開始する[`sender`](../sender.md)のモデルである型の右辺値とする。
+    ここで、`sch`の型が[`task_scheduler`](../task_scheduler.md)ではないとき、`e`は[`not-a-sender()`](../not-a-sender.md)とする。そうでなければ、[Receiver](../receiver.md)`rcvr`と[接続(connect)](../connect.md)され結果の[Operation State](../operation_state.md)が[開始(start)](../start.md)されたとき、`child`が未規定のReceiver`R`と接続されて開始する[`sender`](../sender.md)のモデルである型の右辺値とする。
 
     `child`が[エラー完了](../set_error.md)もしくは[停止完了](../set_stopped.md)するとき、完了操作は変更されずに`rcvr`に転送される。そうでなければ、値完了結果からdecayコピーされたオブジェクトを指す左辺値式のパック`args`として、
 
@@ -163,7 +163,7 @@ static constexpr auto transform_sender(BulkSndr&& bulk_sndr, const Env& env)
 
 
 ## 関連項目
-- [`execition::schedule`](../schedule.md)
+- [`execution::schedule`](../schedule.md)
 - [`execition::bulk_chunked`](../bulk_chunked.md)
 - [`execition::bulk_unchunked`](../bulk_unchunked.md)
 

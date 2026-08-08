@@ -45,7 +45,7 @@ sndr | c
 パイプ可能Senderアダプタオブジェクト(pipeable sender adaptor object)とは、第1引数に[`sender`](sender.md)をとり、戻り値として[`sender`](sender.md)を返すカスタマイゼーションポイントオブジェクトである。
 パイプ可能Senderアダプタオブジェクトが1個の引数しかとらないとき、パイプ可能Senderアダプタクロージャオブジェクトとなる。
 
-パイプ可能Senderアダプタオブジェクト`adaptor`が1個より多い引数をとるとき、型`decltype((sndr))`が[`sender`](sender.md)のモデルである式`sndr`、`args...`を式`adaptor(sndr, args...)`が適格となる引数リスト、型パック`BoundsArgs`を`decltype(auto(args))...`とする。
+パイプ可能Senderアダプタオブジェクト`adaptor`が1個より多い引数をとるとき、型`decltype((sndr))`が[`sender`](sender.md)のモデルである式`sndr`、`args...`を式`adaptor(sndr, args...)`が適格となる引数リスト、型パック`BoundArgs`を`decltype(auto(args))...`とする。
 式`adaptor(args...)`は、下記の特性をもつ完全転送呼び出しラッパーであるパイプ可能Senderアダプタクロージャオブジェクト`f`を生成する。
 
 - 対象オブジェクトは`adaptor`のコピー。

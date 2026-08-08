@@ -20,8 +20,8 @@ namespace std::execution {
 - `decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype((token))>`が[`stoppable_token`](/reference/stop_token/stoppable_token.md)を満たさないとき、式`stop-when(sndr, token)`は不適格となる。
 - そうでなく、[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype((token))>`が[`unstoppable_token`](/reference/stop_token/unstoppable_token.md)のモデルであるとき、式`stop-when(sndr, token)`は、`token`と`sndr`が不定順で順序付けられることを除いて、`(void)token, sndr`と等価となる。
 - そうでないとき、式`stop-when(sndr, token)`はSender`osndr`を返す。`osndr`が[Receiver](receiver.md)`r`と[接続(connect)](connect.md)されるとき、[`get_stop_token`](../get_stop_token.md)`(`[`get_env`](get_env.md)`(r))`の結果を`rtoken`とする。
-    - `rtoken`の型が[`unstoppable_token`](/reference/stop_token/unstoppable_token.md)のモデルであるとき、`osdnr`と`r`との接続の効果は[`connect`](connect.md)`(`[`write_env`](write_env.md)`(sndr,` [`prop`](prop.md)`(`[`get_stop_token`](../get_stop_token.md)`, token)), r)`に等しい。
-    - そうでないとき、下記のような説明専用の型`stoken-t`の`stoken`オブジェクトに対して、`osdnr`と`r`との接続の効果は[`connect`](connect.md)`(`[`write_env`](write_env.md)`(sndr,` [`prop`](prop.md)`(`[`get_stop_token`](../get_stop_token.md)`, stoken)), r)`に等しい。
+    - `rtoken`の型が[`unstoppable_token`](/reference/stop_token/unstoppable_token.md)のモデルであるとき、`osndr`と`r`との接続の効果は[`connect`](connect.md)`(`[`write_env`](write_env.md)`(sndr,` [`prop`](prop.md)`(`[`get_stop_token`](../get_stop_token.md)`, token)), r)`に等しい。
+    - そうでないとき、下記のような説明専用の型`stoken-t`の`stoken`オブジェクトに対して、`osndr`と`r`との接続の効果は[`connect`](connect.md)`(`[`write_env`](write_env.md)`(sndr,` [`prop`](prop.md)`(`[`get_stop_token`](../get_stop_token.md)`, stoken)), r)`に等しい。
         - `stoken-t`は[`stoppable_token`](/reference/stop_token/stoppable_token.md)のモデルである。
         - `stoken.stop_requested()`は`token.stop_requested() || rtoken.stop_requested()`を返す。
         - `stoken.stop_possible()`は`token.stop_possible() || rtoken.stop_possible()`を返す。
