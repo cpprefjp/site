@@ -56,7 +56,7 @@ int main()
 * fs::create_directory[link /reference/filesystem/create_directory.md]
 * it->path()[link /reference/filesystem/directory_entry/path.md]
 
-### 出力
+### 出力例
 ```
 before : "dir/b.txt"
 after  : "dir/a.txt"
