@@ -42,7 +42,7 @@ return get_tzdb_list().front();
 
 
 ## 例外
-なんからの理由で有効なタイムゾーンデータベースを参照できない場合、この関数は[`runtime_error`](/reference/stdexcept.md)例外を送出する。
+なんらかの理由で有効なタイムゾーンデータベースを参照できない場合、この関数は[`runtime_error`](/reference/stdexcept.md)例外を送出する。
 
 
 ## 備考

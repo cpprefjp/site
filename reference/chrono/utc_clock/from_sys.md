@@ -19,7 +19,7 @@ static utc_time<common_type_t<Duration, seconds>>
 
 
 ## 戻り値
-`u.`[`time_since_epoch()`](/reference/chrono/time_point/time_since_epoch.md) `- t.`[`time_since_epoch()`](/reference/chrono/time_point/time_since_epoch.md)が1970年1月1日からの挿入されたうるう秒の合計と等しくなるような[`utc_time`](/reference/chrono/utc_time.md)型オブジェクト`u`を返す。`t`がうるう秒が挿入されたちょうどその日付だえる場合、この変換ではうるう秒が挿入されたものとしてカウントされる。
+`u.`[`time_since_epoch()`](/reference/chrono/time_point/time_since_epoch.md) `- t.`[`time_since_epoch()`](/reference/chrono/time_point/time_since_epoch.md)が1970年1月1日からの挿入されたうるう秒の合計と等しくなるような[`utc_time`](/reference/chrono/utc_time.md)型オブジェクト`u`を返す。`t`がうるう秒が挿入されたちょうどその日付である場合、この変換ではうるう秒が挿入されたものとしてカウントされる。
 
 
 ## 例

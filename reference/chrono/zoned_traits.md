@@ -15,7 +15,7 @@ namespace std::chrono {
 * time_zone[link time_zone.md]
 
 ## 概要
-`zoned_traits`は、[`zoned_time`](zoned_time.md)`<Duration, TimeZonePtr>`クラスのデフォルトコンストラクタ、および[`string_view`](/reference/string_view/basic_string_view.md)をとるコンストラクタのための、タイムゾーン取得を動作をカスタマイズする中間インタフェースクラスである。
+`zoned_traits`は、[`zoned_time`](zoned_time.md)`<Duration, TimeZonePtr>`クラスのデフォルトコンストラクタ、および[`string_view`](/reference/string_view/basic_string_view.md)をとるコンストラクタのための、タイムゾーン取得の動作をカスタマイズする中間インタフェースクラスである。
 
 標準では[`time_zone`](time_zone.md)クラスに対する特殊化が定義されるが、ユーザーが任意のタイムゾーンクラスを定義する場合は、このクラスを特殊化することで、[`zoned_time`](zoned_time.md)`<Duration, TimeZonePtr>`クラスでそのタイムゾーンクラスを扱えるようになる。
 
