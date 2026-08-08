@@ -1,6 +1,6 @@
 # visit
 * format[meta header]
-* class[meta id-type]
+* function template[meta id-type]
 * std[meta namespace]
 * basic_format_arg[meta class]
 * cpp26[meta cpp]

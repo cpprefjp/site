@@ -28,7 +28,7 @@ Rangeの書式種別を表す列挙型。
 | `set`          | [`std::set`](/reference/set/set.md)や[`std::flat_set`](/reference/flat_set/flat_set.md)向けの書式。`{v1, v2}` |
 | `sequence`     | [`std::vector`](/reference/vector/vector.md)や[`std::array`](/reference/array/array.md)向けの書式。`[v1, v2]`|
 | `string`       | 文字列向けの書式。`abc` |
-| `debug_string` | デバッグ文字列向けの書式。`\nabc` |
+| `debug_string` | デバッグ文字列向けの書式。`"\nabc"` |
 
 
 ## 備考

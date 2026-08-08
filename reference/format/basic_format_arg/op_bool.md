@@ -1,6 +1,6 @@
 # operator bool
 * format[meta header]
-* class[meta id-type]
+* function[meta id-type]
 * std[meta namespace]
 * basic_format_arg[meta class]
 * cpp20[meta cpp]
