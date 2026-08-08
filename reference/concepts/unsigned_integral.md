@@ -57,7 +57,7 @@ int main() {
 * std::unsigned_integral[color ff0000]
 
 ### 出力
-```tart
+```
 bool is unsigned_integral
 std::size_t is unsigned_integral
 std::uint32_t is unsigned_integral

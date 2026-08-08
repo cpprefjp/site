@@ -76,7 +76,7 @@ return pred();
 - (2) : 
     - C++11まで : この関数は、`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)および`lock.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)によって送出されうる、あらゆる例外が送出される可能性がある。
     - C++14 : `pred()`により送出された例外。
-－ (3) :
+- (3) :
     - `pred()`により送出された例外。
 
 

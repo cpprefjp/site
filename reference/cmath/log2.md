@@ -64,7 +64,7 @@ namespace std {
 
 
 ## 例
-## 基本的な使い方
+### 基本的な使い方
 ```cpp example
 #include <cmath>
 #include <limits>

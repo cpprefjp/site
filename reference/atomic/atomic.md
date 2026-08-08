@@ -208,7 +208,7 @@ namespace std {
 | [`store_min`](atomic/store_min.md)                   | 値を読み込まずに最小値を設定 | C++26 |
 | [`store_fmaximum`](atomic/store_fmaximum.md)         | 値を読み込まずに最大値を設定  (`-0.0`と`+0.0`では`+0.0`、NaNと値ではNaNを返す) | C++26 |
 | [`store_fminimum`](atomic/store_fminimum.md)         | 値を読み込まずに最小値を設定  (`-0.0`と`+0.0`では`-0.0`、NaNと値ではNaNを返す) | C++26 |
-| [`store_fmaximum_num`](atomic/store_fmaximum_num.md) | | 値を読み込まずに最大値を設定  (`-0.0`と`+0.0`では`+0.0`、NaNと値では数値を返す) | C++26 |
+| [`store_fmaximum_num`](atomic/store_fmaximum_num.md) | 値を読み込まずに最大値を設定  (`-0.0`と`+0.0`では`+0.0`、NaNと値では数値を返す) | C++26 |
 | [`store_fminimum_num`](atomic/store_fminimum_num.md) | 値を読み込まずに最小値を設定  (`-0.0`と`+0.0`では`-0.0`、NaNと値では数値を返す) | C++26 |
 | [`operator+=`](atomic/op_plus_assign.md)             | 加算 | C++20 |
 | [`operator-=`](atomic/op_minus_assign.md)            | 減算 | C++20 |
