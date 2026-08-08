@@ -47,7 +47,7 @@ std::string_view to_string(rgba_color_channel channel) {
 
 ```cpp example
 namespace ns {
-  class foo {
+  struct foo {
     enum bar {
       A,
       B,
