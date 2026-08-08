@@ -44,6 +44,11 @@ public:
   MyAlloc(const MyAlloc<U>& alloc)
     : state_(alloc.state_) {}
 
+  // std::allocatorのrebindを継承すると別のアロケータ型になってしまうため、
+  // MyAlloc自身にrebindさせる
+  template <class U>
+  struct rebind { using other = MyAlloc<U>; };
+
   int getState() const { return state_; }
 };
 
