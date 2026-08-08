@@ -43,7 +43,7 @@ return cd(cd(d).count() % s);
 - (2)
 
 ```cpp
-using cd = duration<typename common_type<Rep1, Rep2>::type, Period>;
+using cd = typename common_type<duration<Rep1, Period1>, duration<Rep2, Period2>>::type;
 return cd(cd(lhs).count() % cd(rhs).count());
 ```
 * common_type[link /reference/type_traits/common_type.md]
