@@ -72,7 +72,7 @@ namespace std {
 
 
 ## 計算量
-ほぼ `(last - first) * log(min(last - first, result_last - result_- first))` 回の比較を行う
+ほぼ `(last - first) * log(min(last - first, result_last - result_first))` 回の比較を行う
 
 
 ## 例

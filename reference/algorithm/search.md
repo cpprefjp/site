@@ -75,7 +75,7 @@ namespace std {
 - (2) : イテレータ範囲`[first1, last1)`内からサブシーケンス`[first2, last2)`を検索する。各要素の等値比較として二項述語関数オブジェクト`pred`を使用する
 - (3) : (1)の並列アルゴリズム版。第1パラメータとして実行ポリシーをとる
 - (4) : (2)の並列アルゴリズム版。第1パラメータとして実行ポリシーをとる
-- (5) : 対象となるサブシーケンスを包含する`sercher`関数オブジェクトを使用して、範囲`[first, last)`から対象のサブシーケンスを検索する。
+- (5) : 対象となるサブシーケンスを包含する`searcher`関数オブジェクトを使用して、範囲`[first, last)`から対象のサブシーケンスを検索する。
     - この関数は、[`<functional>`](/reference/functional.md)ヘッダで定義される[`std::boyer_moore_searcher`](/reference/functional/boyer_moore_searcher.md)関数オブジェクトのような検索器と合わせて使用する
 
 
