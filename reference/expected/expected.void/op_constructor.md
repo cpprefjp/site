@@ -38,7 +38,7 @@ constexpr explicit expected(unexpect_t, initializer_list<U> il, Args&&... args);
 - (3) : ムーブコンストラクタ。
 - (4) : 変換可能な`expected<cv void, G>`オブジェクトからコピー構築する。
 - (5) : 変換可能な`expected<cv void, G>`オブジェクトからムーブ構築する。
-- (6) : 変換可能な[`unexpected`](../unexpected.md)オブジェクトかエラー値をコピー構築する。
+- (6) : 変換可能な[`unexpected`](../unexpected.md)オブジェクトからエラー値をコピー構築する。
 - (7) : 変換可能な[`unexpected`](../unexpected.md)オブジェクトからエラー値をムーブ構築する。
 - (8) : 正常値を保持する。
 - (9) : エラー値型`E`のコンストラクタ引数として任意個の引数を受け取って、コンストラクタ内で型`E`のオブジェクトをエラー値として生成し、保持する。
