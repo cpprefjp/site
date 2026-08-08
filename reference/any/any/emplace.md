@@ -31,8 +31,8 @@ decay_t<T>& emplace(std::initializer_list<U> il,
 
 
 ## 効果
-- (1) : [`reset()`](reset.md)を呼び出す。その後[`std::forward`](/reference/utility/forward.md)`<Args>(value)...`をコンストラクタ引数として、型[`std::decay_t<T>`](/reference/type_traits/decay.md)のオブジェクトを直接構築して保持する
-- (2) : [`reset()`](reset.md)を呼び出す。その後`il`と[`std::forward`](/reference/utility/forward.md)`<Args>(value)...`をコンストラクタ引数として、型[`std::decay_t<T>`](/reference/type_traits/decay.md)のオブジェクトを直接構築して保持する
+- (1) : [`reset()`](reset.md)を呼び出す。その後[`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として、型[`std::decay_t<T>`](/reference/type_traits/decay.md)のオブジェクトを直接構築して保持する
+- (2) : [`reset()`](reset.md)を呼び出す。その後`il`と[`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として、型[`std::decay_t<T>`](/reference/type_traits/decay.md)のオブジェクトを直接構築して保持する
 
 
 ## 戻り値

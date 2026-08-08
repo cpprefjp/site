@@ -44,8 +44,8 @@ explicit any(in_place_type_t<T>,
 - (2) : `other.`[`has_value()`](has_value.md) `== false`である場合、値を保持しない`any`オブジェクトを構築する。そうでなければ、`any(`[`in_place_type`](/reference/utility/in_place_type_t.md)`<T>,` [`any_cast`](/reference/any/any_cast.md)`<const T&>(other))`と等価の効果をもつ
 - (3) : `other.`[`has_value()`](has_value.md) `== false`である場合、値を保持しない`any`オブジェクトを構築する。そうでなければ、`other`が保持する値を`this`にムーブする
 - (4) : [`std::forward`](/reference/utility/forward.md)`<T>(value)`をコンストラクタ引数として、型[`std::decay_t<T>`](/reference/type_traits/decay.md)のオブジェクトを直接構築して保持する
-- (5) : [`std::forward`](/reference/utility/forward.md)`<Args>(value)...`をコンストラクタ引数として、型[`std::decay_t<T>`](/reference/type_traits/decay.md)のオブジェクトを直接構築して保持する
-- (6) : `il`と[`std::forward`](/reference/utility/forward.md)`<Args>(value)...`をコンストラクタ引数として、型[`std::decay_t<T>`](/reference/type_traits/decay.md)のオブジェクトを直接構築して保持する
+- (5) : [`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として、型[`std::decay_t<T>`](/reference/type_traits/decay.md)のオブジェクトを直接構築して保持する
+- (6) : `il`と[`std::forward`](/reference/utility/forward.md)`<Args>(args)...`をコンストラクタ引数として、型[`std::decay_t<T>`](/reference/type_traits/decay.md)のオブジェクトを直接構築して保持する
 
 
 ## 事後条件
