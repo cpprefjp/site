@@ -42,9 +42,9 @@ int main()
 
   // 見た目に反して &C::b は int(B::*) 型を持つためS=Bに型推論されてしまう。
   static_assert( std::is_pointer_interconvertible_with_class( &C::b ));
-  // テンプレートパラメータS=Cを明示することで M(C::*) の検査となる。
+  // テンプレートパラメータS=C, M=intを明示することで int(C::*) の検査となる。
   // このケースではCはスタンダードレイアウトクラスではなくfalseとなる。
-  static_assert(!std::is_pointer_interconvertible_with_class<C>( &C::b ));
+  static_assert(!std::is_pointer_interconvertible_with_class<C, int>( &C::b ));
 }
 ```
 * std::is_pointer_interconvertible_with_class[color ff0000]

@@ -43,9 +43,9 @@ int main()
   // 見た目に反して &C::a, &C::b はそれぞれ int(A::*), int(B::*) 型を持つため、
   // このケースではS1=A, S2=Bに型推論されて前述例と同様にtrueを返す。
   static_assert( std::is_corresponding_member( &C::a, &C::b ));
-  // テンプレートパラメータを明示することでクラスCのメンバ変数に対する検査となる。
+  // テンプレートパラメータS1=S2=C, M1=M2=intを明示することでクラスCのメンバ変数に対する検査となる。
   // このケースではCはスタンダードレイアウトクラスではなくfalseを返す。
-  static_assert(!std::is_corresponding_member<C, C>( &C::a, &C::b ));
+  static_assert(!std::is_corresponding_member<C, C, int, int>( &C::a, &C::b ));
 }
 ```
 * std::is_corresponding_member[color ff0000]
