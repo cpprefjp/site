@@ -21,10 +21,10 @@ namespace std {
                             const T& rhs);          // (2) C++14
 
   template <class T>
-  bool operator==(const T& lhs,
+  bool operator!=(const T& lhs,
                   const complex<T>& rhs);           // (3) C++03
   template <class T>
-  constexpr bool operator==(const T& lhs,
+  constexpr bool operator!=(const T& lhs,
                             const complex<T>& rhs); // (3) C++14
 }
 ```
