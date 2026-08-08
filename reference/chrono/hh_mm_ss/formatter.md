@@ -6,8 +6,8 @@
 
 ```cpp
 namespace std {
-  template <class charT>
-  struct formatter<chrono::hh_mm_ss, charT>;
+  template <class Rep, class Period, class charT>
+  struct formatter<chrono::hh_mm_ss<chrono::duration<Rep, Period>>, charT>;
 }
 ```
 
@@ -67,9 +67,9 @@ int main() {
 2 : 15時30分20秒
 3 : 15:30
 4 : 15:30:20
-5: 午後03時30分20秒
-6: 午後03時30分20秒
-7: 15時30分20秒
+5 : 午後03時30分20秒
+6 : 午後03時30分20秒
+7 : 15時30分20秒
 ```
 
 ## バージョン
