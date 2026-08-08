@@ -26,9 +26,9 @@ namespace std::chrono {
 ## 概要
 左辺が右辺より小さいかの比較を行う。
 
-- (1) : `leap_second`オブジェクト同士において、左辺より右辺が小さいかの比較を行う
-- (2) : `leap_second`オブジェクトと[`sys_time`](/reference/chrono/sys_time.md)オブジェクトにおいて、左辺より右辺が小さいかの比較を行う
-- (3) : [`sys_time`](/reference/chrono/sys_time.md)オブジェクトと`leap_second`オブジェクトにおいて、左辺より右辺が小さいかの比較を行う
+- (1) : `leap_second`オブジェクト同士において、左辺が右辺より小さいかの比較を行う
+- (2) : `leap_second`オブジェクトと[`sys_time`](/reference/chrono/sys_time.md)オブジェクトにおいて、左辺が右辺より小さいかの比較を行う
+- (3) : [`sys_time`](/reference/chrono/sys_time.md)オブジェクトと`leap_second`オブジェクトにおいて、左辺が右辺より小さいかの比較を行う
 
 
 ## 戻り値
