@@ -43,7 +43,7 @@ namespace std::chrono {
 | `June`     | Jun |
 | `July`     | Jul |
 | `August`   | Aug |
-| `Sptember` | Sep |
+| `September` | Sep |
 | `October`  | Oct |
 | `November` | Nov |
 | `December` | Dec |

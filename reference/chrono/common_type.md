@@ -32,7 +32,7 @@ namespace std {
   それらに対する`duration<Rep, Period>`特殊化をメンバ型`type`として定義する。
 
 - (2) : 同じ時計型`Clock`と、時間間隔型`Duration`を`Duration1`と`Duration2`の共通型（`Duration = common_type_t<Duration1, Duration2>`、すなわち(1)で計算）から求めて  
-それらに対する`timepoint<Clock, Duration>`特殊化をメンバ型`type`として定義する。
+それらに対する`time_point<Clock, Duration>`特殊化をメンバ型`type`として定義する。
 
 (1)において新しい周期型[`Period<N, D>`](/reference/ratio/ratio.md)は、`N`を`Period1::num`と`Period2::num`の最大公約数から、`D`を`Period1::den`と`Period2::den`の最小公倍数から、それぞれ求めることで構成できる。
 
