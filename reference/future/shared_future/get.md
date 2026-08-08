@@ -116,7 +116,7 @@ public:
 private:
   void read_data(std::promise<void> p)
   {
-    // 1. データ読み込むj
+    // 1. データを読み込む
     for (int i = 0; i < 10; ++i) {
       data_.push_back(i + 1);
     }

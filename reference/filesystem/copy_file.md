@@ -29,7 +29,7 @@ namespace std::filesystem {
 - (1) : `return copy_file(from, to,` [`copy_options::none`](copy_options.md)`);`
 - (2) : `return copy_file(from, to,` [`copy_options::none`](copy_options.md)`, ec);`
 - (3) :
-    - 以下のいずれか場合にエラーとなる：
+    - 以下のいずれかの場合にエラーとなる：
         - `!`[`is_regular_file`](is_regular_file.md)`(from)` (コピー元のファイルが存在しない)
         - [`exists`](exists.md)`(to) && !`[`is_regular_file`](is_regular_file.md)`(to)` (コピー先に、通常ファイルではないファイルが存在している)
         - [`exists`](exists.md)`(to) &&` [`equivalent`](equivalent.md)`(from, to)` (コピー先にファイルが存在しており、それがコピー元と等価)

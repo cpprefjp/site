@@ -11,7 +11,7 @@ constexpr const_iterator cend() const noexcept; // (1) C++26
 ```
 
 ## 概要
-末尾の次を指す読み取り専用を取得する。
+末尾の次を指す読み取り専用イテレータを取得する。
 
 
 ## 戻り値
