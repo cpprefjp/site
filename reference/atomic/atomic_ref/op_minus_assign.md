@@ -24,7 +24,7 @@ constexpr value_type
 以下と等価の式により、演算結果の値が返る：
 
 ```cpp
-return fetch_sub(operand) + operand;
+return fetch_sub(operand) - operand;
 ```
 * fetch_sub[link fetch_sub.md]
 
