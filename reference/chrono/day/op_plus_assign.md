@@ -6,7 +6,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr day& operator+=(const days& m) noexcept; // (1) C++20
+constexpr day& operator+=(const days& d) noexcept; // (1) C++20
 ```
 
 ## 概要

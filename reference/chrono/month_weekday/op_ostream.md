@@ -21,7 +21,7 @@ namespace std::chrono {
 
 - (1) : 以下と等価：
     ```cpp
-    return os << format(os.getloc(), STATICALLY-WIDEN<charT>("{:L}/{:L}"), mwd.month(), mwd.weeday_indexed());
+    return os << format(os.getloc(), STATICALLY-WIDEN<charT>("{:L}/{:L}"), mwd.month(), mwd.weekday_indexed());
     ```
     * format[link /reference/format/format.md]
     * os.getloc()[link /reference/ios/ios_base/getloc.md]
