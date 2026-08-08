@@ -77,7 +77,7 @@ namespace NS {
 
 struct not_swappable {
   not_swappable(not_swappable&&) = delete;
-  not_swappable& operator==(not_swappable&&) = delete;
+  not_swappable& operator=(not_swappable&&) = delete;
 };
 
 int main() {
