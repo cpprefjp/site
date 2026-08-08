@@ -20,7 +20,7 @@ namespace std::filesystem {
 
 
 ## 効果
-- パス`existing_sumlink`がシンボリックリンクに解決され、
+- パス`existing_symlink`がシンボリックリンクに解決され、
     - それが非ディレクトリへのシンボリックリンクであれば、
         - (1) : [`create_symlink`](create_symlink.md)`(`[`read_symlink`](read_symlink.md)`(existing_symlink), new_symlink)`と等価の処理をする
         - (2) : [`create_symlink`](create_symlink.md)`(`[`read_symlink`](read_symlink.md)`(existing_symlink, ec), new_symlink, ec)`と等価の処理をする
