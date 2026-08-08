@@ -112,7 +112,7 @@ int main() {
 clang++ 5.0.0、`-Wall -DNDEBUG` オプションでコンパイルした場合:
 ```
 maybe_unused.cpp:12:8: warning: unused variable 'b2' [-Wunused-variable]
-  bool b2 = thing3 && thing4;
+  bool b2 = flag3 && flag4;
        ^
 1 warning generated.
 ```
