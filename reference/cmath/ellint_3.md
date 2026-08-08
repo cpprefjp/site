@@ -9,27 +9,33 @@
 namespace std {
   double
     ellint_3(double k,
+             double nu,
              double phi);              // (1) C++17
   floating-point-type
     ellint_3(floating-point-type k,
+             floating-point-type nu,
              floating-point-type phi); // (1) C++23
 
   Promoted
     ellint_3(Arithmetic1 k,
-             Arithmetic2 phi);         // (2) C++17
+             Arithmetic2 nu,
+             Arithmetic3 phi);         // (2) C++17
 
   float
     ellint_3f(float k,
+              float nu,
               float phi);              // (3) C++17
 
   long double
     ellint_3l(long double k,
+              long double nu,
               long double phi);        // (4) C++17
 }
 ```
 * Promoted[italic]
 * Arithmetic1[italic]
 * Arithmetic2[italic]
+* Arithmetic3[italic]
 
 ## 概要
 第3種不完全楕円積分 (incomplete elliptic integral of the third kind) を計算する。
