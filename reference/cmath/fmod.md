@@ -29,7 +29,7 @@ namespace std {
           long double y);          // (7) C++17
   constexpr long double
     fmodl(long double x,
-          long double y);          // (8) C++17
+          long double y);          // (7) C++23
 }
 ```
 * Integral[italic]

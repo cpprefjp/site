@@ -11,7 +11,7 @@ void
           mapped_container_type&& mapped_cont); // (1) C++23
 constexpr void
   replace(key_container_type&& key_cont,
-          mapped_container_type&& mapped_cont); // (2) C++26
+          mapped_container_type&& mapped_cont); // (1) C++26
 ```
 
 ## 概要
