@@ -47,7 +47,7 @@ int main() {
   std::cout << std::endl;
   
   // values_viewを使用
-  std::ranges::values_view vv(m);
+  auto vv = std::views::values(m);
   for (const std::string& value : vv) {
     std::cout << value << " ";
   }

@@ -33,7 +33,7 @@ constexpr V base() &&;             // (2) C++20
 int main() {
   std::map<int, std::string> m = {{1, "one"}, {2, "two"}, {3, "three"}};
   
-  std::ranges::keys_view kv(m);
+  auto kv = std::views::keys(m);
   
   // (1) コピーして取得
   auto base1 = kv.base();

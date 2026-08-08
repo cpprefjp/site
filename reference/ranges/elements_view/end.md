@@ -43,7 +43,7 @@ int main() {
   std::map<int, std::string> m = {{1, "one"}, {2, "two"}, {3, "three"}};
   
   // keys_viewを使用
-  std::ranges::keys_view kv(m);
+  auto kv = std::views::keys(m);
   auto begin = kv.begin();
   auto end = kv.end();
   
@@ -53,7 +53,7 @@ int main() {
   std::cout << std::endl;
   
   // values_viewを使用
-  std::ranges::values_view vv(m);
+  auto vv = std::views::values(m);
   for (auto it = vv.begin(); it != vv.end(); ++it) {
     std::cout << *it << " ";
   }

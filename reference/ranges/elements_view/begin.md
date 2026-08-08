@@ -35,14 +35,14 @@ int main() {
   std::map<int, std::string> m = {{1, "one"}, {2, "two"}, {3, "three"}};
   
   // keys_viewを使用
-  std::ranges::keys_view kv(m);
+  auto kv = std::views::keys(m);
   auto it = kv.begin();
   std::cout << *it << std::endl;  // 1
   ++it;
   std::cout << *it << std::endl;  // 2
   
   // values_viewを使用
-  std::ranges::values_view vv(m);
+  auto vv = std::views::values(m);
   auto vit = vv.begin();
   std::cout << *vit << std::endl; // one
 }
