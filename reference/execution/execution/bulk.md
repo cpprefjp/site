@@ -62,7 +62,7 @@ return bulk_chunked(std::move(child), policy, shape, std::move(new_f));
 
 ## カスタマイゼーションポイント
 [Receiver](receiver.md)との[接続(connect)](connect.md)時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
-[デフォルト実行ドメイン](default_domain.md)では`bulk.transform_sender(`[`set_value`](set_value.md)`, out_sndr, env)`が呼ばれ、[`bulk_chunked`](bulk_chunked.md)Senderへと変換される。
+[デフォルト実行ドメイン](default_domain.md)では`bulk.transform_sender(out_sndr, env)`が呼ばれ、[`bulk_chunked`](bulk_chunked.md)Senderへと変換される。
 
 説明用の式`out_sndr`を`bulk(sndr, policy, shape, f)`の戻り値[Sender](sender.md)とし、式`rcvr`を式[`connect`](connect.md)`(out_sndr, rcvr)`が適格となる[Receiver](receiver.md)とする。式[`connect`](connect.md)`(out_sndr, rcvr)`は[開始(start)](start.md)時に下記を満たす非同期操作を生成しない場合、動作は未定義となる。
 
@@ -91,7 +91,7 @@ int main()
 {
   ex::sender auto sndr =
     ex::just()
-    | ex::bulk(3, ex::seq, [](int i) {
+    | ex::bulk(ex::seq, 3, [](int i) {
         std::println("{}", i);
       });
   std::this_thread::sync_wait(sndr);

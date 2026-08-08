@@ -140,7 +140,7 @@ int main()
 {
   ex::sender auto sndr =
     ex::just()
-    | ex::bulk_unchunked(3, ex::seq, [](int i) {
+    | ex::bulk_unchunked(ex::seq, 3, [](int i) {
         std::println("{}", i);
       });
   std::this_thread::sync_wait(sndr);

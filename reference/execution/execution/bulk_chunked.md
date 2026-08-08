@@ -131,7 +131,7 @@ int main()
 {
   ex::sender auto sndr =
     ex::just()
-    | ex::bulk_chunked(3, ex::seq,
+    | ex::bulk_chunked(ex::seq, 3,
         [](int begin, int end) {
           for (int i = begin; i < end; i++) {
             std::println("{}", i);
