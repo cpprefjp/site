@@ -51,7 +51,7 @@ namespace std::execution {
 ## 概要
 `basic-receiver`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
 
-`basic-receiver<Sndr, Rcvr, Index>`は[`receiver`](receiver.md)のモデルであり、SenderアルゴリズムのReceiverとしてして[子Senderとの接続時](basic-operation.md)に利用される。
+`basic-receiver<Sndr, Rcvr, Index>`は[`receiver`](receiver.md)のモデルであり、SenderアルゴリズムのReceiverとして[子Senderとの接続時](basic-operation.md)に利用される。
 
 - `Sndr` : Senderアルゴリズムの[Sender](sender.md)。
 - `Rcvr` : Senderアルゴリズムの接続先[Receiver](receiver.md)。Senderアルゴリズム同士を連結する場合は、親Senderアルゴリズム側のReceiver型。

@@ -70,7 +70,7 @@ constexpr auto basic-sender<Tag, Data, Child...>::get_completion_signatures();
 
 型`E`をリスト`Env...,` [`env<>`](env.md)における先頭の型としたとき、[環境](../queryable.md)`E`をもつ[Receiver](receiver.md)型を`Rcvr`とする。式`CHECK-TYPE()`を[`impls-for`](impls-for.md)`<Tag>::template check-types<Sndr, E>()`とし、型`CS`を下記の通り定義する。
 
-- `CHECK-TYPE()`がコア定数式のとき、`op`を[`connect_result_t`](connect_result_t.md)`<Sndr, Rcvr>`型の左辺値とする。`CS`は[`completion_signatures`](completion_signatures.md)の特殊化となり、そのテンプレート引数の集合は評価`op.`[`start()`](start.md)の結果結果として得られる完了操作の集合に対応する。
+- `CHECK-TYPE()`がコア定数式のとき、`op`を[`connect_result_t`](connect_result_t.md)`<Sndr, Rcvr>`型の左辺値とする。`CS`は[`completion_signatures`](completion_signatures.md)の特殊化となり、そのテンプレート引数の集合は評価`op.`[`start()`](start.md)の結果として得られる完了操作の集合に対応する。
 - そうでなければ、`CS`は[`completion_signatures<>`](completion_signatures.md)となる。
 
 テンプレートパラメータ制約 : 式`CHECK-TYPES()`が適格であること。
