@@ -22,7 +22,7 @@ namespace std::execution {
 * completion_signatures_of_t[link completion_signatures_of_t.md]
 
 ## 概要
-[Sender型](sender.md)`Sndr`が[環境](receiver.md)`Env`において非同期操作を作成できるとき、[完了シグネチャ集合](completion_signatures.md)が[停止完了シグネチャ](set_stopped.md)を含むか否かを返す。
+[Sender型](sender.md)`Sndr`が[環境](../queryable.md)`Env`において非同期操作を作成できるとき、[完了シグネチャ集合](completion_signatures.md)が[停止完了シグネチャ](set_stopped.md)を含むか否かを返す。
 
 
 ## 例

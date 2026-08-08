@@ -56,7 +56,7 @@ namespace std {
 * variant[link /reference/variant/variant.md]
 * monostate[link /reference/variant/monostate.md]
 * handle[link /reference/format/basic_format_arg/handle.md]
-* basic_string[link /reference/string/basic_string.md]
+* basic_string_view[link /reference/string_view/basic_string_view.md]
 * basic_format_arg[link /reference/format/basic_format_arg.md]
 
 ## 戻り値

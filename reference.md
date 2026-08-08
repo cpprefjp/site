@@ -23,7 +23,7 @@
 
 ***
 
-## <a id="language-support" href="#language-support-library">言語サポートライブラリ</a>
+## <a id="language-support" href="#language-support">言語サポートライブラリ</a>
 
 | ヘッダ                                                 | 説明                     | 対応バージョン |
 |--------------------------------------------------------|--------------------------|----------------|

@@ -93,7 +93,7 @@ int main() {
 * chrono::Sunday[link weekday_constants.md]
 * chrono::last[link last_spec.md]
 * 2020y[link year/op_y.md]
-* wl1.weekday()[link weekday_indexed/weekday.md]
+* wl1.weekday()[link weekday_last/weekday.md]
 * chrono::year_month_weekday_last[link year_month_weekday_last.md]
 * chrono::sys_days[link sys_time.md]
 * chrono::year_month_day[link year_month_day.md]

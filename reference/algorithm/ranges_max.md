@@ -91,7 +91,7 @@ int main()
 }
 ```
 * std::ranges::max[color ff0000]
-* std::ranges::greater[link /reference/functional/greater.md]
+* std::ranges::greater[link /reference/functional/ranges_greater.md]
 
 ### 出力
 ```

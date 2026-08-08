@@ -127,7 +127,7 @@ int main()
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 
-1. [C++14 / 宣言時のメンバ初期化を持つ型の集成体初期化を許可](../cpp14/brace_elision_in_array_temporary_initialization.md)
+1. [C++14 / 宣言時のメンバ初期化を持つ型の集成体初期化を許可](../cpp14/member_initializers_and_aggregates.md)
 
 
 ## 参照

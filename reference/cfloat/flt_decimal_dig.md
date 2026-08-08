@@ -55,7 +55,7 @@ int main()
 ```
 * FLT_DECIMAL_DIG[color ff0000]
 * FLT_RADIX[link flt_radix.md]
-* FLT_MANT_DIG[link ldbl_mant_dig.md]
+* FLT_MANT_DIG[link flt_mant_dig.md]
 * std::log10[link ../cmath/log10.md]
 * std::ceil[link ../cmath/ceil.md]
 * std::modf[link ../cmath/modf.md]

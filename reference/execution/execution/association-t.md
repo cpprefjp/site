@@ -29,7 +29,7 @@ struct association-t;
 ## 関連項目
 - [`execution::scope_association`](scope_association.md)
 - [`execution::simple_counting_scope`](simple_counting_scope.md)
-- [`execution::counting_scope`](simple_counting_scope.md)
+- [`execution::counting_scope`](counting_scope.md)
 
 
 ## 参照
