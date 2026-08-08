@@ -140,7 +140,7 @@ namespace std::execution {
 `impls-for<associate_t>::get-state`の`noexcept`節の式は、型`wrap-sender`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<data-type<Sndr>>::wrap-sender`としたとき、下記の通り。
 
 ```cpp
-(is_same_v<Sndr, remove_cvref_t> ||
+(is_same_v<Sndr, remove_cvref_t<Sndr>> ||
  is_nothrow_constructible_v<remove_cvref_t<Sndr>, Sndr>) &&
 nothrow-callable<connect_t, wrap-sender, Rcvr>
 ```

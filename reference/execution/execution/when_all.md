@@ -62,7 +62,7 @@ namespace std::execution {
 `impls-for<when_all_t>::get-env`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
 ```cpp
-[]<class State, class Rcvr>(auto&&, State& state, const Receiver& rcvr) noexcept {
+[]<class State, class Rcvr>(auto&&, State& state, const Rcvr& rcvr) noexcept {
   return make-when-all-env(state.stop-src, get_env(rcvr))
 }
 ```
