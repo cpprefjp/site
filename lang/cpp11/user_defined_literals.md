@@ -99,7 +99,7 @@ auto x = "hello"s; // xの型はstd::string
 
 ```cpp
 namespace unit_literals {
-  // intの大きさを持ち、km (kiro-meter, キロメートル)単位を表すリテラル演算子
+  // intの大きさを持ち、km (kilo-meter, キロメートル)単位を表すリテラル演算子
   // 上記 1 のバージョン
   int operator"" _kmi(unsigned long long x)
   {
@@ -172,7 +172,7 @@ int minus_distance = -123_kmi;
 
 ```cpp
 namespace unit_literals {
-  // floatの大きさを持ち、km (kiro-meter, キロメートル)単位を表すリテラル演算子
+  // floatの大きさを持ち、km (kilo-meter, キロメートル)単位を表すリテラル演算子
   // 上記 1 のバージョン
   float operator"" _kmf(long double x)
   {

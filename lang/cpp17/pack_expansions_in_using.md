@@ -63,7 +63,7 @@ struct A : T... {
 継承した全てのクラスの`operator()`を使えるようにしている。
 
 この例では`long`や`std::string`を引数として渡すと`ForAll::operator()(int)`ではなく、
-`using`宣言した`ForLong::operator()(long)`や`ForString::operator()(cons std::string&)`が呼び出される。
+`using`宣言した`ForLong::operator()(long)`や`ForString::operator()(const std::string&)`が呼び出される。
 
 ```cpp example
 #include <iostream>

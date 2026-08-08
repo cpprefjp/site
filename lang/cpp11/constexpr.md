@@ -63,7 +63,7 @@ int main()
   static_assert(min_val == 2, "result must be 2");
 
   constexpr int factorial_val = factorial(5);
-  static_assert(factorial_val == 120, "result muse be 120");
+  static_assert(factorial_val == 120, "result must be 120");
 }
 ```
 
