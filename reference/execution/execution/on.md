@@ -13,7 +13,7 @@ namespace std::execution {
 * unspecified[italic]
 
 ## 概要
-`on`は、2種類の呼び出し形式サポートするSenderアダプタである。
+`on`は、2種類の呼び出し形式をサポートするSenderアダプタである。
 
 - `on(sch, sndr)` : [Sender](sender.md)`sndr`を[Scheduler](scheduler.md)`sch`に関連付けられた実行リソースに属する実行エージェント上で開始し、完了後に`on`Senderが開始された実行リソースへと実行制御を戻す。
 - `on(sndr, sch, closure)` : [Sender](sender.md)`sndr`の完了後に、[Scheduler](scheduler.md)`sch`に関連付けられた実行リソースに属する実行エージェントへ実行を移し、`sndr`の完了結果をもってSenderアダプタクロージャ`closure`を実行し、Sender`sndr`が完了された実行リソースへと実行制御を戻す。

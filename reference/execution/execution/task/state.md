@@ -83,7 +83,7 @@ void start() & noexcept;
 - 効果 : 説明用の`prom`を`handle.`[`promise()`](/reference/coroutine/coroutine_handle/promise.md)オブジェクトとする。`*this`と関連する`STATE(prom)`、`RCVR(prom)`、`SCHED(prom)`を下記とする。
     - `STATE(prom)` : `*this`
     - `RCVR(prom)` : `rcvr`
-    - `SCHED(prom)` : 式が有効ならば[`start_scheduler_type`](../task.md)`(`[`get_start_scheduler`](../get_start_scheduler.md)`(`[`get_env`](../get_env.md)`(rcvr)))`で初期化したオブジェクト、そうでなれば`start_scheduler_type()`。いずれの式も適格でなければ、プログラムは不適格となる。
+    - `SCHED(prom)` : 式が有効ならば[`start_scheduler_type`](../task.md)`(`[`get_start_scheduler`](../get_start_scheduler.md)`(`[`get_env`](../get_env.md)`(rcvr)))`で初期化したオブジェクト、そうでなければ`start_scheduler_type()`。いずれの式も適格でなければ、プログラムは不適格となる。
 
     その後、`handle.`[`resume()`](/reference/coroutine/coroutine_handle/resume.md)を呼び出す。
 

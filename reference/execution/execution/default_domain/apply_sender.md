@@ -14,7 +14,7 @@ constexpr decltype(auto) apply_sender(Tag, Sndr&& sndr, Args&&... args)
 
 ## 概要
 Senderアルゴリズム適用のデフォルト動作。
-[`execution::apply_sender`](../apply_sender.md)に対するスタマイゼーションポイントとして機能する。
+[`execution::apply_sender`](../apply_sender.md)に対するカスタマイゼーションポイントとして機能する。
 
 [Senderアルゴリズムタグ型](../tag_of_t.md)`Tag`に対して、`apply_sender`メンバ関数を呼び出す。
 

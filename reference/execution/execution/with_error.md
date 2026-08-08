@@ -18,7 +18,7 @@ namespace std::execution {
 ```
 
 ## 概要
-タスク[`execution::task`](task.md)を戻り値型とする[コルーチン](/lang/cpp20/coroutines.md)において、`co_yield`式で[エラー完了](set_error.md)すること表現するタグ型。
+タスク[`execution::task`](task.md)を戻り値型とする[コルーチン](/lang/cpp20/coroutines.md)において、`co_yield`式で[エラー完了](set_error.md)することを表現するタグ型。
 
 ```cpp
 co_yield with_error{err}

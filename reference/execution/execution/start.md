@@ -12,7 +12,7 @@ namespace std::execution {
 ```
 
 ## 概要
-`start`は、[Operation State](operation_state.md)関連付けられた非同期操作(asynchronous operation)を開始するカスタマイゼーションポイントオブジェクトである。
+`start`は、[Operation State](operation_state.md)に関連付けられた非同期操作(asynchronous operation)を開始するカスタマイゼーションポイントオブジェクトである。
 
 
 ## 効果

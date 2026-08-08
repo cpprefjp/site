@@ -15,7 +15,7 @@ constexpr decltype(auto) transform_sender(Tag, Sndr&& sndr, const Env& env)
 
 ## 概要
 Sender変換のデフォルト動作。
-[`execution::transform_sender`](../transform_sender.md)に対するスタマイゼーションポイントとして機能する。
+[`execution::transform_sender`](../transform_sender.md)に対するカスタマイゼーションポイントとして機能する。
 
 - 定義されていれば、[Senderアルゴリズムタグ型](../tag_of_t.md)の`transform_sender`メンバ関数に変換動作を委譲する。
 - そうでなければ、無変換。
