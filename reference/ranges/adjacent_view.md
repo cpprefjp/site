@@ -70,12 +70,6 @@ namespace std::ranges {
 | [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する  | C++23          |
 | [`operator[]`](view_interface/op_at.md)      | 要素へアクセスする                | C++20          |
 
-## 推論補助
-
-| 名前                                                  | 説明                         | 対応バージョン |
-|-------------------------------------------------------|------------------------------|----------------|
-| [`(deduction_guide)`](adjacent_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++23          |
-
 ## 例
 ```cpp example
 #include <ranges>
