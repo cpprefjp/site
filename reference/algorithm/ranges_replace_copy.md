@@ -136,7 +136,7 @@ namespace std::ranges {
 * sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
-指定された値を一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする。
+指定された値と一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
@@ -205,7 +205,7 @@ struct Point {
 };
 
 std::ostream& operator<<(std::ostream& os, const Point& p) {
-  return os << p.x << ',' << p.y << std::endl;
+  return os << p.x << ',' << p.y;
 }
 
 int main() {

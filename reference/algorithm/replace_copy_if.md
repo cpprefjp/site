@@ -135,7 +135,7 @@ struct Point {
 };
 
 std::ostream& operator<<(std::ostream& os, const Point& p) {
-  return os << p.x << ',' << p.y << std::endl;
+  return os << p.x << ',' << p.y;
 }
 
 int main() {
