@@ -14,7 +14,7 @@ constexpr void swap(flat_set& y)
 * is_nothrow_swappable_v[link /reference/type_traits/is_nothrow_swappable.md]
 
 ## 概要
-コンテナ内のコンテンツを、同じ型の要素を保持する他の `flat_sest` オブジェクトである `y` 内のコンテンツと交換する。
+コンテナ内のコンテンツを、同じ型の要素を保持する他の `flat_set` オブジェクトである `y` 内のコンテンツと交換する。
 
 このメンバ関数の呼び出しの後、呼び出し前にコンテナ内にあった要素は `y` へ、`y` 内にあった要素は `*this` へ移る。
 
