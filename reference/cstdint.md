@@ -14,14 +14,14 @@
 | [`int16_t`](cstdint/int16_t.md)             | 16ビット幅の符号付き整数(実装するかどうかは処理系定義) | C++11 |
 | [`int32_t`](cstdint/int32_t.md)             | 32ビット幅の符号付き整数(実装するかどうかは処理系定義) | C++11 |
 | [`int64_t`](cstdint/int64_t.md)             | 64ビット幅の符号付き整数(実装するかどうかは処理系定義) | C++11 |
-| [`int_fast8_t`](cstdint/int_fast8_t.md)     | 少なくても8ビット幅を持ち、演算が高速な符号付き整数 | C++11 |
-| [`int_fast16_t`](cstdint/int_fast16_t.md)   | 少なくても16ビット幅を持ち、演算が高速な符号付き整数 | C++11 |
-| [`int_fast32_t`](cstdint/int_fast32_t.md)   | 少なくても32ビット幅を持ち、演算が高速な符号付き整数 | C++11 |
-| [`int_fast64_t`](cstdint/int_fast64_t.md)   | 少なくても64ビット幅を持ち、演算が高速な符号付き整数 | C++11 |
-| [`int_least8_t`](cstdint/int_least8_t.md)   | 少なくても8ビット幅を持つ、最小の符号付き整数 | C++11 |
-| [`int_least16_t`](cstdint/int_least16_t.md) | 少なくても16ビット幅を持つ、最小の符号付き整数 | C++11 |
-| [`int_least32_t`](cstdint/int_least32_t.md) | 少なくても32ビット幅を持つ、最小の符号付き整数 | C++11 |
-| [`int_least64_t`](cstdint/int_least64_t.md) | 少なくても64ビット幅を持つ、最小の符号付き整数 | C++11 |
+| [`int_fast8_t`](cstdint/int_fast8_t.md)     | 少なくとも8ビット幅を持ち、演算が高速な符号付き整数 | C++11 |
+| [`int_fast16_t`](cstdint/int_fast16_t.md)   | 少なくとも16ビット幅を持ち、演算が高速な符号付き整数 | C++11 |
+| [`int_fast32_t`](cstdint/int_fast32_t.md)   | 少なくとも32ビット幅を持ち、演算が高速な符号付き整数 | C++11 |
+| [`int_fast64_t`](cstdint/int_fast64_t.md)   | 少なくとも64ビット幅を持ち、演算が高速な符号付き整数 | C++11 |
+| [`int_least8_t`](cstdint/int_least8_t.md)   | 少なくとも8ビット幅を持つ、最小の符号付き整数 | C++11 |
+| [`int_least16_t`](cstdint/int_least16_t.md) | 少なくとも16ビット幅を持つ、最小の符号付き整数 | C++11 |
+| [`int_least32_t`](cstdint/int_least32_t.md) | 少なくとも32ビット幅を持つ、最小の符号付き整数 | C++11 |
+| [`int_least64_t`](cstdint/int_least64_t.md) | 少なくとも64ビット幅を持つ、最小の符号付き整数 | C++11 |
 | [`intmax_t`](cstdint/intmax_t.md)           | 最も大きい符号付き整数型 | C++11 |
 | [`intptr_t`](cstdint/intptr_t.md)           | ポインタサイズの符号付き整数型(実装するかどうかは処理系定義) | C++11 |
 
@@ -33,14 +33,14 @@
 | [`uint16_t`](cstdint/uint16_t.md)             | 16ビット幅の符号なし整数(実装するかどうかは処理系定義) | C++11 |
 | [`uint32_t`](cstdint/uint32_t.md)             | 32ビット幅の符号なし整数(実装するかどうかは処理系定義) | C++11 |
 | [`uint64_t`](cstdint/uint64_t.md)             | 64ビット幅の符号なし整数(実装するかどうかは処理系定義) | C++11 |
-| [`uint_fast8_t`](cstdint/uint_fast8_t.md)     | 少なくても8ビット幅を持ち、演算が高速な符号なし整数 | C++11 |
-| [`uint_fast16_t`](cstdint/uint_fast16_t.md)   | 少なくても16ビット幅を持ち、演算が高速な符号なし整数 | C++11 |
-| [`uint_fast32_t`](cstdint/uint_fast32_t.md)   | 少なくても32ビット幅を持ち、演算が高速な符号なし整数 | C++11 |
-| [`uint_fast64_t`](cstdint/uint_fast64_t.md)   | 少なくても64ビット幅を持ち、演算が高速な符号なし整数 | C++11 |
-| [`uint_least8_t`](cstdint/uint_least8_t.md)   | 少なくても8ビット幅を持つ、最小の符号なし整数 | C++11 |
-| [`uint_least16_t`](cstdint/uint_least16_t.md) | 少なくても16ビット幅を持つ、最小の符号なし整数 | C++11 |
-| [`uint_least32_t`](cstdint/uint_least32_t.md) | 少なくても32ビット幅を持つ、最小の符号なし整数 | C++11 |
-| [`uint_least64_t`](cstdint/uint_least64_t.md) | 少なくても64ビット幅を持つ、最小の符号なし整数 | C++11 |
+| [`uint_fast8_t`](cstdint/uint_fast8_t.md)     | 少なくとも8ビット幅を持ち、演算が高速な符号なし整数 | C++11 |
+| [`uint_fast16_t`](cstdint/uint_fast16_t.md)   | 少なくとも16ビット幅を持ち、演算が高速な符号なし整数 | C++11 |
+| [`uint_fast32_t`](cstdint/uint_fast32_t.md)   | 少なくとも32ビット幅を持ち、演算が高速な符号なし整数 | C++11 |
+| [`uint_fast64_t`](cstdint/uint_fast64_t.md)   | 少なくとも64ビット幅を持ち、演算が高速な符号なし整数 | C++11 |
+| [`uint_least8_t`](cstdint/uint_least8_t.md)   | 少なくとも8ビット幅を持つ、最小の符号なし整数 | C++11 |
+| [`uint_least16_t`](cstdint/uint_least16_t.md) | 少なくとも16ビット幅を持つ、最小の符号なし整数 | C++11 |
+| [`uint_least32_t`](cstdint/uint_least32_t.md) | 少なくとも32ビット幅を持つ、最小の符号なし整数 | C++11 |
+| [`uint_least64_t`](cstdint/uint_least64_t.md) | 少なくとも64ビット幅を持つ、最小の符号なし整数 | C++11 |
 | [`uintmax_t`](cstdint/uintmax_t.md)           | 最も大きい符号なし整数型 | C++11 |
 | [`uintptr_t`](cstdint/uintptr_t.md)           | ポインタサイズの符号なし整数型(実装するかどうかは処理系定義) | C++11 |
 
