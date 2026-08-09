@@ -135,7 +135,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - 文字列エンコーディングを識別するライブラリとして、[`<text_encoding>`](/reference/text_encoding.md)を追加
 - 要素のメモリ位置が安定するシーケンスコンテナのライブラリとして[`<hive>`](/reference/hive.md)を追加
 - 並行処理におけるデータの参照・更新を行うRCU (Read Copy Update) のライブラリとして、[`<rcu>`](/reference/rcu.md)を追加
-- 並行処理において参照中のデータが更新されないよう保護するハザードポインタのライブラリとして、[`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)を追加
+- 並行処理において参照中のデータが更新されないよう保護するハザードポインタのライブラリとして、[`<hazard_pointer>`](/reference/hazard_pointer.md)を追加
 - データ並列ライブラリとして、[`<simd>`](/reference/simd.md)を追加
 - デバッグサポートのライブラリとして[`<debugging>`](/reference/debugging.md)を追加
 - 線形代数ライブラリとして[`<linalg>`](/reference/linalg.md)を追加

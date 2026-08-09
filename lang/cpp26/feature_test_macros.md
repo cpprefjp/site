@@ -107,7 +107,7 @@
 |`__cpp_lib_freestanding_variant`|`202311L`||[`<variant>`](/reference/variant.md)|
 |`__cpp_lib_fstream_native_handle`|`202306L`|[`std::basic_fstream`](/reference/fstream/basic_fstream.md)などのメンバに、ファイルのネイティブハンドルを追加|[`<fstream>`](/reference/fstream.md)|
 |`__cpp_lib_function_ref`|`202604L`|[`<functional>`](/reference/functional.md)に[`std::function_ref`](/reference/functional/function_ref.md)を追加|[`<functional>`](/reference/functional.md)|
-|`__cpp_lib_hazard_pointer`|`202306L`|ハザードポインタのライブラリ[`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)を追加|[`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)|
+|`__cpp_lib_hazard_pointer`|`202306L`|ハザードポインタのライブラリ[`<hazard_pointer>`](/reference/hazard_pointer.md)を追加|[`<hazard_pointer>`](/reference/hazard_pointer.md)|
 |`__cpp_lib_hive`|`202502L`|シーケンスコンテナのライブラリ[`<hive>`](/reference/hive.md)を追加|[`<hive>`](/reference/hive.md)|
 |`__cpp_lib_indirect`|`202502L`|[`<memory>`](/reference/memory.md)に[`std::indirect`](/reference/memory/indirect.md)と[`std::polymorphic`](/reference/memory/polymorphic.md)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_inplace_vector`|`202603L`|容量固定の可変長配列のライブラリ[`<inplace_vector>`](/reference/inplace_vector.md)を追加|[`<inplace_vector>`](/reference/inplace_vector.md)|

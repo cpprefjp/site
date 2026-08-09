@@ -116,6 +116,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
     - 指定したマスクで立っている一のビットを下位に詰める[`std::simd::bit_compress()`](/reference/simd/bit_compress.md)関数
     - 下位ビットを指定したマスクが立っている位置へ展開する[`std::simd::bit_expand()`](/reference/simd/bit_expand.md)関数
     - 未定義動作にならないビットシフト[`std::simd::shl()`](/reference/simd/shl.md)関数と[`std::simd::shr()`](/reference/simd/shr.md)関数
+- [`<hazard_pointer>`](/reference/hazard_pointer.md)に、複数のハザードポインタをまとめて構築・破棄する[`std::make_hazard_pointer_batch()`](/reference/hazard_pointer/make_hazard_pointer_batch.md)関数と[`std::clear_hazard_pointer_batch()`](/reference/hazard_pointer/clear_hazard_pointer_batch.md)関数を追加
 
 ### 非推奨化
 - [`<iostream>`](/reference/iostream.md)において、`signed char` / `unsigned char`の入出力を非推奨化。[`std::int8_t`](/reference/cstdint/int8_t.md) / [`std::uint8_t`](/reference/cstdint/uint8_t.md)の別名として扱われるこれらの型の入出力で、整数型であることを期待して予期せぬ結果を招く可能性があった

@@ -29,7 +29,7 @@ RCU同期メカニズムは、複数スレッド間で共有されるリンク�
 
 
 ## 関連項目
-- [`<hazard_pointer>`](hazard_pointer.md.nolink)
+- [`<hazard_pointer>`](hazard_pointer.md)
 
 
 ## 参照

@@ -1,0 +1,25 @@
+# 機能テストマクロ
+* cpp29[meta cpp]
+
+<!-- start lang caution -->
+
+このページはC++29に採用された言語機能の変更を解説しています。
+
+のちのC++規格でさらに変更される場合があるため[関連項目](#relative-page)を参照してください。
+
+<!-- last lang caution -->
+
+## 概要
+
+### ライブラリ
+
+ライブラリの機能テストマクロは全て[`<version>`](/reference/version.md)でも提供される。
+
+| マクロ名 | 値 | 機能 | ヘッダ |
+|----------|----|------|--------|
+|`__cpp_lib_hazard_pointer`|`202606L`|[`<hazard_pointer>`](/reference/hazard_pointer.md)に、複数のハザードポインタをまとめて構築・破棄する[`std::make_hazard_pointer_batch()`](/reference/hazard_pointer/make_hazard_pointer_batch.md)関数と[`std::clear_hazard_pointer_batch()`](/reference/hazard_pointer/clear_hazard_pointer_batch.md)関数を追加|[`<hazard_pointer>`](/reference/hazard_pointer.md)|
+
+
+## 参照
+
+- [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)

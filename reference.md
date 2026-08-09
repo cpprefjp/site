@@ -213,7 +213,7 @@
 | [`<barrier>`](/reference/barrier.md)                       | バリア同期            | C++20          |
 | [`<future>`](/reference/future.md)                         | Future                | C++11          |
 | [`<rcu>`](/reference/rcu.md)                               | データの参照・更新    | C++26          |
-| [`<hazard_pointer>`](/reference/hazard_pointer.md.nolink)         | ハザードポインタ      | C++26          |
+| [`<hazard_pointer>`](/reference/hazard_pointer.md)         | ハザードポインタ      | C++26          |
 | [`<simd>`](/reference/simd.md) | データ並列 | C++26 |
 
 
