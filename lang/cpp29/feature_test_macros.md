@@ -18,6 +18,8 @@
 | マクロ名 | 値 | 機能 | ヘッダ |
 |----------|----|------|--------|
 |`__cpp_lib_hazard_pointer`|`202606L`|[`<hazard_pointer>`](/reference/hazard_pointer.md)に、複数のハザードポインタをまとめて構築・破棄する[`std::make_hazard_pointer_batch()`](/reference/hazard_pointer/make_hazard_pointer_batch.md)関数と[`std::clear_hazard_pointer_batch()`](/reference/hazard_pointer/clear_hazard_pointer_batch.md)関数を追加|[`<hazard_pointer>`](/reference/hazard_pointer.md)|
+|`__cpp_lib_simd`|`202606L`|[`<simd>`](/reference/simd.md)に、SIMDデータ用の連番を生成する[`std::simd::iota`](/reference/simd/iota.md)変数テンプレートなどを追加|[`<simd>`](/reference/simd.md)|
+|`__cpp_lib_simd_bitops`|`202607L`|[`<simd>`](/reference/simd.md)に、ビット列を操作する[`bit_reverse()`](/reference/simd/bit_reverse.md)・[`bit_repeat()`](/reference/simd/bit_repeat.md)・[`bit_compress()`](/reference/simd/bit_compress.md)・[`bit_expand()`](/reference/simd/bit_expand.md)関数と、未定義動作にならないシフト[`shl()`](/reference/simd/shl.md)・[`shr()`](/reference/simd/shr.md)関数を追加|[`<simd>`](/reference/simd.md)|
 
 
 ## 参照

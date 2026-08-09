@@ -122,3 +122,5 @@ false true false true
 ## 参照
 - [P1928R15 std::simd — merge data-parallel types from the Parallelism TS 2](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p1928r15.pdf)
     - C++26で追加された
+- [P3430R3 SIMD issues: explicit, unsequenced, identity-element position, and members of disabled SIMD](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3430r3.pdf)
+    - ジェネレータコンストラクタから`noexcept`が除去された

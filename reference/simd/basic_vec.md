@@ -194,3 +194,7 @@ int main()
     - コンストラクタとアクセサが追加された
 - [P3480R6 `std::simd` is a range](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3480r6.pdf)
     - イテレータを追加し、Rangeとして扱えるようになった
+- [P3430R3 SIMD issues: explicit, unsequenced, identity-element position, and members of disabled SIMD](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3430r3.pdf)
+    - 無効な特殊化が持つメンバが`value_type`・`abi_type`・`mask_type`のみであることが規定された
+- [P3932R0 Fix LWG4470: Fix integer-from in simd](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3932r0.pdf)
+    - ABIタグ推論 (`deduce-abi-t`) と特殊化の有効・無効判定まわりの説明用規定が修正された

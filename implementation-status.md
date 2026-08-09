@@ -357,24 +357,24 @@
 
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICX][icx] | [MSVC][msvc] |
 |----------|------|------------|----------------|------------|--------------|
-| [未定義動作とIFNDRの付録を整理](/lang/cpp29/undefined_behavior_and_ifndr_annexes.md.nolink) | 規格中のUBとIFNDR（診断不要の不適格）を付録として一覧化・整理する | | | | |
-| [基底クラスに対する指示付き初期化](/lang/cpp29/designated-initializers_for_base_classes.md.nolink) | 集成体初期化の`.member = …`を基底クラス部分にも使えるよう拡張する | | | | |
-| [浮動小数点数のオーバーフローの動作の明確化](/lang/cpp29/clarify_the_behavior_of_floating-point_overflow.md.nolink) | 浮動小数点演算のオーバーフロー時の動作を明確に規定する | | | | | |
-| [後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md.nolink) | 後置`++`／`--`を`= default`で定義（前置版から自動生成）できるようにする | | | | |
-| [非決定的なポインタの由来](/lang/cpp29/nondeterministic_pointer_provenance.md.nolink) | ポインタの由来を非決定的として扱うメモリモデルを整備する | | | | |
-| [無効なポインタ操作の扱いを整理](/lang/cpp29/invalid_pointer_operations.md.nolink) | 解放済みなど無効なポインタに対する操作の扱いを整理・規定する | | | | |
-| [新しいUnicode勧告に従った識別子の調整](/lang/cpp29/adjust_identifier_following_new_Unicode_recommendations.md.nolink) | 識別子に使える文字を最新のUnicode勧告に合わせて調整する | | | | |
-| [`return_value`と`return_void`は排他的ではない](/lang/cpp29/return_value_and_return_void_are_not_mutually_exclusive.md.nolink) | コルーチンの`promise`型が`return_value`と`return_void`の両方を持つことを許容する | | | | |
-| [名前付きユニバーサル文字エスケープを追加](/lang/cpp29/more_named_universal_character_escapes.md.nolink) | `\N{...}`で使える名前付き文字エスケープを拡張する | | | | |
-| [ラムダの字句順序](/lang/cpp29/lexical_order_for_lambdas.md.nolink) | ラムダ式の字句上の順序を明確化する | | | | |
-| [テンプレートに対する言語リンケージ](/lang/cpp29/language_linkage_for_templates.md.nolink) | テンプレートに`extern "C"`等の言語リンケージを適用する規則を整備する | | | | |
-| [例外を送出する例外指定をもつ解放関数を不適格とする](/lang/cpp29/deallocation_functions_with_throwing_exception_specification_are_ill_formed.md.nolink) | `throw`する可能性がある例外指定を持つ`operator delete`を不適格にする | | | | |
-| [複合要件における条件付き`noexcept`指定](/lang/cpp29/conditional_noexcept_specifiers_in_compound_requirements.md.nolink) | コンセプトの複合要件`{ 式 } noexcept`で条件付き`noexcept`を書けるようにする | | | | |
-| [契約を仮想関数に対応させる](/lang/cpp29/contracts_for_virtual_functions.md.nolink) | 仮想関数に契約を適用できるようにする | | | | |
-| [`consteval`時のみの値](/lang/cpp29/consteval-only_values.md.nolink) | `consteval`文脈でのみ存在・利用できる値の扱いを規定する | | | | |
-| [ポインタの生存期間終了によるzap問題の解決案](/lang/cpp29/pointer_lifetime-end_zap_proposed_solutions.md.nolink) | 生存期間終了時にポインタ値が無効化される「zap」問題への解決策 | | | | |
-| [テンプレート名に対するパック添字アクセス](/lang/cpp29/pack_indexing_for_template_names.md.nolink) | テンプレート名のパックに`T...[N]`形式の添字アクセスを可能にする | | | | |
-| [`#embed`のオフセット引数](/lang/cpp29/embed_offset_parameter.md.nolink) | `#embed`にオフセット指定を追加し、埋め込むデータの開始位置を設定できるようにする | | | | |
+| P3596R3: [未定義動作とIFNDRの付録を整理](/lang/cpp29/undefined_behavior_and_ifndr_annexes.md.nolink) | 規格中のUBとIFNDR（診断不要の不適格）を付録として一覧化・整理する | | | | |
+| P2287R6: [基底クラスに対する指示付き初期化](/lang/cpp29/designated-initializers_for_base_classes.md.nolink) | 集成体初期化の`.member = …`を基底クラス部分にも使えるよう拡張する | | | | |
+| P3899R3: [浮動小数点数のオーバーフローの動作の明確化](/lang/cpp29/clarify_the_behavior_of_floating-point_overflow.md.nolink) | 浮動小数点演算のオーバーフロー時の動作を明確に規定する | | | | | |
+| P3668R4: [後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md.nolink) | 後置`++`／`--`を`= default`で定義（前置版から自動生成）できるようにする | | | | |
+| P2434R5: [非決定的なポインタの由来](/lang/cpp29/nondeterministic_pointer_provenance.md.nolink) | ポインタの由来を非決定的として扱うメモリモデルを整備する | | | | |
+| P3347R6: [無効なポインタ操作の扱いを整理](/lang/cpp29/invalid_pointer_operations.md.nolink) | 解放済みなど無効なポインタに対する操作の扱いを整理・規定する | | | | |
+| P3658R1: [新しいUnicode勧告に従った識別子の調整](/lang/cpp29/adjust_identifier_following_new_Unicode_recommendations.md.nolink) | 識別子に使える文字を最新のUnicode勧告に合わせて調整する | | | | |
+| P3950R1: [`return_value`と`return_void`は排他的ではない](/lang/cpp29/return_value_and_return_void_are_not_mutually_exclusive.md.nolink) | コルーチンの`promise`型が`return_value`と`return_void`の両方を持つことを許容する | | | | |
+| P3733R1: [名前付きユニバーサル文字エスケープを追加](/lang/cpp29/more_named_universal_character_escapes.md.nolink) | `\N{...}`で使える名前付き文字エスケープを拡張する | | | | |
+| P3847R1: [ラムダの字句順序](/lang/cpp29/lexical_order_for_lambdas.md.nolink) | ラムダ式の字句上の順序を明確化する | | | | |
+| P2243R0: [テンプレートに対する言語リンケージ](/lang/cpp29/language_linkage_for_templates.md.nolink) | テンプレートに`extern "C"`等の言語リンケージを適用する規則を整備する | | | | |
+| P3424R2: [例外を送出する例外指定をもつ解放関数を不適格とする](/lang/cpp29/deallocation_functions_with_throwing_exception_specification_are_ill_formed.md.nolink) | `throw`する可能性がある例外指定を持つ`operator delete`を不適格にする | | | | |
+| P3822R2: [複合要件における条件付き`noexcept`指定](/lang/cpp29/conditional_noexcept_specifiers_in_compound_requirements.md.nolink) | コンセプトの複合要件`{ 式 } noexcept`で条件付き`noexcept`を書けるようにする | | | | |
+| P3097R3: [契約を仮想関数に対応させる](/lang/cpp29/contracts_for_virtual_functions.md.nolink) | 仮想関数に契約を適用できるようにする | | | | |
+| P4101R1: [`consteval`時のみの値](/lang/cpp29/consteval-only_values.md.nolink) | `consteval`文脈でのみ存在・利用できる値の扱いを規定する | | | | |
+| P2414R12: [ポインタの生存期間終了によるzap問題の解決案](/lang/cpp29/pointer_lifetime-end_zap_proposed_solutions.md.nolink) | 生存期間終了時にポインタ値が無効化される「zap」問題への解決策 | | | | |
+| P3670R4: [テンプレート名に対するパック添字アクセス](/lang/cpp29/pack_indexing_for_template_names.md.nolink) | テンプレート名のパックに`T...[N]`形式の添字アクセスを可能にする | | | | |
+| P3540R3: [`#embed`のオフセット引数](/lang/cpp29/embed_offset_parameter.md.nolink) | `#embed`にオフセット指定を追加し、埋め込むデータの開始位置を設定できるようにする | | | | |
 
 
 [gcc]: ./implementation.md#gcc

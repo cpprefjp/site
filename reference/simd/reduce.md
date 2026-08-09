@@ -129,3 +129,5 @@ int main()
     - C++26で追加された
 - [P3690R1 Consistency fix: Make simd reductions SIMD-generic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3690r1.pdf)
     - スカラー[「vectorizable type」](/reference/simd.md#vectorizable-type)を受け取るオーバーロード (3), (4) が追加され、SIMD-genericなコードを書けるようになった
+- [P3430R3 SIMD issues: explicit, unsequenced, identity-element position, and members of disabled SIMD](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3430r3.pdf)
+    - マスク付きオーバーロード (2), (4) の引数順が`binary_op`→`identity_element`に変更された

@@ -83,3 +83,5 @@ int main()
 ## 参照
 - [P1928R15 std::simd — merge data-parallel types from the Parallelism TS 2](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p1928r15.pdf)
     - C++26で`std::simd`ライブラリが追加された
+- [P3932R0 Fix LWG4470: Fix integer-from in simd](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3932r0.pdf)
+    - 戻り値型が`resize_t`を用いて規定し直された（`complex<double>`が「vectorizable type」に加わったことによる`integer-from`の不具合を修正）
