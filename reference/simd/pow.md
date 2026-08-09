@@ -129,3 +129,5 @@ int main()
     - C++26で`std::simd`ライブラリが追加され、実数版の`pow` (1), (2), (3) が追加された
 - [P2663R7 Interleaved complex values support in std::simd](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2663r7.html)
     - 要素型が複素数の`basic_vec`に対する複素数版の`pow` (4) が追加された
+- [P3844R4 Reword simd.math for consteval conversions](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3844r4.pdf)
+    - `<cmath>`関数と同様に引数の変換を呼び出し側で行うよう、`<simd>`の数学関数が複数のオーバーロードとして再規定された（比較関数の戻り値型の修正・不足していたオーバーロードの追加を含む）

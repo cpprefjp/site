@@ -153,3 +153,7 @@ e: 1 2 3 4
     - C++26で`std::simd`が追加された
 - [P2876R3 Proposal to extend `std::simd` with more constructors and accessors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2876r3.html)
     - 範囲読み込み・ジェネレータ・複素数用のコンストラクタが追加された
+- [P3430R3 SIMD issues: explicit, unsequenced, identity-element position, and members of disabled SIMD](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3430r3.pdf)
+    - ジェネレータコンストラクタ (4) から`noexcept`と「`gen`の呼び出しは互いに未順序」という制約が除去され、`gen`は各要素につき昇順でちょうど1回呼び出されると規定された
+- [P4012R1 Value-preserving consteval broadcast to `simd::vec`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4012r1.pdf)
+    - ブロードキャストコンストラクタ (2) から`explicit`が除去され、値を保持する算術型や定数ラッパー型からの暗黙変換を許可するよう制約が再規定された
