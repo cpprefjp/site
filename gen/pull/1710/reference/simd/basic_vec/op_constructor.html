@@ -201,8 +201,8 @@
     <p class="text-right"><small>
       最終更新日時:
       <time itemprop="datePublished" class="js-local-time"
-            datetime="2026-07-31T23:18:35+09:00">
-        2026年07月31日 23時18分35秒 (JST)
+            datetime="2026-08-09T18:28:48+09:00">
+        2026年08月09日 18時28分48秒 (JST)
       </time>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -395,6 +395,14 @@ e: 1 2 3 4
 </li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2876r3.html" target="_blank">P2876R3 Proposal to extend <code>std::simd</code> with more constructors and accessors</a><ul>
 <li>範囲読み込み・ジェネレータ・複素数用のコンストラクタが追加された</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3430r3.pdf" target="_blank">P3430R3 SIMD issues: explicit, unsequenced, identity-element position, and members of disabled SIMD</a><ul>
+<li>ジェネレータコンストラクタ (4) から<code>noexcept</code>と「<code>gen</code>の呼び出しは互いに未順序」という制約が除去され、<code>gen</code>は各要素につき昇順でちょうど1回呼び出されると規定された</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4012r1.pdf" target="_blank">P4012R1 Value-preserving consteval broadcast to <code>simd::vec</code></a><ul>
+<li>ブロードキャストコンストラクタ (2) から<code>explicit</code>が除去され、値を保持する算術型や定数ラッパー型からの暗黙変換を許可するよう制約が再規定された</li>
 </ul>
 </li>
 </ul></div>
