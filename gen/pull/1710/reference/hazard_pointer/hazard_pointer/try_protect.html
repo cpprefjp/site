@@ -201,8 +201,8 @@
     <p class="text-right"><small>
       最終更新日時:
       <time itemprop="datePublished" class="js-local-time"
-            datetime="2026-08-09T16:26:25+09:00">
-        2026年08月09日 16時26分25秒 (JST)
+            datetime="2026-08-10T12:16:58+09:00">
+        2026年08月10日 12時16分58秒 (JST)
       </time>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -269,11 +269,8 @@
 <ol>
 <li>型<code>T*</code>の変数<code>old</code>を<code>ptr</code>の値で初期化する。</li>
 <li><code><a href="reset_protection.html">reset_protection</a>(old)</code>を評価する。</li>
-<li><code>src.load(memory_order::acquire)</code>の値を<code>ptr</code>へ代入する。</li>
+<li><code>src.<a href="../../atomic/atomic/load.html">load</a>(<a href="../../atomic/memory_order.html">memory_order::acquire</a>)</code>の値を<code>ptr</code>へ代入する。</li>
 <li><code>old == ptr</code>が<code>false</code>の場合、<code><a href="reset_protection.html">reset_protection</a>()</code>を評価する。</li>
-<li>reset_protection[link reset_protection.md]</li>
-<li>src.load[link /reference/atomic/atomic/load.md]</li>
-<li>memory_order::acquire[link /reference/atomic/memory_order.md]</li>
 </ol>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>old == ptr</code>。すなわち、保護しようとしたポインタが、保護後の<code>src</code>の値と一致していれば<code>true</code>。</p>
