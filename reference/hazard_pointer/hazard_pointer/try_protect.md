@@ -29,11 +29,8 @@ bool try_protect(T*& ptr, const atomic<T*>& src) noexcept;
 
 1. 型`T*`の変数`old`を`ptr`の値で初期化する。
 2. [`reset_protection`](reset_protection.md)`(old)`を評価する。
-3. `src.load(memory_order::acquire)`の値を`ptr`へ代入する。
+3. `src.`[`load`](/reference/atomic/atomic/load.md)`(`[`memory_order::acquire`](/reference/atomic/memory_order.md)`)`の値を`ptr`へ代入する。
 4. `old == ptr`が`false`の場合、[`reset_protection`](reset_protection.md)`()`を評価する。
-* reset_protection[link reset_protection.md]
-* src.load[link /reference/atomic/atomic/load.md]
-* memory_order::acquire[link /reference/atomic/memory_order.md]
 
 
 ## 戻り値
