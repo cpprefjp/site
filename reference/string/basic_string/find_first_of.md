@@ -157,4 +157,6 @@ size_type basic_string<charT, traits, Allocator>::find_first_of(charT c, size_ty
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(5)の引数型を`const T&`に変更
+- [LWG Issue 4259. P1148R0 changed the return values of searching functions of `std::basic_string` on some platforms](https://cplusplus.github.io/LWG/issue4259)
+    - 検索に失敗したときに`basic_string`自身の`npos`を返すことが明確化された。P1148R0によって`basic_string_view::npos`を変換した値を返すようになっていたため、アロケータの`size_type`が`string_view`と異なる幅を持つ環境で戻り値が変わってしまう問題があった。この変更は欠陥報告 (DR) であり、C++26より前のバージョンでもコンパイラが早期に対応している場合がある
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
