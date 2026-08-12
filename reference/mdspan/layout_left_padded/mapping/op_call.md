@@ -26,9 +26,10 @@ constexpr size_t operator()(Indices... idxs) const noexcept;
 
 ## 戻り値
 ```cpp
-return ((static_cast<index_type>(idxs) * stride(P_rank)) + ... + 0);
+return ((static_cast<index_type>(std::move(idxs)) * stride(P_rank)) + ... + 0);
 ```
 * stride[link stride.md]
+* std::move[link /reference/utility/move.md]
 
 
 ## 例外
@@ -48,3 +49,5 @@ return ((static_cast<index_type>(idxs) * stride(P_rank)) + ... + 0);
 
 ## 参照
 - [P2642R6 Padded mdspan layouts](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2642r6.pdf)
+- [LWG Issue 4314. Missing move in mdspan layout mapping::operator()](https://cplusplus.github.io/LWG/issue4314)
+    - C++26で、rvalueでのみ`index_type`へ変換できる型に対応するため、`operator()`の返し式でインデックス値を`std::move`するようになった

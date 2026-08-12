@@ -28,9 +28,10 @@ constexpr index_type operator()(Indices... i) const noexcept;
 説明用のパラメータパック`P`において、[`is_same_v`](/reference/type_traits/is_same.md)`<`[`index_sequence_for`](/reference/utility/index_sequence_for.md)`<Indices...>,` [`index_sequence`](/reference/utility/index_sequence.md)`<P...>>`が`true`となるとき、以下と等価。
 
 ```cpp
-return ((static_cast<index_type>(Indices...) * stride(P)) + ... + 0);
+return ((static_cast<index_type>(std::move(i)) * stride(P)) + ... + 0);
 ```
 * stride[link stride.md]
+* std::move[link /reference/utility/move.md]
 
 
 ## 例外
@@ -73,3 +74,5 @@ int main()
 
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
+- [LWG Issue 4314. Missing move in mdspan layout mapping::operator()](https://cplusplus.github.io/LWG/issue4314)
+    - C++26で、rvalueでのみ`index_type`へ変換できる型に対応するため、`operator()`の返し式でインデックス値を`std::move`するようになった
