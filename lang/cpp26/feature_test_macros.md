@@ -116,7 +116,7 @@
 |`__cpp_lib_is_structural`|`202603L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_structural`](/reference/type_traits/is_structural.md)を追加|[`<type_traits>`](/reference/type_traits.md), [`<meta>`](/reference/meta.md)|
 |`__cpp_lib_is_virtual_base_of`|`202406L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_virtual_base_of`](/reference/type_traits/is_virtual_base_of.md)を追加|[`<type_traits>`](/reference/type_traits.md)|
 |`__cpp_lib_is_within_lifetime`|`202306L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_within_lifetime()`](/reference/type_traits/is_within_lifetime.md)を追加|[`<type_traits>`](/reference/type_traits.md)|
-|`__cpp_lib_linalg`|`202412L`|線形代数ライブラリとして[`<linalg>`](/reference/linalg.md)を追加|[`<linalg>`](/reference/linalg.md)|
+|`__cpp_lib_linalg`|`202511L`|線形代数ライブラリとして[`<linalg>`](/reference/linalg.md)を追加|[`<linalg>`](/reference/linalg.md)|
 |`__cpp_lib_mdspan`|`202406L`|[`std::mdspan`](/reference/mdspan/mdspan.md)に対する[`std::dextents`](/reference/mdspan/extents.md)指定の冗長さを解決する[`std::dims`](/reference/mdspan/extents.md)を追加|[`<mdspan>`](/reference/mdspan.md)|
 |`__cpp_lib_not_fn`|`202306L`|[`std::not_fn()`](/reference/functional/not_fn.md)に、非型テンプレート引数として関数を指定するオーバーロードを追加|[`<functional>`](/reference/functional.md)|
 |`__cpp_lib_observable_checkpoint`|`202506L`|[`<utility>`](/reference/utility.md)に[`std::observable_checkpoint()`](/reference/utility/observable_checkpoint.md)を追加|[`<utility>`](/reference/utility.md)|

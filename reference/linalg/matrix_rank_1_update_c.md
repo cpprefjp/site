@@ -9,45 +9,73 @@
 namespace std::linalg {
   template<in-vector InVec1,
            in-vector InVec2,
-           inout-matrix InOutMat>
+           out-matrix OutMat>
   void matrix_rank_1_update_c(
     InVec1 x,
     InVec2 y,
-    InOutMat A); // (1)
+    OutMat A); // (1)
 
   template<class ExecutionPolicy,
            in-vector InVec1,
            in-vector InVec2,
-           inout-matrix InOutMat>
+           out-matrix OutMat>
   void matrix_rank_1_update_c(
     ExecutionPolicy&& exec,
     InVec1 x,
     InVec2 y,
-    InOutMat A); // (2)
+    OutMat A); // (2)
+
+  template<in-vector InVec1,
+           in-vector InVec2,
+           in-matrix InMat,
+           out-matrix OutMat>
+  void matrix_rank_1_update_c(
+    InVec1 x,
+    InVec2 y,
+    InMat E,
+    OutMat A); // (3)
+
+  template<class ExecutionPolicy,
+           in-vector InVec1,
+           in-vector InVec2,
+           in-matrix InMat,
+           out-matrix OutMat>
+  void matrix_rank_1_update_c(
+    ExecutionPolicy&& exec,
+    InVec1 x,
+    InVec2 y,
+    InMat E,
+    OutMat A); // (4)
 }
 ```
 * in-vector[link inout-vector.md]
-* inout-matrix[link inout-matrix.md]
+* in-matrix[link inout-matrix.md]
+* out-matrix[link inout-matrix.md]
 
 ## 概要
 非対称で共役を取るrank-1 updateを行う。
 
-- (1): $A \leftarrow A + xy^*$
-- (2): (1)を指定された実行ポリシーで実行する。
+- (1), (2): 上書き版。$A = xy^*$ を計算して`A`に書き込む。
+- (3), (4): 更新版。入力行列`E`に更新項を加えた $A = E + xy^*$ を計算して`A`に書き込む。
+- (2), (4): それぞれ(1), (3)を指定された実行ポリシーで実行する。
 
 
 ## 適格要件
-- (1), (2): [`possibly-multipliable`](possibly-multipliable.md)`<InOutMat, InVec2, InVec1>() == true`
-- (2): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
+- (1), (2), (3), (4): [`possibly-multipliable`](possibly-multipliable.md)`<OutMat, InVec2, InVec1>() == true`
+- (3), (4): 入力行列`E`が、出力行列`A`と同じ次元・レイアウト要件を満たす
+- (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件
-- [`multipliable`](multipliable.md)`(A, y, x) == true`
+- (1), (2), (3), (4): [`multipliable`](multipliable.md)`(A, y, x) == true`
+- (3), (4): `E`の各次元のサイズが`A`と等しい
 
 
 ## 効果
 - (1): [`matrix_rank_1_update`](matrix_rank_1_update.md)`(x, conjugated(y), A)`と同じ。
 - (2): `matrix_rank_1_update(std::forward<ExecutionPolicy>(exec), x, conjugated(y), A)`と同じ。
+- (3): `matrix_rank_1_update(x, conjugated(y), E, A)`と同じ。
+- (4): `matrix_rank_1_update(std::forward<ExecutionPolicy>(exec), x, conjugated(y), E, A)`と同じ。
 
 
 ## 戻り値
@@ -58,12 +86,16 @@ namespace std::linalg {
 $O(\verb|x.extent(0)|\times \verb|y.extent(0)|)$
 
 
+## 備考
+- 上書き版 (1), (2) は、出力行列`A`の元の値を参照せずに更新項で上書きする。
+- 加算更新 $A = A + xy^*$ を行いたい場合は、更新版 (3), (4) に元の行列を`E`として渡す。
+
+
 ## 例
 **[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
 
 ```cpp example
 #include <array>
-#include <complex>
 #include <iostream>
 #include <linalg>
 #include <mdspan>
@@ -82,7 +114,7 @@ void print_mat(const Matrix& A) {
 template <class Vector>
 void init_vec(Vector& v) {
   for (int i = 0; i < v.extent(0); ++i) {
-    v[i] = std::complex<double>(i, 0);
+    v[i] = i;
   }
 }
 
@@ -90,7 +122,7 @@ template <class Matrix>
 void init_mat(Matrix& A) {
   for(int i = 0; i < A.extent(0); ++i) {
     for(int j = 0; j < A.extent(1); ++j) {
-      A[i,j] = std::complex<double>(i, j);
+      A[i,j] = A.extent(1) * i + j;
     }
   }
 }
@@ -99,25 +131,24 @@ int main()
 {
   constexpr size_t N = 4;
 
-  std::vector<std::complex<double>> A_vec(N * N);
-  std::vector<std::complex<double>> x_vec(N);
-  std::array<std::complex<double>, N> y_vec;
+  std::vector<double> A_vec(N * N);
+  std::vector<double> E_vec(N * N);
+  std::vector<double> x_vec(N);
+  std::array<double, N> y_vec;
 
   std::mdspan<
-    std::complex<double>,
+    double,
     std::extents<size_t, N, N>> A(A_vec.data());
+  std::mdspan<
+    double,
+    std::extents<size_t, N, N>> E(E_vec.data());
   std::mdspan x(x_vec.data(), N);
   std::mdspan y(y_vec.data(), N);
 
-  init_mat(A);
   init_vec(x);
   init_vec(y);
 
-  for (int i = 0; i < y.extent(0); ++i) {
-    y[i] *= std::complex<double>(0, 1);
-  }
-
-  // (1)
+  // (1) 上書き版 : A = x conj(y)^T
   std::cout << "(1)\n";
   std::linalg::matrix_rank_1_update_c(
     x,
@@ -125,14 +156,13 @@ int main()
     A);
   print_mat(A);
 
-  init_mat(A);
-
-  // (2)
-  std::cout << "(2)\n";
+  // (3) 更新版 : A = E + x conj(y)^T
+  init_mat(E);
+  std::cout << "(3)\n";
   std::linalg::matrix_rank_1_update_c(
-    std::execution::par,
     x,
     y,
+    E,
     A);
   print_mat(A);
 
@@ -141,23 +171,23 @@ int main()
 ```
 * A.extent[link /reference/mdspan/extents/extent.md]
 * v.extent[link /reference/mdspan/extents/extent.md]
-* y.extent[link /reference/mdspan/extents/extent.md]
-* std::complex[link /reference/complex/complex.md]
 * std::linalg::matrix_rank_1_update_c[color ff0000]
+
+この例は`x`と`y`が実数のため、共役を取っても値は変化せず、結果は[`matrix_rank_1_update`](matrix_rank_1_update.md)と同じになる。
 
 
 ### 出力
 ```
 (1)
-(0,0) (0,1) (0,2) (0,3)
-(1,0) (1,0) (1,0) (1,0)
-(2,0) (2,-1) (2,-2) (2,-3)
-(3,0) (3,-2) (3,-4) (3,-6)
-(2)
-(0,0) (0,1) (0,2) (0,3)
-(1,0) (1,0) (1,0) (1,0)
-(2,0) (2,-1) (2,-2) (2,-3)
-(3,0) (3,-2) (3,-4) (3,-6)
+0 0 0 0
+0 1 2 3
+0 2 4 6
+0 3 6 9
+(3)
+0 1 2 3
+4 6 8 10
+8 11 14 17
+12 16 20 24
 ```
 
 
@@ -181,3 +211,5 @@ int main()
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [LAPACK: ger: general matrix rank-1 update](https://netlib.org/lapack/explore-html/d8/d75/group__ger.html)
+- [P3371R5 Fix C++26 BLAS rank updates consistency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3371r5.html)
+    - C++26で、上書き(overwriting)版と更新(updating)版のオーバーロードに再構成され、BLASと整合するようになった

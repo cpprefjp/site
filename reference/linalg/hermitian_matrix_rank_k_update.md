@@ -9,77 +9,91 @@
 namespace std::linalg {
   template<class Scalar,
            in-matrix InMat,
-           possibly-packed-inout-matrix InOutMat,
+           possibly-packed-out-matrix OutMat,
            class Triangle>
   void hermitian_matrix_rank_k_update(
     Scalar alpha,
     InMat A,
-    InOutMat C,
+    OutMat C,
     Triangle t); // (1)
 
   template<class ExecutionPolicy,
            class Scalar,
            in-matrix InMat,
-           possibly-packed-inout-matrix InOutMat,
+           possibly-packed-out-matrix OutMat,
            class Triangle>
   void hermitian_matrix_rank_k_update(
     ExecutionPolicy&& exec,
     Scalar alpha,
     InMat A,
-    InOutMat C,
+    OutMat C,
     Triangle t); // (2)
 
-  template<in-matrix InMat,
-           possibly-packed-inout-matrix InOutMat,
+  template<class Scalar,
+           in-matrix InMat1,
+           in-matrix InMat2,
+           possibly-packed-out-matrix OutMat,
            class Triangle>
   void hermitian_matrix_rank_k_update(
-    InMat A,
-    InOutMat C,
+    Scalar alpha,
+    InMat1 A,
+    InMat2 E,
+    OutMat C,
     Triangle t); // (3)
 
   template<class ExecutionPolicy,
-           in-matrix InMat,
-           possibly-packed-inout-matrix InOutMat,
+           class Scalar,
+           in-matrix InMat1,
+           in-matrix InMat2,
+           possibly-packed-out-matrix OutMat,
            class Triangle>
   void hermitian_matrix_rank_k_update(
     ExecutionPolicy&& exec,
-    InMat A,
-    InOutMat C,
+    Scalar alpha,
+    InMat1 A,
+    InMat2 E,
+    OutMat C,
     Triangle t); // (4)
 }
 ```
 * in-matrix[link inout-matrix.md]
-* possibly-packed-inout-matrix[link possibly-packed-inout-matrix.md]
+* possibly-packed-out-matrix[link possibly-packed-inout-matrix.md]
 
 ## 概要
 エルミートな(対称かつ共役を取る)rank-k updateをエルミート行列に行う。
-引数`t`は対称行列の成分が上三角にあるのか、それとも下三角にあるのかを示す。
+引数`t`はエルミート行列の成分が上三角にあるのか、それとも下三角にあるのかを示す。
 
-- (1): $C \leftarrow C + \alpha AA^*$
+(1), (2)は結果を`C`に上書きするoverwriting版、(3), (4)は入力行列`E`に更新項を加えて`C`に書き込むupdating版である。
+
+- (1): $C = \alpha AA^*$
 - (2): (1)を指定された実行ポリシーで実行する。
-- (3): $C \leftarrow C + AA^*$
+- (3): $C = E + \alpha AA^*$
 - (4): (3)を指定された実行ポリシーで実行する。
 
 
 ## 適格要件
 - 共通:
     + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
-    + `InMat`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
+    + `OutMat`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
     + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
     + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(C), decltype(C)>(0, 1)`が`true` (つまり`C`が正方行列であること)
     + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(C)>(0, 0)`が`true` (つまり`A`の次元と`C`の次元が同じであること)
 - (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
+- (3), (4): 追加で、`E`が`C`と整合すること
+    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(E), decltype(E)>(0, 1)`が`true` (つまり`E`が正方行列であること)
+    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(E), decltype(C)>(0, 0)`が`true` (つまり`E`の次元と`C`の次元が同じであること)
 
 
 ## 事前条件
 - `A.extent(0) == A.extent(1)`
 - `C.extent(0) == C.extent(1)`
 - `A.extent(0) == C.extent(0)`
+- (3), (4): `E.extent(0) == E.extent(1)`かつ`E.extent(0) == C.extent(0)`
 
 
 ## 効果
-- (1), (2): $C \leftarrow C + \alpha AA^*$
-- (3), (4): $C \leftarrow C + AA^*$
+- (1), (2): $C = \alpha AA^*$
+- (3), (4): $C = E + \alpha AA^*$
 
 
 ## 戻り値
@@ -88,6 +102,11 @@ namespace std::linalg {
 
 ## 計算量
 $O(\verb|A.extent(0)| \times \verb|A.extent(1)| \times \verb|C.extent(0)|)$
+
+
+## 備考
+- overwriting版(1), (2)は`C`に結果を上書きする。加算更新$C = C + \alpha AA^*$を行いたい場合は、updating版(3), (4)に更新前の行列を`E`として渡す。
+- エルミート性を維持するため、`alpha`は実部のみが使用される。
 
 
 ## 例
@@ -148,16 +167,18 @@ int main()
     >;
 
   Vector A_vec(N * N);
+  Vector E_vec(N * N);
   Vector C_vec(N * N);
 
   std::mdspan     A(A_vec.data());
+  HermitianMatrix E(E_vec.data());
   HermitianMatrix C(C_vec.data());
 
   init_mat(A);
-  init_herm_mat(C);
+  init_herm_mat(E);
 
-  // (1)
-  std::cout << "(1)\n";
+  // (1) overwriting: C = alpha AA^*
+  std::cout << "overwriting (1)\n";
   std::linalg::hermitian_matrix_rank_k_update(
     -1.0,
     A,
@@ -165,32 +186,12 @@ int main()
     std::linalg::upper_triangle);
   print_mat(C);
 
-  // (2)
-  init_herm_mat(C);
-  std::cout << "(2)\n";
+  // (3) updating: C = E + alpha AA^*
+  std::cout << "updating (3)\n";
   std::linalg::hermitian_matrix_rank_k_update(
-    std::execution::par,
     -1.0,
     A,
-    C,
-    std::linalg::upper_triangle);
-  print_mat(C);
-
-  // (3)
-  init_herm_mat(C);
-  std::cout << "(3)\n";
-  std::linalg::hermitian_matrix_rank_k_update(
-    A,
-    C,
-    std::linalg::upper_triangle);
-  print_mat(C);
-
-  // (4)
-  init_herm_mat(C);
-  std::cout << "(4)\n";
-  std::linalg::hermitian_matrix_rank_k_update(
-    std::execution::par,
-    A,
+    E,
     C,
     std::linalg::upper_triangle);
   print_mat(C);
@@ -209,18 +210,12 @@ int main()
 
 ### 出力
 ```
-(1)
+overwriting (1)
+(-1,0) (-1,-1)
+(-1,-1) (-3,0)
+updating (3)
 (-1,0) (-1,0)
-(-1,0) (-1,0)
-(2)
-(-1,0) (-1,0)
-(-1,0) (-1,0)
-(3)
-(1,0) (1,2)
-(1,-2) (3,0)
-(4)
-(1,0) (1,2)
-(1,-2) (3,0)
+(-1,0) (-2,0)
 ```
 
 
@@ -245,3 +240,5 @@ int main()
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [LAPACK: {he,sy}rk: Hermitian/symmetric rank-k update](https://netlib.org/lapack/explore-html/d4/d6e/group__herk.html)
+- [P3371R5 Fix C++26 BLAS rank updates consistency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3371r5.html)
+    - C++26で、上書き(overwriting)版と更新(updating)版のオーバーロードに再構成され、BLASと整合するようになった

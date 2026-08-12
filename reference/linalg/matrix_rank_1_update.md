@@ -9,45 +9,72 @@
 namespace std::linalg {
   template<in-vector InVec1,
            in-vector InVec2,
-           inout-matrix InOutMat>
+           out-matrix OutMat>
   void matrix_rank_1_update(
     InVec1 x,
     InVec2 y,
-    InOutMat A); // (1)
+    OutMat A); // (1)
 
   template<class ExecutionPolicy,
            in-vector InVec1,
            in-vector InVec2,
-           inout-matrix InOutMat>
+           out-matrix OutMat>
   void matrix_rank_1_update(
     ExecutionPolicy&& exec,
     InVec1 x,
     InVec2 y,
-    InOutMat A); // (2)
+    OutMat A); // (2)
+
+  template<in-vector InVec1,
+           in-vector InVec2,
+           in-matrix InMat,
+           out-matrix OutMat>
+  void matrix_rank_1_update(
+    InVec1 x,
+    InVec2 y,
+    InMat E,
+    OutMat A); // (3)
+
+  template<class ExecutionPolicy,
+           in-vector InVec1,
+           in-vector InVec2,
+           in-matrix InMat,
+           out-matrix OutMat>
+  void matrix_rank_1_update(
+    ExecutionPolicy&& exec,
+    InVec1 x,
+    InVec2 y,
+    InMat E,
+    OutMat A); // (4)
 }
 ```
 * in-vector[link inout-vector.md]
-* inout-matrix[link inout-matrix.md]
+* in-matrix[link inout-matrix.md]
+* out-matrix[link inout-matrix.md]
 
 ## 概要
 非対称かつ共役を取らないrank-1 updateを行う。
 
-- (1): $A \leftarrow A + xy^T$
-- (2): (1)を指定された実行ポリシーで実行する。
+- (1), (2): 上書き版。$A = xy^T$ を計算して`A`に書き込む。
+- (3), (4): 更新版。入力行列`E`に更新項を加えた $A = E + xy^T$ を計算して`A`に書き込む。
+- (2), (4): それぞれ(1), (3)を指定された実行ポリシーで実行する。
 
 
 ## 適格要件
-- (1), (2): [`possibly-multipliable`](possibly-multipliable.md)`<InOutMat, InVec2, InVec1>() == true`
-- (2): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
+- (1), (2), (3), (4): [`possibly-multipliable`](possibly-multipliable.md)`<OutMat, InVec2, InVec1>() == true`
+- (3), (4): 入力行列`E`が、出力行列`A`と同じ次元・レイアウト要件を満たす
+- (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件
-- [`multipliable`](multipliable.md)`(A, y, x) == true`
+- (1), (2), (3), (4): [`multipliable`](multipliable.md)`(A, y, x) == true`
+- (3), (4): `E`の各次元のサイズが`A`と等しい
 
 
 ## 効果
-- (1): $A \leftarrow A + xy^T$
-- (2): (1)を指定された実行ポリシーで実行する。
+- (1), (2): $A = xy^T$
+- (3), (4): $A = E + xy^T$
+- (2), (4): それぞれ(1), (3)を指定された実行ポリシーで実行する。
 
 
 ## 戻り値
@@ -56,6 +83,11 @@ namespace std::linalg {
 
 ## 計算量
 $O(\verb|x.extent(0)|\times \verb|y.extent(0)|)$
+
+
+## 備考
+- 上書き版 (1), (2) は、出力行列`A`の元の値を参照せずに更新項で上書きする。
+- 加算更新 $A = A + xy^T$ を行いたい場合は、更新版 (3), (4) に元の行列を`E`として渡す。
 
 
 ## 例
@@ -99,20 +131,23 @@ int main()
   constexpr size_t N = 4;
 
   std::vector<double> A_vec(N * N);
+  std::vector<double> E_vec(N * N);
   std::vector<double> x_vec(N);
   std::array<double, N> y_vec;
 
   std::mdspan<
     double,
     std::extents<size_t, N, N>> A(A_vec.data());
+  std::mdspan<
+    double,
+    std::extents<size_t, N, N>> E(E_vec.data());
   std::mdspan x(x_vec.data(), N);
   std::mdspan y(y_vec.data(), N);
 
-  init_mat(A);
   init_vec(x);
   init_vec(y);
 
-  // (1)
+  // (1) 上書き版 : A = x y^T
   std::cout << "(1)\n";
   std::linalg::matrix_rank_1_update(
     x,
@@ -120,14 +155,13 @@ int main()
     A);
   print_mat(A);
 
-  init_mat(A);
-
-  // (2)
-  std::cout << "(2)\n";
+  // (3) 更新版 : A = E + x y^T
+  init_mat(E);
+  std::cout << "(3)\n";
   std::linalg::matrix_rank_1_update(
-    std::execution::par,
     x,
     y,
+    E,
     A);
   print_mat(A);
 
@@ -142,11 +176,11 @@ int main()
 ### 出力
 ```
 (1)
+0 0 0 0
 0 1 2 3
-4 6 8 10
-8 11 14 17
-12 16 20 24
-(2)
+0 2 4 6
+0 3 6 9
+(3)
 0 1 2 3
 4 6 8 10
 8 11 14 17
@@ -174,3 +208,5 @@ int main()
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [LAPACK: ger: general matrix rank-1 update](https://netlib.org/lapack/explore-html/d8/d75/group__ger.html)
+- [P3371R5 Fix C++26 BLAS rank updates consistency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3371r5.html)
+    - C++26で、上書き(overwriting)版と更新(updating)版のオーバーロードに再構成され、BLASと整合するようになった
