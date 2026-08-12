@@ -25,3 +25,11 @@
 ## 参照
 
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
+- [P3428R4 Hazard Pointer Batches](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3428r4.pdf)
+    - C++29で`__cpp_lib_hazard_pointer`が`202606L`に更新された
+- [P3319R6 Add an iota object for simd (and more)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3319r6.pdf)
+    - C++29で`__cpp_lib_simd`が`202606L`に更新された
+- [P3772R2 std::simd overloads for bit permutations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3772r2.html)
+    - C++29で`__cpp_lib_simd_bitops`が追加された
+- [P3793R2 Better shifting](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3793r2.html)
+    - C++29で`__cpp_lib_simd_bitops`が追加された

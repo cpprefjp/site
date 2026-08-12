@@ -36,6 +36,8 @@ namespace std::execution {
 
 `error_types`が[`completion_signatures`](completion_signatures.md)`<ErrorSigs...>`の特殊化ではない、もしくは`ErrorSigs`が[`set_error_t`](set_error.md)`(E)`が適格でない要素型`E`を含むとき、プログラムは不適格となる。
 
+`allocator_type`はCpp17Allocator要件を満たし、`start_scheduler_type`は[`scheduler`](scheduler.md)のモデルであり、`stop_source_type`は[`stoppable-source`](/reference/stop_token/stoppable-source.md)のモデルであること。
+
 `task`クラステンプレートは、下記の静的メンバ関数テンプレートを定義する。
 
 ```cpp
@@ -131,5 +133,7 @@ int main()
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [LWG4343. Missing default template arguments for `task`](https://cplusplus.github.io/LWG/issue4343)
 - [LWG4528. `task` needs `get_completion_signatures()`](https://cplusplus.github.io/LWG/issue4528)
+- [LWG4485. Move specification for `task::stop_token_type`](https://cplusplus.github.io/LWG/issue4485)
+    - C++26で、`allocator_type`・`start_scheduler_type`・`stop_source_type`に対する要件が明記された
 - [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)
 - C++now 2025, [Getting The Lazy Task Done](https://schedule.cppnow.org/wp-content/uploads/2025/03/Getting_The_Lazy_Task_Done.pdf)

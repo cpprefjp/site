@@ -32,6 +32,13 @@ friend constexpr bool operator==(
 - (2) : `lhs`が無効値状態であれば`false`、そうでなければ`*lhs == rhs`。
 
 
+## 例外
+`noexcept`指定は下記の式に従う。
+
+- (1) : `noexcept(bool(*lhs == *rhs))`
+- (2) : `noexcept(bool(*lhs == rhs))`
+
+
 ## 備考
 この演算子により、`operator!=`が使用可能になる。
 
@@ -73,3 +80,5 @@ int main()
 
 ## 参照
 - [P3019R14 `indirect` and `polymorphic`: Vocabulary Types for Composite Class Design](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3019r14.pdf)
+- [LWG Issue 4325. `std::indirect`'s `operator==` still doesn't support incomplete types](https://cplusplus.github.io/LWG/issue4325)
+    - C++26で、`noexcept`指定を`bool`への変換を含む式`bool(*lhs == *rhs)`にもとづくよう修正した

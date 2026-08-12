@@ -145,3 +145,5 @@ int main() {
 - [P1651R0 `bind_front` should not unwrap `reference_wrapper`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1651r0.html)
 - [P2714R1 Bind front and back to NTTP callables](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2714r1.html)
     - C++26でオーバーロード(2)を追加
+- [LWG Issue 4533. `not_fn<f>` is unimplementable](https://cplusplus.github.io/LWG/issue4533)
+    - C++26で、NTTP版の呼び出しラッパーを実装可能にするため、`cw<f>`のコピーを対象オブジェクトとして持つよう仕様が明確化された

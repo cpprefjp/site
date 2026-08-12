@@ -37,3 +37,5 @@ constexpr ~polymorphic();
 
 ## 参照
 - [P3019R14 `indirect` and `polymorphic`: Vocabulary Types for Composite Class Design](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3019r14.pdf)
+- [LWG Issue 4532. Imprecise `std::polymorphic` wording seems to imply slicing](https://cplusplus.github.io/LWG/issue4532)
+    - C++26で、コピー/ムーブや破棄の際に、所有オブジェクトの動的型`U`を保持する（基底型へスライスしない）ことがワーディング上明確化された

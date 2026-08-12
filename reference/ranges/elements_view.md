@@ -67,10 +67,19 @@ concept has-tuple-element =
 template<class T, size_t N>
 concept has-tuple-element =
   tuple-like<T> && N < tuple_size_v<T>;
+
+// C++26
+template<class T, size_t N>
+concept has-tuple-element =
+  tuple-like<T> && N < tuple_size_v<T> &&
+  requires(T t) {
+    { std::get<N>(t) } -> convertible_to<const tuple_element_t<N, T>&>;
+  };
 ```
 * tuple_size[link /reference/tuple/tuple_size.md]
 * tuple_element_t[link /reference/tuple/tuple_element.md]
 * get[link /reference/tuple/tuple/get.md]
+* std::get[link /reference/tuple/tuple/get.md]
 * tuple-like[link /reference/tuple/tuple-like.md]
 * tuple_size_v[link /reference/tuple/tuple_size.md]
 
@@ -166,3 +175,5 @@ three
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [P2165R4 Compatibility between `tuple`, `pair` and *tuple-like* objects](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2165r4.pdf)
 - [P2017R1 Conditionally borrowed ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2017r1.html)
+- [LWG Issue 3797. `elements_view` insufficiently constrained](https://cplusplus.github.io/LWG/issue3797)
+    - C++26で、説明専用コンセプト`has-tuple-element`に`get<N>(t)`が`const tuple_element_t<N, T>&`へ変換可能であることの制約が追加された

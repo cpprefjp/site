@@ -77,3 +77,5 @@ true
 ## 参照
 - [P0447R28 Introduction of `std::hive` to the standard library](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0447r28.html)
     - C++26で追加された
+- [LWG Issue 4554. Remove undefined behaviour from `hive` for invalid limits](https://cplusplus.github.io/LWG/issue4554)
+    - C++26で、不正な容量制限に対する動作が未定義動作からエラー性動作（効果は処理系定義）に変更され、事前検証用の静的メンバ関数`is_within_hard_limits`が追加された

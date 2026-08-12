@@ -48,7 +48,7 @@ constexpr void swap(expected& rhs) noexcept(see below);
         throw;
       }
     } else {
-      T tmp(std::move(val));
+      remove_cv_t<T> tmp(std::move(val));
       destroy_at(addressof(val));
       try {
         construct_at(addressof(unex), std::move(rhs.unex));
@@ -66,6 +66,7 @@ constexpr void swap(expected& rhs) noexcept(see below);
     * destroy_at[link /reference/memory/destroy_at.md]
     * std::move[link /reference/utility/move.md]
     * is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
+    * remove_cv_t[link /reference/type_traits/remove_cv.md]
 
 
 ## 戻り値
@@ -119,3 +120,5 @@ int main()
 
 ## 参照
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
+- [LWG Issue 3891. LWG 3870 breaks `std::expected<cv T, E>`](https://cplusplus.github.io/LWG/issue3891)
+    - C++26で、`expected<const T, E>`のようなCV修飾された正常値型を扱えるよう、内部で値を`remove_cv_t<T>`として格納するようになり、交換時の一時変数の型も`remove_cv_t<T>`に修正された

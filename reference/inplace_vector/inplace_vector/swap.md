@@ -15,6 +15,11 @@ constexpr void swap(inplace_vector& x)
 他の`inplace_vector`オブジェクトとデータを入れ替える。
 
 
+## 事前条件
+- 型`T`がCpp17MoveConstructible要件を満たすこと。
+- `M`を`min(`[`size()`](size.md)`, x.`[`size()`](size.md)`)`とする。`0`以上`M`未満の各整数`n`について、`(*this)[n]`と`x[n]`がswap可能であること。
+
+
 ## 効果
 `*this`と`x`の要素を入れ替える。
 
@@ -73,3 +78,5 @@ v2: 1 2 3
 
 ## 参照
 - [P0843R14 `inplace_vector`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0843r14.html)
+- [LWG Issue 4151. Precondition of `inplace_vector::swap`](https://cplusplus.github.io/LWG/issue4151)
+    - C++26で、要素型`T`のCpp17MoveConstructible要件と、対応する要素がswap可能であることの事前条件が明記された

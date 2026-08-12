@@ -71,6 +71,13 @@ has_val = false;`
     [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<E> &&` [`is_nothrow_move_assignable_v`](/reference/type_traits/is_nothrow_move_assignable.md)`<E>`
 
 
+## トリビアルに定義される条件
+C++26から、下記の条件を満たす場合、代入演算子はトリビアルに定義される。
+
+- (1) : [`is_trivially_copy_constructible_v`](/reference/type_traits/is_trivially_copy_constructible.md)`<E>`、[`is_trivially_copy_assignable_v`](/reference/type_traits/is_trivially_copy_assignable.md)`<E>`、[`is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<E>`が全て`true`のとき、コピー代入演算子はトリビアルである。
+- (2) : [`is_trivially_move_constructible_v`](/reference/type_traits/is_trivially_move_constructible.md)`<E>`、[`is_trivially_move_assignable_v`](/reference/type_traits/is_trivially_move_assignable.md)`<E>`、[`is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<E>`が全て`true`のとき、ムーブ代入演算子はトリビアルである。
+
+
 ## delete定義される条件
 - (1) : 下記いずれか1つでも満たされないとき、コピー代入演算子はdelete定義される。
     - [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<E> == true`
@@ -168,3 +175,5 @@ int main()
 
 ## 参照
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
+- [LWG Issue 4026. Assignment operators of `std::expected` should propagate triviality](https://cplusplus.github.io/LWG/issue4026)
+    - C++26で、`E`が対応する操作をトリビアルに持つ場合に、コピー代入演算子(1)とムーブ代入演算子(2)もトリビアルに定義されるようになった

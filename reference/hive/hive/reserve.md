@@ -90,3 +90,5 @@ capacity >= 100 : true
 ## 参照
 - [P0447R28 Introduction of `std::hive` to the standard library](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0447r28.html)
     - C++26で`hive`が追加された
+- [LWG Issue 4379. `hive::reserve()` needs *Throws:* element adjusted to match block min/max considerations](https://cplusplus.github.io/LWG/issue4379)
+    - C++26で、`capacity()`が`max_size()`を超える場合に`length_error`を送出するよう例外指定が明確化された

@@ -150,6 +150,8 @@
 |`__cpp_lib_smart_ptr_owner_equality`|`202306L`|[`<memory>`](/reference/memory.md)に[`std::owner_hash`](/reference/memory/owner_hash.md)と[`std::owner_equal`](/reference/memory/owner_equal.md)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_span`|`202311L`|[`std::mdspan`](/reference/mdspan/mdspan.md)に[`at()`](/reference/mdspan/mdspan/at.md)メンバ関数を追加|[`<span>`](/reference/span.md)|
 |`__cpp_lib_span_initializer_list`|`202311L`|[`std::span`](/reference/span/span.md)に[`std::initializer_list`](/reference/initializer_list/initializer_list.md)をとるコンストラクタを追加|[`<span>`](/reference/span.md)|
+|`__cpp_lib_stdbit_h`|`202603L`|[`<stdbit.h>`](/reference/stdbit.h.md)ヘッダがC++から使用可能であることを示す|[`<stdbit.h>`](/reference/stdbit.h.md)|
+|`__cpp_lib_stdckdint_h`|`202603L`|[`<stdckdint.h>`](/reference/stdckdint.h.md)ヘッダがC++から使用可能であることを示す|[`<stdckdint.h>`](/reference/stdckdint.h.md)|
 |`__cpp_lib_sstream_from_string_view`|`202306L`|[`std::basic_stringstream`](/reference/sstream/basic_stringstream.md)などが[`std::basic_string_view`](/reference/string_view/basic_string_view.md)から構築可能に|[`<sstream>`](/reference/sstream.md)|
 |`__cpp_lib_string_subview`|`202506L`|[`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)に`subview()`を追加|[`<string>`](/reference/string.md), [`<string_view>`](/reference/string_view.md)|
 |`__cpp_lib_string_view`|`202403L`|[`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を連結させる`operator+`を追加|[`<string>`](/reference/string.md), [`<string_view>`](/reference/string_view.md)|
@@ -191,3 +193,9 @@
 ## 参照
 
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
+- [LWG Issue 4550. Need new feature test macros for `<stdckdint.h>` and `<stdbit.h>`](https://cplusplus.github.io/LWG/issue4550)
+    - C++26で、`__cpp_lib_stdbit_h`と`__cpp_lib_stdckdint_h`が追加された
+- [P3371R5 Fix C++26 BLAS rank updates consistency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3371r5.html)
+    - C++26で`__cpp_lib_linalg`が`202511L`に更新された
+- [P4012R1 Value-preserving consteval broadcast to `simd::vec`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4012r1.pdf)
+    - C++26のsimd整合修正により`__cpp_lib_simd`が`202603L`に更新された
