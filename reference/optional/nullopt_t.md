@@ -20,6 +20,10 @@ namespace std {
 `nullopt_t`クラスは、デフォルトコンストラクタおよび初期化子リストコンストラクタを持たない。これは、`nullopt`変数を`nullopt_t`型の唯一の値とするためである。また、`nullopt_t`は[集成体](/reference/type_traits/is_aggregate.md)ではない。これは`optional<T> opt = {};`を曖昧にしないためである。
 
 
+## 備考
+C++26では、`nullopt_t`は比較可能となり、[`copyable`](/reference/concepts/copyable.md)および[`three_way_comparable`](/reference/compare/three_way_comparable.md)`<`[`strong_ordering`](/reference/compare/strong_ordering.md)`>`のモデルとなった。`nullopt_t`の値はすべて等しく、`vector<optional<T>>`に対して`nullopt`を検索する、といった使い方ができるようになった。
+
+
 ## 例
 ```cpp example
 #include <cassert>
@@ -60,3 +64,5 @@ int main()
 
 ## 参照
 - [LWG Issue 2736. `nullopt_t` insufficiently constrained](https://wg21.cmeerw.net/lwg/issue2736)
+- [LWG Issue 4497. `std::nullopt_t` should be comparable](https://cplusplus.github.io/LWG/issue4497)
+    - C++26で、`nullopt_t`が`copyable`と`three_way_comparable<strong_ordering>`のモデルとなり、比較可能になった
