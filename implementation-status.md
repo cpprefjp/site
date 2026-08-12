@@ -359,7 +359,7 @@
 |----------|------|------------|----------------|------------|--------------|
 | P3596R3: [未定義動作とIFNDRの付録を整理](/lang/cpp29/undefined_behavior_and_ifndr_annexes.md.nolink) | 規格中のUBとIFNDR（診断不要の不適格）を付録として一覧化・整理する | | | | |
 | P2287R6: [基底クラスに対する指示付き初期化](/lang/cpp29/designated-initializers_for_base_classes.md.nolink) | 集成体初期化の`.member = …`を基底クラス部分にも使えるよう拡張する | | | | |
-| P3899R3: [浮動小数点数のオーバーフローの動作の明確化](/lang/cpp29/clarify_the_behavior_of_floating-point_overflow.md.nolink) | 浮動小数点演算のオーバーフロー時の動作を明確に規定する | | | | | |
+| P3899R3: [浮動小数点数のオーバーフローの動作の明確化](/lang/cpp29/clarify_the_behavior_of_floating-point_overflow.md.nolink) | 浮動小数点演算のオーバーフロー時の動作を明確に規定する | | | | |
 | P3668R4: [後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md) | 後置`++`／`--`を`= default`で定義（前置版から自動生成）できるようにする | | | | |
 | P2434R5: [非決定的なポインタの由来](/lang/cpp29/nondeterministic_pointer_provenance.md.nolink) | ポインタの由来を非決定的として扱うメモリモデルを整備する | | | | |
 | P3347R6: [無効なポインタ操作の扱いを整理](/lang/cpp29/invalid_pointer_operations.md.nolink) | 解放済みなど無効なポインタに対する操作の扱いを整理・規定する | | | | |
