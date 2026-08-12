@@ -9,6 +9,14 @@
 - [`<initializer_list>`](initializer_list.md) (C++11)
 
 
+### フリースタンディング
+
+本ヘッダは大部分がフリースタンディング環境で提供される。ただし、次のものはフリースタンディング環境では提供されない：
+
+- 実行ポリシーをとる並列アルゴリズムのすべてのオーバーロード (`std::ranges`版を含む)
+- メモリ確保をともなう[`stable_sort`](algorithm/stable_sort.md)、[`stable_partition`](algorithm/stable_partition.md)、[`inplace_merge`](algorithm/inplace_merge.md) (それぞれの[`ranges::stable_sort`](algorithm/ranges_stable_sort.md)、[`ranges::stable_partition`](algorithm/ranges_stable_partition.md)、[`ranges::inplace_merge`](algorithm/ranges_inplace_merge.md)を含む)
+
+
 ### テンプレートパラメータ名とイテレータ要件
 
 `<algorithm>`ヘッダでは、各アルゴリズムのテンプレートパラメータ名を、型の要件を表すために使っている。アルゴリズムを正しく利用するためには、テンプレートパラメータ名に応じたこれらの要件を満たしている必要がある。以下の通りである。
@@ -463,3 +471,5 @@ ranges::sort(pv, {}, &Person::name);
 ## 参照
 - [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)
 - [N4821 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [LWG Issue 4457. freestanding for `stable_sort`, `stable_partition` and `inplace_merge`](https://cplusplus.github.io/LWG/issue4457)
+    - C++26で、メモリ確保をともなう`stable_sort`・`stable_partition`・`inplace_merge`の基本オーバーロードにフリースタンディング非対応 (`// hosted`) の指定が、実行ポリシー版に削除 (`// freestanding-deleted`) の指定が追加された

@@ -31,6 +31,8 @@ namespace std {
 
 [`conjunction_v`](conjunction.md)`<`[`is_reference`](is_reference.md)`<T>,` [`is_convertible`](is_convertible.md)`<U, T>>`が`true`かつ、`T t = VAL<U>;`において`t`が一時オブジェクトの寿命を延長する場合に[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
+この変数初期化`T t = VAL<U>;`の完全式は、未評価オペランドとして扱われる。したがって初期化に即時関数（`consteval`関数）が関与しても、その呼び出しが定数式に評価される必要はない。
+
 
 ## 備考
 多くのメタ関数は`prvalue`と`xvalue`を区別しないが、このメタ関数は区別する。例えば、右辺値参照に「戻り値の型が右辺値参照である関数」の戻り値を束縛することを考える。（再現コードは、説明の最後に付す）
@@ -148,3 +150,5 @@ int main()
 
 ## 参照
 - [P2255R2 A type trait to detect reference binding to temporary](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2255r2.html)
+- [LWG Issue 4536. Type traits have inconsistent interactions with immediate functions](https://cplusplus.github.io/LWG/issue4536)
+    - C++26で、変数初期化の完全式が未評価オペランドとして扱われることが明確化された（即時関数との相互作用を`is_assignable`等の他の型特性と一貫させるための文言修正であり、GCC・Clangなどの実装は以前からこの動作となっている）

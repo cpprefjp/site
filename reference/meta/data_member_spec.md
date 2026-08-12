@@ -26,6 +26,7 @@ namespace std::meta {
 - `type`がオブジェクト型または参照型を表さない場合
 - `options.name`に値があり、有効な識別子でない場合
 - `options.name`に値がなく、`options.bit_width`にも値がない場合
+- `options.name`に値がなく（無名ビットフィールド）、`type`が`const`または`volatile`修飾されている場合
 
 
 ## 例
@@ -70,3 +71,5 @@ int main() {
 
 ## 参照
 - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+- [LWG Issue 4517. `data_member_spec` should throw for cv-qualified unnamed bit-fields](https://cplusplus.github.io/LWG/issue4517)
+    - C++26で、無名ビットフィールド（`options.name`に値がない）に対して`type`がCV修飾されている場合に例外を送出することが規定された。CV修飾された型の無名ビットフィールドを禁止する言語側の規則（CWG 2229）と整合させるもの

@@ -247,6 +247,11 @@
 | [`proj`](simd/proj.md) | 各要素をリーマン球面へ射影する (function template) | C++26 |
 | [`polar`](simd/polar.md) | 絶対値と偏角から複素数を生成する (function template) | C++26 |
 
+
+## 備考
+- プログラムが`<simd>`のいずれかのテンプレートに対して明示的特殊化・部分特殊化を宣言した場合、そのプログラムは不適格となる（診断不要）。`<simd>`のテンプレートはライブラリの非メンバ関数と組み合わせて利用されることが前提であり、ユーザーによる特殊化は有効に活用できないためである
+
+
 ## バージョン
 ### 言語
 - C++26
@@ -259,3 +264,5 @@
 ## 参照
 - [P1928R15 std::simd — merge data-parallel types from the Parallelism TS 2](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p1928r15.pdf)
     - C++26で`<simd>`ヘッダが追加された
+- [LWG Issue 4535. Disallow user specialization of `<simd>` templates](https://cplusplus.github.io/LWG/issue4535)
+    - C++26で、`<simd>`のテンプレートをユーザーが特殊化した場合に不適格（診断不要）となることが規定された

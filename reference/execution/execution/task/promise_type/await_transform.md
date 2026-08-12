@@ -42,3 +42,4 @@ auto await_transform(Sender&& sndr);
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)
 - [P4151R1 Rename `affine_on`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4151r1.pdf)
+- [LWG4529. `task::promise_type::await_transform` declaration and definition mismatch](https://cplusplus.github.io/LWG/issue4529)

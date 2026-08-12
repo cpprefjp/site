@@ -24,7 +24,7 @@ namespace std {
 ## 要件
 - ポインタの引数`p`は、メモリ内の1バイトのアドレス A を表す。
 - オブジェクト X は、アドレス A にある。
-- オブジェクト X は、生存期間(lifetime)内にある。
+- オブジェクト X は、生存期間(lifetime)内にあるか、または生存期間内にある配列オブジェクトの配列要素サブオブジェクトである（後者の場合、X 自身の生存期間はまだ開始していなくてもよい）。
 - オブジェクト X の型が T に類似(similar)している。言い換えると、オブジェクト X の型と T それぞれで、全てのレベルのcv修飾を除去した型が等しい。（例: `const int * const *`と`int**`は類似した型）
 - 結果を通して到達可能であるであろう記憶域のすべてのバイトは`p`を通して到達可能である。
 
@@ -156,3 +156,5 @@ void tong() {
     - C++20で`[[nodiscard]]`が付加された
 - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
     - C++26で`[[nodiscard]]`指定が削除された
+- [LWG Issue 4130. Preconditions for `std::launder` might be overly strict](https://cplusplus.github.io/LWG/issue4130)
+    - C++26で、生存期間内にある配列オブジェクトの配列要素サブオブジェクトであれば、その要素自身の生存期間が開始していなくても`launder`を適用できるよう、事前条件が緩和された

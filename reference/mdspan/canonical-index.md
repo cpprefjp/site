@@ -34,7 +34,7 @@ constexpr auto canonical-index(S s);
 
 
 ## 関連項目
-- [`submdspan_canonicalize_slices`](submdspan_canonicalize_slices.md)
+- [`canonical_slices`](canonical_slices.md)
 
 
 ## 参照

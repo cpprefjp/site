@@ -38,27 +38,16 @@ bool wait_for(unique_lock<mutex>& lock,
 
 ## 戻り値
 - (1) :
+    - C++11 : [`wait_until`](wait_until.md)`(lock, chrono::steady_clock::now() + rel_time)` と等価。
+    - C++26 : [`wait_until`](wait_until.md)`(lock, chrono::steady_clock::now() + `[`chrono::ceil`](/reference/chrono/duration/ceil.md)`<chrono::steady_clock::duration>(rel_time))` と等価。相対時間を整数の時間へ丸めてから加算することで、浮動小数点の`duration`を渡したときの精度の問題を回避する。
 
-```cpp
-return wait_until(lock, chrono::steady_clock::now() + rel_time);
-```
-* wait_until[link wait_until.md]
-* steady_clock[link /reference/chrono/steady_clock.md]
-* now()[link /reference/chrono/steady_clock/now.md]
-
-`rel_time`で指定された相対時間内に起床されない場合、タイムアウトとなり[`cv_status::timeout`](/reference/condition_variable/cv_status.md)が返る。そうでない場合は[`cv_status::no_timeout`](/reference/condition_variable/cv_status.md)が返る。
+    `rel_time`で指定された相対時間内に起床されない場合、タイムアウトとなり[`cv_status::timeout`](/reference/condition_variable/cv_status.md)が返る。そうでない場合は[`cv_status::no_timeout`](/reference/condition_variable/cv_status.md)が返る。
 
 - (2) :
+    - C++11 : [`wait_until`](wait_until.md)`(lock, chrono::steady_clock::now() + rel_time, `[`std::move`](/reference/utility/move.md)`(pred))` と等価。
+    - C++26 : [`wait_until`](wait_until.md)`(lock, chrono::steady_clock::now() + `[`chrono::ceil`](/reference/chrono/duration/ceil.md)`<chrono::steady_clock::duration>(rel_time), `[`std::move`](/reference/utility/move.md)`(pred))` と等価。
 
-```cpp
-return wait_until(lock, chrono::steady_clock::now() + rel_time, std::move(pred));
-```
-* wait_until[link wait_until.md]
-* steady_clock[link /reference/chrono/steady_clock.md]
-* now()[link /reference/chrono/steady_clock/now.md]
-* std::move[link /reference/utility/move.md]
-
-`pred()`が最初から`true`の場合、またはすでに期限が過ぎている場合、この関数はブロッキングしない
+    `pred()`が最初から`true`の場合、またはすでに期限が過ぎている場合、この関数はブロッキングしない
 
 
 ## 事後条件
@@ -185,3 +174,5 @@ process data
 ## 参照
 - [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
 - [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
+- [LWG Issue 3504. `condition_variable::wait_for` is overspecified](https://cplusplus.github.io/LWG/issue3504)
+    - C++26で、相対時間を絶対時間へ変換する際に`ceil`で整数時間へ丸めるよう変更され、浮動小数点の`duration`での精度の問題が修正された。この変更は欠陥報告 (DR) であり、C++26より前のバージョンでもコンパイラが早期に対応している場合がある

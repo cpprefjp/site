@@ -65,7 +65,7 @@ int main()
 
 ## 関連項目
 - [`string()`](string.md) (システムのマルチバイト文字コードで取得する。C++26で非推奨)
-- [`system_encoded_string()`](system_encoded_string.md) (システム依存エンコーディングで取得する)
+- [`native_encoded_string()`](native_encoded_string.md) (ネイティブエンコーディングで取得する)
 - [`generic_display_string()`](generic_display_string.md) (環境非依存フォーマットで取得する)
 - [`formatter`](formatter.md) ([`std::format()`](/reference/format/format.md)での書式)
 

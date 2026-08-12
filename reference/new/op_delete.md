@@ -20,6 +20,7 @@ void operator delete(void* ptr, std::align_val_t alignment, const std::nothrow_t
 
 void operator delete(void* ptr, void*) throw();                                     // (7) C++03 まで
 void operator delete(void* ptr, void*) noexcept;                                    // (7) C++11 から
+constexpr void operator delete(void* ptr, void*) noexcept;                          // (7) C++26 から
 ```
 * std::nothrow_t[link nothrow_t.md]
 * std::align_val_t[link align_val_t.md]
@@ -87,3 +88,5 @@ int main()
 
 ## 参照
 - [LWG 2458. N3778 and new library deallocation signatures](https://wg21.cmeerw.net/lwg/issue2458)
+- [LWG Issue 4477. Placement `operator delete` should be constexpr](https://cplusplus.github.io/LWG/issue4477)
+    - C++26で、配置`new`に対応する配置`operator delete` (7) に`constexpr`が付いた。定数式評価中の配置new式でコンストラクタが例外を送出した場合に、この解放処理が定数評価文脈で呼ばれるために必要となった

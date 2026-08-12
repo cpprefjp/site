@@ -1,4 +1,4 @@
-# system_encoded_string
+# native_encoded_string
 * filesystem[meta header]
 * std::filesystem[meta namespace]
 * path[meta class]
@@ -6,11 +6,11 @@
 * cpp26[meta cpp]
 
 ```cpp
-std::string system_encoded_string() const;
+std::string native_encoded_string() const;
 ```
 
 ## 概要
-OS依存のパス名エンコーディング (システムのマルチバイト文字コード) で、パス文字列を取得する。
+ネイティブエンコーディング (*native ordinary encoding*、そのシステムで通常使用されるマルチバイト文字コード) で、パス文字列を取得する。
 
 
 ## 戻り値
@@ -36,11 +36,11 @@ int main()
 {
   fs::path p = "/usr/bin/clang";
 
-  std::string s = p.system_encoded_string();
+  std::string s = p.native_encoded_string();
   std::cout << s << std::endl;
 }
 ```
-* p.system_encoded_string()[color ff0000]
+* p.native_encoded_string()[color ff0000]
 
 ### 出力
 ```
@@ -62,9 +62,11 @@ int main()
 - [`native()`](native.md) (システムの文字コードでパス文字列を取得する)
 - [`string()`](string.md) (この関数と同等の動作だが、C++26で非推奨)
 - [`display_string()`](display_string.md) (表示用のリテラルエンコーディングで取得する)
-- [`generic_system_encoded_string()`](generic_system_encoded_string.md) (環境非依存フォーマットで取得する)
+- [`generic_native_encoded_string()`](generic_native_encoded_string.md) (環境非依存フォーマットで取得する)
 
 
 ## 参照
 - [P2319R5 Prevent path presentation problems](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2319r5.html)
-    - 非推奨となった[`string()`](string.md)に代わり、システム依存エンコーディングへの変換であることを明確にしたこの関数がC++26で追加された
+    - 非推奨となった[`string()`](string.md)に代わり、ネイティブエンコーディングへの変換であることを明確にしたこの関数がC++26で追加された
+- [LWG Issue 4512. The `system_encoded_string()` and `generic_system_encoded_string()` member functions of `std::filesystem::path` are misnamed](https://cplusplus.github.io/LWG/issue4512)
+    - この関数はP2319R5で`system_encoded_string()`という名前で追加されたが、「システムエンコーディング」という語がまぎらわしく、実際にはネイティブエンコーディング (*native ordinary encoding*) への変換であるため、C++26のリリース前に`native_encoded_string()`へ改名された

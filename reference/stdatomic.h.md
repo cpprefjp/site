@@ -21,3 +21,5 @@
 
 ## 参照
 - [P0943R6 Support C atomics in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p0943r6.html)
+- [LWG Issue 4480. `<stdatomic.h>` should provide `ATOMIC_CHAR8_T_LOCK_FREE`](https://cplusplus.github.io/LWG/issue4480)
+    - C++26で、`atomic_char8_t`に対応するロックフリー判定マクロ[`ATOMIC_CHAR8_T_LOCK_FREE`](atomic/lock_free_property.md)が`<stdatomic.h>`のシノプシスに追加された（C23の`<stdatomic.h>`との整合をとるための欠落補完）

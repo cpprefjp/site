@@ -47,17 +47,17 @@ concept sliceable-mapping = see below;
 
     - `SM`が[レイアウトマッピング要件](LayoutMapping.md)を満たす
     - `SM::extents_type`が[`extents`](extents.md)の特殊化である
-    - `SM::extents_type::rank()`が[`MAP_RANK`](submdspan_canonicalize_slices.md)`(valid_slices, M_rank)`に等しい
+    - `SM::extents_type::rank()`が[`MAP_RANK`](canonical_slices.md)`(valid_slices, M_rank)`に等しい
     - `SM::extents_type::index_type`が`IT`を表す
 
     下記を満たす`SMR`型のオブジェクト`smr`を返す。
 
-    - `smr.mapping.extents() ==` [`submdspan_extents`](submdspan_extents.md)`(m.extents(), valid_slices...)`、かつ
+    - `smr.mapping.extents() ==` [`subextents`](subextents.md)`(m.extents(), valid_slices...)`、かつ
     - `smr.mapping.extents()`の多次元インデクス値を表す整数パック`i`に対して、下記を満たす整数パック`j`に対し`smr.mapping(i...) + smr.offset == m(j)`が`true`となる
         - `sizeof...(j)`が`M_rank`に等しく、かつ
         - `m.extents()`の各次元インデクス`r`に対して、`j...[r]`が下記の総和に等しい
             - `m.extents()`の`r`次元に対して`valid_slices...[r]`の`submdspan`スライス範囲の下限、および
-            - `valid_slices...[r]`の型が[縮約スライス型(collapsing slice type)](submdspan_canonicalize_slices.md)ならば値`0`、そうでなければ`i...[`[`MAP_RANK`](submdspan_canonicalize_slices.md)`(valid_slices, r)]`
+            - `valid_slices...[r]`の型が[縮約スライス型(collapsing slice type)](canonical_slices.md)ならば値`0`、そうでなければ`i...[`[`MAP_RANK`](canonical_slices.md)`(valid_slices, r)]`
 
 
 ## バージョン

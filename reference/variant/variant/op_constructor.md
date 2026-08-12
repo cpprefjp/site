@@ -368,3 +368,5 @@ int main()
 - [P0602R4 `variant` and `optional` should propagate copy/move triviality](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html)
 - [P0777R1 Treating Unnecessary `decay`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0777r1.pdf)
     - C++20からテンプレートパラメータ制約の`decay_t`を`remove_cvref_t`へ変更。
+- [LWG Issue 4460. Missing _Throws_: for last `variant` constructor](https://cplusplus.github.io/LWG/issue4460)
+    - `in_place_index_t`と`initializer_list`をとる(8)のコンストラクタに、他のコンストラクタと同様に「格納する値の初期化で送出された例外を送出する」旨のThrows節が規格に追加された（規格の記載漏れの修正）

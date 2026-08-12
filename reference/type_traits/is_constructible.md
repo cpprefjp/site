@@ -28,6 +28,10 @@ namespace std {
 - C++17 : 型`T`が`void(int, char)`のような関数型、もしくは(CV修飾された)`void`である場合、[`false_type`](false_type.md)から派生する。
 
 
+## 備考
+- 判定に用いる変数初期化の完全式は、未評価オペランドとして扱われる。したがって`T`のコンストラクタが即時関数（`consteval`関数）であっても、その呼び出しが定数式に評価される必要はなく、適格性の判定にのみ用いられる
+
+
 ## 例
 ```cpp example
 #include <type_traits>
@@ -73,3 +77,5 @@ int main(){}
 - [LWG Issue 2560. `is_constructible` underspecified when applied to a function type](https://wg21.cmeerw.net/lwg/issue2560)
 - [LWG Issue 2738. `is_constructible` with `void` types](https://wg21.cmeerw.net/lwg/issue2738)
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
+- [LWG Issue 4536. Type traits have inconsistent interactions with immediate functions](https://cplusplus.github.io/LWG/issue4536)
+    - C++26で、判定に用いる完全式が未評価オペランドとして扱われることが明確化された（即時関数との相互作用を`is_assignable`等の他の型特性と一貫させるための文言修正であり、GCC・Clangなどの実装は以前からこの動作となっている）

@@ -14,7 +14,7 @@ constexpr auto canonical-slice(S s);
 
 
 ## 適格要件
-`S`が`IndexType`の[`submdspan`スライス型](submdspan_canonicalize_slices.md)であること。
+`S`が`IndexType`の[`submdspan`スライス型](canonical_slices.md)であること。
 
 
 ## 効果
@@ -70,7 +70,7 @@ if constexpr (is_convertible_v<S, full_extent_t>) {
 
 
 ## 関連項目
-- [`submdspan_canonicalize_slices`](submdspan_canonicalize_slices.md)
+- [`canonical_slices`](canonical_slices.md)
 
 
 ## 参照

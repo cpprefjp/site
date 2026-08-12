@@ -298,9 +298,9 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`std::filesystem::path`](/reference/filesystem/path.md)クラスに、文字列フォーマットのサポートを追加
 - [`std::filesystem::path`](/reference/filesystem/path.md)クラスに、出力用の文字列を取得するための、以下のメンバ関数を追加
     - [`display_string()`](/reference/filesystem/path/display_string.md)
-    - [`system_encoded_string()`](/reference/filesystem/path/system_encoded_string.md)
+    - [`native_encoded_string()`](/reference/filesystem/path/native_encoded_string.md)
     - [`generic_display_string()`](/reference/filesystem/path/generic_display_string.md)
-    - [`generic_system_encoded_string()`](/reference/filesystem/path/generic_system_encoded_string.md)
+    - [`generic_native_encoded_string()`](/reference/filesystem/path/generic_native_encoded_string.md)
 
 
 ### 入出力
@@ -547,7 +547,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`string()`](/reference/filesystem/path/string.md)
     - [`generic_string()`](/reference/filesystem/path/generic_string.md)
     - これらはOS依存のパス名エンコーディングへ変換するため、[iostream](/reference/iostream.md)・[`std::format()`](/reference/format/format.md)・[`std::print()`](/reference/print/print.md)を含むほぼすべての標準のテキスト処理・入出力機能と互換性がなく、文字化けやデータ損失の原因になりやすい
-    - レガシーなシステムAPIにパスを渡す用途では、システム依存エンコーディングへの変換であることを明確にした[`system_encoded_string()`](/reference/filesystem/path/system_encoded_string.md)・[`generic_system_encoded_string()`](/reference/filesystem/path/generic_system_encoded_string.md)を使用する
+    - レガシーなシステムAPIにパスを渡す用途では、ネイティブエンコーディングへの変換であることを明確にした[`native_encoded_string()`](/reference/filesystem/path/native_encoded_string.md)・[`generic_native_encoded_string()`](/reference/filesystem/path/generic_native_encoded_string.md)を使用する
     - 表示・フォーマットの用途では、[`display_string()`](/reference/filesystem/path/display_string.md)・[`generic_display_string()`](/reference/filesystem/path/generic_display_string.md)、もしくは[`std::format()`](/reference/format/format.md)・[`std::print()`](/reference/print/print.md)を使用する
 
 

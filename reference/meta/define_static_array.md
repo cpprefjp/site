@@ -65,4 +65,6 @@ int main() {
 
 ## 参照
 - [P3491R3 `define_static_{string,object,array}`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3491r3.html)
+- [LWG Issue 4483. Multidimensional arrays are not supported by `meta::reflect_constant_array` and related functions](https://cplusplus.github.io/LWG/issue4483)
+    - C++26で、内部で使用する[`reflect_constant_array()`](reflect_constant_array.md)が多次元配列に対応したことにより、配列型の要素を持つRangeも扱えるようになった
 - [LWG Issue 4537. Improve `define_static_array`](https://cplusplus.github.io/LWG/issue4537)
