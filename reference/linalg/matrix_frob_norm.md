@@ -50,7 +50,7 @@ namespace std::linalg {
 - (1), (2): `A`が $m \times n$ 行列とすると、以下の式の値を返す。
 
 $$
-\sqrt{\sum_{i = 0}^{m - 1} \sum_{j = 0}^{n - 1} |\verb|A[|i, j\verb|]||^2 + \verb|init|^2}
+\sqrt{\sum_{i = 0}^{m - 1} \sum_{j = 0}^{n - 1} |\verb|A[|i, j\verb|]||^2 + |\verb|init||^2}
 $$
 
 - (3), (4): `T`を`decltype(`[`abs-if-needed`](abs-if-needed.md)`(declval<typename InMat::value_type>()) * abs-if-needed(declval<typename InMat::value_type>()))`とすると、
@@ -125,3 +125,5 @@ int main()
 
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
+- [LWG Issue 4514. Missing absolute value of `init` in `vector_two_norm` and `matrix_frob_norm`](https://cplusplus.github.io/LWG/issue4514)
+    - C++26で、戻り値の式が`init`の二乗ではなく`init`の絶対値の二乗を用いるよう修正された。複素数（`1+i`など）や負の実数（`-1.0`など）を`init`に渡したときに不正な結果（複素数の戻り値や虚数の平方根）となる問題を防ぐもの
