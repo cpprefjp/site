@@ -45,8 +45,8 @@ C++26から、`const`修飾された`*this`に対する`bool`からの代入演�
 | `operator=(bool x)`           | ビット情報を書き換える   | |
 | `operator=(const reference&)` | ビット情報をコピーする   | |
 | `operator=(bool x) const`     | `const`な`*this`のビット情報を書き換える | C++26 |
-| `operator~()`                 | 反転したビットを取得する | |
-| `operator bool()`             | `bool`型に変換する       | |
+| `operator~()`                 | 反転したビット (`!bool(*this)`) を取得する。`*this`が参照するビット自体は変更しない | |
+| `operator bool()`             | `bool`型に変換する。参照先のビットが1なら`true`、そうでなければ`false`を返す | |
 | `flip()`                      | ビットを反転させる       | |
 
 
@@ -94,3 +94,5 @@ int main()
 - [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)
 - [P3612R1 Harmonize proxy-reference operations (LWG 3638 and 4187)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3612r1.html)
     - C++26で、`const`修飾された`*this`に対する`bool`からの代入演算子と、ADLで見つかる非メンバ`swap`関数が追加された
+- [LWG Issue 4493. Specification for some functions of bit reference types seems missing](https://cplusplus.github.io/LWG/issue4493)
+    - C++26で、規定が欠けていた`operator bool()`（参照先のビットが1なら`true`）と`operator~()`（`!bool(*this)`を返す）の戻り値が明文化された
