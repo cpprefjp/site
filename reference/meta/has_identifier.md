@@ -52,3 +52,5 @@ int main() {
 ## 参照
 - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
 - [P3096R12 Function Parameter Reflection in Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3096r12.pdf)
+- [LWG Issue 4478. `meta::has_identifier` is not specified for annotations](https://cplusplus.github.io/LWG/issue4478)
+    - C++26で、データメンバ記述などの未規定だったケースについての戻り値が明確化された
