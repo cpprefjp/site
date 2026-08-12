@@ -10,8 +10,10 @@ constexpr auto end()
   requires (!simple-view<V>);       // (1) C++20
 
 constexpr auto end() const
+  requires range<const V>;                // (2) C++20
+constexpr auto end() const
   requires range<const V> &&
-           forward_range<const Pattern>;  // (2) C++20
+           forward_range<const Pattern>;  // (2) C++26
 ```
 
 ## 概要
@@ -64,3 +66,8 @@ int main() {
 - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+
+
+## 参照
+- [LWG Issue 3599. The `const` overload of `lazy_split_view::begin` should be constrained by `const Pattern`](https://cplusplus.github.io/LWG/issue3599)
+    - C++26で、`end() const`の制約に`forward_range<const Pattern>`が追加された。この変更は欠陥報告 (DR) であり、C++26より前のバージョンでもコンパイラが早期に対応している場合がある
