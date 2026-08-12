@@ -23,7 +23,7 @@ namespace std {
 - (1) : 以下と等価：
     ```cpp
     string out = vformat(fmt, args);
-    vprint_nonunicode("{}", make_format_args(out));
+    vprint_nonunicode(stream, "{}", make_format_args(out));
     ```
     * string[link /reference/string/basic_string.md]
     * vformat[link /reference/format/vformat.md]
@@ -50,3 +50,5 @@ namespace std {
 ## 参照
 - [P3107R5 Permit an efficient implementation of `std::print`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3107r5.html)
 - [P3235R3 `std::print` more types faster with less memory](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3235r3.html)
+- [LWG Issue 4549. `vprint_nonunicode_buffered` ignores its `stream` parameter](https://cplusplus.github.io/LWG/issue4549)
+    - C++26で、`stream`引数を`vprint_nonunicode`に渡すよう効果が修正された（従来は無視され`stdout`に出力されていた）
