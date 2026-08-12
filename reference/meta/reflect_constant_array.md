@@ -13,11 +13,15 @@ namespace std::meta {
 * info[link info.md]
 
 ## 概要
-構造的型の要素を持つRangeから、静的配列のリフレクションを生成する。
+構造的型または配列型の要素を持つRangeから、静的配列のリフレクションを生成する。
 
 [`define_static_array()`](define_static_array.md)は[`span`](/reference/span/span.md)を返すため実行時のアクセスには便利だが、`span`は構造化束縛によるパック展開ができない。この関数は配列のリフレクションを返すため、スプライスして構造化束縛でパック展開する用途に使用できる。
 
 また、[`define_static_array()`](define_static_array.md)はこの関数を内部で使用して実装されている。
+
+
+## 備考
+- 要素の型が配列型である場合、その各要素に対して再帰的にこの関数が適用される。これにより、多次元配列のリフレクションを生成できる（配列型は構造的型ではないため、この再帰的な扱いがなければ多次元配列は扱えない）
 
 
 ## 戻り値
@@ -65,3 +69,5 @@ int main() {
 
 ## 参照
 - [P3491R3 `define_static_{string,object,array}`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3491r3.html)
+- [LWG Issue 4483. Multidimensional arrays are not supported by `meta::reflect_constant_array` and related functions](https://cplusplus.github.io/LWG/issue4483)
+    - C++26で、配列型の要素に対して再帰的にこの関数を適用することで、多次元配列がサポートされた
