@@ -34,6 +34,13 @@ namespace chrono {
 | [`months`](/reference/chrono/duration_aliases.md)       | 月         | C++20          |
 
 
+## 適格要件
+- `Rep`が`duration`の特殊化ではないこと。
+- C++26 : `Rep`がCV修飾された型ではないこと。
+
+これらを満たさない場合、プログラムは不適格となる。変更不可能な`duration`が必要な場合は、`Rep`ではなく`duration`オブジェクト自体に`const`を付ける（`const duration<int>`のように書く）。
+
+
 ## メンバ関数
 ### 構築／コピー／破棄
 
@@ -226,3 +233,5 @@ Tue Oct 16 16:25:11 2012
 ## 参照
 - [P2592R3 Hashing support for `std::chrono` value classes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2592r3.html)
     - C++26でハッシュサポートが追加された
+- [LWG Issue 4481. Disallow `chrono::duration<const T, P>`](https://cplusplus.github.io/LWG/issue4481)
+    - C++26で、テンプレートパラメータ`Rep`にCV修飾された型を指定した場合に不適格となることが規定された。CV修飾された`Rep`はメンバ演算子・ハッシュ・汎用の算術コードで問題を起こすため、`const`は`Rep`ではなく`duration`オブジェクト自体に付けるべきである
