@@ -48,6 +48,10 @@ namespace std {
 | [`current`](source_location/current.md) | この関数の呼び出し元のソースコード上の位置を返す | C++20          |
 
 
+## 備考
+C++26では、コピーコンストラクタ・ムーブコンストラクタおよびコピー代入演算子・ムーブ代入演算子が`constexpr`であることが保証される（C++26より前は、これらが`constexpr`であるかどうかは未規定だった）。
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -102,3 +106,5 @@ C言語から引き継いだ定義済みマクロ`__LINE__`、`__FILE__`や[事�
 ## 参照
 
 - [P1208R6 Adopt source_location for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1208r6.pdf)
+- [LWG Issue 4506. `source_location` is explicitly unspecified if is constexpr or not](https://cplusplus.github.io/LWG/issue4506)
+    - C++26で、コピー/ムーブのコンストラクタと代入演算子が`constexpr`であることが明確化された
