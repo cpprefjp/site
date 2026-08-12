@@ -9,7 +9,8 @@ namespace std {
   template <class T, size_t N>
   constexpr synth-three-way-result<T>
     operator<=>(const inplace_vector<T, N>& x,
-                const inplace_vector<T, N>& y); // (1) C++26
+                const inplace_vector<T, N>& y)
+      requires requires (const T t) { synth-three-way(t, t); }; // (1) C++26
 }
 ```
 
@@ -43,6 +44,7 @@ return std::lexicographical_compare_three_way(
     - `operator<=`
     - `operator>`
     - `operator>=`
+- 要素型`T`が三方比較 (`synth-three-way`) を行えない場合、この演算子はオーバーロード解決の候補から除外される（ハードエラーにはならない）。
 
 
 ## 例
@@ -88,3 +90,5 @@ true
 
 ## 参照
 - [P0843R14 `inplace_vector`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0843r14.html)
+- [LWG Issue 4122. Ill-formed `operator<=>` can cause hard error instantiating `std::inplace_vector`](https://cplusplus.github.io/LWG/issue4122)
+    - C++26で、要素型`T`が三方比較できない場合にハードエラーとならないよう、この演算子に`requires`節による制約が追加された
