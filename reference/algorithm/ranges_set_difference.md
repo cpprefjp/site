@@ -51,7 +51,7 @@ namespace std::ranges {
             class Proj1 = identity,
             class Proj2 = identity>
     requires mergeable<I1, I2, O, Comp, Proj1, Proj2>
-  set_difference_result<I1, O>
+  set_difference_truncated_result<I1, I2, O>
     set_difference(Ep&& exec,
                    I1 first1,
                    S1 last1,
@@ -71,7 +71,7 @@ namespace std::ranges {
             class Proj1 = identity,
             class Proj2 = identity>
     requires mergeable<iterator_t<R1>, iterator_t<R2>, iterator_t<OutR>, Comp, Proj1, Proj2>
-  set_difference_result<borrowed_iterator_t<R1>, borrowed_iterator_t<OutR>>
+  set_difference_truncated_result<borrowed_iterator_t<R1>, borrowed_iterator_t<R2>, borrowed_iterator_t<OutR>>
     set_difference(Ep&& exec,
                    R1&& r1,
                    R2&& r2,
@@ -82,6 +82,7 @@ namespace std::ranges {
 }
 ```
 * set_difference_result[link ranges_in_out_result.md]
+* set_difference_truncated_result[link ranges_in_in_out_result.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
 * ranges::less[link /reference/functional/ranges_less.md]
 * mergeable[link /reference/iterator/mergeable.md]
@@ -109,15 +110,21 @@ namespace std::ranges {
 
 
 ## 戻り値
-```cpp
-set_difference_result {
-  .in  = last1,
-  .out = result_last,
-}
-```
-* set_difference_result[link ranges_in_out_result.md]
+- (1), (2) :
 
-ただし、`result_last` は構築された範囲の終端。 
+    ```cpp
+    set_difference_result {
+      .in  = last1,
+      .out = result_last,
+    }
+    ```
+    * set_difference_result[link ranges_in_out_result.md]
+
+    ただし、`result_last` は構築された範囲の終端。
+
+- (3), (4) : [`set_difference_truncated_result`](ranges_in_in_out_result.md)を返す。`[first1, last1)`／`[first2, last2)`のうちコピーまたはスキップされた要素数をそれぞれ`A`／`B`、`result`へ書き込んだ要素数を`N`、出力範囲の要素数（`result`から`result_last`までの距離）を`M`とする。
+    - `N == M`のとき（出力バッファを使い切ったとき）：`{.in1 = last1, .in2 = first2 + B, .out = result + N}`
+    - そうでなければ：`{.in1 = first1 + A, .in2 = first2 + B, .out = result_last}`
 
 
 ## 計算量
@@ -209,3 +216,5 @@ int main()
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 4544. Parallel overload of `ranges::set_difference` should return `in_in_out_result`](https://cplusplus.github.io/LWG/issue4544)
+    - C++26で、並列版(3), (4)の戻り値型が`set_difference_result`(`in_out_result`)から`set_difference_truncated_result`(`in_in_out_result`)に変更され、両入力範囲がどこまで処理されたかを返すようになった
