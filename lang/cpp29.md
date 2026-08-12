@@ -41,7 +41,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [基底クラスに対する指示付き初期化](/lang/cpp29/designated-initializers_for_base_classes.md.nolink) | 集成体初期化の`.member = …`を基底クラス部分にも使えるよう拡張する |
-| [後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md.nolink) | 後置`++`／`--`を`= default`で定義（前置版から自動生成）できるようにする |
+| [後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md) | 後置`++`／`--`を`= default`で定義（前置版から自動生成）できるようにする |
 | [default定義された代入演算子関数へ制約を追加](/lang/cpp29/adding_restrictions_to_defaulted_assignment_operator_functions.md.nolink) | `= default`で定義された代入演算子関数に制約を追加できるようにする |
 | [契約を仮想関数に対応させる](/lang/cpp29/contracts_for_virtual_functions.md.nolink) | 仮想関数に契約を適用できるようにする |
 
