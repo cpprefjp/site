@@ -152,7 +152,7 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 
 イテレータ範囲`[first, last)`を[`to_chars`](/reference/charconv/to_chars.md)の結果を格納するのに十分な範囲、`value`をフォーマットする値、`charT`を`char`または`wchar_t`とする。
 
-* ロケールを考慮しない場合、数値を文字列化する部分は以下の表の通りに[`to_chars`](/reference/charconv/to_chars.md)を呼び出した結果と等しくなる。
+* ロケールを考慮しない場合、数値を文字列化する部分は以下の表の通りに[`to_chars`](/reference/charconv/to_chars.md)を呼び出した結果と等しくなる。`charT`が`wchar_t`の場合、[`to_chars`](/reference/charconv/to_chars.md)の出力（`char`の列）はワイドリテラルエンコーディングへ変換される。
 
 | type   | 意味                       | 効果                                                                      | 対応バージョン |
 |:-------|:---------------------------|:--------------------------------------------------------------------------|----------------|
@@ -752,3 +752,5 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
     - C++26から非ロケール版が`constexpr`に対応した
 - [LWG Issue 4090. Underspecified use of locale facets for locale-dependent `std::format`](https://cplusplus.github.io/LWG/issue4090)
     - C++26で、`L`オプション指定時にロケール依存の置換で使用されるファセットが`numpunct`（`grouping`/`thousands_sep`/`decimal_point`/`truename`/`falsename`）であることが明確化された
+- [LWG Issue 4522. Clarify that `std::format` transcodes for `std::wformat_strings`](https://cplusplus.github.io/LWG/issue4522)
+    - C++26で、`charT`が`wchar_t`のとき`to_chars`の出力をワイドリテラルエンコーディングへ変換することが明確化された
