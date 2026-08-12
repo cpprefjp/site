@@ -60,6 +60,11 @@ constexpr basic_string&
   append(const T& t,
         size_type pos,
         size_type n = npos); // (9) C++20
+
+constexpr basic_string&
+  append(const charT* s,
+         size_type pos,
+         size_type n);      // (10) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -122,6 +127,13 @@ constexpr basic_string&
     ```
     * substr[link /reference/string_view/basic_string_view/substr.md]
 
+- (10) 対象オブジェクトの末尾に、`s` が指すNULL終端された文字列の `pos` 番目から `n` 文字を追加する。
+    以下と等価。
+    ```cpp
+    return append(basic_string_view<charT, traits>(s).substr(pos, n));
+    ```
+    * substr[link /reference/string_view/basic_string_view/substr.md]
+
 
 ## 戻り値
 `*this`
@@ -148,6 +160,9 @@ constexpr basic_string&
     C++11 から：[`size`](size.md)`() +` [`distance`](/reference/iterator/distance.md)`(first, last) >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
 - (7) [`size`](size.md)`() + il.`[`size`](/reference/initializer_list/initializer_list/size.md)`() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
+
+- (10) `pos` が `s` の長さ (`traits_type::length(s)`) を超える場合、`out_of_range` が送出される。  
+    追加後の文字列長が [`max_size`](max_size.md)`()` を超える場合、`length_error` が送出される。
 
 
 ## 備考
@@ -186,6 +201,11 @@ int main()
   std::string s8 = "Hello";
   s8.append(std::string_view{"Hi, world"}.substr(2));
   std::cout << s8 << std::endl;
+
+  // (10)
+  std::string s10 = "Hello";
+  s10.append("Hi, world", 4, 5); // "Hi, world"の4文字目から5文字 ("world")
+  std::cout << s10 << std::endl;
 }
 ```
 * append[color ff0000]
@@ -198,6 +218,7 @@ Hello, world
 Hello, world!!
 Hello, world!! :)
 Hello, world
+Helloworld
 ```
 
 ## 関連項目
@@ -220,3 +241,5 @@ Hello, world
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(8), (9)の引数型を`const T&`に変更
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
+- [LWG Issue 3662 `basic_string::append/assign(NTBS, pos, n)` suboptimal](https://cplusplus.github.io/LWG/issue3662)
+    - C++26で、NULL終端文字列の一部分を追加する(10)のオーバーロードが追加された

@@ -61,6 +61,11 @@ constexpr basic_string&
   assign(const T& t,
          size_type pos,
          size_type n = npos);   // (10) C++20
+
+constexpr basic_string&
+  assign(const charT* s,
+         size_type pos,
+         size_type n);          // (11) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -112,6 +117,13 @@ constexpr basic_string&
     ```
     * substr[link /reference/string_view/basic_string_view/substr.md]
 
+- (11) : `s` が指すNULL終端された文字列の `pos` 番目から `n` 文字をコピーして、`basic_string`オブジェクトを構築する。  
+以下と等価。
+    ```cpp
+    return assign(basic_string_view<charT, traits>(s).substr(pos, n));
+    ```
+    * substr[link /reference/string_view/basic_string_view/substr.md]
+
 
 ## 戻り値
 `*this`
@@ -121,6 +133,7 @@ constexpr basic_string&
 - (3) : `pos > str.`[`size()`](size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する
 - (4) : `n >` [`max_size()`](max_size.md)である場合、[`length_error`](/reference/stdexcept.md)例外を送出する
 - (10) : `pos >` [`sv.size()`](/reference/string_view/basic_string_view/size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する
+- (11) : `pos` が `s` の長さ (`traits_type::length(s)`) を超える場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する
 
 
 
@@ -183,6 +196,11 @@ int main()
   std::string s10;
   s10.assign(std::string_view{"Hello World"}, 0, 5);
   std::cout << "s10 : " << s10 << std::endl;
+
+  // (11) 文字配列を範囲指定して代入
+  std::string s11;
+  s11.assign("Hello World", 0, 5);
+  std::cout << "s11 : " << s11 << std::endl;
 }
 ```
 * assign[color ff0000]
@@ -199,6 +217,7 @@ s7 : hello
 s8 : hello
 s9 : Hello
 s10 : Hello
+s11 : Hello
 ```
 
 ## 参照
@@ -211,3 +230,5 @@ s10 : Hello
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(9), (10)の引数型を`const T&`に変更
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
+- [LWG Issue 3662 `basic_string::append/assign(NTBS, pos, n)` suboptimal](https://cplusplus.github.io/LWG/issue3662)
+    - C++26で、NULL終端文字列の一部分を代入する(11)のオーバーロードが追加された
