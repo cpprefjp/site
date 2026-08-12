@@ -6,14 +6,24 @@
 
 ```cpp
 namespace std {
+  // C++20
   template<class S, class I>
   concept sentinel_for =
     semiregular<S> &&
     input_or_output_iterator<I> &&
     weakly-equality-comparable-with<S, I>;
+
+  // C++26
+  template<class S, class I>
+  concept sentinel_for =
+    semiregular<S> &&
+    !is-integer-like<S> &&
+    input_or_output_iterator<I> &&
+    weakly-equality-comparable-with<S, I>;
 }
 ```
 * semiregular[link /reference/concepts/semiregular.md]
+* is-integer-like[link /reference/iterator/is_integer_like.md]
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
 * weakly-equality-comparable-with[link /reference/concepts/equality_comparable.md]
 
@@ -111,3 +121,5 @@ int* is not sentinel for double*
 - [LWG Issue 3453. Generic code cannot call `ranges::advance(i, s)`](https://cplusplus.github.io/LWG/issue3453)
 - [LWG Issue 3777. Common `cartesian_product_view` produces invalid range if first range is input and one range is empty](https://cplusplus.github.io/LWG/issue3777)
     - C++26で、`I`と`S`が同じ型のとき`i == i`が`true`であるという意味論要件がモデルに追加された
+- [LWG Issue 4510. Ambiguity of `std::ranges::advance` and `std::ranges::next` when the difference type is also a sentinel type](https://cplusplus.github.io/LWG/issue4510)
+    - C++26で、番兵型`S`が整数類似型でないこと（`!`[`is-integer-like`](/reference/iterator/is_integer_like.md)`<S>`）が制約に追加された。差分型が番兵型のモデルにもなる場合に、`ranges::advance`／`ranges::next`のオーバーロードが曖昧になる問題を回避するもの
