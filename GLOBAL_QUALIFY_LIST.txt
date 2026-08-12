@@ -169,6 +169,7 @@
     * identity[link /reference/functional/identity.md]
 * <future>[link /reference/future.md]
 * <generator>[link /reference/generator.md]
+* <hazard_pointer>[link /reference/hazard_pointer.md]
 * <hive>[link /reference/hive.md]
 * <initializer_list>[link /reference/initializer_list.md]
     * std::initializer_list[link /reference/initializer_list/initializer_list.md]
