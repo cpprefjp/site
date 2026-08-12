@@ -8,16 +8,15 @@
 namespace std {
   // 説明用の型
   template <class InputIterator>
-  using iter_key_t = remove_const_t<typename iterator_traits<InputIterator>::value_type::first_type>;
+  using iter_key_t = remove_cvref_t<tuple_element_t<0, typename iterator_traits<InputIterator>::value_type>>;
   template <class InputIterator>
-  using iter_val_t = typename iterator_traits<InputIterator>::value_type::second_type;
+  using iter_val_t = remove_cvref_t<tuple_element_t<1, typename iterator_traits<InputIterator>::value_type>>;
   template <class InputIterator>
-  using iter_to_alloc_t = pair<add_const_t<typename iterator_traits<InputIterator>::value_type::first_type>,
-                               typename iterator_traits<InputIterator>::value_type::second_type>;
+  using iter_to_alloc_t = pair<const iter_key_t<InputIterator>, iter_val_t<InputIterator>>;
   template <ranges::input_range Range>
-  using range_key_t = remove_const_t<typename ranges::range_value_t<Range>::first_type>;
+  using range_key_t = remove_cvref_t<tuple_element_t<0, ranges::range_value_t<Range>>>;
   template <ranges::input_range Range>
-  using range_val_t = typename ranges::range_value_t<Range>::second_type;
+  using range_val_t = remove_cvref_t<tuple_element_t<1, ranges::range_value_t<Range>>>;
 
   template <class InputIterator,
             class Compare = less<iter_key_t<InputIterator>>,
@@ -46,8 +45,8 @@ namespace std {
     -> map<range_key_t<R>, range_val_t<R>, less<range_key_t<R>>, Allocator>;          // (5) C++23から
 }
 ```
-* remove_const_t[link /reference/type_traits/remove_const.md]
-* add_const_t[link /reference/type_traits/add_const.md]
+* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
+* tuple_element_t[link /reference/tuple/tuple_element.md]
 * less[link /reference/functional/less.md]
 * allocator[link /reference/memory/allocator.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
@@ -71,6 +70,7 @@ namespace std {
     map m = {{"foo", 2}, {"bar", 3}, {"baz", 4}}; // コンパイルエラー！ 初期化子リストからconst Keyを導出できない
     map m2 = initializer_list<pair<char const *, int>>({{"foo", 2}, {"bar", 3}, {"baz", 4}}); // OK
     ```
+- C++26 (LWG 4223) では、上記の説明用エイリアスが[`tuple_element_t`](/reference/tuple/tuple_element.md)を用いて定義し直され、`pair`以外のtuple-likeな要素型からも推論できるようになり、要素型からCV修飾・参照が取り除かれるようになった。
 
 
 ## バージョン
@@ -90,3 +90,5 @@ namespace std {
 ## 参照
 - [P0433R2 Toward a resolution of US7 and US14: Integrating template deduction for class templates into the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0433r2.html)
 - [LWG Issue 3025. Map-like container deduction guides should use `pair<Key, T>`, not `pair<const Key, T>`](https://wg21.cmeerw.net/lwg/issue3025)
+- [LWG Issue 4223. Deduction guides for maps mishandling tuples and references](https://cplusplus.github.io/LWG/issue4223)
+    - C++26で、推論補助の説明用エイリアスが`tuple_element_t`ベースに変更され、tuple-likeな要素型への対応とCV修飾・参照の除去が行われた
