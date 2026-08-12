@@ -28,7 +28,7 @@ friend constexpr auto submdspan_mapping(
 
 
 ## 適格要件
-`extents()`の各次元インデクス`k`において、`SliceSpecifiers...[k]`が`Extents`のk番目次元の[有効`submdspan`スライス型(valid `submdspan` slice type)](../../submdspan_canonicalize_slices.md)であること。
+`extents()`の各次元インデクス`k`において、`SliceSpecifiers...[k]`が`Extents`のk番目次元の[有効`submdspan`スライス型(valid `submdspan` slice type)](../../canonical_slices.md)であること。
 
 
 ## 事前条件
@@ -38,7 +38,7 @@ friend constexpr auto submdspan_mapping(
 ## 戻り値
 説明用の値や型を次の通り定義する。
 
-- 値`sub_ext` : 式[`submdspan_extents`](../../submdspan_extents.md)`(extents(), slices...)`の結果
+- 値`sub_ext` : 式[`subextents`](../../subextents.md)`(extents(), slices...)`の結果
 - 型`SubExtents` : `decltype(sub_ext)`
 - 値`sub_strides` : `slices...[k]`の型が縮約スライス型(collapsing slice type)ではない`extents()`の各次元インデクス`k`において`sub_strides[MAP_RANK(slices, k)]`が下記を満たす、[`array`](/reference/array/array.md)`<SubExtents::index_type,` [`SubExtents::rank()`](../../extents/rank.md)`>`型の配列値
     - 説明用の`s`を`slices...[k]`としたとき、`s`の型が[`strided_slice`](../../strided_slice.md)の特殊化かつ`s.stride < s.extent`の場合、[`stride(k)`](stride.md) `* s.stride`

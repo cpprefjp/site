@@ -58,14 +58,14 @@ namespace std {
 以下と等価
 
 ```cpp
-auto [...slices] = submdspan_canonicalize_slices(src, raw_slices...);
+auto [...slices] = canonical_slices(src, raw_slices...);
 auto sub_map_offset = submdspan_mapping(src.mapping(), slices...);
 return mdspan(src.accessor().offset(src.data_handle(), sub_map_offset.offset),
               sub_map_offset.mapping,
               typename AccessorPolicy::offset_policy(src.accessor()));
 ```
 * mdspan[link mdspan.md]
-* submdspan_canonicalize_slices[link submdspan_canonicalize_slices.md]
+* canonical_slices[link canonical_slices.md]
 * sub_map_offset[link submdspan_mapping_result.md]
 * src.mapping()[link mdspan/mapping.md]
 * src.data_handle()[link mdspan/data_handle.md]

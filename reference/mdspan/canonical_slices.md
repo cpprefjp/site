@@ -1,4 +1,4 @@
-# submdspan_canonicalize_slices
+# canonical_slices
 * mdspan[meta header]
 * function template[meta id-type]
 * std[meta namespace]
@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template<class IndexType, size_t... Extents, class... Slices>
-  constexpr auto submdspan_canonicalize_slices(
+  constexpr auto canonical_slices(
     const extents<IndexType, Extents...>& src, Slices... slices);
 }
 ```
@@ -104,3 +104,5 @@ make_tuple(canonical-slice<IndexType>(slices)...)
 
 ## 参照
 - [P3663R3 Future-proof `submdspan_mapping`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3663r3.html)
+- [LWG Issue 4491. Rename `submdspan_extents` and `submdspan_canonicalize_slices`](https://cplusplus.github.io/LWG/issue4491)
+    - この関数はC++26のリリース前に`submdspan_canonicalize_slices`から`canonical_slices`へ改名された
