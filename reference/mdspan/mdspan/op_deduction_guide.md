@@ -50,7 +50,15 @@ namespace std {
       -> mdspan<typename AccessorType::element_type,
                 typename MappingType::extents_type,
                 typename MappingType::layout_type,
-                AccessorType>;                      // (8)
+                AccessorType>;                      // (8) C++23
+  template<class MappingType, class AccessorType>
+    mdspan(typename AccessorType::data_handle_type,
+           const MappingType&,
+           const AccessorType&)
+      -> mdspan<typename AccessorType::element_type,
+                typename MappingType::extents_type,
+                typename MappingType::layout_type,
+                AccessorType>;                      // (8) C++26
 }
 ```
 * extents[link ../extents.md]
@@ -195,3 +203,5 @@ int main()
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
 - [P3029R1 Better `mdspan`'s CTAD](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3029r1.html)
     - C++26から、(3)で静的要素数への推論がサポートされる。
+- [LWG Issue 4511. Inconsistency between the deduction guide of `std::mdspan` taking `(data_handle_type, mapping_type, accessor_type)` and the corresponding constructor](https://cplusplus.github.io/LWG/issue4511)
+    - C++26で、推論補助(8)の第1引数が対応するコンストラクタに合わせて`const data_handle_type&`から`data_handle_type`（値渡し）へ変更された。これにより`volatile`な左辺値などでCTADが機能しなかった不整合が解消された
