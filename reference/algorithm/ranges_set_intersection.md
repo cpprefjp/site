@@ -119,16 +119,20 @@ namespace std::ranges {
 ## 戻り値
 次のメンバをもつtuple-likeオブジェクト。
 
-```cpp
-set_intersection_result {
-  .in1 = last1,
-  .in2 = last2,
-  .out = result_last,
-}
-```
-* set_intersection_result[link ranges_in_in_out_result.md]
+- (1), (2) :
 
-ただし、`result_last` は構築された範囲の終端。 
+    ```cpp
+    set_intersection_result {
+      .in1 = last1,
+      .in2 = last2,
+      .out = result_last,
+    }
+    ```
+    * set_intersection_result[link ranges_in_in_out_result.md]
+
+    ただし、`result_last` は構築された範囲の終端。
+
+- (3), (4) : `[first1, last1)`／`[first2, last2)`のうちコピーまたはスキップされた要素数をそれぞれ`A`／`B`、`result`へ書き込んだ要素数を`N`とするとき、`{.in1 = first1 + A, .in2 = first2 + B, .out = result + N}`。並列版では一方の入力範囲を消費し終えた時点で早期終了できるため、入力範囲の末尾まで進めるとは限らない。
 
 ## 計算量
 最大で `2 * ((last1 - first1) + (last2 - first2)) - 1` 回の比較を行う
@@ -218,3 +222,5 @@ int main()
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 4548. Parallel `ranges::set_intersection` should not do unnecessary work](https://cplusplus.github.io/LWG/issue4548)
+    - C++26で、並列版(3), (4)の戻り値が、一方の入力を消費し終えた時点での位置`{first1 + A, first2 + B, result + N}`となり、不要な反復を避けて早期終了できるようになった
