@@ -6,11 +6,13 @@
 * cpp26[meta cpp]
 
 ```cpp
-constexpr operator value_type() const noexcept;
+constexpr operator decltype(value)() const noexcept;
 ```
 
 ## 概要
 保持する値`value`への暗黙の変換をおこなう。これにより、`constant_wrapper`を通常の値として扱える。
+
+変換先の型`decltype(value)`は、メンバ変数[`value`](../constant_wrapper.md)の型、すなわち`const value_type&`である。
 
 ## 戻り値
 `value`を返す。
@@ -49,3 +51,5 @@ int main()
 ## 参照
 - [P2781R9 `std::constant_wrapper`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2781r9.html)
 - [P3978R3 `constant_wrapper` should unwrap on call and subscript](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3978r3.pdf)
+- [LWG Issue 4468. `operator decltype(auto)` is ill-formed](https://cplusplus.github.io/LWG/issue4468)
+    - この変換演算子はP2781R9では`operator decltype(auto)()`と宣言されていたが、CWG 1670により変換関数の型指定子として`decltype(auto)`を書くことは不適格であるため、`operator decltype(value)()`へ修正された（変換先の型は変わらない構文上の修正）
