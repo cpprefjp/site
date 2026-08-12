@@ -126,3 +126,5 @@ int main()
 - [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)
 - [P2988R12 `std::optional<T&>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2988r12.pdf)
     - C++26で参照型`T&`に対する部分特殊化を追加
+- [LWG Issue 2746. Inconsistency between requirements for `emplace` between `optional` and `variant`](https://cplusplus.github.io/LWG/issue2746)
+    - C++26で、`emplace`の制約が`Requires`（ハードエラー）から`Constraints`（SFINAE）に統一された（cpprefjpでは「テンプレートパラメータ制約」として記載済み）
