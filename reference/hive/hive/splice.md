@@ -87,3 +87,5 @@ h2.empty() = true
 ## 参照
 - [P0447R28 Introduction of `std::hive` to the standard library](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0447r28.html)
     - C++26で`hive`が追加された
+- [LWG Issue 4467. `hive::splice` can throw `bad_alloc`](https://cplusplus.github.io/LWG/issue4467)
+    - `splice`はコンテナ間のブロック移動時に内部のポインタ配列を再確保することがあり`bad_alloc`を送出しうるため、例外にアロケータが送出する例外が追加された
