@@ -7,7 +7,7 @@
 ```cpp
 template<class T>
 concept integral-constant-like =  // exposition only
-  is_integral_v<decltype(T::value)> &&
+  is_integral_v<remove_cvref_t<decltype(T::value)>> &&
   !is_same_v<bool, remove_const_t<decltype(T::value)>> &&
   convertible_to<T, decltype(T::value)> &&
   equality_comparable_with<T, decltype(T::value)> &&
@@ -17,6 +17,7 @@ concept integral-constant-like =  // exposition only
 * is_integral_v[link /reference/type_traits/is_integral.md]
 * is_same_v[link /reference/type_traits/is_same.md]
 * remove_const_t[link /reference/type_traits/remove_const.md]
+* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
 * bool_constant[link /reference/type_traits/bool_constant.md]
 * equality_comparable_with[link /reference/concepts/equality_comparable.md]
 
@@ -32,3 +33,5 @@ concept integral-constant-like =  // exposition only
 ## 参照
 - [P2630R4 Submdspan](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html)
 - [P3029R1 Better `mdspan`'s CTAD](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3029r1.html)
+- [LWG Issue 4486. `integral-constant-like` and `constexpr-wrapper-like` exposition-only concept duplication](https://cplusplus.github.io/LWG/issue4486)
+    - C++26で、`decltype(T::value)`に`remove_cvref_t`を適用するよう修正され、`<span>`と`<simd>`で重複していた制約が説明専用コンセプト`constexpr-wrapper-like`へ集約された
