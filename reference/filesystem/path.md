@@ -62,7 +62,7 @@ namespace std::filesystem {
 | [`operator string_type`](path/op_string_type.md) | システムの文字コードとして文字列型に変換する | C++17 |
 | [`string`](path/string.md) | システムのマルチバイト文字コードとしてパス文字列を取得する | C++17<br/> 非テンプレート版はC++26で非推奨 |
 | [`display_string`](path/display_string.md) | 表示用のリテラルエンコーディングとしてパス文字列を取得する | C++26 |
-| [`system_encoded_string`](path/system_encoded_string.md) | システム依存エンコーディングとしてパス文字列を取得する | C++26 |
+| [`native_encoded_string`](path/native_encoded_string.md) | ネイティブエンコーディングとしてパス文字列を取得する | C++26 |
 | [`wstring`](path/wstring.md) | システムのワイド文字コードとしてパス文字列を取得する | C++17 |
 | [`u8string`](path/u8string.md) | UTF-8エンコードとしてパス文字列を取得する | C++17 |
 | [`u16string`](path/u16string.md) | UTF-16エンコードでパス文字列を取得する | C++17 |
@@ -74,7 +74,7 @@ namespace std::filesystem {
 |------|------|----------------|
 | [`generic_string`](path/generic_string.md) | システムのマルチバイト文字コードとして、環境非依存パスフォーマットのパス文字列を取得する | C++17<br/> 非テンプレート版はC++26で非推奨 |
 | [`generic_display_string`](path/generic_display_string.md) | 表示用のリテラルエンコーディングとして、環境非依存パスフォーマットのパス文字列を取得する | C++26 |
-| [`generic_system_encoded_string`](path/generic_system_encoded_string.md) | システム依存エンコーディングとして、環境非依存パスフォーマットのパス文字列を取得する | C++26 |
+| [`generic_native_encoded_string`](path/generic_native_encoded_string.md) | ネイティブエンコーディングとして、環境非依存パスフォーマットのパス文字列を取得する | C++26 |
 | [`generic_wstring`](path/generic_wstring.md) | システムのワイド文字コードとして、環境非依存パスフォーマットのパス文字列を取得する | C++17 |
 | [`generic_u8string`](path/generic_u8string.md) | UTF-8エンコードで、環境非依存パスフォーマットのパス文字列を取得する | C++17 |
 | [`generic_u16string`](path/generic_u16string.md) | UTF-16エンコードで、環境非依存パスフォーマットのパス文字列を取得する | C++17 |
