@@ -11,11 +11,14 @@ constexpr explicit atomic_ref(T& obj);                  // (1) C++26
 
 atomic_ref(const atomic_ref& other) noexcept;           // (2) C++20
 constexpr atomic_ref(const atomic_ref& other) noexcept; // (2) C++26
+
+explicit atomic_ref(T&&) = delete;                      // (3) C++26
 ```
 
 ## 概要
 - (1) : `obj`を参照して`*this`にポインタとして保持する
 - (2) : コピーコンストラクタ。`other`が参照するオブジェクトを`*this`もまた参照する
+- (3) : 一時オブジェクト（右辺値）を参照する`atomic_ref`が構築されるのを防ぐため、`delete`定義されている
 
 
 ## 事前条件
@@ -69,3 +72,5 @@ int main()
 - [LWG issue 3160. `atomic_ref() = delete;` should be deleted](https://wg21.cmeerw.net/lwg/issue3160)
 - [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
     - C++26で`constexpr`に対応した
+- [LWG Issue 4472. `atomic_ref<const T>` can be constructed from temporaries](https://cplusplus.github.io/LWG/issue4472)
+    - C++26で、一時オブジェクト（右辺値）からの構築を禁止する`delete`定義されたコンストラクタ (3) が追加された
