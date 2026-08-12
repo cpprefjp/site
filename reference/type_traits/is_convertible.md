@@ -30,6 +30,8 @@ namespace std {
 ## 備考
 return文による型変換、および非explicitなコンストラクタによる型変換は、暗黙的に変換可能であるとみなされる。explicitなコンストラクタによる明示的な型変換は、暗黙的に変換可能であるとは見なされない。
 
+判定に用いるreturn文のオペランドは、未評価オペランドとして扱われる。したがって型変換に即時関数（`consteval`関数）が関与しても、その呼び出しが定数式に評価される必要はなく、その直近のコンテキストの適格性のみが判定に用いられる。
+
 
 ## 例
 ```cpp example
@@ -83,3 +85,5 @@ int main() {}
 
 ## 参照
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
+- [LWG Issue 4536. Type traits have inconsistent interactions with immediate functions](https://cplusplus.github.io/LWG/issue4536)
+    - C++26で、判定に用いるreturn文のオペランドが未評価オペランドとして扱われることが明確化された（即時関数との相互作用を`is_assignable`等の他の型特性と一貫させるための文言修正であり、GCC・Clangなどの実装は以前からこの動作となっている）
