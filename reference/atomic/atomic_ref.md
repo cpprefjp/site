@@ -79,6 +79,8 @@ C++26から、これらの特殊化はCV修飾された型に対しても行わ�
 
 `required_alignment`について、ハードウェアは参照するオブジェクトに対して、型`T`のほかのオブジェクトよりも厳密なアライメントを持つことを要求できる。また、`atomic_ref`がロックフリーかどうかは、参照するオブジェクトのアライメントに依存する。たとえば[`std::complex`](/reference/complex/complex.md)`<double>`のロックフリー操作は`2 * alignof(double)`にアライメントされる場合にのみサポートされる。
 
+C++26では、`T`にCV修飾を加えた任意の型`U`について、`required_alignment`と`is_always_lock_free`の値は`atomic_ref<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<U>>`のものと同じである。これにより、CV修飾の違いによってアライメント要求やロックフリー保証が変わらないことが保証される。
+
 
 ### atomic_ref&lt;integral&gt;専用メンバ関数
 整数型に対する特殊化。
@@ -232,3 +234,5 @@ int main()
     - C++23で拡張浮動小数点数型もテンプレート引数として指定することが許可された
 - [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
     - C++26でCV修飾されたテンプレート引数を受け取れるようになった
+- [LWG Issue 4453. `atomic_ref<cv T>::required_alignment` should be the same as for `T`](https://cplusplus.github.io/LWG/issue4453)
+    - C++26で、CV修飾の違いによって`required_alignment`と`is_always_lock_free`の値が変わらないことが保証された
