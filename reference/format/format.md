@@ -114,6 +114,14 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 `printf`との違いとして、デフォルトではロケール非依存(Cロケール固定)である。ロケール依存のフォーマットをするには`L`オプションを使う。
 ロケール非依存の場合、算術型の出力は[`to_chars`](/reference/charconv/to_chars.md)と同じになる。
 
+`L`オプションを指定した場合、ロケール依存の置換には[`std::numpunct`](/reference/locale/numpunct.md)ファセットが直接使用される（上位の[`std::num_put`](/reference/locale/num_put.md)ファセットではない）。使用されるメンバは値の型によって以下のように異なる：
+
+- 整数型 : `grouping()`（桁区切りの位置）と`thousands_sep()`（桁区切り文字）
+- 浮動小数点数型 : 上記に加えて`decimal_point()`（小数点文字）
+- `bool`型 : `truename()`または`falsename()`
+
+なお、文字列リテラルエンコーディングがUnicodeエンコーディング形式であり、かつロケールが処理系定義のロケール集合に含まれる場合、ロケールに依存する各置換は、置換文字列を文字列リテラルエンコーディングに変換したかのように行われる。
+
 #### 文字列型の場合
 
 | type       | 意味         |効果                                                                             | 対応バージョン |
@@ -742,3 +750,5 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
     - C++26から、ポインタ値を大文字で出力する`P`オプションが追加された
 - [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
     - C++26から非ロケール版が`constexpr`に対応した
+- [LWG Issue 4090. Underspecified use of locale facets for locale-dependent `std::format`](https://cplusplus.github.io/LWG/issue4090)
+    - C++26で、`L`オプション指定時にロケール依存の置換で使用されるファセットが`numpunct`（`grouping`/`thousands_sep`/`decimal_point`/`truename`/`falsename`）であることが明確化された
