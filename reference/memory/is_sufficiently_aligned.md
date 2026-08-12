@@ -15,6 +15,10 @@ namespace std {
 ポインタ値が指定したアライメントを満たすか否かを返す。
 
 
+## 適格要件
+`Alignment`が2の累乗であること。
+
+
 ## 事前条件
 ポインタ`p`が、`T`に類似(similar)した型のオブジェクト`X`を指すこと。
 
@@ -82,3 +86,5 @@ bool is_sufficiently_aligned(ElementType* p)
 
 ## 参照
 - [P2897R7 `aligned_accessor`: An mdspan accessor expressing pointer over-alignment](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2897r7.html)
+- [LWG Issue 4290. Missing Mandates clauses on `is_sufficiently_aligned`](https://cplusplus.github.io/LWG/issue4290)
+    - C++26で、`Alignment`が2の累乗であることの適格要件が追加された
