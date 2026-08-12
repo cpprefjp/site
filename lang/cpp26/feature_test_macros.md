@@ -195,3 +195,7 @@
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
 - [LWG Issue 4550. Need new feature test macros for `<stdckdint.h>` and `<stdbit.h>`](https://cplusplus.github.io/LWG/issue4550)
     - C++26で、`__cpp_lib_stdbit_h`と`__cpp_lib_stdckdint_h`が追加された
+- [P3371R5 Fix C++26 BLAS rank updates consistency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3371r5.html)
+    - C++26で`__cpp_lib_linalg`が`202511L`に更新された
+- [P4012R1 Value-preserving consteval broadcast to `simd::vec`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4012r1.pdf)
+    - C++26のsimd整合修正により`__cpp_lib_simd`が`202603L`に更新された
