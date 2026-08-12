@@ -39,3 +39,5 @@ constexpr auto operator=(R y) const noexcept;
 - [P3978R3 `constant_wrapper` should unwrap on call and subscript](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3978r3.pdf)
 - [LWG Issue 4500. `constant_wrapper` wording problems](https://cplusplus.github.io/LWG/issue4500)
     - C++26で、代入演算子の戻り値型の式が構文的に不正（丸カッコの欠落）であった問題が`constant_wrapper<(value = R::value)>`のように修正された
+- [LWG Issue 4523. `constant_wrapper` should assign to `value`](https://cplusplus.github.io/LWG/issue4523)
+    - C++26で、代入演算子の代入先が説明専用のオブジェクトではなく、実際に値を保持するメンバ`value`となるよう修正され、ほかの演算子と一貫させた
