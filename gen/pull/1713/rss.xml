@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-08-12T08:45:28.376754</updated>
+  <id>baa53e4e-af31-4d87-8f09-82d0f5f6e208</id>
+
+  
+    <entry>
+      <title>await_transform -- await_transform : LWG Issueを記載</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/task/promise_type/await_transform.html"/>
+      <id>9224194eba75fcac34f42a63b81f97e3e7579965:reference/execution/execution/task/promise_type/await_transform.md</id>
+      <updated>2026-08-12T17:40:44+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/task/promise_type/await_transform.md b/reference/execution/execution/task/promise_type/await_transform.md
+index 27419a3cc..5da802dc3 100644
+--- a/reference/execution/execution/task/promise_type/await_transform.md
++++ b/reference/execution/execution/task/promise_type/await_transform.md
+@@ -42,3 +42,4 @@ auto await_transform(Sender&amp;amp;&amp;amp; sndr);
+ - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
+ - [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)
+ - [P4151R1 Rename `affine_on`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4151r1.pdf)
++- [LWG4529. `task::promise_type::await_transform` declaration and definition mismatch](https://cplusplus.github.io/LWG/issue4529)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- constant_wrapper : LWG Issueを記載</title>
+      <link href="https://cpprefjp.github.io/reference/utility/constant_wrapper/op_assign.html"/>
+      <id>4d0b274bceebc586684493ccb474e89d0077c7cb:reference/utility/constant_wrapper/op_assign.md</id>
+      <updated>2026-08-12T17:32:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/constant_wrapper/op_assign.md b/reference/utility/constant_wrapper/op_assign.md
+index f53813c93..87c76f4f8 100644
+--- a/reference/utility/constant_wrapper/op_assign.md
++++ b/reference/utility/constant_wrapper/op_assign.md
+@@ -39,3 +39,5 @@ constexpr auto operator=(R y) const noexcept;
+ - [P3978R3 `constant_wrapper` should unwrap on call and subscript](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3978r3.pdf)
+ - [LWG Issue 4500. `constant_wrapper` wording problems](https://cplusplus.github.io/LWG/issue4500)
+     - C++26で、代入演算子の戻り値型の式が構文的に不正（丸カッコの欠落）であった問題が`constant_wrapper&amp;lt;(value = R::value)&amp;gt;`のように修正された
++- [LWG Issue 4523. `constant_wrapper` should assign to `value`](https://cplusplus.github.io/LWG/issue4523)
++    - C++26で、代入演算子の代入先が説明専用のオブジェクトではなく、実際に値を保持するメンバ`value`となるよう修正され、ほかの演算子と一貫させた
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>format -- format : C++26 LWG Issue対応としてwchar_tの場合にto_charsの出力をワイド文字に変換することを明確化</title>
+      <link href="https://cpprefjp.github.io/reference/format/format.html"/>
+      <id>91933dd82a817d521088f7448a1b63e28430dd3e:reference/format/format.md</id>
+      <updated>2026-08-12T17:30:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/format.md b/reference/format/format.md
+index 3141a8ede..cc2968a4f 100644
+--- a/reference/format/format.md
++++ b/reference/format/format.md
+@@ -152,7 +152,7 @@ string s3 = format(&amp;#34;{} {1}&amp;#34;,  &amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;); // コンパイルエラー
+ 
+ イテレータ範囲`[first, last)`を[`to_chars`](/reference/charconv/to_chars.md)の結果を格納するのに十分な範囲、`value`をフォーマットする値、`charT`を`char`または`wchar_t`とする。
+ 
+-* ロケールを考慮しない場合、数値を文字列化する部分は以下の表の通りに[`to_chars`](/reference/charconv/to_chars.md)を呼び出した結果と等しくなる。
++* ロケールを考慮しない場合、数値を文字列化する部分は以下の表の通りに[`to_chars`](/reference/charconv/to_chars.md)を呼び出した結果と等しくなる。`charT`が`wchar_t`の場合、[`to_chars`](/reference/charconv/to_chars.md)の出力（`char`の列）はワイドリテラルエンコーディングへ変換される。
+ 
+ | type   | 意味                       | 効果                                                                      | 対応バージョン |
+ |:-------|:---------------------------|:--------------------------------------------------------------------------|----------------|
+@@ -752,3 +752,5 @@ wstring format(const locale&amp;amp; loc, wformat_string&amp;lt;Args...&amp;gt; fmt, const Args&amp;amp;... ar
+     - C++26から非ロケール版が`constexpr`に対応した
+ - [LWG Issue 4090. Underspecified use of locale facets for locale-dependent `std::format`](https://cplusplus.github.io/LWG/issue4090)
+     - C++26で、`L`オプション指定時にロケール依存の置換で使用されるファセットが`numpunct`（`grouping`/`thousands_sep`/`decimal_point`/`truename`/`falsename`）であることが明確化された
++- [LWG Issue 4522. Clarify that `std::format` transcodes for `std::wformat_strings`](https://cplusplus.github.io/LWG/issue4522)
++    - C++26で、`charT`が`wchar_t`のとき`to_chars`の出力をワイドリテラルエンコーディングへ変換することが明確化された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>data_member_spec -- meta::data_member_spec : 無名ビットフィールドにCV修飾されていたらエラー</title>
+      <link href="https://cpprefjp.github.io/reference/meta/data_member_spec.html"/>
+      <id>787df4893819aa34e2279a1a5747986e6deb1660:reference/meta/data_member_spec.md</id>
+      <updated>2026-08-12T17:28:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/data_member_spec.md b/reference/meta/data_member_spec.md
+index bf759fde4..d8485ed65 100644
+--- a/reference/meta/data_member_spec.md
++++ b/reference/meta/data_member_spec.md
+@@ -26,6 +26,7 @@ namespace std::meta {
+ - `type`がオブジェクト型または参照型を表さない場合
+ - `options.name`に値があり、有効な識別子でない場合
+ - `options.name`に値がなく、`options.bit_width`にも値がない場合
++- `options.name`に値がなく（無名ビットフィールド）、`type`が`const`または`volatile`修飾されている場合
+ 
+ 
+ ## 例
+@@ -70,3 +71,5 @@ int main() {
+ 
+ ## 参照
+ - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
++- [LWG Issue 4517. `data_member_spec` should throw for cv-qualified unnamed bit-fields](https://cplusplus.github.io/LWG/issue4517)
++    - C++26で、無名ビットフィールド（`options.name`に値がない）に対して`type`がCV修飾されている場合に例外を送出することが規定された。CV修飾された型の無名ビットフィールドを禁止する言語側の規則（CWG 2229）と整合させるもの
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>matrix_frob_norm -- matrix_frob_norm / vector_two_norm : 戻り値の式でinitの絶対値をとるよう仕様変更</title>
+      <link href="https://cpprefjp.github.io/reference/linalg/matrix_frob_norm.html"/>
+      <id>5500834738bfb760723f71624a14375577b3d6f2:reference/linalg/matrix_frob_norm.md</id>
+      <updated>2026-08-12T17:26:13+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/linalg/matrix_frob_norm.md b/reference/linalg/matrix_frob_norm.md
+index 883e69779..cfe5eac2b 100644
+--- a/reference/linalg/matrix_frob_norm.md
++++ b/reference/linalg/matrix_frob_norm.md
+@@ -50,7 +50,7 @@ namespace std::linalg {
+ - (1), (2): `A`が $m \times n$ 行列とすると、以下の式の値を返す。
+ 
+ $$
+-\sqrt{\sum_{i = 0}^{m - 1} \sum_{j = 0}^{n - 1} |\verb|A[|i, j\verb|]||^2 + \verb|init|^2}
++\sqrt{\sum_{i = 0}^{m - 1} \sum_{j = 0}^{n - 1} |\verb|A[|i, j\verb|]||^2 + |\verb|init||^2}
+ $$
+ 
+ - (3), (4): `T`を`decltype(`[`abs-if-needed`](abs-if-needed.md)`(declval&amp;lt;typename InMat::value_type&amp;gt;()) * abs-if-needed(declval&amp;lt;typename InMat::value_type&amp;gt;()))`とすると、
+@@ -125,3 +125,5 @@ int main()
+ 
+ ## 参照
+ - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
++- [LWG Issue 4514. Missing absolute value of `init` in `vector_two_norm` and `matrix_frob_norm`](https://cplusplus.github.io/LWG/issue4514)
++    - C++26で、戻り値の式が`init`の二乗ではなく`init`の絶対値の二乗を用いるよう修正された。複素数（`1+i`など）や負の実数（`-1.0`など）を`init`に渡したときに不正な結果（複素数の戻り値や虚数の平方根）となる問題を防ぐもの
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>vector_two_norm -- matrix_frob_norm / vector_two_norm : 戻り値の式でinitの絶対値をとるよう仕様変更</title>
+      <link href="https://cpprefjp.github.io/reference/linalg/vector_two_norm.html"/>
+      <id>5500834738bfb760723f71624a14375577b3d6f2:reference/linalg/vector_two_norm.md</id>
+      <updated>2026-08-12T17:26:13+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/linalg/vector_two_norm.md b/reference/linalg/vector_two_norm.md
+index d41c63f1d..9b4acbb6c 100644
+--- a/reference/linalg/vector_two_norm.md
++++ b/reference/linalg/vector_two_norm.md
+@@ -50,7 +50,7 @@ namespace std::linalg {
+ - (1), (2): `n`を`v`の次元とすると、以下の式の値を返す。
+ 
+ $$
+-\sqrt{\sum_{i = 0}^{n - 1} |\verb|v[|i\verb|]||^2 + \verb|init|^2}
++\sqrt{\sum_{i = 0}^{n - 1} |\verb|v[|i\verb|]||^2 + |\verb|init||^2}
+ $$
+ 
+ 
+@@ -124,3 +124,5 @@ int main()
+ ## 参照
+ - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
+ - [LAPACK: dnrm2](https://netlib.org/lapack/explore-html/d1/d2a/group__nrm2_gab5393665c8f0e7d5de9bd1dd2ff0d9d0.html#gab5393665c8f0e7d5de9bd1dd2ff0d9d0)
++- [LWG Issue 4514. Missing absolute value of `init` in `vector_two_norm` and `matrix_frob_norm`](https://cplusplus.github.io/LWG/issue4514)
++    - C++26で、戻り値の式が`init`の二乗ではなく`init`の絶対値の二乗を用いるよう修正された。複素数（`1+i`など）や負の実数（`-1.0`など）を`init`に渡したときに不正な結果（複素数の戻り値や虚数の平方根）となる問題を防ぐもの
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
