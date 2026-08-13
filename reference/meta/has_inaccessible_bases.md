@@ -20,6 +20,10 @@ namespace std::meta {
 指定したアクセスコンテキストでアクセスできない基底クラスが存在する場合に`true`を返す。
 
 
+## 例外
+[`bases_of`](bases_of.md)`(r, `[`access_context`](access_context.md)`::`[`unchecked()`](access_context/unchecked.md)`)`の評価が例外を送出する場合、[`std::meta::exception`](exception.md)例外を送出する。
+
+
 ## 例
 ```cpp example
 #include <meta>
@@ -64,3 +68,5 @@ int main() {
 
 ## 参照
 - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+- [LWG Issue 4428. Metafunctions should not be defined in terms of constant subexpressions](https://cplusplus.github.io/LWG/issue4428)
+    - C++26で、この関数がエラー報告を例外ベースに移行したことに伴い、例外を送出する条件（Throws節）の文言が明確化された

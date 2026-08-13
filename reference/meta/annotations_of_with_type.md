@@ -19,6 +19,13 @@ namespace std::meta {
 `item`に付加されたアノテーションのうち、型が`type`に一致するもののリフレクションを格納した[`std::vector`](/reference/vector/vector.md)オブジェクトを返す。
 
 
+## 例外
+以下のすべてを満たさない場合、[`std::meta::exception`](exception.md)例外を送出する：
+
+- [`annotations_of`](annotations_of.md)`(item)`の評価が例外を送出しないこと
+- [`dealias`](dealias.md)`(type)`が型を表し、かつ[`is_complete_type`](is_complete_type.md)`(type)`が`true`であること
+
+
 ## 例
 ```cpp example
 #include <meta>
@@ -66,3 +73,5 @@ int main() {
 
 ## 参照
 - [P3394R4 Annotations for Reflection](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3394r4.html)
+- [LWG Issue 4428. Metafunctions should not be defined in terms of constant subexpressions](https://cplusplus.github.io/LWG/issue4428)
+    - C++26で、この関数がエラー報告を例外ベースに移行したことに伴い、例外を送出する条件（Throws節）の文言が明確化された
