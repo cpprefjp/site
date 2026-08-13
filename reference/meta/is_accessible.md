@@ -23,7 +23,7 @@ namespace std::meta {
 
 
 ## 例外
-`r`がクラスメンバを表し、そのメンバの親クラスが不完全な場合、または不完全な派生クラスを含む基底クラス関係を表す場合、[`std::meta::exception`](exception.md)例外を送出する。
+`r`がクラスメンバを表し、そのメンバの親クラスが不完全な場合、[`std::meta::exception`](exception.md)例外を送出する。
 
 
 ## 例
@@ -70,3 +70,5 @@ int main() {
 
 ## 参照
 - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+- [LWG Issue 4434. `meta::is_accessible` does not need to consider incomplete _D_](https://cplusplus.github.io/LWG/issue4434)
+    - C++26で、直接基底クラス関係の派生クラスが不完全な場合に例外を送出するという冗長な条件が削除された。そのようなリフレクションは`bases_of`/`subobjects_of`経由でしか得られず、それらが既に不完全クラスに対して例外を送出するため、この条件は発生しえなかった
