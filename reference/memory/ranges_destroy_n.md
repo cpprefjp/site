@@ -13,7 +13,7 @@ namespace std::ranges {
   template <execution-policy Ep,
             random_access_iterator I>
     requires destructible<iter_value_t<I>>
-  I destroy_n(Ep&& exec, I first, iter_difference_t<I> n) noexcept; // (2) C++26
+  I destroy_n(Ep&& exec, I first, iter_difference_t<I> n); // (2) C++26
 }
 ```
 * no-throw-input-iterator[link no-throw-input-iterator.md]
@@ -136,3 +136,5 @@ done
 ## 参照
 - [P0896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 4431. Parallel `std::ranges::destroy` should allow exceptions](https://cplusplus.github.io/LWG/issue4431)
+    - C++26で、実行ポリシーをとる並列オーバーロードから`noexcept`が除去された。並列アルゴリズムの処理系定義の実行ポリシーがどの例外を送出しうるかは、その実行ポリシーに委ねられるため
