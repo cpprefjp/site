@@ -16,7 +16,7 @@ C言語リンケージを持つかを判定する。
 
 
 ## 戻り値
-`r`がC言語リンケージ（`extern "C"`）を持つエンティティを表す場合に`true`を返す。
+`r`が、C言語リンケージ（`extern "C"`）を持つ変数・関数・関数型を表す場合に`true`を返す。そうでなければ`false`を返す。
 
 
 ## 例
@@ -51,3 +51,5 @@ int main() {
 
 ## 参照
 - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+- [LWG Issue 4433. Incorrect query for C language linkage](https://cplusplus.github.io/LWG/issue4433)
+    - C++26で、言語リンケージは名前ではなく変数・関数・関数型の性質であることを踏まえ、この関数が変数・関数・関数型を対象とすることが明確化された
