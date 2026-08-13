@@ -25,6 +25,10 @@ constexpr remove_cv_t<T> value_or(U&& u) const;        // (3) C++26
 `optional<T>`では (1), (2) が定義され、`optional<T&>`では (3) のみが定義される。
 
 
+## テンプレートパラメータ制約
+- (3) : `T`が非配列オブジェクト型であること。
+
+
 ## 要件
 - (1), (2) : [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> == true`であること
 - (1), (2) : [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U&&, T> == true`であること
@@ -91,3 +95,5 @@ int main()
 ## 参照
 - [P2988R12 `std::optional<T&>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2988r12.pdf)
     - C++26で参照型`T&`に対する部分特殊化を追加
+- [LWG Issue 4304. `std::optional<`_NonReturnable_`&>` is ill-formed due to `value_or`](https://cplusplus.github.io/LWG/issue4304)
+    - C++26で、`optional<T&>`の(3) `value_or`に「`T`が非配列オブジェクト型であること」という制約が追加された。`T`が配列型・関数型のとき戻り値型`remove_cv_t<T>`が不正となり`optional<T&>`自体の実体化が失敗する問題を防ぐもの
