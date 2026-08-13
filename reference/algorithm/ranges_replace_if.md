@@ -18,6 +18,18 @@ namespace std::ranges {
                Pred pred,
                const T& new_value,
                Proj proj = {});           // (1) C++20
+  template <input_iterator I,
+            sentinel_for<I> S,
+            class Proj = identity,
+            class T = iter_value_t<I>,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
+    requires indirectly_writable<I, const T&>
+  constexpr I
+    replace_if(I first,
+               S last,
+               Pred pred,
+               const T& new_value,
+               Proj proj = {});           // (1) C++26
 
   template <input_range R,
             class T,
@@ -29,12 +41,22 @@ namespace std::ranges {
                Pred pred,
                const T& new_value,
                Proj proj = {});           // (2) C++20
+  template <input_range R,
+            class Proj = identity,
+            class T = range_value_t<R>,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+    requires indirectly_writable<iterator_t<R>, const T&>
+  constexpr borrowed_iterator_t<R>
+    replace_if(R&& r,
+               Pred pred,
+               const T& new_value,
+               Proj proj = {});           // (2) C++26
 
   template <execution-policy Ep,
             random_access_iterator I,
             sized_sentinel_for<I> S,
-            class T,
             class Proj = identity,
+            class T = iter_value_t<I>,
             indirect_unary_predicate<projected<I, Proj>> Pred>
     requires indirectly_writable<I, const T&>
   I replace_if(Ep&& exec,
@@ -46,8 +68,8 @@ namespace std::ranges {
 
   template <execution-policy Ep,
             sized-random-access-range R,
-            class T,
             class Proj = identity,
+            class T = range_value_t<R>,
             indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
     requires indirectly_writable<iterator_t<R>, const T&>
   borrowed_iterator_t<R>
@@ -164,3 +186,5 @@ int main() {
 - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
     - C++26で波カッコ初期化 (リスト初期化) に対応した
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 4444. Fix default template arguments for `ranges::replace` and `ranges::replace_if`](https://cplusplus.github.io/LWG/issue4444)
+    - C++26で、新しい値`new_value`の型`T`のデフォルトテンプレート引数が、射影を適用した型ではなくイテレータの値型`iter_value_t<I>`（範囲版では`range_value_t<R>`）となるよう修正された
