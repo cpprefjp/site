@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-08-13T09:25:09.193430</updated>
+  <id>bf566a43-8e1e-43b2-a166-eac734e178cb</id>
+
+  
+    <entry>
+      <title>alignment_of -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/alignment_of.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/alignment_of.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/alignment_of.md b/reference/meta/alignment_of.md
+index 66d37a8c8..5046fa5ac 100644
+--- a/reference/meta/alignment_of.md
++++ b/reference/meta/alignment_of.md
+@@ -20,7 +20,6 @@ namespace std::meta {
+ 
+ - 型
+ - オブジェクト
+-- 値
+ - 参照型でない変数
+ - ビットフィールドでないメンバ変数
+ - 直接基底クラス関係
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>annotations_of -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/annotations_of.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/annotations_of.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/annotations_of.md b/reference/meta/annotations_of.md
+index 92ef68da1..7c8101751 100644
+--- a/reference/meta/annotations_of.md
++++ b/reference/meta/annotations_of.md
+@@ -19,6 +19,10 @@ namespace std::meta {
+ `item`に付加されたすべてのアノテーションのリフレクションを格納した[`std::vector`](/reference/vector/vector.md)オブジェクトを返す。
+ 
+ 
++## 例外
++`item`が、型・型エイリアス・変数・関数・関数パラメータ・名前空間・列挙子・直接基底クラス関係・非静的メンバ変数のいずれをも表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++
++
+ ## 例
+ ```cpp example
+ #include &amp;lt;meta&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>bases_of -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/bases_of.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/bases_of.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/bases_of.md b/reference/meta/bases_of.md
+index 5b7576a9c..41461d8ab 100644
+--- a/reference/meta/bases_of.md
++++ b/reference/meta/bases_of.md
+@@ -20,7 +20,7 @@ namespace std::meta {
+ 
+ 
+ ## 例外
+-`r`が完全型のクラスを表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`type`が、評価コンテキストのいずれかの地点から完全であるクラス型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 備考
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>common_reference -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/common_reference.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/common_reference.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/common_reference.md b/reference/meta/common_reference.md
+index 766abff88..02c5115d6 100644
+--- a/reference/meta/common_reference.md
++++ b/reference/meta/common_reference.md
+@@ -22,7 +22,7 @@ namespace std::meta {
+ 
+ 
+ ## 例外
+-`type_args`の各要素が型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`type_args`の各要素が型を表さない場合、または共通の参照型が存在しない（対応する`std::common_reference`にメンバ型`type`が無い）場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>common_type -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/common_type.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/common_type.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/common_type.md b/reference/meta/common_type.md
+index 042b690e2..22618263e 100644
+--- a/reference/meta/common_type.md
++++ b/reference/meta/common_type.md
+@@ -22,7 +22,7 @@ namespace std::meta {
+ 
+ 
+ ## 例外
+-`type_args`の各要素が型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`type_args`の各要素が型を表さない場合、または共通型が存在しない（対応する`std::common_type`にメンバ型`type`が無い）場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>data_member_spec -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/data_member_spec.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/data_member_spec.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/data_member_spec.md b/reference/meta/data_member_spec.md
+index d8485ed65..90208a258 100644
+--- a/reference/meta/data_member_spec.md
++++ b/reference/meta/data_member_spec.md
+@@ -21,12 +21,20 @@ namespace std::meta {
+ 
+ 
+ ## 例外
+-以下のいずれかの場合、[`std::meta::exception`](exception.md)例外を送出する：
+-
+-- `type`がオブジェクト型または参照型を表さない場合
+-- `options.name`に値があり、有効な識別子でない場合
+-- `options.name`に値がなく、`options.bit_width`にも値がない場合
+-- `options.name`に値がなく（無名ビットフィールド）、`type`が`const`または`volatile`修飾されている場合
++以下のすべての条件を満たさない場合、[`std::meta::exception`](exception.md)例外を送出する：
++
++- [`dealias`](dealias.md)`(type)`がオブジェクト型または参照型を表すこと
++- `options.name`に値がある場合、それが有効な識別子（トークン）のつづりを含むこと（`u8string`ならUTF-8、`string`なら通常のリテラルエンコーディングで解釈する。ユニバーサルキャラクタ名などの字句構造は処理されない）
++- `options.name`に値がない場合、`options.bit_width`に値があり、かつ`options.annotations`が空であること
++- `options.bit_width`に値`V`がある場合、次をすべて満たすこと：
++    - [`is_integral_type`](is_integral_type.md)`(type) || is_enum_type(type)`が`true`であること
++    - `options.alignment`に値がないこと
++    - `options.no_unique_address`が`false`であること
++    - `V`が負でないこと
++    - `V`が`0`の場合、`options.name`に値がないこと
++    - `options.name`に値がない場合、[`is_const`](is_const.md)`(type) || is_volatile(type)`が`false`であること
++- `options.alignment`に値がある場合、それが[`alignment_of`](alignment_of.md)`(type)`以上のアライメント値であること
++- `options.annotations`の各リフレクション`r`について、`has-type(r)`が`true`であり、[`type_of`](type_of.md)`(r)`が非配列オブジェクト型を表し、[`constant_of`](constant_of.md)`(r)`の評価が例外で終了しないこと
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>define_static_string -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/define_static_string.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/define_static_string.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/define_static_string.md b/reference/meta/define_static_string.md
+index bf433e5ff..c4b5dcede 100644
+--- a/reference/meta/define_static_string.md
++++ b/reference/meta/define_static_string.md
+@@ -41,7 +41,7 @@ int main() {
+ 
+ ### 出力
+ ```
+-banana
++Hello, world!
+ ```
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>enumerators_of -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/enumerators_of.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/enumerators_of.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/enumerators_of.md b/reference/meta/enumerators_of.md
+index 74820c826..fe11eaead 100644
+--- a/reference/meta/enumerators_of.md
++++ b/reference/meta/enumerators_of.md
+@@ -20,7 +20,7 @@ namespace std::meta {
+ 
+ 
+ ## 例外
+-`r`が列挙型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`type_enum`が列挙型を表さない場合、または[`is_enumerable_type`](is_enumerable_type.md)`(type_enum)`が`true`でない場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>has_automatic_storage_duration -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/has_automatic_storage_duration.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/has_automatic_storage_duration.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/has_automatic_storage_duration.md b/reference/meta/has_automatic_storage_duration.md
+index 651edde2d..81a3b9943 100644
+--- a/reference/meta/has_automatic_storage_duration.md
++++ b/reference/meta/has_automatic_storage_duration.md
+@@ -16,7 +16,7 @@ namespace std::meta {
+ 
+ 
+ ## 戻り値
+-`r`が自動記憶域期間を持つ変数を表す場合に`true`を返す。
++`r`が自動記憶域期間を持つオブジェクトまたは変数を表す場合に`true`を返す。そうでなければ`false`を返す。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>has_static_storage_duration -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/has_static_storage_duration.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/has_static_storage_duration.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/has_static_storage_duration.md b/reference/meta/has_static_storage_duration.md
+index 942b802d2..46a1ef061 100644
+--- a/reference/meta/has_static_storage_duration.md
++++ b/reference/meta/has_static_storage_duration.md
+@@ -16,7 +16,7 @@ namespace std::meta {
+ 
+ 
+ ## 戻り値
+-`r`が静的記憶域期間を持つ変数を表す場合に`true`を返す。
++`r`が静的記憶域期間を持つオブジェクトまたは変数を表す場合に`true`を返す。そうでなければ`false`を返す。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>has_thread_storage_duration -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/has_thread_storage_duration.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/has_thread_storage_duration.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/has_thread_storage_duration.md b/reference/meta/has_thread_storage_duration.md
+index c7e815a85..c5faf63ef 100644
+--- a/reference/meta/has_thread_storage_duration.md
++++ b/reference/meta/has_thread_storage_duration.md
+@@ -16,7 +16,7 @@ namespace std::meta {
+ 
+ 
+ ## 戻り値
+-`r`がスレッド記憶域期間（`thread_local`）を持つ変数を表す場合に`true`を返す。
++`r`がスレッド記憶域期間（`thread_local`）を持つオブジェクトまたは変数を表す場合に`true`を返す。そうでなければ`false`を返す。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>invoke_result -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/invoke_result.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/invoke_result.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/invoke_result.md b/reference/meta/invoke_result.md
+index 7c452e2d9..3aec6efb5 100644
+--- a/reference/meta/invoke_result.md
++++ b/reference/meta/invoke_result.md
+@@ -22,7 +22,7 @@ namespace std::meta {
+ 
+ 
+ ## 例外
+-`type`または`type_args`の各要素が型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`type`または`type_args`の各要素が型を表さない場合、または呼び出しが不適格（対応する`std::invoke_result`にメンバ型`type`が無い）な場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is_bit_field -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/is_bit_field.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/is_bit_field.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/is_bit_field.md b/reference/meta/is_bit_field.md
+index 82e286a4a..c77420ba9 100644
+--- a/reference/meta/is_bit_field.md
++++ b/reference/meta/is_bit_field.md
+@@ -16,7 +16,7 @@ namespace std::meta {
+ 
+ 
+ ## 戻り値
+-`r`がビットフィールドを表す場合に`true`を返す。
++`r`がビットフィールドを表す場合、または`r`がビット幅（`W`）が指定されたデータメンバ記述（[`data_member_spec()`](data_member_spec.md)で生成されるもの）を表す場合に`true`を返す。そうでなければ`false`を返す。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make_signed -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/make_signed.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/make_signed.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/make_signed.md b/reference/meta/make_signed.md
+index a800e3b73..ecf495a05 100644
+--- a/reference/meta/make_signed.md
++++ b/reference/meta/make_signed.md
+@@ -20,7 +20,7 @@ namespace std::meta {
+ 
+ 
+ ## 例外
+-`type`が型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`type`が型を表さない場合、または`type`が（`bool`を除く）整数型・列挙型のいずれも表さない（対応する`std::make_signed&amp;lt;T&amp;gt;`の要件に違反しメンバ型`type`が得られない）場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make_unsigned -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/make_unsigned.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/make_unsigned.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/make_unsigned.md b/reference/meta/make_unsigned.md
+index eb075398c..8adf82afa 100644
+--- a/reference/meta/make_unsigned.md
++++ b/reference/meta/make_unsigned.md
+@@ -20,7 +20,7 @@ namespace std::meta {
+ 
+ 
+ ## 例外
+-`type`が型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`type`が型を表さない場合、または`type`が（`bool`を除く）整数型・列挙型のいずれも表さない（対応する`std::make_unsigned&amp;lt;T&amp;gt;`の要件に違反しメンバ型`type`が得られない）場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>reflect_constant -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/reflect_constant.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/reflect_constant.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/reflect_constant.md b/reference/meta/reflect_constant.md
+index 708d54b9d..0526f117b 100644
+--- a/reference/meta/reflect_constant.md
++++ b/reference/meta/reflect_constant.md
+@@ -16,10 +16,18 @@ namespace std::meta {
+ 値からリフレクションを生成する。
+ 
+ 
++## 適格要件
++[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`&amp;lt;T&amp;gt;`が`true`であり、かつ`T`がCV修飾されていない構造的型（*structural type*）であって参照型でないこと。
++
++
+ ## 戻り値
+ `value`の値を表すリフレクションを返す。
+ 
+ 
++## 例外
++`value`の値を型`T`のテンプレートパラメータに対するテンプレート実引数として使用できない場合、[`std::meta::exception`](exception.md)例外を送出する。
++
++
+ ## 例
+ ```cpp example
+ #include &amp;lt;meta&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>reflect_constant_array -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/reflect_constant_array.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/reflect_constant_array.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/reflect_constant_array.md b/reference/meta/reflect_constant_array.md
+index 57fadf9c8..ba23f00c2 100644
+--- a/reference/meta/reflect_constant_array.md
++++ b/reference/meta/reflect_constant_array.md
+@@ -20,6 +20,14 @@ namespace std::meta {
+ また、[`define_static_array()`](define_static_array.md)はこの関数を内部で使用して実装されている。
+ 
+ 
++## 適格要件
++説明用に、`U`を[`ranges::range_value_t`](/reference/ranges/range_value_t.md)`&amp;lt;R&amp;gt;`、`T`を[`remove_all_extents_t`](/reference/type_traits/remove_all_extents.md)`&amp;lt;U&amp;gt;`とする。以下をすべて満たすこと：
++
++- `T`が構造的型（*structural type*）であること
++- `T`が[`copy_constructible`](/reference/concepts/copy_constructible.md)を満たすこと
++- `U`が配列型でない場合、[`is_constructible_v`](/reference/type_traits/is_constructible.md)`&amp;lt;T, `[`ranges::range_reference_t`](/reference/ranges/range_reference_t.md)`&amp;lt;R&amp;gt;&amp;gt;`が`true`であること
++
++
+ ## 備考
+ - 要素の型が配列型である場合、その各要素に対して再帰的にこの関数が適用される。これにより、多次元配列のリフレクションを生成できる（配列型は構造的型ではないため、この再帰的な扱いがなければ多次元配列は扱えない）
+ - 各要素は、範囲の対応する要素を間接参照して`T`型へ`static_cast`した値（`static_cast&amp;lt;T&amp;gt;(*it)`）で直接初期化される（コピー初期化ではない）。これにより、一時的なプロキシ参照を返す範囲（`views`のアダプタなど）に対しても正しく動作する
+@@ -29,6 +37,14 @@ namespace std::meta {
+ `r`の要素をコピーした`const T[N]`のテンプレートパラメータオブジェクトのリフレクションを返す。
+ 
+ 
++## 例外
++以下のいずれかを送出する：
++
++- `r`、または`r`を参照するイテレータ・番兵に対する任意の操作が送出する例外
++- [`reflect_constant`](reflect_constant.md)の引数の評価、またはこの関数（`reflect_constant_array`）の評価が送出する例外
++- `reflect_constant`のいずれかの呼び出しが例外で終了する場合、[`std::meta::exception`](exception.md)例外
++
++
+ ## 例
+ ```cpp example
+ #include &amp;lt;meta&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>reflect_constant_string -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/reflect_constant_string.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/reflect_constant_string.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/reflect_constant_string.md b/reference/meta/reflect_constant_string.md
+index c0445da62..f19a4df15 100644
+--- a/reference/meta/reflect_constant_string.md
++++ b/reference/meta/reflect_constant_string.md
+@@ -20,6 +20,10 @@ namespace std::meta {
+ また、[`define_static_string()`](define_static_string.md)はこの関数を内部で使用して実装されている。
+ 
+ 
++## 適格要件
++`CharT`を[`ranges::range_value_t`](/reference/ranges/range_value_t.md)`&amp;lt;R&amp;gt;`とするとき、`CharT`が文字型であること。
++
++
+ ## 戻り値
+ `r`の要素をコピーしたヌル終端文字配列`const CharT[sizeof...(V)+1]`のテンプレートパラメータオブジェクトのリフレクションを返す。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>symbol_of -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/symbol_of.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/symbol_of.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/symbol_of.md b/reference/meta/symbol_of.md
+index 863d75c9e..8ba4cde32 100644
+--- a/reference/meta/symbol_of.md
++++ b/reference/meta/symbol_of.md
+@@ -21,6 +21,10 @@ namespace std::meta {
+ 演算子`op`に対応する記号文字列を返す。
+ 
+ 
++## 例外
++`op`の値が[`operators`](operators.md)の列挙子のいずれかに対応しない場合、[`std::meta::exception`](exception.md)例外を送出する。
++
++
+ ## 備考
+ `std::meta`名前空間の関数のうち、戻り値の型が`string_view`または`u8string_view`であるものは、NULL終端された静的記憶域上の文字列を返す、というルールがある。本関数もそれに該当する。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>underlying_type -- meta : 仕様の抜けがいろいろあった</title>
+      <link href="https://cpprefjp.github.io/reference/meta/underlying_type.html"/>
+      <id>86ba851dd759f05ba42af3e67a733ca1df24fb3b:reference/meta/underlying_type.md</id>
+      <updated>2026-08-13T18:21:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/meta/underlying_type.md b/reference/meta/underlying_type.md
+index 45aa9113b..f4bce1196 100644
+--- a/reference/meta/underlying_type.md
++++ b/reference/meta/underlying_type.md
+@@ -20,7 +20,7 @@ namespace std::meta {
+ 
+ 
+ ## 例外
+-`type`が型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
++`type`が型を表さない場合、または`type`が列挙型を表さない（対応する`std::underlying_type&amp;lt;T&amp;gt;`にメンバ型`type`が無い）場合、[`std::meta::exception`](exception.md)例外を送出する。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>partition_copy -- partition_copy : LWG Issueを記載</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/partition_copy.html"/>
+      <id>32920b89f6497e95b8e1be1513e692472bcf56cb:reference/algorithm/partition_copy.md</id>
+      <updated>2026-08-13T17:55:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/partition_copy.md b/reference/algorithm/partition_copy.md
+index 2f36bfeba..0b7bd9602 100644
+--- a/reference/algorithm/partition_copy.md
++++ b/reference/algorithm/partition_copy.md
+@@ -134,3 +134,5 @@ odds : 1,3,5,
+ - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
+ - [P0202R3 Add Constexpr Modifiers to Functions in `&amp;lt;algorithm&amp;gt;` and `&amp;lt;utility&amp;gt;` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+ - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
++- [LWG Issue 4465. §[alg.partitions] Clarify _Returns:_ element](https://cplusplus.github.io/LWG/issue4465)
++    - C++26で、戻り値の`pair`が、それぞれ`out_true`／`out_false`の各出力範囲へコピーされた最後の要素の次を指すイテレータであることが明確化された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>partition_copy -- partition_copy : LWG Issueを記載</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_partition_copy.html"/>
+      <id>32920b89f6497e95b8e1be1513e692472bcf56cb:reference/algorithm/ranges_partition_copy.md</id>
+      <updated>2026-08-13T17:55:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_partition_copy.md b/reference/algorithm/ranges_partition_copy.md
+index c8994fb52..17aba5da6 100644
+--- a/reference/algorithm/ranges_partition_copy.md
++++ b/reference/algorithm/ranges_partition_copy.md
+@@ -201,3 +201,5 @@ odds: 1 3 5 7
+ ## 参照
+ - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+ - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
++- [LWG Issue 4465. §[alg.partitions] Clarify _Returns:_ element](https://cplusplus.github.io/LWG/issue4465)
++    - C++26で、戻り値の`out1`/`out2`が、それぞれ`out_true`／`out_false`の各出力範囲へコピーされた最後の要素の次を指すイテレータであることが明確化された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_move -- uninitialized_move(_n) : LWG Issueを記載</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_move.html"/>
+      <id>77691389b91c22e49bb53681d7eb0399a2f0f7ec:reference/memory/uninitialized_move.md</id>
+      <updated>2026-08-13T17:49:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_move.md b/reference/memory/uninitialized_move.md
+index 59c0077dc..a12ae48a2 100644
+--- a/reference/memory/uninitialized_move.md
++++ b/reference/memory/uninitialized_move.md
+@@ -118,3 +118,5 @@ int main()
+ - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
+ - [P3508R0 Wording for &amp;#34;constexpr for specialized memory algorithms&amp;#34;](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
+     - C++26から`constexpr`がついた
++- [LWG Issue 4452. Make _deref-move_ constexpr](https://cplusplus.github.io/LWG/issue4452)
++    - C++26で、この関数が内部で用いる説明専用ヘルパ関数`deref-move`にも`constexpr`が付き、定数式での評価が可能になった（P3508が見落としていた箇所を補完）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_move_n -- uninitialized_move(_n) : LWG Issueを記載</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_move_n.html"/>
+      <id>77691389b91c22e49bb53681d7eb0399a2f0f7ec:reference/memory/uninitialized_move_n.md</id>
+      <updated>2026-08-13T17:49:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_move_n.md b/reference/memory/uninitialized_move_n.md
+index 3dbc29ac8..0bd2e8347 100644
+--- a/reference/memory/uninitialized_move_n.md
++++ b/reference/memory/uninitialized_move_n.md
+@@ -119,3 +119,5 @@ int main()
+ - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
+ - [P3508R0 Wording for &amp;#34;constexpr for specialized memory algorithms&amp;#34;](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
+     - C++26から`constexpr`がついた
++- [LWG Issue 4452. Make _deref-move_ constexpr](https://cplusplus.github.io/LWG/issue4452)
++    - C++26で、この関数が内部で用いる説明専用ヘルパ関数`deref-move`にも`constexpr`が付き、定数式での評価が可能になった（P3508が見落としていた箇所を補完）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>allocate_shared -- make_shared, allocate_shared : 配列版の結果としてremove_extentを使用するよう変更された</title>
+      <link href="https://cpprefjp.github.io/reference/memory/allocate_shared.html"/>
+      <id>90853ca2f33671c2dc53a165c4ace73b53893cd5:reference/memory/allocate_shared.md</id>
+      <updated>2026-08-13T17:47:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/allocate_shared.md b/reference/memory/allocate_shared.md
+index c435d30a3..3606ed50f 100644
+--- a/reference/memory/allocate_shared.md
++++ b/reference/memory/allocate_shared.md
+@@ -67,7 +67,7 @@ namespace std {
+ 
+ 
+ ## 効果
+-型`T`のオブジェクトにメモリを割り当てる（`T`が`U[]`の場合は`U[N]`。`N`はそれぞれのオーバーロードで指定された引数から決定される）。メモリは、引数`a`のコピー(value_type のためのリバウンド。value_type は、参照カウンタと型`T`の本体を連続メモリ領域に配置するための`T`のサイズより大きい領域をアロケートできるような型だと考えられる)を使用して割り当てられる。
++型`T`のオブジェクトにメモリを割り当てる（`T`が`U[]`の場合は[`remove_extent_t`](../type_traits/remove_extent.md)`&amp;lt;T&amp;gt;`型の`N`要素の配列。`N`はそれぞれのオーバーロードで指定された引数から決定される）。メモリは、引数`a`のコピー(value_type のためのリバウンド。value_type は、参照カウンタと型`T`の本体を連続メモリ領域に配置するための`T`のサイズより大きい領域をアロケートできるような型だと考えられる)を使用して割り当てられる。
+ 
+ オブジェクトは、それぞれのオーバーロードで指定された引数から初期化される。
+ 
+@@ -94,10 +94,10 @@ namespace std {
+ この関数によって初期化された非配列型`U`の（サブ）オブジェクトが破棄される場合、式`allocator_traits&amp;lt;A2&amp;gt;::destroy(a2, pv)`によって破棄される。`pv`はその型のオブジェクトを指す。`remove_cv_t&amp;lt;U&amp;gt;`および型`A2`の`a2`は、`value_type`が`remove_cv_t&amp;lt;U&amp;gt;`になるように`allocate_shared`に渡されるアロケーター`a`の再束縛されたコピーである。
+ 
+ - (1) : 初期値`T(forward&amp;lt;Args&amp;gt;(args)...)`を持つ型`T`のオブジェクトへの`shared_ptr`を返す。Tが配列型でない場合にのみ、このオーバーロードはオーバーロード解決に関与する。この関数によって呼び出される`shared_ptr`コンストラクタは、型`T`の新しく構築されたオブジェクトのアドレスで`shared_from_this`を有効にする。
+-- (2) : デフォルトの初期値を持つ`U[N]`型のオブジェクトへの`shared_ptr`を返す。ここで、`U`は`remove_extent_t&amp;lt;T&amp;gt;`である。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
++- (2) : デフォルトの初期値を持つ、[`remove_extent_t`](../type_traits/remove_extent.md)`&amp;lt;T&amp;gt;`型の`N`個の要素からなる配列への`shared_ptr`を返す。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
+ - (3) : デフォルトの初期値を持つ`T`型のオブジェクトへの`shared_ptr`を返す。このオーバーロードは、`T`が`U[N]`の形式の場合にのみオーバーロード解決に関与する。
+-- (4) : `U[N]`型のオブジェクトへの`shared_ptr`を返す。ここで、`U`は`remove_extent_t&amp;lt;T&amp;gt;`であり、各配列要素の初期値は`u`である。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
+-- (5) : 型`T`のオブジェクトへの`shared_ptr`を返す。ここで、型`remove_extent_t&amp;lt;T&amp;gt;`の各配列要素は初期値`u`を持つ。
++- (4) : [`remove_extent_t`](../type_traits/remove_extent.md)`&amp;lt;T&amp;gt;`型の`N`個の要素からなる配列への`shared_ptr`を返す。各配列要素の初期値は`u`である。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
++- (5) : 型`T`のオブジェクトへの`shared_ptr`を返す。ここで、型[`remove_extent_t`](../type_traits/remove_extent.md)`&amp;lt;T&amp;gt;`の各配列要素は初期値`u`を持つ。
+ 
+ ## 戻り値
+ 新しく構築されたオブジェクトのアドレスを格納および所有する[`shared_ptr`](shared_ptr.md)インスタンス。
+@@ -157,4 +157,6 @@ int main() {
+ 
+ ## 参照
+ - [P0674R1 Extending `make_shared` to support arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0674r1.html)
+-- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+\ No newline at end of file
++- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
++- [LWG Issue 4451. `make_shared` should not refer to a type `U[N]` for runtime N](https://cplusplus.github.io/LWG/issue4451)
++    - C++26で、`N`が実行時の値である配列版において、結果を「`U[N]`型のオブジェクト」ではなく「[`remove_extent_t`](../type_traits/remove_extent.md)`&amp;lt;T&amp;gt;`型の`N`要素の配列」と表現するよう文言が修正された（実行時サイズの`U[N]`は妥当な型ではないため）
+\ No newline at end of file
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make_shared -- make_shared, allocate_shared : 配列版の結果としてremove_extentを使用するよう変更された</title>
+      <link href="https://cpprefjp.github.io/reference/memory/make_shared.html"/>
+      <id>90853ca2f33671c2dc53a165c4ace73b53893cd5:reference/memory/make_shared.md</id>
+      <updated>2026-08-13T17:47:46+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/make_shared.md b/reference/memory/make_shared.md
+index ad37714e9..f1375a98a 100644
+--- a/reference/memory/make_shared.md
++++ b/reference/memory/make_shared.md
+@@ -52,7 +52,7 @@ namespace std {
+ 
+ 
+ ## 効果
+-型`T`のオブジェクトにメモリを割り当てる（`T`が`U[]`の場合は`U[N]`。`N`はそれぞれのオーバーロードで指定された引数から決定される）。
++型`T`のオブジェクトにメモリを割り当てる（`T`が`U[]`の場合は[`remove_extent_t`](../type_traits/remove_extent.md)`&amp;lt;T&amp;gt;`型の`N`要素の配列。`N`はそれぞれのオーバーロードで指定された引数から決定される）。
+ 
+ オブジェクトは、それぞれのオーバーロードで指定された引数から初期化される。
+ 
+@@ -73,10 +73,10 @@ namespace std {
+ この関数によって初期化された非配列型`U`の（サブ）オブジェクトを破棄する場合、式`pv-&amp;gt;~U()`によって破棄される。pvは型`U`のオブジェクトを指す。
+ 
+ - (1) : 初期値`T(forward&amp;lt;Args&amp;gt;(args)...)`を持つ型`T`のオブジェクトへの`shared_ptr`を返す。Tが配列型でない場合にのみ、このオーバーロードはオーバーロード解決に関与する。この関数によって呼び出される`shared_ptr`コンストラクタは、型`T`の新しく構築されたオブジェクトのアドレスで`shared_from_this`を有効にする。
+-- (2) : デフォルトの初期値を持つ`U[N]`型のオブジェクトへの`shared_ptr`を返す。ここで、`U`は`remove_extent_t&amp;lt;T&amp;gt;`である。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
++- (2) : デフォルトの初期値を持つ、[`remove_extent_t`](../type_traits/remove_extent.md)`&amp;lt;T&amp;gt;`型の`N`個の要素からなる配列への`shared_ptr`を返す。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
+ - (3) : デフォルトの初期値を持つ`T`型のオブジェクトへの`shared_ptr`を返す。このオーバーロードは、`T`が`U[N]`の形式の場合にのみオーバーロード解決に関与する。
+-- (4) : `U[N]`型のオブジェクトへの`shared_ptr`を返す。ここで、`U`は`remove_extent_t&amp;lt;T&amp;gt;`であり、各配列要素の初期値は`u`である。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
+-- (5) : 型`T`のオブジェクトへの`shared_ptr`を返す。ここで、型`remove_extent_t&amp;lt;T&amp;gt;`の各配列要素は初期値`u`を持つ。
++- (4) : [`remove_extent_t`](../type_traits/remove_extent.md)`&amp;lt;T&amp;gt;`型の`N`個の要素からなる配列への`shared_ptr`を返す。各配列要素の初期値は`u`である。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
++- (5) : 型`T`のオブジェクトへの`shared_ptr`を返す。ここで、型[`remove_extent_t`](../type_traits/remove_extent.md)`&amp;lt;T&amp;gt;`の各配列要素は初期値`u`を持つ。
+ 
+ ## 戻り値
+ 型`T`に対する `shared_ptr&amp;lt;T&amp;gt;`オブジェクトを生成し返却する。  
+@@ -144,4 +144,6 @@ int main() {
+ - [N2351 Improving `shared_ptr` for C++0x, Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2351.htm)
+ - [std::make_shared から private コンストラクタを呼び出す - 野良C++erの雑記帳](http://d.hatena.ne.jp/gintenlabo/20131211/1386771626)
+ - [P0674R1 Extending `make_shared` to support arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0674r1.html)
+-- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+\ No newline at end of file
++- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
++- [LWG Issue 4451. `make_shared` should not refer to a type `U[N]` for runtime N](https://cplusplus.github.io/LWG/issue4451)
++    - C++26で、`N`が実行時の値である配列版において、結果を「`U[N]`型のオブジェクト」ではなく「[`remove_extent_t`](../type_traits/remove_extent.md)`&amp;lt;T&amp;gt;`型の`N`要素の配列」と表現するよう文言が修正された（実行時サイズの`U[N]`は妥当な型ではないため）
+\ No newline at end of file
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>atomic_ref -- atomic_ref: const Tを操作する場合の使えるメンバ関数を記載</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_ref.html"/>
+      <id>1a8205976ec5f16cf8e87b18288c0898cb3f926d:reference/atomic/atomic_ref.md</id>
+      <updated>2026-08-13T17:41:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_ref.md b/reference/atomic/atomic_ref.md
+index 796709123..affc16231 100644
+--- a/reference/atomic/atomic_ref.md
++++ b/reference/atomic/atomic_ref.md
+@@ -35,6 +35,8 @@ namespace std {
+ 
+ C++26から、これらの特殊化はCV修飾された型に対しても行われるようになった。
+ 
++`T`が`const`修飾されている場合、参照先の値を変更するメンバ関数（[`store`](atomic_ref/store.md)、[`operator=`](atomic_ref/op_assign.md)、`fetch_*`／`store_*`系、複合代入演算子、[`operator++`](atomic_ref/op_increment.md)／[`operator--`](atomic_ref/op_decrement.md)など）は制約により無効化され、読み取り・待機系の操作（[`load`](atomic_ref/load.md)、[`wait`](atomic_ref/wait.md)など）のみが利用できる。
++
+ 
+ ## テンプレートパラメータ制約
+ - 型`T`は[`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`&amp;lt;T&amp;gt; == true`であること
+@@ -236,3 +238,5 @@ int main()
+     - C++26でCV修飾されたテンプレート引数を受け取れるようになった
+ - [LWG Issue 4453. `atomic_ref&amp;lt;cv T&amp;gt;::required_alignment` should be the same as for `T`](https://cplusplus.github.io/LWG/issue4453)
+     - C++26で、CV修飾の違いによって`required_alignment`と`is_always_lock_free`の値が変わらないことが保証された
++- [LWG Issue 4450. `std::atomic_ref&amp;lt;T&amp;gt;::store` should be disabled for const `T`](https://cplusplus.github.io/LWG/issue4450)
++    - C++26で、`T`が`const`修飾されている場合に`store`をはじめとする値を変更するメンバ関数が制約により無効化されることが規定された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
