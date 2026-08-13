@@ -55,6 +55,7 @@ jobs:
         fetch-depth: 0
         ref: ${{ steps.vars.outputs.head_ref }}
         path: site_generator/cpprefjp/site
+        allow-unsafe-pr-checkout: true
     - run: git submodule update --init
       working-directory: site_generator/cpprefjp/site
 
