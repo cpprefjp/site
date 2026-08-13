@@ -25,13 +25,27 @@ namespace std {
 ## 効果
 `lk`のロック所有権を（スレッドライブラリの）内部ストレージへと移し、スレッド終了時、スレッドローカルなデータを解放した後、`cond`を使って通知する。通知は以下のように行う：
 
-```cpp
-// ここでスレッドローカルストレージを解放
-lk.unlock();
-cond.notify_all();
-```
-* lk.unlock()[link /reference/mutex/unique_lock/unlock.md]
-* cond.notify_all()[link notify_all.md]
+- C++11 :
+
+    ```cpp
+    // ここでスレッドローカルストレージを解放
+    lk.unlock();
+    cond.notify_all();
+    ```
+    * lk.unlock()[link /reference/mutex/unique_lock/unlock.md]
+    * cond.notify_all()[link notify_all.md]
+
+- C++26 :
+
+    ```cpp
+    // ここでスレッドローカルストレージを解放
+    cond.notify_all();
+    lk.unlock();
+    ```
+    * lk.unlock()[link /reference/mutex/unique_lock/unlock.md]
+    * cond.notify_all()[link notify_all.md]
+
+    通知（`notify_all()`）を先に行い、その後でロックを解放するよう順序が変更された。これにより、`lk`のロック解除を待っている別スレッドは、`notify_all()`の呼び出し完了後にはじめて起床できるため、デタッチされたスレッドで`cond`が破棄されて`notify_all()`がダングリング参照になる競合を避けられる。
 
 ## 戻り値
 なし
@@ -128,3 +142,5 @@ data is ready: true
 ## 参照
 - [_at_thread_exit系の関数が存在している理由](/article/lib/at_thread_exit.md)
 - [N3070 - Handling Detached Threads and thread_local Variables](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3070.html)
+- [LWG Issue 3343. Ordering of calls to `unlock()` and `notify_all()` in Effects element of `notify_all_at_thread_exit()` should be reversed](https://cplusplus.github.io/LWG/issue3343)
+    - C++26で、通知処理の順序が`notify_all()`→`unlock()`へ変更された。デタッチされたスレッドで`cond`が破棄され`notify_all()`がダングリング参照となる競合を避けるためである。この変更は欠陥報告 (DR) であり、C++26より前のバージョンでもコンパイラが早期に対応している場合がある
