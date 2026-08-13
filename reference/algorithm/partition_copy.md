@@ -134,3 +134,5 @@ odds : 1,3,5,
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+- [LWG Issue 4465. §[alg.partitions] Clarify _Returns:_ element](https://cplusplus.github.io/LWG/issue4465)
+    - C++26で、戻り値の`pair`が、それぞれ`out_true`／`out_false`の各出力範囲へコピーされた最後の要素の次を指すイテレータであることが明確化された
