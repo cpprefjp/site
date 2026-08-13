@@ -100,3 +100,5 @@ id=42, value=3.14
     - C++26で、`type_class`がCV修飾されていないクラス型を表すことが要件として明確化された。非クラス型やCV修飾された型を渡した場合はコンパイルエラーとして診断される
 - [LWG Issue 4443. Clean up identifier comparisons in `meta::define_aggregate`](https://cplusplus.github.io/LWG/issue4443)
     - C++26で、メンバ名の比較を文字列ではなく識別子として直接おこなう（`N_K`が`N_L`と同じ識別子でない、`N_K`が識別子`_`である、など）よう文言が整理された。動作は変わらない
+- [LWG Issue 4449. `define_aggregate` members must be public](https://cplusplus.github.io/LWG/issue4449)
+    - C++26で、生成されるメンバがpublicアクセスを持つことが明確化された（従来はアクセス指定が未規定だった）
