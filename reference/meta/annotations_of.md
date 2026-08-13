@@ -19,6 +19,10 @@ namespace std::meta {
 `item`に付加されたすべてのアノテーションのリフレクションを格納した[`std::vector`](/reference/vector/vector.md)オブジェクトを返す。
 
 
+## 例外
+`item`が、型・型エイリアス・変数・関数・関数パラメータ・名前空間・列挙子・直接基底クラス関係・非静的メンバ変数のいずれをも表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+
+
 ## 例
 ```cpp example
 #include <meta>

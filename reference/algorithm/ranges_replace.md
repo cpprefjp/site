@@ -27,7 +27,7 @@ namespace std::ranges {
             sentinel_for<I> S,
             class Proj = identity,
             class T1 = projected_value_t<I, Proj>,
-            class T2 = T1>
+            class T2 = iter_value_t<I>>
     requires indirectly_writable<I, const T2&> &&
              indirect_binary_predicate<
                ranges::equal_to,
@@ -59,7 +59,7 @@ namespace std::ranges {
   template <input_range R,
             class Proj = identity,
             class T1 = projected_value_t<iterator_t<R>, Proj>,
-            class T2 = T1>
+            class T2 = range_value_t<R>>
     requires indirectly_writable<iterator_t<R>, const T2&> &&
              indirect_binary_predicate<
                ranges::equal_to,
@@ -252,3 +252,5 @@ int main() {
 - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
     - C++26で波カッコ初期化 (リスト初期化) に対応した
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 4444. Fix default template arguments for `ranges::replace` and `ranges::replace_if`](https://cplusplus.github.io/LWG/issue4444)
+    - C++26で、新しい値`new_value`の型`T2`のデフォルトテンプレート引数が、射影を適用した型ではなくイテレータの値型`iter_value_t<I>`（範囲版では`range_value_t<R>`）となるよう修正された

@@ -16,7 +16,7 @@ namespace std::meta {
 
 
 ## 戻り値
-`r`が外部リンケージを持つエンティティを表す場合に`true`を返す。
+`r`が、その名前が外部リンケージを持つ変数・関数・型・テンプレート・名前空間を表す場合に`true`を返す。そうでなければ`false`を返す。
 
 
 ## 例
@@ -51,3 +51,5 @@ int main() {
 
 ## 参照
 - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+- [LWG Issue 4433. Incorrect query for C language linkage](https://cplusplus.github.io/LWG/issue4433)
+    - C++26で、判定対象が「C言語外部リンケージ」ではなく「外部リンケージ」であることが明確化された（`has_c_language_linkage`の修正に伴うドライブバイ修正）

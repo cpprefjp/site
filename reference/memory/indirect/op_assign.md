@@ -24,7 +24,7 @@ constexpr indirect& operator=(U&& u);                              // (3)
 
 ## 適格要件
 - (1) : [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<T>`と[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T>`がともに`true`であること。
-- (2) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T>`が`true`であること。
+- (2) : [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::propagate_on_container_move_assignment::value`が`false`かつ[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::is_always_equal::value`が`false`の場合、[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T>`が`true`であること。
 
 
 ## 効果
@@ -96,3 +96,5 @@ int main()
 
 ## 参照
 - [P3019R14 `indirect` and `polymorphic`: Vocabulary Types for Composite Class Design](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3019r14.pdf)
+- [LWG Issue 4251. Move assignment for `indirect` unnecessarily requires copy construction](https://cplusplus.github.io/LWG/issue4251)
+    - C++26で、ムーブ代入(2)の適格要件が「`is_copy_constructible_v<T>`が`true`」から、アロケータが伝播せず等価でもない場合にのみ「`is_move_constructible_v<T>`が`true`」を要求する形へ緩和された。ムーブ代入はアロケータが異なるときにのみオブジェクトを構築するため、コピー構築の要求は不要であった

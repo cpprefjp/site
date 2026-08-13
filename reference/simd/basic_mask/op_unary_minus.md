@@ -71,3 +71,5 @@ int main()
 ## 参照
 - [P1928R15 std::simd — merge data-parallel types from the Parallelism TS 2](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p1928r15.pdf)
     - C++26で追加された
+- [LWG Issue 4376. ABI tag in return type of [simd.mask.unary] is overconstrained](https://cplusplus.github.io/LWG/issue4376)
+    - C++26で、単項演算子の戻り値型が明示的な`basic_vec<integer-from<Bytes>, Abi>`から「_see below_」へ変更され、`Bytes`と同じサイズのベクトル化可能な符号付き整数型が存在する場合のみ有効な`basic_vec`を返すよう備考で規定された。ABIタグが全ベクトル化可能型で単一のネイティブSIMD幅を符号化することを強制しないための変更

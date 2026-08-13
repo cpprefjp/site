@@ -20,7 +20,7 @@ constexpr explicit(!is_convertible_v<OtherExtents, extents_type>)
   mapping(const layout_right::mapping<OtherExtents>& other);  // (5)
 
 template<class OtherExtents>
-constexpr explicit(rank_ > 0)
+constexpr explicit(!(extents_type::rank() == 0 && is_convertible_v<OtherExtents, extents_type>))
   mapping(const layout_stride::mapping<OtherExtents>& other);  // (6)
 
 template<class LayoutRightPaddedMapping>
@@ -118,7 +118,7 @@ constexpr explicit(see below)
 
 ## explicitになる条件
 - (5) : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<OtherExtents, extents_type>`
-- (6) : [`extents_type::rank()`](../../extents/rank.md) `> 0`
+- (6) : `!(`[`extents_type::rank()`](../../extents/rank.md)` == 0 && `[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<OtherExtents, extents_type>)`
 - (7) : `rank_ > 1 && (padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| LayoutRightPaddedMapping::padding_value == dynamic_extent)`
 - (8) : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<LayoutLeftPaddedMapping::extents_type, extents_type>`
 
@@ -219,3 +219,5 @@ int main()
 
 ## 参照
 - [P2642R6 Padded mdspan layouts](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2642r6.pdf)
+- [LWG Issue 4272. For `rank == 0`, `layout_stride` is atypically convertible](https://cplusplus.github.io/LWG/issue4272)
+    - C++26で、(6)の`layout_stride::mapping`からの変換コンストラクタの`explicit`条件が`extents_type::rank() > 0`から`!(extents_type::rank() == 0 && is_convertible_v<OtherExtents, extents_type>)`へ変更された。rank 0のとき、`extents`型が変換可能でなくても暗黙変換できてしまう不整合を解消するもの

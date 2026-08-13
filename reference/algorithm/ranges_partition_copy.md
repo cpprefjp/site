@@ -201,3 +201,5 @@ odds: 1 3 5 7
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 4465. §[alg.partitions] Clarify _Returns:_ element](https://cplusplus.github.io/LWG/issue4465)
+    - C++26で、戻り値の`out1`/`out2`が、それぞれ`out_true`／`out_false`の各出力範囲へコピーされた最後の要素の次を指すイテレータであることが明確化された

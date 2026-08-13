@@ -43,5 +43,7 @@ constexpr auto operator--(this T self, int) noexcept; // 後置
 ## 参照
 - [P2781R9 `std::constant_wrapper`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2781r9.html)
 - [P3978R3 `constant_wrapper` should unwrap on call and subscript](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3978r3.pdf)
+- [LWG Issue 4383. `constant_wrapper`'s pseudo-mutators are underconstrained](https://cplusplus.github.io/LWG/issue4383)
+    - C++26で、擬似変更演算子の戻り値型を`constant_wrapper<(++T::value)>`のような直接形とすることで、変更操作が定数式にならない型に対してハードエラーではなくSFINAEで除外される（SFINAEフレンドリになる）よう修正された
 - [LWG Issue 4500. `constant_wrapper` wording problems](https://cplusplus.github.io/LWG/issue4500)
     - C++26で、インクリメント／デクリメント演算子の戻り値型の式に含まれる文言上の誤り（どこにも定義されていない変数`Y`の使用）が`constant_wrapper<(--T::value)>`のように修正された

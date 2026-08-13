@@ -16,7 +16,7 @@ namespace std::meta {
 
 
 ## 戻り値
-`r`がスレッド記憶域期間（`thread_local`）を持つ変数を表す場合に`true`を返す。
+`r`がスレッド記憶域期間（`thread_local`）を持つオブジェクトまたは変数を表す場合に`true`を返す。そうでなければ`false`を返す。
 
 
 ## 例

@@ -21,12 +21,20 @@ namespace std::meta {
 
 
 ## 例外
-以下のいずれかの場合、[`std::meta::exception`](exception.md)例外を送出する：
+以下のすべての条件を満たさない場合、[`std::meta::exception`](exception.md)例外を送出する：
 
-- `type`がオブジェクト型または参照型を表さない場合
-- `options.name`に値があり、有効な識別子でない場合
-- `options.name`に値がなく、`options.bit_width`にも値がない場合
-- `options.name`に値がなく（無名ビットフィールド）、`type`が`const`または`volatile`修飾されている場合
+- [`dealias`](dealias.md)`(type)`がオブジェクト型または参照型を表すこと
+- `options.name`に値がある場合、それが有効な識別子（トークン）のつづりを含むこと（`u8string`ならUTF-8、`string`なら通常のリテラルエンコーディングで解釈する。ユニバーサルキャラクタ名などの字句構造は処理されない）
+- `options.name`に値がない場合、`options.bit_width`に値があり、かつ`options.annotations`が空であること
+- `options.bit_width`に値`V`がある場合、次をすべて満たすこと：
+    - [`is_integral_type`](is_integral_type.md)`(type) || is_enum_type(type)`が`true`であること
+    - `options.alignment`に値がないこと
+    - `options.no_unique_address`が`false`であること
+    - `V`が負でないこと
+    - `V`が`0`の場合、`options.name`に値がないこと
+    - `options.name`に値がない場合、[`is_const`](is_const.md)`(type) || is_volatile(type)`が`false`であること
+- `options.alignment`に値がある場合、それが[`alignment_of`](alignment_of.md)`(type)`以上のアライメント値であること
+- `options.annotations`の各リフレクション`r`について、`has-type(r)`が`true`であり、[`type_of`](type_of.md)`(r)`が非配列オブジェクト型を表し、[`constant_of`](constant_of.md)`(r)`の評価が例外で終了しないこと
 
 
 ## 例

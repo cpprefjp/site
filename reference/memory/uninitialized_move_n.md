@@ -119,3 +119,5 @@ int main()
 - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
     - C++26から`constexpr`がついた
+- [LWG Issue 4452. Make _deref-move_ constexpr](https://cplusplus.github.io/LWG/issue4452)
+    - C++26で、この関数が内部で用いる説明専用ヘルパ関数`deref-move`にも`constexpr`が付き、定数式での評価が可能になった（P3508が見落としていた箇所を補完）

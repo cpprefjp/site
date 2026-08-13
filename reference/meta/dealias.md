@@ -16,11 +16,11 @@ namespace std::meta {
 
 
 ## 戻り値
-`r`が型エイリアスまたは名前空間エイリアスを表す場合、エイリアス先のリフレクションを返す。エイリアスでなければ`r`をそのまま返す。
+`r`が型エイリアスまたは名前空間エイリアスを表す場合、エイリアス先のリフレクションを返す。そうでなければ（エイリアスでない場合や、エンティティを表さない場合を含めて）`r`をそのまま返す。
 
 
 ## 例外
-`r`がエンティティを表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+投げない。
 
 
 ## 例
@@ -52,3 +52,5 @@ int main() {
 
 ## 参照
 - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+- [LWG Issue 4427. `meta::dealias` needs to work with things that aren't entities](https://cplusplus.github.io/LWG/issue4427)
+    - C++26で、`r`がエンティティを表さない場合に例外を送出するのではなく、`r`をそのまま返す（恒等関数として振る舞う）よう変更された。直接基底クラス関係など非エンティティのリフレクションに対する正当な用途を可能にするため

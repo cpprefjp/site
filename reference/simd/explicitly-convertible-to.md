@@ -31,3 +31,5 @@ namespace std::simd {
 ## 参照
 - [P1928R15 std::simd — merge data-parallel types from the Parallelism TS 2](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p1928r15.pdf)
     - C++26で`std::simd`ライブラリが追加された
+- [LWG Issue 4420. §[simd] conversions (constructor, load, stores, gather, and scatter) are incorrectly constrained for `<stdfloat>` types](https://cplusplus.github.io/LWG/issue4420)
+    - C++26で、`<stdfloat>`型（`float16_t`等）を含む明示的変換をsimdのコンストラクタやload/store/gather/scatterで正しく扱うために、このコンセプトが導入された

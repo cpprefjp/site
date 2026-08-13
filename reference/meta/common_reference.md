@@ -22,7 +22,7 @@ namespace std::meta {
 
 
 ## 例外
-`type_args`の各要素が型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+`type_args`の各要素が型を表さない場合、または共通の参照型が存在しない（対応する`std::common_reference`にメンバ型`type`が無い）場合、[`std::meta::exception`](exception.md)例外を送出する。
 
 
 ## 例

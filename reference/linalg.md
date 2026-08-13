@@ -67,8 +67,6 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 | [`add`](linalg/add.md) | xAXPY: 2つのベクトル／行列の要素を加算する (function template) | C++26 |
 | [`dot`](linalg/dot.md) | xDOT, xDOTU: 2つのベクトルのドット積を求める (function template) | C++26 |
 | [`dotc`](linalg/dotc.md) | xDOTC: 2つのベクトルの複素共役ドット積を求める (function template) | C++26 |
-| [`sum_of_squares_result`](linalg/sum_of_squares_result.md) | `vector_sum_of_squares`の結果型 (class template) | C++26 |
-| [`vector_sum_of_squares`](linalg/vector_sum_of_squares.md) | xLASSQ: ベクトル要素の平方和を求める (function template) | C++26 |
 | [`vector_two_norm`](linalg/vector_two_norm.md) | xNRM2: ベクトルのユークリッドノルム(Euclidean norm)を求める (function template) | C++26 |
 | [`vector_abs_sum`](linalg/vector_abs_sum.md) | xASUM: ベクトル要素の絶対値和を求める (function template) | C++26 |
 | [`vector_idx_abs_max`](linalg/vector_idx_abs_max.md) | xIAMAX: ベクトル要素のうち最大絶対値インデクスを返す (function template) | C++26 |
@@ -160,6 +158,8 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
+- [LWG Issue 4302. Problematic `vector_sum_of_squares` wording](https://cplusplus.github.io/LWG/issue4302)
+    - C++26のリリース前に、`vector_sum_of_squares`関数とその結果型`sum_of_squares_result`が削除された。全ての線形代数値型で除算などの演算が正しく動作するとは限らないなどの根本的な問題があったため
 - [P1674R2: Evolving a Standard C++ Linear Algebra Library from the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1674r2.html)
 - [std::linalg: Linear Algebra Coming to Standard C++](https://github.com/CppCon/CppCon2023/blob/main/Presentations/stdlinalg_linear_algebra_coming_to_standard_cpp.pdf), CppCon 2023
 - [BLAS (Basic Linear Algebra Subprograms)](https://www.netlib.org/blas/)

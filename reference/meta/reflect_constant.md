@@ -16,8 +16,16 @@ namespace std::meta {
 値からリフレクションを生成する。
 
 
+## 適格要件
+[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T>`が`true`であり、かつ`T`がCV修飾されていない構造的型（*structural type*）であって参照型でないこと。
+
+
 ## 戻り値
 `value`の値を表すリフレクションを返す。
+
+
+## 例外
+`value`の値を型`T`のテンプレートパラメータに対するテンプレート実引数として使用できない場合、[`std::meta::exception`](exception.md)例外を送出する。
 
 
 ## 例

@@ -7,7 +7,7 @@
 
 ```cpp
 static pointer pointer_traits::pointer_to(element_type& r);           // (1) C++11
-static constexpr pointer pointer_traits::pointer_to(element_type& r); // (1) C++20
+static constexpr pointer pointer_traits::pointer_to(element_type& r); // (1) C++26
 
 
 static pointer pointer_traits<T*>::pointer_to(element_type& r) noexcept;           // (2) C++11
@@ -57,3 +57,6 @@ int main()
 
 ## 参照
 - [P1006R1 Constexpr in `std::pointer_traits`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1006r1.pdf)
+    - C++20で、生ポインタの特殊化(2) `pointer_traits<T*>::pointer_to`に`constexpr`が付いた（プライマリテンプレート(1)は、`reinterpret_cast`を使うfancy pointerを排除しないため対象外とされた）
+- [LWG Issue 3454. `pointer_traits::pointer_to` should be `constexpr`](https://cplusplus.github.io/LWG/issue3454)
+    - C++26で、プライマリテンプレートの(1) `pointer_traits::pointer_to`にも`constexpr`が付いた。これによりfancy pointerを使う`constexpr`コンテナ（SSOを用いた`constexpr std::string`など）が定数式で動作できるようになる。この変更は欠陥報告 (DR) であり、C++26より前のバージョンでもコンパイラが早期に対応している場合がある

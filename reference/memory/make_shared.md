@@ -52,7 +52,7 @@ namespace std {
 
 
 ## 効果
-型`T`のオブジェクトにメモリを割り当てる（`T`が`U[]`の場合は`U[N]`。`N`はそれぞれのオーバーロードで指定された引数から決定される）。
+型`T`のオブジェクトにメモリを割り当てる（`T`が`U[]`の場合は[`remove_extent_t`](../type_traits/remove_extent.md)`<T>`型の`N`要素の配列。`N`はそれぞれのオーバーロードで指定された引数から決定される）。
 
 オブジェクトは、それぞれのオーバーロードで指定された引数から初期化される。
 
@@ -73,10 +73,10 @@ namespace std {
 この関数によって初期化された非配列型`U`の（サブ）オブジェクトを破棄する場合、式`pv->~U()`によって破棄される。pvは型`U`のオブジェクトを指す。
 
 - (1) : 初期値`T(forward<Args>(args)...)`を持つ型`T`のオブジェクトへの`shared_ptr`を返す。Tが配列型でない場合にのみ、このオーバーロードはオーバーロード解決に関与する。この関数によって呼び出される`shared_ptr`コンストラクタは、型`T`の新しく構築されたオブジェクトのアドレスで`shared_from_this`を有効にする。
-- (2) : デフォルトの初期値を持つ`U[N]`型のオブジェクトへの`shared_ptr`を返す。ここで、`U`は`remove_extent_t<T>`である。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
+- (2) : デフォルトの初期値を持つ、[`remove_extent_t`](../type_traits/remove_extent.md)`<T>`型の`N`個の要素からなる配列への`shared_ptr`を返す。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
 - (3) : デフォルトの初期値を持つ`T`型のオブジェクトへの`shared_ptr`を返す。このオーバーロードは、`T`が`U[N]`の形式の場合にのみオーバーロード解決に関与する。
-- (4) : `U[N]`型のオブジェクトへの`shared_ptr`を返す。ここで、`U`は`remove_extent_t<T>`であり、各配列要素の初期値は`u`である。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
-- (5) : 型`T`のオブジェクトへの`shared_ptr`を返す。ここで、型`remove_extent_t<T>`の各配列要素は初期値`u`を持つ。
+- (4) : [`remove_extent_t`](../type_traits/remove_extent.md)`<T>`型の`N`個の要素からなる配列への`shared_ptr`を返す。各配列要素の初期値は`u`である。`T`の形式が`U[]`の場合にのみ、このオーバーロードはオーバーロード解決に関与する。
+- (5) : 型`T`のオブジェクトへの`shared_ptr`を返す。ここで、型[`remove_extent_t`](../type_traits/remove_extent.md)`<T>`の各配列要素は初期値`u`を持つ。
 
 ## 戻り値
 型`T`に対する `shared_ptr<T>`オブジェクトを生成し返却する。  
@@ -145,3 +145,5 @@ int main() {
 - [std::make_shared から private コンストラクタを呼び出す - 野良C++erの雑記帳](http://d.hatena.ne.jp/gintenlabo/20131211/1386771626)
 - [P0674R1 Extending `make_shared` to support arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0674r1.html)
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+- [LWG Issue 4451. `make_shared` should not refer to a type `U[N]` for runtime N](https://cplusplus.github.io/LWG/issue4451)
+    - C++26で、`N`が実行時の値である配列版において、結果を「`U[N]`型のオブジェクト」ではなく「[`remove_extent_t`](../type_traits/remove_extent.md)`<T>`型の`N`要素の配列」と表現するよう文言が修正された（実行時サイズの`U[N]`は妥当な型ではないため）

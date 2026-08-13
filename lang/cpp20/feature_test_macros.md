@@ -55,7 +55,7 @@
 |`__cpp_lib_bit_cast`|`201806L`|[`std::bit_cast()`](/reference/bit/bit_cast.md)|[`<bit>`](/reference/bit.md)|
 |`__cpp_lib_bitops`|`201907L`|[`<bit>`](/reference/bit.md)の追加|[`<bit>`](/reference/bit.md)|
 |`__cpp_lib_bounded_array_traits`|`201902L`|[`std::is_bounded_array`](/reference/type_traits/is_bounded_array.md)、[`std::is_unbounded_array`](/reference/type_traits/is_unbounded_array.md)|[`<type_traits>`](/reference/type_traits.md)|
-|`__cpp_lib_char8_t`|`201811L`<br/>`201907L`|`char8_t`に対する特殊化の追加|[`<atomic>`](/reference/atomic.md)<br/>[`<filesystem>`](/reference/filesystem.md)<br/>[`<istream>`](/reference/istream.md)<br/>[`<limits>`](/reference/limits.md)<br/>[`<locale>`](/reference/locale.md)<br/>[`<ostream>`](/reference/ostream.md)<br/>[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
+|`__cpp_lib_char8_t`|`201811L`<br/>`201907L`|`char8_t`に対する特殊化の追加|[`<atomic>`](/reference/atomic.md)<br/>[`<filesystem>`](/reference/filesystem.md)<br/>[`<iosfwd>`](/reference/iosfwd.md.nolink)<br/>[`<istream>`](/reference/istream.md)<br/>[`<limits>`](/reference/limits.md)<br/>[`<locale>`](/reference/locale.md)<br/>[`<ostream>`](/reference/ostream.md)<br/>[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
 |`__cpp_lib_chrono`|`201907L`|カレンダーとタイムゾーン|[`<chrono>`](/reference/chrono.md)|
 |`__cpp_lib_concepts`|`202002L`|[`<concepts>`](/reference/concepts.md)の追加|[`<concepts>`](/reference/concepts.md)|
 |`__cpp_lib_constexpr_algorithms`|`201806L`|多くのアルゴリズムに`constexpr`を追加|[`<algorithm>`](/reference/algorithm.md)|
@@ -100,7 +100,7 @@
 |`__cpp_lib_ssize`|`201902L`|[`std::ssize()`](/reference/iterator/ssize.md)と[`std::span`](/reference/span/span.md)で使用する整数型の符号なし（`size_t`）への変更|[`<iterator>`](/reference/iterator.md)|
 |`__cpp_lib_starts_ends_with`|`201711L`|[`std::string`](/reference/string/basic_string.md)と[`std::string_view`](/reference/string_view/basic_string_view.md)の`starts_with()`と`ends_with()`|[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
 |`__cpp_lib_string_view`|`201803L`|[`std::string`](/reference/string/basic_string.md)と[`std::string_view`](/reference/string_view/basic_string_view.md)のイテレータの`constexpr`対応|[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
-|`__cpp_lib_syncbuf`|`201803L`|同期化出力ストリーム（[`std::osyncstream`](/reference/syncstream/basic_osyncstream.md)）とバッファ（[`std::syncbuf`](/reference/syncstream/basic_syncbuf.md)）|[`<syncstream>`](/reference/syncstream.md)|
+|`__cpp_lib_syncbuf`|`201803L`|同期化出力ストリーム（[`std::osyncstream`](/reference/syncstream/basic_osyncstream.md)）とバッファ（[`std::syncbuf`](/reference/syncstream/basic_syncbuf.md)）|[`<iosfwd>`](/reference/iosfwd.md.nolink)<br/>[`<syncstream>`](/reference/syncstream.md)|
 |`__cpp_lib_three_way_comparison`|`201907L`|標準ライブラリの三方比較演算子対応|[`<compare>`](/reference/compare.md)|
 |`__cpp_lib_to_address`|`201711L`|[`std::to_address()`](/reference/memory/to_address.md)|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_to_array`|`201907L`|[`std::to_array()`](/reference/array/to_array.md)|[`<array>`](/reference/array.md)|
@@ -110,3 +110,5 @@
 ## 参照
 
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
+- [LWG Issue 4440. Forward declarations of entities need also in entries](https://cplusplus.github.io/LWG/issue4440)
+    - C++26で、`__cpp_lib_char8_t`と`__cpp_lib_syncbuf`の定義ヘッダに[`<iosfwd>`](/reference/iosfwd.md.nolink)が追加された（`<iosfwd>`が関連エンティティの先行宣言を含むため）

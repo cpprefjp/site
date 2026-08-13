@@ -157,3 +157,5 @@ e: 1 2 3 4
     - ジェネレータコンストラクタ (4) から`noexcept`と「`gen`の呼び出しは互いに未順序」という制約が除去され、`gen`は各要素につき昇順でちょうど1回呼び出されると規定された
 - [P4012R1 Value-preserving consteval broadcast to `simd::vec`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4012r1.pdf)
     - ブロードキャストコンストラクタ (2) から`explicit`が除去され、値を保持する算術型や定数ラッパー型からの暗黙変換を許可するよう制約が再規定された
+- [LWG Issue 4420. §[simd] conversions (constructor, load, stores, gather, and scatter) are incorrectly constrained for `<stdfloat>` types](https://cplusplus.github.io/LWG/issue4420)
+    - C++26で、`<stdfloat>`型への明示的変換を許可するため、コンストラクタの制約が`constructible_from`から明示的変換可能性(`explicitly-convertible-to`)ベースへ修正された

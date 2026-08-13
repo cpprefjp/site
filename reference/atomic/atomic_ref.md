@@ -35,6 +35,8 @@ namespace std {
 
 C++26から、これらの特殊化はCV修飾された型に対しても行われるようになった。
 
+`T`が`const`修飾されている場合、参照先の値を変更するメンバ関数（[`store`](atomic_ref/store.md)、[`operator=`](atomic_ref/op_assign.md)、`fetch_*`／`store_*`系、複合代入演算子、[`operator++`](atomic_ref/op_increment.md)／[`operator--`](atomic_ref/op_decrement.md)など）は制約により無効化され、読み取り・待機系の操作（[`load`](atomic_ref/load.md)、[`wait`](atomic_ref/wait.md)など）のみが利用できる。
+
 
 ## テンプレートパラメータ制約
 - 型`T`は[`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<T> == true`であること
@@ -236,3 +238,5 @@ int main()
     - C++26でCV修飾されたテンプレート引数を受け取れるようになった
 - [LWG Issue 4453. `atomic_ref<cv T>::required_alignment` should be the same as for `T`](https://cplusplus.github.io/LWG/issue4453)
     - C++26で、CV修飾の違いによって`required_alignment`と`is_always_lock_free`の値が変わらないことが保証された
+- [LWG Issue 4450. `std::atomic_ref<T>::store` should be disabled for const `T`](https://cplusplus.github.io/LWG/issue4450)
+    - C++26で、`T`が`const`修飾されている場合に`store`をはじめとする値を変更するメンバ関数が制約により無効化されることが規定された

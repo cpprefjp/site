@@ -20,14 +20,17 @@ namespace std::meta {
 
 - 型
 - オブジェクト
-- 値
 - 参照型でない変数
 - ビットフィールドでないメンバ変数
 - 直接基底クラス関係
+- ビット幅を持たないデータメンバ記述（[`data_member_spec()`](data_member_spec.md)で生成されるもの。アライメント指定があればその値、なければ型のアライメント）
 
 
 ## 例外
-`r`が上記のいずれも表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+以下のすべてを満たさない場合、[`std::meta::exception`](exception.md)例外を送出する：
+
+- [`dealias`](dealias.md)`(r)`が、型・オブジェクト・参照型でない変数・ビットフィールドでないメンバ変数・直接基底クラス関係・ビット幅を持たないデータメンバ記述のいずれかを表すこと
+- `dealias(r)`が型を表す場合、[`is_complete_type`](is_complete_type.md)`(r)`が`true`であること
 
 
 ## 例
@@ -57,3 +60,5 @@ int main() {
 
 ## 参照
 - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+- [LWG Issue 4429. `meta::alignment_of` should exclude data member description of bit-field](https://cplusplus.github.io/LWG/issue4429)
+    - C++26で、ビットフィールドのデータメンバ記述（ビット幅`W`が⊥でないもの）を渡した場合に例外を送出することが明確化された

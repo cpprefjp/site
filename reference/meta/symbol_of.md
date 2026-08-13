@@ -21,6 +21,10 @@ namespace std::meta {
 演算子`op`に対応する記号文字列を返す。
 
 
+## 例外
+`op`の値が[`operators`](operators.md)の列挙子のいずれかに対応しない場合、[`std::meta::exception`](exception.md)例外を送出する。
+
+
 ## 備考
 `std::meta`名前空間の関数のうち、戻り値の型が`string_view`または`u8string_view`であるものは、NULL終端された静的記憶域上の文字列を返す、というルールがある。本関数もそれに該当する。
 

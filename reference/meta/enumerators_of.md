@@ -20,7 +20,7 @@ namespace std::meta {
 
 
 ## 例外
-`r`が列挙型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+`type_enum`が列挙型を表さない場合、または[`is_enumerable_type`](is_enumerable_type.md)`(type_enum)`が`true`でない場合、[`std::meta::exception`](exception.md)例外を送出する。
 
 
 ## 例
