@@ -41,6 +41,10 @@ constexpr inplace_vector(initializer_list<T> il);                 // (8) C++26
 - (8) : 初期化子リストの要素で構築する。
 
 
+## 適格要件
+- (5) : [`ranges::size`](/reference/ranges/size.md)`(rg)`が定数式である場合、`ranges::size(rg) <= N`であること。
+
+
 ## 効果
 
 - (1) : デフォルトコンストラクタ。要素を持たない空の`inplace_vector`オブジェクトを構築する。
@@ -130,3 +134,5 @@ fifth: 1 2 3
 
 ## 参照
 - [P0843R14 `inplace_vector`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0843r14.html)
+- [LWG Issue 4396. Improve `inplace_vector(from_range_t, R&& rg)`](https://cplusplus.github.io/LWG/issue4396)
+    - C++26で、(5)に「`ranges::size(rg)`が定数式なら`N`以下であること」という適格要件が追加された。範囲のサイズが静的に容量`N`を超えると分かる場合、実行時の`bad_alloc`ではなくコンパイルエラーとするもの
