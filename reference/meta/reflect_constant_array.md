@@ -22,6 +22,7 @@ namespace std::meta {
 
 ## 備考
 - 要素の型が配列型である場合、その各要素に対して再帰的にこの関数が適用される。これにより、多次元配列のリフレクションを生成できる（配列型は構造的型ではないため、この再帰的な扱いがなければ多次元配列は扱えない）
+- 各要素は、範囲の対応する要素を間接参照して`T`型へ`static_cast`した値（`static_cast<T>(*it)`）で直接初期化される（コピー初期化ではない）。これにより、一時的なプロキシ参照を返す範囲（`views`のアダプタなど）に対しても正しく動作する
 
 
 ## 戻り値
@@ -69,5 +70,7 @@ int main() {
 
 ## 参照
 - [P3491R3 `define_static_{string,object,array}`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3491r3.html)
+- [LWG Issue 4432. Clarify element initialization for `meta::reflect_constant_array`](https://cplusplus.github.io/LWG/issue4432)
+    - C++26で、各要素が`static_cast<T>(*it)`の値で直接初期化されることが明確化された。一時的なプロキシ参照を返す範囲アダプタに対する曖昧さを解消するもの
 - [LWG Issue 4483. Multidimensional arrays are not supported by `meta::reflect_constant_array` and related functions](https://cplusplus.github.io/LWG/issue4483)
     - C++26で、配列型の要素に対して再帰的にこの関数を適用することで、多次元配列がサポートされた
