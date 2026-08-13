@@ -22,7 +22,7 @@ namespace std::meta {
 
 
 ## 備考
-`type_class`は不完全なクラス型を表すリフレクションでなければならない。`members`の各要素は[`is_data_member_spec()`](is_data_member_spec.md)が`true`を返すリフレクションでなければならない。
+`type_class`はCV修飾されていない不完全なクラス型を表すリフレクションでなければならない。`members`の各要素は[`is_data_member_spec()`](is_data_member_spec.md)が`true`を返すリフレクションでなければならない。
 
 
 ## 例
@@ -68,3 +68,5 @@ id=42, value=3.14
 
 ## 参照
 - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+- [LWG Issue 4424. `meta::define_aggregate` should require a class type](https://cplusplus.github.io/LWG/issue4424)
+    - C++26で、`type_class`がCV修飾されていないクラス型を表すことが要件として明確化された。非クラス型やCV修飾された型を渡した場合はコンパイルエラーとして診断される
