@@ -17,6 +17,7 @@ constexpr polymorphic& operator=(polymorphic&& other) noexcept(see below); // (2
 
 ## 適格要件
 - (1) : `T`は完全型であること。
+- (2) : [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::propagate_on_container_move_assignment::value`が`false`かつ[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::is_always_equal::value`が`false`の場合、`T`が完全型であること。
 
 
 ## 効果
@@ -92,5 +93,7 @@ int main()
 
 ## 参照
 - [P3019R14 `indirect` and `polymorphic`: Vocabulary Types for Composite Class Design](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3019r14.pdf)
+- [LWG Issue 4251. Move assignment for `indirect` unnecessarily requires copy construction](https://cplusplus.github.io/LWG/issue4251)
+    - C++26で、ムーブ代入(2)の適格要件が、アロケータが伝播せず等価でもない場合にのみ`T`が完全型であることを要求する形へ整理された（アロケータが異なるときにのみオブジェクトを構築するため）
 - [LWG Issue 4532. Imprecise `std::polymorphic` wording seems to imply slicing](https://cplusplus.github.io/LWG/issue4532)
     - C++26で、コピー/ムーブや破棄の際に、所有オブジェクトの動的型`U`を保持する（基底型へスライスしない）ことがワーディング上明確化された
