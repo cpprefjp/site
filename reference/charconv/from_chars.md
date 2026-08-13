@@ -77,7 +77,7 @@ C++標準はこれら関数の実装の詳細について何も規定しない�
     
 - (1) : `base`の値をnとすると、n進数の数字列を10進整数値へ変換する。  
     nを基数としたCロケールによる`strtol`で変換する際と同様のパターンを用いる。  
-    ただし、`value`の型が符号付である場合にのみ`-`は考慮され、`+`や16進数の`0x`等の他の記号は考慮されない。
+    ただし、`value`の型が符号付である場合にのみ`-`は考慮され、`+`や、16進数(`base == 16`)の`0x`・`0X`、2進数(`base == 2`)の`0b`・`0B`といった基数の接頭辞は考慮されない。
     
 - (2)-(5) : 浮動小数点数字列を浮動小数点数へ変換する。  
     Cロケールによる`strtod`で変換する際と同様のパターンを用いる。ただし、以下の違いがある。  
@@ -532,3 +532,5 @@ int main() {
     - C++23での(1)constexpr指定
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で拡張浮動小数点数型に対応した
+- [LWG Issue 4430. `from_chars` should not parse `"0b"` base prefixes](https://cplusplus.github.io/LWG/issue4430)
+    - C++26で、`base`が2のときに`"0b"`・`"0B"`接頭辞を解釈しないことが明確化された（16進数の`0x`接頭辞と同様）。C23が`strtol`に2進数接頭辞対応を意図せず追加したことを、`from_chars`には持ち込まないための修正
