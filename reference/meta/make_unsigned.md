@@ -20,7 +20,7 @@ namespace std::meta {
 
 
 ## 例外
-`type`が型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+`type`が型を表さない場合、または`type`が（`bool`を除く）整数型・列挙型のいずれも表さない（対応する`std::make_unsigned<T>`の要件に違反しメンバ型`type`が得られない）場合、[`std::meta::exception`](exception.md)例外を送出する。
 
 
 ## 例

@@ -16,7 +16,7 @@ namespace std::meta {
 
 
 ## 戻り値
-`r`がビットフィールドを表す場合に`true`を返す。
+`r`がビットフィールドを表す場合、または`r`がビット幅（`W`）が指定されたデータメンバ記述（[`data_member_spec()`](data_member_spec.md)で生成されるもの）を表す場合に`true`を返す。そうでなければ`false`を返す。
 
 
 ## 例

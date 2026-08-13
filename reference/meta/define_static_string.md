@@ -41,7 +41,7 @@ int main() {
 
 ### 出力
 ```
-banana
+Hello, world!
 ```
 
 

@@ -22,7 +22,7 @@ namespace std::meta {
 
 
 ## 例外
-`type`または`type_args`の各要素が型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+`type`または`type_args`の各要素が型を表さない場合、または呼び出しが不適格（対応する`std::invoke_result`にメンバ型`type`が無い）な場合、[`std::meta::exception`](exception.md)例外を送出する。
 
 
 ## 例

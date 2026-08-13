@@ -20,7 +20,7 @@ namespace std::meta {
 
 
 ## 例外
-`type`が型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+`type`が型を表さない場合、または`type`が列挙型を表さない（対応する`std::underlying_type<T>`にメンバ型`type`が無い）場合、[`std::meta::exception`](exception.md)例外を送出する。
 
 
 ## 例

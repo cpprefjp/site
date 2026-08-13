@@ -20,6 +20,10 @@ namespace std::meta {
 また、[`define_static_string()`](define_static_string.md)はこの関数を内部で使用して実装されている。
 
 
+## 適格要件
+`CharT`を[`ranges::range_value_t`](/reference/ranges/range_value_t.md)`<R>`とするとき、`CharT`が文字型であること。
+
+
 ## 戻り値
 `r`の要素をコピーしたヌル終端文字配列`const CharT[sizeof...(V)+1]`のテンプレートパラメータオブジェクトのリフレクションを返す。
 

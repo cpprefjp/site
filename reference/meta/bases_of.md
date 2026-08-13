@@ -20,7 +20,7 @@ namespace std::meta {
 
 
 ## 例外
-`r`が完全型のクラスを表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
+`type`が、評価コンテキストのいずれかの地点から完全であるクラス型を表さない場合、[`std::meta::exception`](exception.md)例外を送出する。
 
 
 ## 備考
