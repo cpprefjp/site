@@ -75,7 +75,22 @@ namespace std::ranges {
 なお、トップ10がどれかわかれば十分である（1位から10位までは順不同でよい）ような場合、[`nth_element()`](nth_element.md)が使用できる。
 
 ## 効果
-`[first,last)` にある要素の中から、`middle - first` 個の要素をソート済みの状態で `[first,middle)` に配置する。残りの `[middle,last)` にある要素は unspecified order に配置される。
+- (1) : `[first,last)` にある要素の中から、`middle - first` 個の要素をソート済みの状態で `[first,middle)` に配置する。残りの `[middle,last)` にある要素は unspecified order に配置される。
+- (2) : 以下と等価：
+    ```cpp
+    return ranges::partial_sort(ranges::begin(r), middle, ranges::end(r), comp, proj);
+    ```
+    * ranges::begin[link /reference/ranges/begin.md]
+    * ranges::end[link /reference/ranges/end.md]
+- (3) : (1)と同じ効果を、指定された実行ポリシー`exec`に従って実行する。
+- (4) : 以下と等価：
+    ```cpp
+    return ranges::partial_sort(std::forward<Ep>(exec), ranges::begin(r), middle,
+                                ranges::begin(r) + ranges::distance(r), comp, proj);
+    ```
+    * ranges::begin[link /reference/ranges/begin.md]
+    * ranges::distance[link /reference/iterator/ranges_distance.md]
+    * std::forward[link /reference/utility/forward.md]
 
 
 ## 戻り値
@@ -153,3 +168,5 @@ int main()
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 4441. `ranges::rotate` do not handle sized-but-not-sized-sentinel ranges correctly](https://cplusplus.github.io/LWG/issue4441)
+    - C++26で、実行ポリシーをとる範囲版の効果を規定する等価コードで、末尾イテレータの算出が`ranges::end(r)`から`ranges::begin(r) + ranges::distance(r)`へ変更された。サイズは判るがsized sentinelを持たない範囲を正しく扱うため

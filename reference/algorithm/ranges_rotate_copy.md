@@ -72,7 +72,25 @@ namespace std::ranges {
 
 
 ## 効果
-0 以上 `last - first` 未満の整数 `i` について、`*(result + i) = *(first + (i + (middle - first)) % (last - first))` という操作によって `[first,last)` の範囲を `[result,result + (last - first))` の範囲へコピーする
+- (1) : 0 以上 `last - first` 未満の整数 `i` について、`*(result + i) = *(first + (i + (middle - first)) % (last - first))` という操作によって `[first,last)` の範囲を `[result,result + (last - first))` の範囲へコピーする。
+- (2) : 以下と等価：
+    ```cpp
+    return ranges::rotate_copy(ranges::begin(r), middle, ranges::end(r), std::move(result));
+    ```
+    * ranges::begin[link /reference/ranges/begin.md]
+    * ranges::end[link /reference/ranges/end.md]
+    * std::move[link /reference/utility/move.md]
+- (3) : (1)と同じ効果を、指定された実行ポリシー`exec`に従って実行する。
+- (4) : 以下と等価：
+    ```cpp
+    return ranges::rotate_copy(std::forward<Ep>(exec), ranges::begin(r), middle,
+                               ranges::begin(r) + ranges::distance(r),
+                               ranges::begin(result_r),
+                               ranges::begin(result_r) + ranges::distance(result_r));
+    ```
+    * ranges::begin[link /reference/ranges/begin.md]
+    * ranges::distance[link /reference/iterator/ranges_distance.md]
+    * std::forward[link /reference/utility/forward.md]
 
 
 ## 戻り値
@@ -151,3 +169,5 @@ int main() {
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
 - [P3709R2 Reconsider parallel `ranges::rotate_copy` and `ranges::reverse_copy`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3709r2.html)
+- [LWG Issue 4441. `ranges::rotate` do not handle sized-but-not-sized-sentinel ranges correctly](https://cplusplus.github.io/LWG/issue4441)
+    - C++26で、実行ポリシーをとる範囲版の効果を規定する等価コードで、末尾イテレータの算出が`ranges::end(r)`から`ranges::begin(r) + ranges::distance(r)`へ変更された。サイズは判るがsized sentinelを持たない範囲を正しく扱うため

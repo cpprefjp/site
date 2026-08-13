@@ -75,7 +75,22 @@ namespace std::ranges {
 ある範囲に対して部分的な並び替えを行う場合、[`partial_sort()`](partial_sort.md)を使用する。また範囲全体に対して並び替えを行う場合、[`sort()`](sort.md)を使用する。
 
 ## 効果
-`nth_element()` を呼び出した後、`nth` が指している位置の要素は、全ての範囲がソートされた場合の位置にある要素になる。そして、`[first,nth)` にあるイテレータ `i` と、`[nth,last)` にあるイテレータ `j` について、`!(*j < *i)` または `comp(*j, *i) == false` になる。
+- (1) : `nth_element()` を呼び出した後、`nth` が指している位置の要素は、全ての範囲がソートされた場合の位置にある要素になる。そして、`[first,nth)` にあるイテレータ `i` と、`[nth,last)` にあるイテレータ `j` について、`!(*j < *i)` または `comp(*j, *i) == false` になる。
+- (2) : 以下と等価：
+    ```cpp
+    return ranges::nth_element(ranges::begin(r), nth, ranges::end(r), comp, proj);
+    ```
+    * ranges::begin[link /reference/ranges/begin.md]
+    * ranges::end[link /reference/ranges/end.md]
+- (3) : (1)と同じ効果を、指定された実行ポリシー`exec`に従って実行する。
+- (4) : 以下と等価：
+    ```cpp
+    return ranges::nth_element(std::forward<Ep>(exec), ranges::begin(r), nth,
+                               ranges::begin(r) + ranges::distance(r), comp, proj);
+    ```
+    * ranges::begin[link /reference/ranges/begin.md]
+    * ranges::distance[link /reference/iterator/ranges_distance.md]
+    * std::forward[link /reference/utility/forward.md]
 
 
 ## 戻り値
@@ -163,3 +178,5 @@ int main()
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 4441. `ranges::rotate` do not handle sized-but-not-sized-sentinel ranges correctly](https://cplusplus.github.io/LWG/issue4441)
+    - C++26で、実行ポリシーをとる範囲版の効果を規定する等価コードで、末尾イテレータの算出が`ranges::end(r)`から`ranges::begin(r) + ranges::distance(r)`へ変更された。サイズは判るがsized sentinelを持たない範囲を正しく扱うため
