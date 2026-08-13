@@ -56,7 +56,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 
 | 通称 | 名称 | 参照する規格案 | `__STDC_VERSION__` | 引用元C++ |
 |:--|:--|:--|:--|:--|
-| C29 (C2Y) | ISO/IEC 9899:2029 (予定) | N3685([PDF](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3685.pdf)) (暫定) | ? | |
+| C29 (C2Y) | ISO/IEC 9899:2029 (予定) | N3886([PDF](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3886.pdf)) (暫定) | ? | |
 | **C23** (C2X) | ISO/IEC 9899:2024 | N3096([PDF](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3096.pdf)) | `202311L` | |
 | **C17** (C18) | ISO/IEC 9899:2018 | N2176 | `201710L` | C++20, C++23 |
 | C11 TC1 | ISO/IEC 9899:2011/Cor 1:2012 | ? | `201112L` | C++17 |
