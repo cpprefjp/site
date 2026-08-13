@@ -68,6 +68,7 @@ namespace std {
 - [`emplace()`](optional/emplace.md)は参照先の再束縛を行う意味論であるため、可変長引数版や[`std::initializer_list`](/reference/initializer_list/initializer_list.md)版はなく、単一引数のみ受け取る
 - `optional<T&>`はトリビアルコピー可能 (trivially copyable) である
 - モナド操作 ([`and_then()`](optional/and_then.md), [`transform()`](optional/transform.md), [`or_else()`](optional/or_else.md)) も使用可能
+- イテレータ ([`begin()`](optional/begin.md)/[`end()`](optional/end.md)) およびメンバ型`iterator`/`const_iterator`は、`T`が未知境界の配列 (`T[]`のような型) でないオブジェクト型である場合にのみ提供される。`T`が関数型や不完全な配列型のときにイテレータの戻り値型が不正となる問題を避けるためである
 
 
 ## 備考
@@ -310,3 +311,5 @@ not found
     - C++26で参照型`T&`に対する部分特殊化を追加
 - [P3836R2 `optional<T&>` Should Be Trivially Copyable](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3836r2.html)
     - C++26で`optional<T&>`がトリビアルコピー可能であることを保証
+- [LWG Issue 4308. `std::optional<T&>::iterator` can't be a contiguous iterator for some `T`](https://cplusplus.github.io/LWG/issue4308)
+    - C++26で、`optional<T&>`のイテレータ／メンバ型`iterator`が、`T`が未知境界の配列でないオブジェクト型である場合にのみ提供されるよう制限された
