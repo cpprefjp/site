@@ -16,8 +16,16 @@ namespace std::meta {
 関数からリフレクションを生成する。
 
 
+## 適格要件
+`T`が関数型であること。
+
+
 ## 戻り値
-関数`fn`を表すリフレクションを返す。
+`fn`が指す関数を表すリフレクションを返す。
+
+
+## 例外
+`fn`が参照する関数を計算する左辺値定数式`F`が、型`T&`の定数テンプレートパラメータに対する定数テンプレート実引数として使用するのに適さない場合、[`std::meta::exception`](exception.md)例外を送出する。
 
 
 ## 例
@@ -55,3 +63,5 @@ int main() {
 
 ## 参照
 - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+- [LWG Issue 4442. Clarify `expr` and `fn` for `meta::reflect_object` and `meta::reflect_function`](https://cplusplus.github.io/LWG/issue4442)
+    - C++26で、戻り値・例外の記述が「引数が指すオブジェクト／関数」を指すよう明確化された
