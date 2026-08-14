@@ -52,6 +52,11 @@ namespace std {
 - (7) : `local_time`型に対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化
 
 
+## テンプレートパラメータ制約
+- (5) :
+    - C++26 : 式`os << `[`sys_time`](sys_time.md)`<Duration>{tp.`[`time_since_epoch()`](time_point/time_since_epoch.md)`}`が有効な式であること
+
+
 ## 効果
 - (5) : 以下と等価：
     ```cpp
@@ -242,3 +247,8 @@ int main()
 ## 関連項目
 - [chronoの`std::format()`](/reference/chrono/format.md) (出力フォーマットの詳細)
 - [chronoの`parse()`](/reference/chrono/parse.md) (入力フォーマットの詳細)
+
+
+## 参照
+- [LWG Issue 4257. Stream insertion for `chrono::local_time` should be constrained](https://cplusplus.github.io/LWG/issue4257)
+    - C++26で、(5)のストリーム挿入演算子に「`os << sys_time<Duration>{tp.time_since_epoch()}`が有効な式であること」というテンプレートパラメータ制約が追加された。基となる`sys_time`の出力が不可能な場合にオーバーロード解決から除外されるようになった
