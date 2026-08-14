@@ -17,11 +17,18 @@ constexpr const_reference back() const; // (2) C++14
 最後尾要素を参照する。
 
 
+## 堅牢化された事前条件
+- C++26 : `a.`[`empty()`](empty.md)が`false`であること（要素数`N`が`0`でないこと）
+
+
 ## 戻り値
 `a.back()`は末尾の要素への参照を返す。もし、`a`が`const`だった場合には、末尾の要素への`const`参照を返す。`a.back()` は`{ auto tmp = a.end(); --tmp; return *tmp; }` と同じ結果になる。
 
 ## 備考
-要素数が0の場合(`N == 0`の場合)、動作は未定義である。
+要素数が0の場合(`N == 0`の場合)、この関数を呼び出してはならない。
+
+- C++11 : 長さ0の配列に対して呼び出したときの動作は未定義
+- C++26 : 上記の特別な規定は削除され、他の要素アクセス関数と同様に、堅牢化された事前条件の違反として扱われる
 
 
 ## 例
@@ -65,3 +72,5 @@ int main()
 ## 参照
 - [N3470 Constexpr Library Additions: containers, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3470.html)
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
+- [LWG Issue 4276. `front()` and `back()` are not hardened for zero-length `std::array`](https://cplusplus.github.io/LWG/issue4276)
+    - C++26で、[array.zero]の「長さ0の配列で`front()`/`back()`を呼び出したときの動作は未定義」という特別規定が削除され、他の要素アクセス関数と同様に堅牢化された事前条件の対象となった
