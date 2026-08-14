@@ -18,7 +18,7 @@ namespace std::simd {
 ## 概要
 `basic_vec`クラステンプレートの型推論補助。
 
-- (1) : 連続範囲（contiguous range）かつ要素数が定数式となる範囲から推論する。推論される型は`vec<std::ranges::range_value_t<R>, std::ranges::size(r)>`と等価である。
+- (1) : 連続範囲（contiguous range）かつ要素数が定数式となる範囲から推論する。推論される型は`vec<std::ranges::range_value_t<R>, static_cast<simd-size-type>(std::ranges::size(r))>`と等価である（`simd-size-type`は`std::simd`が用いる符号付きの要素数型）。
 - (2) : [`basic_mask`](../basic_mask.md)から推論する。推論される型は`decltype(+k)`（マスクに単項プラスを適用して得られる`basic_vec`）と等価である。
 
 
@@ -85,3 +85,5 @@ int main()
     - C++26で追加された
 - [P3922R1 Missing deduction guide from `simd::mask` to `simd::vec`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3922r1.pdf)
     - `basic_mask`から`basic_vec`への推論補助が追加された
+- [LWG Issue 4403. `simd::basic_vec` CTAD misses difference type casting](https://cplusplus.github.io/LWG/issue4403)
+    - C++26で、推論される要素数が`static_cast<simd-size-type>(ranges::size(r))`となるよう修正された。`ranges::size`が返す符号なし整数を、`std::simd`が用いる符号付きの要素数型へ明示的にキャストするもの
