@@ -88,3 +88,5 @@ int main()
     - C++26で`std::simd`ライブラリが追加された
 - [P2933R4 Extend `<bit>` header function with overloads for `std::simd`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2933r4.html)
     - C++26で`<bit>`ヘッダの関数に`std::simd`向けのオーバーロードが追加された
+- [LWG Issue 4375. `std::simd::bit_ceil` should not be `noexcept`](https://cplusplus.github.io/LWG/issue4375)
+    - C++26で、`bit_ceil`から`noexcept`指定が削除された。結果が表現できない場合に事前条件違反となりうるため、スカラー版の[`std::bit_ceil`](/reference/bit/bit_ceil.md)と同様に`noexcept`を付けない形に修正された
