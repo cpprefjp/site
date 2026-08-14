@@ -86,3 +86,5 @@ erased = 2
 ## 参照
 - [P0447R28 Introduction of `std::hive` to the standard library](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0447r28.html)
     - C++26で`hive`が追加された
+- [LWG Issue 4318. Have `hive::erase_if` reevaluate `end()` to avoid UB](https://cplusplus.github.io/LWG/issue4318)
+    - C++26で、効果のループが`c.end()`をキャッシュせず毎回再評価するよう修正された。`c.erase()`が終端イテレータを無効化しうるため、キャッシュした終端との比較が未定義動作を引き起こす問題を防ぐもの
