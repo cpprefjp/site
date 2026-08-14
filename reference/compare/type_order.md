@@ -43,6 +43,7 @@ namespace std {
 - C++26より前は、型の全順序を得るためには`__PRETTY_FUNCTION__`等の処理系固有の機能を使うか、`typeid`を実行時に比較する必要があった。`type_order`は、コンパイル時に取得できる、実装定義であるが安定した型の全順序を提供する
 - このクラスは不完全型に対しても動作する
 - 実装定義の全順序の具体的な順番には依存すべきではないが、同じ実装のなかでは翻訳単位の境界をまたいでも安定する
+- `type_order`をユーザーが明示的に特殊化・部分特殊化することは禁止されている。そのような宣言を行った場合、プログラムは不適格となる
 
 
 ## 例
@@ -93,3 +94,5 @@ int main() {
 - [P2830R10 Constexpr Type Ordering](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2830r10.html)
 - [P3778R0 Fix for `type_order` template definition](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3778r0.html)
 - [P4140R0 Proposed resolution for US70-126: allow incomplete types in `type_order`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4140r0.html)
+- [LWG Issue 4305. Missing user requirements on `type_order` template](https://cplusplus.github.io/LWG/issue4305)
+    - C++26で、ユーザーが`type_order`の明示的特殊化・部分特殊化を宣言するとプログラムが不適格となることが規定された
