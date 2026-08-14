@@ -75,3 +75,5 @@
 - [P3663R3 Future-proof `submdspan_mapping`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3663r3.html)
 - [LWG Issue 4275. `std::dynamic_extent` should also be defined in `<mdspan>`](https://cplusplus.github.io/LWG/issue4275)
     - C++26で、`<span>`で定義される[`dynamic_extent`](span/dynamic_extent.md)が`<mdspan>`のインクルードによっても利用可能になった
+- [P2833R2 Freestanding Library: inout expected `span`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2833r2.html)
+    - C++26で、このヘッダが（例外を送出するメンバなど一部を除いて）フリースタンディング処理系に対応した

@@ -37,3 +37,8 @@
 |------|------|----------------|
 | [`hardware_destructive_interference_size`](new/hardware_destructive_interference_size.md) | 2つのオブジェクトに並行アクセスする際に、パフォーマンス低下を避けられる最小アライメントサイズ (variable) | C++17 |
 | [`hardware_constructive_interference_size`](new/hardware_constructive_interference_size.md) | 2つのオブジェクトに一時局所的にアクセスできる最大サイズ (variable) | C++17 |
+
+
+## 参照
+- [P2013R5 Freestanding Language: Optional `::operator new`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2013r5.html)
+    - C++26で、フリースタンディング処理系では置換可能な大域`::operator new`／`::operator delete`を実装が提供しなくてもよいようになった

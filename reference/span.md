@@ -22,3 +22,8 @@
 ## 関連項目
 - C++11 [`<string_view>`](string_view.md)
 - C++23 [`<mdspan>`](mdspan.md)
+
+
+## 参照
+- [P2833R2 Freestanding Library: inout expected `span`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2833r2.html)
+    - C++26で、`<span>`が（例外を送出する`at()`など一部を除いて）フリースタンディング処理系に対応した

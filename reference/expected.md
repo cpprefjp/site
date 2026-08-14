@@ -36,3 +36,5 @@
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
 - [P2549R1 `std::unexpected<E>` should have `error()` as member accessor](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2549r1.html)
 - [P2505R5 Monadic Functions for `std::expected`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2505r5.html)
+- [P2833R2 Freestanding Library: inout expected `span`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2833r2.html)
+    - C++26で、このヘッダが（例外を送出するメンバなど一部を除いて）フリースタンディング処理系に対応した

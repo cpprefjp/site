@@ -85,3 +85,5 @@ XMLやJSONに代表されるテキストベースのデータを利用するケ�
 - [P0682R1: Repairing elementary string conversions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0682r1.html)
 - [N4412: Shortcomings of iostreams](http://open-std.org/JTC1/SC22/WG21/docs/papers/2015/n4412.html)
 - [LWG Issue 3080. Floating point from_chars pattern specification breaks round-tripping](https://wg21.cmeerw.net/lwg/issue3080)
+- [P2338R4 Freestanding Library: Character primitives and the C library](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2338r4.html)
+    - C++26で、文字特性やC言語ライブラリの文字・文字列関数など、このヘッダの機能がフリースタンディング処理系に対応した

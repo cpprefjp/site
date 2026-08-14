@@ -78,6 +78,21 @@
 
 
 ## 参照
+<!--
+編集注（残作業）:
+このヘッダのフリースタンディング対応（P2338R4 / P2937R0）を各機能のページに反映する必要があるが、
+`memcpy`・`memmove`・`strcpy`・`memcmp`・`memchr`・`strlen`・`strtok` など、
+このヘッダの多くの関数はまだ個別ページ（`cstring/*.md`）が存在しない。
+個別ページを新設する際に、以下をあわせて反映すること:
+- 各関数がフリースタンディング処理系で利用できる旨（P2338R4）を備考等に記載する
+- `strtok` は内部状態を持つためフリースタンディング処理系では提供されない旨（P2937R0）を記載する
+上記が反映できていないため、ヘッダ先頭の「詳細は各機能のページを参照。」は現時点では未整備。
+-->
+
 - [P0175R1 Synopses for the C library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html)
 - [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf)
     - C++26がC23を参照するようになり、`memccpy`・`strdup`・`strndup`・`memset_explicit`が追加された
+- [P2338R4 Freestanding Library: Character primitives and the C library](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2338r4.html)
+    - C++26で、文字特性やC言語ライブラリの文字・文字列関数など、このヘッダの機能がフリースタンディング処理系に対応した
+- [P2937R0 Freestanding: Remove `strtok`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2937r0.html)
+    - フリースタンディング対応の一環として、内部状態を持つ`strtok`はフリースタンディング処理系では提供されないことが整理された

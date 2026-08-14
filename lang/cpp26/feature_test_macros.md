@@ -201,3 +201,5 @@
     - C++26で`__cpp_lib_linalg`が`202511L`に更新された
 - [P4012R1 Value-preserving consteval broadcast to `simd::vec`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4012r1.pdf)
     - C++26のsimd整合修正により`__cpp_lib_simd`が`202603L`に更新された
+- [P2198R7 Freestanding Feature-Test Macros and Implementation-Defined Extensions](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2198r7.html)
+    - フリースタンディング処理系向けの機能テストマクロ（`__cpp_lib_freestanding_*`）と、実装定義拡張の扱いが規定された

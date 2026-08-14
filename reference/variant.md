@@ -32,3 +32,5 @@
 ## 参照
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
 - [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
+- [P2407R5 Freestanding Library: Partial Classes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2407r5.html)
+    - C++26で、このヘッダのクラスが（例外を送出するメンバなど一部を除いて）フリースタンディング処理系に対応した
