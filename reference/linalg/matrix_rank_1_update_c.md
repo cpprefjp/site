@@ -62,13 +62,13 @@ namespace std::linalg {
 
 ## 適格要件
 - (1), (2), (3), (4): [`possibly-multipliable`](possibly-multipliable.md)`<OutMat, InVec2, InVec1>() == true`
-- (3), (4): 入力行列`E`が、出力行列`A`と同じ次元・レイアウト要件を満たす
+- (3), (4): [`possibly-addable`](possibly-addable.md)`<OutMat, InMat, OutMat>() == true`
 - (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件
 - (1), (2), (3), (4): [`multipliable`](multipliable.md)`(A, y, x) == true`
-- (3), (4): `E`の各次元のサイズが`A`と等しい
+- (3), (4): [`addable`](addable.md)`(A, E, A) == true`
 
 
 ## 効果

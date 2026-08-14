@@ -77,15 +77,18 @@ namespace std::linalg {
 - 共通:
     + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
     + `OutMat`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
+    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
     + [`possibly-multipliable`](possibly-multipliable.md)`<decltype(A), decltype(x), decltype(y)>()`が`true`
 - (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
-- (3), (4): [`possibly-multipliable`](possibly-multipliable.md)`<decltype(E), decltype(x), decltype(y)>()`が`true`
+- (3), (4): 追加で、
+    + `InMat`(`E`)が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
+    + [`possibly-addable`](possibly-addable.md)`<decltype(A), decltype(E), decltype(A)>()`が`true`
 
 
 ## 事前条件
 - `A.extent(0) == A.extent(1)`
 - [`multipliable`](multipliable.md)`(A, x, y) == true`
-- (3), (4): `E.extent(0) == A.extent(0)`かつ`E.extent(1) == A.extent(1)`
+- (3), (4): [`addable`](addable.md)`(A, E, A) == true`
 
 
 ## 効果

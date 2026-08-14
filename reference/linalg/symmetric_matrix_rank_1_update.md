@@ -80,15 +80,13 @@ namespace std::linalg {
     + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
     + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(x)>(0, 0)`が`true` (つまり`A`の次元と`x`の次元が同じであること)
 - (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
-- (3), (4): 追加で、`E`が`A`と整合すること
-    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(E), decltype(E)>(0, 1)`が`true` (つまり`E`が正方行列であること)
-    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(E), decltype(A)>(0, 0)`が`true` (つまり`E`の次元と`A`の次元が同じであること)
+- (3), (4): 追加で、[`possibly-addable`](possibly-addable.md)`<decltype(A), decltype(E), decltype(A)>()`が`true`
 
 
 ## 事前条件
 - `A.extent(0) == A.extent(1)`
 - `A.extent(0) == x.extent(0)`
-- (3), (4): `E.extent(0) == E.extent(1)`かつ`E.extent(0) == A.extent(0)`
+- (3), (4): [`addable`](addable.md)`(A, E, A) == true`
 
 
 ## 効果
