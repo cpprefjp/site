@@ -58,7 +58,7 @@ namespace std::linalg {
 ```
 * in-vector[link inout-vector.md]
 * in-matrix[link inout-matrix.md]
-* possibly-packed-out-matrix[link possibly-packed-inout-matrix.md]
+* possibly-packed-out-matrix[link possibly-packed-out-matrix.md]
 
 ## 概要
 対称かつ共役を取らないrank-1 updateを対称行列に行う。

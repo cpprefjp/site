@@ -57,7 +57,7 @@ namespace std::linalg {
 }
 ```
 * in-matrix[link inout-matrix.md]
-* possibly-packed-out-matrix[link possibly-packed-inout-matrix.md]
+* possibly-packed-out-matrix[link possibly-packed-out-matrix.md]
 
 ## 概要
 エルミートな(対称かつ共役を取る)rank-2k updateを対称行列に行う。
