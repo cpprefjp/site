@@ -72,3 +72,8 @@
 ## 関連項目
 - [`<algorithm>`](/reference/algorithm.md)
     - より汎用的なアルゴリズム
+
+
+## 参照
+- [P2976R1 Freestanding Library: algorithm, numeric, and random](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2976r1.html)
+    - C++26で、`<numeric>`の大部分（実行ポリシーをとる並列アルゴリズムを除く）がフリースタンディング処理系に対応した

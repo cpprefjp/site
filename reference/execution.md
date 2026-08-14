@@ -34,3 +34,5 @@
 - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [P2976R1 Freestanding Library: algorithm, numeric, and random](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2976r1.html)
+    - C++26で、`<execution>`の一部（`is_execution_policy`など）がフリースタンディング処理系に対応した

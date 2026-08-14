@@ -472,4 +472,6 @@ ranges::sort(pv, {}, &Person::name);
 - [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)
 - [N4821 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [LWG Issue 4457. freestanding for `stable_sort`, `stable_partition` and `inplace_merge`](https://cplusplus.github.io/LWG/issue4457)
-    - C++26で、メモリ確保をともなう`stable_sort`・`stable_partition`・`inplace_merge`の基本オーバーロードにフリースタンディング非対応 (`// hosted`) の指定が、実行ポリシー版に削除 (`// freestanding-deleted`) の指定が追加された
+
+- [P2976R1 Freestanding Library: algorithm, numeric, and random](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2976r1.html)
+    - C++26で、`<algorithm>`の大部分（実行ポリシーをとる並列アルゴリズムを除く）がフリースタンディング処理系に対応した

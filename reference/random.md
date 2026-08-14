@@ -250,6 +250,10 @@ int main()
 ### 乱数ライブラリの使い方
 * [N3551 Random Number Generation in C++11](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3551.pdf)
 
+### フリースタンディング対応
+- [P2976R1 Freestanding Library: algorithm, numeric, and random](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2976r1.html)
+    - C++26で、`<random>`の乱数エンジン（`mt19937`などのエイリアスや`mersenne_twister_engine`などのクラステンプレート）や`uniform_random_bit_generator`コンセプトがフリースタンディング処理系に対応した
+
 ### 乱数ライブラリが導入された経緯
 * [N0352 Proposal for Standardization of Random Number Generators in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/1993/N0352.asc)
 * [N1398 A Proposal to Add an Extensible Random Number Facility to the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1398.html)
