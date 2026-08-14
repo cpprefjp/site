@@ -166,7 +166,8 @@ namespace std::linalg {
 
 
 ## 計算量
-$O((\verb|A.extent(0)|)^2 \times \verb|B.extent(0)|)$
+- (1), (2), (3), (4): $O(\verb|B.extent(0)| \times \verb|B.extent(1)| \times \verb|A.extent(1)|)$
+- (5), (6), (7), (8): $O(\verb|A.extent(0)| \times \verb|A.extent(1)| \times \verb|B.extent(1)|)$
 
 
 ## 備考
