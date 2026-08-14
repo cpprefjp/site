@@ -39,7 +39,16 @@ inline constexpr bool enable_nonlocking_formatter_optimization<R> = false;
 ```cpp
 template <class... Ts>
 inline constexpr bool enable_nonlocking_formatter_optimization<pair-or-tuple<Ts...>> =
-  (enable_nonlocking_formatter_optimization<Ts> && ...);
+  (enable_nonlocking_formatter_optimization<remove_cvref_t<Ts>> && ...);
+```
+* remove_cvref_t[link /reference/type_traits/remove_cvref.md]
+
+コンテナアダプタ[`std::queue`](/reference/queue/queue.md)、[`std::priority_queue`](/reference/queue/priority_queue.md)、[`std::stack`](/reference/stack/stack.md)に対しては、以下が定義される：
+
+```cpp
+template <class T, class Container>
+inline constexpr bool enable_nonlocking_formatter_optimization<queue<T, Container>> = false;
+// priority_queue、stackに対しても同様に false が定義される
 ```
 
 
@@ -66,3 +75,7 @@ inline constexpr bool enable_nonlocking_formatter_optimization<pair-or-tuple<Ts.
 ## 参照
 - [P3107R5 Permit an efficient implementation of `std::print`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3107r5.html)
 - [P3235R3 `std::print` more types faster with less memory](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3235r3.html)
+- [LWG Issue 4398. `enable_nonlocking_formatter_optimization` should be disabled for container adaptors](https://cplusplus.github.io/LWG/issue4398)
+    - C++26で、コンテナアダプタ`queue`／`priority_queue`／`stack`に対して`enable_nonlocking_formatter_optimization`が`false`と定義された
+- [LWG Issue 4399. `enable_nonlocking_formatter_optimization` for pair and tuple needs `remove_cvref_t`](https://cplusplus.github.io/LWG/issue4399)
+    - C++26で、`pair`／`tuple`に対する特殊化で各要素型に`remove_cvref_t`を適用するよう修正された
