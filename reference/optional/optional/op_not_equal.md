@@ -101,3 +101,5 @@ int main()
 - [LWG Issue 2934. `optional<const T>` doesn't compare with `T`](https://wg21.cmeerw.net/lwg/issue2934)
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [LWG Issue 4370. Comparison of `optional<T>` to `T` may be ill-formed](https://cplusplus.github.io/LWG/issue4370)
+    - C++26で、効果が三項演算子形式（`x.has_value() ? *x == v : false`）から`if`文形式へ変更された。比較結果が`bool`以外の型を返す場合に三項演算子で共通型が得られず不適格となる問題を防ぐもの（cpprefjpの戻り値の記述はもともとこの意味を表している）
