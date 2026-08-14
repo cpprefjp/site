@@ -16,6 +16,8 @@ namespace std {
 ## 概要
 `dynamic_extent`は、動的な要素数をもつことを[`std::span`](span.md)や[`std::mdspan`](../mdspan/mdspan.md)に指示するための定数である。
 
+この定数は`<span>`ヘッダで定義されるが、C++26以降は`<mdspan>`ヘッダのインクルードによっても利用可能である。
+
 ### std::span
 以下のような状況で、[`span`](span.md)クラスは動的な要素数をもつようになる：
 
@@ -81,3 +83,8 @@ int main()
 ## 関連項目
 - C++20 [`span`](span.md)
 - C++23 [`mdspan`](../mdspan/mdspan.md)
+
+
+## 参照
+- [LWG Issue 4275. `std::dynamic_extent` should also be defined in `<mdspan>`](https://cplusplus.github.io/LWG/issue4275)
+    - C++26で、`dynamic_extent`が`<span>`に加えて`<mdspan>`のインクルードによっても利用可能になった
