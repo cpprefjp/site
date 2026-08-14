@@ -23,6 +23,10 @@ C++20以降の標準ライブラリでは、任意のイテレータに対して
 - [`<concepts>`](concepts.md) (C++20)
 - [`<compare>`](compare.md) (C++20)
 
+
+## フリースタンディング
+このヘッダのほとんどの機能は、フリースタンディング処理系でも使用できる。ただし、ストリームに関連するイテレータ（[`istream_iterator`](iterator/istream_iterator.md)・[`ostream_iterator`](iterator/ostream_iterator.md)・[`istreambuf_iterator`](iterator/istreambuf_iterator.md)・[`ostreambuf_iterator`](iterator/ostreambuf_iterator.md)）は、フリースタンディング処理系では使用できない。
+
 ## イテレータコンセプト
 
 | 名前                         | 説明                                            | 対応バージョン |

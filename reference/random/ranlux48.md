@@ -52,6 +52,10 @@ RANLUX法は、0から4までの贅沢さレベル(luxury level)が選択可能�
 [`uint_fast64_t`](/reference/cstdint/uint_fast64_t.md)
 
 
+
+## 備考
+この型は、フリースタンディング処理系でも使用できる。
+
 ## 例
 ```cpp example
 #include <iostream>

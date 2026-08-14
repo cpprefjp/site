@@ -62,6 +62,10 @@ namespace std {
 | [`swap`](copyable_function/swap_free.md) | 2つの`copyable_function`オブジェクトを入れ替える | C++26 |
 
 
+
+## 備考
+このクラスは、フリースタンディング処理系では使用できない。
+
 ## 例
 ### 例1: 基本の使い方
 ```cpp example

@@ -35,6 +35,10 @@ namespace std::ranges {
 | `allocator` | Allocator | C++23 |
 
 
+
+## 備考
+このクラスは、フリースタンディング処理系では使用できない。
+
 ## 例
 ```cpp example
 #include <generator>

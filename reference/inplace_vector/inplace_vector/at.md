@@ -21,6 +21,10 @@ constexpr const_reference at(size_type n) const; // (2) C++26
 `n`番目の要素への参照を返す。
 
 
+
+## 備考
+この関数は、例外を送出しうるため、フリースタンディング処理系では削除される（フリースタンディング処理系では使用できない）。
+
 ## 例外
 `n >=` [`size()`](size.md)の場合、[`std::out_of_range`](/reference/stdexcept.md)例外を送出する。
 

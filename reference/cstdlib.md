@@ -3,10 +3,11 @@
 
 `<cstdlib>`ヘッダでは、一般的なユーティリティの関数を定義する。これらの機能は基本的には、`std`名前空間に属することを除いてC言語の標準ライブラリ`<stdlib.h>`ヘッダと同じである。
 
-本ヘッダはフリースタンディング環境でも提供される。
-フリースタンディング環境の場合、少なくとも`abort`, `atexit`, `at_quick_exit`, `exit`, `quick_exit`関数がサポートされる。
-
 ただし、一部の機能には、`[[noreturn]]`属性、`noexcept`キーワード、スレッドローカルストレージのような、C++特有の言語機能に関する規定がある。
+
+
+## フリースタンディング
+このヘッダの一部の機能は、フリースタンディング処理系でも使用できる。具体的には、型`size_t`・`div_t`・`ldiv_t`・`lldiv_t`、マクロ`NULL`・`EXIT_FAILURE`・`EXIT_SUCCESS`、関数`abort`・`atexit`・`at_quick_exit`・`exit`・`_Exit`・`quick_exit`・`memalignment`・`bsearch`・`qsort`・整数版の`abs`／`labs`／`llabs`・`div`／`ldiv`／`lldiv`が、フリースタンディング処理系で使用可能である（浮動小数点数版の`abs`は、フリースタンディング処理系では削除される）。
 
 
 ## 数値変換

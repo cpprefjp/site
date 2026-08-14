@@ -193,6 +193,8 @@
 ## 参照
 
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
+- [LWG Issue 4286. Some more feature-test macros for fully freestanding features are not marked freestanding](https://cplusplus.github.io/LWG/issue4286)
+    - C++26で、`__cpp_lib_aligned_accessor`・`__cpp_lib_array_constexpr`・`__cpp_lib_clamp`・`__cpp_lib_constexpr_numeric`・`__cpp_lib_function_ref`・`__cpp_lib_gcd_lcm`・`__cpp_lib_integer_comparison_functions`・`__cpp_lib_is_sufficiently_aligned`・`__cpp_lib_ranges_contains`・`__cpp_lib_ranges_enumerate`・`__cpp_lib_ranges_find_last`・`__cpp_lib_ranges_fold`・`__cpp_lib_ranges_iota`・`__cpp_lib_ranges_starts_ends_with`・`__cpp_lib_robust_nonmodifying_seq_ops`・`__cpp_lib_sample`・`__cpp_lib_saturation_arithmetic`が、フリースタンディング機能に対応するマクロとしてマークされた（あわせて`<memory>`の`is_sufficiently_aligned`もフリースタンディング指定された）
 - [LWG Issue 4550. Need new feature test macros for `<stdckdint.h>` and `<stdbit.h>`](https://cplusplus.github.io/LWG/issue4550)
     - C++26で、`__cpp_lib_stdbit_h`と`__cpp_lib_stdckdint_h`が追加された
 - [P3371R5 Fix C++26 BLAS rank updates consistency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3371r5.html)

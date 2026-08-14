@@ -122,6 +122,10 @@ namespace std {
 | [`operator>>`](mersenne_twister_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
+
+## 備考
+このクラステンプレートは、フリースタンディング処理系でも使用できる。
+
 ## 例
 ```cpp example
 #include <iostream>

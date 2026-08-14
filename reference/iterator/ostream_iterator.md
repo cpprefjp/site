@@ -43,6 +43,10 @@ namespace std {
 | `reference` | `void` | |
 
 
+
+## 備考
+このクラスは、フリースタンディング処理系では使用できない。
+
 ## 例
 ```cpp example
 #include <iostream>

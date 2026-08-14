@@ -32,6 +32,10 @@ raise(SIGABRT);
 この関数は決して返らない。
 
 
+
+## 備考
+この関数は、フリースタンディング処理系でも使用できる。
+
 ## 例
 ```cpp example
 #include <cstdlib>
