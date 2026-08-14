@@ -7,7 +7,7 @@
 
 ```cpp
 namespace std::linalg {
-  template<class Scalar,
+  template<scalar Scalar,
            in-vector InVec,
            possibly-packed-out-matrix OutMat,
            class Triangle>
@@ -18,7 +18,7 @@ namespace std::linalg {
     Triangle t); // (1)
 
   template<class ExecutionPolicy,
-           class Scalar,
+           scalar Scalar,
            in-vector InVec,
            possibly-packed-out-matrix OutMat,
            class Triangle>
@@ -29,7 +29,7 @@ namespace std::linalg {
     OutMat A,
     Triangle t); // (2)
 
-  template<class Scalar,
+  template<scalar Scalar,
            in-vector InVec,
            in-matrix InMat,
            possibly-packed-out-matrix OutMat,
@@ -42,7 +42,7 @@ namespace std::linalg {
     Triangle t); // (3)
 
   template<class ExecutionPolicy,
-           class Scalar,
+           scalar Scalar,
            in-vector InVec,
            in-matrix InMat,
            possibly-packed-out-matrix OutMat,
@@ -56,6 +56,7 @@ namespace std::linalg {
     Triangle t); // (4)
 }
 ```
+* scalar[link scalar.md]
 * in-vector[link inout-vector.md]
 * in-matrix[link inout-matrix.md]
 * possibly-packed-out-matrix[link possibly-packed-out-matrix.md]

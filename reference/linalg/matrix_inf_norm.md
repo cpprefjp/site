@@ -7,12 +7,12 @@
 
 ```cpp
 namespace std::linalg {
-  template<in-matrix InMat, class Scalar>
+  template<in-matrix InMat, scalar Scalar>
   Scalar matrix_inf_norm(InMat A, Scalar init);          // (1)
 
   template<class ExecutionPolicy,
            in-matrix InMat,
-           class Scalar>
+           scalar Scalar>
   Scalar matrix_inf_norm(
     ExecutionPolicy&& exec,
     InMat A,
@@ -25,6 +25,7 @@ namespace std::linalg {
   auto matrix_inf_norm(ExecutionPolicy&& exec, InMat A); // (4)
 }
 ```
+* scalar[link scalar.md]
 * in-matrix[link inout-matrix.md]
 
 ## 概要
