@@ -124,3 +124,5 @@ false true false true
     - C++26で追加された
 - [P3430R3 SIMD issues: explicit, unsequenced, identity-element position, and members of disabled SIMD](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3430r3.pdf)
     - ジェネレータコンストラクタから`noexcept`が除去された
+- [LWG Issue 4382. The `simd::basic_mask(bool)` overload needs to be more constrained](https://cplusplus.github.io/LWG/issue4382)
+    - C++26で、(2) `value_type`をとるコンストラクタが`same_as<value_type> auto`に、(5) `bitset`をとるコンストラクタが`same_as<bitset<size()>> T`に、(6) 符号なし整数型をとるコンストラクタが`unsigned_integral T`かつ`!same_as<T, value_type>`に、それぞれ制約された
