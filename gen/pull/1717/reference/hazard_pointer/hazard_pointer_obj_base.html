@@ -1,0 +1,379 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::hazard_pointer_obj_base - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,hazard_pointer,class template,std,cpp26
+">
+        <meta name="title" content="std::hazard_pointer_obj_base - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::hazard_pointer_obj_base - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::hazard_pointer_obj_base - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/hazard_pointer/hazard_pointer_obj_base.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`hazard_pointer_obj_base`は、ハザードポインタで保護する対象とする型の基底クラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::hazard_pointer_obj_base - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/hazard_pointer/hazard_pointer_obj_base.html" />
+        <meta name="twitter:description" content="`hazard_pointer_obj_base`は、ハザードポインタで保護する対象とする型の基底クラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc">
+<link rel="manifest" href="../../manifest.json?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;hazard_pointer&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2b0b5549b2ed5106d5a2cd7ff9292529c095c20e&#34;, &#34;source&#34;: &#34;#include &lt;hazard_pointer&gt;\n#include &lt;atomic&gt;\n#include &lt;print&gt;\n\nstruct Data : std::hazard_pointer_obj_base&lt;Data&gt; {\n  int value;\n  explicit Data(int v) : value(v) {}\n};\n\n// \u5171\u6709\u30c7\u30fc\u30bf\u3092\u6307\u3059\u30dd\u30a4\u30f3\u30bf\nstd::atomic&lt;Data*&gt; data{new Data(1)};\n\nint main()\n{\n  // \u8aad\u307f\u8fbc\u307f\u5074: \u30cf\u30b6\u30fc\u30c9\u30dd\u30a4\u30f3\u30bf\u3067\u4fdd\u8b77\u3057\u3066\u304b\u3089\u53c2\u7167\u3059\u308b\n  std::hazard_pointer h = std::make_hazard_pointer();\n  Data* p = h.protect(data);\n  std::println(\&#34;{}\&#34;, p-&gt;value);\n\n  // \u66f4\u65b0\u5074: \u5dee\u3057\u66ff\u3048\u3066\u53e4\u3044\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u56de\u53ce\u4e88\u7d04\u3059\u308b\n  Data* old = data.exchange(new Data(2));\n  old-&gt;retire(); // \u4fdd\u8b77\u304c\u89e3\u9664\u3055\u308c\u3066\u304b\u3089\u56de\u53ce\u3055\u308c\u308b\n\n  // \u6700\u5f8c\u306b\u6b8b\u3063\u305f\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3082\u56de\u53ce\u4e88\u7d04\u3059\u308b\n  // (\u53d6\u308a\u5916\u3057\u305f\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092 retire \u3057\u5fd8\u308c\u308b\u3068\u56de\u53ce\u3055\u308c\u305a\u30ea\u30fc\u30af\u3059\u308b\u306e\u3067\u6ce8\u610f)\n  data.load()-&gt;retire();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;hazard_pointer&#34;, &#34;hazard_pointer_obj_base&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/hazard_pointer.html" itemprop="url">
+              
+                <span itemprop="name">hazard_pointer</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">hazard_pointer_obj_base</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-08-09T16:26:25+09:00">
+        2026年08月09日 16時26分25秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/hazard_pointer/hazard_pointer_obj_base.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/hazard_pointer/hazard_pointer_obj_base.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;hazard_pointer&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">hazard_pointer_obj_base</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../memory/default_delete.html">default_delete</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">hazard_pointer_obj_base</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>hazard_pointer_obj_base</code>は、ハザードポインタで保護する対象とする型の基底クラスである。</p>
+<p>使用するときは、型<code>T</code>で<code>hazard_pointer_obj_base</code>を公開かつ非仮想で継承した上で、派生クラス<code>T</code>を<code>hazard_pointer_obj_base</code>のテンプレート引数にする(CRTP)。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Data</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">hazard_pointer_obj_base</span><span class="o">&lt;</span><span class="n">Data</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>型<code>T</code>が、ちょうど1つの<code>public</code>かつ非仮想な基底クラス<code>hazard_pointer_obj_base&lt;T, D&gt;</code>をもち、ほかに<code>hazard_pointer_obj_base&lt;T2, D2&gt;</code>型の基底クラスをもたないとき、その型は「ハザードポインタで保護可能な型」(hazard-protectable type)となる。</p>
+<p>テンプレートパラメータ<code>D</code>は、オブジェクトの削除方法を指定する関数オブジェクト型であり、既定では<code><a href="../memory/default_delete.html">default_delete</a>&lt;T&gt;</code>(<code>delete</code>式による破棄)となる。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li><code>T</code>は<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>でもよいが、特殊化された<code>hazard_pointer_obj_base</code>のメンバが参照されるまでに<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>とすること。</li>
+<li><code>D</code>は関数オブジェクト型であり、<code>D</code>型の値<code>d</code>と<code>T*</code>型の値<code>ptr</code>に対して式<code>d(ptr)</code>が有効であること。</li>
+<li><code>D</code>型は要件 Cpp17DefaultConstructible および Cpp17MoveAssignable を満たすこと。</li>
+</ul>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="hazard_pointer_obj_base/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>(destructor)</code></td>
+<td>デストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hazard_pointer_obj_base/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="hazard_pointer_obj_base/retire.html">retire</a></code></td>
+<td>オブジェクト回収をスケジュールする</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>備考</h2>
+<ul>
+<li>このクラステンプレートに対する特殊化を追加するプログラムの<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>である。</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="2b0b5549b2ed5106d5a2cd7ff9292529c095c20e"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../hazard_pointer.html">&lt;hazard_pointer&gt;</a></span>
+<span class="cp">#include <a href="../atomic.html">&lt;atomic&gt;</a></span>
+<span class="cp">#include <a href="../print.html">&lt;print&gt;</a></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Data</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::hazard_pointer_obj_base</span></span><span class="o">&lt;</span><span class="n">Data</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">value</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="c1">// 共有データを指すポインタ</span>
+<span class="n"><a href="../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="n">Data</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">data</span><span class="p">{</span><span class="k">new</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="mi">1</span><span class="p">)};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// 読み込み側: ハザードポインタで保護してから参照する</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">hazard_pointer</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="make_hazard_pointer.html">std::make_hazard_pointer</a></span><span class="p">();</span>
+<span class="w">  </span><span class="n">Data</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="hazard_pointer/protect.html">h.protect</a></span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// 更新側: 差し替えて古いオブジェクトを回収予約する</span>
+<span class="w">  </span><span class="n">Data</span><span class="o">*</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n"><a href="../atomic/atomic/exchange.html">exchange</a></span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<span class="w">  </span><span class="n"><a href="hazard_pointer_obj_base/retire.html">old-&gt;retire()</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 保護が解除されてから回収される</span>
+
+<span class="w">  </span><span class="c1">// 最後に残ったオブジェクトも回収予約する</span>
+<span class="w">  </span><span class="c1">// (取り外したオブジェクトを retire し忘れると回収されずリークするので注意)</span>
+<span class="w">  </span><span class="n"><a href="../atomic/atomic/load.html">data.load()</a></span><span class="o">-&gt;</span><span class="n">retire</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>1
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="hazard_pointer.html">std::hazard_pointer</a></code></li>
+<li><code><a href="make_hazard_pointer.html">std::make_hazard_pointer</a></code></li>
+<li><code><a href="../rcu/rcu_obj_base.html">rcu_obj_base</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2530r3.pdf" target="_blank">P2530R3 Hazard Pointers for C++26</a><ul>
+<li>C++26で追加された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
