@@ -32,7 +32,7 @@ namespace std {
 
 ## 適格要件
 - `Extents`は[`extents`](../extents.md)の特殊化であること。
-- [`Extents::rank_dynamic()`](../extents/rank_dynamic.md) `== 0`が`true`のとき、多次元インデクス空間`Extents()`のサイズが`Extents::index_type`型で表現できること。
+- [`Extents::rank_dynamic()`](../extents/rank_dynamic.md) `== 0`が`true`のとき、多次元インデックス空間`Extents()`のサイズが`Extents::index_type`型で表現できること。
 
 
 ## メンバ関数
@@ -51,7 +51,7 @@ namespace std {
 | `extents` | 多次元配列のサイズ`extents_`を取得する | C++23 |
 | `strides` | ストライド配列`strides_`を取得する | C++23 |
 | [`required_span_size`](mapping/required_span_size.md) | 要素アクセス範囲を取得する | C++23 |
-| [`operator()`](mapping/op_call.md) | 多次元配列インデクスから要素位置へ変換する | C++23 |
+| [`operator()`](mapping/op_call.md) | 多次元配列インデックスから要素位置へ変換する | C++23 |
 | [`is_exhaustive`](mapping/is_exhaustive.md) | [Exhaustive特性](../LayoutMapping.md)を取得する | C++23 |
 | [`stride`](mapping/stride.md) | 指定次元のストライド幅を取得する | C++23 |
 
@@ -61,7 +61,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `is_always_unique`     | `true`を返す | C++23 |
-| `is_always_exhaustive` | `false`を返す | C++23 |
+| `is_always_exhaustive` | `rank() == 0`、または静的要素数が`0`の次元が存在すれば`true`、そうでなければ`false`を返す（C++23では常に`false`、C++26で変更） | C++23 |
 | `is_always_strided`    | `true`を返す | C++23 |
 | `is_unique`     | `true`を返す | C++23 |
 | `is_strided`    | `true`を返す | C++23 |
@@ -144,3 +144,5 @@ int main()
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
 - [P2630R4 Submdspan](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html)
+- [LWG Issue 4266. `layout_stride::mapping` should treat empty mappings as exhaustive](https://cplusplus.github.io/LWG/issue4266)
+    - C++26で、`is_always_exhaustive()`が`rank() == 0`や静的要素数`0`の次元を持つ場合に`true`を返すよう変更された（C++23では常に`false`）。あわせて[`is_exhaustive()`](mapping/is_exhaustive.md)も多次元インデックス空間が空の場合に`true`を返すよう拡張された

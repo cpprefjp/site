@@ -6,8 +6,9 @@
 * cpp23[meta cpp]
 
 ```cpp
-iterator erase(iterator position);           // (1) C++23
-constexpr iterator erase(iterator position); // (1) C++26
+iterator erase(iterator position);               // (1) C++23
+constexpr iterator erase(iterator position)
+  requires (!same_as<iterator, const_iterator>); // (1) C++26
 
 iterator erase(const_iterator position);           // (2) C++23
 constexpr iterator erase(const_iterator position); // (2) C++26
@@ -147,3 +148,5 @@ int main()
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 4384. `flat_set::erase(iterator)` is underconstrained](https://cplusplus.github.io/LWG/issue4384)
+    - C++26で、(1) `erase(iterator)`に`requires (!same_as<iterator, const_iterator>)`制約が追加された。`iterator`と`const_iterator`が同じ型のとき(2) `erase(const_iterator)`と衝突する問題を防ぐもの

@@ -15,11 +15,11 @@ namespace std::simd {
 ```
 
 ## 概要
-`alignment`は、データ並列型`T`（[`basic_vec`](basic_vec.md)または[`basic_mask`](basic_mask.md)）を、要素型`U`の配列に対してアライメント済みで読み込み／書き込むために必要な、メモリ先頭のアライメント（バイト数）を取得する型特性である。
+`alignment`は、データ並列型`T`（[`basic_vec`](basic_vec.md)）を、要素型`U`の配列に対してアライメント済みで読み込み／書き込むために必要な、メモリ先頭のアライメント（バイト数）を取得する型特性である。
 
 [`flag_aligned`](flags.md)を指定して読み込み／書き込む場合、メモリ先頭はこの`alignment_v<T, U>`バイト境界にアライメントされていなければならない。
 
-メンバ定数`value`は、`T`がデータ並列型であり、要素型`U`との間で（変換）読み込み／書き込みが可能な場合にのみ存在する。
+メンバ定数`value`は、`T`が[`basic_vec`](basic_vec.md)の特殊化であり、`U`が[vectorizable type](/reference/simd.md#vectorizable-type)である場合にのみ存在する。
 
 
 ## 例
@@ -63,3 +63,5 @@ int main()
 ## 参照
 - [P1928R15 std::simd — merge data-parallel types from the Parallelism TS 2](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p1928r15.pdf)
     - C++26で`std::simd`ライブラリが追加された
+- [LWG Issue 4413. Unused/left-over `simd::alignment` specialization for `basic_mask`](https://cplusplus.github.io/LWG/issue4413)
+    - C++26で、メンバ定数`value`が存在する条件から`basic_mask`と`bool`の組み合わせが削除され、`basic_vec`の特殊化かつ`U`がvectorizable typeの場合のみとなった

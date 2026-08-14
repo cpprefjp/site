@@ -19,6 +19,10 @@ namespace std {
 `quot`は「quotient (商)」、`rem`は「remainder (剰余)」。
 
 
+
+## 備考
+この型は、フリースタンディング処理系でも使用できる。
+
 ## 例
 ```cpp example
 #include <iostream>

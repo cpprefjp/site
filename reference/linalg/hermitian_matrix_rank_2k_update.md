@@ -77,16 +77,18 @@ namespace std::linalg {
 - 共通:
     + `Triangle`は[`upper_triangle_t`](upper_triangle_t.md)または[`lower_triangle_t`](lower_triangle_t.md)
     + `OutMat`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
-    + [`possibly-addable`](possibly-addable.md)`<decltype(A), decltype(B), decltype(C)>()`が`true`
-    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
-- (3), (4): 上記に加えて、入力行列`E`が出力行列`C`と整合する次元・レイアウトを持つこと ([`possibly-addable`](possibly-addable.md)`<decltype(C), decltype(E), decltype(C)>()`が`true`)
+    + [`possibly-multipliable`](possibly-multipliable.md)`<decltype(A), decltype(`[`transposed`](transposed.md)`(B)), decltype(C)>()`が`true`
+    + [`possibly-multipliable`](possibly-multipliable.md)`<decltype(B), decltype(`[`transposed`](transposed.md)`(A)), decltype(C)>()`が`true`
+- (3), (4): 上記に加えて、
+    + `InMat3`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
+    + [`possibly-addable`](possibly-addable.md)`<decltype(C), decltype(E), decltype(C)>()`が`true`
 - (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件
-- `A.extent(0) == A.extent(1)`
-- [`addable`](addable.md)`(A, B, C)`が`true`
-- (3), (4): [`addable`](addable.md)`(C, E, C)`が`true`
+- [`multipliable`](multipliable.md)`(A, `[`transposed`](transposed.md)`(B), C) == true`
+- [`multipliable`](multipliable.md)`(B, `[`transposed`](transposed.md)`(A), C) == true` (上記と合わせて`C`が正方行列であることを含意する)
+- (3), (4): [`addable`](addable.md)`(C, E, C) == true`
 
 
 ## 効果
@@ -99,11 +101,12 @@ namespace std::linalg {
 
 
 ## 計算量
-$O(\verb|A.extent(0)| \times \verb|A.extent(1)| \times \verb|C.extent(0)|)$
+$O(\verb|A.extent(0)| \times \verb|A.extent(1)| \times \verb|B.extent(0)|)$
 
 
 ## 備考
 - (1), (2)は出力行列`C`を上書きする。従来の加算更新 ($C \leftarrow C + AB^* + BA^*$) を行いたい場合は、updating版 (3), (4)に元の行列を`E`として渡す。
+- エルミート行列`C`の対角成分については、[`real-if-needed`](real-if-needed.md)により実部のみが使用される。対角成分が非ゼロの虚部を持っていても、その虚部は無視される。
 
 
 ## 例
@@ -243,3 +246,7 @@ int main()
 - [LAPACK: {he,sy}r2k: Hermitian/symmetric rank-2k update](https://netlib.org/lapack/explore-html/d8/d94/group__her2k.html)
 - [P3371R5 Fix C++26 BLAS rank updates consistency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3371r5.html)
     - C++26で、上書き(overwriting)版と更新(updating)版のオーバーロードに再構成され、BLASと整合するようになった
+- [LWG Issue 4136. Specify behavior of \[linalg\] Hermitian algorithms on diagonal with nonzero imaginary part](https://cplusplus.github.io/LWG/issue4136)
+    - C++26で、エルミート行列の対角成分が非ゼロの虚部を持つ場合に実部のみ（`real-if-needed`）が使用されることが明文化された。それまで対角成分の虚部の扱いが未規定だった問題を解消するもの
+- [LWG Issue 4137. Fix `Mandates`, `Preconditions`, and `Complexity` elements of \[linalg\] algorithms](https://cplusplus.github.io/LWG/issue4137)
+    - C++26で、適格要件・事前条件が2つの`possibly-multipliable`/`multipliable`を用いた形へ整理され、計算量が`A.extent(0) × A.extent(1) × B.extent(0)`へ修正された

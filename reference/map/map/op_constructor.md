@@ -217,3 +217,6 @@ Size of m2: 2
 - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
     - C++23でのアロケータ引数を`type_identity_t`で包む変更
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+    - C++26で`map`のメンバが`constexpr`対応した
+- [LWG Issue 4291. `explicit map(const Allocator&)` should be constexpr](https://cplusplus.github.io/LWG/issue4291)
+    - C++26で、他のコンストラクタと同様に(3) `explicit map(const Allocator&)`にも`constexpr`が追加された（P3372で付け忘れられていたものの修正）

@@ -21,6 +21,10 @@ namespace std {
 この関数を使用することで、メモリ連続性をもつ要素列をバイト列として扱える。シリアライズやデータ転送といった、バイト指向アクセスが必要なシステムプログラミングに使用できる。
 
 
+## テンプレートパラメータ制約
+- C++26 : [`is_volatile_v`](/reference/type_traits/is_volatile.md)`<ElementType> == false`であること
+
+
 ## 戻り値
 以下と等価：
 
@@ -76,3 +80,8 @@ int main()
 - [Clang](/implementation.md#clang): 9.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 4243. `as_bytes`/`as_writable_bytes` is broken with `span<volatile T>`](https://cplusplus.github.io/LWG/issue4243)
+    - C++26で、`ElementType`が`volatile`修飾されている場合に`reinterpret_cast`がハードエラーとなる問題を防ぐため、`is_volatile_v<ElementType> == false`のテンプレートパラメータ制約が追加された

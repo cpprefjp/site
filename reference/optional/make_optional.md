@@ -28,7 +28,7 @@ namespace std {
 
 
 ## 効果
-- (1) : `return optional<`[`decay_t`](/reference/type_traits/decay.md)`<T>>(`[`std::forward`](/reference/utility/forward.md)`<T>(v))`
+- (1) : `return optional<`[`decay_t`](/reference/type_traits/decay.md)`<T>>(`[`std::forward`](/reference/utility/forward.md)`<T>(v));` と等価の処理を行う
 - (2) : `return optional<T>(`[`in_place`](/reference/utility/in_place_t.md)`,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);` と等価の処理を行う
 - (3) `return optional<T>(`[`in_place`](/reference/utility/in_place_t.md)`, il,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...);` と等価の処理を行う
 
@@ -85,3 +85,8 @@ int main()
 - [GCC](/implementation.md#gcc): 7.2 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 3627. Inconsistent specifications for `std::make_optional` overloads](https://cplusplus.github.io/LWG/issue3627)
+    - C++26で、(1)の仕様が「戻り値（Returns）」から他のオーバーロードと同じ「効果（Effects）: 〜と等価」の形式へ変更された（意味は変わらない編集上の整合化）

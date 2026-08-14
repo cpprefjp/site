@@ -28,6 +28,10 @@ namespace std {
 [`uint_fast32_t`](/reference/cstdint/uint_fast32_t.md)
 
 
+
+## 備考
+この型は、フリースタンディング処理系でも使用できる。
+
 ## バージョン
 ### 言語
 - C++11

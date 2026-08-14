@@ -37,6 +37,10 @@ constexpr T& value() const;          // (5) C++26
 有効値を保持していない状態でこの関数が呼び出された場合、[`bad_optional_access`](/reference/optional/bad_optional_access.md)例外を送出する。
 
 
+## 備考
+この関数は、例外を送出しうるため、フリースタンディング処理系では削除される（フリースタンディング処理系では使用できない）。
+
+
 ## 例
 ```cpp example
 #include <iostream>

@@ -63,6 +63,10 @@ namespace std {
 | [`swap`](move_only_function/swap_free.md) | 2つの`move_only_function`オブジェクトを入れ替える | C++23 |
 
 
+
+## 備考
+このクラスは、フリースタンディング処理系では使用できない。
+
 ## 例
 ### 例1: 基本の使い方
 ```cpp example

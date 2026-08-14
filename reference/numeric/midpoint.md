@@ -24,7 +24,7 @@ namespace std {
 
 
 ## テンプレートパラメータ制約
-- (1) : 型`T` が `bool` 以外の[算術型](/reference/type_traits/is_arithmetic.md)であること
+- (1) : 型`T` が[算術型](/reference/type_traits/is_arithmetic.md)であり、かつCV修飾を除いた型が`bool`でないこと
 - (2) : 型`T`はオブジェクト型であること
 
 
@@ -162,3 +162,5 @@ int main()
 ## 参照
 - [P0811R3 Well-behaved interpolation for numbers and pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0811r3.html)
 - [LWG Issue 3200. `midpoint` should not constrain `T` is complete](https://cplusplus.github.io/LWG/lwg-active.html#3200)
+- [LWG Issue 4265. `std::midpoint` should not accept `const bool`](https://cplusplus.github.io/LWG/issue4265)
+    - (1)のテンプレートパラメータ制約が、`bool`だけでなくCV修飾された`bool`（`const bool`など）も除外するよう明確化された。この仕様はC++26で規定されたが、仕様の欠陥修正であり主要な実装は早期に対応している

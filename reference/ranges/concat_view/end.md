@@ -14,10 +14,13 @@ constexpr auto end() const
 ```
 
 ## 概要
-番兵を取得する。
+終端イテレータもしくは番兵を取得する。
 
-## 戻り値
-- (1), (2) : `concat_view`の番兵を返す
+## 効果
+`is-const`を、`const`修飾版の (2) では`true`、非`const`版の (1) では`false`とする。`Views`の要素数を`N`として、以下と等価である：
+
+- 全ての範囲（`is-const`に応じて`const`修飾したもの）が[`forward_range`](/reference/ranges/forward_range.md)であり、かつ最後の範囲`Views...[N - 1]`が[`common_range`](/reference/ranges/common_range.md)である場合、最後の範囲の終端を指す`concat_view`のイテレータを返す。
+- そうでなければ、[`default_sentinel`](/reference/iterator/default_sentinel_t.md)を返す。
 
 ## 例
 
@@ -60,3 +63,8 @@ int main() {
 - [Clang](/implementation.md#clang): 23 [mark verified]
 - [GCC](/implementation.md#gcc): 15 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2022 Update 14 [mark noimpl]
+
+
+## 参照
+- [LWG Issue 4166. `concat_view::end()` should be more constrained in order to support noncopyable iterators](https://cplusplus.github.io/LWG/issue4166)
+    - C++26で、`end()`の効果で終端イテレータを返す条件に「全ての範囲が`forward_range`であること」（`all-forward`）が追加された。一部の範囲が前方範囲でない場合にイテレータを返してしまい、コピー不可能なイテレータを含む場合などに問題が生じるのを防ぐもの

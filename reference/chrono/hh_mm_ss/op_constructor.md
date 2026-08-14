@@ -27,10 +27,11 @@ hh_mm_ss(hh_mm_ss&&);                    // (4) C++20
 - (1) : `Duration`型の値ゼロで時間を構築する
 - (2) : `precision`型の精度で`Duration d`をもつ`hh_mm_ss`オブジェクトを構築する
     - `d < Duration::`[`zero()`](/reference/chrono/duration/zero.md)である場合、負の時間とみなし[`is_negative()`](is_negative.md)が`true`を返すようにする
-    - [`duration_cast`](/reference/chrono/duration_cast.md)`<`[`chrono::hours`](/reference/chrono/duration_aliases.md)`>(`[`abs`](/reference/chrono/duration/abs.md)`(d))`で時を構築する
-    - [`duration_cast`](/reference/chrono/duration_cast.md)`<`[`chrono::minutes`](/reference/chrono/duration_aliases.md)`>(`[`abs`](/reference/chrono/duration/abs.md)`(d) -` [`hours()`](hours.md)`)`で分を構築する
-    - [`duration_cast`](/reference/chrono/duration_cast.md)`<`[`chrono::seconds`](/reference/chrono/duration_aliases.md)`>(`[`abs`](/reference/chrono/duration/abs.md)`(d) -` [`hours()`](hours.md) `-` [`minutes()`](minutes.md)`)`で秒を構築する
-    - [`treat_as_floating_point_v`](/reference/chrono/treat_as_floating_point.md)`<precision::rep>`が`true`である場合、秒未満は[`abs`](/reference/chrono/duration/abs.md)`(d) -` [`hours()`](hours.md) `-` [`minutes()`](minutes.md) `-` [`seconds()`](seconds.md)で構築する。そうでなければ、[`duration_cast`](/reference/chrono/duration_cast.md)`<precision>(`[`abs`](/reference/chrono/duration/abs.md)`(d) -` [`hours()`](hours.md) `-` [`minutes()`](minutes.md) `-` [`seconds()`](seconds.md)`)`で秒未満を構築する
+    - ここで、[`is_negative()`](is_negative.md)が`true`ならば`-d`を、そうでなければ`d`を表す値を`ABS_D`とする
+    - [`duration_cast`](/reference/chrono/duration_cast.md)`<`[`chrono::hours`](/reference/chrono/duration_aliases.md)`>(ABS_D)`で時を構築する
+    - [`duration_cast`](/reference/chrono/duration_cast.md)`<`[`chrono::minutes`](/reference/chrono/duration_aliases.md)`>(ABS_D -` [`hours()`](hours.md)`)`で分を構築する
+    - [`duration_cast`](/reference/chrono/duration_cast.md)`<`[`chrono::seconds`](/reference/chrono/duration_aliases.md)`>(ABS_D -` [`hours()`](hours.md) `-` [`minutes()`](minutes.md)`)`で秒を構築する
+    - [`treat_as_floating_point_v`](/reference/chrono/treat_as_floating_point.md)`<precision::rep>`が`true`である場合、秒未満は`ABS_D -` [`hours()`](hours.md) `-` [`minutes()`](minutes.md) `-` [`seconds()`](seconds.md)で構築する。そうでなければ、[`duration_cast`](/reference/chrono/duration_cast.md)`<precision>(ABS_D -` [`hours()`](hours.md) `-` [`minutes()`](minutes.md) `-` [`seconds()`](seconds.md)`)`で秒未満を構築する
 
 
 ## 事後条件
@@ -98,3 +99,8 @@ int main()
 - [Clang](/implementation.md#clang): 10.0 [mark verified]
 - [GCC](/implementation.md#gcc): 11.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
+
+
+## 参照
+- [LWG Issue 4274. The `chrono::hh_mm_ss` constructor is ill-formed for unsigned durations](https://cplusplus.github.io/LWG/issue4274)
+    - C++26で、効果の記述が`abs(d)`を用いる形から、`is_negative()`が`true`なら`-d`・そうでなければ`d`を表す`ABS_D`を用いる形へ修正された。`abs`は符号なし`Duration`に対して不適格となるため、符号なしの時間間隔型でも構築できるようにするもの

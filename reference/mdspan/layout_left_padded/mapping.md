@@ -45,7 +45,7 @@ namespace std {
 ## 適格要件
 - `Extents`は[`extents`](../extents.md)の特殊化であること。
 - `rank_dynamic() == 0`のとき、多次元インデクス空間`Extents()`のサイズが`index_type`型で表現できること。
-- 値`padding_value`が`index_type`型で表現できること。
+- `padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、値`padding_value`が`index_type`型で表現できること。
 - 以下を満たすとき、`LEAST-MULTIPLE-AT-LEAST(padding_value, first-static-extent)`が、`size_t`型および`index_type`型で表現できること。
     - `rank_ > 1`、かつ
     - `padding_value !=` [`dynamic_extent`](/reference/span/dynamic_extent.md)、かつ
@@ -131,3 +131,5 @@ namespace std {
 
 ## 参照
 - [P2642R6 Padded mdspan layouts](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2642r6.pdf)
+- [LWG Issue 4372. Weaken `Mandates:` for dynamic padding values in padded layouts](https://cplusplus.github.io/LWG/issue4372)
+    - C++26で、「`padding_value`が`index_type`型で表現可能であること」という適格要件が、`padding_value`が`dynamic_extent`に等しくない場合に限り適用されるよう緩和された（動的なパディング値を指定する場合にこの制約が不要なため）

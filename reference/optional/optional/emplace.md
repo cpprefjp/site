@@ -128,3 +128,5 @@ int main()
     - C++26で参照型`T&`に対する部分特殊化を追加
 - [LWG Issue 2746. Inconsistency between requirements for `emplace` between `optional` and `variant`](https://cplusplus.github.io/LWG/issue2746)
     - C++26で、`emplace`の制約が`Requires`（ハードエラー）から`Constraints`（SFINAE）に統一された（cpprefjpでは「テンプレートパラメータ制約」として記載済み）
+- [LWG Issue 4300. Missing `Returns:` element in `optional<T&>::emplace`](https://cplusplus.github.io/LWG/issue4300)
+    - C++26で、`optional<T&>`版 (3) の戻り値が`*val`（参照先）であることが明記された（cpprefjpの戻り値記述は全オーバーロード共通で既にこれを含む）

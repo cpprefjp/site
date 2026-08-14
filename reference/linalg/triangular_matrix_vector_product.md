@@ -134,7 +134,8 @@ namespace std::linalg {
 
 
 ## 計算量
-$O(\verb|A.extent(1)|\times \verb|x.extent(0)|)$
+- (1), (2), (5), (6): $O(\verb|A.extent(0)|\times \verb|x.extent(0)|)$
+- (3), (4): $O(\verb|A.extent(0)|\times \verb|y.extent(0)|)$
 
 
 ## 備考
@@ -334,4 +335,6 @@ z[3] = 6
 
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
+- [LWG Issue 4137. Fix `Mandates`, `Preconditions`, and `Complexity` elements of \[linalg\] algorithms](https://cplusplus.github.io/LWG/issue4137)
+    - C++26で、計算量が`A.extent(0)`を用いる形へ修正された ((1), (2), (5), (6)は`A.extent(0) × x.extent(0)`、(3), (4)は`A.extent(0) × y.extent(0)`)
 - [LAPACK: ctrmv](https://netlib.org/lapack/explore-html/d6/d1c/group__trmv_ga0adaf80ae1dfe117390bd7030fd865f1.html#ga0adaf80ae1dfe117390bd7030fd865f1)

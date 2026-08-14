@@ -6,6 +6,11 @@
 
 このヘッダのすべての関数は`consteval`であり、コンパイル時にのみ使用できる。
 
+このヘッダでは、以下の標準ヘッダをインクルードする：
+
+- [`<compare>`](compare.md)
+- [`<initializer_list>`](initializer_list.md)
+
 
 ## リフレクション型
 
@@ -445,3 +450,5 @@
     - C++26策定中に、trivially relocatable関係が一旦削除された
 - [LWG Issue 4555. Remove `is_consteval_only`](https://cplusplus.github.io/LWG/issue4555)
     - C++26で入る予定だった`is_consteval_only_type`の追加が取り消された
+- [LWG Issue 4416. `<meta>` should include `<compare>`](https://cplusplus.github.io/LWG/issue4416)
+    - C++26で、`<meta>`ヘッダが`<compare>`をインクルードするよう修正された。[`std::meta::type_order`](meta/type_order.md)などが`strong_ordering`を返すため

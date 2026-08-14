@@ -151,5 +151,7 @@ int main()
 ## 参照
 - [P1928R15 std::simd — merge data-parallel types from the Parallelism TS 2](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p1928r15.pdf)
     - C++26で`std::simd`ライブラリに追加された
+- [LWG Issue 4280. `simd::partial_load` uses undefined identifier `T`](https://cplusplus.github.io/LWG/issue4280)
+    - C++26で、仕様の記述が「効果(Effects)」から「戻り値(Returns)」へ改められ、式中で使われている識別子`T`が`V::value_type`であることが明記された（識別子が定義されていなかった記述上の欠陥の修正）
 - [LWG Issue 4420. §[simd] conversions (constructor, load, stores, gather, and scatter) are incorrectly constrained for `<stdfloat>` types](https://cplusplus.github.io/LWG/issue4420)
     - C++26で、要素型が異なるメモリからの読み込みで、`static_cast`による明示的変換を正しく扱うよう制約・効果が修正された

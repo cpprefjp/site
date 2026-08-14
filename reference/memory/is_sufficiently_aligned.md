@@ -31,6 +31,10 @@ namespace std {
 投げない
 
 
+## 備考
+この関数は、フリースタンディング処理系でも使用できる。
+
+
 ## この機能が必要になった背景・経緯
 この関数テンプレートは[`<mdspan>`](/reference/mdspan.md)ヘッダへの[`aligned_accessor`](/reference/mdspan/aligned_accessor.md)導入に伴って必要とされた機能である。
 一方で、ポインタ値のアライメント要件を検査するユースケースは一般的と考えられたため、汎用ユーティリティとして`<memory>`ヘッダに対して機能追加された。
@@ -86,5 +90,7 @@ bool is_sufficiently_aligned(ElementType* p)
 
 ## 参照
 - [P2897R7 `aligned_accessor`: An mdspan accessor expressing pointer over-alignment](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2897r7.html)
+- [LWG Issue 4286. Some more feature-test macros for fully freestanding features are not marked freestanding](https://cplusplus.github.io/LWG/issue4286)
+    - C++26で、この関数がフリースタンディング処理系でも使用できる（フリースタンディング機能である）ことが明示された
 - [LWG Issue 4290. Missing Mandates clauses on `is_sufficiently_aligned`](https://cplusplus.github.io/LWG/issue4290)
     - C++26で、`Alignment`が2の累乗であることの適格要件が追加された

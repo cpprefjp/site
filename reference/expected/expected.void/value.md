@@ -19,6 +19,10 @@ constexpr void value() &&;      // (2)
 なし
 
 
+
+## 備考
+この関数は、例外を送出しうるため、フリースタンディング処理系では削除される（フリースタンディング処理系では使用できない）。
+
 ## 例外
 - (1) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`error()`](error.md)`)`を送出する
 - (2) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`を送出する

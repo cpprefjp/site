@@ -123,3 +123,5 @@ int main()
 - [P0798R8 Monadic operations for std::optional](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0798r8.html)
 - [P2988R12 `std::optional<T&>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2988r12.pdf)
     - C++26で参照型`T&`に対する部分特殊化を追加
+- [LWG Issue 4299. Missing `Mandates:` part in `optional<T&>::transform`](https://cplusplus.github.io/LWG/issue4299)
+    - C++26で、`optional<T&>`版 (5) の適格要件に「`U`が`optional`に対する有効な要素型であること」が追加された

@@ -80,6 +80,10 @@ concept stream-extractable = requires(basic_istream<CharT, Traits>& is, Val& t) 
 | [`cend`](view_interface/cend.md)             | 定数イテレータ（番兵）を取得する  | C++23          |
 
 
+
+## 備考
+このクラスは、フリースタンディング処理系では使用できない。
+
 ## 例
 ```cpp example
 #include <ranges>

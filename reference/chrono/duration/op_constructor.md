@@ -29,9 +29,11 @@ duration(const duration&) = default;                  // (4)
     - C++20 : [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const Rep2&, rep> == true`であること
     - [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`もしくは[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<Rep2>::value == false`であること
 - (3) :
-    - C++11 : [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`
-    - C++14 : 単位変換の結果としてオーバーフローせず、[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`
-    - もしくは、[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == false`かつ[`ratio_divide`](/reference/ratio/ratio_divide.md)`<Period2, period>::type::den == 1`
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const Rep2&, rep> == true`であること
+    - [`ratio_divide`](/reference/ratio/ratio_divide.md)`<typename Period2::type, period>`が有効な`ratio`の特殊化であること
+    - 次のいずれかを満たすこと：
+        - [`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<rep>::value == true`である
+        - もしくは、[`ratio_divide`](/reference/ratio/ratio_divide.md)`<Period2, period>::den == 1`かつ[`treat_as_floating_point`](/reference/chrono/treat_as_floating_point.md)`<Rep2>::value == false`である
     - これらの要求は、整数ベースの`duration`型間での変換の際に、暗黙に切り捨て誤差が起きるのを防ぐ。浮動小数点数型ベースの場合には、精度が下がれば小数点以下の数値になるだけなので問題ない。
 
 
@@ -81,6 +83,8 @@ d5 : 3000
 
 
 ## 参照
-- [LWG Issue 2094. `duration` conversion overflow shouldn't participate in overload resolution](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2094)
 - [`std::chrono::duration` construction - ISO C++ Standard - Discussion](https://groups.google.com/a/isocpp.org/forum/#!topic/std-discussion/OcGX7Yj3meI)
 - [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
+- [LWG Issue 2094. `duration` conversion overflow shouldn't participate in overload resolution](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2094)
+- [LWG Issue 3090. What is §[time.duration.cons]p4's "no overflow is induced in the conversion" intended to mean?](https://cplusplus.github.io/LWG/issue3090)
+    - (3)のテンプレートパラメータ制約から意味の不明確だった「変換でオーバーフローが生じないこと」という表現が削除され、代わりに`is_convertible_v<const Rep2&, rep>`が`true`であることと`ratio_divide<typename Period2::type, period>`が有効な`ratio`の特殊化であることが明示された。この整理はC++26で規定されたが、実装は元々この意図どおりに制約していたため挙動は変わらない

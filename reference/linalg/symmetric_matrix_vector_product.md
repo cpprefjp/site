@@ -74,14 +74,14 @@ namespace std::linalg {
     + `InMat`が[`layout_blas_packed`](layout_blas_packed.md)を持つなら、レイアウトの`Triangle`テンプレート引数とこの関数の`Triangle`テンプレート引数が同じ型
     + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
     + [`possibly-multipliable`](possibly-multipliable.md)`<decltype(A), decltype(x), decltype(y)>()`が`true`
-- (3), (4): [`possibly-addable`](possibly-addable.md)`<decltype(x),decltype(y),decltype(z)>()`が`true`
+- (3), (4): [`possibly-addable`](possibly-addable.md)`<decltype(y),decltype(y),decltype(z)>()`が`true`
 - (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
 ## 事前条件
 - (1), (2), (3), (4): `A.extent(0) == A.extent(1)`
 - (1), (2), (3), (4): [`multipliable`](multipliable.md)`(A, x, y) == true`
-- (3), (4): [`addable`](addable.md)`(x, y, z) == true`
+- (3), (4): [`addable`](addable.md)`(y, y, z) == true`
 
 
 ## 効果
@@ -96,7 +96,7 @@ namespace std::linalg {
 
 
 ## 計算量
-$O(\verb|A.extent(1)|\times \verb|x.extent(0)|)$
+$O(\verb|A.extent(0)|\times \verb|x.extent(0)|)$
 
 
 ## 備考
@@ -233,4 +233,6 @@ z[3] = 71
 
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
+- [LWG Issue 4137. Fix `Mandates`, `Preconditions`, and `Complexity` elements of \[linalg\] algorithms](https://cplusplus.github.io/LWG/issue4137)
+    - C++26で、適格要件・事前条件の`possibly-addable`/`addable`の第1引数が`x`から`y`へ修正され、計算量が`A.extent(0) × x.extent(0)`へ修正された
 - [LAPACK: csymv](https://netlib.org/lapack/explore-html/db/d17/group__hemv_gab137e328e44dc1530ab0a93ff65c108a.html#gab137e328e44dc1530ab0a93ff65c108a)

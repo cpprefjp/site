@@ -98,6 +98,10 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 | [`operator>>`](linear_congruential_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
+
+## 備考
+このクラステンプレートは、フリースタンディング処理系でも使用できる。
+
 ## 例
 ```cpp example
 #include <iostream>

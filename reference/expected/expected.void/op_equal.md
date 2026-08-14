@@ -32,8 +32,8 @@ friend constexpr bool operator==(const unexpected<E2>& e, const expected& x);   
 ## 戻り値
 - (1) : 次の値を返す
     - `x.`[`has_value()`](has_value.md)と`y.`[`has_value()`](has_value.md)が異なるとき、`false`
-    - そうでなければ、`x.`[`has_value()`](has_value.md) `|| static_cast<bool>(x.`[`error()`](error.md) `== y.`[`error()`](error.md)`)`
-- (2), (3) : `!x.`[`has_value()`](has_value.md) `&& static_cast<bool>(x.`[`error()`](error.md) `== e.`[`error()`](../unexpected/error.md)`)`
+    - そうでなければ、`x.`[`has_value()`](has_value.md) `== true`のとき`true`、そうでなければ`x.`[`error()`](error.md) `== y.`[`error()`](error.md)
+- (2), (3) : `!x.`[`has_value()`](has_value.md) `== true`のとき`x.`[`error()`](error.md) `== e.`[`error()`](../unexpected/error.md)、そうでなければ`false`
 
 
 ## 例
@@ -82,3 +82,5 @@ int main()
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
 - [P3379R0 Constrain `std::expected` equality operators](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3379r0.html)
     - C++26で「適格要件」を「テンプレートパラメータ制約」に変更
+- [LWG Issue 4366. Heterogeneous comparison of `expected` may be ill-formed](https://cplusplus.github.io/LWG/issue4366)
+    - C++26で、戻り値が`static_cast<bool>(…)`を用いた形式から条件式へ変更された。比較結果を`bool`へ明示変換していたことで異種比較が不適格になりうる問題を防ぐもの

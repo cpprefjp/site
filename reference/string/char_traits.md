@@ -112,6 +112,10 @@ namespace std {
 | `comparison_category` | [`strong_ordering`](/reference/compare/strong_ordering.md) | C++20 |
 
 
+
+## 備考
+このクラスは、フリースタンディング処理系でも使用できる。
+
 ## 例
 ### 基本的な使い方
 ```cpp example

@@ -20,6 +20,10 @@ return data()[pos];
 * data()[link data.md]
 
 
+
+## 備考
+この関数は、例外を送出しうるため、フリースタンディング処理系では削除される（フリースタンディング処理系では使用できない）。
+
 ## 例外
 `pos >=` [`size()`](size.md)の場合、[`std::out_of_range`](/reference/stdexcept.md)例外を送出する。
 

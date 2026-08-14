@@ -56,6 +56,10 @@ namespace std {
 | [`operator!=`](istream_iterator/op_not_equal.md) | 非等値比較 | |
 
 
+
+## 備考
+このクラスは、フリースタンディング処理系では使用できない。
+
 ## 例
 ```cpp example
 #include <iostream>

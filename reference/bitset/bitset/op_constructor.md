@@ -72,6 +72,11 @@ constexpr explicit bitset(
 - (5) : `'0'`と`'1'`の文字で構成される文字配列からビット列を構築する
 
 
+## テンプレートパラメータ制約
+- (5) :
+    - C++26 : [`is_array_v`](/reference/type_traits/is_array.md)`<CharT>`が`false`、[`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<CharT>`が`true`、[`is_standard_layout_v`](/reference/type_traits/is_standard_layout.md)`<CharT>`が`true`、かつ[`is_trivially_default_constructible_v`](/reference/type_traits/is_trivially_default_constructible.md)`<CharT>`が`true`であること
+
+
 ## 要件
 - (3), (4) : `pos <= str.`[`size()`](/reference/string/basic_string/size.md)
 
@@ -165,3 +170,5 @@ int main()
 - [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)
 - [P2697R1 Interfacing `bitset` with `string_view`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2697r1.pdf)
     - C++26から`string_view`を受け取るコンストラクタが追加された
+- [LWG Issue 4294. `bitset(const CharT*)` constructor needs to be constrained](https://cplusplus.github.io/LWG/issue4294)
+    - C++26で、(5)の`const CharT*`をとるコンストラクタに、`CharT`が文字型に相当することを表すテンプレートパラメータ制約（`is_array_v<CharT>`が`false`、`is_trivially_copyable_v`／`is_standard_layout_v`／`is_trivially_default_constructible_v`が`true`）が追加された。`CharT`が推論されるために不適当な型でもオーバーロード解決に参加してしまう問題を防ぐもの

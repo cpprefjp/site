@@ -5,6 +5,9 @@
 `<mdspan>`ヘッダでは、任意のメモリブロックに対して多次元配列のようにアクセスする機能を定義する。
 
 
+## フリースタンディング
+このヘッダのほとんどの機能は、フリースタンディング処理系でも使用できる。ただし、例外を送出する一部の機能などは、フリースタンディング処理系では提供されない、または削除される。詳細は各機能のページを参照。
+
 ## 多次元配列サイズ
 
 | 名前 | 説明 | 対応バージョン |
@@ -12,6 +15,7 @@
 | [`extents`](mdspan/extents.md)  | 多次元配列のサイズを表す値 (class template) | C++23 |
 | [`dextents`](mdspan/extents.md) | 全次元が動的な多次元配列のサイズを表す値 (alias template) | C++23 |
 | [`dims`](mdspan/extents.md) | 全次元が動的な多次元配列のサイズを表す値 (alias template) | C++26 |
+| [`dynamic_extent`](span/dynamic_extent.md) | 動的な要素数をもつことを指示する定数 (variable) | C++26 |
 
 
 ## レイアウトマッピング
@@ -49,7 +53,7 @@
 | [`full_extent`](mdspan/full_extent_t.md) | 指定次元の全要素取り出しを指示するタグ値 (variable) | C++26 |
 | [`submdspan_mapping_result`](mdspan/submdspan_mapping_result.md) | 多次元配列部分ビューのレイアウトマッピング情報 (class template) | C++26 |
 | [`subextents`](mdspan/subextents.md) | 多次元配列部分ビューの多次元配列サイズを計算する (function template) | C++26 |
-| [`canonical_slices`](mdspan/canonical_slices.md) | 多次元配列部分ビュー取得時の多次元インデクスを正規化する (function template) | C++26 |
+| [`canonical_slices`](mdspan/canonical_slices.md) | 多次元配列部分ビュー取得時の多次元インデックスを正規化する (function template) | C++26 |
 | [`submdspan`](mdspan/submdspan.md) | 多次元配列部分ビューを取得する (function template) | C++26 |
 
 
@@ -69,3 +73,5 @@
 - [P2642R6 Padded mdspan layouts](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2642r6.pdf)
 - [P2897R7 `aligned_accessor`: An mdspan accessor expressing pointer over-alignment](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2897r7.html)
 - [P3663R3 Future-proof `submdspan_mapping`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3663r3.html)
+- [LWG Issue 4275. `std::dynamic_extent` should also be defined in `<mdspan>`](https://cplusplus.github.io/LWG/issue4275)
+    - C++26で、`<span>`で定義される[`dynamic_extent`](span/dynamic_extent.md)が`<mdspan>`のインクルードによっても利用可能になった

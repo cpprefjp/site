@@ -8,18 +8,30 @@
 ```cpp
 template <class Lock, class Rep, class Period>
 cv_status wait_for(Lock& lock,
-                   const chrono::duration<Rep, Period>& rel_time); // (1)
+                   const chrono::duration<Rep, Period>& rel_time); // (1) C++11
+template <class Lock, class Rep, class Period>
+cv_status wait_for(Lock& lock,
+                   chrono::duration<Rep, Period> rel_time);        // (1) C++26
 
 template <class Lock, class Rep, class Period, class Predicate>
 bool wait_for(Lock& lock,
               const chrono::duration<Rep, Period>& rel_time,
-              Predicate pred);                                     // (2)
+              Predicate pred);                                     // (2) C++11
+template <class Lock, class Rep, class Period, class Predicate>
+bool wait_for(Lock& lock,
+              chrono::duration<Rep, Period> rel_time,
+              Predicate pred);                                     // (2) C++26
 
 template<class Lock, class Rep, class Period, class Predicate>
 bool wait_for(Lock& lock,
               stop_token stoken,
               const chrono::duration<Rep, Period>& rel_time,
-              Predicate pred);                                     // (3) C++20 から
+              Predicate pred);                                     // (3) C++20
+template<class Lock, class Rep, class Period, class Predicate>
+bool wait_for(Lock& lock,
+              stop_token stoken,
+              chrono::duration<Rep, Period> rel_time,
+              Predicate pred);                                     // (3) C++26
 ```
 * cv_status[link /reference/condition_variable/cv_status.md]
 * stop_token[link /reference/stop_token/stop_token.md]
@@ -187,3 +199,5 @@ process data
 - [P1869R1 Rename `condition_variable_any` interruptible wait methods](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1869r1.html)
 - [LWG Issue 3504. `condition_variable::wait_for` is overspecified](https://cplusplus.github.io/LWG/issue3504)
     - C++26で、相対時間を絶対時間へ変換する際に`ceil`で整数時間へ丸めるよう変更され、浮動小数点の`duration`での精度の問題が修正された。この変更は欠陥報告 (DR) であり、C++26より前のバージョンでもコンパイラが早期に対応している場合がある
+- [LWG Issue 4301. `condition_variable{_any}::wait_{for, until}` should take timeout by value](https://cplusplus.github.io/LWG/issue4301)
+    - C++26で、`wait_until`/`wait_for`のタイムアウト引数（`time_point`／`duration`）が`const`参照渡しから値渡しへ変更された

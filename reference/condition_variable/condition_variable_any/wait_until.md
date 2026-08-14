@@ -8,18 +8,30 @@
 ```cpp
 template <class Lock, class Clock, class Duration>
 cv_status wait_until(Lock& lock,
-                     const chrono::time_point<Clock, Duration>& abs_time); // (1)
+                     const chrono::time_point<Clock, Duration>& abs_time); // (1) C++11
+template <class Lock, class Clock, class Duration>
+cv_status wait_until(Lock& lock,
+                     chrono::time_point<Clock, Duration> abs_time);        // (1) C++26
 
 template <class Lock, class Clock, class Duration, class Predicate>
 bool wait_until(Lock& lock,
                 const chrono::time_point<Clock, Duration>& abs_time,
-                Predicate pred);                                           // (2)
+                Predicate pred);                                           // (2) C++11
+template <class Lock, class Clock, class Duration, class Predicate>
+bool wait_until(Lock& lock,
+                chrono::time_point<Clock, Duration> abs_time,
+                Predicate pred);                                           // (2) C++26
 
 template<class Lock, class Clock, class Duration, class Predicate>
 bool wait_until(Lock& lock,
                 stop_token stoken,
                 const chrono::time_point<Clock, Duration>& abs_time,
-                Predicate pred);                                           // (3) C++20 から
+                Predicate pred);                                           // (3) C++20
+template<class Lock, class Clock, class Duration, class Predicate>
+bool wait_until(Lock& lock,
+                stop_token stoken,
+                chrono::time_point<Clock, Duration> abs_time,
+                Predicate pred);                                           // (3) C++26
 ```
 * cv_status[link /reference/condition_variable/cv_status.md]
 * time_point[link /reference/chrono/time_point.md]
@@ -218,3 +230,5 @@ process data
     - GCC 10から`steady_clock`がサポートされた
 - [P0660R10 Stop Token and Joining Thread, Rev 10](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0660r10.pdf)
 - [P1869R1 Rename `condition_variable_any` interruptible wait methods](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1869r1.html)
+- [LWG Issue 4301. `condition_variable{_any}::wait_{for, until}` should take timeout by value](https://cplusplus.github.io/LWG/issue4301)
+    - C++26で、`wait_until`/`wait_for`のタイムアウト引数（`time_point`／`duration`）が`const`参照渡しから値渡しへ変更された

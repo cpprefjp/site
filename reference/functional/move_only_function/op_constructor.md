@@ -67,7 +67,7 @@ explicit move_only_function(in_place_type_t<T>, initializer_list<U>, Args&&...);
 - (3) : `f`が保持する状態を`*this`に移動する。移動された後の`f`は、未規定な値を持つ有効な状態となる。
 - (4) : `*this`の格納オブジェクトを
     - `f`が関数ポインタ型、メンバ関数ポインタ型、メンバ変数ポインタ型いずれかのヌルポインタ値の場合、値を保持しない。
-    - `remove_cvref_t<F>`が`move_only_function`の特殊化であり、かつ値を保持していない場合、値を保持しない。
+    - `remove_cvref_t<F>`が`move_only_function`または[`copyable_function`](/reference/functional/copyable_function.md)の特殊化であり、かつ値を保持していない場合、値を保持しない。
     - そうでなければ、`*this`が保持する`VT`型の格納オブジェクトを、`std::forward<F>(f)`で直接非リスト初期化する。
 - (5) : `*this`が保持する`VT`型の格納オブジェクトを、`std::forward<Args>(args)...`で直接非リスト初期化する。
 - (6) : `*this`が保持する`VT`型の格納オブジェクトを、`ilist, std::forward<Args>(args)...`で直接非リスト初期化する。
@@ -207,3 +207,5 @@ int main()
 
 ## 参照
 - [P0288R9 move_only_function](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0288r9.html)
+- [LWG Issue 4255. `move_only_function` constructor should recognize empty `copyable_function`](https://cplusplus.github.io/LWG/issue4255)
+    - C++26で、空の[`copyable_function`](/reference/functional/copyable_function.md)から`move_only_function`を構築した場合も対象オブジェクトを持たない（空になる）ことが規定された。それまで`move_only_function`同士でしか空判定を引き継げなかった問題を解消するもの

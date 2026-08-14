@@ -116,3 +116,5 @@ int main()
     - C++26で`std::simd`ライブラリが追加された
 - [P2664R11 Proposal to extend `std::simd` with permutation API](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2664r11.html)
     - C++26で置換API（`permute`）が追加された
+- [LWG Issue 4412. Fix declaration of `zero_element` and `uninit_element`](https://cplusplus.github.io/LWG/issue4412)
+    - C++26で、`zero_element`・`uninit_element`の宣言が`static constexpr`から`inline constexpr`へ修正された（名前空間スコープの定数のため）

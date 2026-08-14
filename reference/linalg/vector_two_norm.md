@@ -36,7 +36,8 @@ namespace std::linalg {
 
 
 ## 適格要件
-- (1), (2): `decltype(init +` [`abs-if-needed`](abs-if-needed.md)`(declval<typename InVec::value_type>()) * abs-if-needed(declval<typename InVec::value_type>()))`が`Scalar`に変換可能。
+- (1), (2): `InVec::value_type`と`Scalar`が、どちらも浮動小数点数型または[`std::complex`](/reference/complex/complex.md)の特殊化であること。
+- (1), (2): `decltype(`[`abs-if-needed`](abs-if-needed.md)`(init) * abs-if-needed(init) + abs-if-needed(declval<typename InVec::value_type>()) * abs-if-needed(declval<typename InVec::value_type>()))`が`Scalar`に変換可能。
 - (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
 
 
@@ -60,7 +61,7 @@ $$
 
 
 ## 備考
-- (1), (2): もし`InVec::value_type`と`Scalar`がどちらも浮動小数点数型または[`std::complex`](/reference/complex/complex.md)の特殊化で、`Scalar`が`InVec::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
+- (1), (2): もし`Scalar`が`InVec::value_type`より精度が高い場合、和の各項は`Scalar`またはより高い精度の型が使われる。
 
 
 ## 例
@@ -124,5 +125,7 @@ int main()
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [LAPACK: dnrm2](https://netlib.org/lapack/explore-html/d1/d2a/group__nrm2_gab5393665c8f0e7d5de9bd1dd2ff0d9d0.html#gab5393665c8f0e7d5de9bd1dd2ff0d9d0)
+- [LWG Issue 4315. Insufficient specification of `vector_two_norm` and `matrix_frob_norm`](https://cplusplus.github.io/LWG/issue4315)
+    - C++26で、「`InVec::value_type`と`Scalar`が浮動小数点数型または`complex`の特殊化であること」が適格要件に明示され、備考（Remarks）からはその条件が除かれた
 - [LWG Issue 4514. Missing absolute value of `init` in `vector_two_norm` and `matrix_frob_norm`](https://cplusplus.github.io/LWG/issue4514)
-    - C++26で、戻り値の式が`init`の二乗ではなく`init`の絶対値の二乗を用いるよう修正された。複素数（`1+i`など）や負の実数（`-1.0`など）を`init`に渡したときに不正な結果（複素数の戻り値や虚数の平方根）となる問題を防ぐもの
+    - C++26で、戻り値および適格要件の式が`init`の二乗ではなく`init`の絶対値の二乗を用いるよう修正された。複素数（`1+i`など）や負の実数（`-1.0`など）を`init`に渡したときに不正な結果（複素数の戻り値や虚数の平方根）となる問題を防ぐもの

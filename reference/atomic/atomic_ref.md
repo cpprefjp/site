@@ -79,7 +79,7 @@ C++26から、これらの特殊化はCV修飾された型に対しても行わ�
 
 `is_always_lock_free == true`の場合、このクラスのオブジェクトをシグナルハンドラー内で使用できる。
 
-`required_alignment`について、ハードウェアは参照するオブジェクトに対して、型`T`のほかのオブジェクトよりも厳密なアライメントを持つことを要求できる。また、`atomic_ref`がロックフリーかどうかは、参照するオブジェクトのアライメントに依存する。たとえば[`std::complex`](/reference/complex/complex.md)`<double>`のロックフリー操作は`2 * alignof(double)`にアライメントされる場合にのみサポートされる。
+実装は、`atomic_ref<T>`の全てのオブジェクトに対する操作がロックフリーとなることを保証するために、`required_alignment`を`alignof(T)`より大きな値として定義することを選択できる。
 
 C++26では、`T`にCV修飾を加えた任意の型`U`について、`required_alignment`と`is_always_lock_free`の値は`atomic_ref<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<U>>`のものと同じである。これにより、CV修飾の違いによってアライメント要求やロックフリー保証が変わらないことが保証される。
 
@@ -238,5 +238,7 @@ int main()
     - C++26でCV修飾されたテンプレート引数を受け取れるようになった
 - [LWG Issue 4453. `atomic_ref<cv T>::required_alignment` should be the same as for `T`](https://cplusplus.github.io/LWG/issue4453)
     - C++26で、CV修飾の違いによって`required_alignment`と`is_always_lock_free`の値が変わらないことが保証された
+- [LWG Issue 4377. Misleading note about lock-free property of `std::atomic_ref`](https://cplusplus.github.io/LWG/issue4377)
+    - C++26で、`required_alignment`に関する誤解を招く注記（`complex<double>`の例など）が、「実装はすべての操作がロックフリーとなるよう`required_alignment`を`alignof(T)`より大きく定義できる」という趣旨の注記へ修正された
 - [LWG Issue 4450. `std::atomic_ref<T>::store` should be disabled for const `T`](https://cplusplus.github.io/LWG/issue4450)
     - C++26で、`T`が`const`修飾されている場合に`store`をはじめとする値を変更するメンバ関数が制約により無効化されることが規定された
