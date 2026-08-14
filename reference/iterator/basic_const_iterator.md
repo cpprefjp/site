@@ -42,6 +42,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------------------------------------------------------|-------------|-------|
+| `iterator_type` | 基底イテレータの型`Iterator` | C++26 |
 | `iterator_concept` | `Iterator`がモデルとなる最も強いイテレータコンセプトに対応する[イテレータタグ型](/reference/iterator/iterator_tag.md) | C++23 |
 | `iterator_category` | `Iterator`が[`forward_iterator`](/reference/iterator/forward_iterator.md)のモデルである場合にのみ[`iterator_traits`](/reference/iterator/iterator_traits.md)`<Iterator>::iterator_category`として定義される | C++23 |
 | `value_type` | [`iter_value_t`](/reference/iterator/iter_value_t.md)`<Iterator>` | C++23 |
@@ -128,3 +129,5 @@ int main() {
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [LWG Issue 4253. `basic_const_iterator` should provide `iterator_type`](https://cplusplus.github.io/LWG/issue4253)
+    - C++26で、基底イテレータの型を取得できるよう公開メンバ型`iterator_type`（`= Iterator`）が追加された
