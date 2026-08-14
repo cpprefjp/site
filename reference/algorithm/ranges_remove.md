@@ -255,3 +255,5 @@ int main() {
 - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
     - C++26で波カッコ初期化 (リスト初期化) に対応した
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 4297. Missing `permutable` constraint for iterator overloads in Parallel Range Algorithms](https://cplusplus.github.io/LWG/issue4297)
+    - C++26で、並列版のイテレータオーバーロード(3)に`permutable<I>`制約が追加された（範囲版(4)にはあったが、イテレータ版で欠落していたものの修正）

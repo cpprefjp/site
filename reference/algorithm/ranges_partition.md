@@ -172,3 +172,5 @@ odd: 5 3 7 1
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 4297. Missing `permutable` constraint for iterator overloads in Parallel Range Algorithms](https://cplusplus.github.io/LWG/issue4297)
+    - C++26で、並列版のイテレータオーバーロード(3)に`permutable<I>`制約が追加された（範囲版(4)にはあったが、イテレータ版で欠落していたものの修正）
