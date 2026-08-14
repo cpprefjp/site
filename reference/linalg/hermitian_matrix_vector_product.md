@@ -106,6 +106,7 @@ $O(\verb|A.extent(0)|\times \verb|x.extent(0)|)$
 
 ## 備考
 - (3), (4): `z`に`y`を入れても良い。
+- エルミート行列`A`の対角成分については、[`real-if-needed`](real-if-needed.md)により実部のみが使用される。対角成分が非ゼロの虚部を持っていても、その虚部は無視される。
 
 
 ## 例
@@ -242,6 +243,8 @@ z[3] = (11,-9)
 
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
+- [LWG Issue 4136. Specify behavior of \[linalg\] Hermitian algorithms on diagonal with nonzero imaginary part](https://cplusplus.github.io/LWG/issue4136)
+    - C++26で、エルミート行列の対角成分が非ゼロの虚部を持つ場合に実部のみ（`real-if-needed`）が使用されることが明文化された。それまで対角成分の虚部の扱いが未規定だった問題を解消するもの
 - [LWG Issue 4137. Fix `Mandates`, `Preconditions`, and `Complexity` elements of \[linalg\] algorithms](https://cplusplus.github.io/LWG/issue4137)
     - C++26で、適格要件・事前条件の`possibly-addable`/`addable`の第1引数が`x`から`y`へ修正され、計算量が`A.extent(0) × x.extent(0)`へ修正された
 - [LAPACK: csymv](https://netlib.org/lapack/explore-html/db/d17/group__hemv_gab137e328e44dc1530ab0a93ff65c108a.html#gab137e328e44dc1530ab0a93ff65c108a)

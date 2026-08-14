@@ -104,6 +104,8 @@ $O(\verb|x.extent(0)| \times \verb|y.extent(0)|)$
 ## 備考
 加算更新$A \leftarrow A + xy^* + yx^*$を行いたい場合は、更新前の行列を`E`として渡すupdating版(3), (4)を使用する。
 
+- エルミート行列`A`の対角成分については、[`real-if-needed`](real-if-needed.md)により実部のみが使用される。対角成分が非ゼロの虚部を持っていても、その虚部は無視される。
+
 
 ## 例
 **[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。**
@@ -239,3 +241,5 @@ int main()
 - [LAPACK: {he,sy}r: Hermitian/symmetric rank-2 update](https://netlib.org/lapack/explore-html/dd/de5/group__her2.html)
 - [P3371R5 Fix C++26 BLAS rank updates consistency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3371r5.html)
     - C++26で、上書き(overwriting)版と更新(updating)版のオーバーロードに再構成され、BLASと整合するようになった
+- [LWG Issue 4136. Specify behavior of \[linalg\] Hermitian algorithms on diagonal with nonzero imaginary part](https://cplusplus.github.io/LWG/issue4136)
+    - C++26で、エルミート行列の対角成分が非ゼロの虚部を持つ場合に実部のみ（`real-if-needed`）が使用されることが明文化された。それまで対角成分の虚部の扱いが未規定だった問題を解消するもの
