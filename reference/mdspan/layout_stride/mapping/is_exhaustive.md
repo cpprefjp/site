@@ -14,8 +14,10 @@ constexpr bool is_exhaustive() const noexcept;
 
 
 ## 戻り値
-- `rank_ == 0`のとき、`true`を返す。
-- そうでなければ、取りうる全ての多次元インデクス値に対応する要素位置を考えたとき、アクセスされうる要素位置に隙間が生じないならば`true`を返す。
+- 次のいずれかのとき、`true`を返す。
+    - `rank_ == 0`である
+    - C++26 : 多次元インデックス空間`extents()`のサイズが`0`である
+- そうでなければ、取りうる全ての多次元インデックス値に対応する要素位置を考えたとき、アクセスされうる要素位置に隙間が生じないならば`true`を返す。
 - そうでなければ、`false`を返す。
 
 
@@ -62,3 +64,5 @@ int main()
 
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
+- [LWG Issue 4266. `layout_stride::mapping` should treat empty mappings as exhaustive](https://cplusplus.github.io/LWG/issue4266)
+    - C++26で、多次元インデックス空間が空（サイズが`0`）の場合も`true`を返すよう戻り値の条件が拡張された。あわせて`is_always_exhaustive()`も`rank() == 0`や静的要素数`0`の次元を持つ場合に`true`を返すよう変更された
