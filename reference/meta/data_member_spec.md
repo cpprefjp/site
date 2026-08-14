@@ -79,5 +79,7 @@ int main() {
 
 ## 参照
 - [P2996R13 Reflection for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2996r13.html)
+- [LWG Issue 4423. `meta::data_member_spec` allows negative bit-field widths](https://cplusplus.github.io/LWG/issue4423)
+    - C++26で、`options.bit_width`の値`V`が負でないことが例外送出条件に追加された。負のビット幅を指定できてしまう問題を防ぐもの
 - [LWG Issue 4517. `data_member_spec` should throw for cv-qualified unnamed bit-fields](https://cplusplus.github.io/LWG/issue4517)
     - C++26で、無名ビットフィールド（`options.name`に値がない）に対して`type`がCV修飾されている場合に例外を送出することが規定された。CV修飾された型の無名ビットフィールドを禁止する言語側の規則（CWG 2229）と整合させるもの
