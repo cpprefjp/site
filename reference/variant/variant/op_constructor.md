@@ -6,9 +6,9 @@
 * cpp17[meta cpp]
 
 ```cpp
-constexpr variant() noexcept(see below);                 // (1)
-constexpr variant(const variant& other);                 // (2)
-constexpr variant(variant&& other) noexcept(see below);  // (3)
+constexpr variant() noexcept(see below);                     // (1)
+constexpr variant(const variant& other) noexcept(see below); // (2)
+constexpr variant(variant&& other) noexcept(see below);      // (3)
 
 template <class T>
 constexpr variant(T&& t) noexcept(see below);            // (4)
@@ -120,6 +120,7 @@ constexpr explicit variant(in_place_index_t<I>,
     - `noexcept`内の式は、[`is_nothrow_default_constructible_v`](/reference/type_traits/is_nothrow_default_constructible.md)`<T0>`と等価
 - (2) :
     - 全ての型`Ti`の直接初期化が、任意の例外を送出する可能性がある
+    - `noexcept`内の式は、全ての`Ti`についての[`is_nothrow_copy_constructible_v`](/reference/type_traits/is_nothrow_copy_constructible.md)`<Ti>`を論理積したものと等価
 - (3) :
     - 全ての型`Ti`のムーブ構築が、任意の例外を送出する可能性がある
     - `noexcept`内の式は、全ての`Ti`についての[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<Ti>`を論理積したものと等価
@@ -363,10 +364,12 @@ int main()
 
 
 ## 参照
-- [LWG Issue 2901 Variants cannot properly support allocators](https://cplusplus.github.io/LWG/issue2901)
 - [P0608R3 A sane variant converting constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0608r3.html)
 - [P0602R4 `variant` and `optional` should propagate copy/move triviality](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html)
+- [LWG Issue 2901 Variants cannot properly support allocators](https://cplusplus.github.io/LWG/issue2901)
 - [P0777R1 Treating Unnecessary `decay`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0777r1.pdf)
     - C++20からテンプレートパラメータ制約の`decay_t`を`remove_cvref_t`へ変更。
+- [LWG Issue 2991. `variant` copy constructor missing `noexcept(see below)`](https://cplusplus.github.io/LWG/issue2991)
+    - コピーコンストラクタ(2)に`noexcept(see below)`が追加され、その例外指定が全ての`Ti`についての`is_nothrow_copy_constructible_v<Ti>`を論理積したものと等価であることが規定された。ムーブコンストラクタと異なりコピー側で指定が欠落していた欠陥の修正であり、この仕様はC++26で規定されたが主要な実装は早期に対応している
 - [LWG Issue 4460. Missing _Throws_: for last `variant` constructor](https://cplusplus.github.io/LWG/issue4460)
     - `in_place_index_t`と`initializer_list`をとる(8)のコンストラクタに、他のコンストラクタと同様に「格納する値の初期化で送出された例外を送出する」旨のThrows節が規格に追加された（規格の記載漏れの修正）
