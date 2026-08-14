@@ -7,7 +7,7 @@
 
 ```cpp
 namespace std::linalg {
-  template<class Scalar,
+  template<scalar Scalar,
            in-matrix InMat,
            possibly-packed-out-matrix OutMat,
            class Triangle>
@@ -18,7 +18,7 @@ namespace std::linalg {
     Triangle t); // (1)
 
   template<class ExecutionPolicy,
-           class Scalar,
+           scalar Scalar,
            in-matrix InMat,
            possibly-packed-out-matrix OutMat,
            class Triangle>
@@ -29,7 +29,7 @@ namespace std::linalg {
     OutMat C,
     Triangle t); // (2)
 
-  template<class Scalar,
+  template<scalar Scalar,
            in-matrix InMat1,
            in-matrix InMat2,
            possibly-packed-out-matrix OutMat,
@@ -42,7 +42,7 @@ namespace std::linalg {
     Triangle t); // (3)
 
   template<class ExecutionPolicy,
-           class Scalar,
+           scalar Scalar,
            in-matrix InMat1,
            in-matrix InMat2,
            possibly-packed-out-matrix OutMat,
@@ -56,8 +56,9 @@ namespace std::linalg {
     Triangle t); // (4)
 }
 ```
+* scalar[link scalar.md]
 * in-matrix[link inout-matrix.md]
-* possibly-packed-out-matrix[link possibly-packed-inout-matrix.md]
+* possibly-packed-out-matrix[link possibly-packed-out-matrix.md]
 
 ## 概要
 対称かつ共役を取らないrank-k updateを対称行列に行う。

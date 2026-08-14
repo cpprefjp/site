@@ -7,19 +7,20 @@
 
 ```cpp
 namespace std::linalg {
-  template<class Scalar,
+  template<scalar Scalar,
            inout-object InOutObj>
   void scale(Scalar alpha,
              InOutObj x);            // (1)
 
   template<class ExecutionPolicy,
-           class Scalar,
+           scalar Scalar,
            inout-object InOutObj>
   void scale(ExecutionPolicy&& exec,
              Scalar alpha,
              InOutObj x);            // (2)
 }
 ```
+* scalar[link scalar.md]
 * inout-object[link inout-object.md]
 
 ## 概要

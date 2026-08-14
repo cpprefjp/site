@@ -7,7 +7,7 @@
 
 ```cpp
 namespace std::linalg {
-  template<class Scalar,
+  template<scalar Scalar,
            in-vector InVec,
            possibly-packed-out-matrix OutMat,
            class Triangle>
@@ -18,7 +18,7 @@ namespace std::linalg {
     Triangle t); // (1)
 
   template<class ExecutionPolicy,
-           class Scalar,
+           scalar Scalar,
            in-vector InVec,
            possibly-packed-out-matrix OutMat,
            class Triangle>
@@ -29,7 +29,7 @@ namespace std::linalg {
     OutMat A,
     Triangle t); // (2)
 
-  template<class Scalar,
+  template<scalar Scalar,
            in-vector InVec,
            in-matrix InMat,
            possibly-packed-out-matrix OutMat,
@@ -42,7 +42,7 @@ namespace std::linalg {
     Triangle t); // (3)
 
   template<class ExecutionPolicy,
-           class Scalar,
+           scalar Scalar,
            in-vector InVec,
            in-matrix InMat,
            possibly-packed-out-matrix OutMat,
@@ -56,9 +56,10 @@ namespace std::linalg {
     Triangle t); // (4)
 }
 ```
+* scalar[link scalar.md]
 * in-vector[link inout-vector.md]
 * in-matrix[link inout-matrix.md]
-* possibly-packed-out-matrix[link possibly-packed-inout-matrix.md]
+* possibly-packed-out-matrix[link possibly-packed-out-matrix.md]
 
 ## 概要
 エルミートな(対称かつ共役を取る)rank-1 updateをエルミート行列に行う。
@@ -79,15 +80,13 @@ namespace std::linalg {
     + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(A)>(0, 1)`が`true` (つまり`A`が正方行列であること)
     + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(A), decltype(x)>(0, 0)`が`true` (つまり`A`の次元と`x`の次元が同じであること)
 - (2), (4): [`is_execution_policy`](/reference/execution/is_execution_policy.md)`<ExecutionPolicy>::value`が`true`
-- (3), (4): 追加で、`E`が`A`と整合すること
-    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(E), decltype(E)>(0, 1)`が`true` (つまり`E`が正方行列であること)
-    + [`compatible-static-extents`](compatible-static-extents.md)`<decltype(E), decltype(A)>(0, 0)`が`true` (つまり`E`の次元と`A`の次元が同じであること)
+- (3), (4): 追加で、[`possibly-addable`](possibly-addable.md)`<decltype(A), decltype(E), decltype(A)>()`が`true`
 
 
 ## 事前条件
 - `A.extent(0) == A.extent(1)`
 - `A.extent(0) == x.extent(0)`
-- (3), (4): `E.extent(0) == E.extent(1)`かつ`E.extent(0) == A.extent(0)`
+- (3), (4): [`addable`](addable.md)`(A, E, A) == true`
 
 
 ## 効果

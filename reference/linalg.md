@@ -22,7 +22,7 @@ BLAS互換アルゴリズムは、演算対象データの次元数や計算オ�
 ## 共通要件
 `<linalg>`ヘッダが提供する演算アルゴリズムは、スカラ値およびベクトル／行列の要素型として線形代数値型(linear algebra value types)を取り扱う。
 
-線形代数値型はBLASが取り扱う`float`, `double`, [`std::complex`](/reference/complex/complex.md)`<float>`, [`std::complex`](/reference/complex/complex.md)`<double>`をはじめ、[`semiregular`](concepts/semiregular.md)のモデルであれば良い。
+線形代数値型はBLASが取り扱う`float`, `double`, [`std::complex`](/reference/complex/complex.md)`<float>`, [`std::complex`](/reference/complex/complex.md)`<double>`をはじめ、説明専用コンセプト[`scalar`](linalg/scalar.md)のモデル（すなわち[`semiregular`](concepts/semiregular.md)であり、かつ`mdspan`の特殊化でも実行ポリシー型でもない型）であれば良い。
 また、線形代数値型の値初期化は加法元（算術型であれば値`0`）であること。
 
 プログラム定義型を利用する場合、演算アルゴリズムはカスタマイゼーションポイントとして`abs`, `real`, `imag`, `conj`を非修飾名で呼び出す。
@@ -160,6 +160,8 @@ BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に�
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [LWG Issue 4302. Problematic `vector_sum_of_squares` wording](https://cplusplus.github.io/LWG/issue4302)
     - C++26のリリース前に、`vector_sum_of_squares`関数とその結果型`sum_of_squares_result`が削除された。全ての線形代数値型で除算などの演算が正しく動作するとは限らないなどの根本的な問題があったため
+- [P3371R5 Fix C++26 BLAS rank updates consistency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3371r5.html)
+    - C++26で、線形代数値型の共通要件が[`semiregular`](concepts/semiregular.md)から説明専用コンセプト`scalar`に変更された
 - [P1674R2: Evolving a Standard C++ Linear Algebra Library from the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1674r2.html)
 - [std::linalg: Linear Algebra Coming to Standard C++](https://github.com/CppCon/CppCon2023/blob/main/Presentations/stdlinalg_linear_algebra_coming_to_standard_cpp.pdf), CppCon 2023
 - [BLAS (Basic Linear Algebra Subprograms)](https://www.netlib.org/blas/)

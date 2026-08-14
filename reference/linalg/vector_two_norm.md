@@ -7,12 +7,12 @@
 
 ```cpp
 namespace std::linalg {
-  template<in-vector InVec, class Scalar>
+  template<in-vector InVec, scalar Scalar>
   Scalar vector_two_norm(InVec v, Scalar init);          // (1)
 
   template<class ExecutionPolicy,
            in-vector InVec,
-           class Scalar>
+           scalar Scalar>
   Scalar vector_two_norm(ExecutionPolicy&& exec,
                          InVec v,
                          Scalar init);                   // (2)
@@ -24,6 +24,7 @@ namespace std::linalg {
   auto vector_two_norm(ExecutionPolicy&& exec, InVec v); // (4)
 }
 ```
+* scalar[link scalar.md]
 * in-vector[link inout-vector.md]
 
 ## 概要

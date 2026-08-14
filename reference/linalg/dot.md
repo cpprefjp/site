@@ -9,7 +9,7 @@
 namespace std::linalg {
   template<in-vector InVec1,
            in-vector InVec2,
-           class Scalar>
+           scalar Scalar>
   Scalar dot(InVec1 v1,
              InVec2 v2,
              Scalar init); // (1)
@@ -17,7 +17,7 @@ namespace std::linalg {
   template<class ExecutionPolicy,
            in-vector InVec1,
            in-vector InVec2,
-           class Scalar>
+           scalar Scalar>
   Scalar dot(ExecutionPolicy&& exec,
              InVec1 v1,
              InVec2 v2,
@@ -36,6 +36,7 @@ namespace std::linalg {
            InVec2 v2); // (4)
 }
 ```
+* scalar[link scalar.md]
 * in-vector[link inout-vector.md]
 
 ## 概要
