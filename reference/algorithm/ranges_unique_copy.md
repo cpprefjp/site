@@ -208,3 +208,5 @@ int main() {
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 4269. `unique_copy` passes arguments to its predicate backwards](https://cplusplus.github.io/LWG/issue4269)
+    - C++26で、比較`comp`に渡す引数の順序が`comp(invoke(proj, *i), invoke(proj, *(i - 1)))`から`comp(invoke(proj, *(i - 1)), invoke(proj, *i))`へ修正された（記述上の引数順の誤りの修正。`comp`は同値関係であることが要求されるため動作は変わらない）
