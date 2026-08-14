@@ -41,8 +41,8 @@ friend constexpr bool operator==(const unexpected<E2>& e, const expected& x); //
     - `x.`[`has_value()`](has_value.md)と`y.`[`has_value()`](has_value.md)が異なるとき、`false`
     - `x.`[`has_value()`](has_value.md) `== true`のとき、[`*x`](op_deref.md) `==` [`*y`](op_deref.md)
     - `x.`[`error()`](error.md) `== y.`[`error()`](error.md)
-- (2), (3) : `x.`[`has_value()`](has_value.md) `&& static_cast<bool>(`[`*x`](op_deref.md) `== v)`
-- (4), (5) : `!x.`[`has_value()`](has_value.md) `&& static_cast<bool>(x.`[`error()`](error.md) `== e.`[`error()`](../unexpected/error.md)`)`
+- (2), (3) : `x.`[`has_value()`](has_value.md) `== true`のとき[`*x`](op_deref.md) `== v`、そうでなければ`false`
+- (4), (5) : `!x.`[`has_value()`](has_value.md) `== true`のとき`x.`[`error()`](error.md) `== e.`[`error()`](../unexpected/error.md)、そうでなければ`false`
 
 
 ## 例
@@ -95,3 +95,5 @@ int main()
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
 - [P3379R0 Constrain `std::expected` equality operators](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3379r0.html)
     - C++26で「適格要件」を「テンプレートパラメータ制約」に変更
+- [LWG Issue 4366. Heterogeneous comparison of `expected` may be ill-formed](https://cplusplus.github.io/LWG/issue4366)
+    - C++26で、(2), (3), (4), (5)の戻り値が`has_value() && static_cast<bool>(…)`形式から条件式（`has_value()`が`true`のとき比較結果、そうでなければ`false`）へ変更された。比較結果を`bool`へ明示変換していたことで異種比較が不適格になりうる問題を防ぐもの
