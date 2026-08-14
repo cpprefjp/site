@@ -8,12 +8,19 @@
 ```cpp
 template <class Rep, class Period>
 cv_status wait_for(unique_lock<mutex>& lock,
-                   const chrono::duration<Rep, Period>& rel_time); // (1)
+                   const chrono::duration<Rep, Period>& rel_time); // (1) C++11
+template <class Rep, class Period>
+cv_status wait_for(unique_lock<mutex>& lock,
+                   chrono::duration<Rep, Period> rel_time);        // (1) C++26
 
 template <class Rep, class Period, class Predicate>
 bool wait_for(unique_lock<mutex>& lock,
               const chrono::duration<Rep, Period>& rel_time,
-              Predicate pred);                                     // (2)
+              Predicate pred);                                     // (2) C++11
+template <class Rep, class Period, class Predicate>
+bool wait_for(unique_lock<mutex>& lock,
+              chrono::duration<Rep, Period> rel_time,
+              Predicate pred);                                     // (2) C++26
 ```
 * cv_status[link /reference/condition_variable/cv_status.md]
 * unique_lock[link /reference/mutex/unique_lock.md]
@@ -176,3 +183,5 @@ process data
 - [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
 - [LWG Issue 3504. `condition_variable::wait_for` is overspecified](https://cplusplus.github.io/LWG/issue3504)
     - C++26で、相対時間を絶対時間へ変換する際に`ceil`で整数時間へ丸めるよう変更され、浮動小数点の`duration`での精度の問題が修正された。この変更は欠陥報告 (DR) であり、C++26より前のバージョンでもコンパイラが早期に対応している場合がある
+- [LWG Issue 4301. `condition_variable{_any}::wait_{for, until}` should take timeout by value](https://cplusplus.github.io/LWG/issue4301)
+    - C++26で、`wait_until`/`wait_for`のタイムアウト引数（`time_point`／`duration`）が`const`参照渡しから値渡しへ変更された

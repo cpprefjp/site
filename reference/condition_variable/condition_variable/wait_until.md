@@ -8,12 +8,19 @@
 ```cpp
 template <class Clock, class Duration>
 cv_status wait_until(unique_lock<mutex>& lock,
-                     const chrono::time_point<Clock, Duration>& abs_time); // (1)
+                     const chrono::time_point<Clock, Duration>& abs_time); // (1) C++11
+template <class Clock, class Duration>
+cv_status wait_until(unique_lock<mutex>& lock,
+                     chrono::time_point<Clock, Duration> abs_time);        // (1) C++26
 
 template <class Clock, class Duration, class Predicate>
 bool wait_until(unique_lock<mutex>& lock,
                 const chrono::time_point<Clock, Duration>& abs_time,
-                Predicate pred);                                           // (2)
+                Predicate pred);                                           // (2) C++11
+template <class Clock, class Duration, class Predicate>
+bool wait_until(unique_lock<mutex>& lock,
+                chrono::time_point<Clock, Duration> abs_time,
+                Predicate pred);                                           // (2) C++26
 ```
 * cv_status[link /reference/condition_variable/cv_status.md]
 * unique_lock[link /reference/mutex/unique_lock.md]
@@ -197,3 +204,5 @@ process data
 - [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
 - [Bug 41861 (DR887) - [DR 887][C++0x] `<condition_variable>` does not use `monotonic_clock`](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=41861)
     - GCC 10から`steady_clock`がサポートされた
+- [LWG Issue 4301. `condition_variable{_any}::wait_{for, until}` should take timeout by value](https://cplusplus.github.io/LWG/issue4301)
+    - C++26で、`wait_until`/`wait_for`のタイムアウト引数（`time_point`／`duration`）が`const`参照渡しから値渡しへ変更された
