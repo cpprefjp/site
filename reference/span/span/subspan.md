@@ -52,7 +52,8 @@ constexpr span<element_type, dynamic_extent>
 
 - (2) : 以下と等価：
     ```cpp
-    return {data() + offset, count == dynamic_extent ? size() - offset : count};
+    return span<element_type, dynamic_extent>(
+        data() + offset, count == dynamic_extent ? size() - offset : count);
     ```
     * data()[link data.md]
     * dynamic_extent[link /reference/span/dynamic_extent.md]
@@ -117,4 +118,6 @@ int main()
 - [P1872R0 `span` should have `size_type`, not `index_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf)
 - [LWG Issue 3103. Errors in taking subview of `span` should be ill-formed where possible](https://wg21.cmeerw.net/lwg/issue3103)
 - [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
+- [LWG Issue 4293. `span::subspan`/`first`/`last` chooses wrong constructor when `T` is const-qualified `bool`](https://cplusplus.github.io/LWG/issue4293)
+    - C++26で、効果が波カッコ初期化`R{...}`から丸カッコ構築`R(...)`へ変更された。要素型が`bool`（`const bool`など）のとき、リスト初期化が意図しないコンストラクタ（`initializer_list`をとるもの）を選んでしまう問題を防ぐもの
 - [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)
