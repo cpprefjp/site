@@ -77,6 +77,10 @@ namespace std {
 | [`operator>>`](independent_bits_engine/op_istream.md)   | ストリームからの入力 | C++11 |
 
 
+## 備考
+このクラステンプレートは、ストリーム挿入子（[`operator<<`](independent_bits_engine/op_ostream.md)）と抽出子（[`operator>>`](independent_bits_engine/op_istream.md)）を除いて、フリースタンディング処理系でも使用できる。
+
+
 ## 例
 ```cpp example
 #include <iostream>
