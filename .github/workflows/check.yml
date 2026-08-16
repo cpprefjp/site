@@ -93,7 +93,7 @@ jobs:
           allow-unsafe-pr-checkout: true
 
       - id: vars
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const sha0 = context.payload.pull_request.base.sha;
