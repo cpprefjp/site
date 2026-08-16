@@ -8,7 +8,7 @@
 template<common_with<I> I2>
 friend constexpr bool operator==(const counted_iterator& x, const counted_iterator<I2>& y);  // (1)
 
-friend constexpr bool operator==(const counted_iterator& x, default_sentinel_t);             // (2)
+friend constexpr bool operator==(const counted_iterator& x, default_sentinel_t) noexcept;    // (2)
 ```
 
 ## 概要
@@ -34,17 +34,17 @@ C++20以降、これらの演算子により以下の演算子が使用可能に
 template<common_with<I> I2>
 friend constexpr bool operator==(const counted_iterator<I2>& y, const counted_iterator& x);
 
-friend constexpr bool operator==(default_sentinel_t, const counted_iterator& x);
+friend constexpr bool operator==(default_sentinel_t, const counted_iterator& x) noexcept;
 
 template<common_with<I> I2>
 friend constexpr bool operator!=(const counted_iterator& x, const counted_iterator<I2>& y);
 
-friend constexpr bool operator!=(const counted_iterator& x, default_sentinel_t); 
+friend constexpr bool operator!=(const counted_iterator& x, default_sentinel_t) noexcept;
 
 template<common_with<I> I2>
 friend constexpr bool operator!=(const counted_iterator<I2>& y, const counted_iterator& x);
 
-friend constexpr bool operator!=(default_sentinel_t, const counted_iterator& x);
+friend constexpr bool operator!=(default_sentinel_t, const counted_iterator& x) noexcept;
 ```
 
 また、これらの演算子は全て[*Hidden friends*](/article/lib/hidden_friends.md)として定義される。
@@ -99,3 +99,5 @@ true
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [LWG Issue 4245. Operators that interact with `counted_iterator` and `default_sentinel_t` should be `noexcept`](https://cplusplus.github.io/LWG/issue4245)
+    - C++26で、(2)（および`default_sentinel_t`と相互作用する派生演算子）に`noexcept`が追加された
