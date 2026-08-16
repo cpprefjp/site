@@ -68,3 +68,5 @@ true
 ## 参照
 - [P1928R15 std::simd — merge data-parallel types from the Parallelism TS 2](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p1928r15.pdf)
     - C++26で`std::simd`ライブラリが追加された
+- [LWG Issue 4232. `datapar::resize` does not resize](https://cplusplus.github.io/LWG/issue4232)
+    - C++26で、`type`のABIタグを選ぶ際に元の要素数ではなく`N`を用いることが明確化された（元の要素数のまま変化しないバグを修正）
