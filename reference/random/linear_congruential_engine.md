@@ -100,7 +100,7 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 
 
 ## 備考
-このクラステンプレートは、フリースタンディング処理系でも使用できる。
+このクラステンプレートは、ストリーム挿入子（[`operator<<`](linear_congruential_engine/op_ostream.md)）と抽出子（[`operator>>`](linear_congruential_engine/op_istream.md)）を除いて、フリースタンディング処理系でも使用できる。
 
 ## 例
 ```cpp example

@@ -163,7 +163,7 @@ $ r \cdot w $ ビット
 
 
 ## 備考
-このクラステンプレートは、フリースタンディング処理系でも使用できる。
+このクラステンプレートは、ストリーム挿入子（[`operator<<`](philox_engine/op_ostream.md)）と抽出子（[`operator>>`](philox_engine/op_istream.md)）を除いて、フリースタンディング処理系でも使用できる。
 
 ## 例
 ### 基本的な使い方
@@ -273,3 +273,5 @@ int main()
     - 2011年に発表されたこの論文でPhilox乱数生成器が考案された
 - [P4037R1 Supporting `signed char` and `unsigned char` in random number generation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4037r1.html)
     - `UIntType`テンプレートパラメータの要件が明文化された（拡張符号なし整数型および処理系定義のサブセットを許容）。この仕様はC++26から導入されたが、仕様の欠陥を修正したものであるためコンパイラは早期に対応している場合がある
+- [LWG Issue 4224. Philox engines should be freestanding](https://cplusplus.github.io/LWG/issue4224)
+    - C++26で、このクラステンプレートおよび[`philox4x32`](philox4x32.md)/[`philox4x64`](philox4x64.md)がフリースタンディング処理系に対応した（ストリーム挿入子・抽出子はホスト処理系専用）
