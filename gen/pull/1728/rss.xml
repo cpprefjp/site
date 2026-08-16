@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-08-16T16:35:44.387372</updated>
+  <id>f97f7083-529c-430c-8a0b-b68c71784b38</id>
+
+  
+    <entry>
+      <title>stdbit.h -- stdbit.h : フリースタンディング対応</title>
+      <link href="https://cpprefjp.github.io/reference/stdbit.h.html"/>
+      <id>b0b3f3012cd1b16f2f4ea99c6fa44620e2f4fc82:reference/stdbit.h.md</id>
+      <updated>2026-08-17T01:32:07+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;stdbit.h&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;stdbit.h&lt;/span&gt;&lt;span class=&#34;cpp cpp26&#34; title=&#34;C++26で追加&#34;&gt;(C++26)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;stdbit.h&amp;gt;&lt;/code&gt;はC23で追加されたビット操作ライブラリをC++から使用するための互換ヘッダである。&lt;/p&gt;
+&lt;p&gt;C言語では型総称マクロ (type-generic macro) として提供される汎用関数が、C++では関数テンプレートとして提供される。型別の関数 (&lt;code&gt;_uc&lt;/code&gt;, &lt;code&gt;_us&lt;/code&gt;, &lt;code&gt;_ui&lt;/code&gt;, &lt;code&gt;_ul&lt;/code&gt;, &lt;code&gt;_ull&lt;/code&gt;サフィックス) はCと共通のインタフェースである。&lt;/p&gt;
+&lt;p&gt;このヘッダで宣言される関数およびマクロは&lt;code&gt;std&lt;/code&gt;名前空間に属さず、グローバル名前空間に定義される。C++の対応するヘッダとして&lt;code&gt;&amp;lt;cstdbit&amp;gt;&lt;/code&gt;は提供されない。これは、C言語との相互運用性を重視し、CとC++の両方でコンパイル可能なコードを記述できるようにするためである。&lt;/p&gt;
+&lt;p&gt;C++固有のビット操作機能が必要な場合は、&lt;code&gt;&lt;a href=&#34;bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt;ヘッダの使用を推奨する。&lt;/p&gt;
+&lt;h2&gt;フリースタンディング&lt;/h2&gt;
+&lt;p&gt;このヘッダは、フリースタンディング処理系でも使用できる。本ヘッダが提供する全ての機能がフリースタンディング処理系で使用可能である。&lt;/p&gt;
+&lt;h2&gt;マクロ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__STDC_VERSION_STDBIT_H__&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ヘッダのバージョン (&lt;code&gt;202311L&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_endian_big.html&#34;&gt;__STDC_ENDIAN_BIG__&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ビッグエンディアンを表す定数&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_endian_little.html&#34;&gt;__STDC_ENDIAN_LITTLE__&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;リトルエンディアンを表す定数&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_endian_native.html&#34;&gt;__STDC_ENDIAN_NATIVE__&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実行環境のエンディアンを表す定数&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;先頭のビットカウント&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_leading_zeros.html&#34;&gt;stdc_leading_zeros&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;左から連続した0のビットを数える (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_leading_ones.html&#34;&gt;stdc_leading_ones&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;左から連続した1のビットを数える (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;末尾のビットカウント&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_trailing_zeros.html&#34;&gt;stdc_trailing_zeros&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;右から連続した0のビットを数える (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_trailing_ones.html&#34;&gt;stdc_trailing_ones&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;右から連続した1のビットを数える (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;先頭のビット位置検索&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_first_leading_zero.html&#34;&gt;stdc_first_leading_zero&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;左から最初の0のビット位置を求める (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_first_leading_one.html&#34;&gt;stdc_first_leading_one&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;左から最初の1のビット位置を求める (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;末尾のビット位置検索&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_first_trailing_zero.html&#34;&gt;stdc_first_trailing_zero&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;右から最初の0のビット位置を求める (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_first_trailing_one.html&#34;&gt;stdc_first_trailing_one&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;右から最初の1のビット位置を求める (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;ビット数カウント&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_count_zeros.html&#34;&gt;stdc_count_zeros&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;0のビットを数える (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_count_ones.html&#34;&gt;stdc_count_ones&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1のビットを数える (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;2の累乗整数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_has_single_bit.html&#34;&gt;stdc_has_single_bit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1ビットだけ立っている値をもっているか判定する (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_bit_width.html&#34;&gt;stdc_bit_width&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;値を表現するために必要なビット幅を求める (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_bit_floor.html&#34;&gt;stdc_bit_floor&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;整数値を2の累乗値に切り下げる (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;stdbit.h/stdc_bit_ceil.html&#34;&gt;stdc_bit_ceil&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;整数値を2の累乗値に切り上げる (function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バージョン&lt;/h2&gt;
+&lt;h3&gt;言語&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++26&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;処理系&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#clang&#34;&gt;Clang&lt;/a&gt;: 21 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#gcc&#34;&gt;GCC&lt;/a&gt;: 15 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#visual_cpp&#34;&gt;Visual C++&lt;/a&gt;: 2026 Update 2 &lt;span aria-label=&#34;未実装&#34; role=&#34;img&#34; title=&#34;未実装&#34;&gt;❌&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;関連項目&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt; - C++標準のビット操作ライブラリ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3022.htm&#34; target=&#34;_blank&#34;&gt;N3022 Modern Bit Utilities&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3370r1.html&#34; target=&#34;_blank&#34;&gt;P3370R1 Add new C headers as C++ headers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cplusplus.github.io/LWG/issue4247&#34; target=&#34;_blank&#34;&gt;LWG Issue 4247. Header &lt;code&gt;&amp;lt;stdbit.h&amp;gt;&lt;/code&gt; is not yet freestanding&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;C++26で、このヘッダがフリースタンディング処理系に対応した&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== (非メンバ関数) -- counted_iterator : noexcept付与</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/counted_iterator/op_equal.html"/>
+      <id>914aaa5eb4e1a6c72b1e8e14810ed21f3394e1a1:reference/iterator/counted_iterator/op_equal.md</id>
+      <updated>2026-08-17T01:31:55+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/counted_iterator/op_equal.md b/reference/iterator/counted_iterator/op_equal.md
+index f4f822788..e485752a1 100644
+--- a/reference/iterator/counted_iterator/op_equal.md
++++ b/reference/iterator/counted_iterator/op_equal.md
+@@ -8,7 +8,7 @@
+ template&amp;lt;common_with&amp;lt;I&amp;gt; I2&amp;gt;
+ friend constexpr bool operator==(const counted_iterator&amp;amp; x, const counted_iterator&amp;lt;I2&amp;gt;&amp;amp; y);  // (1)
+ 
+-friend constexpr bool operator==(const counted_iterator&amp;amp; x, default_sentinel_t);             // (2)
++friend constexpr bool operator==(const counted_iterator&amp;amp; x, default_sentinel_t) noexcept;    // (2)
+ ```
+ 
+ ## 概要
+@@ -34,17 +34,17 @@ C++20以降、これらの演算子により以下の演算子が使用可能に
+ template&amp;lt;common_with&amp;lt;I&amp;gt; I2&amp;gt;
+ friend constexpr bool operator==(const counted_iterator&amp;lt;I2&amp;gt;&amp;amp; y, const counted_iterator&amp;amp; x);
+ 
+-friend constexpr bool operator==(default_sentinel_t, const counted_iterator&amp;amp; x);
++friend constexpr bool operator==(default_sentinel_t, const counted_iterator&amp;amp; x) noexcept;
+ 
+ template&amp;lt;common_with&amp;lt;I&amp;gt; I2&amp;gt;
+ friend constexpr bool operator!=(const counted_iterator&amp;amp; x, const counted_iterator&amp;lt;I2&amp;gt;&amp;amp; y);
+ 
+-friend constexpr bool operator!=(const counted_iterator&amp;amp; x, default_sentinel_t); 
++friend constexpr bool operator!=(const counted_iterator&amp;amp; x, default_sentinel_t) noexcept;
+ 
+ template&amp;lt;common_with&amp;lt;I&amp;gt; I2&amp;gt;
+ friend constexpr bool operator!=(const counted_iterator&amp;lt;I2&amp;gt;&amp;amp; y, const counted_iterator&amp;amp; x);
+ 
+-friend constexpr bool operator!=(default_sentinel_t, const counted_iterator&amp;amp; x);
++friend constexpr bool operator!=(default_sentinel_t, const counted_iterator&amp;amp; x) noexcept;
+ ```
+ 
+ また、これらの演算子は全て[*Hidden friends*](/article/lib/hidden_friends.md)として定義される。
+@@ -99,3 +99,5 @@ true
+ 
+ ## 参照
+ - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
++- [LWG Issue 4245. Operators that interact with `counted_iterator` and `default_sentinel_t` should be `noexcept`](https://cplusplus.github.io/LWG/issue4245)
++    - C++26で、(2)（および`default_sentinel_t`と相互作用する派生演算子）に`noexcept`が追加された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator- (非メンバ関数) -- counted_iterator : noexcept付与</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/counted_iterator/op_minus.html"/>
+      <id>914aaa5eb4e1a6c72b1e8e14810ed21f3394e1a1:reference/iterator/counted_iterator/op_minus.md</id>
+      <updated>2026-08-17T01:31:55+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/counted_iterator/op_minus.md b/reference/iterator/counted_iterator/op_minus.md
+index 5d2957bc5..3351bed43 100644
+--- a/reference/iterator/counted_iterator/op_minus.md
++++ b/reference/iterator/counted_iterator/op_minus.md
+@@ -10,10 +10,10 @@ friend constexpr iter_difference_t&amp;lt;I2&amp;gt; operator-(
+   const counted_iterator&amp;amp; x, const counted_iterator&amp;lt;I2&amp;gt;&amp;amp; y);  // (1)
+ 
+ friend constexpr iter_difference_t&amp;lt;I&amp;gt; operator-(
+-  const counted_iterator&amp;amp; x, default_sentinel_t);             // (2)
++  const counted_iterator&amp;amp; x, default_sentinel_t) noexcept;    // (2)
+ 
+ friend constexpr iter_difference_t&amp;lt;I&amp;gt; operator-(
+-  default_sentinel_t, const counted_iterator&amp;amp; y);             // (3)
++  default_sentinel_t, const counted_iterator&amp;amp; y) noexcept;    // (3)
+ ```
+ 
+ ## 概要
+@@ -84,3 +84,5 @@ int main() {
+ 
+ ## 参照
+ - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
++- [LWG Issue 4245. Operators that interact with `counted_iterator` and `default_sentinel_t` should be `noexcept`](https://cplusplus.github.io/LWG/issue4245)
++    - C++26で、(2), (3)に`noexcept`が追加された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>try_emplace -- flat_map::try_emplace : 使用するupper_boundをRange版からイテレータ版に変更</title>
+      <link href="https://cpprefjp.github.io/reference/flat_map/flat_map/try_emplace.html"/>
+      <id>b9c719e611de47e42570c6395603ac70f08ce2b0:reference/flat_map/flat_map/try_emplace.md</id>
+      <updated>2026-08-17T01:25:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_map/flat_map/try_emplace.md b/reference/flat_map/flat_map/try_emplace.md
+index b8cfe7f95..d959d1732 100644
+--- a/reference/flat_map/flat_map/try_emplace.md
++++ b/reference/flat_map/flat_map/try_emplace.md
+@@ -118,14 +118,14 @@ constexpr iterator
+ 
+ - (5), (6) :
+     ```cpp
+-    auto key_it = ranges::upper_bound(c.keys, k, compare);
++    auto key_it = upper_bound(c.keys.begin(), c.keys.end(), k, compare);
+     auto value_it = c.values.begin() + distance(c.keys.begin(), key_it);
+     c.keys.emplace(key_it, std::forward&amp;lt;K&amp;gt;(k));
+     c.values.emplace(value_it, std::forward&amp;lt;Args&amp;gt;(args)...);
+     ```
+     * c.keys[link containers.md]
+     * c.values[link containers.md]
+-    * ranges::upper_bound[link /reference/algorithm/ranges_upper_bound.md]
++    * upper_bound[link /reference/algorithm/upper_bound.md]
+     * begin()[link /reference/vector/vector/begin.md]
+     * distance[link /reference/iterator/distance.md]
+     * emplace[link /reference/vector/vector/emplace.md]
+@@ -204,3 +204,5 @@ false, 114, false
+ 
+ ## 参照
+ - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
++- [LWG Issue 4239. `flat_map`&amp;#39;s transparent comparator no longer works for string literals](https://cplusplus.github.io/LWG/issue4239)
++    - C++26で、(5), (6)の効果で範囲版[`ranges::upper_bound`](/reference/algorithm/ranges_upper_bound.md)からイテレータ版[`upper_bound`](/reference/algorithm/upper_bound.md)に変更された（文字列リテラルをキーとする透過的比較が機能しなくなる問題を修正）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>resize -- simd::resize : LWG Issueを記載</title>
+      <link href="https://cpprefjp.github.io/reference/simd/resize.html"/>
+      <id>eb65ff60ce9b3f6a4ade2897df0a767b82abc005:reference/simd/resize.md</id>
+      <updated>2026-08-17T00:34:30+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/simd/resize.md b/reference/simd/resize.md
+index eed649249..7fb5e3e94 100644
+--- a/reference/simd/resize.md
++++ b/reference/simd/resize.md
+@@ -68,3 +68,5 @@ true
+ ## 参照
+ - [P1928R15 std::simd — merge data-parallel types from the Parallelism TS 2](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p1928r15.pdf)
+     - C++26で`std::simd`ライブラリが追加された
++- [LWG Issue 4232. `datapar::resize` does not resize](https://cplusplus.github.io/LWG/issue4232)
++    - C++26で、`type`のABIタグを選ぶ際に元の要素数ではなく`N`を用いることが明確化された（元の要素数のまま変化しないバグを修正）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cache_latest_view -- cache_latest_view : reserve_hintを追加</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/cache_latest_view.html"/>
+      <id>85cec2a1a84e6cdcdd21bd1993b48cf960acd92c:reference/ranges/cache_latest_view.md</id>
+      <updated>2026-08-17T00:34:20+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/cache_latest_view.md b/reference/ranges/cache_latest_view.md
+index c98c407c3..569c24c56 100644
+--- a/reference/ranges/cache_latest_view.md
++++ b/reference/ranges/cache_latest_view.md
+@@ -60,6 +60,7 @@ v | std::views::transform(expensive) // 重い変換関数
+ | [`begin`](cache_latest_view/begin.md)                         | 先頭を指すイテレータを取得する   | C++26 |
+ | [`end`](cache_latest_view/end.md)                             | 番兵を取得する                   | C++26 |
+ | [`size`](cache_latest_view/size.md)                           | 要素数を取得する                 | C++26 |
++| [`reserve_hint`](cache_latest_view/reserve_hint.md)           | 要素数の推定値を取得する         | C++26 |
+ 
+ 
+ ## 継承しているメンバ関数
+@@ -167,3 +168,5 @@ call_count: 5
+ 
+ ## 参照
+ - [P3138R5 `views::cache_latest`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3138r5.html)
++- [LWG Issue 4235. `cache_latest_view` and `to_input_view` miss `reserve_hint`](https://cplusplus.github.io/LWG/issue4235)
++    - C++26で、[`approximately_sized_range`](approximately_sized_range.md)のときに要素数の推定値を返す[`reserve_hint`](cache_latest_view/reserve_hint.md)メンバ関数が追加された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>reserve_hint -- cache_latest_view : reserve_hintを追加</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/cache_latest_view/reserve_hint.html"/>
+      <id>85cec2a1a84e6cdcdd21bd1993b48cf960acd92c:reference/ranges/cache_latest_view/reserve_hint.md</id>
+      <updated>2026-08-17T00:34:20+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/cache_latest_view/reserve_hint.md b/reference/ranges/cache_latest_view/reserve_hint.md
+new file mode 100644
+index 000000000..e856b9dbf
+--- /dev/null
++++ b/reference/ranges/cache_latest_view/reserve_hint.md
+@@ -0,0 +1,63 @@
++# reserve_hint
++* ranges[meta header]
++* std::ranges[meta namespace]
++* cache_latest_view[meta class]
++* function[meta id-type]
++* cpp26[meta cpp]
++
++```cpp
++constexpr auto reserve_hint()
++  requires approximately_sized_range&amp;lt;V&amp;gt;;       // (1) C++26
++
++constexpr auto reserve_hint() const
++  requires approximately_sized_range&amp;lt;const V&amp;gt;; // (2) C++26
++```
++* approximately_sized_range[link ../approximately_sized_range.md]
++
++## 概要
++要素数の推定値（確保のヒント）を取得する。
++
++
++## 効果
++- (1), (2) : 以下と等価：
++
++```cpp
++return ranges::reserve_hint(base_);
++```
++* ranges::reserve_hint[link ../reserve_hint.md]
++
++
++## 例
++```cpp example
++#include &amp;lt;ranges&amp;gt;
++#include &amp;lt;vector&amp;gt;
++#include &amp;lt;print&amp;gt;
++
++int main() {
++  std::vector&amp;lt;int&amp;gt; v = {1, 2, 3, 4, 5};
++
++  std::ranges::cache_latest_view view{v};
++
++  std::println(&amp;#34;{}&amp;#34;, view.reserve_hint());
++}
++```
++
++### 出力
++```
++5
++```
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): 22 [mark noimpl]
++- [GCC](/implementation.md#gcc): 16.1 [mark noimpl]
++- [Visual C++](/implementation.md#visual_cpp): 2026 Update 2 [mark noimpl]
++
++
++## 関連項目
++- [`size`](size.md)
++- [`std::ranges::reserve_hint`](../reserve_hint.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
