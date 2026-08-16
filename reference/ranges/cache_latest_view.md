@@ -60,6 +60,7 @@ v | std::views::transform(expensive) // 重い変換関数
 | [`begin`](cache_latest_view/begin.md)                         | 先頭を指すイテレータを取得する   | C++26 |
 | [`end`](cache_latest_view/end.md)                             | 番兵を取得する                   | C++26 |
 | [`size`](cache_latest_view/size.md)                           | 要素数を取得する                 | C++26 |
+| [`reserve_hint`](cache_latest_view/reserve_hint.md)           | 要素数の推定値を取得する         | C++26 |
 
 
 ## 継承しているメンバ関数
@@ -167,3 +168,5 @@ call_count: 5
 
 ## 参照
 - [P3138R5 `views::cache_latest`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3138r5.html)
+- [LWG Issue 4235. `cache_latest_view` and `to_input_view` miss `reserve_hint`](https://cplusplus.github.io/LWG/issue4235)
+    - C++26で、[`approximately_sized_range`](approximately_sized_range.md)のときに要素数の推定値を返す[`reserve_hint`](cache_latest_view/reserve_hint.md)メンバ関数が追加された
