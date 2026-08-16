@@ -89,6 +89,7 @@ constexpr bool converts-from-any-cvref =
 - (6) : 次の制約を全て満たすこと
     - [`is_same_v`](/reference/type_traits/is_same.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>,` [`in_place_t`](/reference/utility/in_place_t.md)`> == false`
     - [`is_same_v`](/reference/type_traits/is_same.md)`<expected,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>> == false`
+    - [`is_same_v`](/reference/type_traits/is_same.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>,` [`unexpect_t`](../unexpect_t.md)`> == false`
     - [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>`は[`unexpected`](../unexpected.md)の特殊化でない
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, U> == true`
 - (7) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, const G&> == true`
@@ -319,3 +320,5 @@ int main()
 
 ## 参照
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
+- [LWG Issue 4222. `expected` constructor from a single value missing a constraint](https://cplusplus.github.io/LWG/issue4222)
+    - C++26で、(6)の制約に[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>`が[`unexpect_t`](../unexpect_t.md)でないことが追加された
