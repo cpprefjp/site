@@ -20,7 +20,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install requests
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         ref: master
     - name: check
