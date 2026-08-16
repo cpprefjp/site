@@ -118,14 +118,14 @@ constexpr iterator
 
 - (5), (6) :
     ```cpp
-    auto key_it = ranges::upper_bound(c.keys, k, compare);
+    auto key_it = upper_bound(c.keys.begin(), c.keys.end(), k, compare);
     auto value_it = c.values.begin() + distance(c.keys.begin(), key_it);
     c.keys.emplace(key_it, std::forward<K>(k));
     c.values.emplace(value_it, std::forward<Args>(args)...);
     ```
     * c.keys[link containers.md]
     * c.values[link containers.md]
-    * ranges::upper_bound[link /reference/algorithm/ranges_upper_bound.md]
+    * upper_bound[link /reference/algorithm/upper_bound.md]
     * begin()[link /reference/vector/vector/begin.md]
     * distance[link /reference/iterator/distance.md]
     * emplace[link /reference/vector/vector/emplace.md]
@@ -204,3 +204,5 @@ false, 114, false
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 4239. `flat_map`'s transparent comparator no longer works for string literals](https://cplusplus.github.io/LWG/issue4239)
+    - C++26で、(5), (6)の効果で範囲版[`ranges::upper_bound`](/reference/algorithm/ranges_upper_bound.md)からイテレータ版[`upper_bound`](/reference/algorithm/upper_bound.md)に変更された（文字列リテラルをキーとする透過的比較が機能しなくなる問題を修正）

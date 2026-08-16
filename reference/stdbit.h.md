@@ -11,6 +11,10 @@ C言語では型総称マクロ (type-generic macro) として提供される汎
 C++固有のビット操作機能が必要な場合は、[`<bit>`](bit.md)ヘッダの使用を推奨する。
 
 
+## フリースタンディング
+このヘッダは、フリースタンディング処理系でも使用できる。本ヘッダが提供する全ての機能がフリースタンディング処理系で使用可能である。
+
+
 ## マクロ
 
 | 名前 | 説明 | 対応バージョン |
@@ -89,3 +93,5 @@ C++固有のビット操作機能が必要な場合は、[`<bit>`](bit.md)ヘッ
 ## 参照
 - [N3022 Modern Bit Utilities](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3022.htm)
 - [P3370R1 Add new C headers as C++ headers](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3370r1.html)
+- [LWG Issue 4247. Header `<stdbit.h>` is not yet freestanding](https://cplusplus.github.io/LWG/issue4247)
+    - C++26で、このヘッダがフリースタンディング処理系に対応した

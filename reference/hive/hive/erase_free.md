@@ -75,3 +75,5 @@ erased = 2
 ## 参照
 - [P0447R28 Introduction of `std::hive` to the standard library](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0447r28.html)
     - C++26で`hive`が追加された
+- [LWG Issue 4233. The helper lambda of `std::erase` for `hive` should specify return type as `bool`](https://cplusplus.github.io/LWG/issue4233)
+    - C++26で、テンプレートパラメータ`U`にデフォルト引数`= T`が追加され、効果のラムダに戻り値型`-> bool`が明示された

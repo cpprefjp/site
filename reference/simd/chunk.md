@@ -97,3 +97,5 @@ int main()
     - C++26で`std::simd`ライブラリが追加された
 - [P3441R2 Rename `simd_split` to `simd_chunk`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3441r2.html)
     - 分割関数の名前が`simd_split`から`chunk`に改名された
+- [LWG Issue 4231. `datapar::chunk<N>` should use `simd-size-type` instead of `size_t`](https://cplusplus.github.io/LWG/issue4231)
+    - C++26で、(3)(4)のテンプレートパラメータ`N`の型が`size_t`から`simd-size-type`に修正された

@@ -10,10 +10,10 @@ friend constexpr iter_difference_t<I2> operator-(
   const counted_iterator& x, const counted_iterator<I2>& y);  // (1)
 
 friend constexpr iter_difference_t<I> operator-(
-  const counted_iterator& x, default_sentinel_t);             // (2)
+  const counted_iterator& x, default_sentinel_t) noexcept;    // (2)
 
 friend constexpr iter_difference_t<I> operator-(
-  default_sentinel_t, const counted_iterator& y);             // (3)
+  default_sentinel_t, const counted_iterator& y) noexcept;    // (3)
 ```
 
 ## 概要
@@ -84,3 +84,5 @@ int main() {
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [LWG Issue 4245. Operators that interact with `counted_iterator` and `default_sentinel_t` should be `noexcept`](https://cplusplus.github.io/LWG/issue4245)
+    - C++26で、(2), (3)に`noexcept`が追加された

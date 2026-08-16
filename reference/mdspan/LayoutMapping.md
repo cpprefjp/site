@@ -80,6 +80,7 @@ LayoutMappingを満たす型`M`は
 - `m.stride(r)` : `M::index_type`型を返すこと。
     - 前提条件 : `m.is_strided() == true`
     - 戻り値 : `r`番目次元のストライド幅
+    - `m.extents().rank()`が`0`のときは、`M::is_always_strided()`が`true`であっても`m.stride(r)`が妥当である必要はない
 - `M::is_always_unique()` : `bool`型の定数式となること。
     - 戻り値 : 型`M`のあらゆるオブジェクトにおいてUnique特性を満たすときに`true`。
 - `M::is_always_exhaustive()` : `bool`型の定数となること。
@@ -114,3 +115,5 @@ LayoutMappingを満たす型`M`は
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
 - [P2604R0 `mdspan`: rename `pointer` and `contiguous`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2604r0.html)
+- [LWG Issue 4217. Clarify `mdspan` layout mapping requirements for `rank == 0`](https://cplusplus.github.io/LWG/issue4217)
+    - C++26で、`rank()`が`0`の場合は`m.stride(r)`が妥当である必要はないことが明確化された
