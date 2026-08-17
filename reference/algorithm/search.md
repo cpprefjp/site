@@ -81,10 +81,10 @@ namespace std {
 
 ## 戻り値
 - (1), (3) :
-    - `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
+    - `[first1,last1 - (last2 - first2)]` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
     - そのようなイテレータが見つからない場合は `last1` を返し、`[first2,last2)` が空である場合には `first1` を返す。
 - (2), (4) :
-    - `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
+    - `[first1,last1 - (last2 - first2)]` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
     - そのようなイテレータが見つからない場合は `last1` を返し、`[first2,last2)` が空である場合には `first1` を返す。
 - (5) : 以下と等価
     ```cpp
@@ -224,6 +224,8 @@ ForwardIterator1 search(ForwardIterator1 first1, ForwardIterator1 last1,
 
 ## 参照
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+- [LWG Issue 4179. Wrong range in [alg.search]](https://cplusplus.github.io/LWG/issue4179)
+    - C++26で、探索対象のイテレータ`i`の範囲が`[first1, last1 - (last2 - first2)]`（右端を含む閉区間）であることが明確化された
 - [N3905 Extending `std::search` to use Additional Searching Algorithms (Version 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3905.html)
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
 - [P0253R1 Fixing a design mistake in the searchers interface in Library Fundamentals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0253r1.pdf)

@@ -121,7 +121,7 @@ namespace std::ranges {
 ## 計算量
 `N = last - first`であるとして説明する。
 
-- 余分なメモリを使用する場合は、`N - 1` 回比較する。そうでない場合は、O(N log(N))回比較する
+- 余分なメモリを使用する場合は、最大で `N - 1` 回比較する。そうでない場合は、O(N log(N))回比較する
 
 ## 備考
 この操作は安定である。つまり、各入力範囲内の要素の前後関係は保たれ、また、1 番目の範囲と 2 番目に等値の要素があった場合には、1 番目の範囲の要素の方が先に来る。
@@ -204,5 +204,7 @@ int main() {
 - [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
     - C++26から`constexpr`に対応した
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 4196. Complexity of `inplace_merge()` is incorrect](https://cplusplus.github.io/LWG/issue4196)
+    - C++26で、余分なメモリを使用する場合の比較回数が「ちょうど`N - 1`回」から「最大で`N - 1`回」に修正された
 - [LWG Issue 4441. `ranges::rotate` do not handle sized-but-not-sized-sentinel ranges correctly](https://cplusplus.github.io/LWG/issue4441)
     - C++26で、実行ポリシーをとる範囲版の効果を規定する等価コードで、末尾イテレータの算出が`ranges::end(r)`から`ranges::begin(r) + ranges::distance(r)`へ変更された。サイズは判るがsized sentinelを持たない範囲を正しく扱うため

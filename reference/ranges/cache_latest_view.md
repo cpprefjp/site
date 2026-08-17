@@ -87,6 +87,10 @@ v | std::views::transform(expensive) // 重い変換関数
 | [`(deduction_guide)`](cache_latest_view/op_deduction_guide.md)    | クラステンプレートの推論補助 | C++26          |
 
 
+## 備考
+このビュー（および`views::cache_latest`アダプタ）は、フリースタンディング処理系でも使用できる。
+
+
 ## 例
 ### 基本的な使い方
 ```cpp example
@@ -168,5 +172,7 @@ call_count: 5
 
 ## 参照
 - [P3138R5 `views::cache_latest`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3138r5.html)
+- [LWG Issue 4189. `cache_latest_view` should be freestanding](https://cplusplus.github.io/LWG/issue4189)
+    - C++26で、このビューがフリースタンディング処理系に対応した
 - [LWG Issue 4235. `cache_latest_view` and `to_input_view` miss `reserve_hint`](https://cplusplus.github.io/LWG/issue4235)
     - C++26で、[`approximately_sized_range`](approximately_sized_range.md)のときに要素数の推定値を返す[`reserve_hint`](cache_latest_view/reserve_hint.md)メンバ関数が追加された
