@@ -7,7 +7,7 @@
 
 ```cpp
 constexpr void
-  set_separator(basic_string_view<charT> sep); // (1)
+  set_separator(basic_string_view<charT> sep) noexcept; // (1)
 ```
 
 ## 概要
@@ -30,3 +30,8 @@ constexpr void
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 3839. `range_formatter`'s `set_separator`, `set_brackets`, and `underlying` functions should be `noexcept`](https://cplusplus.github.io/LWG/issue3839)
+    - C++23で、この関数に`noexcept`が付加された

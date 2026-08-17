@@ -6,8 +6,8 @@
 * cpp23[meta cpp]
 
 ```cpp
-constexpr formatter<T, charT>& underlying();             // (1) C++23
-constexpr const formatter<T, charT>& underlying() const; // (2) C++23
+constexpr formatter<T, charT>& underlying() noexcept;             // (1) C++23
+constexpr const formatter<T, charT>& underlying() const noexcept; // (2) C++23
 ```
 * formatter[link /reference/format/formatter.md]
 
@@ -30,3 +30,8 @@ Rangeの要素型に対する[`formatter`](/reference/format/formatter.md)を取
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 3839. `range_formatter`'s `set_separator`, `set_brackets`, and `underlying` functions should be `noexcept`](https://cplusplus.github.io/LWG/issue3839)
+    - C++23で、この関数に`noexcept`が付加された

@@ -64,8 +64,8 @@ namespace std {
 
 | メンバ関数 | 説明 | 対応バージョン |
 |------------|------|----------------|
-| `constexpr void set_separator(basic_string_view<charT> sep);` | 要素の区切り文字を設定する | C++23 |
-| `constexpr void set_brackets(basic_string_view<charT> opening, basic_string_view<charT> closing);` | 全体の囲み文字を設定する | C++23 |
+| `constexpr void set_separator(basic_string_view<charT> sep) noexcept;` | 要素の区切り文字を設定する | C++23 |
+| `constexpr void set_brackets(basic_string_view<charT> opening, basic_string_view<charT> closing) noexcept;` | 全体の囲み文字を設定する | C++23 |
 
 
 ### mapに対する特殊化
