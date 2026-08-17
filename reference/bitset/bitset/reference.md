@@ -11,7 +11,6 @@ namespace std {
   public:
     class reference {
       friend class bitset;
-      CONSTEXPR reference() noexcept;
     public:
       CONSTEXPR ~reference() noexcept;
       CONSTEXPR reference& operator=(bool x) noexcept;
@@ -35,7 +34,7 @@ namespace std {
 
 C++23から`bitset::reference`全メンバ関数への`constexpr`指定が行われる。
 
-C++26から、`const`修飾された`*this`に対する`bool`からの代入演算子と、ADLで見つかる非メンバ`swap`関数が追加され、[`vector<bool>::reference`](/reference/vector/vector.md)とインタフェースが統一された。
+C++26から、`const`修飾された`*this`に対する`bool`からの代入演算子と、ADLで見つかる非メンバ`swap`関数が追加され、[`vector<bool>::reference`](/reference/vector/vector.md)とインタフェースが統一された。また、実際には使用されない`private`なデフォルトコンストラクタが削除された。
 
 
 ### メンバ関数
@@ -94,5 +93,7 @@ int main()
 - [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)
 - [P3612R1 Harmonize proxy-reference operations (LWG 3638 and 4187)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3612r1.html)
     - C++26で、`const`修飾された`*this`に対する`bool`からの代入演算子と、ADLで見つかる非メンバ`swap`関数が追加された
+- [LWG Issue 4140. Useless default constructors for bit reference types](https://cplusplus.github.io/LWG/issue4140)
+    - C++26で、`bitset::reference`の実際には使用されない`private`なデフォルトコンストラクタが削除された
 - [LWG Issue 4493. Specification for some functions of bit reference types seems missing](https://cplusplus.github.io/LWG/issue4493)
     - C++26で、規定が欠けていた`operator bool()`（参照先のビットが1なら`true`）と`operator~()`（`!bool(*this)`を返す）の戻り値が明文化された
