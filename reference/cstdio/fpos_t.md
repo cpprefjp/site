@@ -49,7 +49,7 @@ int main() {
 * std::fclose[link /reference/cstdio/fclose.md]
 * std::fgetc[link /reference/cstdio/fgetc.md]
 * std::printf[link /reference/cstdio/printf.md]
-* std::perror[link /reference/cstdio/perror.md.nolink]
+* std::perror[link /reference/cstdio/perror.md]
 
 ### ファイル内容(sample.txt)
 ```

@@ -57,7 +57,7 @@ int main() {
 * std::fopen[link /reference/cstdio/fopen.md]
 * std::fputs[link /reference/cstdio/fputs.md]
 * std::fclose[link /reference/cstdio/fclose.md]
-* std::perror[link /reference/cstdio/perror.md.nolink]
+* std::perror[link /reference/cstdio/perror.md]
 * std::fgetc[link /reference/cstdio/fgetc.md]
 * std::putchar[link /reference/cstdio/putchar.md]
 

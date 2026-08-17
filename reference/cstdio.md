@@ -66,7 +66,7 @@
 | [`clearerr`](/reference/cstdio/clearerr.md.nolink) | エラーをクリアする | |
 | [`feof`](/reference/cstdio/feof.md)     | ファイルが終端に到達したか判定する | |
 | [`ferror`](/reference/cstdio/ferror.md.nolink)   | ファイルストリームがエラー状態かを判定する | |
-| [`perror`](/reference/cstdio/perror.md.nolink)   | システムエラーメッセージを出力する | |
+| [`perror`](/reference/cstdio/perror.md)   | システムエラーメッセージを出力する | |
 
 
 ## 標準入出力

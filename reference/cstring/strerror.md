@@ -54,7 +54,7 @@ Numerical argument out of domain
 
 ## 関連項目
 - [`errno`](/reference/cerrno/errno.md): 直近のエラー番号を保持するマクロ
-- [`perror`](/reference/cstdio/perror.md.nolink): エラーメッセージを標準エラー出力へ出力する
+- [`perror`](/reference/cstdio/perror.md): エラーメッセージを標準エラー出力へ出力する
 
 
 ## 参照

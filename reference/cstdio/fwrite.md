@@ -57,7 +57,7 @@ int main() {
 * std::fwrite[color ff0000]
 * std::fopen[link /reference/cstdio/fopen.md]
 * std::fclose[link /reference/cstdio/fclose.md]
-* std::perror[link /reference/cstdio/perror.md.nolink]
+* std::perror[link /reference/cstdio/perror.md]
 * std::printf[link /reference/cstdio/printf.md]
 
 ### 出力例
