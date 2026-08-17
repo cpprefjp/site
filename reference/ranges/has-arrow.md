@@ -7,7 +7,7 @@
 ```cpp
 template<class I>
   concept has-arrow = // 説明専用コンセプト
-    input_iterator<I> && (is_pointer_v<I> || requires(I i) { i.operator->(); });
+    input_iterator<I> && (is_pointer_v<I> || requires(const I i) { i.operator->(); });
 ```
 * is_pointer_v[link /reference/type_traits/is_pointer.md]
 
@@ -26,3 +26,8 @@ C++20 のイテレータ定義であるコンセプトたちではアロー演�
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 4112. `has-arrow` should require `operator->()` to be const-qualified](https://cplusplus.github.io/LWG/issue4112)
+    - C++26で、`requires`式の引数が`const I`となり、`operator->()`がCV修飾された状態で呼び出せることを要求するようになった
