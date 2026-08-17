@@ -9,6 +9,7 @@
 unique_lock& operator=(const unique_lock&) = delete; // (1) C++11
 unique_lock& operator=(unique_lock&& u) noexcept;    // (2) C++11
 unique_lock& operator=(unique_lock&& u);             // (2) C++14
+unique_lock& operator=(unique_lock&& u) noexcept;    // (2) C++26
 ```
 
 ## 概要
@@ -18,6 +19,7 @@ unique_lock& operator=(unique_lock&& u);             // (2) C++14
 
 ## 効果
 - (2) : [`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) `== true`だった場合、[`unlock()`](/reference/mutex/unique_lock/unlock.md)を呼び出す。`unique_lock`オブジェクト`u`が保持しているミューテックスの所有権を自分のオブジェクトに移動する。ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)の状態を`u`から移動する。
+    - C++26 : `unique_lock{`[`std::move`](/reference/utility/move.md)`(u)}.`[`swap`](swap.md)`(*this)`と等価に規定され、自己ムーブ代入も安全に扱われる。
 
 
 ## 事後条件
@@ -65,3 +67,5 @@ int main()
 
 ## 参照
 - [LWG Issue 2104. `unique_lock` move-assignment should not be `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2104)
+- [LWG Issue 4172. `unique_lock` self-move-assignment is broken](https://cplusplus.github.io/LWG/issue4172)
+    - C++26で、ムーブ代入がmove-and-swapイディオムで規定され、自己ムーブ代入が安全に扱われるようになり、あわせて`noexcept`指定された
