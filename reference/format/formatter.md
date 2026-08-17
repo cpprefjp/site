@@ -57,7 +57,7 @@ namespace std {
 
 標準でもユーザー定義でも特殊化されない場合、その型に対する`formatter`は無効であり、そのような型はフォーマット関数の引数にできない。
 
-ワイド文字列とマルチバイト文字列を相互に変換するような特殊化は意図的に用意されていないが、ユーザーが用意することは禁止していない。
+ワイド文字列とマルチバイト文字列を相互に変換するような特殊化は意図的に用意されていない。とくにC++26では、`char`のシーケンス（`char*`, `const char*`, `char[N]`, `basic_string<char>`, `basic_string_view<char>`）を`wchar_t`としてフォーマットする特殊化が、暗黙のマルチバイト／ワイド文字変換を避けるため、`<format>`ヘッダで明示的に無効化された特殊化として提供される。
 
 ## ユーザーの型で`formatter`を特殊化する場合の要件
 
@@ -284,3 +284,5 @@ int main()
 - [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
 - [P2585R1 Improve default container formatting](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2585r1.html)
     - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された
+- [LWG Issue 3944. Formatters converting sequences of `char` to sequences of `wchar_t`](https://cplusplus.github.io/LWG/issue3944)
+    - C++26で、`char`のシーケンスを`wchar_t`としてフォーマットする特殊化が、暗黙のマルチバイト／ワイド文字変換を避けるため明示的に無効化された
