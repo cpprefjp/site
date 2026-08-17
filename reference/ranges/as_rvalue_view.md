@@ -47,7 +47,7 @@ std::ranges::copy(words | views::as_rvalue, std::back_inserter(new_words));
 ## 効果
 
 - (2): 式`views::as_rvalue(E)`はRangeアダプタオブジェクトを表し、その効果は次の通り
-    - 要素がすでに右辺値参照であれば(`T = decltype((E))`として、[`same_as`](/reference/concepts/same_as.md)`<`[`range_rvalue_reference_t`](range_rvalue_reference_t.md)`<T>,` [`range_reference_t`](range_reference_t.md)`<T>>`)、[`views::all`](all.md)`(E)`と等しい
+    - `T = decltype((E))`が[`input_range`](input_range.md)のモデルであり、かつ要素がすでに右辺値参照であれば([`same_as`](/reference/concepts/same_as.md)`<`[`range_rvalue_reference_t`](range_rvalue_reference_t.md)`<T>,` [`range_reference_t`](range_reference_t.md)`<T>>`)、[`views::all`](all.md)`(E)`と等しい
     - それ以外のとき、`as_rvalue_view{E}`と等しい
 
 ## メンバ関数
@@ -169,3 +169,5 @@ constexpr explicit as_rvalue_view(V base);
 
 ## 参照
 - [P2446R2 `views::as_rvalue`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2446r2.html)
+- [LWG Issue 4083. `views::as_rvalue` should reject non-input ranges](https://cplusplus.github.io/LWG/issue4083)
+    - C++26で、`views::all(E)`と等しくなる条件に`T`が`input_range`のモデルであることが追加され、input_rangeでない範囲が拒否されるようになった
