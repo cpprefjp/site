@@ -168,7 +168,7 @@
 
 | ヘッダ                                     | 説明                         | 対応バージョン |
 |--------------------------------------------|------------------------------|----------------|
-| `<iosfwd>`                                 | 先行宣言                     |                |
+| [`<iosfwd>`](/reference/iosfwd.md)         | 先行宣言                     |                |
 | [`<iostream>`](/reference/iostream.md)     | 標準`iostream`オブジェクト   |                |
 | [`<ios>`](/reference/ios.md)               | `iostream`基底クラス         |                |
 | [`<streambuf>`](/reference/streambuf.md)   | ストリームバッファ           |                |

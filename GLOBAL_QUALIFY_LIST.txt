@@ -179,6 +179,7 @@
     * std::inplace_vector[link /reference/inplace_vector/inplace_vector.md]
 * <iomanip>[link /reference/iomanip.md]
 * <ios>[link /reference/ios.md]
+* <iosfwd>[link /reference/iosfwd.md]
     * std::boolalpha[link /reference/ios/boolalpha.md]
 * <iostream>[link /reference/iostream.md]
     * std::cout[link /reference/iostream/cout.md]

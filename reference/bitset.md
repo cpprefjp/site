@@ -8,7 +8,7 @@
 このヘッダでは、以下の標準ヘッダをインクルードする：
 
 - [`<string>`](string.md)
-- [`<iosfwd>`](iosfwd.md.nolink)
+- [`<iosfwd>`](iosfwd.md)
 
 
 | 名前 | 説明 | 対応バージョン |

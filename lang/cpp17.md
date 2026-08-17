@@ -293,8 +293,8 @@ C++17以降、言語の策定にship train modelというリリース体制が�
     - `ios_base::io_state`の代わりに[`ios_base::iostate`](/reference/ios/ios_base/type-iostate.md)を使用すること
     - `ios_base::open_mode`の代わりに[`ios_base::openmode`](/reference/ios/ios_base/type-openmode.md)を使用すること
     - `ios_base::seek_dir`の代わりに[`ios_base::seekdir`](/reference/ios/ios_base/type-seekdir.md)を使用すること
-    - `ios_base::streamoff`の代わりに、`char_traits<CharT>::off_type`もしくは`basic_ios<CharT>::off_type`を使用すること ([`<iosfwd>`](/reference/iosfwd.md.nolink)で定義されている`std::streamoff`は残る)
-    - `ios_base::streampos`の代わりに、`char_traits<CharT>::pos_type`もしくは`basic_ios<CharT>::pos_type`を使用すること ([`<iosfwd>`](/reference/iosfwd.md.nolink)で定義されている`std::streampos`は残る)
+    - `ios_base::streamoff`の代わりに、`char_traits<CharT>::off_type`もしくは`basic_ios<CharT>::off_type`を使用すること ([`<iosfwd>`](/reference/iosfwd.md)で定義されている`std::streamoff`は残る)
+    - `ios_base::streampos`の代わりに、`char_traits<CharT>::pos_type`もしくは`basic_ios<CharT>::pos_type`を使用すること ([`<iosfwd>`](/reference/iosfwd.md)で定義されている`std::streampos`は残る)
     - `basic_streambuf::stossc()`メンバ関数を削除。`sbumpc()`の単なる別名
     - `ios_base`クラスの別名型が削除されることにともない、それらの型をパラメータにとるオーバーロードを削除
     - `ios_base`クラスの別名型が削除されることにともない、それらの型をパラメータにとる関数が削除
