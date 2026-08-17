@@ -77,11 +77,12 @@ Rangeの各要素を要素とするコンテナを構築する。
 [`input_range`](input_range.md)`<`[`range_reference_t`](range_reference_t.md)`<R>>`である場合:
 
 ```cpp
-to<C>(r | views::transform([](auto&& elem) {
+to<C>(ref_view(r) | views::transform([](auto&& elem) {
   return to<range_value_t<C>>(std::forward<decltype(elem)>(elem));
 }), std::forward<Args>(args)...);
 ```
 * views::transform[link transform_view.md]
+* ref_view[link ref_view.md]
 
 どの条件にもあてはまらない場合、プログラムは不適格である。
 
@@ -229,3 +230,5 @@ int main() {
 - [26.5.7.2 ranges::to](https://timsong-cpp.github.io/cppwp/n4950/range.utility.conv.to)
 - [P2846R6 `reserve_hint`: Eagerly reserving memory for not-quite-sized lazy ranges](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2846r6.pdf)
     - C++26で要素数の事前確保に[`ranges::size`](size.md)の代わりに[`ranges::reserve_hint`](reserve_hint.md)を使用するよう変更
+- [LWG Issue 3984. `ranges::to`'s recursion branch may be ill-formed](https://cplusplus.github.io/LWG/issue3984)
+    - C++26で、再帰分岐において`r`を[`ranges::ref_view`](ref_view.md)で包むよう修正され、`r`がviewでない左辺値rangeの場合に不適格となる問題が解消された
