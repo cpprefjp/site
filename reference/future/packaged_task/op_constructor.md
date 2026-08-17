@@ -30,6 +30,10 @@ packaged_task(packaged_task&& rhs) noexcept;       // (5)
 - (5) : ムーブコンストラクタ。
 
 
+## 適格要件
+- (2), (3) : [`is_invocable_r_v`](/reference/type_traits/is_invocable_r.md)`<R,` [`decay_t`](/reference/type_traits/decay.md)`<F>&, ArgTypes...>`が`true`であること。ここで`R`と`ArgTypes...`は`packaged_task<R(ArgTypes...)>`のものである。
+
+
 ## 効果
 - (1) : 共有状態なし、タスクの保持なしでオブジェクトを構築する。
 - (2) : 共有状態を初期化し、`f`を非同期実行するタスクとして[`std::forward`](/reference/utility/forward.md)`<F>(f)`でメンバ変数に保持する。
@@ -119,3 +123,5 @@ int main()
 - [LWG Issue 3039. Unnecessary `decay` in `thread` and `packaged_task`](https://wg21.cmeerw.net/lwg/issue3039)
 - [P3503R3 Make type-erased allocator use in `promise` and `packaged_task` consistent](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3503r3.html)
     - C++26でアロケータを受け取るコンストラクタを再追加
+- [LWG Issue 4154. The Mandates for `std::packaged_task`'s constructor from a callable entity should consider decaying](https://cplusplus.github.io/LWG/issue4154)
+    - C++26で、適格要件が`is_invocable_r_v<R, F&, ArgTypes...>`から`is_invocable_r_v<R, decay_t<F>&, ArgTypes...>`に修正された（`F`をdecayした型で判定する）
