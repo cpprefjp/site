@@ -53,6 +53,8 @@ namespace std::ranges {
 
 ## 備考
 
+このビュー（および`views::concat`アダプタ）は、フリースタンディング処理系でも使用できる。
+
 本説明に用いる説明専用要素を以下のように定義する。
 
 ```cpp
@@ -166,3 +168,5 @@ int main() {
 ## 参照
 - [26.7.18 Concat view](https://timsong-cpp.github.io/cppwp/range.concat) (2024-08-10)
 - [P2542R8 views::concat](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2542r8.html)
+- [LWG Issue 4076. `concat_view` should be freestanding](https://cplusplus.github.io/LWG/issue4076)
+    - C++26で、このビューがフリースタンディング処理系に対応した
