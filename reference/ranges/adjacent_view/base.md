@@ -67,3 +67,5 @@ int main() {
 
 ## 参照
 - [N4950 26.7.27 Adjacent view](https://timsong-cpp.github.io/cppwp/n4950/range.adjacent)
+- [LWG Issue 3848. `adjacent_view`, `adjacent_transform_view` and `slide_view` missing `base` accessor](https://cplusplus.github.io/LWG/issue3848)
+    - C++23で、これらのビューに`base`メンバ関数が追加された
