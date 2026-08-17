@@ -46,7 +46,7 @@ constexpr void merge(multimap<Key, T, C2, Allocator>&& source); // (4) C++26
 
 
 ## 備考
-- `source` の転送された要素へのポインタおよび参照は、それらと同じ要素を参照するが、`*this` のメンバとして参照する。また、転送された要素を参照する反復子は、引き続きその要素を参照するが、転送後は `source` ではなく `*this` への反復子として動作する
+- `source` の転送された要素へのポインタおよび参照は、それらと同じ要素を参照するが、`*this` のメンバとして参照する。また、`*this`と`source`の`begin()`が同じ型を返す場合、転送された要素を参照する反復子は、引き続きその要素を参照するが、転送後は `source` ではなく `*this` への反復子として動作する
 - (2), (4) : これらの右辺値参照オーバーロードは、一時オブジェクトを受け取った場合にコピーを発生させないためだけのものである。パラメータのオブジェクト内のポインタを破壊したり、高速なmerge処理が行われるわけではない
 
 
@@ -110,3 +110,5 @@ m2 :
 ## 参照
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 3578. Iterator SCARYness in the context of associative container merging](https://cplusplus.github.io/LWG/issue3578)
+    - C++26で、転送された要素を参照する反復子が引き続き有効となるのは、`*this`と`source`の反復子が同じ型である場合であることが明確化された
