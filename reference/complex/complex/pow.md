@@ -63,6 +63,7 @@ namespace std {
         - そうでなくて、いずれかの実引数の型が `complex<float>` か `float` の場合、両方の引数が `complex<float>` にキャストされているかのように振る舞う
         - また、これらの追加のオーバーロードが関数テンプレートなのか否か、あるいは、引数が参照型なのか否かなどについては、規格では何も言及されていない
     - C++23 : `complex<T1>`と、`T2`もしくは`complex<T2>`の組み合わせ、およびその逆の組み合わせに対するオーバーロードとなり、戻り値はその共通の型`complex<`[`common_type_t`](/reference/type_traits/common_type.md)`<T1, T2>>`となった
+    - C++26 : `T2`が整数型の場合は`double`として扱われ、戻り値は`complex<`[`common_type_t`](/reference/type_traits/common_type.md)`<T1, T3>>`（`T3`は`T2`が整数型なら`double`、そうでなければ`T2`）となる。これにより、たとえば`pow(`[`complex`](/reference/complex/complex.md)`<float>, int)`の戻り値は`complex<double>`となる
 
 
 ## 戻り値
@@ -155,3 +156,5 @@ pow( (1,2), (3,4) ) = (0.12901,0.0339241)
     - C++23で拡張浮動小数点数型への対応が行われた
 - [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
     - C++26で`constexpr`対応した
+- [LWG Issue 4191. P1467 changed the return type of `pow(complex<float>, int)`](https://cplusplus.github.io/LWG/issue4191)
+    - C++26で、追加のオーバーロードにおいて指数側の引数が整数型の場合は`double`として扱うことが規定され、P1467による戻り値型の変化が修正された
