@@ -340,6 +340,7 @@ explicit(see below) constexpr
 - (14) :
     - `I`をパラメータパック`0, 1, ..., (sizeof...(Types) - 1)`と定義して、
     - C++23 : `!(`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(get<I>(`[`std::forward`](/reference/utility/forward.md)`<UTuple>(u))), Types> && ...)`である場合、この関数は`explicit`となる
+    - C++26 : `(`[`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<Types, decltype(get<I>(`[`std::forward`](/reference/utility/forward.md)`<UTuple>(u)))> || ...)`である場合、この関数は削除定義される
 - (15) :
     - C++20 : 対応するコンストラクタ (1) と同じ条件で`explicit`となる
 - (16) :
@@ -452,3 +453,5 @@ int main()
     - C++23 での (3) のコンストラクタの制約の変更（`disambiguating-constraint`等）について
 - [P2321R2 `zip`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html#tuple)
     - すべての要素が[プロキシ参照](/reference/iterator/indirectly_writable.md)の場合、[プロキシ参照](/reference/iterator/indirectly_writable.md)として使用できるようにする
+- [LWG Issue 4045. `tuple` can create dangling references from `tuple-like`](https://cplusplus.github.io/LWG/issue4045)
+    - C++26で、[`tuple-like`](../tuple-like.md)なオブジェクトから構築するコンストラクタ(14)について、いずれかの要素がダングリング参照を作成する場合に削除定義されることが規定された（C++23での`tuple-like`コンストラクタ導入時に欠けていた保護の追加）

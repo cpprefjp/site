@@ -18,7 +18,7 @@ auto yield_value(ranges::elements_of<generator<T2, V2, Alloc2>&&, Unused> g) noe
 
 template<ranges::input_range Rng, class Alloc>
   requires convertible_to<ranges::range_reference_t<Rng>, yielded>
-auto yield_value(ranges::elements_of<Rng, Alloc> r) noexcept; // (4)
+auto yield_value(ranges::elements_of<Rng, Alloc> r); // (4)
 ```
 * generator[link ../../generator.md]
 * yielded[link ../../generator.md]
@@ -107,6 +107,8 @@ return yield_value(ranges::elements_of(nested(
 
 
 ## 参照
+- [LWG Issue 3894. `generator::promise_type::yield_value(ranges::elements_of<Rng, Alloc>)` should not be `noexcept`](https://cplusplus.github.io/LWG/issue3894)
+    - C++26で、(4)から`noexcept`が削除された（効果内で例外を送出しうる`generator`の構築を行うため）
 - [LWG Issue 3899. co_yielding elements of an lvalue generator is unnecessarily inefficient](https://cplusplus.github.io/LWG/issue3899)
     - C++26で、(4)の効果で用いるネストした`generator`の型を`generator<yielded, void, Alloc>`に変更し、左辺値`generator`の要素をco_yieldする際の非効率を解消した
 - [LWG Issue 4119. `generator::promise_type::yield_value(ranges::elements_of<R, Alloc>)`'s nested generator may be ill-formed](https://cplusplus.github.io/LWG/issue4119)

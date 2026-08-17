@@ -23,7 +23,7 @@ namespace std {
 
   template <class T, class charT>
   concept formattable =
-    formattable-with<remove_reference_t<T>, basic_format_context<fmt-iter-for<charT>>>;
+    formattable-with<remove_reference_t<T>, basic_format_context<fmt-iter-for<charT>, charT>>;
 }
 ```
 * fmt-iter-for[italic]
@@ -79,3 +79,5 @@ hello
 ## 参照
 - [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
 - [N4950 22.14.6.2 Concept formattable](https://timsong-cpp.github.io/cppwp/n4950/format.formattable#concept:formattable-with)
+- [LWG Issue 3925. Concept `formattable`'s definition is incorrect](https://cplusplus.github.io/LWG/issue3925)
+    - C++26で、`basic_format_context`のテンプレート引数に文字型`charT`が欠けていた誤りが修正された

@@ -19,6 +19,9 @@ namespace std {
 ## 概要
 出力部分列の各ポインタを設定する。
 
+## 事前条件
+`[pbeg, pend)`が有効な範囲であること。
+
 ## 事後条件
 `pbeg ==` [`pbase()`](pbase.md) および `pbeg ==` [`pptr()`](pptr.md) および `pend ==` [`epptr()`](epptr.md)。
 
@@ -60,3 +63,5 @@ ABC
 - [`pbase()`](pbase.md)
 - [`pptr()`](pptr.md)
 - [`epptr()`](epptr.md)
+- [LWG Issue 4023. Preconditions of `std::basic_streambuf::setg`/`setp`](https://cplusplus.github.io/LWG/issue4023)
+    - C++26で、引数が有効な範囲を表すことを要求する事前条件が追加された

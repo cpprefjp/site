@@ -26,6 +26,10 @@ return *data();
 * data()[link data.md]
 
 
+## 例外
+投げない
+
+
 ## 計算量
 定数時間
 
@@ -67,3 +71,5 @@ int main()
 ## 参照
 - [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
 - [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)
+- [LWG Issue 4011. "Effects: Equivalent to return" in [span.elem]](https://cplusplus.github.io/LWG/issue4011)
+    - C++26で、要素アクセス関数の効果記述が「戻り値」として整理され、例外を投げないことが明示された

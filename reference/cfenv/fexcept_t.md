@@ -14,6 +14,8 @@ namespace std {
 ## 概要
 実装が持つ浮動小数点例外の状態フラグを表す型。
 
+この型はオブジェクト型であり、整数型であるとは限らない。
+
 
 ## 例
 ```cpp example
@@ -58,3 +60,8 @@ zero divided
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified]
 	- コンパイルオプション`/fp:strict`または`#pragma fenv_access (on)`が必要。さもなくば、正しく動作しないおそれがある。
+
+
+## 参照
+- [LWG Issue 3905. Type of `std::fexcept_t`](https://cplusplus.github.io/LWG/issue3905)
+    - C++26で、`fexcept_t`が「整数型」ではなく「オブジェクト型」であることが明確化された

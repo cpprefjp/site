@@ -451,4 +451,6 @@ int main()
 
 
 ## 参照
+- [LWG Issue 3884. `flat_foo` is missing allocator-extended copy/move constructors](https://cplusplus.github.io/LWG/issue3884)
+    - C++26で、`flat_map`にアロケータを指定するコピーコンストラクタ(5)とムーブコンストラクタ(6)が追加された
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

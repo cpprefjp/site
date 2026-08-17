@@ -19,7 +19,7 @@ constexpr auto end() const
 
 ## 効果
 
-`common_range<V> && sized_range<V>`が`true`の場合：
+`common_range<V> && sized_range<V> && forward_range<V>`が`true`の場合：
 
 - (1) : `return iterator<false>(ranges::end(base_), ranges::distance(base_));`
 - (2) : `return iterator<true>(ranges::end(base_), ranges::distance(base_));`
@@ -73,3 +73,5 @@ int main() {
 
 ## 参照
 - [N4950 26.7.23 Enumerate view](https://timsong-cpp.github.io/cppwp/n4950/range.enumerate)
+- [LWG Issue 3919. `enumerate_view` may invoke UB for sized common non-forward underlying ranges](https://cplusplus.github.io/LWG/issue3919)
+    - C++26で、`iterator`を返す条件に`forward_range<V>`が追加され、sizedかつcommonだが非forwardな元Rangeで未定義動作を引き起こす問題が修正された

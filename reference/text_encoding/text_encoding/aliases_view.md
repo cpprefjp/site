@@ -24,6 +24,8 @@ struct text_encoding::aliases_view : ranges::view_interface<text_encoding::alias
 
 [`ranges::range_value_t`](/reference/ranges/range_value_t.md)`<text_encoding::aliases_view>`および[`ranges::range_reference_t`](/reference/ranges/range_reference_t.md)`<text_encoding::aliases_view>`はともに`const char*`を表す。
 
+[`ranges::iterator_t`](/reference/ranges/iterator_t.md)`<text_encoding::aliases_view>`はconstexprイテレータである。
+
 
 ## 例
 ```cpp example
@@ -76,3 +78,5 @@ Number of aliases: 3
 
 ## 参照
 - [P1885R12 Naming Text Encodings to Demystify Them](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1885r12.pdf)
+- [LWG Issue 4038. `std::text_encoding::aliases_view` should have constexpr iterators](https://cplusplus.github.io/LWG/issue4038)
+    - C++26で、`aliases_view`のイテレータがconstexprイテレータであることが規定された

@@ -6,10 +6,12 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr auto end();      // (1) C++20
+constexpr auto end()
+  requires (!simple-view<V>); // (1) C++20
 constexpr auto end() const
-  requires range<const V>; // (2) C++20
+  requires range<const V>;    // (2) C++20
 ```
+* simple-view[link /reference/ranges/simple-view.md]
 
 ## 概要
 
@@ -84,3 +86,5 @@ int main() {
 
 ## 参照
 - [N4861 24.7.5.1 Overview](https://timsong-cpp.github.io/cppwp/n4861/range.common.view)
+- [LWG Issue 4012. `common_view::begin`/`end` are missing the *simple-view* check](https://cplusplus.github.io/LWG/issue4012)
+    - C++26で、非`const`版に`requires (!simple-view<V>)`制約が追加され、`simple-view`である場合に`const`版と曖昧にならないよう修正された

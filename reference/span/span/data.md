@@ -57,3 +57,8 @@ int main()
 - [Clang](/implementation.md#clang): 9.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 4011. "Effects: Equivalent to return" in [span.elem]](https://cplusplus.github.io/LWG/issue4011)
+    - C++26で、要素アクセス関数の効果記述が「戻り値」として整理され、例外を投げないことが明示された

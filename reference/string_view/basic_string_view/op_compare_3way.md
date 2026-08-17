@@ -7,11 +7,16 @@
 ```cpp
 namespace std {
   template<class charT, class traits>
-    constexpr see below
-  operator<=>(basic_string_view<charT, traits> x,
-              basic_string_view<charT, traits> y) noexcept; // (1) C++20
+  constexpr see below
+    operator<=>(basic_string_view<charT, traits> x,
+                basic_string_view<charT, traits> y) noexcept; // (1) C++20
+  template<class charT, class traits>
+  constexpr see below
+    operator<=>(basic_string_view<charT, traits> x,
+                type_identity_t<basic_string_view<charT, traits>> y) noexcept; // (1) C++26
 }
 ```
+* type_identity_t[link /reference/type_traits/type_identity.md]
 
 ## 概要
 `basic_string_view`オブジェクトの三方比較を行う。
@@ -72,3 +77,5 @@ equal
 ## 参照
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [LWG Issue 3950. `std::basic_string_view` comparison operators are overspecified](https://cplusplus.github.io/LWG/issue3950)
+    - C++26で、第2引数が`type_identity_t`で包まれ、`basic_string_view`へ暗黙変換可能な型と直接比較できるようになった（追加の比較オーバーロードの規定が不要になった）

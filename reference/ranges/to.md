@@ -77,11 +77,12 @@ Rangeの各要素を要素とするコンテナを構築する。
 [`input_range`](input_range.md)`<`[`range_reference_t`](range_reference_t.md)`<R>>`である場合:
 
 ```cpp
-to<C>(r | views::transform([](auto&& elem) {
+to<C>(ref_view(r) | views::transform([](auto&& elem) {
   return to<range_value_t<C>>(std::forward<decltype(elem)>(elem));
 }), std::forward<Args>(args)...);
 ```
 * views::transform[link transform_view.md]
+* ref_view[link ref_view.md]
 
 どの条件にもあてはまらない場合、プログラムは不適格である。
 
@@ -136,12 +137,14 @@ constexpr bool reservable-container =
     { c.max_size() } -> same_as<decltype(n)>;  // コンテナのサイズ型を返すmax_sizeメンバ関数がある
   };
 
-// container-insertable: push_backまたはinsertが使えることを要求するコンセプト
+// container-insertable: emplace_back/push_back/emplace/insertのいずれかが使えることを要求するコンセプト
 template<class Container, class Ref>
 constexpr bool container-insertable =
   requires(Container& c, Ref&& ref) {
-    requires (requires { c.push_back(std::forward<Ref>(ref)); } ||
-              requires { c.insert(c.end(), std::forward<Ref>(ref)); });
+    requires (requires { c.emplace_back(declval<Ref>()); } ||
+              requires { c.push_back(declval<Ref>()); } ||
+              requires { c.emplace(c.end(), declval<Ref>()); } ||
+              requires { c.insert(c.end(), declval<Ref>()); });
   };
 
 // container-inserter: push_backが使えればback_inserter, そうでなければinserterを返す関数
@@ -229,3 +232,7 @@ int main() {
 - [26.5.7.2 ranges::to](https://timsong-cpp.github.io/cppwp/n4950/range.utility.conv.to)
 - [P2846R6 `reserve_hint`: Eagerly reserving memory for not-quite-sized lazy ranges](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2846r6.pdf)
     - C++26で要素数の事前確保に[`ranges::size`](size.md)の代わりに[`ranges::reserve_hint`](reserve_hint.md)を使用するよう変更
+- [LWG Issue 3984. `ranges::to`'s recursion branch may be ill-formed](https://cplusplus.github.io/LWG/issue3984)
+    - C++26で、再帰分岐において`r`を[`ranges::ref_view`](ref_view.md)で包むよう修正され、`r`がviewでない左辺値rangeの場合に不適格となる問題が解消された
+- [LWG Issue 4016. *container-insertable* checks do not match what *container-inserter* does](https://cplusplus.github.io/LWG/issue4016)
+    - C++26で、説明専用コンセプト`container-insertable`の判定が`emplace_back`/`push_back`/`emplace`/`insert`の4つを試す形に修正され、実際の挿入処理と一致するようになった
