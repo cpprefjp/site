@@ -47,3 +47,8 @@ int main() {
 - [GCC](/implementation.md#gcc): 13 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2022 Update 6 [mark verified]
+
+
+## 参照
+- [LWG Issue 4053. Unary call to `std::views::repeat` does not decay the argument](https://cplusplus.github.io/LWG/issue4053)
+    - C++26で、`Bound`にデフォルトテンプレート引数`unreachable_sentinel_t`とデフォルト引数`Bound()`が追加され、`repeat_view(E)`のように第2引数を省略した推論が可能になった
