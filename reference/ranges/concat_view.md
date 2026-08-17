@@ -48,7 +48,7 @@ namespace std::ranges {
 ## 効果
 
 - (2): 式`views::concat(Es...)`の効果は次の通り
-    - `Es...`が1要素で、その型が [`input_range`](input_range.md)のモデルであるとき、[`views::all`](all.md)`(Es...)` と等しい
+    - `Es...`が1要素で、その型が [`input_range`](input_range.md)のモデルであるとき、`decltype((Es...[0]))(Es...[0])`（その要素自身）と等しい
     - それ以外のとき、`concat_view(Es...)` と等しい
 
 ## 備考
@@ -170,3 +170,5 @@ int main() {
 - [P2542R8 views::concat](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2542r8.html)
 - [LWG Issue 4076. `concat_view` should be freestanding](https://cplusplus.github.io/LWG/issue4076)
     - C++26で、このビューがフリースタンディング処理系に対応した
+- [LWG Issue 4082. `views::concat(r)` is well-formed when `r` is an `output_range`](https://cplusplus.github.io/LWG/issue4082)
+    - C++26で、単一の`input_range`を渡した場合の`views::concat`が`views::all`ではなくその要素自身を返すよう変更され、`output_range`に対しても適格となった
