@@ -181,17 +181,18 @@ jobs:
             echo 'EOF' >> "$GITHUB_OUTPUT"
       - name: Comment on the pull request
         run: |
-          gh pr comment ${{ github.event.pull_request.number }} --edit-last --create-if-none --body '
-          :zap: [**プレビュー (HTML)**](${{ steps.vars.outputs.base_url }}) (更新時刻: ${{ steps.vars.outputs.time }})
-
-          - **⫯** Commit: ${{ steps.vars.outputs.sha }}
-          - プレビューの生成には時間がかかります (3～5分)。進捗状況は[こちら](https://github.com/${{ steps.vars.outputs.repo_full }}/actions?query=event%3Apull_request_target+branch%3A${{ steps.vars.outputs.ubranch }})をご確認ください。
-
-          #### 変更記事一覧
-
-          ${{ steps.file_list.outputs.content }}
-
-          ※ソース (.md) に直接変更のあった記事を列挙しています。グローバル修飾や変換規則の変更による変化は考慮していません。
-          '
+          gh pr comment "$PR_NUMBER" --edit-last --create-if-none --body "$COMMENT_BODY"
         env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          COMMENT_BODY: |
+            :zap: [**プレビュー (HTML)**](${{ steps.vars.outputs.base_url }}) (更新時刻: ${{ steps.vars.outputs.time }})
+
+            - **⫯** Commit: ${{ steps.vars.outputs.sha }}
+            - プレビューの生成には時間がかかります (3～5分)。進捗状況は[こちら](https://github.com/${{ steps.vars.outputs.repo_full }}/actions?query=event%3Apull_request_target+branch%3A${{ steps.vars.outputs.ubranch }})をご確認ください。
+
+            #### 変更記事一覧
+
+            ${{ steps.file_list.outputs.content }}
+
+            ※ソース (.md) に直接変更のあった記事を列挙しています。グローバル修飾や変換規則の変更による変化は考慮していません。
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
