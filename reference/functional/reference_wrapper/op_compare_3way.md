@@ -5,15 +5,15 @@
 * function template[meta id-type]
 
 ```cpp
-friend constexpr synth-three-way-result<T>
+friend constexpr auto
   operator<=>(reference_wrapper x,
               reference_wrapper y);          // (1) C++26
 
-friend constexpr synth-three-way-result<T>
+friend constexpr auto
   operator<=>(reference_wrapper x,
               const T& y);                   // (2) C++26
 
-friend constexpr synth-three-way-result<T>
+friend constexpr auto
   operator<=>(reference_wrapper x,
               reference_wrapper<const T> y); // (3) C++26
 ```
@@ -29,7 +29,9 @@ friend constexpr synth-three-way-result<T>
 
 
 ## テンプレートパラメータ制約
-- (3) : [`is_const_v`](/reference/type_traits/is_const.md)`<T>`が`false`であること
+- (1) : `synth-three-way(x.get(), y.get())`が適格であること
+- (2) : `synth-three-way(x.get(), y)`が適格であること
+- (3) : [`is_const_v`](/reference/type_traits/is_const.md)`<T>`が`false`であり、かつ`synth-three-way(x.get(), y.get())`が適格であること
 
 
 ## 戻り値
@@ -102,3 +104,5 @@ int main()
 
 ## 参照
 - [P2944R3 Comparisons for `reference_wrapper`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2944r3.html)
+- [LWG Issue 4071. `reference_wrapper` comparisons are not SFINAE-friendly](https://cplusplus.github.io/LWG/issue4071)
+    - C++26で、`operator<=>`の戻り値型が`synth-three-way-result<T>`から`auto`に変更され、`synth-three-way`が適格であることが制約に加わり、SFINAEフレンドリに振る舞うようになった
