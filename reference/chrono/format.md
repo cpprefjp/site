@@ -28,7 +28,7 @@ chrono-format-spec:
     - `<` : 左寄せ
     - `^` : 中央寄せ
 - `width` (省略可) : 幅 (省略時は値に応じて幅が決まり、アライメントは機能しない)
-- `precision` (省略可) : 精度(浮動小数点数の場合)、使う文字数(文字列の場合)
+- `precision` (省略可) : 精度。`rep`が浮動小数点型である[`duration`](duration.md)の特殊化に対してのみ指定でき、それ以外の型に対して指定すると[`format_error`](../format/format_error.md)例外を送出する
 - `L` (省略可) : この関数に指定されたロケールを使用し、指定されなければグローバルロケールを使用する。省略された場合はCロケールを使用する
 
 
@@ -149,3 +149,5 @@ int main()
     - この提案文書はC++20の策定後に採択されたが、実装が追いついていない時期の採択だったために、C++20の仕様として扱われる
 - [LWG Issue 3831. Two-digit formatting of negative `year` is ambiguous](https://cplusplus.github.io/LWG/issue3831)
     - C++26で、`%y`が年の符号によらず年のうしろ2桁を表すことが明確化された。たとえば`std::format("{:%C %y}", -1976y)`は`"-20 76"`となる
+- [LWG Issue 3842. Unclear wording for precision in `chrono-format-spec`](https://cplusplus.github.io/LWG/issue3842)
+    - C++23で、`precision`（精度）が`rep`を浮動小数点型とする`duration`の特殊化に対してのみ有効であることが明確化された
