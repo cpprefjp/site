@@ -180,8 +180,7 @@ jobs:
             echo "$content_prologue$content$content_epilogue" >> "$GITHUB_OUTPUT"
             echo 'EOF' >> "$GITHUB_OUTPUT"
       - name: Comment on the pull request
-        run: |
-          gh pr comment "$PR_NUMBER" --edit-last --create-if-none --body "$COMMENT_BODY"
+        run: gh pr comment "$PR_NUMBER" --edit-last --create-if-none --body "$COMMENT_BODY"
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
           COMMENT_BODY: |
