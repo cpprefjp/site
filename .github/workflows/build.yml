@@ -67,7 +67,7 @@ jobs:
         path: site_generator/cpprefjp/image
 
     - name: Set up Python 3.x
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v7
       with:
         python-version: 3.11
         # 3.12でUndefined symbolエラーがでた
