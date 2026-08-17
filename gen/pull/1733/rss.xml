@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-08-17T07:33:24.074890</updated>
+  <id>2c19da09-855d-415d-8087-3cecff86f0ea</id>
+
+  
+    <entry>
+      <title>コンストラクタ -- tupleのコンストラクタ : ダングリング参照になる場合に削除定義されることが規定された</title>
+      <link href="https://cpprefjp.github.io/reference/tuple/tuple/op_constructor.html"/>
+      <id>1f6b717db79a99b0717ddaeb925a962331fe0f23:reference/tuple/tuple/op_constructor.md</id>
+      <updated>2026-08-17T16:29:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/tuple/tuple/op_constructor.md b/reference/tuple/tuple/op_constructor.md
+index c7d02f134..b67f7041d 100644
+--- a/reference/tuple/tuple/op_constructor.md
++++ b/reference/tuple/tuple/op_constructor.md
+@@ -340,6 +340,7 @@ explicit(see below) constexpr
+ - (14) :
+     - `I`をパラメータパック`0, 1, ..., (sizeof...(Types) - 1)`と定義して、
+     - C++23 : `!(`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`&amp;lt;decltype(get&amp;lt;I&amp;gt;(`[`std::forward`](/reference/utility/forward.md)`&amp;lt;UTuple&amp;gt;(u))), Types&amp;gt; &amp;amp;&amp;amp; ...)`である場合、この関数は`explicit`となる
++    - C++26 : `(`[`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`&amp;lt;Types, decltype(get&amp;lt;I&amp;gt;(`[`std::forward`](/reference/utility/forward.md)`&amp;lt;UTuple&amp;gt;(u)))&amp;gt; || ...)`である場合、この関数は削除定義される
+ - (15) :
+     - C++20 : 対応するコンストラクタ (1) と同じ条件で`explicit`となる
+ - (16) :
+@@ -452,3 +453,5 @@ int main()
+     - C++23 での (3) のコンストラクタの制約の変更（`disambiguating-constraint`等）について
+ - [P2321R2 `zip`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html#tuple)
+     - すべての要素が[プロキシ参照](/reference/iterator/indirectly_writable.md)の場合、[プロキシ参照](/reference/iterator/indirectly_writable.md)として使用できるようにする
++- [LWG Issue 4045. `tuple` can create dangling references from `tuple-like`](https://cplusplus.github.io/LWG/issue4045)
++    - C++26で、[`tuple-like`](../tuple-like.md)なオブジェクトから構築するコンストラクタ(14)について、いずれかの要素がダングリング参照を作成する場合に削除定義されることが規定された（C++23での`tuple-like`コンストラクタ導入時に欠けていた保護の追加）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>aliases_view -- text_encoding::aliases_view : constexprイテレータであることが規定された</title>
+      <link href="https://cpprefjp.github.io/reference/text_encoding/text_encoding/aliases_view.html"/>
+      <id>50a641bd4367da2cdd52015c076240f1e7547ec0:reference/text_encoding/text_encoding/aliases_view.md</id>
+      <updated>2026-08-17T16:26:43+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/text_encoding/text_encoding/aliases_view.md b/reference/text_encoding/text_encoding/aliases_view.md
+index be11c0bd2..524ea7c44 100644
+--- a/reference/text_encoding/text_encoding/aliases_view.md
++++ b/reference/text_encoding/text_encoding/aliases_view.md
+@@ -24,6 +24,8 @@ struct text_encoding::aliases_view : ranges::view_interface&amp;lt;text_encoding::alias
+ 
+ [`ranges::range_value_t`](/reference/ranges/range_value_t.md)`&amp;lt;text_encoding::aliases_view&amp;gt;`および[`ranges::range_reference_t`](/reference/ranges/range_reference_t.md)`&amp;lt;text_encoding::aliases_view&amp;gt;`はともに`const char*`を表す。
+ 
++[`ranges::iterator_t`](/reference/ranges/iterator_t.md)`&amp;lt;text_encoding::aliases_view&amp;gt;`はconstexprイテレータである。
++
+ 
+ ## 例
+ ```cpp example
+@@ -76,3 +78,5 @@ Number of aliases: 3
+ 
+ ## 参照
+ - [P1885R12 Naming Text Encodings to Demystify Them](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1885r12.pdf)
++- [LWG Issue 4038. `std::text_encoding::aliases_view` should have constexpr iterators](https://cplusplus.github.io/LWG/issue4038)
++    - C++26で、`aliases_view`のイテレータがconstexprイテレータであることが規定された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;=&gt; -- basic_string_viewの比較演算子 : パラメータをtype_identityで包んだ</title>
+      <link href="https://cpprefjp.github.io/reference/string_view/basic_string_view/op_compare_3way.html"/>
+      <id>dc70ded1728cece8667bc7b6d5341c41753c2e21:reference/string_view/basic_string_view/op_compare_3way.md</id>
+      <updated>2026-08-17T16:26:11+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string_view/basic_string_view/op_compare_3way.md b/reference/string_view/basic_string_view/op_compare_3way.md
+index edd20d525..008738f80 100644
+--- a/reference/string_view/basic_string_view/op_compare_3way.md
++++ b/reference/string_view/basic_string_view/op_compare_3way.md
+@@ -7,11 +7,16 @@
+ ```cpp
+ namespace std {
+   template&amp;lt;class charT, class traits&amp;gt;
+-    constexpr see below
+-  operator&amp;lt;=&amp;gt;(basic_string_view&amp;lt;charT, traits&amp;gt; x,
+-              basic_string_view&amp;lt;charT, traits&amp;gt; y) noexcept; // (1) C++20
++  constexpr see below
++    operator&amp;lt;=&amp;gt;(basic_string_view&amp;lt;charT, traits&amp;gt; x,
++                basic_string_view&amp;lt;charT, traits&amp;gt; y) noexcept; // (1) C++20
++  template&amp;lt;class charT, class traits&amp;gt;
++  constexpr see below
++    operator&amp;lt;=&amp;gt;(basic_string_view&amp;lt;charT, traits&amp;gt; x,
++                type_identity_t&amp;lt;basic_string_view&amp;lt;charT, traits&amp;gt;&amp;gt; y) noexcept; // (1) C++26
+ }
+ ```
++* type_identity_t[link /reference/type_traits/type_identity.md]
+ 
+ ## 概要
+ `basic_string_view`オブジェクトの三方比較を行う。
+@@ -72,3 +77,5 @@ equal
+ ## 参照
+ - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
++- [LWG Issue 3950. `std::basic_string_view` comparison operators are overspecified](https://cplusplus.github.io/LWG/issue3950)
++    - C++26で、第2引数が`type_identity_t`で包まれ、`basic_string_view`へ暗黙変換可能な型と直接比較できるようになった（追加の比較オーバーロードの規定が不要になった）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- basic_string_viewの比較演算子 : パラメータをtype_identityで包んだ</title>
+      <link href="https://cpprefjp.github.io/reference/string_view/basic_string_view/op_equal.html"/>
+      <id>dc70ded1728cece8667bc7b6d5341c41753c2e21:reference/string_view/basic_string_view/op_equal.md</id>
+      <updated>2026-08-17T16:26:11+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string_view/basic_string_view/op_equal.md b/reference/string_view/basic_string_view/op_equal.md
+index 982f397dd..39cbb7d23 100644
+--- a/reference/string_view/basic_string_view/op_equal.md
++++ b/reference/string_view/basic_string_view/op_equal.md
+@@ -7,10 +7,16 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;class CharT, class Traits&amp;gt;
+-  constexpr bool operator==(basic_string_view&amp;lt;CharT, Traits&amp;gt; x,
+-                            basic_string_view&amp;lt;CharT, Traits&amp;gt; y) noexcept; // (1) C++17
++  constexpr bool
++    operator==(basic_string_view&amp;lt;CharT, Traits&amp;gt; x,
++               basic_string_view&amp;lt;CharT, Traits&amp;gt; y) noexcept; // (1) C++17
++  template &amp;lt;class CharT, class Traits&amp;gt;
++  constexpr bool
++    operator==(basic_string_view&amp;lt;CharT, Traits&amp;gt; x,
++               type_identity_t&amp;lt;basic_string_view&amp;lt;CharT, Traits&amp;gt;&amp;gt; y) noexcept; // (1) C++26
+ }
+ ```
++* type_identity_t[link /reference/type_traits/type_identity.md]
+ 
+ ## 概要
+ `basic_string_view`オブジェクトの等値比較を行う。
+@@ -26,6 +32,7 @@ return x.compare(y) == 0;
+ ## 備考
+ - この演算子により、以下の演算子が使用可能になる (C++20)：
+     - `operator!=`
++- C++26では、第2引数が[`type_identity_t`](/reference/type_traits/type_identity.md)で包まれて非推論文脈となる。これにより、`basic_string_view`へ暗黙変換可能な型（[`basic_string`](/reference/string/basic_string.md)や文字列リテラルなど）と直接比較できるようになり、従来別途規定されていた追加の比較オーバーロードが不要になった。
+ 
+ 
+ ## 例
+@@ -66,3 +73,5 @@ equal
+ ## 参照
+ - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
++- [LWG Issue 3950. `std::basic_string_view` comparison operators are overspecified](https://cplusplus.github.io/LWG/issue3950)
++    - C++26で、比較演算子の第2引数が`type_identity_t`で包まれ、追加の比較オーバーロードの規定が不要になった
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>setg -- basic_streambufのsetg / setp : 事前条件を追加</title>
+      <link href="https://cpprefjp.github.io/reference/streambuf/basic_streambuf/setg.html"/>
+      <id>215486d83f827aab1d2884d0f0a04c23ed72200c:reference/streambuf/basic_streambuf/setg.md</id>
+      <updated>2026-08-17T16:23:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/streambuf/basic_streambuf/setg.md b/reference/streambuf/basic_streambuf/setg.md
+index 746350477..78012837d 100644
+--- a/reference/streambuf/basic_streambuf/setg.md
++++ b/reference/streambuf/basic_streambuf/setg.md
+@@ -19,6 +19,9 @@ namespace std {
+ ## 概要
+ 入力部分列の各ポインタを設定する。
+ 
++## 事前条件
++`[gbeg, gnext)`、`[gbeg, gend)`、`[gnext, gend)`がすべて有効な範囲であること。
++
+ ## 事後条件
+ `gbeg ==` [`eback()`](eback.md) および `gnext ==` [`gptr()`](gptr.md) および `gend ==` [`egptr()`](egptr.md)。
+ 
+@@ -57,3 +60,5 @@ A
+ - [`eback()`](eback.md)
+ - [`gptr()`](gptr.md)
+ - [`egptr()`](egptr.md)
++- [LWG Issue 4023. Preconditions of `std::basic_streambuf::setg`/`setp`](https://cplusplus.github.io/LWG/issue4023)
++    - C++26で、引数が有効な範囲を表すことを要求する事前条件が追加された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>setp -- basic_streambufのsetg / setp : 事前条件を追加</title>
+      <link href="https://cpprefjp.github.io/reference/streambuf/basic_streambuf/setp.html"/>
+      <id>215486d83f827aab1d2884d0f0a04c23ed72200c:reference/streambuf/basic_streambuf/setp.md</id>
+      <updated>2026-08-17T16:23:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/streambuf/basic_streambuf/setp.md b/reference/streambuf/basic_streambuf/setp.md
+index 828f127a4..33420be78 100644
+--- a/reference/streambuf/basic_streambuf/setp.md
++++ b/reference/streambuf/basic_streambuf/setp.md
+@@ -19,6 +19,9 @@ namespace std {
+ ## 概要
+ 出力部分列の各ポインタを設定する。
+ 
++## 事前条件
++`[pbeg, pend)`が有効な範囲であること。
++
+ ## 事後条件
+ `pbeg ==` [`pbase()`](pbase.md) および `pbeg ==` [`pptr()`](pptr.md) および `pend ==` [`epptr()`](epptr.md)。
+ 
+@@ -60,3 +63,5 @@ ABC
+ - [`pbase()`](pbase.md)
+ - [`pptr()`](pptr.md)
+ - [`epptr()`](epptr.md)
++- [LWG Issue 4023. Preconditions of `std::basic_streambuf::setg`/`setp`](https://cplusplus.github.io/LWG/issue4023)
++    - C++26で、引数が有効な範囲を表すことを要求する事前条件が追加された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>span -- spanのデストラクタページを追加し、C++26からnoexceptを削除</title>
+      <link href="https://cpprefjp.github.io/reference/span/span.html"/>
+      <id>bf9d7eea13fbeec5b69753ee8d04ac5a81ec587b:reference/span/span.md</id>
+      <updated>2026-08-17T16:23:15+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/span/span.md b/reference/span/span.md
+index f29a43993..d83923410 100644
+--- a/reference/span/span.md
++++ b/reference/span/span.md
+@@ -66,7 +66,7 @@ namespace std {
+ | 名前 | 説明 | 対応バージョン |
+ |------|------|----------------|
+ | [`(constructor)`](span/op_constructor.md) | コンストラクタ | C++20 |
+-| `~span() = default;` | デストラクタ | C++20 |
++| [`(destructor)`](span/op_destructor.md) | デストラクタ | C++20 |
+ | `span&amp;amp; operator=(const span&amp;amp;) = default;`&amp;lt;br/&amp;gt; `span&amp;amp; operator=(span&amp;amp;&amp;amp;) = default;` | 代入演算子 | C++20 |
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>デストラクタ -- spanのデストラクタページを追加し、C++26からnoexceptを削除</title>
+      <link href="https://cpprefjp.github.io/reference/span/span/op_destructor.html"/>
+      <id>bf9d7eea13fbeec5b69753ee8d04ac5a81ec587b:reference/span/span/op_destructor.md</id>
+      <updated>2026-08-17T16:23:15+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/span/span/op_destructor.md b/reference/span/span/op_destructor.md
+new file mode 100644
+index 000000000..8877ce4f5
+--- /dev/null
++++ b/reference/span/span/op_destructor.md
+@@ -0,0 +1,31 @@
++# デストラクタ
++* span[meta header]
++* std[meta namespace]
++* span[meta class]
++* function[meta id-type]
++* cpp20[meta cpp]
++
++```cpp
++~span() noexcept = default; // (1) C++20
++~span() = default;          // (1) C++26
++```
++
++## 概要
++`span`オブジェクトを破棄する。
++
++`span`は要素列を所有しない（非所有の）ビューであるため、このデストラクタは参照先の要素に対しては何もしない。トリビアルにデフォルト定義される。
++
++
++## 例外
++投げない
++
++
++## バージョン
++### 言語
++- C++20
++
++
++## 参照
++- [P0122R7 `&amp;lt;span&amp;gt;`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0122r7.pdf)
++- [LWG Issue 3903. `span` destructor is redundantly `noexcept`](https://cplusplus.github.io/LWG/issue3903)
++    - C++26で、デストラクタの冗長な`noexcept`指定が削除された（暗黙に`noexcept`であるため）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
