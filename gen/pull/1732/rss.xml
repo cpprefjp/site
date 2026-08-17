@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-08-17T06:09:03.102164</updated>
+  <id>07efdad5-6ee7-47e6-8061-4ea2e9504b59</id>
+
+  
+    <entry>
+      <title>iota_view -- iota_view : iotaの入れ子を拒否</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/iota_view.html"/>
+      <id>cd633c605536d218d51f8fb647f6ec8263f50df3:reference/ranges/iota_view.md</id>
+      <updated>2026-08-17T15:05:17+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/iota_view.md b/reference/ranges/iota_view.md
+index 6601767d1..cca703042 100644
+--- a/reference/ranges/iota_view.md
++++ b/reference/ranges/iota_view.md
+@@ -48,7 +48,7 @@ namespace std::ranges {
+ 
+ ## 効果
+ 
+-- 式`views::iota(E)`の効果は`iota_view(E)`と等しい。
++- 式`views::iota(E)`の効果は`iota_view&amp;lt;`[`decay_t`](/reference/type_traits/decay.md)`&amp;lt;decltype((E))&amp;gt;&amp;gt;(E)`と等しい。
+ - 式`views::iota(E, F)`の効果は`iota_view(E, F)`と等しい。
+ 
+ ## メンバ関数
+@@ -201,3 +201,5 @@ FizzBuzz
+ - [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html) (本提案文書はC++20に遡って適用されている)
+ - [P2367R0 Remove misuses of list-initialization from Clause 24](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html) (本提案文書はC++20に遡って適用されている)
+ - [LWG Issue 4001. `iota_view` should provide `empty`](https://cplusplus.github.io/LWG/issue4001)
++- [LWG Issue 4096. `views::iota(views::iota(0))` should be rejected](https://cplusplus.github.io/LWG/issue4096)
++    - C++26で、`views::iota(E)`の効果が`iota_view&amp;lt;decay_t&amp;lt;decltype((E))&amp;gt;&amp;gt;(E)`とテンプレート引数を明示する形になり、`views::iota(views::iota(0))`のような入れ子が拒否されるようになった
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>concat_view -- concat_view : output_rangeに対しても動作するようになった</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/concat_view.html"/>
+      <id>9bdeb3ca8b510a9f5d99c3afc75463e460ab798f:reference/ranges/concat_view.md</id>
+      <updated>2026-08-17T15:04:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/concat_view.md b/reference/ranges/concat_view.md
+index 90ee1263f..72a71aaac 100644
+--- a/reference/ranges/concat_view.md
++++ b/reference/ranges/concat_view.md
+@@ -48,7 +48,7 @@ namespace std::ranges {
+ ## 効果
+ 
+ - (2): 式`views::concat(Es...)`の効果は次の通り
+-    - `Es...`が1要素で、その型が [`input_range`](input_range.md)のモデルであるとき、[`views::all`](all.md)`(Es...)` と等しい
++    - `Es...`が1要素で、その型が [`input_range`](input_range.md)のモデルであるとき、`decltype((Es...[0]))(Es...[0])`（その要素自身）と等しい
+     - それ以外のとき、`concat_view(Es...)` と等しい
+ 
+ ## 備考
+@@ -170,3 +170,5 @@ int main() {
+ - [P2542R8 views::concat](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2542r8.html)
+ - [LWG Issue 4076. `concat_view` should be freestanding](https://cplusplus.github.io/LWG/issue4076)
+     - C++26で、このビューがフリースタンディング処理系に対応した
++- [LWG Issue 4082. `views::concat(r)` is well-formed when `r` is an `output_range`](https://cplusplus.github.io/LWG/issue4082)
++    - C++26で、単一の`input_range`を渡した場合の`views::concat`が`views::all`ではなくその要素自身を返すよう変更され、`output_range`に対しても適格となった
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>concat_view -- concat_view : フリースタンディング対応</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/concat_view.html"/>
+      <id>82fcf89d9a6a38049344497bf722429109eea815:reference/ranges/concat_view.md</id>
+      <updated>2026-08-17T15:04:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/concat_view.md b/reference/ranges/concat_view.md
+index 82f590364..90ee1263f 100644
+--- a/reference/ranges/concat_view.md
++++ b/reference/ranges/concat_view.md
+@@ -53,6 +53,8 @@ namespace std::ranges {
+ 
+ ## 備考
+ 
++このビュー（および`views::concat`アダプタ）は、フリースタンディング処理系でも使用できる。
++
+ 本説明に用いる説明専用要素を以下のように定義する。
+ 
+ ```cpp
+@@ -166,3 +168,5 @@ int main() {
+ ## 参照
+ - [26.7.18 Concat view](https://timsong-cpp.github.io/cppwp/range.concat) (2024-08-10)
+ - [P2542R8 views::concat](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2542r8.html)
++- [LWG Issue 4076. `concat_view` should be freestanding](https://cplusplus.github.io/LWG/issue4076)
++    - C++26で、このビューがフリースタンディング処理系に対応した
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>as_rvalue_view -- as_rvalue_view : input_rangeでない範囲を拒否</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/as_rvalue_view.html"/>
+      <id>da359cb8bdbbe00b5d6966b7c8b50ac720a97315:reference/ranges/as_rvalue_view.md</id>
+      <updated>2026-08-17T15:03:48+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/as_rvalue_view.md b/reference/ranges/as_rvalue_view.md
+index 39724b88e..1f519a18c 100644
+--- a/reference/ranges/as_rvalue_view.md
++++ b/reference/ranges/as_rvalue_view.md
+@@ -47,7 +47,7 @@ std::ranges::copy(words | views::as_rvalue, std::back_inserter(new_words));
+ ## 効果
+ 
+ - (2): 式`views::as_rvalue(E)`はRangeアダプタオブジェクトを表し、その効果は次の通り
+-    - 要素がすでに右辺値参照であれば(`T = decltype((E))`として、[`same_as`](/reference/concepts/same_as.md)`&amp;lt;`[`range_rvalue_reference_t`](range_rvalue_reference_t.md)`&amp;lt;T&amp;gt;,` [`range_reference_t`](range_reference_t.md)`&amp;lt;T&amp;gt;&amp;gt;`)、[`views::all`](all.md)`(E)`と等しい
++    - `T = decltype((E))`が[`input_range`](input_range.md)のモデルであり、かつ要素がすでに右辺値参照であれば([`same_as`](/reference/concepts/same_as.md)`&amp;lt;`[`range_rvalue_reference_t`](range_rvalue_reference_t.md)`&amp;lt;T&amp;gt;,` [`range_reference_t`](range_reference_t.md)`&amp;lt;T&amp;gt;&amp;gt;`)、[`views::all`](all.md)`(E)`と等しい
+     - それ以外のとき、`as_rvalue_view{E}`と等しい
+ 
+ ## メンバ関数
+@@ -169,3 +169,5 @@ constexpr explicit as_rvalue_view(V base);
+ 
+ ## 参照
+ - [P2446R2 `views::as_rvalue`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2446r2.html)
++- [LWG Issue 4083. `views::as_rvalue` should reject non-input ranges](https://cplusplus.github.io/LWG/issue4083)
++    - C++26で、`views::all(E)`と等しくなる条件に`T`が`input_range`のモデルであることが追加され、input_rangeでない範囲が拒否されるようになった
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>adjacent_transform_view -- adjacent_(transform_)view : forward_rangeでない範囲を拒否</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/adjacent_transform_view.html"/>
+      <id>030c52b2a908e32891b5c28e4169f5a4733a5e1a:reference/ranges/adjacent_transform_view.md</id>
+      <updated>2026-08-17T15:03:20+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/adjacent_transform_view.md b/reference/ranges/adjacent_transform_view.md
+index 47fdfe994..8541f23ab 100644
+--- a/reference/ranges/adjacent_transform_view.md
++++ b/reference/ranges/adjacent_transform_view.md
+@@ -44,7 +44,7 @@ namespace std::ranges {
+ 
+ - (2): 式 `views::adjacent_transform&amp;lt;N&amp;gt;(E, F)` の効果は以下の通り。
+     - `N` &amp;gt; 0 のとき、`adjacent_transform_view&amp;lt;`[`views::all_t`](all.md)`&amp;lt;decltype((E))&amp;gt;,` [`decay_t`](/reference/type_traits/decay.md)`&amp;lt;decltype((F))&amp;gt;, N&amp;gt;(E, F)` と等しい
+-    - `N` = 0 のとき、`((void)E,` [`views::zip_transform`](zip_transform_view.md)`(F))` と等しい(ただし`E`と`F`の評価順は不定)
++    - `N` = 0 かつ`decltype((E))`が[`forward_range`](forward_range.md)のモデルであるとき、`((void)E,` [`views::zip_transform`](zip_transform_view.md)`(F))` と等しい(ただし`E`と`F`の評価順は不定)
+ 
+ ## 備考
+ 
+@@ -117,3 +117,5 @@ int main() {
+ ## 参照
+ - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
+ - [P2321R2 zip](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html)
++- [LWG Issue 4098. `views::adjacent&amp;lt;0&amp;gt;` should reject non-forward ranges](https://cplusplus.github.io/LWG/issue4098)
++    - C++26で、`N` = 0 の場合に`views::empty`（または`views::zip_transform`）と等しくなる条件に`decltype((E))`が`forward_range`のモデルであることが追加され、forward_rangeでない範囲が拒否されるようになった
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>adjacent_view -- adjacent_(transform_)view : forward_rangeでない範囲を拒否</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/adjacent_view.html"/>
+      <id>030c52b2a908e32891b5c28e4169f5a4733a5e1a:reference/ranges/adjacent_view.md</id>
+      <updated>2026-08-17T15:03:20+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/adjacent_view.md b/reference/ranges/adjacent_view.md
+index ff4d274b6..5dd53123b 100644
+--- a/reference/ranges/adjacent_view.md
++++ b/reference/ranges/adjacent_view.md
+@@ -44,7 +44,7 @@ namespace std::ranges {
+ 
+ - (2): 式`views::adjacent&amp;lt;N&amp;gt;(E)`の効果は次の通り
+     - `N` &amp;gt; 0 のとき、`adjacent_view&amp;lt;`[`views::all_t`](all.md)`&amp;lt;decltype((E))&amp;gt;, N&amp;gt;(E)` と等しい
+-    - `N` = 0 のとき、`auto((void)E,` [`views::empty`](empty_view.md)`&amp;lt;`[`tuple`](/reference/tuple/tuple.md)`&amp;lt;&amp;gt;&amp;gt;)` と等しい
++    - `N` = 0 かつ`decltype((E))`が[`forward_range`](forward_range.md)のモデルであるとき、`auto((void)E,` [`views::empty`](empty_view.md)`&amp;lt;`[`tuple`](/reference/tuple/tuple.md)`&amp;lt;&amp;gt;&amp;gt;)` と等しい
+ 
+ 
+ ## メンバ関数
+@@ -112,3 +112,5 @@ int main() {
+ ## 参照
+ - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
+ - [P2321R2 zip](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html)
++- [LWG Issue 4098. `views::adjacent&amp;lt;0&amp;gt;` should reject non-forward ranges](https://cplusplus.github.io/LWG/issue4098)
++    - C++26で、`N` = 0 の場合に`views::empty`（または`views::zip_transform`）と等しくなる条件に`decltype((E))`が`forward_range`のモデルであることが追加され、forward_rangeでない範囲が拒否されるようになった
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
