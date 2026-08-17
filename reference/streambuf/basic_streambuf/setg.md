@@ -19,6 +19,9 @@ namespace std {
 ## 概要
 入力部分列の各ポインタを設定する。
 
+## 事前条件
+`[gbeg, gnext)`、`[gbeg, gend)`、`[gnext, gend)`がすべて有効な範囲であること。
+
 ## 事後条件
 `gbeg ==` [`eback()`](eback.md) および `gnext ==` [`gptr()`](gptr.md) および `gend ==` [`egptr()`](egptr.md)。
 
@@ -57,3 +60,5 @@ A
 - [`eback()`](eback.md)
 - [`gptr()`](gptr.md)
 - [`egptr()`](egptr.md)
+- [LWG Issue 4023. Preconditions of `std::basic_streambuf::setg`/`setp`](https://cplusplus.github.io/LWG/issue4023)
+    - C++26で、引数が有効な範囲を表すことを要求する事前条件が追加された
