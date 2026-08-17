@@ -1,0 +1,1391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-08-17T05:07:26.944009</updated>
+  <id>0a71605b-59ab-4e6f-a7db-3e53b0d39f1f</id>
+
+  
+    <entry>
+      <title>コンストラクタ -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/op_constructor.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/atomic/atomic/op_constructor.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/op_constructor.md b/reference/atomic/atomic/op_constructor.md
+index 6d9438f15..cf5dee428 100644
+--- a/reference/atomic/atomic/op_constructor.md
++++ b/reference/atomic/atomic/op_constructor.md
+@@ -24,6 +24,13 @@ atomic(atomic&amp;amp;&amp;amp;) = delete;                         // (4) C++11
+ - (4) : ムーブコンストラクタ。ムーブ不可
+ 
+ 
++## テンプレートパラメータ制約
++- (1) :
++    - C++20 : `is_default_constructible_v&amp;lt;T&amp;gt;`が`true`であること（適格要件）
++    - C++26 : `is_default_constructible_v&amp;lt;T&amp;gt;`が`true`であること（テンプレートパラメータ制約）
++        - C++26では適格要件からテンプレートパラメータ制約に変更され、条件を満たさない場合はハードエラーではなくオーバーロード解決から除外される
++
++
+ ## 効果
+ - (1) :
+     - C++17 : `atomic`オブジェクトを未初期化状態にする (C言語との互換性のため)
+@@ -80,3 +87,5 @@ int main()
+ 
+ ## 参照
+ - [P0883R2 Fixing Atomic Initialization, Rev2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0883r2.pdf)
++- [LWG Issue 4169. `std::atomic&amp;lt;T&amp;gt;`&amp;#39;s default constructor should be constrained](https://cplusplus.github.io/LWG/issue4169)
++    - C++26で、デフォルトコンストラクタの`is_default_constructible_v&amp;lt;T&amp;gt;`要件が適格要件（Mandates）からテンプレートパラメータ制約（Constraints）に変更され、SFINAEフレンドリに振る舞うようになった
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>reference -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/bitset/bitset/reference.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/bitset/bitset/reference.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/bitset/bitset/reference.md b/reference/bitset/bitset/reference.md
+index 7f0770992..34494d2e9 100644
+--- a/reference/bitset/bitset/reference.md
++++ b/reference/bitset/bitset/reference.md
+@@ -11,7 +11,6 @@ namespace std {
+   public:
+     class reference {
+       friend class bitset;
+-      CONSTEXPR reference() noexcept;
+     public:
+       CONSTEXPR ~reference() noexcept;
+       CONSTEXPR reference&amp;amp; operator=(bool x) noexcept;
+@@ -35,7 +34,7 @@ namespace std {
+ 
+ C++23から`bitset::reference`全メンバ関数への`constexpr`指定が行われる。
+ 
+-C++26から、`const`修飾された`*this`に対する`bool`からの代入演算子と、ADLで見つかる非メンバ`swap`関数が追加され、[`vector&amp;lt;bool&amp;gt;::reference`](/reference/vector/vector.md)とインタフェースが統一された。
++C++26から、`const`修飾された`*this`に対する`bool`からの代入演算子と、ADLで見つかる非メンバ`swap`関数が追加され、[`vector&amp;lt;bool&amp;gt;::reference`](/reference/vector/vector.md)とインタフェースが統一された。また、実際には使用されない`private`なデフォルトコンストラクタが削除された。
+ 
+ 
+ ### メンバ関数
+@@ -94,5 +93,7 @@ int main()
+ - [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)
+ - [P3612R1 Harmonize proxy-reference operations (LWG 3638 and 4187)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3612r1.html)
+     - C++26で、`const`修飾された`*this`に対する`bool`からの代入演算子と、ADLで見つかる非メンバ`swap`関数が追加された
++- [LWG Issue 4140. Useless default constructors for bit reference types](https://cplusplus.github.io/LWG/issue4140)
++    - C++26で、`bitset::reference`の実際には使用されない`private`なデフォルトコンストラクタが削除された
+ - [LWG Issue 4493. Specification for some functions of bit reference types seems missing](https://cplusplus.github.io/LWG/issue4493)
+     - C++26で、規定が欠けていた`operator bool()`（参照先のビットが1なら`true`）と`operator~()`（`!bool(*this)`を返す）の戻り値が明文化された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>formatter -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/local-time-format-t/formatter.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/chrono/local-time-format-t/formatter.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/local-time-format-t/formatter.md b/reference/chrono/local-time-format-t/formatter.md
+index 251e5eb5a..81e04ae22 100644
+--- a/reference/chrono/local-time-format-t/formatter.md
++++ b/reference/chrono/local-time-format-t/formatter.md
+@@ -17,6 +17,7 @@ namespace std {
+ 
+ `formatter::format()`関数に渡される`local-time-format-t&amp;lt;Duration&amp;gt;`型の変数`f`があるとして、
+ 
++- chrono-specsが省略された場合、`%F %T %Z`をchrono-specsとして指定したのと等価となる
+ - `%Z` (タイムゾーンの略称) が指定された場合、`f.abbrev`がヌルポインタでなければ`*f.abbrev`で置き換えられる。`%Z`が指定されて`f.abbrev`がヌルポインタだった場合、[`std::format_error`](/reference/format/format_error.md)例外が送出される
+ - `%z`もしくはその改良コマンドが指定された場合、`f.offset_sec`がヌルポインタでなければ`*f.offset_sec`がフォーマットされる。`%z`もしくはその改良コマンドが指定されて`f.offset_sec`がヌルポインタだった場合、[`std::format_error`](/reference/format/format_error.md)例外が送出される
+ 
+@@ -75,3 +76,8 @@ int main()
+ - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+ - [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+ - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
++
++
++## 参照
++- [LWG Issue 4124. Cannot format `zoned_time` with resolution coarser than seconds](https://cplusplus.github.io/LWG/issue4124)
++    - C++26で、chrono-specsが省略された場合に`%F %T %Z`を指定したのと等価であることが明確化された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>formatter -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/zoned_time/formatter.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/chrono/zoned_time/formatter.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/zoned_time/formatter.md b/reference/chrono/zoned_time/formatter.md
+index 92d6a2651..a8486b2e3 100644
+--- a/reference/chrono/zoned_time/formatter.md
++++ b/reference/chrono/zoned_time/formatter.md
+@@ -8,10 +8,12 @@
+ namespace std {
+   template &amp;lt;class Duration, class TimeZonePtr, class charT&amp;gt;
+   struct formatter&amp;lt;chrono::zoned_time&amp;lt;Duration, TimeZonePtr&amp;gt;, charT&amp;gt;
+-    : formatter&amp;lt;chrono::local-time-format-t&amp;lt;Duration&amp;gt;, charT&amp;gt;;
++    : formatter&amp;lt;chrono::local-time-format-t&amp;lt;common_type_t&amp;lt;Duration, chrono::seconds&amp;gt;&amp;gt;, charT&amp;gt;;
+ }
+ ```
+ * chrono::local-time-format-t[link /reference/chrono/local-time-format-t.md]
++* common_type_t[link /reference/type_traits/common_type.md]
++* chrono::seconds[link /reference/chrono/duration_aliases.md]
+ 
+ ## 概要
+ `zoned_time`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。
+@@ -92,3 +94,8 @@ int main()
+ - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
+ - [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+ - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
++
++
++## 参照
++- [LWG Issue 4124. Cannot format `zoned_time` with resolution coarser than seconds](https://cplusplus.github.io/LWG/issue4124)
++    - C++26で、基底クラスが`formatter&amp;lt;local-time-format-t&amp;lt;common_type_t&amp;lt;Duration, seconds&amp;gt;&amp;gt;&amp;gt;`に変更され、秒より粗い解像度の`Duration`をもつ`zoned_time`もフォーマットできるようになった
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>check_dynamic_spec -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/format/basic_format_parse_context/check_dynamic_spec.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/format/basic_format_parse_context/check_dynamic_spec.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/basic_format_parse_context/check_dynamic_spec.md b/reference/format/basic_format_parse_context/check_dynamic_spec.md
+index 2226e5cd8..62ba1a53c 100644
+--- a/reference/format/basic_format_parse_context/check_dynamic_spec.md
++++ b/reference/format/basic_format_parse_context/check_dynamic_spec.md
+@@ -17,6 +17,7 @@ constexpr void check_dynamic_spec(size_t id) noexcept;
+ 
+ ## 適格要件
+ - `Ts...`の型は一意であること
++- `sizeof...(Ts) &amp;gt;= 1`が`true`であること（型が1つ以上指定されていること）
+ - `Ts...`の各型は、`bool`, `char_type`, `int`, `unsigned int`, `long long int`, `unsigned long long int`, `float`, `double`, `long double`, `const char_type*`, [`basic_string_view`](/reference/string_view/basic_string_view.md)`&amp;lt;char_type&amp;gt;`, `const void*` のいずれかであること
+ 
+ ## 備考
+@@ -73,3 +74,5 @@ C++26では、[`formatter`](/reference/format/formatter.md)の[`parse()`](/refer
+ 
+ ## 参照
+ - [P2757R3 Type-checking format args](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2757r3.html)
++- [LWG Issue 4142. `format_parse_context::check_dynamic_spec` should require at least one type](https://cplusplus.github.io/LWG/issue4142)
++    - C++26で、適格要件に`sizeof...(Ts) &amp;gt;= 1`（型が1つ以上指定されていること）が追加された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>insert_after -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/forward_list/forward_list/insert_after.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/forward_list/forward_list/insert_after.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/forward_list/forward_list/insert_after.md b/reference/forward_list/forward_list/insert_after.md
+index e688697ec..a6866c69b 100644
+--- a/reference/forward_list/forward_list/insert_after.md
++++ b/reference/forward_list/forward_list/insert_after.md
+@@ -169,3 +169,5 @@ insert initializer_list : 1 2 3 4 5 6
+ - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
+     - (5)の経緯となる提案文書
+ - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
++- [LWG Issue 4164. Missing guarantees for `forward_list` modifiers](https://cplusplus.github.io/LWG/issue4164)
++    - C++26で、`insert_after`各オーバーロードの計算量の保証が明文化された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/future/packaged_task/op_constructor.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/future/packaged_task/op_constructor.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/future/packaged_task/op_constructor.md b/reference/future/packaged_task/op_constructor.md
+index 3fc3d1d4d..5acbc814e 100644
+--- a/reference/future/packaged_task/op_constructor.md
++++ b/reference/future/packaged_task/op_constructor.md
+@@ -30,6 +30,10 @@ packaged_task(packaged_task&amp;amp;&amp;amp; rhs) noexcept;       // (5)
+ - (5) : ムーブコンストラクタ。
+ 
+ 
++## 適格要件
++- (2), (3) : [`is_invocable_r_v`](/reference/type_traits/is_invocable_r.md)`&amp;lt;R,` [`decay_t`](/reference/type_traits/decay.md)`&amp;lt;F&amp;gt;&amp;amp;, ArgTypes...&amp;gt;`が`true`であること。ここで`R`と`ArgTypes...`は`packaged_task&amp;lt;R(ArgTypes...)&amp;gt;`のものである。
++
++
+ ## 効果
+ - (1) : 共有状態なし、タスクの保持なしでオブジェクトを構築する。
+ - (2) : 共有状態を初期化し、`f`を非同期実行するタスクとして[`std::forward`](/reference/utility/forward.md)`&amp;lt;F&amp;gt;(f)`でメンバ変数に保持する。
+@@ -119,3 +123,5 @@ int main()
+ - [LWG Issue 3039. Unnecessary `decay` in `thread` and `packaged_task`](https://wg21.cmeerw.net/lwg/issue3039)
+ - [P3503R3 Make type-erased allocator use in `promise` and `packaged_task` consistent](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3503r3.html)
+     - C++26でアロケータを受け取るコンストラクタを再追加
++- [LWG Issue 4154. The Mandates for `std::packaged_task`&amp;#39;s constructor from a callable entity should consider decaying](https://cplusplus.github.io/LWG/issue4154)
++    - C++26で、適格要件が`is_invocable_r_v&amp;lt;R, F&amp;amp;, ArgTypes...&amp;gt;`から`is_invocable_r_v&amp;lt;R, decay_t&amp;lt;F&amp;gt;&amp;amp;, ArgTypes...&amp;gt;`に修正された（`F`をdecayした型で判定する）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator new -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/generator/generator/promise_type/op_new.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/generator/generator/promise_type/op_new.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/generator/generator/promise_type/op_new.md b/reference/generator/generator/promise_type/op_new.md
+index 85df4115a..4c2e1320f 100644
+--- a/reference/generator/generator/promise_type/op_new.md
++++ b/reference/generator/generator/promise_type/op_new.md
+@@ -33,7 +33,8 @@ void* operator new(size_t size, const This&amp;amp;, allocator_arg_t, const Alloc&amp;amp; alloc
+ 
+ 
+ ## 適格要件
+-[`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;B&amp;gt;::pointer`はポインタ型。
++- [`allocator_traits`](/reference/memory/allocator_traits.md)`&amp;lt;B&amp;gt;::pointer`はポインタ型であること。
++- (2), (3) : `Alloc`テンプレートパラメータを持つオーバーロードでは、[`same_as`](/reference/concepts/same_as.md)`&amp;lt;Allocator, void&amp;gt; ||` [`convertible_to`](/reference/concepts/convertible_to.md)`&amp;lt;const Alloc&amp;amp;, Allocator&amp;gt;`がモデルされること。
+ 
+ 
+ ## 効果
+@@ -59,3 +60,8 @@ void* operator new(size_t size, const This&amp;amp;, allocator_arg_t, const Alloc&amp;amp; alloc
+ 
+ ## 関連項目
+ - [`operator delete`](op_delete.md)
++
++
++## 参照
++- [LWG Issue 3900. The `allocator_arg_t` overloads of `generator::promise_type::operator new` should not be constrained](https://cplusplus.github.io/LWG/issue3900)
++    - C++26で、(2), (3)のオーバーロードから`requires`節による制約が削除され、代わりに`same_as&amp;lt;Allocator, void&amp;gt; || convertible_to&amp;lt;const Alloc&amp;amp;, Allocator&amp;gt;`が適格要件として要求されるようになった
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>yield_value -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/generator/generator/promise_type/yield_value.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/generator/generator/promise_type/yield_value.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/generator/generator/promise_type/yield_value.md b/reference/generator/generator/promise_type/yield_value.md
+index 9789d4b93..ed30b7ffc 100644
+--- a/reference/generator/generator/promise_type/yield_value.md
++++ b/reference/generator/generator/promise_type/yield_value.md
+@@ -50,7 +50,7 @@ value_ = addressof(val)
+ ```cpp
+ auto nested = [](allocator_arg_t, Alloc, ranges::iterator_t&amp;lt;Rng&amp;gt; i,
+                  ranges::sentinel_t&amp;lt;Rng&amp;gt; s)
+-  -&amp;gt; generator&amp;lt;yielded, ranges::range_value_t&amp;lt;Rng&amp;gt;, Alloc&amp;gt; {
++  -&amp;gt; generator&amp;lt;yielded, void, Alloc&amp;gt; {
+     for (; i != s; ++i) {
+       co_yield static_cast&amp;lt;yielded&amp;gt;(*i);
+     }
+@@ -65,7 +65,6 @@ return yield_value(ranges::elements_of(nested(
+ * allocator_arg[link /reference/memory/allocator_arg_t.md]
+ * ranges::iterator_t[link /reference/ranges/iterator_t.md]
+ * ranges::sentinel_t[link /reference/ranges/sentinel_t.md]
+-* ranges::range_value_t[link /reference/ranges/range_value_t.md]
+ * ranges::elements_of[link /reference/ranges/elements_of.md]
+ * r.range[link /reference/ranges/elements_of.md]
+ * r.allocator[link /reference/ranges/elements_of.md]
+@@ -105,3 +104,10 @@ return yield_value(ranges::elements_of(nested(
+ 
+ ## 関連項目
+ - [`unhandled_exception`](unhandled_exception.md)
++
++
++## 参照
++- [LWG Issue 3899. co_yielding elements of an lvalue generator is unnecessarily inefficient](https://cplusplus.github.io/LWG/issue3899)
++    - C++26で、(4)の効果で用いるネストした`generator`の型を`generator&amp;lt;yielded, void, Alloc&amp;gt;`に変更し、左辺値`generator`の要素をco_yieldする際の非効率を解消した
++- [LWG Issue 4119. `generator::promise_type::yield_value(ranges::elements_of&amp;lt;R, Alloc&amp;gt;)`&amp;#39;s nested generator may be ill-formed](https://cplusplus.github.io/LWG/issue4119)
++    - LWG 3899と同じく、ネストした`generator`の型を`generator&amp;lt;yielded, void, Alloc&amp;gt;`とすることで、要素型が`generator`のValue型として不適格になる問題を回避する
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>contiguous_iterator -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/contiguous_iterator.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/iterator/contiguous_iterator.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/contiguous_iterator.md b/reference/iterator/contiguous_iterator.md
+index 9d50db4ee..bb8e8d856 100644
+--- a/reference/iterator/contiguous_iterator.md
++++ b/reference/iterator/contiguous_iterator.md
+@@ -114,3 +114,5 @@ std::ostream_iterator&amp;lt;double&amp;gt; is not contiguous_iterator
+ - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+ - [P1474R1 Helpful pointers for `ContiguousIterator`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1474r1.pdf)
+ - [P3349R1 Converting contiguous iterators to pointers](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3349r1.html)
++- [LWG Issue 4170. `contiguous_iterator` should require `to_address(I{})`](https://cplusplus.github.io/LWG/issue4170)
++    - C++26で、`to_address`を要求する`requires`式の対象が`const I&amp;amp;`であることが整理された（cpprefjpの記述はもともとこの形と一致している）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>erase (非メンバ関数) -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/list/list/erase_free.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/list/list/erase_free.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/erase_free.md b/reference/list/list/erase_free.md
+index 93a62cf61..d01e5474e 100644
+--- a/reference/list/list/erase_free.md
++++ b/reference/list/list/erase_free.md
+@@ -23,7 +23,7 @@ namespace std {
+ 以下と等価：
+ 
+ ```cpp
+-erase_if(c, [&amp;amp;](auto&amp;amp; elem) { return elem == value; });
++erase_if(c, [&amp;amp;](const auto&amp;amp; elem) -&amp;gt; bool { return elem == value; });
+ ```
+ * erase_if[link erase_if_free.md]
+ 
+@@ -111,3 +111,5 @@ int main() {
+ - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+     - C++26で波カッコ初期化 (リスト初期化) に対応した
+ - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
++- [LWG Issue 4135. The helper lambda of `std::erase` for `list` should specify return type as `bool`](https://cplusplus.github.io/LWG/issue4135)
++    - C++26で、効果のラムダの引数に`const`が付き、戻り値型`-&amp;gt; bool`が明示された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>num_put -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/locale/num_put.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/locale/num_put.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/locale/num_put.md b/reference/locale/num_put.md
+index d17215d88..924202cb8 100644
+--- a/reference/locale/num_put.md
++++ b/reference/locale/num_put.md
+@@ -36,6 +36,21 @@ namespace std {
+ | `(destructor)` | デストラクタ |
+ | `do_put` | 数値を出力する |
+ 
++### 浮動小数点数の書式変換
++
++`do_put`が浮動小数点数を出力するとき、[`ios_base`](/reference/ios/ios_base.md)の`floatfield`と`uppercase`の状態に応じて、以下のprintf変換指定子に相当する書式が使われる。
++
++| 状態 | 相当するprintf変換 |
++|------|--------------------|
++| `floatfield == ios_base::fixed &amp;amp;&amp;amp; !uppercase` | `%f` |
++| `floatfield == ios_base::fixed` | `%F` |
++| `floatfield == ios_base::scientific &amp;amp;&amp;amp; !uppercase` | `%e` |
++| `floatfield == ios_base::scientific` | `%E` |
++| `floatfield == (ios_base::fixed \| ios_base::scientific) &amp;amp;&amp;amp; !uppercase` | `%a` |
++| `floatfield == (ios_base::fixed \| ios_base::scientific)` | `%A` |
++| `!uppercase`（上記以外） | `%g` |
++| （それ以外） | `%G` |
++
+ ### メンバ型
+ 
+ | 名前 | 説明 |
+@@ -52,3 +67,5 @@ namespace std {
+ ```
+ 
+ ### 参照
++- [LWG Issue 4084. `std::fixed` ignores `std::uppercase`](https://cplusplus.github.io/LWG/issue4084)
++    - C++26で、`floatfield == ios_base::fixed`のときに`uppercase`が設定されていれば`%F`（大文字）が使われることが明確化された（従来は`fixed`が常に`%f`で`uppercase`が無視されていた）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>allocate_shared_for_overwrite -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/memory/allocate_shared_for_overwrite.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/memory/allocate_shared_for_overwrite.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/allocate_shared_for_overwrite.md b/reference/memory/allocate_shared_for_overwrite.md
+index 5f758d72d..69304f818 100644
+--- a/reference/memory/allocate_shared_for_overwrite.md
++++ b/reference/memory/allocate_shared_for_overwrite.md
+@@ -44,6 +44,8 @@ namespace std {
+ 
+ 戻り値によって管理されるオブジェクトの`lifetime`が終了するか、配列要素の初期化が例外を送出すると、初期化された要素は元の構造の逆の順序で破棄される。
+ 
++この関数によって初期化された非配列型`U`の（サブ）オブジェクトを破棄する場合、式`pv-&amp;gt;~U()`によって破棄される。`pv`は型`U`のオブジェクトを指す。
++
+ - (1) : このオーバーロードが選択されるとき、`T`は、不明な境界の配列ではない。`T`型のオブジェクトへの`shared_ptr`を返す。
+ - (2) : このオーバーロードが選択されるとき、`T`は、不明な境界の配列である。型`U[N]`のオブジェクトへの`shared_ptr`を返す。ここで、`U`は[`remove_extent_t&amp;lt;T&amp;gt;`](/reference/type_traits/remove_extent.md)である。
+ 
+@@ -106,4 +108,6 @@ int main() {
+ ## 参照
+ - [P1020R1 Smart pointer creation with default initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1020r1.html)
+ - [P1973R1 Rename &amp;#34;_default_init&amp;#34; Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1973r1.pdf)
+-- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+\ No newline at end of file
++- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
++- [LWG Issue 4024. Underspecified destruction of objects created in `std::make_shared_for_overwrite`/`std::allocate_shared_for_overwrite`](https://cplusplus.github.io/LWG/issue4024)
++    - C++26で、この関数で初期化された非配列型オブジェクトの破棄が式`pv-&amp;gt;~U()`で行われることが明確化された
+\ No newline at end of file
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make_shared_for_overwrite -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/memory/make_shared_for_overwrite.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/memory/make_shared_for_overwrite.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/make_shared_for_overwrite.md b/reference/memory/make_shared_for_overwrite.md
+index 0fcf744cc..cc431a950 100644
+--- a/reference/memory/make_shared_for_overwrite.md
++++ b/reference/memory/make_shared_for_overwrite.md
+@@ -32,6 +32,8 @@ namespace std {
+ 
+ 戻り値によって管理されるオブジェクトの`lifetime`が終了するか、配列要素の初期化が例外を送出すると、初期化された要素は元の構造の逆の順序で破棄される。
+ 
++この関数によって初期化された非配列型`U`の（サブ）オブジェクトを破棄する場合、式`pv-&amp;gt;~U()`によって破棄される。`pv`は型`U`のオブジェクトを指す。
++
+ - (1) : このオーバーロードが選択されるとき、`T`は、不明な境界の配列ではない。`T`型のオブジェクトへの`shared_ptr`を返す。
+ - (2) : このオーバーロードが選択されるとき、`T`は、不明な境界の配列である。型`U[N]`のオブジェクトへの`shared_ptr`を返す。ここで、`U`は[`remove_extent_t&amp;lt;T&amp;gt;`](/reference/type_traits/remove_extent.md)である。
+ 
+@@ -94,3 +96,5 @@ int main() {
+ ## 参照
+ - [P1020R1 Smart pointer creation with default initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1020r1.html)
+ - [P1973R1 Rename &amp;#34;_default_init&amp;#34; Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1973r1.pdf)
++- [LWG Issue 4024. Underspecified destruction of objects created in `std::make_shared_for_overwrite`/`std::allocate_shared_for_overwrite`](https://cplusplus.github.io/LWG/issue4024)
++    - C++26で、この関数で初期化された非配列型オブジェクトの破棄が式`pv-&amp;gt;~U()`で行われることが明確化された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_move -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_move.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/memory/uninitialized_move.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_move.md b/reference/memory/uninitialized_move.md
+index a12ae48a2..963f9fe53 100644
+--- a/reference/memory/uninitialized_move.md
++++ b/reference/memory/uninitialized_move.md
+@@ -41,9 +41,11 @@ namespace std {
+ ```cpp
+ for (; first != last; ++result, ++first)
+   ::new (static_cast&amp;lt;void*&amp;gt;(addressof(*result)))
+-    typename iterator_traits&amp;lt;ForwardIterator&amp;gt;::value_type(std::move(*first));
++    typename iterator_traits&amp;lt;ForwardIterator&amp;gt;::value_type(deref-move(first));
+ ```
+-* std::move[link /reference/utility/move.md]
++* deref-move[italic]
++
++ここで`deref-move(first)`は、`*first`が左辺値参照を返す場合は`std::move(*first)`、そうでない場合は`*first`となる説明専用のヘルパである。これにより、`*first`がprvalueを返すイテレータに対してコピーの省略が保証される。
+ 
+ 
+ ## 戻り値
+@@ -118,5 +120,7 @@ int main()
+ - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
+ - [P3508R0 Wording for &amp;#34;constexpr for specialized memory algorithms&amp;#34;](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
+     - C++26から`constexpr`がついた
++- [LWG Issue 3918. `std::uninitialized_move`/`_n` and guaranteed copy elision](https://cplusplus.github.io/LWG/issue3918)
++    - C++26で、要素の構築に説明専用ヘルパ`deref-move`を用いるようになり、`*first`がprvalueを返すイテレータに対してコピーの省略が保証されるようになった
+ - [LWG Issue 4452. Make _deref-move_ constexpr](https://cplusplus.github.io/LWG/issue4452)
+     - C++26で、この関数が内部で用いる説明専用ヘルパ関数`deref-move`にも`constexpr`が付き、定数式での評価が可能になった（P3508が見落としていた箇所を補完）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_move_n -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_move_n.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/memory/uninitialized_move_n.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_move_n.md b/reference/memory/uninitialized_move_n.md
+index 0bd2e8347..b7b136d5f 100644
+--- a/reference/memory/uninitialized_move_n.md
++++ b/reference/memory/uninitialized_move_n.md
+@@ -41,9 +41,11 @@ namespace std {
+ ```cpp
+ for (; n &amp;gt; 0; ++result, (void)++first, --n)
+   ::new (static_cast&amp;lt;void*&amp;gt;(addressof(*result)))
+-    typename iterator_traits&amp;lt;ForwardIterator&amp;gt;::value_type(std::move(*first));
++    typename iterator_traits&amp;lt;ForwardIterator&amp;gt;::value_type(deref-move(first));
+ ```
+-* std::move[link /reference/utility/move.md]
++* deref-move[italic]
++
++ここで`deref-move(first)`は、`*first`が左辺値参照を返す場合は`std::move(*first)`、そうでない場合は`*first`となる説明専用のヘルパである。これにより、`*first`がprvalueを返すイテレータに対してコピーの省略が保証される。
+ 
+ 
+ ## 戻り値
+@@ -119,5 +121,7 @@ int main()
+ - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
+ - [P3508R0 Wording for &amp;#34;constexpr for specialized memory algorithms&amp;#34;](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
+     - C++26から`constexpr`がついた
++- [LWG Issue 3918. `std::uninitialized_move`/`_n` and guaranteed copy elision](https://cplusplus.github.io/LWG/issue3918)
++    - C++26で、要素の構築に説明専用ヘルパ`deref-move`を用いるようになり、`*first`がprvalueを返すイテレータに対してコピーの省略が保証されるようになった
+ - [LWG Issue 4452. Make _deref-move_ constexpr](https://cplusplus.github.io/LWG/issue4452)
+     - C++26で、この関数が内部で用いる説明専用ヘルパ関数`deref-move`にも`constexpr`が付き、定数式での評価が可能になった（P3508が見落としていた箇所を補完）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>unique_ptr -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/memory/unique_ptr.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/memory/unique_ptr.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/unique_ptr.md b/reference/memory/unique_ptr.md
+index b4fa45309..1658fe457 100644
+--- a/reference/memory/unique_ptr.md
++++ b/reference/memory/unique_ptr.md
+@@ -28,6 +28,10 @@ namespace std {
+ - `unique_ptr`自体も`T[]`時には部分特殊化され、`operator[]`によるアクセスを提供している。
+ 
+ 
++## 適格要件
++- C++26 : `T*`が有効な型とならない`unique_ptr&amp;lt;T&amp;amp;, D&amp;gt;`や`unique_ptr&amp;lt;int() const, D&amp;gt;`のような特殊化の実体化がないこと
++
++
+ ## メンバ関数
+ 
+ | 名前 | 説明 | 対応バージョン |
+@@ -149,3 +153,5 @@ hoge::~hoge()
+     - `unique_ptr&amp;lt;void, Deleter&amp;gt;`を許可するために、インタフェースを改良した経緯
+ - [LWG Issue 762. `std::unique_ptr` requires complete type?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#762)
+ - [N4089 Safe conversions in `unique_ptr&amp;lt;T[]&amp;gt;`, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
++- [LWG Issue 4144. Disallow `unique_ptr&amp;lt;T&amp;amp;, D&amp;gt;`](https://cplusplus.github.io/LWG/issue4144)
++    - C++26で、`T*`が有効な型とならない特殊化（`unique_ptr&amp;lt;T&amp;amp;, D&amp;gt;`など）の実体化が不適格であることが明確化された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator* -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/memory/unique_ptr/op_deref.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/memory/unique_ptr/op_deref.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/unique_ptr/op_deref.md b/reference/memory/unique_ptr/op_deref.md
+index d6ebedf5f..21f7191f0 100644
+--- a/reference/memory/unique_ptr/op_deref.md
++++ b/reference/memory/unique_ptr/op_deref.md
+@@ -19,6 +19,7 @@ constexpr add_lvalue_reference_t&amp;lt;T&amp;gt; operator*() const;    // (1) C++23
+ ## テンプレートパラメータ制約
+ - C++26 : `*`[`declval`](/reference/utility/declval.md)`&amp;lt;pointer&amp;gt;()`が適格な式であること。
+     - これにより、`unique_ptr&amp;lt;void&amp;gt;`のように間接参照できない型に対してこの演算子はオーバーロード解決から除外され、SFINAEフレンドリに振る舞う（テンプレートやコンセプトの制約チェックでハードエラーにならず、単に制約を満たさないものとして扱われる）。
++- C++26 : `T`が配列型である場合、または[`add_lvalue_reference_t`](/reference/type_traits/add_lvalue_reference.md)`&amp;lt;T&amp;gt;`が有効な型でない場合、プログラムは不適格となる。
+ 
+ 
+ ## 要件
+@@ -65,5 +66,7 @@ int main()
+ 
+ ## 参照
+ - [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)
++- [LWG Issue 4148. `unique_ptr::operator*` should not allow dangling references](https://cplusplus.github.io/LWG/issue4148)
++    - C++26で、`T`が配列型、または`add_lvalue_reference_t&amp;lt;T&amp;gt;`が有効な型でない場合にこの演算子の実体化が不適格となることが明確化された
+ - [LWG Issue 4324. `unique_ptr&amp;lt;void&amp;gt;::operator*` is not SFINAE-friendly](https://cplusplus.github.io/LWG/issue4324)
+     - C++26で、`*declval&amp;lt;pointer&amp;gt;()`が適格であるという制約が追加され、`unique_ptr&amp;lt;void&amp;gt;`などに対してこの演算子がSFINAEフレンドリに振る舞うようになった。LWG 2762で追加された条件付き`noexcept`により、`shared_ptr&amp;lt;void&amp;gt;::operator*`とは異なり制約チェックの失敗ではなくハードエラーになりうる問題を解決するもの（GCC・Clangは執筆時点で未対応で、`unique_ptr&amp;lt;void&amp;gt;`に対しても`operator*`が利用できる）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>launder -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/new/launder.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/new/launder.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/new/launder.md b/reference/new/launder.md
+index 8464dfa98..58a170aa3 100644
+--- a/reference/new/launder.md
++++ b/reference/new/launder.md
+@@ -93,6 +93,8 @@ c1.f();                         // well-defined; c1はC型の新しいオブジ
+ 
+ つまり、`placement new`使用時は、`std::launder`を使用することによって未定義動作を避けることができる。
+ 
++なお、`std::memcpy`によってトリビアルにコピー可能な型のオブジェクトを別のストレージへ複製した場合、その複製先を指すポインタは`std::launder`を通さずにそのまま使用できる。
++
+ 
+ ## 例
+ ```cpp example
+@@ -156,5 +158,7 @@ void tong() {
+     - C++20で`[[nodiscard]]`が付加された
+ - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+     - C++26で`[[nodiscard]]`指定が削除された
++- [LWG Issue 4064. Clarify that `std::launder` is not needed when using the result of `std::memcpy`](https://cplusplus.github.io/LWG/issue4064)
++    - C++26で、`std::memcpy`の結果を使う際には`std::launder`が不要であることが明確化された
+ - [LWG Issue 4130. Preconditions for `std::launder` might be overly strict](https://cplusplus.github.io/LWG/issue4130)
+     - C++26で、生存期間内にある配列オブジェクトの配列要素サブオブジェクトであれば、その要素自身の生存期間が開始していなくても`launder`を適用できるよう、事前条件が緩和された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;=&gt; -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/optional/optional/op_compare_3way.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/optional/optional/op_compare_3way.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/optional/optional/op_compare_3way.md b/reference/optional/optional/op_compare_3way.md
+index 7dca3129c..cec18dc8a 100644
+--- a/reference/optional/optional/op_compare_3way.md
++++ b/reference/optional/optional/op_compare_3way.md
+@@ -29,6 +29,10 @@ namespace std {
+ - (3) : `optional&amp;lt;T&amp;gt;`と有効値`U`の三方比較
+ 
+ 
++## テンプレートパラメータ制約
++- (3) : 比較する相手の型`U`が`optional`の特殊化でないこと
++
++
+ ## 戻り値
+ - (1) :
+     - `x &amp;amp;&amp;amp; y`が`true`である場合`*x &amp;lt;=&amp;gt; *y`を返し、そうでなければ`bool(x) &amp;lt;=&amp;gt; bool(y)`を返す
+@@ -120,3 +124,5 @@ int main()
+ ## 参照
+ - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
++- [LWG Issue 4072. `std::optional` comparisons: constrain harder](https://cplusplus.github.io/LWG/issue4072)
++    - C++26で、(3)の制約に、相手の型が`optional`の特殊化でないことが追加された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/optional/optional/op_equal.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/optional/optional/op_equal.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/optional/optional/op_equal.md b/reference/optional/optional/op_equal.md
+index 020cfbf30..03143fc53 100644
+--- a/reference/optional/optional/op_equal.md
++++ b/reference/optional/optional/op_equal.md
+@@ -31,6 +31,7 @@ namespace std {
+ 
+ ## テンプレートパラメータ制約
+ - (1), (3), (4) : 型`T`が`==`で比較可能であり、その戻り値型が`bool`に変換可能であること
++- (3), (4) : 比較する相手の型が`optional`の特殊化でないこと
+ 
+ 
+ ## 戻り値
+@@ -116,5 +117,7 @@ int main()
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+ - [P2944R3 Comparisons for `reference_wrapper`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2944r3.html)
+     - C++26でテンプレートパラメータ制約が整理された
++- [LWG Issue 4072. `std::optional` comparisons: constrain harder](https://cplusplus.github.io/LWG/issue4072)
++    - C++26で、`optional`と値の比較演算子の制約に、相手の型が`optional`の特殊化でないことが追加された（`optional`同士の比較がこのオーバーロードに解決されるのを防ぐ）
+ - [LWG Issue 4370. Comparison of `optional&amp;lt;T&amp;gt;` to `T` may be ill-formed](https://cplusplus.github.io/LWG/issue4370)
+     - C++26で、効果が三項演算子形式（`x.has_value() ? *x == v : false`）から`if`文形式へ変更された。比較結果が`bool`以外の型を返す場合に三項演算子で共通型が得られず不適格となる問題を防ぐもの（cpprefjpの戻り値の記述はもともとこの意味を表している）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt; -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/optional/optional/op_greater.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/optional/optional/op_greater.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/optional/optional/op_greater.md b/reference/optional/optional/op_greater.md
+index 7e612e2c5..f28c90a1d 100644
+--- a/reference/optional/optional/op_greater.md
++++ b/reference/optional/optional/op_greater.md
+@@ -27,8 +27,9 @@ namespace std {
+ `optional`において、左辺が右辺より大きいかの判定を行う。
+ 
+ 
+-## 要件
++## テンプレートパラメータ制約
+ - (1), (2), (3) : 型`T`と型`U`が`&amp;gt;`演算子で比較可能であること
++- (2), (3) : 比較する相手の型が`optional`の特殊化でないこと
+ 
+ 
+ ## 戻り値
+@@ -104,5 +105,7 @@ int main()
+ - [LWG Issue 2934. `optional&amp;lt;const T&amp;gt;` doesn&amp;#39;t compare with `T`](https://wg21.cmeerw.net/lwg/issue2934)
+ - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
++- [LWG Issue 4072. `std::optional` comparisons: constrain harder](https://cplusplus.github.io/LWG/issue4072)
++    - C++26で、`optional`と値の比較演算子の制約に、相手の型が`optional`の特殊化でないことが追加された（`optional`同士の比較がこのオーバーロードに解決されるのを防ぐ）
+ - [LWG Issue 4370. Comparison of `optional&amp;lt;T&amp;gt;` to `T` may be ill-formed](https://cplusplus.github.io/LWG/issue4370)
+     - C++26で、効果が三項演算子形式（`x.has_value() ? *x == v : false`）から`if`文形式へ変更された。比較結果が`bool`以外の型を返す場合に三項演算子で共通型が得られず不適格となる問題を防ぐもの（cpprefjpの戻り値の記述はもともとこの意味を表している）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;= -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/optional/optional/op_greater_equal.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/optional/optional/op_greater_equal.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/optional/optional/op_greater_equal.md b/reference/optional/optional/op_greater_equal.md
+index fba7a7ee8..80e99b423 100644
+--- a/reference/optional/optional/op_greater_equal.md
++++ b/reference/optional/optional/op_greater_equal.md
+@@ -27,8 +27,9 @@ namespace std {
+ `optional`において、左辺が右辺以上かの判定を行う。
+ 
+ 
+-## 要件
++## テンプレートパラメータ制約
+ - (1), (2), (3) : 型`T`と型`U`が`&amp;gt;=`演算子で比較可能であること
++- (2), (3) : 比較する相手の型が`optional`の特殊化でないこと
+ 
+ 
+ ## 戻り値
+@@ -104,5 +105,7 @@ int main()
+ - [LWG Issue 2934. `optional&amp;lt;const T&amp;gt;` doesn&amp;#39;t compare with `T`](https://wg21.cmeerw.net/lwg/issue2934)
+ - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
++- [LWG Issue 4072. `std::optional` comparisons: constrain harder](https://cplusplus.github.io/LWG/issue4072)
++    - C++26で、`optional`と値の比較演算子の制約に、相手の型が`optional`の特殊化でないことが追加された（`optional`同士の比較がこのオーバーロードに解決されるのを防ぐ）
+ - [LWG Issue 4370. Comparison of `optional&amp;lt;T&amp;gt;` to `T` may be ill-formed](https://cplusplus.github.io/LWG/issue4370)
+     - C++26で、効果が三項演算子形式（`x.has_value() ? *x == v : false`）から`if`文形式へ変更された。比較結果が`bool`以外の型を返す場合に三項演算子で共通型が得られず不適格となる問題を防ぐもの（cpprefjpの戻り値の記述はもともとこの意味を表している）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt; -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/optional/optional/op_less.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/optional/optional/op_less.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/optional/optional/op_less.md b/reference/optional/optional/op_less.md
+index f9a7953e9..b4980ccc1 100644
+--- a/reference/optional/optional/op_less.md
++++ b/reference/optional/optional/op_less.md
+@@ -27,8 +27,9 @@ namespace std {
+ `optional`において、左辺が右辺より小さいかの判定を行う。
+ 
+ 
+-## 要件
++## テンプレートパラメータ制約
+ - (1), (2), (3) : 型`T`と型`U`が`&amp;lt;`演算子で比較可能であること
++- (2), (3) : 比較する相手の型が`optional`の特殊化でないこと
+ 
+ 
+ ## 戻り値
+@@ -104,5 +105,7 @@ int main()
+ - [LWG Issue 2934. `optional&amp;lt;const T&amp;gt;` doesn&amp;#39;t compare with `T`](https://wg21.cmeerw.net/lwg/issue2934)
+ - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
++- [LWG Issue 4072. `std::optional` comparisons: constrain harder](https://cplusplus.github.io/LWG/issue4072)
++    - C++26で、`optional`と値の比較演算子の制約に、相手の型が`optional`の特殊化でないことが追加された（`optional`同士の比較がこのオーバーロードに解決されるのを防ぐ）
+ - [LWG Issue 4370. Comparison of `optional&amp;lt;T&amp;gt;` to `T` may be ill-formed](https://cplusplus.github.io/LWG/issue4370)
+     - C++26で、効果が三項演算子形式（`x.has_value() ? *x == v : false`）から`if`文形式へ変更された。比較結果が`bool`以外の型を返す場合に三項演算子で共通型が得られず不適格となる問題を防ぐもの（cpprefjpの戻り値の記述はもともとこの意味を表している）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;= -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/optional/optional/op_less_equal.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/optional/optional/op_less_equal.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/optional/optional/op_less_equal.md b/reference/optional/optional/op_less_equal.md
+index c514180ad..b9924b3ef 100644
+--- a/reference/optional/optional/op_less_equal.md
++++ b/reference/optional/optional/op_less_equal.md
+@@ -27,8 +27,9 @@ namespace std {
+ `optional`において、左辺が右辺以下かの判定を行う。
+ 
+ 
+-## 要件
++## テンプレートパラメータ制約
+ - (1), (2), (3) : 型`T`と型`U`が`&amp;lt;=`演算子で比較可能であること
++- (2), (3) : 比較する相手の型が`optional`の特殊化でないこと
+ 
+ 
+ ## 戻り値
+@@ -104,5 +105,7 @@ int main()
+ - [LWG Issue 2934. `optional&amp;lt;const T&amp;gt;` doesn&amp;#39;t compare with `T`](https://wg21.cmeerw.net/lwg/issue2934)
+ - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
++- [LWG Issue 4072. `std::optional` comparisons: constrain harder](https://cplusplus.github.io/LWG/issue4072)
++    - C++26で、`optional`と値の比較演算子の制約に、相手の型が`optional`の特殊化でないことが追加された（`optional`同士の比較がこのオーバーロードに解決されるのを防ぐ）
+ - [LWG Issue 4370. Comparison of `optional&amp;lt;T&amp;gt;` to `T` may be ill-formed](https://cplusplus.github.io/LWG/issue4370)
+     - C++26で、効果が三項演算子形式（`x.has_value() ? *x == v : false`）から`if`文形式へ変更された。比較結果が`bool`以外の型を返す場合に三項演算子で共通型が得られず不適格となる問題を防ぐもの（cpprefjpの戻り値の記述はもともとこの意味を表している）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator!= -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/optional/optional/op_not_equal.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/optional/optional/op_not_equal.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/optional/optional/op_not_equal.md b/reference/optional/optional/op_not_equal.md
+index 5cfa80610..70d9f8ada 100644
+--- a/reference/optional/optional/op_not_equal.md
++++ b/reference/optional/optional/op_not_equal.md
+@@ -27,8 +27,9 @@ namespace std {
+ `optional`オブジェクトの非等値比較を行う。
+ 
+ 
+-## 要件
++## テンプレートパラメータ制約
+ - (1), (2), (3) : 型`T`が`!=`で比較可能であること
++- (2), (3) : 比較する相手の型が`optional`の特殊化でないこと
+ 
+ 
+ ## 戻り値
+@@ -101,5 +102,7 @@ int main()
+ - [LWG Issue 2934. `optional&amp;lt;const T&amp;gt;` doesn&amp;#39;t compare with `T`](https://wg21.cmeerw.net/lwg/issue2934)
+ - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
++- [LWG Issue 4072. `std::optional` comparisons: constrain harder](https://cplusplus.github.io/LWG/issue4072)
++    - C++26で、`optional`と値の比較演算子の制約に、相手の型が`optional`の特殊化でないことが追加された（`optional`同士の比較がこのオーバーロードに解決されるのを防ぐ）
+ - [LWG Issue 4370. Comparison of `optional&amp;lt;T&amp;gt;` to `T` may be ill-formed](https://cplusplus.github.io/LWG/issue4370)
+     - C++26で、効果が三項演算子形式（`x.has_value() ? *x == v : false`）から`if`文形式へ変更された。比較結果が`bool`以外の型を返す場合に三項演算子で共通型が得られず不適格となる問題を防ぐもの（cpprefjpの戻り値の記述はもともとこの意味を表している）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>println -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/ostream/println.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/ostream/println.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ostream/println.md b/reference/ostream/println.md
+index 7604df658..91da15f21 100644
+--- a/reference/ostream/println.md
++++ b/reference/ostream/println.md
+@@ -35,10 +35,11 @@ namespace std {
+ ## 効果
+ - (1) : 以下と等価：
+     ```cpp
+-    print(os, &amp;#34;{}\n&amp;#34;, format(fmt, std::forward&amp;lt;Args&amp;gt;(args)...));
++    print(os, &amp;#34;{}\n&amp;#34;, format(os.getloc(), fmt, std::forward&amp;lt;Args&amp;gt;(args)...));
+     ```
+     * print[link print.md]
+     * format[link /reference/format/format.md]
++    * getloc[link /reference/ios/ios_base/getloc.md]
+ 
+ - (2) : 以下と等価：
+     ```cpp
+@@ -125,3 +126,5 @@ abc
+ ## 参照
+ - [P2093R14 Formatted output](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2093r14.html)
+ - [P3142R0 Printing Blank Lines with `println`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3142r0.pdf)
++- [LWG Issue 4088. `println` ignores the locale imbued in `std::ostream`](https://cplusplus.github.io/LWG/issue4088)
++    - C++26で、(1)の効果が`os`にimbueされたロケール（`os.getloc()`）を用いて書式化するよう修正された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>vprint_unicode -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/ostream/vprint_unicode.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/ostream/vprint_unicode.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ostream/vprint_unicode.md b/reference/ostream/vprint_unicode.md
+index c1b4a8618..4a12436cc 100644
+--- a/reference/ostream/vprint_unicode.md
++++ b/reference/ostream/vprint_unicode.md
+@@ -33,9 +33,8 @@ namespace std {
+     * string[link /reference/string/basic_string.md]
+     * vformat[link /reference/format/vformat.md]
+ 
+-- `os`が実装定義されたUnicodeを表示できる端末を参照するストリームである場合、ネイティブのUnicode APIを使用して端末に書き出す
+-- `out`に無効なコードユニットが含まれる場合、その動作は未定義であり，実装者はそれを診断することが推奨される
+-- ネイティブのUnicode APIを使用する場合、この関数は`out`を書き出す前にフラッシュする
++- `os`が、ネイティブUnicode API経由でのみUnicodeを表示できる端末（実装定義の方法で判定される）を参照するストリームである場合、`os`をフラッシュしてから、ネイティブのUnicode APIを使用して`out`を端末に書き出す。`out`に無効なコードユニットが含まれる場合、その動作は未定義である
++- そうでなければ、`out`を`os`に書き出す
+ 
+ 
+ ## 例外
+@@ -68,3 +67,5 @@ namespace std {
+ ## 参照
+ - [P2093R14 Formatted output](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2093r14.html)
+ - [P2539R4 Should the output of `std::print` to a terminal be synchronized with the underlying stream?](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2539r4.html)
++- [LWG Issue 4044. Confusing requirements for `std::print` on POSIX platforms](https://cplusplus.github.io/LWG/issue4044)
++    - C++26で、ネイティブUnicode API経由でのみUnicodeを表示できる端末に限ってネイティブAPIで書き出すことを明確化し、フラッシュのタイミングと書き出し処理を統合した
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>generate_random -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/random/generate_random.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/random/generate_random.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/generate_random.md b/reference/random/generate_random.md
+index 6329d6461..7adab9215 100644
+--- a/reference/random/generate_random.md
++++ b/reference/random/generate_random.md
+@@ -22,7 +22,8 @@ namespace std::ranges {
+   template &amp;lt;class R, class G, class D&amp;gt;
+     requires output_range&amp;lt;R, invoke_result_t&amp;lt;D&amp;amp;, G&amp;amp;&amp;gt;&amp;gt; &amp;amp;&amp;amp;
+              invocable&amp;lt;D&amp;amp;, G&amp;amp;&amp;gt; &amp;amp;&amp;amp;
+-             uniform_random_bit_generator&amp;lt;remove_cvref_t&amp;lt;G&amp;gt;&amp;gt;
++             uniform_random_bit_generator&amp;lt;remove_cvref_t&amp;lt;G&amp;gt;&amp;gt; &amp;amp;&amp;amp;
++             is_arithmetic_v&amp;lt;invoke_result_t&amp;lt;D&amp;amp;, G&amp;amp;&amp;gt;&amp;gt;
+   constexpr borrowed_iterator_t&amp;lt;R&amp;gt;
+     generate_random(R&amp;amp;&amp;amp; r, G&amp;amp;&amp;amp; g, D&amp;amp;&amp;amp; d);           // (3) C++26
+ 
+@@ -31,13 +32,15 @@ namespace std::ranges {
+             output_iterator&amp;lt;invoke_result_t&amp;lt;D&amp;amp;, G&amp;amp;&amp;gt;&amp;gt; O,
+             sentinel_for&amp;lt;O&amp;gt; S&amp;gt;
+     requires invocable&amp;lt;D&amp;amp;, G&amp;amp;&amp;gt; &amp;amp;&amp;amp;
+-             uniform_random_bit_generator&amp;lt;remove_cvref_t&amp;lt;G&amp;gt;&amp;gt;
++             uniform_random_bit_generator&amp;lt;remove_cvref_t&amp;lt;G&amp;gt;&amp;gt; &amp;amp;&amp;amp;
++             is_arithmetic_v&amp;lt;invoke_result_t&amp;lt;D&amp;amp;, G&amp;amp;&amp;gt;&amp;gt;
+   constexpr O
+     generate_random(O first, S last, G&amp;amp;&amp;amp; g, D&amp;amp;&amp;amp; d); // (4) C++26
+ }
+ ```
+ * uniform_random_bit_generator[link uniform_random_bit_generator.md]
+ * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
++* is_arithmetic_v[link /reference/type_traits/is_arithmetic.md]
+ 
+ ## 概要
+ 乱数列を生成する。
+@@ -152,3 +155,5 @@ int main()
+ 
+ ## 参照
+ - [P1068R11 Vector API for random number generation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p1068r11.pdf)
++- [LWG Issue 4085. `ranges::generate_random`&amp;#39;s helper lambda should specify the return type](https://cplusplus.github.io/LWG/issue4085)
++    - C++26で、(3), (4)の制約に`is_arithmetic_v&amp;lt;invoke_result_t&amp;lt;D&amp;amp;, G&amp;amp;&amp;gt;&amp;gt;`が追加された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>philox_engine -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/random/philox_engine.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/random/philox_engine.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/philox_engine.md b/reference/random/philox_engine.md
+index 51368ab0a..2072eed32 100644
+--- a/reference/random/philox_engine.md
++++ b/reference/random/philox_engine.md
+@@ -26,7 +26,7 @@ Philox法は、以下のような特徴を持つ：
+ 2. 長い周期をもつ (Philox4x32の周期は2&amp;lt;sup&amp;gt;130&amp;lt;/sup&amp;gt;)
+ 3. ベクトル化・並列化がしやすい
+ 
+-`philox_engine`は、 $ m = 2^{w}−1 $ であるとして、区間`[0, m]`の符号なし整数の乱数を生成する。
++`philox_engine`は、 $ m = 2^{w} $ であるとして、区間`[0, m)`の符号なし整数の乱数を生成する。
+ 
+ - オブジェクトの状態としては、以下をもつ：
+     - n個のwビットの符号なし整数からなるシーケンス $X$
+@@ -56,12 +56,10 @@ Philox法は、以下のような特徴を持つ：
+         $$ V_{j} = X&amp;#39;_{f(j)} $$
+         ここでj = 0, …, n-1であり、`f(j)`は以下のテーブルで定義される (n=2のシーケンスは順列ではない)：
+ 
+-    |      | j=0 | j=1 | j=2 | j=3 | j=4 | j=5 | j=6 | j=7 | j=8 | j=9 | j=10 | j=11 | j=12 | j=13 | j=14 | j=15 |
+-    |------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|------|------|------|------|------|------|
+-    | n=2  | 0   | 1   |     |     |     |     |     |     |     |     |      |      |      |      |      |      |
+-    | n=4  | 0   | 3   | 2   | 1   |     |     |     |     |     |     |      |      |      |      |      |      |
+-    | n=8  | 2   | 1   | 4   | 7   | 6   | 5   | 0   | 3   |     |     |      |      |      |      |      |      |
+-    | n=16 | 0   | 9   | 2   | 13  | 16  | 11  | 4   | 15  | 10  | 7   | 12   | 13   | 14   | 5    | 8    | 1    |
++    |      | j=0 | j=1 | j=2 | j=3 |
++    |------|-----|-----|-----|-----|
++    | n=2  | 0   | 1   |     |     |
++    | n=4  | 2   | 1   | 0   | 3   |
+ 
+     - 2. シーケンス $V$ の要素には以下の計算が適用される：
+         $$ X&amp;#39;_{2 \cdot k} = mullo(V_{2 \cdot k + 1},\ M_{k},\ w) $$
+@@ -273,5 +271,9 @@ int main()
+     - 2011年に発表されたこの論文でPhilox乱数生成器が考案された
+ - [P4037R1 Supporting `signed char` and `unsigned char` in random number generation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4037r1.html)
+     - `UIntType`テンプレートパラメータの要件が明文化された（拡張符号なし整数型および処理系定義のサブセットを許容）。この仕様はC++26から導入されたが、仕様の欠陥を修正したものであるためコンパイラは早期に対応している場合がある
++- [LWG Issue 4134. Issue with Philox algorithm specification](https://cplusplus.github.io/LWG/issue4134)
++    - C++26で、ワード置換関数`f(j)`のテーブルが修正された（`n=4`の順列を`2, 1, 0, 3`に訂正し、`philox_engine`が対応しない`n=8`・`n=16`の行を削除）
++- [LWG Issue 4153. Fix extra &amp;#34;-1&amp;#34; for `philox_engine::max()`](https://cplusplus.github.io/LWG/issue4153)
++    - C++26で、生成範囲の記述が閉区間`[0, 2^w - 1]`から半開区間`[0, 2^w)`に整理された（[`max()`](philox_engine/max.md)が返す値は`2^w - 1`のまま）
+ - [LWG Issue 4224. Philox engines should be freestanding](https://cplusplus.github.io/LWG/issue4224)
+     - C++26で、このクラステンプレートおよび[`philox4x32`](philox4x32.md)/[`philox4x64`](philox4x64.md)がフリースタンディング処理系に対応した（ストリーム挿入子・抽出子はホスト処理系専用）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/random/subtract_with_carry_engine/op_constructor.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/random/subtract_with_carry_engine/op_constructor.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/subtract_with_carry_engine/op_constructor.md b/reference/random/subtract_with_carry_engine/op_constructor.md
+index adc5ab33a..cbccd9ebf 100644
+--- a/reference/random/subtract_with_carry_engine/op_constructor.md
++++ b/reference/random/subtract_with_carry_engine/op_constructor.md
+@@ -23,12 +23,12 @@ subtract_with_carry_engine(subtract_with_carry_engine&amp;amp;&amp;amp; e) = default;      // (5
+ ## 概要
+ - (1) : デフォルトコンストラクタ
+     - C++17まで：シード値が指定されない場合はデフォルトのシード値 (`subtract_with_carry_engine::default_seed`) で構築される
+-        - [`linear_congruential_engine`](../linear_congruential_engine.md) を $n = \lceil 32 / \mathtt{w} \rceil$ 回 (`w` は `subtract_with_carry_engine::word_size`) 呼び出して内部状態を初期化する
++        - [`linear_congruential_engine`](../linear_congruential_engine.md) を $n = \lceil \mathtt{w} / 32 \rceil$ 回 (`w` は `subtract_with_carry_engine::word_size`) 呼び出して内部状態を初期化する
+     - C++20から : デフォルトのシード値 (`subtract_with_carry_engine::default_seed`) で(2)に委譲
+     - C++26から : シード値を`0u`として(2)に委譲
+ - (2) : シード値を受け取って状態シーケンスを構築する
+     - `value == 0`なら、デフォルトのシード値 (`subtract_with_carry_engine::default_seed`) が使用される
+-    - [`linear_congruential_engine`](../linear_congruential_engine.md) を $n = \lceil 32 / \mathtt{w} \rceil$ 回 (`w` は `subtract_with_carry_engine::word_size`) 呼び出して内部状態を初期化する
++    - [`linear_congruential_engine`](../linear_congruential_engine.md) を $n = \lceil \mathtt{w} / 32 \rceil$ 回 (`w` は `subtract_with_carry_engine::word_size`) 呼び出して内部状態を初期化する
+ - (3) : シードのシーケンスを受け取って状態シーケンスを構築する
+ - (4) : コピーコンストラクタ。状態シーケンスをコピーする
+ - (5) : ムーブコンストラクタ。可能であれば状態シーケンスを移動する
+@@ -112,3 +112,5 @@ int main()
+ 
+ - [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
+ - [LWG Issue 3809. Is `std::subtract_with_carry_engine&amp;lt;uint16_t&amp;gt;` supposed to work?](https://cplusplus.github.io/LWG/issue3809)
++- [LWG Issue 4014. LWG 3809 changes behavior of some existing `std::subtract_with_carry_engine` code](https://cplusplus.github.io/LWG/issue4014)
++    - C++26で、内部状態の初期化に用いる線形合同法エンジンの呼び出し回数が $\lceil 32 / \mathtt{w} \rceil$ から $\lceil \mathtt{w} / 32 \rceil$ に修正された（LWG 3809が既存コードの生成列を変えてしまった問題の修正）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>has-arrow -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/has-arrow.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/ranges/has-arrow.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/has-arrow.md b/reference/ranges/has-arrow.md
+index 6613f2d50..30d2a3f81 100644
+--- a/reference/ranges/has-arrow.md
++++ b/reference/ranges/has-arrow.md
+@@ -7,7 +7,7 @@
+ ```cpp
+ template&amp;lt;class I&amp;gt;
+   concept has-arrow = // 説明専用コンセプト
+-    input_iterator&amp;lt;I&amp;gt; &amp;amp;&amp;amp; (is_pointer_v&amp;lt;I&amp;gt; || requires(I i) { i.operator-&amp;gt;(); });
++    input_iterator&amp;lt;I&amp;gt; &amp;amp;&amp;amp; (is_pointer_v&amp;lt;I&amp;gt; || requires(const I i) { i.operator-&amp;gt;(); });
+ ```
+ * is_pointer_v[link /reference/type_traits/is_pointer.md]
+ 
+@@ -26,3 +26,8 @@ C++20 のイテレータ定義であるコンセプトたちではアロー演
+ - [GCC](/implementation.md#gcc): ??
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [LWG Issue 4112. `has-arrow` should require `operator-&amp;gt;()` to be const-qualified](https://cplusplus.github.io/LWG/issue4112)
++    - C++26で、`requires`式の引数が`const I`となり、`operator-&amp;gt;()`がCV修飾された状態で呼び出せることを要求するようになった
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>possibly-const-range -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/possibly-const-range.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/ranges/possibly-const-range.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/possibly-const-range.md b/reference/ranges/possibly-const-range.md
+index e1ee948d9..204c9fbf4 100644
+--- a/reference/ranges/possibly-const-range.md
++++ b/reference/ranges/possibly-const-range.md
+@@ -9,7 +9,7 @@
+ namespace std::ranges {
+   template&amp;lt;input_range R&amp;gt;
+   constexpr auto&amp;amp; possibly-const-range(R&amp;amp; r) noexcept {
+-    if constexpr (constant_range&amp;lt;const R&amp;gt; &amp;amp;&amp;amp; !constant_range&amp;lt;R&amp;gt;) {
++    if constexpr (input_range&amp;lt;const R&amp;gt;) {
+       return const_cast&amp;lt;const R&amp;amp;&amp;gt;(r);
+     } else {
+       return r;
+@@ -33,3 +33,5 @@ namespace std::ranges {
+ 
+ - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+ - [LWG Issue 3948. `possibly-const-range` and `as-const-pointer` should be `noexcept`](https://cplusplus.github.io/LWG/issue3948)
++- [LWG Issue 4027. `possibly-const-range` should prefer returning `const R&amp;amp;`](https://cplusplus.github.io/LWG/issue4027)
++    - C++26で、条件が`constant_range&amp;lt;const R&amp;gt; &amp;amp;&amp;amp; !constant_range&amp;lt;R&amp;gt;`から`input_range&amp;lt;const R&amp;gt;`に変更され、`const R&amp;amp;`が優先的に返されるようになった
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>has_unique_object_representations -- Merge pull request #1730 from cpprefjp/cpp26_lib_issues7</title>
+      <link href="https://cpprefjp.github.io/reference/type_traits/has_unique_object_representations.html"/>
+      <id>a283116931df6a50185b3225f0b4f8f6b69ad764:reference/type_traits/has_unique_object_representations.md</id>
+      <updated>2026-08-17T13:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/type_traits/has_unique_object_representations.md b/reference/type_traits/has_unique_object_representations.md
+index 27af0e417..26cd621cf 100644
+--- a/reference/type_traits/has_unique_object_representations.md
++++ b/reference/type_traits/has_unique_object_representations.md
+@@ -19,8 +19,8 @@ namespace std {
+ 型`T`の任意の2つの値が、同じ値を持つ場合はそのオブジェクト表現（バイト表現）も同じとなるかどうかを調べる。
+ 
+ 
+-## 要件
+-型`T`が、完全型であること。もしくは`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型であること。
++## 適格要件
++[`remove_all_extents_t`](remove_all_extents.md)`&amp;lt;T&amp;gt;`が、完全型であること。もしくは`const`/`volatile`修飾された(あるいはされていない)`void`であること。
+ 
+ 
+ ## 効果
+@@ -123,3 +123,5 @@ false
+ - [What type will make “std::has_unique_object_representations” return false? - Stack Overflow](https://stackoverflow.com/questions/42855326/what-type-will-make-stdhas-unique-object-representations-return-false)
+ - [P0258R1 is_contiguous_layout](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0258r1.html)
+ - [P0258R2 has_unique_object_representations - wording](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0258r2.html)
++- [LWG Issue 4113. Disallow `has_unique_object_representations&amp;lt;Incomplete[]&amp;gt;`](https://cplusplus.github.io/LWG/issue4113)
++    - C++26で、適格要件が`remove_all_extents_t&amp;lt;T&amp;gt;`を対象とするよう整理され、要素数不明の不完全型配列が許可されないことが明確化された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>num_put -- locale::num_put : 浮動小数点数の変換テーブルを記載</title>
+      <link href="https://cpprefjp.github.io/reference/locale/num_put.html"/>
+      <id>80582c0e5fe7f91d0499ba368184fe6800d3bc85:reference/locale/num_put.md</id>
+      <updated>2026-08-17T12:25:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/locale/num_put.md b/reference/locale/num_put.md
+index d17215d88..924202cb8 100644
+--- a/reference/locale/num_put.md
++++ b/reference/locale/num_put.md
+@@ -36,6 +36,21 @@ namespace std {
+ | `(destructor)` | デストラクタ |
+ | `do_put` | 数値を出力する |
+ 
++### 浮動小数点数の書式変換
++
++`do_put`が浮動小数点数を出力するとき、[`ios_base`](/reference/ios/ios_base.md)の`floatfield`と`uppercase`の状態に応じて、以下のprintf変換指定子に相当する書式が使われる。
++
++| 状態 | 相当するprintf変換 |
++|------|--------------------|
++| `floatfield == ios_base::fixed &amp;amp;&amp;amp; !uppercase` | `%f` |
++| `floatfield == ios_base::fixed` | `%F` |
++| `floatfield == ios_base::scientific &amp;amp;&amp;amp; !uppercase` | `%e` |
++| `floatfield == ios_base::scientific` | `%E` |
++| `floatfield == (ios_base::fixed \| ios_base::scientific) &amp;amp;&amp;amp; !uppercase` | `%a` |
++| `floatfield == (ios_base::fixed \| ios_base::scientific)` | `%A` |
++| `!uppercase`（上記以外） | `%g` |
++| （それ以外） | `%G` |
++
+ ### メンバ型
+ 
+ | 名前 | 説明 |
+@@ -52,3 +67,5 @@ namespace std {
+ ```
+ 
+ ### 参照
++- [LWG Issue 4084. `std::fixed` ignores `std::uppercase`](https://cplusplus.github.io/LWG/issue4084)
++    - C++26で、`floatfield == ios_base::fixed`のときに`uppercase`が設定されていれば`%F`（大文字）が使われることが明確化された（従来は`fixed`が常に`%f`で`uppercase`が無視されていた）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- packaged_taskのコンストラクタ : 適格要件を追加</title>
+      <link href="https://cpprefjp.github.io/reference/future/packaged_task/op_constructor.html"/>
+      <id>ac844f287de642787727779041325744f53fafdc:reference/future/packaged_task/op_constructor.md</id>
+      <updated>2026-08-17T12:24:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/future/packaged_task/op_constructor.md b/reference/future/packaged_task/op_constructor.md
+index 3fc3d1d4d..5acbc814e 100644
+--- a/reference/future/packaged_task/op_constructor.md
++++ b/reference/future/packaged_task/op_constructor.md
+@@ -30,6 +30,10 @@ packaged_task(packaged_task&amp;amp;&amp;amp; rhs) noexcept;       // (5)
+ - (5) : ムーブコンストラクタ。
+ 
+ 
++## 適格要件
++- (2), (3) : [`is_invocable_r_v`](/reference/type_traits/is_invocable_r.md)`&amp;lt;R,` [`decay_t`](/reference/type_traits/decay.md)`&amp;lt;F&amp;gt;&amp;amp;, ArgTypes...&amp;gt;`が`true`であること。ここで`R`と`ArgTypes...`は`packaged_task&amp;lt;R(ArgTypes...)&amp;gt;`のものである。
++
++
+ ## 効果
+ - (1) : 共有状態なし、タスクの保持なしでオブジェクトを構築する。
+ - (2) : 共有状態を初期化し、`f`を非同期実行するタスクとして[`std::forward`](/reference/utility/forward.md)`&amp;lt;F&amp;gt;(f)`でメンバ変数に保持する。
+@@ -119,3 +123,5 @@ int main()
+ - [LWG Issue 3039. Unnecessary `decay` in `thread` and `packaged_task`](https://wg21.cmeerw.net/lwg/issue3039)
+ - [P3503R3 Make type-erased allocator use in `promise` and `packaged_task` consistent](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3503r3.html)
+     - C++26でアロケータを受け取るコンストラクタを再追加
++- [LWG Issue 4154. The Mandates for `std::packaged_task`&amp;#39;s constructor from a callable entity should consider decaying](https://cplusplus.github.io/LWG/issue4154)
++    - C++26で、適格要件が`is_invocable_r_v&amp;lt;R, F&amp;amp;, ArgTypes...&amp;gt;`から`is_invocable_r_v&amp;lt;R, decay_t&amp;lt;F&amp;gt;&amp;amp;, ArgTypes...&amp;gt;`に修正された（`F`をdecayした型で判定する）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- atomicのデフォルトコンストラクタ : 適格要件をテンプレートパラメータ制約に変更</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/op_constructor.html"/>
+      <id>bb3c2830c64420f1ab615bca2b27a701b377625a:reference/atomic/atomic/op_constructor.md</id>
+      <updated>2026-08-17T12:24:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/op_constructor.md b/reference/atomic/atomic/op_constructor.md
+index 6d9438f15..cf5dee428 100644
+--- a/reference/atomic/atomic/op_constructor.md
++++ b/reference/atomic/atomic/op_constructor.md
+@@ -24,6 +24,13 @@ atomic(atomic&amp;amp;&amp;amp;) = delete;                         // (4) C++11
+ - (4) : ムーブコンストラクタ。ムーブ不可
+ 
+ 
++## テンプレートパラメータ制約
++- (1) :
++    - C++20 : `is_default_constructible_v&amp;lt;T&amp;gt;`が`true`であること（適格要件）
++    - C++26 : `is_default_constructible_v&amp;lt;T&amp;gt;`が`true`であること（テンプレートパラメータ制約）
++        - C++26では適格要件からテンプレートパラメータ制約に変更され、条件を満たさない場合はハードエラーではなくオーバーロード解決から除外される
++
++
+ ## 効果
+ - (1) :
+     - C++17 : `atomic`オブジェクトを未初期化状態にする (C言語との互換性のため)
+@@ -80,3 +87,5 @@ int main()
+ 
+ ## 参照
+ - [P0883R2 Fixing Atomic Initialization, Rev2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0883r2.pdf)
++- [LWG Issue 4169. `std::atomic&amp;lt;T&amp;gt;`&amp;#39;s default constructor should be constrained](https://cplusplus.github.io/LWG/issue4169)
++    - C++26で、デフォルトコンストラクタの`is_default_constructible_v&amp;lt;T&amp;gt;`要件が適格要件（Mandates）からテンプレートパラメータ制約（Constraints）に変更され、SFINAEフレンドリに振る舞うようになった
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>

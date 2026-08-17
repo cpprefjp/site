@@ -1,0 +1,509 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>後置インクリメント・デクリメント演算のdefault定義 [P3668R4] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp29
+">
+        <meta name="title" content="後置インクリメント・デクリメント演算のdefault定義 [P3668R4] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="後置インクリメント・デクリメント演算のdefault定義 [P3668R4] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="後置インクリメント・デクリメント演算のdefault定義 [P3668R4] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++29では、後置インクリメント演算子`operator++(int)`と後置デクリメント演算子`operator--(int)`を、対応する前置演算子`operator++()`／`operator--()`から`= default`によって生成できるようになる。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="後置インクリメント・デクリメント演算のdefault定義 [P3668R4] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.html" />
+        <meta name="twitter:description" content="C++29では、後置インクリメント演算子`operator++(int)`と後置デクリメント演算子`operator--(int)`を、対応する前置演算子`operator++()`／`operator--()`から`= default`によって生成できるようになる。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc">
+<link rel="manifest" href="../../manifest.json?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=557cd0469f26f0f797224f46d1b6e764266f07cc"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp29&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;99a4ee0c65de8ec8fb68fc33ea121fd402646204&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nclass counter {\n  int value_ = 0;\npublic:\n  constexpr int get() const { return value_; }\n\n  constexpr counter&amp; operator++() { ++value_; return *this; }\n  constexpr counter&amp; operator--() { --value_; return *this; }\n\n  // \u524d\u7f6e\u6f14\u7b97\u5b50\u304b\u3089\u3001\u5f8c\u7f6e\u6f14\u7b97\u5b50\u306e\u5b9a\u7fa9\u3092\u30b3\u30f3\u30d1\u30a4\u30e9\u306b\u751f\u6210\u3055\u305b\u308b\n  constexpr counter operator++(int) = default;\n  constexpr counter operator--(int) = default;\n};\n\nint main()\n{\n  counter c;\n\n  std::cout &lt;&lt; (c++).get() &lt;&lt; std::endl; // \u30a4\u30f3\u30af\u30ea\u30e1\u30f3\u30c8\u524d\u306e\u5024\u304c\u8fd4\u308b\n  std::cout &lt;&lt; c.get() &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; (c--).get() &lt;&lt; std::endl; // \u30c7\u30af\u30ea\u30e1\u30f3\u30c8\u524d\u306e\u5024\u304c\u8fd4\u308b\n  std::cout &lt;&lt; c.get() &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp29&#34;, &#34;defaulting_postfix_increment_and_decrement_operations&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp29.html" itemprop="url">
+              
+                <span itemprop="name">C++29</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">後置インクリメント・デクリメント演算のdefault定義 [P3668R4]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-08-14T15:00:37+09:00">
+        2026年08月14日 15時00分37秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">rotarymars</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">後置インクリメント・デクリメント演算のdefault定義 [P3668R4]</span><span class="cpp cpp29" title="C++29で追加">(C++29)</span></h1>
+<div itemprop="articleBody"><p>
+</p>
+<p>このページはC++29に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p>
+</p>
+<h2>概要</h2>
+<p>C++29では、後置インクリメント演算子<code>operator++(int)</code>と後置デクリメント演算子<code>operator--(int)</code>を、対応する前置演算子<code>operator++()</code>／<code>operator--()</code>から<code>= default</code>によって生成できるようになる。</p>
+<p>後置インクリメント・デクリメント演算の意味は、「自身のコピーをとり、前置演算を適用し、コピーしておいた元の値を返す」という定型的なものである。C++26までは、その定型的な処理を利用者自身が毎回記述する必要があった：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">foo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">foo</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">++</span><span class="n">member</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// 定型的な内容だが、利用者が記述する必要があった</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="p">{</span><span class="o">*</span><span class="k">this</span><span class="p">};</span>
+<span class="w">    </span><span class="o">++*</span><span class="k">this</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">copy</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>C++29では、前置インクリメント・デクリメント演算子から、この定義をコンパイラに生成させられる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">foo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">foo</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">++</span><span class="n">member</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>後置演算子を<code>= default</code>で定義する場合、その<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型はクラス型そのもの (<code>C&amp;</code>ではなく<code>C</code>) でなければならない。そのうえで、対応する前置演算子が使用でき、かつクラスをコピー構築できる場合に、後置演算子の定義が生成される。前置演算子がない場合など、それらが満たされないときには、その後置演算子はdelete定義されたものとして扱われる。</p>
+<p>これによって定型コードの記述量が減り、記述ミスの余地も小さくなる。</p>
+<h2>仕様</h2>
+<h3>default定義できる形式</h3>
+<p>後置演算子は、メンバ関数・明示的オブジェクトパラメータをもつメンバ関数・非メンバ関数のいずれの形式でもdefault定義できる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// メンバ関数</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">S0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">  </span><span class="n">S0</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">++</span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="n">S0</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// 明示的オブジェクトパラメータをもつメンバ関数</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">S1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">  </span><span class="n">S1</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">++</span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="n">S1</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">S1</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// 非メンバ関数</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">S2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">  </span><span class="n">S2</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">++</span><span class="n">v</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">};</span>
+<span class="n">S2</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="n">S2</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>型<code>C</code>に対するdefault定義された後置インクリメント・デクリメント演算子関数は、以下のすべてを満たす非テンプレート関数でなければならない：</p>
+<ul>
+<li>「<code>C</code>への参照」型の第1パラメータ、または「<code>volatile C</code>への参照」型の第1パラメータをもつこと。ここで、暗黙のオブジェクトパラメータ (があれば) を第1パラメータとみなす</li>
+<li><code>C</code>の定義内で、または<code>C</code>が<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>である文脈でdefault定義されること</li>
+<li>宣言された<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が<code>C</code>であること</li>
+</ul>
+<p>また、クラス内に現れるdefault定義は、その関数の最初の宣言でなければならない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="p">;</span>
+<span class="n">S</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="n">S</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// コンパイルエラー、Sが不完全型</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">S</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">S</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">S</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">S</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">S</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// コンパイルエラー、パラメータの型が誤っている</span>
+<span class="w">                                </span><span class="c1">// 「Sへの参照」でなければならない</span>
+</code></pre></div>
+</p>
+<h3>暗黙定義の意味</h3>
+<p>deleted定義とならない場合、型<code>C</code>に対するdefault定義された後置演算子関数<code>F</code>の暗黙定義は、後置インクリメントであれば以下と等価である：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">C</span><span class="w"> </span><span class="nf">tmp</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="o">++</span><span class="n">c</span><span class="p">;</span>
+<span class="k">return</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>後置デクリメントであれば、<code>++c</code>が<code>--c</code>となる。ここで<code>tmp</code>は説明のためだけに存在する変数であり、<code>c</code>は、<code>F</code>が暗黙のオブジェクトメンバ関数であれば<code>*this</code>を、そうでなければ<code>F</code>の第1パラメータを表す左辺値である。</p>
+<p>コピーの作成は直接初期化 (<code>C tmp(c);</code>) であるため、コピーコンストラクタが<code>explicit</code>であっても使用できる。一方で<code>return tmp;</code>はコピー初期化であるため、<code>explicit</code>なコピーコンストラクタをもち、かつムーブコンストラクタをもたないクラスでは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">A</span><span class="p">(</span><span class="n">A</span><span class="o">&amp;&amp;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">A</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">();</span>
+<span class="w">  </span><span class="n">A</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK、return文でムーブコンストラクタが使用される</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">B</span><span class="o">&amp;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">B</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">();</span>
+<span class="w">  </span><span class="n">B</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// コンパイルエラー</span>
+<span class="w">                               </span><span class="c1">// return文でexplicitなコピーコンストラクタを使用できない</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>同様に、ムーブコンストラクタが明示的にdelete定義されているクラスでも、<code>return tmp;</code>がdelete定義された関数を呼び出そうとするため<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<h3>deleted定義となる条件</h3>
+<p>型<code>C</code>に対するdefault定義された後置インクリメント・デクリメント演算子関数は、以下のいずれかに該当する場合にdeleted定義となる：</p>
+<ol>
+<li><code>C</code>がクラス型であり、<code>C</code>型の左辺値から<code>C</code>型の変数を直接初期化する<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>が、使用可能な候補にならない (コピーコンストラクタが使用できない)</li>
+<li><code>C</code>のデストラクタが、その関数本体の文脈においてdelete定義されているか、アクセスできない</li>
+<li><code>C</code>型の左辺値<code>c</code>に対して、後置インクリメントであれば<code>++c</code>、後置デクリメントであれば<code>--c</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>が、使用可能な候補にならない</li>
+</ol>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK、ただしdeleted定義となる</span>
+<span class="w">                               </span><span class="c1">// 前置operator++がない</span>
+<span class="p">};</span>
+
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">E1</span><span class="w"> </span><span class="p">{};</span>
+<span class="n">E1</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="n">E1</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK、ただしdeleted定義となる</span>
+<span class="w">                                   </span><span class="c1">// 列挙型には組み込みの前置operator++が存在しない</span>
+
+<span class="k">enum</span><span class="w"> </span><span class="nc">E2</span><span class="w"> </span><span class="p">{};</span>
+<span class="n">E2</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="n">E2</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+<span class="n">E2</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="n">E2</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK、deleted定義とはならない</span>
+</code></pre></div>
+</p>
+<p>非メンバ関数としてdefault定義する場合、比較演算子とは異なり、対象クラスのフレンドである必要はない。後置演算子はクラスのサブオブジェクトにアクセスする必要がなく、コピーコンストラクタと前置演算子を使用できれば十分であるためである。逆に言えば、それらがdefault定義の文脈からアクセスできない場合にはdeleted定義となる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">foo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">foo</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">foo</span><span class="o">&amp;</span><span class="p">);</span><span class="w">   </span><span class="c1">// privateなコピーコンストラクタ</span>
+<span class="w">  </span><span class="n">foo</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">();</span><span class="w"> </span><span class="c1">// privateな前置演算子</span>
+<span class="p">};</span>
+
+<span class="n">foo</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="n">foo</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"> </span><span class="c1">// deleted定義となる</span>
+</code></pre></div>
+</p>
+<h3>参照修飾との関係</h3>
+<ul>
+<li>前置<code>operator++()</code>が左辺値参照修飾、後置<code>operator++(int)</code>が右辺値参照修飾である場合は<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>である。右辺値参照修飾された関数の中でも、<code>*this</code>は左辺値であるため</li>
+<li>前置<code>operator++()</code>が右辺値参照修飾されている場合はdeleted定義となる。<code>++*this</code>に対する<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>が、使用可能な候補を見つけられないため</li>
+</ul>
+<h3><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>指定</h3>
+<p><code>noexcept</code>指定子をもたず、最初の宣言でdefault定義された後置インクリメント・デクリメント演算子関数は、暗黙定義に含まれるいずれかの式が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性がある場合に限り、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性があるものとして扱われる。</p>
+<h2>例</h2>
+<p><div class="yata" id="99a4ee0c65de8ec8fb68fc33ea121fd402646204"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">counter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">counter</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">++</span><span class="n">value_</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">counter</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">--</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">--</span><span class="n">value_</span><span class="p">;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// 前置演算子から、後置演算子の定義をコンパイラに生成させる</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="k">operator</span><span class="o">--</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">counter</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="o">++</span><span class="p">).</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// インクリメント前の値が返る</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="o">--</span><span class="p">).</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// デクリメント前の値が返る</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>0
+1
+1
+0
+</code></pre></p>
+<h2>備考</h2>
+<h3><code>= default</code>は関数の本体でしかない</h3>
+<p><code>= default</code>は、コンパイラが「既定の意味」を注入するための関数本体を指定するものであり、宣言の文法を制約しない。そのため、default定義されていない関数と同様に、<code>noexcept</code>指定や<code>requires</code>節などを組み合わせられる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Range</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">my_generic_iterator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="n">my_generic_iterator</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="k">requires</span><span class="w"> </span><span class="n"><a href="../../reference/ranges/forward_range.html">std::ranges::forward_range</a></span><span class="o">&lt;</span><span class="n">Range</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<span class="w">  </span><span class="n">my_generic_iterator</span><span class="w"> </span><span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>一方で、演算子関数テンプレートそのものをdefault定義することはできない。また、default定義される関数はデフォルト引数をもってはならない。</p>
+<p><code>volatile</code>修飾された後置演算子のdefault定義は許可されるが、<code>volatile</code>に対する演算の非推奨化にあわせて、非推奨とされる。</p>
+<h3>前置演算子の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型は制約されない</h3>
+<p>default定義された後置演算子は、対応する前置演算子の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型に要件を課さない。<code>C&amp;</code>以外を返す前置演算子であっても、default定義は可能である。</p>
+<p>前置演算子の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を<code>C&amp;</code>に限定しても、それが「正しいオブジェクトへの参照」を返すことは保証できない (たとえば別の<code>C</code>のインスタンスへの参照を返すこともできる)。また、前置演算子の定義がほかの翻訳単位にある場合、コンパイラは後置演算子の定義を注入する時点でその定義を見られない。そもそも暗黙定義は前置演算子の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を捨てるため、要件を課す意味がない。</p>
+<h3>前置演算子に付けた属性</h3>
+<p>前置演算子に<code>[[deprecated]]</code>や<code>[[nodiscard]]</code>などの属性が付いている場合、default定義された後置演算子からの呼び出しに対して<a class="cpprefjp-defined-word" data-desc="コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称" href="../../implementation-compliance.html#dfn-diagnostic-message">診断情報</a>が出力される。暗黙定義は<code>++*this</code>を呼び出して<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を捨てることと等価であり、利用者が自ら<a class="cpprefjp-defined-word" data-desc="コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称" href="../../implementation-compliance.html#dfn-diagnostic-message">診断情報</a>を有効にしている以上、それが得られるべきであるためである。</p>
+<h3>後置演算子が自動生成されるわけではない</h3>
+<p>C++20の比較演算子とは異なり、この機能は書き換え候補 (rewritten candidate) を生成しない。利用者が後置演算子を宣言しなければ、後置演算が使用可能になることはない。クラスが後置演算をサポートしないことを明示したい場合には、これまで通り<code>= delete</code>を使用できる。</p>
+<h3>機能テストマクロ</h3>
+<p>この機能に対する機能テストマクロは、意図的に追加されていない。後置演算子のdefault定義をプリプロセッサの条件分岐で囲んでも、利用者のコード量を減らす効果は得られないためである。</p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>後置インクリメント・デクリメント演算の定義は、「コピーをとり、前置演算を適用し、コピーを返す」という広く知られた定型的なものである。それにもかかわらず、C++26までは利用者がその3行を毎回自分で記述する必要があり、記述ミスの原因にもなっていた。標準ライブラリのなかにも、この定型的な定義をもつ操作が53個存在すると報告されている。</p>
+<p>同様の定型コードを削減する手法はこれまでにも存在したが、いずれも意図をそのまま表現できるものではなかった：</p>
+<ul>
+<li>CRTPによるmixinクラスを継承する方法では、派生クラスの前置演算子が基底クラスの後置演算子を隠すため、<code>using</code>宣言を明示的に書く必要がある</li>
+<li>リフレクションによってメンバ関数を生成する方法では、クラスの外側に生成用のコードを用意する必要がある</li>
+<li><code>template &lt;class T&gt; T operator++(T&amp;, int)</code>のような非メンバ関数テンプレートを定義する方法では、コピー可能かつ前置インクリメント可能な型すべてが自動的に後置演算をもつことになる。これは非推奨となった<code><a href="../../reference/utility/rel_ops.html">std::rel_ops</a></code>と同種の問題である</li>
+</ul>
+<p>「既定の後置演算がほしい」という意図は、<code>= default</code>という既存の綴りでそのまま表現できる、というのが本機能の設計方針である。</p>
+<p>なお、本機能を標準ライブラリの規定そのものに適用する変更は、<a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3785r1.html" target="_blank">P3785R1</a>で別途行われた。これは規定の記述を簡潔にするだけの変更であり、ライブラリの動作は変わらない。</p>
+<h2>検討されたほかの選択肢</h2>
+<h3>書き換え規則による自動生成</h3>
+<p>C++20の比較演算子のように、<code>a++</code>に対して<code>[&amp;a]{ auto copy {a}; ++a; return copy; }()</code>と等価な書き換え候補を生成する案が検討された。この場合、利用者は前置演算子を定義するだけで後置演算も使用できるようになる。</p>
+<p>しかし、以下の理由で採用されなかった：</p>
+<ul>
+<li><code>==</code>が有効であれば<code>!=</code>も有効であるのとは異なり、<code>++a</code>が有効であることは<code>a++</code>が有効であることを意味しない</li>
+<li>書き換え候補を生成すると、これまで<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>だったコードが後から<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>になってしまう</li>
+</ul>
+<h3>イテレータ向けの代替の意味論</h3>
+<p><code><a href="../../reference/iterator/move_iterator.html">std::move_iterator</a></code>のように、元となるイテレータが前方向イテレータでない場合に後置インクリメントの意味を変えるクラスも存在する。しかし、そのような代替の意味論はdefault定義の対象とはされなかった：</p>
+<ul>
+<li>後置デクリメントとは非対称になる。デクリメントをサポートするイテレータは、すべて双方向イテレータ以上であるため</li>
+<li>代替の意味論は一種類ではない。挿入イテレータでは、後置インクリメントは何もしない操作として定義される</li>
+<li>後置演算をもつクラスが、イテレータであるとは限らない</li>
+</ul>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp20/consistent_comparison.html">C++20 <code>&lt;=&gt;</code>/<code>==</code>による比較演算子の自動定義</a></li>
+<li><span href="https://cpprefjp.github.io/lang/cpp23/deducing_this.md.nolink">C++23 自身のオブジェクトを明示的にパラメータとして指定する</span></li>
+<li><code><a href="../../reference/iterator/move_iterator/op_increment.html">std::move_iterator::operator++</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3668r4.html" target="_blank">P3668R4 Defaulting Postfix Increment and Decrement Operations</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3785r1.html" target="_blank">P3785R1 Library Wording Changes for Defaulted Postfix Increment and Decrement Operations</a><ul>
+<li>C++29で、標準ライブラリの規定にも後置演算子のdefault定義が使用されるようになった</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1152r4.html" target="_blank">P1152R4 Deprecating <code>volatile</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
