@@ -28,6 +28,8 @@ namespace std {
 ## 備考
 このクラステンプレートの明示的特殊化または部分特殊化をユーザーが宣言した場合、プログラムは不適格となる（診断不要）。
 
+`next_arg_id`および`check_arg_id`は、指定された引数の番号が引数の個数以上となる呼び出しが定数式に評価されないよう規定されている。これにより、`consteval`による書式文字列のコンパイル時検証において、範囲外の引数番号がコンパイルエラーとして検出される。
+
 
 ## メンバ関数
 
@@ -148,5 +150,7 @@ namespace std {
 
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
 * [P2757R3 Type-checking format args](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2757r3.html)
+* [LWG Issue 3825. Missing compile-time argument id check in `basic_format_parse_context::next_arg_id`](https://cplusplus.github.io/LWG/issue3825)
+    * C++23で、`check_arg_id`と同様に、`next_arg_id`でも引数番号が引数の個数以上となる呼び出しが定数式に評価されないことが規定され、コンパイル時に引数番号の範囲が検証されるようになった
 * [LWG Issue 3975. Specializations of `basic_format_context` should not be permitted](https://cplusplus.github.io/LWG/issue3975)
     * C++26で、`basic_format_parse_context`についてもユーザーによる明示的特殊化・部分特殊化が不適格（診断不要）とされた
