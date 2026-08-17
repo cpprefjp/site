@@ -80,3 +80,5 @@ c = (7,0), d = (2,3)
 
 ## 参照
 - [P0415R1 Constexpr for `std::complex`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0415r1.html)
+- [LWG Issue 3935. `template<class X> constexpr complex& operator=(const complex<X>&)` has no specification](https://cplusplus.github.io/LWG/issue3935)
+    - C++26で、別の要素型をもつ複素数からの変換コピー代入演算子(3)の効果と戻り値が規定された
