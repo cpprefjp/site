@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-08-17T05:07:26.944009</updated>
-  <id>0a71605b-59ab-4e6f-a7db-3e53b0d39f1f</id>
+  <updated>2026-08-17T09:16:02.753802</updated>
+  <id>ce916d1d-bf6d-49f4-8314-b2e08873aaf4</id>
 
   
     <entry>
@@ -1342,44 +1342,6 @@ index 3fc3d1d4d..5acbc814e 100644
      - C++26でアロケータを受け取るコンストラクタを再追加
 +- [LWG Issue 4154. The Mandates for `std::packaged_task`&amp;#39;s constructor from a callable entity should consider decaying](https://cplusplus.github.io/LWG/issue4154)
 +    - C++26で、適格要件が`is_invocable_r_v&amp;lt;R, F&amp;amp;, ArgTypes...&amp;gt;`から`is_invocable_r_v&amp;lt;R, decay_t&amp;lt;F&amp;gt;&amp;amp;, ArgTypes...&amp;gt;`に修正された（`F`をdecayした型で判定する）
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- atomicのデフォルトコンストラクタ : 適格要件をテンプレートパラメータ制約に変更</title>
-      <link href="https://cpprefjp.github.io/reference/atomic/atomic/op_constructor.html"/>
-      <id>bb3c2830c64420f1ab615bca2b27a701b377625a:reference/atomic/atomic/op_constructor.md</id>
-      <updated>2026-08-17T12:24:31+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/op_constructor.md b/reference/atomic/atomic/op_constructor.md
-index 6d9438f15..cf5dee428 100644
---- a/reference/atomic/atomic/op_constructor.md
-+++ b/reference/atomic/atomic/op_constructor.md
-@@ -24,6 +24,13 @@ atomic(atomic&amp;amp;&amp;amp;) = delete;                         // (4) C++11
- - (4) : ムーブコンストラクタ。ムーブ不可
- 
- 
-+## テンプレートパラメータ制約
-+- (1) :
-+    - C++20 : `is_default_constructible_v&amp;lt;T&amp;gt;`が`true`であること（適格要件）
-+    - C++26 : `is_default_constructible_v&amp;lt;T&amp;gt;`が`true`であること（テンプレートパラメータ制約）
-+        - C++26では適格要件からテンプレートパラメータ制約に変更され、条件を満たさない場合はハードエラーではなくオーバーロード解決から除外される
-+
-+
- ## 効果
- - (1) :
-     - C++17 : `atomic`オブジェクトを未初期化状態にする (C言語との互換性のため)
-@@ -80,3 +87,5 @@ int main()
- 
- ## 参照
- - [P0883R2 Fixing Atomic Initialization, Rev2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0883r2.pdf)
-+- [LWG Issue 4169. `std::atomic&amp;lt;T&amp;gt;`&amp;#39;s default constructor should be constrained](https://cplusplus.github.io/LWG/issue4169)
-+    - C++26で、デフォルトコンストラクタの`is_default_constructible_v&amp;lt;T&amp;gt;`要件が適格要件（Mandates）からテンプレートパラメータ制約（Constraints）に変更され、SFINAEフレンドリに振る舞うようになった
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
