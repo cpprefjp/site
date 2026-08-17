@@ -41,9 +41,11 @@ namespace std {
 ```cpp
 for (; n > 0; ++result, (void)++first, --n)
   ::new (static_cast<void*>(addressof(*result)))
-    typename iterator_traits<ForwardIterator>::value_type(std::move(*first));
+    typename iterator_traits<ForwardIterator>::value_type(deref-move(first));
 ```
-* std::move[link /reference/utility/move.md]
+* deref-move[italic]
+
+ここで`deref-move(first)`は、`*first`が左辺値参照を返す場合は`std::move(*first)`、そうでない場合は`*first`となる説明専用のヘルパである。これにより、`*first`がprvalueを返すイテレータに対してコピーの省略が保証される。
 
 
 ## 戻り値
@@ -119,5 +121,7 @@ int main()
 - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
     - C++26から`constexpr`がついた
+- [LWG Issue 3918. `std::uninitialized_move`/`_n` and guaranteed copy elision](https://cplusplus.github.io/LWG/issue3918)
+    - C++26で、要素の構築に説明専用ヘルパ`deref-move`を用いるようになり、`*first`がprvalueを返すイテレータに対してコピーの省略が保証されるようになった
 - [LWG Issue 4452. Make _deref-move_ constexpr](https://cplusplus.github.io/LWG/issue4452)
     - C++26で、この関数が内部で用いる説明専用ヘルパ関数`deref-move`にも`constexpr`が付き、定数式での評価が可能になった（P3508が見落としていた箇所を補完）
