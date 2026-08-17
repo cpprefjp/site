@@ -10,12 +10,10 @@ void* operator new(size_t size)
   requires same_as<Allocator, void> || default_initializable<Allocator>; // (1)
 
 template<class Alloc, class... Args>
-  requires same_as<Allocator, void> || convertible_to<const Alloc&, Allocator>
 void* operator new(size_t size, allocator_arg_t, const Alloc& alloc, const Args&...); // (2)
 
 template<class This, class Alloc, class... Args>
-  requires same_as<Allocator, void> || convertible_to<const Alloc&, Allocator>
-void* operator new(size_t size, const This&, allocator_arg_t, const Alloc& alloc, const Args&...); 
+void* operator new(size_t size, const This&, allocator_arg_t, const Alloc& alloc, const Args&...); // (3)
 ```
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 
