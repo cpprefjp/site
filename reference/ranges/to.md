@@ -137,12 +137,14 @@ constexpr bool reservable-container =
     { c.max_size() } -> same_as<decltype(n)>;  // コンテナのサイズ型を返すmax_sizeメンバ関数がある
   };
 
-// container-insertable: push_backまたはinsertが使えることを要求するコンセプト
+// container-insertable: emplace_back/push_back/emplace/insertのいずれかが使えることを要求するコンセプト
 template<class Container, class Ref>
 constexpr bool container-insertable =
   requires(Container& c, Ref&& ref) {
-    requires (requires { c.push_back(std::forward<Ref>(ref)); } ||
-              requires { c.insert(c.end(), std::forward<Ref>(ref)); });
+    requires (requires { c.emplace_back(declval<Ref>()); } ||
+              requires { c.push_back(declval<Ref>()); } ||
+              requires { c.emplace(c.end(), declval<Ref>()); } ||
+              requires { c.insert(c.end(), declval<Ref>()); });
   };
 
 // container-inserter: push_backが使えればback_inserter, そうでなければinserterを返す関数
@@ -232,3 +234,5 @@ int main() {
     - C++26で要素数の事前確保に[`ranges::size`](size.md)の代わりに[`ranges::reserve_hint`](reserve_hint.md)を使用するよう変更
 - [LWG Issue 3984. `ranges::to`'s recursion branch may be ill-formed](https://cplusplus.github.io/LWG/issue3984)
     - C++26で、再帰分岐において`r`を[`ranges::ref_view`](ref_view.md)で包むよう修正され、`r`がviewでない左辺値rangeの場合に不適格となる問題が解消された
+- [LWG Issue 4016. *container-insertable* checks do not match what *container-inserter* does](https://cplusplus.github.io/LWG/issue4016)
+    - C++26で、説明専用コンセプト`container-insertable`の判定が`emplace_back`/`push_back`/`emplace`/`insert`の4つを試す形に修正され、実際の挿入処理と一致するようになった
