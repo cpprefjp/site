@@ -15,8 +15,8 @@ string_type transform_primary(ForwardIterator first, ForwardIterator last) const
 与えられた文字範囲`[first, last)`を、並べ替えのキーとして使用する、大文字・小文字を区別しない文字のシーケンスに変換する。結果のシーケンスは、ロケールごとの照合順序となる。
 
 
-## 戻り値
-`typeid(use_facet<collate<char_type>>) == typeid(collate_byname<char_type>)`であり、`collate_byname<char_type>::transform(first, last)`が優先順位付きキーに変換できる場合はそのキーを返し、そうでない場合は空文字列を返す。
+## 効果
+[`getloc()`](getloc.md)で得られるロケールにおける文字照合ファセット [`collate`](/reference/locale/collate.md)`<char_type>` の型が [`collate_byname`](/reference/locale/collate_byname.md)`<char_type>` であり、かつ`collate_byname<char_type>::transform(first, last)`が返すソートキーの形式が既知であってプライマリソートキーに変換できる場合、そのキーを返す。そうでなければ空文字列を返す。
 
 
 ## 例
@@ -66,3 +66,8 @@ int main()
 - [GCC](/implementation.md#gcc): 4.9.0 [mark verified], 4.9.1 [mark verified], 4.9.2 [mark verified], 5.0.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 4186. `regex_traits::transform_primary` mistakenly detects `typeid` of a function](https://cplusplus.github.io/LWG/issue4186)
+    - C++26で、文字照合ファセットの判定が、関数の`typeid`を誤って検出しないよう、ロケールの`collate`ファセットの型が`collate_byname<char_type>`であるかどうかを判定する形に明確化された
