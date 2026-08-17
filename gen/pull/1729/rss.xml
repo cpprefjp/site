@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-08-17T01:46:55.332310</updated>
+  <id>4f3fb674-b8a3-4cda-a8e3-2bf32e3ff5cd</id>
+
+  
+    <entry>
+      <title>inplace_merge -- inplace_merge : 計算量が「ちょうどN - 1回」から「最大でN - 1回」に変更</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/inplace_merge.html"/>
+      <id>700d23e66a54d749c25a5067b47f746f02a4a92b:reference/algorithm/inplace_merge.md</id>
+      <updated>2026-08-17T10:42:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/inplace_merge.md b/reference/algorithm/inplace_merge.md
+index 865b27241..8b39ad909 100644
+--- a/reference/algorithm/inplace_merge.md
++++ b/reference/algorithm/inplace_merge.md
+@@ -70,7 +70,7 @@ namespace std {
+ ## 計算量
+ `N = last - first`であるとして説明する。
+ 
+-- (1), (2) : 余分なメモリを使用する場合は、`N - 1` 回比較する。そうでない場合は、O(N log(N))回比較する
++- (1), (2) : 余分なメモリを使用する場合は、最大で `N - 1` 回比較する。そうでない場合は、O(N log(N))回比較する
+ - (3), (4) : O(N log N)回比較する
+ 
+ 
+@@ -115,3 +115,5 @@ int main()
+ ## 参照
+ - [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
+     - C++26から`constexpr`に対応した
++- [LWG Issue 4196. Complexity of `inplace_merge()` is incorrect](https://cplusplus.github.io/LWG/issue4196)
++    - C++26で、余分なメモリを使用する場合の比較回数が「ちょうど`N - 1`回」から「最大で`N - 1`回」に修正された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>inplace_merge -- inplace_merge : 計算量が「ちょうどN - 1回」から「最大でN - 1回」に変更</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_inplace_merge.html"/>
+      <id>700d23e66a54d749c25a5067b47f746f02a4a92b:reference/algorithm/ranges_inplace_merge.md</id>
+      <updated>2026-08-17T10:42:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_inplace_merge.md b/reference/algorithm/ranges_inplace_merge.md
+index a26f8873d..09cbdc734 100644
+--- a/reference/algorithm/ranges_inplace_merge.md
++++ b/reference/algorithm/ranges_inplace_merge.md
+@@ -121,7 +121,7 @@ namespace std::ranges {
+ ## 計算量
+ `N = last - first`であるとして説明する。
+ 
+-- 余分なメモリを使用する場合は、`N - 1` 回比較する。そうでない場合は、O(N log(N))回比較する
++- 余分なメモリを使用する場合は、最大で `N - 1` 回比較する。そうでない場合は、O(N log(N))回比較する
+ 
+ ## 備考
+ この操作は安定である。つまり、各入力範囲内の要素の前後関係は保たれ、また、1 番目の範囲と 2 番目に等値の要素があった場合には、1 番目の範囲の要素の方が先に来る。
+@@ -204,5 +204,7 @@ int main() {
+ - [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
+     - C++26から`constexpr`に対応した
+ - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
++- [LWG Issue 4196. Complexity of `inplace_merge()` is incorrect](https://cplusplus.github.io/LWG/issue4196)
++    - C++26で、余分なメモリを使用する場合の比較回数が「ちょうど`N - 1`回」から「最大で`N - 1`回」に修正された
+ - [LWG Issue 4441. `ranges::rotate` do not handle sized-but-not-sized-sentinel ranges correctly](https://cplusplus.github.io/LWG/issue4441)
+     - C++26で、実行ポリシーをとる範囲版の効果を規定する等価コードで、末尾イテレータの算出が`ranges::end(r)`から`ranges::begin(r) + ranges::distance(r)`へ変更された。サイズは判るがsized sentinelを持たない範囲を正しく扱うため
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>pow -- complexのpow : どちらかが整数ならdoubleとして扱う</title>
+      <link href="https://cpprefjp.github.io/reference/complex/complex/pow.html"/>
+      <id>0d0377d077140cca5125ed57aabd46ac3a1abf04:reference/complex/complex/pow.md</id>
+      <updated>2026-08-17T10:20:48+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/complex/complex/pow.md b/reference/complex/complex/pow.md
+index c4fd9c3b4..62c362940 100644
+--- a/reference/complex/complex/pow.md
++++ b/reference/complex/complex/pow.md
+@@ -63,6 +63,7 @@ namespace std {
+         - そうでなくて、いずれかの実引数の型が `complex&amp;lt;float&amp;gt;` か `float` の場合、両方の引数が `complex&amp;lt;float&amp;gt;` にキャストされているかのように振る舞う
+         - また、これらの追加のオーバーロードが関数テンプレートなのか否か、あるいは、引数が参照型なのか否かなどについては、規格では何も言及されていない
+     - C++23 : `complex&amp;lt;T1&amp;gt;`と、`T2`もしくは`complex&amp;lt;T2&amp;gt;`の組み合わせ、およびその逆の組み合わせに対するオーバーロードとなり、戻り値はその共通の型`complex&amp;lt;`[`common_type_t`](/reference/type_traits/common_type.md)`&amp;lt;T1, T2&amp;gt;&amp;gt;`となった
++    - C++26 : `T2`が整数型の場合は`double`として扱われ、戻り値は`complex&amp;lt;`[`common_type_t`](/reference/type_traits/common_type.md)`&amp;lt;T1, T3&amp;gt;&amp;gt;`（`T3`は`T2`が整数型なら`double`、そうでなければ`T2`）となる。これにより、たとえば`pow(`[`complex`](/reference/complex/complex.md)`&amp;lt;float&amp;gt;, int)`の戻り値は`complex&amp;lt;double&amp;gt;`となる
+ 
+ 
+ ## 戻り値
+@@ -155,3 +156,5 @@ pow( (1,2), (3,4) ) = (0.12901,0.0339241)
+     - C++23で拡張浮動小数点数型への対応が行われた
+ - [P1383R2 More constexpr for `&amp;lt;cmath&amp;gt;` and `&amp;lt;complex&amp;gt;`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
+     - C++26で`constexpr`対応した
++- [LWG Issue 4191. P1467 changed the return type of `pow(complex&amp;lt;float&amp;gt;, int)`](https://cplusplus.github.io/LWG/issue4191)
++    - C++26で、追加のオーバーロードにおいて指数側の引数が整数型の場合は`double`として扱うことが規定され、P1467による戻り値型の変化が修正された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>search -- search : イテレータ範囲を変更</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_search.html"/>
+      <id>9c1ebe3ed2353fb2832ebcab26040728ca3cca02:reference/algorithm/ranges_search.md</id>
+      <updated>2026-08-17T10:20:11+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_search.md b/reference/algorithm/ranges_search.md
+index eda49fae1..14bd2c934 100644
+--- a/reference/algorithm/ranges_search.md
++++ b/reference/algorithm/ranges_search.md
+@@ -86,7 +86,7 @@ namespace std::ranges {
+ 
+ ## 戻り値
+ - (1) :
+-    - `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ [`invoke`](/reference/functional/invoke.md)`(pred,` [`invoke`](/reference/functional/invoke.md)`(proj1, *(i + n)),` [`invoke`](/reference/functional/invoke.md)`(proj2, *(first2 + n)))` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスを返す。
++    - `[first1,last1 - (last2 - first2)]` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ [`invoke`](/reference/functional/invoke.md)`(pred,` [`invoke`](/reference/functional/invoke.md)`(proj1, *(i + n)),` [`invoke`](/reference/functional/invoke.md)`(proj2, *(first2 + n)))` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスを返す。
+     - そのようなイテレータが見つからない場合は `{last1, last1}` を返し、`[first2,last2)` が空である場合には `{first1, first1}` を返す。
+ - (2): `first1 = begin(r1)`, `last1 = end(r1)`, `first2 = begin(r2)`, `last2 = end(r2)`の下で(1)と等しい。
+ 
+@@ -197,4 +197,6 @@ inline constexpr search_impl search;
+ 
+ ## 参照
+ - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
++- [LWG Issue 4179. Wrong range in [alg.search]](https://cplusplus.github.io/LWG/issue4179)
++    - C++26で、探索対象のイテレータ`i`の範囲が`[first1, last1 - (last2 - first2)]`（右端を含む閉区間）であることが明確化された
+ - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>search -- search : イテレータ範囲を変更</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/search.html"/>
+      <id>9c1ebe3ed2353fb2832ebcab26040728ca3cca02:reference/algorithm/search.md</id>
+      <updated>2026-08-17T10:20:11+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/search.md b/reference/algorithm/search.md
+index da8129839..518e43b53 100644
+--- a/reference/algorithm/search.md
++++ b/reference/algorithm/search.md
+@@ -81,10 +81,10 @@ namespace std {
+ 
+ ## 戻り値
+ - (1), (3) :
+-    - `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
++    - `[first1,last1 - (last2 - first2)]` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
+     - そのようなイテレータが見つからない場合は `last1` を返し、`[first2,last2)` が空である場合には `first1` を返す。
+ - (2), (4) :
+-    - `[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
++    - `[first1,last1 - (last2 - first2)]` 内のイテレータ `i` があるとき、0 以上 `last2 - first2` 未満の整数 `n` について、それぞれ `*(i + n) == *(first2 + n)` であるようなサブシーケンスを探し、見つかった最初のサブシーケンスの先頭のイテレータを返す。
+     - そのようなイテレータが見つからない場合は `last1` を返し、`[first2,last2)` が空である場合には `first1` を返す。
+ - (5) : 以下と等価
+     ```cpp
+@@ -224,6 +224,8 @@ ForwardIterator1 search(ForwardIterator1 first1, ForwardIterator1 last1,
+ 
+ ## 参照
+ - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
++- [LWG Issue 4179. Wrong range in [alg.search]](https://cplusplus.github.io/LWG/issue4179)
++    - C++26で、探索対象のイテレータ`i`の範囲が`[first1, last1 - (last2 - first2)]`（右端を含む閉区間）であることが明確化された
+ - [N3905 Extending `std::search` to use Additional Searching Algorithms (Version 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3905.html)
+ - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
+ - [P0253R1 Fixing a design mistake in the searchers interface in Library Fundamentals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0253r1.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cache_latest_view -- cache_latest_view : フリースタンディング対応</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/cache_latest_view.html"/>
+      <id>96f6604d17b1a0b473798a644cc6352d808f1472:reference/ranges/cache_latest_view.md</id>
+      <updated>2026-08-17T10:19:43+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/cache_latest_view.md b/reference/ranges/cache_latest_view.md
+index 569c24c56..5d18b07c8 100644
+--- a/reference/ranges/cache_latest_view.md
++++ b/reference/ranges/cache_latest_view.md
+@@ -87,6 +87,10 @@ v | std::views::transform(expensive) // 重い変換関数
+ | [`(deduction_guide)`](cache_latest_view/op_deduction_guide.md)    | クラステンプレートの推論補助 | C++26          |
+ 
+ 
++## 備考
++このビュー（および`views::cache_latest`アダプタ）は、フリースタンディング処理系でも使用できる。
++
++
+ ## 例
+ ### 基本的な使い方
+ ```cpp example
+@@ -168,5 +172,7 @@ call_count: 5
+ 
+ ## 参照
+ - [P3138R5 `views::cache_latest`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3138r5.html)
++- [LWG Issue 4189. `cache_latest_view` should be freestanding](https://cplusplus.github.io/LWG/issue4189)
++    - C++26で、このビューがフリースタンディング処理系に対応した
+ - [LWG Issue 4235. `cache_latest_view` and `to_input_view` miss `reserve_hint`](https://cplusplus.github.io/LWG/issue4235)
+     - C++26で、[`approximately_sized_range`](approximately_sized_range.md)のときに要素数の推定値を返す[`reserve_hint`](cache_latest_view/reserve_hint.md)メンバ関数が追加された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- unique_lock::operator= : noexceptをC++26で再付与</title>
+      <link href="https://cpprefjp.github.io/reference/mutex/unique_lock/op_assign.html"/>
+      <id>ffaa264bfe306334bb825430f5812709f1bd89ed:reference/mutex/unique_lock/op_assign.md</id>
+      <updated>2026-08-17T10:14:48+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mutex/unique_lock/op_assign.md b/reference/mutex/unique_lock/op_assign.md
+index 643391e6b..d23a811ed 100644
+--- a/reference/mutex/unique_lock/op_assign.md
++++ b/reference/mutex/unique_lock/op_assign.md
+@@ -9,6 +9,7 @@
+ unique_lock&amp;amp; operator=(const unique_lock&amp;amp;) = delete; // (1) C++11
+ unique_lock&amp;amp; operator=(unique_lock&amp;amp;&amp;amp; u) noexcept;    // (2) C++11
+ unique_lock&amp;amp; operator=(unique_lock&amp;amp;&amp;amp; u);             // (2) C++14
++unique_lock&amp;amp; operator=(unique_lock&amp;amp;&amp;amp; u) noexcept;    // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -18,6 +19,7 @@ unique_lock&amp;amp; operator=(unique_lock&amp;amp;&amp;amp; u);             // (2) C++14
+ 
+ ## 効果
+ - (2) : [`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md) `== true`だった場合、[`unlock()`](/reference/mutex/unique_lock/unlock.md)を呼び出す。`unique_lock`オブジェクト`u`が保持しているミューテックスの所有権を自分のオブジェクトに移動する。ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)の状態を`u`から移動する。
++    - C++26 : `unique_lock{`[`std::move`](/reference/utility/move.md)`(u)}.`[`swap`](swap.md)`(*this)`と等価に規定され、自己ムーブ代入も安全に扱われる。
+ 
+ 
+ ## 事後条件
+@@ -65,3 +67,5 @@ int main()
+ 
+ ## 参照
+ - [LWG Issue 2104. `unique_lock` move-assignment should not be `noexcept`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2104)
++- [LWG Issue 4172. `unique_lock` self-move-assignment is broken](https://cplusplus.github.io/LWG/issue4172)
++    - C++26で、ムーブ代入がmove-and-swapイディオムで規定され、自己ムーブ代入が安全に扱われるようになり、あわせて`noexcept`指定された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
