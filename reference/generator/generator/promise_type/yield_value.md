@@ -109,3 +109,5 @@ return yield_value(ranges::elements_of(nested(
 ## 参照
 - [LWG Issue 3899. co_yielding elements of an lvalue generator is unnecessarily inefficient](https://cplusplus.github.io/LWG/issue3899)
     - C++26で、(4)の効果で用いるネストした`generator`の型を`generator<yielded, void, Alloc>`に変更し、左辺値`generator`の要素をco_yieldする際の非効率を解消した
+- [LWG Issue 4119. `generator::promise_type::yield_value(ranges::elements_of<R, Alloc>)`'s nested generator may be ill-formed](https://cplusplus.github.io/LWG/issue4119)
+    - LWG 3899と同じく、ネストした`generator`の型を`generator<yielded, void, Alloc>`とすることで、要素型が`generator`のValue型として不適格になる問題を回避する
