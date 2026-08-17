@@ -55,7 +55,7 @@ jobs:
       cache-version: v1
     steps:
     - id: cache-ripgrep
-      uses: actions/cache@v3
+      uses: actions/cache@v6
       with:
         path: ${{ env.BIN_DIR }}
         key: ${{ env.cache-version }}-ripgrep-${{ env.RIPGREP_VERSION }}
