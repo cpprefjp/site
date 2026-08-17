@@ -71,4 +71,6 @@ int main()
 
 ## 参照
 - [P0543R3 Saturation arithmetic](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0543r3.html)
+- [LWG Issue 4030. Clarify whether arithmetic expressions in [numeric.sat.func] are mathematical or C++](https://cplusplus.github.io/LWG/issue4030)
+    - C++26で、飽和演算関数の算術演算が無限精度の数学的演算として行われることが明確化された（cpprefjpでは既に「無限の範囲で計算した値」と記述している）
 - [P4052R0 Renaming saturation arithmetic functions](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4052r0.html)
