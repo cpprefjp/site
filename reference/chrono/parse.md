@@ -189,3 +189,5 @@ JST
 - [LWG Issue 3272. `%I%p` should `parse`/`format` `duration` since midnight](https://wg21.cmeerw.net/lwg/issue3272)
 - [LWG Issue 3831. Two-digit formatting of negative `year` is ambiguous](https://cplusplus.github.io/LWG/issue3831)
     - C++26で、`%y`が年の符号によらず年のうしろ2桁を表すことが明確化された
+- [LWG Issue 3956. `chrono::parse` uses `from_stream` as a customization point](https://cplusplus.github.io/LWG/issue3956)
+    - C++26で、`from_stream`が実引数依存の名前探索（ADL）で解決されるカスタマイゼーションポイントであることが、ライブラリ全体の一般規定に明記された
