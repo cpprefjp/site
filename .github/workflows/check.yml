@@ -179,9 +179,11 @@ jobs:
             echo 'content<<EOF' >> "$GITHUB_OUTPUT"
             echo "$content_prologue$content$content_epilogue" >> "$GITHUB_OUTPUT"
             echo 'EOF' >> "$GITHUB_OUTPUT"
-      - uses: thollander/actions-comment-pull-request@v3
-        with:
-          message: |
+      - name: Comment on the pull request
+        run: gh pr comment "$PR_NUMBER" --edit-last --create-if-none --body "$COMMENT_BODY"
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          COMMENT_BODY: |
             :zap: [**プレビュー (HTML)**](${{ steps.vars.outputs.base_url }}) (更新時刻: ${{ steps.vars.outputs.time }})
 
             - **⫯** Commit: ${{ steps.vars.outputs.sha }}
@@ -192,5 +194,4 @@ jobs:
             ${{ steps.file_list.outputs.content }}
 
             ※ソース (.md) に直接変更のあった記事を列挙しています。グローバル修飾や変換規則の変更による変化は考慮していません。
-          comment-tag: cpprefjp-preview_link
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
