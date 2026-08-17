@@ -70,7 +70,7 @@ namespace std {
 ## 計算量
 `N = last - first`であるとして説明する。
 
-- (1), (2) : 余分なメモリを使用する場合は、`N - 1` 回比較する。そうでない場合は、O(N log(N))回比較する
+- (1), (2) : 余分なメモリを使用する場合は、最大で `N - 1` 回比較する。そうでない場合は、O(N log(N))回比較する
 - (3), (4) : O(N log N)回比較する
 
 
@@ -115,3 +115,5 @@ int main()
 ## 参照
 - [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
     - C++26から`constexpr`に対応した
+- [LWG Issue 4196. Complexity of `inplace_merge()` is incorrect](https://cplusplus.github.io/LWG/issue4196)
+    - C++26で、余分なメモリを使用する場合の比較回数が「ちょうど`N - 1`回」から「最大で`N - 1`回」に修正された
