@@ -99,7 +99,7 @@ C++03では、delete定義の代わりに`private`で宣言のみされていた
 
 
 ## 備考
-本クラス、および、本クラスを継承したクラスの説明については、上記にあるメンバ型 `pos_type`、および、`off_type` がそれぞれ [`streampos`](../iosfwd/type-streampos.md.nolink)、および、[`streamoff`](type-streamoff.md) である場合の記載となっている。  
+本クラス、および、本クラスを継承したクラスの説明については、上記にあるメンバ型 `pos_type`、および、`off_type` がそれぞれ [`streampos`](../iosfwd/type-streampos.md)、および、[`streamoff`](type-streamoff.md) である場合の記載となっている。  
 これらのメンバ型がそれ以外の型の場合の挙動は実装依存である。
 
 ## 参照

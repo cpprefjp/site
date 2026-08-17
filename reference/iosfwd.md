@@ -60,11 +60,11 @@
 | `fstream` / `wfstream` | [`basic_fstream`](fstream/basic_fstream.md)`<char>` / `<wchar_t>` | |
 | `syncbuf` / `wsyncbuf` | [`basic_syncbuf`](syncstream/basic_syncbuf.md)`<char>` / `<wchar_t>` | C++20 |
 | `osyncstream` / `wosyncstream` | [`basic_osyncstream`](syncstream/basic_osyncstream.md)`<char>` / `<wchar_t>` | C++20 |
-| `streampos` | [`fpos`](ios/fpos.md)`<`[`char_traits`](string/char_traits.md)`<char>::state_type>` | |
-| `wstreampos` | [`fpos`](ios/fpos.md)`<`[`char_traits`](string/char_traits.md)`<wchar_t>::state_type>` | |
-| `u8streampos` | [`fpos`](ios/fpos.md)`<`[`char_traits`](string/char_traits.md)`<char8_t>::state_type>` | C++20 |
-| `u16streampos` | [`fpos`](ios/fpos.md)`<`[`char_traits`](string/char_traits.md)`<char16_t>::state_type>` | C++11 |
-| `u32streampos` | [`fpos`](ios/fpos.md)`<`[`char_traits`](string/char_traits.md)`<char32_t>::state_type>` | C++11 |
+| [`streampos`](iosfwd/type-streampos.md) | [`fpos`](ios/fpos.md)`<`[`char_traits`](string/char_traits.md)`<char>::state_type>` | |
+| [`wstreampos`](iosfwd/type-wstreampos.md) | [`fpos`](ios/fpos.md)`<`[`char_traits`](string/char_traits.md)`<wchar_t>::state_type>` | |
+| [`u8streampos`](iosfwd/type-u8streampos.md) | [`fpos`](ios/fpos.md)`<`[`char_traits`](string/char_traits.md)`<char8_t>::state_type>` | C++20 |
+| [`u16streampos`](iosfwd/type-u16streampos.md) | [`fpos`](ios/fpos.md)`<`[`char_traits`](string/char_traits.md)`<char16_t>::state_type>` | C++11 |
+| [`u32streampos`](iosfwd/type-u32streampos.md) | [`fpos`](ios/fpos.md)`<`[`char_traits`](string/char_traits.md)`<char32_t>::state_type>` | C++11 |
 
 
 ## 備考
