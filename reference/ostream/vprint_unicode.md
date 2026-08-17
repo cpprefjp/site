@@ -33,9 +33,8 @@ namespace std {
     * string[link /reference/string/basic_string.md]
     * vformat[link /reference/format/vformat.md]
 
-- `os`が実装定義されたUnicodeを表示できる端末を参照するストリームである場合、ネイティブのUnicode APIを使用して端末に書き出す
-- `out`に無効なコードユニットが含まれる場合、その動作は未定義であり，実装者はそれを診断することが推奨される
-- ネイティブのUnicode APIを使用する場合、この関数は`out`を書き出す前にフラッシュする
+- `os`が、ネイティブUnicode API経由でのみUnicodeを表示できる端末（実装定義の方法で判定される）を参照するストリームである場合、`os`をフラッシュしてから、ネイティブのUnicode APIを使用して`out`を端末に書き出す。`out`に無効なコードユニットが含まれる場合、その動作は未定義である
+- そうでなければ、`out`を`os`に書き出す
 
 
 ## 例外
@@ -68,3 +67,5 @@ namespace std {
 ## 参照
 - [P2093R14 Formatted output](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2093r14.html)
 - [P2539R4 Should the output of `std::print` to a terminal be synchronized with the underlying stream?](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2539r4.html)
+- [LWG Issue 4044. Confusing requirements for `std::print` on POSIX platforms](https://cplusplus.github.io/LWG/issue4044)
+    - C++26で、ネイティブUnicode API経由でのみUnicodeを表示できる端末に限ってネイティブAPIで書き出すことを明確化し、フラッシュのタイミングと書き出し処理を統合した
