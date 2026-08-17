@@ -28,6 +28,10 @@ namespace std {
 - `unique_ptr`自体も`T[]`時には部分特殊化され、`operator[]`によるアクセスを提供している。
 
 
+## 適格要件
+- C++26 : `T*`が有効な型とならない`unique_ptr<T&, D>`や`unique_ptr<int() const, D>`のような特殊化の実体化がないこと
+
+
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -149,3 +153,5 @@ hoge::~hoge()
     - `unique_ptr<void, Deleter>`を許可するために、インタフェースを改良した経緯
 - [LWG Issue 762. `std::unique_ptr` requires complete type?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#762)
 - [N4089 Safe conversions in `unique_ptr<T[]>`, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
+- [LWG Issue 4144. Disallow `unique_ptr<T&, D>`](https://cplusplus.github.io/LWG/issue4144)
+    - C++26で、`T*`が有効な型とならない特殊化（`unique_ptr<T&, D>`など）の実体化が不適格であることが明確化された
