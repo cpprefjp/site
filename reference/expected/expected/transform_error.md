@@ -36,10 +36,10 @@ class expected {
 
 ## 適格要件
 - (1), (2) : 型`G`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`error()`](error.md)`)>>`としたとき、次を全て満たすこと
-    - `G`が`expected`の有効なエラー値型である
+    - `G`が[`unexpected`](../unexpected.md)の有効なテンプレート引数である
     - 宣言`G g(`[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`error()`](error.md)`));`が妥当である
 - (3), (4) : 型`G`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))>>`としたとき、次を全て満たすこと
-    - `G`が`expected`の有効なエラー値型である
+    - `G`が[`unexpected`](../unexpected.md)の有効なテンプレート引数である
     - 宣言`G g(`[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`)));`が妥当である
 
 
@@ -109,5 +109,7 @@ int main()
 
 ## 参照
 - [P2505R5 Monadic Functions for `std::expected`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2505r5.html)
+- [LWG Issue 3866. Bad Mandates for `expected::transform_error` overloads](https://cplusplus.github.io/LWG/issue3866)
+    - C++23で、適格要件が「`G`が`expected`の有効なエラー値型である」から「`G`が[`unexpected`](../unexpected.md)の有効なテンプレート引数である」に修正された（`const int`のように`expected`のエラー値型としては有効でも`unexpected`のテンプレート引数としては無効な型があり、旧文言は実装不能だったため）
 - [LWG Issue 3938. Cannot use `std::expected` monadic ops with move-only `error_type`](https://cplusplus.github.io/LWG/issue3938)
     - C++26で、効果で正常値へのアクセスに[`value()`](value.md)ではなく[`**this`](op_deref.md)を使うよう修正され、ムーブのみ可能な`error_type`でも使用できるようになった
