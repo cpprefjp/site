@@ -101,3 +101,5 @@ int main() {
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
+- [LWG Issue 3914. Inconsistent `template-head` of `ranges::enumerate_view`](https://cplusplus.github.io/LWG/issue3914)
+    - C++26で、`<ranges>`のシノプシスにおける`enumerate_view`の`template-head`が、クラス定義（`template<view V> requires range-with-movable-references<V>`）と一致するよう修正された
