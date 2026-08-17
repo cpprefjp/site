@@ -44,7 +44,7 @@ namespace std::ranges {
 
 - (2): 式 `views::adjacent_transform<N>(E, F)` の効果は以下の通り。
     - `N` > 0 のとき、`adjacent_transform_view<`[`views::all_t`](all.md)`<decltype((E))>,` [`decay_t`](/reference/type_traits/decay.md)`<decltype((F))>, N>(E, F)` と等しい
-    - `N` = 0 のとき、`((void)E,` [`views::zip_transform`](zip_transform_view.md)`(F))` と等しい(ただし`E`と`F`の評価順は不定)
+    - `N` = 0 かつ`decltype((E))`が[`forward_range`](forward_range.md)のモデルであるとき、`((void)E,` [`views::zip_transform`](zip_transform_view.md)`(F))` と等しい(ただし`E`と`F`の評価順は不定)
 
 ## 備考
 
@@ -117,3 +117,5 @@ int main() {
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
 - [P2321R2 zip](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html)
+- [LWG Issue 4098. `views::adjacent<0>` should reject non-forward ranges](https://cplusplus.github.io/LWG/issue4098)
+    - C++26で、`N` = 0 の場合に`views::empty`（または`views::zip_transform`）と等しくなる条件に`decltype((E))`が`forward_range`のモデルであることが追加され、forward_rangeでない範囲が拒否されるようになった

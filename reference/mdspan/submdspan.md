@@ -59,14 +59,14 @@ namespace std {
 
 ```cpp
 auto [...slices] = canonical_slices(src, raw_slices...);
-auto sub_map_offset = submdspan_mapping(src.mapping(), slices...);
-return mdspan(src.accessor().offset(src.data_handle(), sub_map_offset.offset),
-              sub_map_offset.mapping,
+auto sub_map_result = submdspan_mapping(src.mapping(), slices...);
+return mdspan(src.accessor().offset(src.data_handle(), sub_map_result.offset),
+              sub_map_result.mapping,
               typename AccessorPolicy::offset_policy(src.accessor()));
 ```
 * mdspan[link mdspan.md]
 * canonical_slices[link canonical_slices.md]
-* sub_map_offset[link submdspan_mapping_result.md]
+* sub_map_result[link submdspan_mapping_result.md]
 * src.mapping()[link mdspan/mapping.md]
 * src.data_handle()[link mdspan/data_handle.md]
 * src.accessor()[link mdspan/accessor.md]
@@ -281,3 +281,5 @@ int main()
 ## 参照
 - [P2630R4 Submdspan](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html)
 - [P3663R3 Future-proof `submdspan_mapping`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3663r3.html)
+- [LWG Issue 4060. `submdspan` preconditions do not forbid creating invalid pointer](https://cplusplus.github.io/LWG/issue4060)
+    - C++26で、スライスが次元の境界に達する場合に`offset`を`required_span_size()`とすることで境界外ポインタの生成を防ぐことが明確化され（各`submdspan_mapping`に反映済み）、あわせて`submdspan`の効果の説明変数名が`sub_map_result`に変更された

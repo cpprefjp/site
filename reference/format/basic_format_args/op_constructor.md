@@ -7,7 +7,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-basic_format_args() noexcept; // (1) C++20
+basic_format_args() noexcept; // (1) C++20 (C++26で削除)
 
 template<class... Args>
 basic_format_args(
@@ -22,7 +22,7 @@ basic_format_args(
 
 ## 概要
 
-* (1): 空の`basic_format_args`を構築する
+* (1): 空の`basic_format_args`を構築する（このデフォルトコンストラクタはC++26で削除された）
 * (2): [`make_format_args`](../make_format_args.md)の戻り値から浅いコピーで`basic_format_args`を構築する。
 
 ただし、 _`format_arg_store`_ は`make_format_args`の戻り値と同じ型であることを示す便宜上の名前であり、規格には含まれない。
@@ -71,3 +71,5 @@ namespace std {
 - [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
 - [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
     - C++26から`constexpr`に対応した
+- [LWG Issue 4106. `basic_format_args` should not be default-constructible](https://cplusplus.github.io/LWG/issue4106)
+    - C++26で、(1)のデフォルトコンストラクタが削除された

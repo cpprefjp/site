@@ -31,6 +31,8 @@ namespace std {
 
 出力イテレータの型はフォーマット関数に指定したイテレータである必要はない。内部でバッファリングを行う実装が可能である。
 
+C++26では、コピーコンストラクタとコピー代入演算子が`= delete`で明示的に削除され、このクラスがコピー構築・コピー代入できないことが明確化された（これにともないムーブおよびデフォルト構築もできない）。
+
 ## メンバ関数
 
 | 名前                                 | 説明                                         | 対応バージョン |
@@ -104,3 +106,5 @@ namespace std {
 ## 参照
 
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+* [LWG Issue 4061. Should `std::basic_format_context` be default-constructible/copyable/movable?](https://cplusplus.github.io/LWG/issue4061)
+    * C++26で、コピーコンストラクタとコピー代入演算子が`= delete`で明示的に削除され、コピー・ムーブ・デフォルト構築ができないことが明確化された

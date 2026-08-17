@@ -48,7 +48,7 @@ namespace std::ranges {
 
 ## 効果
 
-- 式`views::iota(E)`の効果は`iota_view(E)`と等しい。
+- 式`views::iota(E)`の効果は`iota_view<`[`decay_t`](/reference/type_traits/decay.md)`<decltype((E))>>(E)`と等しい。
 - 式`views::iota(E, F)`の効果は`iota_view(E, F)`と等しい。
 
 ## メンバ関数
@@ -201,3 +201,5 @@ FizzBuzz
 - [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html) (本提案文書はC++20に遡って適用されている)
 - [P2367R0 Remove misuses of list-initialization from Clause 24](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html) (本提案文書はC++20に遡って適用されている)
 - [LWG Issue 4001. `iota_view` should provide `empty`](https://cplusplus.github.io/LWG/issue4001)
+- [LWG Issue 4096. `views::iota(views::iota(0))` should be rejected](https://cplusplus.github.io/LWG/issue4096)
+    - C++26で、`views::iota(E)`の効果が`iota_view<decay_t<decltype((E))>>(E)`とテンプレート引数を明示する形になり、`views::iota(views::iota(0))`のような入れ子が拒否されるようになった
