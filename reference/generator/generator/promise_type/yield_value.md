@@ -16,9 +16,13 @@ template<class T2, class V2, class Alloc2, class Unused>
   requires same_as<typename generator<T2, V2, Alloc2>::yielded, yielded>
 auto yield_value(ranges::elements_of<generator<T2, V2, Alloc2>&&, Unused> g) noexcept; // (3)
 
+template<class T2, class V2, class Alloc2, class Unused>
+  requires same_as<typename generator<T2, V2, Alloc2>::yielded, yielded>
+auto yield_value(ranges::elements_of<generator<T2, V2, Alloc2>&, Unused> g) noexcept;  // (4)
+
 template<ranges::input_range Rng, class Alloc>
   requires convertible_to<ranges::range_reference_t<Rng>, yielded>
-auto yield_value(ranges::elements_of<Rng, Alloc> r); // (4)
+auto yield_value(ranges::elements_of<Rng, Alloc> r); // (5)
 ```
 * generator[link ../../generator.md]
 * yielded[link ../../generator.md]
@@ -36,7 +40,8 @@ auto yield_value(ranges::elements_of<Rng, Alloc> r); // (4)
 
 ## 事前条件
 - (2) : Promiseオブジェクトが`*this`となる[コルーチンへのハンドル](/reference/coroutine/coroutine_handle.md)が、ある[`generator`オブジェクト](../../generator.md)`x`のアクティブスタック`x.active_`のトップにあること。
-- (3) : Promiseオブジェクトが`*this`となる[コルーチンへのハンドル](/reference/coroutine/coroutine_handle.md)が、ある[`generator`オブジェクト](../../generator.md)`x`のアクティブスタック`x.active_`のトップにあること。ジェネレータ`g.range`に対応するコルーチンが、[初期サスペンドポイント](initial_suspend.md)にて中断されていること。
+- (3), (4) : Promiseオブジェクトが`*this`となる[コルーチンへのハンドル](/reference/coroutine/coroutine_handle.md)が、ある[`generator`オブジェクト](../../generator.md)`x`のアクティブスタック`x.active_`のトップにあること。ジェネレータ`g.range`に対応するコルーチンが、[初期サスペンドポイント](initial_suspend.md)にて中断されていること。
+- (5) : Promiseオブジェクトが`*this`となる[コルーチンへのハンドル](/reference/coroutine/coroutine_handle.md)が、ある[`generator`オブジェクト](../../generator.md)`x`のアクティブスタック`x.active_`のトップにあること。ジェネレータ`g.range`に対応するコルーチンが、[初期サスペンドポイント](initial_suspend.md)にて中断されていること。
 
 
 ## 効果
@@ -46,7 +51,7 @@ value_ = addressof(val)
 ```
 * value_[link ../promise_type.md]
 
-(4) : 以下と等価
+(5) : 以下と等価
 ```cpp
 auto nested = [](allocator_arg_t, Alloc, ranges::iterator_t<Rng> i,
                  ranges::sentinel_t<Rng> s)
@@ -75,7 +80,7 @@ return yield_value(ranges::elements_of(nested(
 - (2) : 以下の動作をする未規定の型の[Awaitableオブジェクト](/lang/cpp20/coroutines.md)
     - `lval`で直接非リスト初期化された[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`yielded`](../../generator.md)`>`型オブジェクトを保持する。
     - [説明専用メンバ`value_`](../promise_type.md)が保持オブジェクトを指してコルーチンを中断(suspend)するメンバ関数を持つ。
-- (3) : 以下の動作をする未規定の型の[Awaitableオブジェクト](/lang/cpp20/coroutines.md)
+- (3), (4) : 以下の動作をする未規定の型の[Awaitableオブジェクト](/lang/cpp20/coroutines.md)
     - Range[`g.range`](/reference/ranges/elements_of.md)の所有権を受け取る。
     - メンバ関数`await_ready` : `false`を返す。
     - メンバ関数`await_suspend` : `x`のアクティブスタック`*x.active_`に`g.range.`[`coroutine_`](/reference/coroutine/coroutine_handle.md)をpushしてから`g.range.coroutine_`を[再開(resume)](/reference/coroutine/coroutine_handle/resume.md)する。
@@ -85,7 +90,7 @@ return yield_value(ranges::elements_of(nested(
 ## 例外
 - (1), (3), (4) : 投げない。
 - (2) : 格納されるオブジェクトの初期化によって送出された例外。
-
+- (5) : 効果の中で送出された例外。
 
 ## 備考
 ジェネレータコルーチンの`co_yield`式は`void`型となる。
@@ -108,8 +113,8 @@ return yield_value(ranges::elements_of(nested(
 
 ## 参照
 - [LWG Issue 3894. `generator::promise_type::yield_value(ranges::elements_of<Rng, Alloc>)` should not be `noexcept`](https://cplusplus.github.io/LWG/issue3894)
-    - C++26で、(4)から`noexcept`が削除された（効果内で例外を送出しうる`generator`の構築を行うため）
-- [LWG Issue 3899. co_yielding elements of an lvalue generator is unnecessarily inefficient](https://cplusplus.github.io/LWG/issue3899)
-    - C++26で、(4)の効果で用いるネストした`generator`の型を`generator<yielded, void, Alloc>`に変更し、左辺値`generator`の要素をco_yieldする際の非効率を解消した
-- [LWG Issue 4119. `generator::promise_type::yield_value(ranges::elements_of<R, Alloc>)`'s nested generator may be ill-formed](https://cplusplus.github.io/LWG/issue4119)
-    - LWG 3899と同じく、ネストした`generator`の型を`generator<yielded, void, Alloc>`とすることで、要素型が`generator`のValue型として不適格になる問題を回避する
+    - C++26で、(5)から`noexcept`が削除された（効果内で例外を送出しうる`generator`の構築を行うため）
+- [LWG Issue 3899. `co_yield`ing elements of an lvalue generator is unnecessarily inefficient](https://cplusplus.github.io/LWG/issue3899)
+    - C++26で、左辺値参照をとるオーバーロード(4)を追加し、左辺値`generator`の要素を`co_yield`する際の非効率性を解消する
+- [LWG Issue 4119. `generator::promise_type::yield_value(ranges::elements_of<R, Alloc>)`'s nested `generator` may be ill-formed](https://cplusplus.github.io/LWG/issue4119)
+    - C++26で、ネストした`generator`の型を`generator<yielded, void, Alloc>`とすることで、`generator`のValue型として不適格になる問題を回避する
