@@ -24,6 +24,13 @@ atomic(atomic&&) = delete;                         // (4) C++11
 - (4) : ムーブコンストラクタ。ムーブ不可
 
 
+## テンプレートパラメータ制約
+- (1) :
+    - C++20 : `is_default_constructible_v<T>`が`true`であること（適格要件）
+    - C++26 : `is_default_constructible_v<T>`が`true`であること（テンプレートパラメータ制約）
+        - C++26では適格要件からテンプレートパラメータ制約に変更され、条件を満たさない場合はハードエラーではなくオーバーロード解決から除外される
+
+
 ## 効果
 - (1) :
     - C++17 : `atomic`オブジェクトを未初期化状態にする (C言語との互換性のため)
@@ -80,3 +87,5 @@ int main()
 
 ## 参照
 - [P0883R2 Fixing Atomic Initialization, Rev2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0883r2.pdf)
+- [LWG Issue 4169. `std::atomic<T>`'s default constructor should be constrained](https://cplusplus.github.io/LWG/issue4169)
+    - C++26で、デフォルトコンストラクタの`is_default_constructible_v<T>`要件が適格要件（Mandates）からテンプレートパラメータ制約（Constraints）に変更され、SFINAEフレンドリに振る舞うようになった

@@ -27,8 +27,9 @@ namespace std {
 `optional`において、左辺が右辺以下かの判定を行う。
 
 
-## 要件
+## テンプレートパラメータ制約
 - (1), (2), (3) : 型`T`と型`U`が`<=`演算子で比較可能であること
+- (2), (3) : 比較する相手の型が`optional`の特殊化でないこと
 
 
 ## 戻り値
@@ -104,5 +105,7 @@ int main()
 - [LWG Issue 2934. `optional<const T>` doesn't compare with `T`](https://wg21.cmeerw.net/lwg/issue2934)
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [LWG Issue 4072. `std::optional` comparisons: constrain harder](https://cplusplus.github.io/LWG/issue4072)
+    - C++26で、`optional`と値の比較演算子の制約に、相手の型が`optional`の特殊化でないことが追加された（`optional`同士の比較がこのオーバーロードに解決されるのを防ぐ）
 - [LWG Issue 4370. Comparison of `optional<T>` to `T` may be ill-formed](https://cplusplus.github.io/LWG/issue4370)
     - C++26で、効果が三項演算子形式（`x.has_value() ? *x == v : false`）から`if`文形式へ変更された。比較結果が`bool`以外の型を返す場合に三項演算子で共通型が得られず不適格となる問題を防ぐもの（cpprefjpの戻り値の記述はもともとこの意味を表している）

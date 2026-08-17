@@ -32,6 +32,8 @@ namespace std {
 
 戻り値によって管理されるオブジェクトの`lifetime`が終了するか、配列要素の初期化が例外を送出すると、初期化された要素は元の構造の逆の順序で破棄される。
 
+この関数によって初期化された非配列型`U`の（サブ）オブジェクトを破棄する場合、式`pv->~U()`によって破棄される。`pv`は型`U`のオブジェクトを指す。
+
 - (1) : このオーバーロードが選択されるとき、`T`は、不明な境界の配列ではない。`T`型のオブジェクトへの`shared_ptr`を返す。
 - (2) : このオーバーロードが選択されるとき、`T`は、不明な境界の配列である。型`U[N]`のオブジェクトへの`shared_ptr`を返す。ここで、`U`は[`remove_extent_t<T>`](/reference/type_traits/remove_extent.md)である。
 
@@ -94,3 +96,5 @@ int main() {
 ## 参照
 - [P1020R1 Smart pointer creation with default initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1020r1.html)
 - [P1973R1 Rename "_default_init" Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1973r1.pdf)
+- [LWG Issue 4024. Underspecified destruction of objects created in `std::make_shared_for_overwrite`/`std::allocate_shared_for_overwrite`](https://cplusplus.github.io/LWG/issue4024)
+    - C++26で、この関数で初期化された非配列型オブジェクトの破棄が式`pv->~U()`で行われることが明確化された

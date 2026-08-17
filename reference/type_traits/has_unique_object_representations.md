@@ -19,8 +19,8 @@ namespace std {
 型`T`の任意の2つの値が、同じ値を持つ場合はそのオブジェクト表現（バイト表現）も同じとなるかどうかを調べる。
 
 
-## 要件
-型`T`が、完全型であること。もしくは`const`/`volatile`修飾された(あるいはされていない)`void`か、要素数不明の配列型であること。
+## 適格要件
+[`remove_all_extents_t`](remove_all_extents.md)`<T>`が、完全型であること。もしくは`const`/`volatile`修飾された(あるいはされていない)`void`であること。
 
 
 ## 効果
@@ -123,3 +123,5 @@ false
 - [What type will make “std::has_unique_object_representations” return false? - Stack Overflow](https://stackoverflow.com/questions/42855326/what-type-will-make-stdhas-unique-object-representations-return-false)
 - [P0258R1 is_contiguous_layout](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0258r1.html)
 - [P0258R2 has_unique_object_representations - wording](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0258r2.html)
+- [LWG Issue 4113. Disallow `has_unique_object_representations<Incomplete[]>`](https://cplusplus.github.io/LWG/issue4113)
+    - C++26で、適格要件が`remove_all_extents_t<T>`を対象とするよう整理され、要素数不明の不完全型配列が許可されないことが明確化された

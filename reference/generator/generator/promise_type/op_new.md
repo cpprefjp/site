@@ -33,7 +33,8 @@ void* operator new(size_t size, const This&, allocator_arg_t, const Alloc& alloc
 
 
 ## 適格要件
-[`allocator_traits`](/reference/memory/allocator_traits.md)`<B>::pointer`はポインタ型。
+- [`allocator_traits`](/reference/memory/allocator_traits.md)`<B>::pointer`はポインタ型であること。
+- (2), (3) : `Alloc`テンプレートパラメータを持つオーバーロードでは、[`same_as`](/reference/concepts/same_as.md)`<Allocator, void> ||` [`convertible_to`](/reference/concepts/convertible_to.md)`<const Alloc&, Allocator>`がモデルされること。
 
 
 ## 効果
@@ -59,3 +60,8 @@ void* operator new(size_t size, const This&, allocator_arg_t, const Alloc& alloc
 
 ## 関連項目
 - [`operator delete`](op_delete.md)
+
+
+## 参照
+- [LWG Issue 3900. The `allocator_arg_t` overloads of `generator::promise_type::operator new` should not be constrained](https://cplusplus.github.io/LWG/issue3900)
+    - C++26で、(2), (3)のオーバーロードから`requires`節による制約が削除され、代わりに`same_as<Allocator, void> || convertible_to<const Alloc&, Allocator>`が適格要件として要求されるようになった

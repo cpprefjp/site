@@ -31,6 +31,7 @@ namespace std {
 
 ## テンプレートパラメータ制約
 - (1), (3), (4) : 型`T`が`==`で比較可能であり、その戻り値型が`bool`に変換可能であること
+- (3), (4) : 比較する相手の型が`optional`の特殊化でないこと
 
 
 ## 戻り値
@@ -116,5 +117,7 @@ int main()
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
 - [P2944R3 Comparisons for `reference_wrapper`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2944r3.html)
     - C++26でテンプレートパラメータ制約が整理された
+- [LWG Issue 4072. `std::optional` comparisons: constrain harder](https://cplusplus.github.io/LWG/issue4072)
+    - C++26で、`optional`と値の比較演算子の制約に、相手の型が`optional`の特殊化でないことが追加された（`optional`同士の比較がこのオーバーロードに解決されるのを防ぐ）
 - [LWG Issue 4370. Comparison of `optional<T>` to `T` may be ill-formed](https://cplusplus.github.io/LWG/issue4370)
     - C++26で、効果が三項演算子形式（`x.has_value() ? *x == v : false`）から`if`文形式へ変更された。比較結果が`bool`以外の型を返す場合に三項演算子で共通型が得られず不適格となる問題を防ぐもの（cpprefjpの戻り値の記述はもともとこの意味を表している）

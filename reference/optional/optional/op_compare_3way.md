@@ -29,6 +29,10 @@ namespace std {
 - (3) : `optional<T>`と有効値`U`の三方比較
 
 
+## テンプレートパラメータ制約
+- (3) : 比較する相手の型`U`が`optional`の特殊化でないこと
+
+
 ## 戻り値
 - (1) :
     - `x && y`が`true`である場合`*x <=> *y`を返し、そうでなければ`bool(x) <=> bool(y)`を返す
@@ -120,3 +124,5 @@ int main()
 ## 参照
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [LWG Issue 4072. `std::optional` comparisons: constrain harder](https://cplusplus.github.io/LWG/issue4072)
+    - C++26で、(3)の制約に、相手の型が`optional`の特殊化でないことが追加された

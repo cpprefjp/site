@@ -17,6 +17,7 @@ constexpr void check_dynamic_spec(size_t id) noexcept;
 
 ## 適格要件
 - `Ts...`の型は一意であること
+- `sizeof...(Ts) >= 1`が`true`であること（型が1つ以上指定されていること）
 - `Ts...`の各型は、`bool`, `char_type`, `int`, `unsigned int`, `long long int`, `unsigned long long int`, `float`, `double`, `long double`, `const char_type*`, [`basic_string_view`](/reference/string_view/basic_string_view.md)`<char_type>`, `const void*` のいずれかであること
 
 ## 備考
@@ -73,3 +74,5 @@ C++26では、[`formatter`](/reference/format/formatter.md)の[`parse()`](/refer
 
 ## 参照
 - [P2757R3 Type-checking format args](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2757r3.html)
+- [LWG Issue 4142. `format_parse_context::check_dynamic_spec` should require at least one type](https://cplusplus.github.io/LWG/issue4142)
+    - C++26で、適格要件に`sizeof...(Ts) >= 1`（型が1つ以上指定されていること）が追加された

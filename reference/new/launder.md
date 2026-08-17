@@ -93,6 +93,8 @@ c1.f();                         // well-defined; c1はC型の新しいオブジ�
 
 つまり、`placement new`使用時は、`std::launder`を使用することによって未定義動作を避けることができる。
 
+なお、`std::memcpy`によってトリビアルにコピー可能な型のオブジェクトを別のストレージへ複製した場合、その複製先を指すポインタは`std::launder`を通さずにそのまま使用できる。
+
 
 ## 例
 ```cpp example
@@ -156,5 +158,7 @@ void tong() {
     - C++20で`[[nodiscard]]`が付加された
 - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
     - C++26で`[[nodiscard]]`指定が削除された
+- [LWG Issue 4064. Clarify that `std::launder` is not needed when using the result of `std::memcpy`](https://cplusplus.github.io/LWG/issue4064)
+    - C++26で、`std::memcpy`の結果を使う際には`std::launder`が不要であることが明確化された
 - [LWG Issue 4130. Preconditions for `std::launder` might be overly strict](https://cplusplus.github.io/LWG/issue4130)
     - C++26で、生存期間内にある配列オブジェクトの配列要素サブオブジェクトであれば、その要素自身の生存期間が開始していなくても`launder`を適用できるよう、事前条件が緩和された

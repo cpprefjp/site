@@ -114,3 +114,5 @@ std::ostream_iterator<double> is not contiguous_iterator
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P1474R1 Helpful pointers for `ContiguousIterator`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1474r1.pdf)
 - [P3349R1 Converting contiguous iterators to pointers](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3349r1.html)
+- [LWG Issue 4170. `contiguous_iterator` should require `to_address(I{})`](https://cplusplus.github.io/LWG/issue4170)
+    - C++26で、`to_address`を要求する`requires`式の対象が`const I&`であることが整理された（cpprefjpの記述はもともとこの形と一致している）

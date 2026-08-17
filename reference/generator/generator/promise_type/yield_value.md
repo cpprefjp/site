@@ -50,7 +50,7 @@ value_ = addressof(val)
 ```cpp
 auto nested = [](allocator_arg_t, Alloc, ranges::iterator_t<Rng> i,
                  ranges::sentinel_t<Rng> s)
-  -> generator<yielded, ranges::range_value_t<Rng>, Alloc> {
+  -> generator<yielded, void, Alloc> {
     for (; i != s; ++i) {
       co_yield static_cast<yielded>(*i);
     }
@@ -65,7 +65,6 @@ return yield_value(ranges::elements_of(nested(
 * allocator_arg[link /reference/memory/allocator_arg_t.md]
 * ranges::iterator_t[link /reference/ranges/iterator_t.md]
 * ranges::sentinel_t[link /reference/ranges/sentinel_t.md]
-* ranges::range_value_t[link /reference/ranges/range_value_t.md]
 * ranges::elements_of[link /reference/ranges/elements_of.md]
 * r.range[link /reference/ranges/elements_of.md]
 * r.allocator[link /reference/ranges/elements_of.md]
@@ -105,3 +104,10 @@ return yield_value(ranges::elements_of(nested(
 
 ## 関連項目
 - [`unhandled_exception`](unhandled_exception.md)
+
+
+## 参照
+- [LWG Issue 3899. co_yielding elements of an lvalue generator is unnecessarily inefficient](https://cplusplus.github.io/LWG/issue3899)
+    - C++26で、(4)の効果で用いるネストした`generator`の型を`generator<yielded, void, Alloc>`に変更し、左辺値`generator`の要素をco_yieldする際の非効率を解消した
+- [LWG Issue 4119. `generator::promise_type::yield_value(ranges::elements_of<R, Alloc>)`'s nested generator may be ill-formed](https://cplusplus.github.io/LWG/issue4119)
+    - LWG 3899と同じく、ネストした`generator`の型を`generator<yielded, void, Alloc>`とすることで、要素型が`generator`のValue型として不適格になる問題を回避する

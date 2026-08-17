@@ -23,7 +23,7 @@ namespace std {
 以下と等価：
 
 ```cpp
-erase_if(c, [&](auto& elem) { return elem == value; });
+erase_if(c, [&](const auto& elem) -> bool { return elem == value; });
 ```
 * erase_if[link erase_if_free.md]
 
@@ -111,3 +111,5 @@ int main() {
 - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
     - C++26で波カッコ初期化 (リスト初期化) に対応した
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 4135. The helper lambda of `std::erase` for `list` should specify return type as `bool`](https://cplusplus.github.io/LWG/issue4135)
+    - C++26で、効果のラムダの引数に`const`が付き、戻り値型`-> bool`が明示された

@@ -169,3 +169,5 @@ insert initializer_list : 1 2 3 4 5 6
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (5)の経緯となる提案文書
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 4164. Missing guarantees for `forward_list` modifiers](https://cplusplus.github.io/LWG/issue4164)
+    - C++26で、`insert_after`各オーバーロードの計算量の保証が明文化された

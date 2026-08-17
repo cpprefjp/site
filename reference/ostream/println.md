@@ -35,10 +35,11 @@ namespace std {
 ## 効果
 - (1) : 以下と等価：
     ```cpp
-    print(os, "{}\n", format(fmt, std::forward<Args>(args)...));
+    print(os, "{}\n", format(os.getloc(), fmt, std::forward<Args>(args)...));
     ```
     * print[link print.md]
     * format[link /reference/format/format.md]
+    * getloc[link /reference/ios/ios_base/getloc.md]
 
 - (2) : 以下と等価：
     ```cpp
@@ -125,3 +126,5 @@ abc
 ## 参照
 - [P2093R14 Formatted output](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2093r14.html)
 - [P3142R0 Printing Blank Lines with `println`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3142r0.pdf)
+- [LWG Issue 4088. `println` ignores the locale imbued in `std::ostream`](https://cplusplus.github.io/LWG/issue4088)
+    - C++26で、(1)の効果が`os`にimbueされたロケール（`os.getloc()`）を用いて書式化するよう修正された

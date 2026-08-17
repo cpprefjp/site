@@ -23,12 +23,12 @@ subtract_with_carry_engine(subtract_with_carry_engine&& e) = default;      // (5
 ## 概要
 - (1) : デフォルトコンストラクタ
     - C++17まで：シード値が指定されない場合はデフォルトのシード値 (`subtract_with_carry_engine::default_seed`) で構築される
-        - [`linear_congruential_engine`](../linear_congruential_engine.md) を $n = \lceil 32 / \mathtt{w} \rceil$ 回 (`w` は `subtract_with_carry_engine::word_size`) 呼び出して内部状態を初期化する
+        - [`linear_congruential_engine`](../linear_congruential_engine.md) を $n = \lceil \mathtt{w} / 32 \rceil$ 回 (`w` は `subtract_with_carry_engine::word_size`) 呼び出して内部状態を初期化する
     - C++20から : デフォルトのシード値 (`subtract_with_carry_engine::default_seed`) で(2)に委譲
     - C++26から : シード値を`0u`として(2)に委譲
 - (2) : シード値を受け取って状態シーケンスを構築する
     - `value == 0`なら、デフォルトのシード値 (`subtract_with_carry_engine::default_seed`) が使用される
-    - [`linear_congruential_engine`](../linear_congruential_engine.md) を $n = \lceil 32 / \mathtt{w} \rceil$ 回 (`w` は `subtract_with_carry_engine::word_size`) 呼び出して内部状態を初期化する
+    - [`linear_congruential_engine`](../linear_congruential_engine.md) を $n = \lceil \mathtt{w} / 32 \rceil$ 回 (`w` は `subtract_with_carry_engine::word_size`) 呼び出して内部状態を初期化する
 - (3) : シードのシーケンスを受け取って状態シーケンスを構築する
 - (4) : コピーコンストラクタ。状態シーケンスをコピーする
 - (5) : ムーブコンストラクタ。可能であれば状態シーケンスを移動する
@@ -112,3 +112,5 @@ int main()
 
 - [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
 - [LWG Issue 3809. Is `std::subtract_with_carry_engine<uint16_t>` supposed to work?](https://cplusplus.github.io/LWG/issue3809)
+- [LWG Issue 4014. LWG 3809 changes behavior of some existing `std::subtract_with_carry_engine` code](https://cplusplus.github.io/LWG/issue4014)
+    - C++26で、内部状態の初期化に用いる線形合同法エンジンの呼び出し回数が $\lceil 32 / \mathtt{w} \rceil$ から $\lceil \mathtt{w} / 32 \rceil$ に修正された（LWG 3809が既存コードの生成列を変えてしまった問題の修正）

@@ -22,7 +22,8 @@ namespace std::ranges {
   template <class R, class G, class D>
     requires output_range<R, invoke_result_t<D&, G&>> &&
              invocable<D&, G&> &&
-             uniform_random_bit_generator<remove_cvref_t<G>>
+             uniform_random_bit_generator<remove_cvref_t<G>> &&
+             is_arithmetic_v<invoke_result_t<D&, G&>>
   constexpr borrowed_iterator_t<R>
     generate_random(R&& r, G&& g, D&& d);           // (3) C++26
 
@@ -31,13 +32,15 @@ namespace std::ranges {
             output_iterator<invoke_result_t<D&, G&>> O,
             sentinel_for<O> S>
     requires invocable<D&, G&> &&
-             uniform_random_bit_generator<remove_cvref_t<G>>
+             uniform_random_bit_generator<remove_cvref_t<G>> &&
+             is_arithmetic_v<invoke_result_t<D&, G&>>
   constexpr O
     generate_random(O first, S last, G&& g, D&& d); // (4) C++26
 }
 ```
 * uniform_random_bit_generator[link uniform_random_bit_generator.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* is_arithmetic_v[link /reference/type_traits/is_arithmetic.md]
 
 ## 概要
 乱数列を生成する。
@@ -152,3 +155,5 @@ int main()
 
 ## 参照
 - [P1068R11 Vector API for random number generation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p1068r11.pdf)
+- [LWG Issue 4085. `ranges::generate_random`'s helper lambda should specify the return type](https://cplusplus.github.io/LWG/issue4085)
+    - C++26で、(3), (4)の制約に`is_arithmetic_v<invoke_result_t<D&, G&>>`が追加された

@@ -36,6 +36,21 @@ namespace std {
 | `(destructor)` | デストラクタ |
 | `do_put` | 数値を出力する |
 
+### 浮動小数点数の書式変換
+
+`do_put`が浮動小数点数を出力するとき、[`ios_base`](/reference/ios/ios_base.md)の`floatfield`と`uppercase`の状態に応じて、以下のprintf変換指定子に相当する書式が使われる。
+
+| 状態 | 相当するprintf変換 |
+|------|--------------------|
+| `floatfield == ios_base::fixed && !uppercase` | `%f` |
+| `floatfield == ios_base::fixed` | `%F` |
+| `floatfield == ios_base::scientific && !uppercase` | `%e` |
+| `floatfield == ios_base::scientific` | `%E` |
+| `floatfield == (ios_base::fixed \| ios_base::scientific) && !uppercase` | `%a` |
+| `floatfield == (ios_base::fixed \| ios_base::scientific)` | `%A` |
+| `!uppercase`（上記以外） | `%g` |
+| （それ以外） | `%G` |
+
 ### メンバ型
 
 | 名前 | 説明 |
@@ -52,3 +67,5 @@ namespace std {
 ```
 
 ### 参照
+- [LWG Issue 4084. `std::fixed` ignores `std::uppercase`](https://cplusplus.github.io/LWG/issue4084)
+    - C++26で、`floatfield == ios_base::fixed`のときに`uppercase`が設定されていれば`%F`（大文字）が使われることが明確化された（従来は`fixed`が常に`%f`で`uppercase`が無視されていた）
