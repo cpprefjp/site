@@ -34,7 +34,7 @@ namespace std::ranges {
 - (1) `Bound = unreachable_sentinel_t` ではない場合
 
 ## 効果
-- 式`views::repeat(E)`の効果は`repeat_view(E)`と等しい。
+- 式`views::repeat(E)`の効果は`repeat_view<`[`decay_t`](/reference/type_traits/decay.md)`<decltype((E))>>(E)`と等しい。
 - 式`views::repeat(E, F)`の効果は`repeat_view(E, F)`と等しい。
 
 ## メンバ関数
@@ -103,3 +103,5 @@ int main() {
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
+- [LWG Issue 4054. Repeating a `repeat_view` should repeat the view](https://cplusplus.github.io/LWG/issue4054)
+    - C++26で、`views::repeat(E)`の効果が`repeat_view<decay_t<decltype((E))>>(E)`に修正され、引数を[`decay_t`](/reference/type_traits/decay.md)で減衰させて要素型を決定するようになった
