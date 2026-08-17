@@ -32,7 +32,7 @@ constexpr text_encoding(id i) noexcept;                     // (3) C++26
     - `enc.compare(name_) == 0`
 - (3) :
     - `mib_ == i`
-    - `(mib_ == id::unknown || mib_ == id::other)`が`true`の場合、`strlen(name_) == 0`。そうでなければ、[`ranges::contains`](/reference/algorithm/ranges_contains.md)`(`[`aliases()`](aliases.md)`, `[`string_view`](/reference/string_view/basic_string_view.md)`(name_))`が`true`
+    - `(mib_ == id::unknown || mib_ == id::other)`が`true`の場合、[`strlen`](/reference/cstring/strlen.md)`(name_) == 0`。そうでなければ、[`ranges::contains`](/reference/algorithm/ranges_contains.md)`(`[`aliases()`](aliases.md)`, `[`string_view`](/reference/string_view/basic_string_view.md)`(name_))`が`true`
 
 
 ## 例外

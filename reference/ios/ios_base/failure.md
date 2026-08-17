@@ -72,7 +72,7 @@ C++11 からは、エラー内容としてメッセージだけではなく、[`
     [`exception`](../../exception/exception.md) 型であれば `catch` することができるが、いずれにせよストリーム系の例外とそれ以外の例外を区別することができなくなってしまう。  
     したがって、少なくともこの問題が解決されるまでは、`_GLIBCXX_USE_CXX11_ABI` マクロを `0` にする他ないだろう。（C++03 モードにおける [コンストラクタ](failure/op_constructor.md)の事後条件の違いも参照）  
     なお、`_GLIBCXX_USE_CXX11_ABI` マクロを `0` にしてしまうと、4.9.x までと同様、モードにかかわらず [`system_error`](../../system_error/system_error.md) を継承しなくなってしまうので、注意すること。
-- Clang では、C++03 モードでも [`strcmp`](../../cstring/strcmp.md.nolink)`(`[`what`](failure/what.md)`(), msg.`[`c_str`](../../string/basic_string/c_str.md)`()) == 0` にはならない。  
+- Clang では、C++03 モードでも [`strcmp`](../../cstring/strcmp.md)`(`[`what`](failure/what.md)`(), msg.`[`c_str`](../../string/basic_string/c_str.md)`()) == 0` にはならない。  
 
 
 ## 参照

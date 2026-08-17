@@ -53,7 +53,7 @@ int main()
 }
 ```
 * std::nan[color ff0000]
-* std::memcpy[link /reference/cstring/memcpy.md.nolink]
+* std::memcpy[link /reference/cstring/memcpy.md]
 * std::hex[link /reference/ios/hex.md]
 
 ### 出力

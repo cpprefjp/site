@@ -27,7 +27,7 @@ namespace std {
 
 `is_trivially_copyable`は、`T`がトリビアルコピー可能な型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
 
-「トリビアルコピー可能な型」とは、「`std::memcpy()`可能な型である」と言い換えることもできる。
+「トリビアルコピー可能な型」とは、「[`std::memcpy()`](/reference/cstring/memcpy.md)可能な型である」と言い換えることもできる。
 
 トリビアルコピー可能な型の定義はこれまで2回変更されている。[CWG issue 1734](https://wg21.cmeerw.net/cwg/issue1734)による変更と、C++20での変更の2つだ。  
 CWG issue 1734は2013年8月9日に報告されている。つまりC++14に対応した処理系はこれに対応している可能性があり、すくなくともC++17時点で規格書に修正が取り込まれている。

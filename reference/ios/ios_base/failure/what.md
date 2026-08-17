@@ -52,9 +52,9 @@ error message
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ### 備考
-- GCC 5.1.0 以降では、単に C++03 モードにしても [`strcmp`](../../../cstring/strcmp.md.nolink)`(what(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` にはならない。  
+- GCC 5.1.0 以降では、単に C++03 モードにしても [`strcmp`](../../../cstring/strcmp.md)`(what(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` にはならない。  
     どうしても C++03 の挙動にしたい場合には、コンパイルオプションに `-D_GLIBCXX_USE_CXX11_ABI=0` を指定する必要がある。
-- Clang では、C++03 モードでも [`strcmp`](../../../cstring/strcmp.md.nolink)`(what(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` にはならない。  
+- Clang では、C++03 モードでも [`strcmp`](../../../cstring/strcmp.md)`(what(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` にはならない。  
 
 
 ## 参照

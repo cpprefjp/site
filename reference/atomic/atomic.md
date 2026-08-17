@@ -32,7 +32,7 @@ namespace std {
 - 型`T`は[コピー構築可能](/reference/concepts/copy_constructible.md)かつ[コピー代入可能](/reference/type_traits/is_copy_assignable.md)であること
 - 以下のいずれかが`false`である場合、プログラムは不適格となる：
     - [`is_trivially_copyable_v`](/reference/type_traits/is_trivially_copyable.md)`<T>`
-        - 簡潔に言うと、`memcpy()`可能な型であること
+        - 簡潔に言うと、[`std::memcpy()`](/reference/cstring/memcpy.md)可能な型であること
     - [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T>`
     - [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T>`
     - [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<T>`

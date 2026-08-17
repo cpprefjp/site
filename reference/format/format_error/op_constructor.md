@@ -22,8 +22,8 @@ constexpr explicit format_error(const char* what_arg); // (2) C++26
 
 ## 事後条件
 
-- (1) : `strcmp(what(), what_arg.c_str()) == 0`
-- (2) : `strcmp(what(), what_arg) == 0`
+- (1) : [`strcmp`](/reference/cstring/strcmp.md)`(what(), what_arg.c_str()) == 0`
+- (2) : [`strcmp`](/reference/cstring/strcmp.md)`(what(), what_arg) == 0`
 
 
 ## 関連項目

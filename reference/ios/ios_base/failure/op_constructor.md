@@ -19,7 +19,7 @@ explicit failure(const char* msg, const error_code& ec = io_errc::stream);      
 
 
 ## 効果
-- (1) [`strcmp`](../../../cstring/strcmp.md.nolink)`(`[`what`](what.md)`(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` となる [`ios_base`](../../ios_base.md)`::`[`failure`](../failure.md) オブジェクトを構築する。
+- (1) [`strcmp`](../../../cstring/strcmp.md)`(`[`what`](what.md)`(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` となる [`ios_base`](../../ios_base.md)`::`[`failure`](../failure.md) オブジェクトを構築する。
 - (2), (3) 引数 `msg` と `ec` を用いて基底クラスを構築して、[`ios_base`](../../ios_base.md)`::`[`failure`](../failure.md) オブジェクトを構築する。
 
 
@@ -81,10 +81,10 @@ error message: No such file or directory
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ### 備考
-- GCC 5.1.0 以降では、単に C++03 モードにしても [`strcmp`](../../../cstring/strcmp.md.nolink)`(`[`what`](what.md)`(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` にはならない。  
+- GCC 5.1.0 以降では、単に C++03 モードにしても [`strcmp`](../../../cstring/strcmp.md)`(`[`what`](what.md)`(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` にはならない。  
     マクロ `_GLIBCXX_USE_CXX11_ABI` を `0`に設定すれば完全に C++03 の挙動になる。  
     [クラスページ](../failure.md)のバージョン欄の備考も参照。
-- Clang では、C++03 モードでも [`strcmp`](../../../cstring/strcmp.md.nolink)`(`[`what`](what.md)`(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` にはならない。  
+- Clang では、C++03 モードでも [`strcmp`](../../../cstring/strcmp.md)`(`[`what`](what.md)`(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` にはならない。  
 
 
 ## 参照

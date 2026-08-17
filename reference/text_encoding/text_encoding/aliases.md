@@ -18,7 +18,7 @@ constexpr aliases_view aliases() const noexcept;
 
 - `r.front()`はIANAレジストリで定義されたプライマリ名を返す
 - `r`は登録済みエンコーディングのエイリアスを含む
-- `r`は`strcmp`で比較した場合に重複する値を含まない
+- `r`は[`strcmp`](/reference/cstring/strcmp.md)で比較した場合に重複する値を含まない
 
 そうでない場合（[`id::unknown`](id.md)または[`id::other`](id.md)の場合）、空のRangeを返す。
 
