@@ -35,10 +35,10 @@ class expected {
 
 
 ## 適格要件
-- (1), (2) : 型`U`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`value()`](value.md)`)>>`としたとき、次を全て満たすこと
+- (1), (2) : 型`U`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`**this`](op_deref.md)`)>>`としたとき、次を全て満たすこと
     - `U`が`expected`の特殊化である
     - [`is_same_v`](/reference/type_traits/is_same.md)`<U::error_type, E> == true`
-- (3), (4) : 型`U`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`))>>`としたとき、次を全て満たすこと
+- (3), (4) : 型`U`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<F, decltype(`[`std::move`](/reference/utility/move.md)`(`[`**this`](op_deref.md)`))>>`としたとき、次を全て満たすこと
     - `U`が`expected`の特殊化である
     - [`is_same_v`](/reference/type_traits/is_same.md)`<U::error_type, E> == true`
 
@@ -47,12 +47,12 @@ class expected {
 - (1), (2) : 次の処理と等価
     ```cpp
     if (has_value())
-      return invoke(std::forward<F>(f), value());
+      return invoke(std::forward<F>(f), **this);
     else
       return U(unexpect, error());
     ```
     * has_value[link has_value.md]
-    * value()[link value.md]
+    * **this[link op_deref.md]
     * error()[link error.md]
     * unexpect[link ../unexpect_t.md]
     * invoke[link /reference/functional/invoke.md]
@@ -60,12 +60,12 @@ class expected {
 - (3), (4) : 次の処理と等価
     ```cpp
     if (has_value())
-      return invoke(std::forward<F>(f), std::move(value()));
+      return invoke(std::forward<F>(f), std::move(**this));
     else
       return U(unexpect, std::move(error()));
     ```
     * has_value[link has_value.md]
-    * value()[link value.md]
+    * **this[link op_deref.md]
     * error()[link error.md]
     * unexpect[link ../unexpect_t.md]
     * invoke[link /reference/functional/invoke.md]
@@ -133,3 +133,5 @@ int main()
 
 ## 参照
 - [P2505R5 Monadic Functions for `std::expected`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2505r5.html)
+- [LWG Issue 3938. Cannot use `std::expected` monadic ops with move-only `error_type`](https://cplusplus.github.io/LWG/issue3938)
+    - C++26で、効果および適格要件で正常値へのアクセスに[`value()`](value.md)ではなく[`**this`](op_deref.md)を使うよう修正され、ムーブのみ可能な`error_type`でも使用できるようになった

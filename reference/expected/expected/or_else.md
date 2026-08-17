@@ -47,24 +47,24 @@ class expected {
 - (1), (2) : 次の処理と等価
     ```cpp
     if (has_value())
-      return G(in_place, value());
+      return G(in_place, **this);
     else
       return invoke(std::forward<F>(f), error());
     ```
     * has_value()[link has_value.md]
-    * value()[link value.md]
+    * **this[link op_deref.md]
     * error()[link error.md]
     * invoke[link /reference/functional/invoke.md]
 
 - (3), (4) : 次の処理と等価
     ```cpp
     if (has_value())
-      return G(in_place, std::move(value()));
+      return G(in_place, std::move(**this));
     else
       return invoke(std::forward<F>(f), std::move(error()));
     ```
     * has_value()[link has_value.md]
-    * value()[link value.md]
+    * **this[link op_deref.md]
     * error()[link error.md]
     * invoke[link /reference/functional/invoke.md]
     * std::move[link /reference/utility/move.md]
@@ -137,3 +137,5 @@ int main()
 
 ## 参照
 - [P2505R5 Monadic Functions for `std::expected`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2505r5.html)
+- [LWG Issue 3938. Cannot use `std::expected` monadic ops with move-only `error_type`](https://cplusplus.github.io/LWG/issue3938)
+    - C++26で、効果で正常値へのアクセスに[`value()`](value.md)ではなく[`**this`](op_deref.md)を使うよう修正され、ムーブのみ可能な`error_type`でも使用できるようになった

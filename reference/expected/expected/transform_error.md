@@ -45,10 +45,10 @@ class expected {
 
 ## 効果
 - (1), (2) : 次の効果をもつ
-    - 正常値を保持していたら、`expected<T, G>(`[`in_place`](/reference/utility/in_place_t.md)`,` [`value()`](value.md)`)`を返す。
+    - 正常値を保持していたら、`expected<T, G>(`[`in_place`](/reference/utility/in_place_t.md)`,` [`**this`](op_deref.md)`)`を返す。
     - そうでなければ、エラー値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`error()`](error.md)`)`で直接非リスト初期化した`expected<T, G>`オブジェクトを返す。
 - (3), (4) : 次の効果をもつ
-    - 正常値を保持していたら、`expected<T, G>(`[`in_place`](/reference/utility/in_place_t.md)`,` [`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`))`を返す。
+    - 正常値を保持していたら、`expected<T, G>(`[`in_place`](/reference/utility/in_place_t.md)`,` [`std::move`](/reference/utility/move.md)`(`[`**this`](op_deref.md)`))`を返す。
     - そうでなければ、エラー値を[`invoke`](/reference/functional/invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<F>(f),` [`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`で直接非リスト初期化した`expected<T, G>`オブジェクトを返す。
 
 
@@ -109,3 +109,5 @@ int main()
 
 ## 参照
 - [P2505R5 Monadic Functions for `std::expected`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2505r5.html)
+- [LWG Issue 3938. Cannot use `std::expected` monadic ops with move-only `error_type`](https://cplusplus.github.io/LWG/issue3938)
+    - C++26で、効果で正常値へのアクセスに[`value()`](value.md)ではなく[`**this`](op_deref.md)を使うよう修正され、ムーブのみ可能な`error_type`でも使用できるようになった
