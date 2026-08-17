@@ -33,6 +33,8 @@ namespace std {
 
 C++26では、コピーコンストラクタとコピー代入演算子が`= delete`で明示的に削除され、このクラスがコピー構築・コピー代入できないことが明確化された（これにともないムーブおよびデフォルト構築もできない）。
 
+また、このクラステンプレートの明示的特殊化または部分特殊化をユーザーが宣言した場合、プログラムは不適格となる（診断不要）。
+
 ## メンバ関数
 
 | 名前                                 | 説明                                         | 対応バージョン |
@@ -106,5 +108,7 @@ namespace std {
 ## 参照
 
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+* [LWG Issue 3975. Specializations of `basic_format_context` should not be permitted](https://cplusplus.github.io/LWG/issue3975)
+    * C++26で、ユーザーによる明示的特殊化・部分特殊化が不適格（診断不要）とされた
 * [LWG Issue 4061. Should `std::basic_format_context` be default-constructible/copyable/movable?](https://cplusplus.github.io/LWG/issue4061)
     * C++26で、コピーコンストラクタとコピー代入演算子が`= delete`で明示的に削除され、コピー・ムーブ・デフォルト構築ができないことが明確化された

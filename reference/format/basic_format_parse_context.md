@@ -24,6 +24,11 @@ namespace std {
 
 このクラスのオブジェクトはコピーできない。
 
+
+## 備考
+このクラステンプレートの明示的特殊化または部分特殊化をユーザーが宣言した場合、プログラムは不適格となる（診断不要）。
+
+
 ## メンバ関数
 
 | 名前            | 説明                                               | 対応バージョン |
@@ -143,3 +148,5 @@ namespace std {
 
 * [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
 * [P2757R3 Type-checking format args](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2757r3.html)
+* [LWG Issue 3975. Specializations of `basic_format_context` should not be permitted](https://cplusplus.github.io/LWG/issue3975)
+    * C++26で、`basic_format_parse_context`についてもユーザーによる明示的特殊化・部分特殊化が不適格（診断不要）とされた
