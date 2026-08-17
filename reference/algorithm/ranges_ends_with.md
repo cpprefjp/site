@@ -98,7 +98,7 @@ namespace std::ranges {
 * (2): 
     * `N1 =` [`ranges::distance`](/reference/iterator/ranges_distance.md)`(r1)`, `N2 =` [`ranges::distance`](/reference/iterator/ranges_distance.md)`(r2)` とする。
     * `N1 < N2` のとき、`false`
-    * それ以外のとき、[`ranges::equal`](ranges_equal.md)`(`[`ranges::drop_view`](/reference/ranges/drop_view.md)`(`[`ranges::ref_view`](/reference/ranges/ref_view.md)`(r1), N1 - N2), r2, pred, proj1, proj2)`
+    * それ以外のとき、[`ranges::equal`](ranges_equal.md)`(`[`ranges::drop_view`](/reference/ranges/drop_view.md)`(`[`ranges::ref_view`](/reference/ranges/ref_view.md)`(r1), N1 - static_cast<decltype(N1)>(N2)), r2, pred, proj1, proj2)`
 
 
 ## 計算量
@@ -204,3 +204,5 @@ inline constexpr ends_with_impl ends_with;
 ## 参照
 - [N4950 27 Algorithms library](https://timsong-cpp.github.io/cppwp/n4950/algorithms)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 4105. `ranges::ends_with`'s Returns misses difference casting](https://cplusplus.github.io/LWG/issue4105)
+    - C++26で、範囲版の戻り値で`N1 - N2`が`N1 - static_cast<decltype(N1)>(N2)`に修正され、`N1`と`N2`の差分型が異なる場合にも正しく計算されるようになった
