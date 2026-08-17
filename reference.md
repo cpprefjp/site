@@ -235,7 +235,7 @@
 | [`<csetjmp>`](/reference/csetjmp.md) | ジャンプ処理                        |                |
 | [`<csignal>`](/reference/csignal.md) | シグナル                            |                |
 | `<cstdalign>`                        | アライメント操作のマクロ            | C++17で非推奨<br/> C++20で削除    |
-| `<cstdarg>`                          | 可変引数操作                        |                |
+| [`<cstdarg>`](/reference/cstdarg.md) | 可変引数操作                        |                |
 | [`<stdbit.h>`](/reference/stdbit.h.md) | ビット操作                 | C++26 |
 | [`<stdckdint.h>`](/reference/stdckdint.h.md) | 検査付き整数演算            | C++26 |
 | `<cstdbool>`                         | 真理値型の定義                      | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
