@@ -17,6 +17,7 @@ namespace std {
 
 `formatter::format()`関数に渡される`local-time-format-t<Duration>`型の変数`f`があるとして、
 
+- chrono-specsが省略された場合、`%F %T %Z`をchrono-specsとして指定したのと等価となる
 - `%Z` (タイムゾーンの略称) が指定された場合、`f.abbrev`がヌルポインタでなければ`*f.abbrev`で置き換えられる。`%Z`が指定されて`f.abbrev`がヌルポインタだった場合、[`std::format_error`](/reference/format/format_error.md)例外が送出される
 - `%z`もしくはその改良コマンドが指定された場合、`f.offset_sec`がヌルポインタでなければ`*f.offset_sec`がフォーマットされる。`%z`もしくはその改良コマンドが指定されて`f.offset_sec`がヌルポインタだった場合、[`std::format_error`](/reference/format/format_error.md)例外が送出される
 
@@ -75,3 +76,8 @@ int main()
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
 - [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
+
+
+## 参照
+- [LWG Issue 4124. Cannot format `zoned_time` with resolution coarser than seconds](https://cplusplus.github.io/LWG/issue4124)
+    - C++26で、chrono-specsが省略された場合に`%F %T %Z`を指定したのと等価であることが明確化された

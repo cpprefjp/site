@@ -8,10 +8,12 @@
 namespace std {
   template <class Duration, class TimeZonePtr, class charT>
   struct formatter<chrono::zoned_time<Duration, TimeZonePtr>, charT>
-    : formatter<chrono::local-time-format-t<Duration>, charT>;
+    : formatter<chrono::local-time-format-t<common_type_t<Duration, chrono::seconds>>, charT>;
 }
 ```
 * chrono::local-time-format-t[link /reference/chrono/local-time-format-t.md]
+* common_type_t[link /reference/type_traits/common_type.md]
+* chrono::seconds[link /reference/chrono/duration_aliases.md]
 
 ## 概要
 `zoned_time`クラスに対する[`std::formatter`](/reference/format/formatter.md)クラステンプレートの特殊化。
@@ -92,3 +94,8 @@ int main()
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
 - [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
+
+
+## 参照
+- [LWG Issue 4124. Cannot format `zoned_time` with resolution coarser than seconds](https://cplusplus.github.io/LWG/issue4124)
+    - C++26で、基底クラスが`formatter<local-time-format-t<common_type_t<Duration, seconds>>>`に変更され、秒より粗い解像度の`Duration`をもつ`zoned_time`もフォーマットできるようになった
