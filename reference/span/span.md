@@ -66,7 +66,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`(constructor)`](span/op_constructor.md) | コンストラクタ | C++20 |
-| `~span() = default;` | デストラクタ | C++20 |
+| [`(destructor)`](span/op_destructor.md) | デストラクタ | C++20 |
 | `span& operator=(const span&) = default;`<br/> `span& operator=(span&&) = default;` | 代入演算子 | C++20 |
 
 
