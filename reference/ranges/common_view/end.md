@@ -22,7 +22,7 @@ constexpr auto end() const
 - (1) :
     ```cpp
     if constexpr (random_access_range<V> && sized_range<V>)
-      return ranges::begin(base_) + ranges::size(base_);
+      return ranges::begin(base_) + ranges::distance(base_);
     else
       return common_iterator<iterator_t<V>, sentinel_t<V>>(ranges::end(base_));
     ```
@@ -30,7 +30,7 @@ constexpr auto end() const
 - (2) :
     ```cpp
     if constexpr (random_access_range<const V> && sized_range<const V>)
-      return ranges::begin(base_) + ranges::size(base_);
+      return ranges::begin(base_) + ranges::distance(base_);
     else
       return common_iterator<iterator_t<const V>, sentinel_t<const V>>(ranges::end(base_));
     ```
@@ -86,5 +86,7 @@ int main() {
 
 ## 参照
 - [N4861 24.7.5.1 Overview](https://timsong-cpp.github.io/cppwp/n4861/range.common.view)
+- [LWG Issue 3717. `common_view::end` should improve `random_access_range` case](https://cplusplus.github.io/LWG/issue3717)
+    - C++23で、`random_access_range`かつ`sized_range`の場合の戻り値が、符号なしを返す`ranges::size`ではなく符号付きの差分型を返す`ranges::distance`を用いる形に修正された
 - [LWG Issue 4012. `common_view::begin`/`end` are missing the *simple-view* check](https://cplusplus.github.io/LWG/issue4012)
     - C++26で、非`const`版に`requires (!simple-view<V>)`制約が追加され、`simple-view`である場合に`const`版と曖昧にならないよう修正された
