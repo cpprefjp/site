@@ -169,5 +169,7 @@ int main() {
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
 - [P3709R2 Reconsider parallel `ranges::rotate_copy` and `ranges::reverse_copy`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3709r2.html)
+- [LWG Issue 3759. `ranges::rotate_copy` should use `std::move`](https://cplusplus.github.io/LWG/issue3759)
+    - C++23で、範囲版がイテレータ版へ`result`を渡す際、`result`が`weakly_incrementable`のみでコピー不可の可能性があるため`std::move(result)`で渡すよう修正された
 - [LWG Issue 4441. `ranges::rotate` do not handle sized-but-not-sized-sentinel ranges correctly](https://cplusplus.github.io/LWG/issue4441)
     - C++26で、実行ポリシーをとる範囲版の効果を規定する等価コードで、末尾イテレータの算出が`ranges::end(r)`から`ranges::begin(r) + ranges::distance(r)`へ変更された。サイズは判るがsized sentinelを持たない範囲を正しく扱うため
