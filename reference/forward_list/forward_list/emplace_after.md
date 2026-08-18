@@ -24,8 +24,12 @@ constexpr iterator
 第1パラメータ`position`で指定された要素の後ろに追加する。
 
 
-## 要件
-第1パラメータ`position`が、[`before_begin()`](before_begin.md)もしくはイテレータ範囲`[`[`begin()`](begin.md)`,` [`end()`](end.md)`)`の間接参照可能なイテレータであること。
+## テンプレートパラメータ制約
+- 型`T`が`std::forward<Args>(args)...`から`forward_list`に対して直接構築可能 (`EmplaceConstructible`) であること。
+
+
+## 事前条件
+- 第1パラメータ`position`が、[`before_begin()`](before_begin.md)もしくはイテレータ範囲`[`[`begin()`](begin.md)`,` [`end()`](end.md)`)`の間接参照可能なイテレータであること。
 
 
 ## 戻り値
@@ -86,4 +90,6 @@ int main()
 
 
 ## 参照
+- [LWG Issue 3817. Missing preconditions on `forward_list` modifiers](https://cplusplus.github.io/LWG/issue3817)
+    - C++23で、要素型`T`が`std::forward<Args>(args)...`から`EmplaceConstructible`であることの事前条件が追加された
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

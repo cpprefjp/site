@@ -60,7 +60,13 @@ constexpr iterator
 - (5) : `initializer_list`の全て要素を挿入する
 
 
-## 要件
+## テンプレートパラメータ制約
+- (1), (3) : 型`T`が`forward_list`に対してコピー挿入可能 (`CopyInsertable`) であること。
+- (2) : 型`T`が`forward_list`に対してムーブ挿入可能 (`MoveInsertable`) であること。
+- (4) : 型`T`が`*first`から`forward_list`に対して直接構築可能 (`EmplaceConstructible`) であること。
+
+
+## 事前条件
 - 第1パラメータ`position`が、[`before_begin()`](/reference/forward_list/forward_list/before_begin.md)もしくはイテレータ範囲`[`[`begin()`](begin.md)`,` [`end()`](/reference/forward_list/forward_list/end.md)`)`の間接参照可能なイテレータであること。
 - `first`、`last`は`*this`のイテレータではないこと。
 
@@ -169,5 +175,7 @@ insert initializer_list : 1 2 3 4 5 6
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (5)の経緯となる提案文書
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 3817. Missing preconditions on `forward_list` modifiers](https://cplusplus.github.io/LWG/issue3817)
+    - C++23で、各オーバーロードに要素型`T`の挿入可能性（`CopyInsertable`／`MoveInsertable`／`EmplaceConstructible`）に関する事前条件が追加された
 - [LWG Issue 4164. Missing guarantees for `forward_list` modifiers](https://cplusplus.github.io/LWG/issue4164)
     - C++26で、`insert_after`各オーバーロードの計算量の保証が明文化された
