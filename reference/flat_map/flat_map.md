@@ -369,5 +369,7 @@ int main()
     - C++23で`flat_map`が導入された経緯・動機・設計について記載されている
 - [P0429R9 A Standard `flat_map`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0429r9.pdf)
     - C++23で導入された`flat_map`の仕様
+- [LWG Issue 3816. `flat_map` and `flat_multimap` should impose sequence container requirements](https://cplusplus.github.io/LWG/issue3816)
+    - C++23で、コンテナ要件が「シーケンスコンテナ要件を満たし、`iterator`がランダムアクセスイテレータ要件を満たし、`size`／`max_size`が例外を投げない型」という形に整理された
 - [P3567R2 flat_meow Fixes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3567r2.html)
     - C++26で`swap`の条件付き`noexcept`、`insert_range`のソート済みオーバーロード追加などの修正が行われた
