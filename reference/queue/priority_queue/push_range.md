@@ -66,4 +66,6 @@ int main()
 
 
 ## 参照
+- [LWG Issue 3723. `priority_queue::push_range` needs to `append_range`](https://cplusplus.github.io/LWG/issue3723)
+    - C++23で、効果が`c.append_range(rg)`を利用して要素を追加し`make_heap`でヒープ性を回復する形に明確化された
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
