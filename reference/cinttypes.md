@@ -18,14 +18,14 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `imaxabs`   | `intmax_t`の絶対値を取得する | C++11 |
-| `imaxdiv`   | `intmax_t`の除算と剰余算を行う | C++11 |
+| `imaxabs`   | `intmax_t`の絶対値を取得する (C++23から`constexpr`) | C++11 |
+| `imaxdiv`   | `intmax_t`の除算と剰余算を行う (C++23から`constexpr`) | C++11 |
 | `strtoimax` | 文字列を`intmax_t`に変換する | C++11 |
 | `strtoumax` | 文字列を`uintmax_t`に変換する | C++11 |
 | `wcstoimax` | ワイド文字列を`intmax_t`に変換する | C++11 |
 | `wcstoumax` | ワイド文字列を`uintmax_t`に変換する | C++11 |
-| `abs`       | `intmax_t`の絶対値を取得する (`imaxabs`のオーバーロード、処理系定義) | C++11 |
-| `div`       | `intmax_t`の除算と剰余算を行う (`imaxdiv`のオーバーロード、処理系定義) | C++11 |
+| `abs`       | `intmax_t`の絶対値を取得する (`imaxabs`のオーバーロード、処理系定義。C++23から`constexpr`) | C++11 |
+| `div`       | `intmax_t`の除算と剰余算を行う (`imaxdiv`のオーバーロード、処理系定義。C++23から`constexpr`) | C++11 |
 
 
 ## 出力用の書式指定マクロ
@@ -71,5 +71,7 @@
 
 ## 参照
 - [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
+- [LWG Issue 3834. Missing `constexpr` for `std::intmax_t` math functions in `<cinttypes>`](https://cplusplus.github.io/LWG/issue3834)
+    - C++23で、P0533R9が`<cmath>`・`<cstdlib>`を`constexpr`化した際に漏れていた`imaxabs`・`imaxdiv`（および`intmax_t`に対する`abs`・`div`のオーバーロード）が`constexpr`化された
 - [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf)
     - C++26がC23を参照するようになり、2進数用の書式指定マクロ (`PRIb`*N*・`PRIB`*N*・`SCNb`*N*等) と`__STDC_VERSION_INTTYPES_H__`が追加された
