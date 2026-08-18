@@ -43,8 +43,8 @@ using u32streampos = fpos<char_traits<char32_t>::state_type>;
 | `P p = i;`      | 〃                                         | 〃                             |
 | `P(o)`          | オフセットからの（一時）オブジェクトの生成 |                                |
 | `O(p)`          | オフセットへの変換                         | `P(O(p)) == p`                 |
-| `p == q`        | 比較                                       | 結果の型はboolに変換可能である |
-| `p != q`        | 〃                                         | 〃                             |
+| `p == q`        | 比較                                       | C++03 : 結果の型は`bool`に変換可能である<br/>C++23 : 戻り値の型は`bool`。`p`, `q`をそれぞれ値`o`, `o2`から得たとき、`o == o2`のとき、かつそのときに限り`true` |
+| `p != q`        | 〃                                         | C++03 : 結果の型は`bool`に変換可能である<br/>C++23 : 戻り値の型は`bool`。`!(p == q)` |
 | `q = p + o`     | 正値のオフセット                           | `q - o == p`                   |
 | `p += o`        | 〃                                         | 〃                             |
 | `q = p - o`     |                                            | `q + o == p`                   |
@@ -64,3 +64,8 @@ using u32streampos = fpos<char_traits<char32_t>::state_type>;
 
 - 戻り値としてこの値が返されれば、操作の失敗を表す。
 - 引数としてこの値が渡された場合、未定義動作を引き起こす。
+
+
+## 参照
+- [LWG Issue 3118. `fpos` equality comparison unspecified](https://cplusplus.github.io/LWG/issue3118)
+    - C++23で、`operator==`/`operator!=`の戻り値の型が「boolに変換可能」から`bool`に修正され、等値比較の意味論（同じオフセット値から得た`fpos`のとき、かつそのときに限り等しい）が規定された
