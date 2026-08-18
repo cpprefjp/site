@@ -9,7 +9,7 @@
 template <class FormatContext>
 typename FormatContext::iterator
 format(const chrono::zoned_time<Duration, TimeZonePtr>& tp,
-       FormatContext& ctx);                                 // (1) C++20
+       FormatContext& ctx) const;                           // (1) C++20
 ```
 
 ## 概要
@@ -45,3 +45,8 @@ return formatter<chrono::local-time-format-t<Duration>, charT>::format(
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
 - [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
+
+
+## 参照
+- [LWG Issue 3636. `formatter<T>::format` should be `const`-qualified](https://cplusplus.github.io/LWG/issue3636)
+    - C++23で、`formatter`の`format`メンバ関数が`const`修飾された
