@@ -58,7 +58,7 @@
 |`__cpp_lib_char8_t`|`201811L`<br/>`201907L`|`char8_t`に対する特殊化の追加|[`<atomic>`](/reference/atomic.md)<br/>[`<filesystem>`](/reference/filesystem.md)<br/>[`<iosfwd>`](/reference/iosfwd.md)<br/>[`<istream>`](/reference/istream.md)<br/>[`<limits>`](/reference/limits.md)<br/>[`<locale>`](/reference/locale.md)<br/>[`<ostream>`](/reference/ostream.md)<br/>[`<string>`](/reference/string.md)<br/>[`<string_view>`](/reference/string_view.md)|
 |`__cpp_lib_chrono`|`201907L`|カレンダーとタイムゾーン|[`<chrono>`](/reference/chrono.md)|
 |`__cpp_lib_concepts`|`202002L`|[`<concepts>`](/reference/concepts.md)の追加|[`<concepts>`](/reference/concepts.md)|
-|`__cpp_lib_constexpr_algorithms`|`201806L`|多くのアルゴリズムに`constexpr`を追加|[`<algorithm>`](/reference/algorithm.md)|
+|`__cpp_lib_constexpr_algorithms`|`201806L`|多くのアルゴリズムに`constexpr`を追加|[`<algorithm>`](/reference/algorithm.md)<br/>[`<utility>`](/reference/utility.md)|
 |`__cpp_lib_constexpr_complex`|`201711L`|[`std::complex`](/reference/complex/complex.md)の`constexpr`対応|[`<complex>`](/reference/complex.md)|
 |`__cpp_lib_constexpr_dynamic_alloc`|`201907L`|[`std::destroy_at`](/reference/memory/destroy_at.md)ファミリと[`std::allocator`](/reference/memory/allocator.md)/[`std::allocator_traits`](/reference/memory/allocator_traits.md)の`constexpr`対応<br/>[`std::construct_at`](/reference/memory/construct_at.md)|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_constexpr_functional`|`201907L`|[`std::invoke`](/reference/functional/invoke.md)、[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)、[`std::not_fn`](/reference/functional/not_fn.md)、[`std::bind_front`](/reference/functional/bind_front.md)、[`std::bind`](/reference/functional/bind.md)、[`std::mem_fn`](/reference/functional/mem_fn.md)の`constexpr`対応|[`<functional>`](/reference/functional.md)|
@@ -110,5 +110,7 @@
 ## 参照
 
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
+- [LWG Issue 3792. `__cpp_lib_constexpr_algorithms` should also be defined in `<utility>`](https://cplusplus.github.io/LWG/issue3792)
+    - C++23で、`__cpp_lib_constexpr_algorithms`の定義ヘッダに[`<utility>`](/reference/utility.md)が追加された（値`201806L`は不変。C++20へ遡及適用される）
 - [LWG Issue 4440. Forward declarations of entities need also in entries](https://cplusplus.github.io/LWG/issue4440)
     - C++26で、`__cpp_lib_char8_t`と`__cpp_lib_syncbuf`の定義ヘッダに[`<iosfwd>`](/reference/iosfwd.md)が追加された（`<iosfwd>`が関連エンティティの先行宣言を含むため）
