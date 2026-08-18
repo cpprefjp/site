@@ -13,8 +13,11 @@ template <class... ArgTypes>
 invoke_result_t<T&, ArgTypes...> operator ()(ArgTypes&&... args) const;            //C++17
 
 template <class... ArgTypes>
-constexpr invoke_result_t<T&, ArgTypes...> operator ()(ArgTypes&&... args) const;  //C++20
+constexpr invoke_result_t<T&, ArgTypes...>
+  operator ()(ArgTypes&&... args) const
+    noexcept(is_nothrow_invocable_v<T&, ArgTypes...>);                             //C++20
 ```
+* is_nothrow_invocable_v[link /reference/type_traits/is_nothrow_invocable.md]
 
 ## 概要
 保持している参照に対して関数呼び出しを行う
@@ -77,3 +80,5 @@ int main()
 ## 参照
 - [P0357R3 reference_wrapper for incomplete types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0357r3.html)
     - テンプレートパラメータ`T`が完全型であるという要件が追加された経緯
+- [LWG Issue 3764. `reference_wrapper::operator()` should propagate `noexcept`](https://cplusplus.github.io/LWG/issue3764)
+    - C++23で、`operator()`に`noexcept(is_nothrow_invocable_v<T&, ArgTypes...>)`が付加され、被参照の呼び出し可能物の`noexcept`性が伝播するようになった
