@@ -30,6 +30,9 @@ constexpr auto end() const
 入力が[`sized_range`](../sized_range.md)だが[`random_access_range`](../random_access_range.md)ではない場合：
 - (1), (2) : [`default_sentinel`](/reference/iterator/default_sentinel_t.md)を返す。
 
+入力が[`sized_range`](../sized_range.md)ではないが、[`sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)`<`[`sentinel_t`](../sentinel_t.md)`<V>,` [`iterator_t`](../iterator_t.md)`<V>>`を満たす場合：
+- (1), (2) : [`default_sentinel`](/reference/iterator/default_sentinel_t.md)を返す。
+
 それ以外の場合：
 - (1) : `sentinel<false>{ranges::end(base_)}`を返す。
 - (2) : `sentinel<true>{ranges::end(base_)}`を返す。
@@ -79,3 +82,5 @@ int main() {
 
 ## 参照
 - [P2393R1 Cleaning up integer-class types](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2393r1.html)
+- [LWG Issue 3737. `take_view::sentinel` should provide `operator-`](https://cplusplus.github.io/LWG/issue3737)
+    - C++23で、`sized_range`ではないが`sized_sentinel_for<sentinel_t<V>, iterator_t<V>>`を満たす場合の分岐が追加された
