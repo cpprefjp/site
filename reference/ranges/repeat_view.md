@@ -8,7 +8,7 @@
 namespace std::ranges {
   template<move_constructible T, semiregular Bound = unreachable_sentinel_t>
     requires (is_object_v<T> && same_as<T, remove_cv_t<T>> &&
-              (is-integer-like<Bound> || same_as<Bound, unreachable_sentinel_t>))
+              (integer-like-with-usable-difference-type<Bound> || same_as<Bound, unreachable_sentinel_t>))
   class repeat_view : public view_interface<repeat_view<T, Bound>> { …… }; // (1)
 
   namespace views {
@@ -17,7 +17,7 @@ namespace std::ranges {
 }
 ```
 * semiregular[link /reference/concepts/semiregular.md]
-* is-integer-like[link /reference/iterator/is_integer_like.md]
+* integer-like-with-usable-difference-type[italic]
 
 ## 概要
 - (1): 指定した値を指定回数繰り返す[`view`](view.md)
@@ -44,12 +44,12 @@ namespace std::ranges {
 | [`(constructor)`](repeat_view/op_constructor.md)  | コンストラクタ                   | C++23          |
 | [`begin`](repeat_view/begin.md)                   | 先頭を指すイテレータを取得する   | C++23          |
 | [`end`](repeat_view/end.md)                       | 番兵を取得する                   | C++23          |
-| [`size`](repeat_view/size.md)                     | 配列の先頭へのポインタを取得する | C++23          |
+| [`size`](repeat_view/size.md)                     | 要素数を取得する                 | C++23          |
 
 ## 継承しているメンバ関数
 
 | 名前                                         | 説明                              | 対応バージョン |
-|----------------------------------------------|------------------------------ ----|----------------|
+|----------------------------------------------|-----------------------------------|----------------|
 | [`operator bool`](view_interface/op_bool.md) | Rangeが空でないかどうかを判定する | C++23          |
 | [`front`](view_interface/front.md)           | 先頭要素への参照を取得する        | C++23          |
 | [`back`](view_interface/back.md)             | 末尾要素への参照を取得する        | C++23          |
@@ -103,5 +103,7 @@ int main() {
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
+- [LWG Issue 3875. `std::ranges::repeat_view<T, IntegerClass>::iterator` may be ill-formed](https://cplusplus.github.io/LWG/issue3875)
+    - C++23で、`Bound`の制約に使う説明専用コンセプトが`is-integer-like<Bound>`から`integer-like-with-usable-difference-type<Bound>`（`is-signed-integer-like<T> || (is-integer-like<T> && weakly_incrementable<T>)`）へ変更され、使用可能な差分型を持たない整数クラス型が排除されるようになった
 - [LWG Issue 4054. Repeating a `repeat_view` should repeat the view](https://cplusplus.github.io/LWG/issue4054)
     - C++26で、`views::repeat(E)`の効果が`repeat_view<decay_t<decltype((E))>>(E)`に修正され、引数を[`decay_t`](/reference/type_traits/decay.md)で減衰させて要素型を決定するようになった
