@@ -91,5 +91,7 @@ namespace std {
 ## 参照
 
 - [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+- [LWG Issue 3631. `basic_format_arg(T&&)` should use `remove_cvref_t<T>` throughout](https://cplusplus.github.io/LWG/issue3631)
+    - C++23で、コンストラクタが検査する型プロパティをcvref除去後の型で判定するよう整理された（最終的にコンストラクタは左辺値参照`T&`をとり、`TD = remove_const_t<T>`で判定する形になった）
 - [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
     - C++26から`constexpr`に対応した
