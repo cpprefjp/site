@@ -129,3 +129,5 @@ namespace std {
 
 ## 参照
 - [LWG Issue 3025. Map-like container deduction guides should use `pair<Key, T>`, not `pair<const Key, T>`](https://wg21.cmeerw.net/lwg/issue3025)
+- [LWG Issue 3786. Flat maps' deduction guide needs to default `Allocator` to be useful](https://cplusplus.github.io/LWG/issue3786)
+    - C++23で、`from_range_t`を取る推論補助で`Allocator`テンプレート引数がデフォルト化され、非デフォルトのアロケータのために推論補助が使えなかった問題が修正された。あわせて`(from_range_t, R&&, Allocator)`の推論補助が追加された

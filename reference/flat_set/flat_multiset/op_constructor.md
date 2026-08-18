@@ -432,6 +432,8 @@ int main()
 
 
 ## 参照
+- [LWG Issue 3803. `flat_foo` constructors taking `KeyContainer` lack `KeyCompare` parameter](https://cplusplus.github.io/LWG/issue3803)
+    - C++23で、コンテナを取るコンストラクタに比較子`key_compare`を明示指定できる引数が追加された
 - [LWG Issue 3884. `flat_foo` is missing allocator-extended copy/move constructors](https://cplusplus.github.io/LWG/issue3884)
     - C++26で、`flat_multiset`にアロケータを指定するコピーコンストラクタ(5)とムーブコンストラクタ(6)が追加された
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
