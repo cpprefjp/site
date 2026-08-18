@@ -48,10 +48,10 @@ C++における関数呼び出しという性質を抽象化しまとめた、�
 
 ## 要件（C++20）
 1. 仮想操作 *INVOKE*`(f, t1, t2, ..., tN)` を次のように定義する。
-	- `f` が型 `T` のメンバ関数へのポインタであり、[`is_base_of_v`](/reference/type_traits/is_base_of.md)`<T,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `(t1.*f)(t2, ..., tN)` と同じ効果を持つ。
+	- `f` が型 `T` のメンバ関数へのポインタであり、[`is_same_v`](/reference/type_traits/is_same.md)`<T,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>> || `[`is_base_of_v`](/reference/type_traits/is_base_of.md)`<T,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>>` が `true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `(t1.*f)(t2, ..., tN)` と同じ効果を持つ。
 	- `f` が型 `T` のメンバ関数へのポインタであり、[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>`が[`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)（`t1`が[`reference_wrapper`](/reference/functional/reference_wrapper.md)の特殊化）であるとき、 `(t1.get().*f)(t2, ..., tN)` と同じ効果を持つ。
 	- `f` が型 `T` のメンバ関数へのポインタであり、 `t1` が上記の条件に当てはまらない場合（例えば、t1が`T`のポインタ）、`((*t1).*f)(t2, ..., tN)` と同じ効果を持つ。
-	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`is_base_of_v`](/reference/type_traits/is_base_of.md)`<T,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `t1.*f` と同じ効果を持つ。
+	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`is_same_v`](/reference/type_traits/is_same.md)`<T,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>> || `[`is_base_of_v`](/reference/type_traits/is_base_of.md)`<T,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>>` が `true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `t1.*f` と同じ効果を持つ。
 	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>`が[`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)（`t1`が[`reference_wrapper`](/reference/functional/reference_wrapper.md)の特殊化）であるとき、 `t1.get().*f` と同じ効果を持つ。
 	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、`t1` が上記の条件に当てはまらない場合（例えば、t1が`T`のポインタ）、 `(*t1).*f` と同じ効果を持つ。
 	- 上記の条件のどれにも当てはまらない場合、 `f(t1, t2, ..., tN)` と同じ効果を持つ。
@@ -84,3 +84,5 @@ C++20 における 2. について、次の文言を項目の最後に追加す�
 - [P0777R1 Treating Unnecessary `decay`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0777r1.pdf)
     - C++20から`decay_t`を`remove_cvref_t`へ変更。
 - [P2136R3 `invoke_r`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2136r3.html)
+- [LWG Issue 3655. The *INVOKE* operation and union types](https://cplusplus.github.io/LWG/issue3655)
+    - C++23で、メンバポインタの判定を`is_base_of_v`単独から`is_same_v || is_base_of_v`に変更し、共用体(union)型でも正しく扱えるようにした
