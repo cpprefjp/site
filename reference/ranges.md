@@ -78,6 +78,7 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | [`range_reference_t`](ranges/range_reference_t.md)               | 要素の参照型を取得する (alias template)        | C++20          |
 | [`range_const_reference_t`](ranges/range_const_reference_t.md)   | 要素の定数参照型を取得する (alias template)    | C++23          |
 | [`range_rvalue_reference_t`](ranges/range_rvalue_reference_t.md) | 要素の右辺値参照型を取得する (alias template)  | C++20          |
+| [`range_common_reference_t`](ranges/range_common_reference_t.md) | 要素の共通参照型を取得する (alias template)    | C++23          |
 
 ## Rangeコンセプト
 

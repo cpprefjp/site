@@ -104,5 +104,9 @@ int main() {
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [LWG Issue 3811. `views::as_const` on `ref_view<T>` should return `ref_view<const T>`](https://cplusplus.github.io/LWG/issue3811)
+    - C++23で、`views::as_const`に対して入力が`ref_view<X>`であり`const X`が`constant_range`となる場合の特殊化が追加された
+- [LWG Issue 3850. `views::as_const` on `empty_view<T>` should return `empty_view<const T>`](https://cplusplus.github.io/LWG/issue3850)
+    - C++23で、`views::as_const`に対して入力が`empty_view<X>`の場合の特殊化が追加された
 - [P3913R1 Optimize for `std::optional` in range adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3913r1.pdf)
     - C++26で、入力が[`optional`](/reference/optional/optional.md)`<X&>`の場合の特殊化を追加

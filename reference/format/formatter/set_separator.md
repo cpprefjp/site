@@ -8,7 +8,7 @@
 ```cpp
 template <class charT, formattable<charT>... Ts>
 constexpr void
-  formatter<pair-or-tuple<Ts...>>::set_separator(basic_string_view<charT> sep); // (1)
+  formatter<pair-or-tuple<Ts...>>::set_separator(basic_string_view<charT> sep) noexcept; // (1)
 ```
 
 ## 概要
@@ -37,3 +37,5 @@ constexpr void
 - [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
 - [P2585R1 Improve default container formatting](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2585r1.html)
     - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された
+- [LWG Issue 3839. `range_formatter`'s `set_separator`, `set_brackets`, and `underlying` functions should be `noexcept`](https://cplusplus.github.io/LWG/issue3839)
+    - C++23で、この関数に`noexcept`が付加された

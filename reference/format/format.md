@@ -105,9 +105,9 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 * `#` : 代替表現(`0x`など形式がわかる表記)を使う
 * `0` : 符号を考慮して0で埋める
 * `width` : 幅 (アライメントもしくは0埋めの幅)
-    * 置換フィールドを使って変数で指定できる
+    * 置換フィールドを使って変数で指定できる。その引数は標準の符号付き整数型もしくは符号なし整数型でなければならず、`bool`や文字型 (`char`・`wchar_t`等) を渡すとコンパイルエラーとなる
 * `precision` : 精度(浮動小数点数の場合)、使う文字数(文字列の場合)
-    * 置換フィールドを使って変数で指定できる
+    * 置換フィールドを使って変数で指定できる。その引数は標準の符号付き整数型もしくは符号なし整数型でなければならず、`bool`や文字型 (`char`・`wchar_t`等) を渡すとコンパイルエラーとなる
 * `L` : ロケールを考慮する
 * `type` : 値の表現方法(表を参照)
 
@@ -750,6 +750,8 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
     - C++26から、ポインタ値を大文字で出力する`P`オプションが追加された
 - [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
     - C++26から非ロケール版が`constexpr`に対応した
+- [LWG Issue 3720. Restrict the valid types of _arg-id_ for _width_ and _precision_ in _std-format-spec_](https://cplusplus.github.io/LWG/issue3720)
+    - C++23で、幅・精度を動的引数で指定する場合、その引数の型が標準の符号付き/符号なし整数型に制限された（`bool`や文字型は指定できなくなった）
 - [LWG Issue 4090. Underspecified use of locale facets for locale-dependent `std::format`](https://cplusplus.github.io/LWG/issue4090)
     - C++26で、`L`オプション指定時にロケール依存の置換で使用されるファセットが`numpunct`（`grouping`/`thousands_sep`/`decimal_point`/`truename`/`falsename`）であることが明確化された
 - [LWG Issue 4522. Clarify that `std::format` transcodes for `std::wformat_strings`](https://cplusplus.github.io/LWG/issue4522)

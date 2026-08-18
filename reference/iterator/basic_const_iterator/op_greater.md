@@ -105,3 +105,5 @@ false
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [LWG Issue 3769. `basic_const_iterator::operator==` causes infinite constraint recursion](https://cplusplus.github.io/LWG/issue3769)
+    - C++23で、左辺に`basic_const_iterator`をとる比較演算子・`operator-`のオーバーロードが非メンバのフレンド関数からメンバ関数へと変更された（フレンド関数だと`S`から`basic_const_iterator`への暗黙変換によって制約チェックが無限再帰する問題があったため）

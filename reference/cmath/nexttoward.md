@@ -18,14 +18,14 @@ namespace std {
 
   constexpr floating-point-type
     nexttoward(floating-point-type x,
-               floating-point-type y); // (4) C++23
+               long double y);         // (4) C++23
 
   Promoted
     nexttoward(Integral x,
                long double y);         // (5) C++11
   constexpr Promoted
     nexttoward(Integral x,
-               floating-point-type y); // (5) C++23
+               long double y);         // (5) C++23
 
   float
     nexttowardf(float x,
@@ -50,7 +50,7 @@ namespace std {
 
 この関数は、パラメータ`x`の値をパラメータ`y`の値の方向に対して、その環境で表現可能な最小の値だけ進める。
 
-この関数はパラメータ`y`の型が`long double`固定であることを除いて、[`std::nextafter()`](nextafter.md)関数と等価である (C++23以降では精度規定の関数を除いて`y`は`long double`ではなく任意の浮動小数点数型であるため、[`std::nextafter()`](nextafter.md)関数と等価である)。
+この関数はパラメータ`y`の型が`long double`固定であることを除いて、[`std::nextafter()`](nextafter.md)関数と等価である。
 
 - (1) : `float`に対するオーバーロード
 - (2) : `double`に対するオーバーロード
@@ -70,7 +70,8 @@ namespace std {
 
 
 ## 備考
-- C++23では、(1), (2), (3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
+- C++23では、(1), (2), (3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された。ただしパラメータ`y`の型は`long double`のままである
+- (4) `x`に対応する`floating-point-type`パラメータの引数が拡張浮動小数点数型である場合、この関数の呼び出しは不適格となる
 
 
 ## 例
@@ -117,3 +118,5 @@ int main()
     - C++23での、一部関数の`constexpr`対応
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした
+- [LWG Issue 3790. P1467 accidentally changed nexttoward's signature](https://cplusplus.github.io/LWG/issue3790)
+    - C++23で、P1467によって`floating-point-type`に変更されてしまっていた第2引数`y`の型を`long double`に戻し、あわせて第1引数が拡張浮動小数点数型の場合に呼び出しが不適格となることを規定した

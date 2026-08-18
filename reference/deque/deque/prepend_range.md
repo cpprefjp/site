@@ -19,7 +19,7 @@ constexpr void
 
 
 ## テンプレートパラメータ制約
-型`T`が`*ranges::begin(rg)`から`deque`コンテナへの`EmplaceConstructible`であること。
+型`T`が`*ranges::begin(rg)`から`deque`コンテナへの`EmplaceConstructible`であり、かつ型`T`が`deque`コンテナへの`MoveInsertable`であり、かつ型`T`が`MoveConstructible`・`MoveAssignable`・`Swappable`であること。
 
 
 ## 効果
@@ -71,3 +71,5 @@ int main()
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 3742. `deque::prepend_range` needs to permute](https://cplusplus.github.io/LWG/issue3742)
+    - C++23で、`deque`では`rg`が前方向・sizedのRangeでない場合に要素を一つずつ先頭挿入してから反転する実装となるため、型`T`が`MoveInsertable`・`MoveConstructible`・`MoveAssignable`・`Swappable`の要件も満たす必要があることが事前条件として追加された

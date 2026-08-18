@@ -59,3 +59,5 @@ abcde
 
 ## 参照
 - [P1032R1 Misc `constexpr` bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
+- [LWG Issue 3085. `char_traits::copy` precondition too weak](https://cplusplus.github.io/LWG/issue3085)
+    - C++23で、事前条件が「`s2`が範囲`[s1, s1+n)`に含まれないこと」から「範囲`[s1, s1+n)`と範囲`[s2, s2+n)`が重ならないこと」に強化・明確化された

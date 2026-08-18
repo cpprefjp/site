@@ -31,8 +31,9 @@ namespace std {
 | [`operator string_type`](sub_match/op_string_type.md) | マッチした文字列を `string_type` 型にキャストする。         | C++11          |
 | [`str`](sub_match/str.md)                             | マッチした文字列を `string_type` 型で返す。キャストと同じ。 | C++11          |
 | [`compare`](sub_match/compare.md)                     | マッチした文字列を比較する。                                | C++11          |
+| [`swap`](sub_match/swap.md)                           | 別の`sub_match`オブジェクトとデータを交換する。             | C++23          |
 
-注：上記の他、オブジェクトの内容を交換するメンバ関数 [`swap`](../utility/pair/swap.md) もあるが、[`pair`](../utility/pair.md) から継承したものであるため、メンバ変数 `matched` の内容は交換しないため注意が必要。
+注：C++20までは、オブジェクトの内容を交換するメンバ関数として [`pair`](../utility/pair.md) から継承した [`swap`](../utility/pair/swap.md) のみが存在したが、これはメンバ変数 `matched` の内容を交換しないという問題があった。C++23では、`matched` も交換する専用のメンバ関数 [`swap`](sub_match/swap.md) が追加された。
 
 ## メンバ変数
 
@@ -127,3 +128,8 @@ int main()
 - [GCC](/implementation.md#gcc): 4.9.0 [mark verified], 4.9.1 [mark verified], 5.0.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 3204. `sub_match::swap` only swaps the base class](https://cplusplus.github.io/LWG/issue3204)
+    - C++23で、メンバ変数`matched`も交換する専用のメンバ関数`swap`が追加された

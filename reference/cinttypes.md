@@ -11,21 +11,21 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `imaxdiv_t` | `imaxdiv`関数の戻り値型 | C++11 |
+| [`imaxdiv_t`](cinttypes/imaxdiv_t.md) | `imaxdiv`関数の戻り値型 | C++11 |
 
 
 ## 関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `imaxabs`   | `intmax_t`の絶対値を取得する | C++11 |
-| `imaxdiv`   | `intmax_t`の除算と剰余算を行う | C++11 |
-| `strtoimax` | 文字列を`intmax_t`に変換する | C++11 |
-| `strtoumax` | 文字列を`uintmax_t`に変換する | C++11 |
-| `wcstoimax` | ワイド文字列を`intmax_t`に変換する | C++11 |
-| `wcstoumax` | ワイド文字列を`uintmax_t`に変換する | C++11 |
-| `abs`       | `intmax_t`の絶対値を取得する (`imaxabs`のオーバーロード、処理系定義) | C++11 |
-| `div`       | `intmax_t`の除算と剰余算を行う (`imaxdiv`のオーバーロード、処理系定義) | C++11 |
+| [`imaxabs`](cinttypes/imaxabs.md)   | `intmax_t`の絶対値を取得する | C++11 |
+| [`imaxdiv`](cinttypes/imaxdiv.md)   | `intmax_t`の除算と剰余算を行う | C++11 |
+| [`strtoimax`](cinttypes/strtoimax.md) | 文字列を`intmax_t`に変換する | C++11 |
+| [`strtoumax`](cinttypes/strtoumax.md) | 文字列を`uintmax_t`に変換する | C++11 |
+| [`wcstoimax`](cinttypes/wcstoimax.md) | ワイド文字列を`intmax_t`に変換する | C++11 |
+| [`wcstoumax`](cinttypes/wcstoumax.md) | ワイド文字列を`uintmax_t`に変換する | C++11 |
+| [`abs`](cinttypes/imaxabs.md)       | `intmax_t`の絶対値を取得する (`imaxabs`のオーバーロード、処理系定義) | C++11 |
+| [`div`](cinttypes/imaxdiv.md)       | `intmax_t`の除算と剰余算を行う (`imaxdiv`のオーバーロード、処理系定義) | C++11 |
 
 
 ## 出力用の書式指定マクロ
@@ -36,8 +36,8 @@
 |------|------|----------------|
 | `PRId`*N*, `PRIi`*N*, `PRIo`*N*, `PRIu`*N*, `PRIx`*N*, `PRIX`*N* | `intN_t` / `uintN_t`用 | C++11 |
 | [`PRIb`*N*, `PRIB`*N*](cinttypes/prib.md) | `intN_t` / `uintN_t`用 (2進数) | C++26 |
-| `PRIdLEAST`*N* 等, `PRIdFAST`*N* 等 | `int_leastN_t` / `int_fastN_t`系用 (2進数の`b`/`B`はC++26) | C++11 |
-| `PRIdMAX` 等, `PRIdPTR` 等 | `intmax_t` / `intptr_t`系用 (2進数の`b`/`B`はC++26) | C++11 |
+| `PRIdLEAST`*N* 等, `PRIdFAST`*N* 等 | `int_leastN_t` / `int_fastN_t`系用 | C++11 |
+| `PRIdMAX` 等, `PRIdPTR` 等 | `intmax_t` / `intptr_t`系用 | C++11 |
 
 
 ## 入力用の書式指定マクロ
@@ -48,15 +48,15 @@
 |------|------|----------------|
 | `SCNd`*N*, `SCNi`*N*, `SCNo`*N*, `SCNu`*N*, `SCNx`*N* | `intN_t` / `uintN_t`用 | C++11 |
 | [`SCNb`*N*](cinttypes/scnb.md) | `intN_t` / `uintN_t`用 (2進数) | C++26 |
-| `SCNdLEAST`*N* 等, `SCNdFAST`*N* 等 | `int_leastN_t` / `int_fastN_t`系用 (2進数の`b`はC++26) | C++11 |
-| `SCNdMAX` 等, `SCNdPTR` 等 | `intmax_t` / `intptr_t`系用 (2進数の`b`はC++26) | C++11 |
+| `SCNdLEAST`*N* 等, `SCNdFAST`*N* 等 | `int_leastN_t` / `int_fastN_t`系用 | C++11 |
+| `SCNdMAX` 等, `SCNdPTR` 等 | `intmax_t` / `intptr_t`系用 | C++11 |
 
 
 ## バージョン情報マクロ
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `__STDC_VERSION_INTTYPES_H__` | `<cinttypes>`が提供するC標準ライブラリ機能のバージョン (`202311L`) | C++26 |
+| [`__STDC_VERSION_INTTYPES_H__`](cinttypes/stdc_version_inttypes_h.md) | `<cinttypes>`が提供するC標準ライブラリ機能のバージョン (`202311L`) | C++26 |
 
 
 ## バージョン

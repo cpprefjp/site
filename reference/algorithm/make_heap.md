@@ -30,6 +30,7 @@ namespace std {
 
 
 ## テンプレートパラメータ制約
+- `RandomAccessIterator` は `ValueSwappable` の要件を満たしていること
 - `*first` の型は `MoveConstructible` と `MoveAssignable` の要件を満たしていること
 
 
@@ -150,3 +151,5 @@ void make_heap(RandomAccessIterator first, RandomAccessIterator last, Compare co
 
 ## 参照
 - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)
+- [LWG Issue 3032. `ValueSwappable` requirement missing for `push_heap` and `make_heap`](https://cplusplus.github.io/LWG/issue3032)
+    - C++23で、`std`名前空間のオーバーロードについて`RandomAccessIterator`が`ValueSwappable`の要件を満たすことが事前条件として明記された

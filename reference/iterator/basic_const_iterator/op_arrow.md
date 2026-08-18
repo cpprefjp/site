@@ -71,3 +71,5 @@ call const : 1
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [LWG Issue 3853. `basic_const_iterator<volatile int*>::operator->` is ill-formed](https://cplusplus.github.io/LWG/issue3853)
+    - C++23で、戻り値型が`const value_type*`から`const auto*`に変更され、基底のイテレータの`value_type`が`volatile`修飾されている場合（例: `basic_const_iterator<volatile int*>`）でも正しい型を推論しハードエラーを起こさないようになった

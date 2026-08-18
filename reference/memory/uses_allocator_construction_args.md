@@ -79,9 +79,9 @@ constexpr auto
 ## テンプレートパラメータ制約
 - (1) : `T` が [`pair`](../utility/pair.md) の特殊化**ではない**場合のみオーバーロード解決に参加する
 - (2)-(10) : `T` が [`pair`](../utility/pair.md) の特殊化**である**場合のみオーバーロード解決に参加する
-- (9) : `P`が[`std::ranges::subrange`](/reference/ranges/subrange.md)の特殊化である場合のみオーバーロード解決に参加する
+- (9) : [`remove_cvref_t`](../type_traits/remove_cvref.md)`<P>`が[`std::ranges::subrange`](/reference/ranges/subrange.md)の特殊化**ではない**場合のみオーバーロード解決に参加する
 - (10) : 以下のいずれかを満たす場合のみオーバーロード解決に参加する
-    - `P`が[`std::ranges::subrange`](/reference/ranges/subrange.md)の特殊化であること。もしくは
+    - [`remove_cvref_t`](../type_traits/remove_cvref.md)`<U>`が[`std::ranges::subrange`](/reference/ranges/subrange.md)の特殊化であること。もしくは
     - `U`が`pair-like`の要件を満たさず、関数`template<class A, class B> void FUN (const pair<A, B>&);`に`FUN(u)`した場合に適格ではないこと
 
 
@@ -182,6 +182,8 @@ return uses_allocator_construction_args<T>(alloc, piecewise_construct,
                                            forward_as_tuple(get<1>(std::forward<P>(p))));
 ```
 * forward_as_tuple[link ../tuple/forward_as_tuple.md]
+* forward[link ../utility/forward.md]
+* uses_allocator_construction_args[color ff0000]
 
 - (10) : 以下の説明用クラスを定義し、
     ```cpp
@@ -320,3 +322,5 @@ tuple(piecewise_construct_t, tuple(allocator_arg_t, MyAlloc, 3, ), tuple(4, MyAl
 ## 参照
 - [P0591R4 Utility functions to implement uses-allocator construction](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0591r4.pdf)
 - [P2321R2 zip](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html)
+- [LWG Issue 3821. `uses_allocator_construction_args` should have overload for `pair-like`](https://cplusplus.github.io/LWG/issue3821)
+    - C++23で、P2165R4が[`pair`](../utility/pair.md)に`pair-like`からのコンストラクタを追加したことに対応し、`pair-like`を受け取る(9)のオーバーロードが追加された。あわせて`U&&`を受け取る(10)のオーバーロードの制約が更新された

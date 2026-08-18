@@ -232,6 +232,8 @@ int main() {
 - [26.5.7.2 ranges::to](https://timsong-cpp.github.io/cppwp/n4950/range.utility.conv.to)
 - [P2846R6 `reserve_hint`: Eagerly reserving memory for not-quite-sized lazy ranges](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2846r6.pdf)
     - C++26で要素数の事前確保に[`ranges::size`](size.md)の代わりに[`ranges::reserve_hint`](reserve_hint.md)を使用するよう変更
+- [LWG Issue 3733. `ranges::to` misuses *cpp17-input-iterator*](https://cplusplus.github.io/LWG/issue3733)
+    - C++23で、Cpp17InputIterator判定に説明専用コンセプト`cpp17-input-iterator`を使用するのをやめ、`iterator_traits<iterator_t<R>>::iterator_category`が`input_iterator_tag`から派生する有効な型であることを判定するよう修正された（[`common_iterator`](/reference/iterator/common_iterator.md)のように`iterator_traits`の特殊化を持つイテレータで正しく判定されるようにするため）
 - [LWG Issue 3984. `ranges::to`'s recursion branch may be ill-formed](https://cplusplus.github.io/LWG/issue3984)
     - C++26で、再帰分岐において`r`を[`ranges::ref_view`](ref_view.md)で包むよう修正され、`r`がviewでない左辺値rangeの場合に不適格となる問題が解消された
 - [LWG Issue 4016. *container-insertable* checks do not match what *container-inserter* does](https://cplusplus.github.io/LWG/issue4016)
