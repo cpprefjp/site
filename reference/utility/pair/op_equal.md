@@ -18,12 +18,20 @@ namespace std {
     friend constexpr bool operator==(const pair& x, const pair& y)        // (2) C++20
         requires (is_reference_v<T1> || is_reference_v<T2>);
   };
+
+  template <class T1, class T2, class U1, class U2>
+  constexpr bool operator==(const pair<T1, T2>& x,
+                            const pair<U1, U2>& y);                       // (3) C++23
 }
 ```
 * is_reference_v[link /reference/type_traits/is_reference.md]
 
 ## 概要
-2つの`pair`の等値比較を行う
+2つの`pair`の等値比較を行う。
+
+- (1) : 同じ型の`pair`同士の等値比較を行う。
+- (2) : 要素型のいずれかが参照型である`pair`同士の等値比較を行う。
+- (3) : 左辺と右辺で要素型が異なる`pair`同士の等値比較を行う。
 
 
 ## テンプレートパラメータ制約
@@ -39,6 +47,7 @@ return x.first == y.first && x.second == y.second;
 ## 備考
 - この演算子により、以下の演算子が使用可能になる (C++20)：
     - `operator!=`
+- (3) : C++23で追加された。これにより、`reference`が`pair<T&, U&>`、`value_type`が`pair<T, U>`となるような（[`views::zip`](/reference/ranges/zip_view.md)相当の）Rangeを[`ranges::sort`](/reference/algorithm/ranges_sort.md)などでソートできるようになる。
 
 
 ## 例
@@ -69,5 +78,7 @@ false
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [LWG Issue 3865. Sorting a range of `pair`s](https://cplusplus.github.io/LWG/issue3865)
+    - C++23で、`operator==`が左辺と右辺で要素型の異なる`pair`同士を比較できる異種比較に変更された
 - [P2944R3 Comparisons for `reference_wrapper`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2944r3.html)
     - C++26でテンプレートパラメータ制約が整理された
