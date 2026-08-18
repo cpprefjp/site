@@ -16,7 +16,7 @@ future& operator=(future&& rhs) noexcept;      // (2)
 
 
 ## 効果
-- (2) : 共有状態を解放し、`rhs`の共有状態を含むコンテンツを`*this`にムーブ代入する。
+- (2) : [`addressof`](/reference/memory/addressof.md)`(rhs) == this`（自己代入）の場合、効果はない。それ以外の場合、共有状態を解放し、`rhs`の共有状態を含むコンテンツを`*this`にムーブ代入する。
 
 
 ## 戻り値
@@ -24,7 +24,7 @@ future& operator=(future&& rhs) noexcept;      // (2)
 
 
 ## 事後条件
-- (2) : [`valid()`](valid.md)の戻り値が、この関数を呼び出す前の`rhs.`[`valid()`](valid.md)と等価になること。`rhs.`[`valid()`](valid.md) `== false`になること。
+- (2) : [`valid()`](valid.md)の戻り値が、この関数を呼び出す前の`rhs.`[`valid()`](valid.md)と等価になること。[`addressof`](/reference/memory/addressof.md)`(rhs) != this`（自己代入でない）の場合、`rhs.`[`valid()`](valid.md) `== false`になること。
 
 
 ## 例外
@@ -61,3 +61,5 @@ int main()
 
 
 ## 参照
+- [LWG Issue 3795. Self-move-assignment of `std::future` and `std::shared_future` have unimplementable postconditions](https://cplusplus.github.io/LWG/issue3795)
+    - C++23で、自己代入(`addressof(rhs) == this`)の場合は効果がないことが効果に明記され、事後条件の`rhs.valid() == false`が「自己代入でない場合」に条件付けられた
