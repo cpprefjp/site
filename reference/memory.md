@@ -166,5 +166,7 @@
 - [P1132R8 out_ptr - a scalable output pointer abstraction](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1132r8.html)
 - [P1642R11 Freestanding Library: Easy `[utilities]`, `[ranges]`, and `[iterators]`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1642r11.html)
     - C++23で、このヘッダの多くの機能がフリースタンディング処理系で使用可能になった（`shared_ptr`や`make_unique`などを除く）
+- [LWG Issue 3814. Add freestanding items requested by NB comments](https://cplusplus.github.io/LWG/issue3814)
+    - C++23で、`start_lifetime_as`・`start_lifetime_as_array`がフリースタンディング処理系で使用可能であることが追加で規定された
 - [P2976R1 Freestanding Library: algorithm, numeric, and random](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2976r1.html)
     - C++26で、未初期化メモリアルゴリズムの実行ポリシー版がフリースタンディング処理系で削除されるなど、`<memory>`のフリースタンディング対応が進められた

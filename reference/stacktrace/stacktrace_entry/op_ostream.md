@@ -7,10 +7,7 @@
 
 ```cpp
 namespace std {
-  template <class charT, class traits>
-  basic_ostream<charT, traits>&
-    operator<<(basic_ostream<charT, traits>& os,
-               const stacktrace_entry& f);
+  ostream& operator<<(ostream& os, const stacktrace_entry& f);
 }
 ```
 
@@ -61,3 +58,8 @@ int main() {
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 12 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 3515. `[stacktrace.basic.nonmem]`: `operator<<` should be less templatized](https://cplusplus.github.io/LWG/issue3515)
+    - C++23で、`operator<<`が`charT`/`traits`でテンプレート化された`basic_ostream<charT, traits>`ではなく、非テンプレートの`ostream`を受け取り返すよう変更された

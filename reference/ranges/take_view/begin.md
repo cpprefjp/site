@@ -36,6 +36,16 @@ constexpr auto begin() const
     * range_difference_t[link /reference/ranges/range_difference_t.md]
     * counted_iterator[link /reference/iterator/counted_iterator.md]
 
+入力が[`sized_range`](../sized_range.md)ではないが、[`sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)`<`[`sentinel_t`](../sentinel_t.md)`<V>,` [`iterator_t`](../iterator_t.md)`<V>>`を満たす場合：
+- (1), (2) : 以下と等価：
+    ```cpp
+    auto it = ranges::begin(base_);
+    auto sz = std::min(count_, ranges::end(base_) - it);
+    return counted_iterator(std::move(it), sz);
+    ```
+    * counted_iterator[link /reference/iterator/counted_iterator.md]
+    * std::min[link /reference/algorithm/min.md]
+
 それ以外の場合：
 - (1), (2) : 以下と等価：
     ```cpp
@@ -81,3 +91,5 @@ int main() {
 
 ## 参照
 - [P2393R1 Cleaning up integer-class types](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2393r1.html)
+- [LWG Issue 3737. `take_view::sentinel` should provide `operator-`](https://cplusplus.github.io/LWG/issue3737)
+    - C++23で、`sized_range`ではないが`sized_sentinel_for<sentinel_t<V>, iterator_t<V>>`を満たす場合の分岐が追加された

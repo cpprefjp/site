@@ -42,3 +42,5 @@ return ranges::cend(derived());
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [LWG Issue 3766. `view_interface::cbegin` is underconstrained](https://cplusplus.github.io/LWG/issue3766)
+    - C++23で、非`const`版に`input_range<D>`制約が追加され、`const`版の制約が`range<const D>`から`input_range<const D>`に変更された

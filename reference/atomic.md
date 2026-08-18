@@ -161,3 +161,5 @@
 - [Boost Atomic Library](http://www.boost.org/doc/libs/release/libs/atomic/)
 - [P1642R11 Freestanding Library: Easy `[utilities]`, `[ranges]`, and `[iterators]`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1642r11.html)
     - C++23で、フリースタンディング処理系での`<atomic>`の要件が、フリースタンディングエンティティの仕組みに基づいて整理された
+- [LWG Issue 3814. Add freestanding items requested by NB comments](https://cplusplus.github.io/LWG/issue3814)
+    - C++23で、`memory_order`の各定数などがフリースタンディング処理系で使用可能であることが追加で規定された
