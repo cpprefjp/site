@@ -48,7 +48,7 @@ namespace std {
 - `template<> struct formatter<char, wchar_t>`
 - `template<> struct formatter<charT*, charT>`
 - `template<> struct formatter<const charT*, charT>`
-- `template<size_t N> struct formatter<const charT[N], charT>`
+- `template<size_t N> struct formatter<charT[N], charT>`
 - `template<class traits, class Allocator> struct formatter<`[`basic_string`](/reference/string/basic_string.md)`<charT, traits, Allocator>, charT>`
 - `template<class traits> struct formatter<`[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>, charT>`
 - 第1テンプレート引数が`nullptr_t`, `void*`, `const void*`, `bool`, すべてのCV修飾されない標準の整数型, 拡張整数型, 浮動小数点数型であり、第2テンプレート引数が`charT`であるもの。
@@ -284,5 +284,7 @@ int main()
 - [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
 - [P2585R1 Improve default container formatting](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2585r1.html)
     - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された
+- [LWG Issue 3833. Remove specialization `template<size_t N> struct formatter<const charT[N], charT>`](https://cplusplus.github.io/LWG/issue3833)
+    - C++23で、`formatter`がCV修飾のないオブジェクト型に対してのみ特殊化される設計と矛盾するため、`formatter<const charT[N], charT>`の特殊化が有効な標準特殊化の一覧から削除された
 - [LWG Issue 3944. Formatters converting sequences of `char` to sequences of `wchar_t`](https://cplusplus.github.io/LWG/issue3944)
     - C++26で、`char`のシーケンスを`wchar_t`としてフォーマットする特殊化が、暗黙のマルチバイト／ワイド文字変換を避けるため明示的に無効化された
