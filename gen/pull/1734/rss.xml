@@ -1,0 +1,1222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-08-18T00:43:12.536614</updated>
+  <id>57a1d639-7025-43e6-b1a8-b281311f0937</id>
+
+  
+    <entry>
+      <title>cinttypes -- cinttypesのリファレンスを作成。constexpr対応などでバージョン追従が必要だった</title>
+      <link href="https://cpprefjp.github.io/reference/cinttypes.html"/>
+      <id>34bcddf751afc477084b9a783dd0e3a2c05f218f:reference/cinttypes.md</id>
+      <updated>2026-08-18T09:39:28+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;cinttypes&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;cinttypes&lt;/span&gt;&lt;span class=&#34;cpp cpp11&#34; title=&#34;C++11で追加&#34;&gt;(C++11)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;cinttypes&amp;gt;&lt;/code&gt;ヘッダでは、&lt;code&gt;&lt;a href=&#34;cstdint.html&#34;&gt;&amp;lt;cstdint&amp;gt;&lt;/a&gt;&lt;/code&gt;の固定幅整数型を&lt;code&gt;&lt;a href=&#34;cstdio.html&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;printf&lt;/code&gt;系・&lt;code&gt;scanf&lt;/code&gt;系関数で入出力するための書式指定マクロと、最大幅整数型に対する数値変換関数を提供する。これらの機能は、&lt;code&gt;std&lt;/code&gt;名前空間に属することを除いてC言語の標準ライブラリ&lt;code&gt;&amp;lt;inttypes.h&amp;gt;&lt;/code&gt;ヘッダと同じである。&lt;/p&gt;
+&lt;p&gt;このヘッダは&lt;code&gt;&lt;a href=&#34;cstdint.html&#34;&gt;&amp;lt;cstdint&amp;gt;&lt;/a&gt;&lt;/code&gt;をインクルードする。&lt;/p&gt;
+&lt;h2&gt;型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cinttypes/imaxdiv_t.html&#34;&gt;imaxdiv_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;imaxdiv&lt;/code&gt;関数の戻り値型&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cinttypes/imaxabs.html&#34;&gt;imaxabs&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intmax_t&lt;/code&gt;の絶対値を取得する&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cinttypes/imaxdiv.html&#34;&gt;imaxdiv&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intmax_t&lt;/code&gt;の除算と剰余算を行う&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cinttypes/strtoimax.html&#34;&gt;strtoimax&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を&lt;code&gt;intmax_t&lt;/code&gt;に変換する&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cinttypes/strtoumax.html&#34;&gt;strtoumax&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を&lt;code&gt;uintmax_t&lt;/code&gt;に変換する&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cinttypes/wcstoimax.html&#34;&gt;wcstoimax&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字列を&lt;code&gt;intmax_t&lt;/code&gt;に変換する&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cinttypes/wcstoumax.html&#34;&gt;wcstoumax&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字列を&lt;code&gt;uintmax_t&lt;/code&gt;に変換する&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cinttypes/imaxabs.html&#34;&gt;abs&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intmax_t&lt;/code&gt;の絶対値を取得する (&lt;code&gt;imaxabs&lt;/code&gt;のオーバーロード、処理系定義)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cinttypes/imaxdiv.html&#34;&gt;div&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intmax_t&lt;/code&gt;の除算と剰余算を行う (&lt;code&gt;imaxdiv&lt;/code&gt;のオーバーロード、処理系定義)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;出力用の書式指定マクロ&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;printf&lt;/code&gt;系関数で固定幅整数型を出力するための変換指定子を表すマクロ。&lt;code&gt;PRI&lt;/code&gt;に続けて変換 (&lt;code&gt;d&lt;/code&gt;/&lt;code&gt;i&lt;/code&gt;/&lt;code&gt;o&lt;/code&gt;/&lt;code&gt;u&lt;/code&gt;/&lt;code&gt;x&lt;/code&gt;/&lt;code&gt;X&lt;/code&gt;/&lt;code&gt;b&lt;/code&gt;/&lt;code&gt;B&lt;/code&gt;) と型の種別を組み合わせる。&lt;/p&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PRId&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;PRIi&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;PRIo&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;PRIu&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;PRIx&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;PRIX&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intN_t&lt;/code&gt; / &lt;code&gt;uintN_t&lt;/code&gt;用&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cinttypes/prib.html&#34;&gt;&lt;code&gt;PRIb&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;PRIB&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intN_t&lt;/code&gt; / &lt;code&gt;uintN_t&lt;/code&gt;用 (2進数)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PRIdLEAST&lt;/code&gt;&lt;em&gt;N&lt;/em&gt; 等, &lt;code&gt;PRIdFAST&lt;/code&gt;&lt;em&gt;N&lt;/em&gt; 等&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;int_leastN_t&lt;/code&gt; / &lt;code&gt;int_fastN_t&lt;/code&gt;系用&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PRIdMAX&lt;/code&gt; 等, &lt;code&gt;PRIdPTR&lt;/code&gt; 等&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intmax_t&lt;/code&gt; / &lt;code&gt;intptr_t&lt;/code&gt;系用&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;入力用の書式指定マクロ&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;scanf&lt;/code&gt;系関数で固定幅整数型を入力するための変換指定子を表すマクロ。&lt;code&gt;SCN&lt;/code&gt;に続けて変換 (&lt;code&gt;d&lt;/code&gt;/&lt;code&gt;i&lt;/code&gt;/&lt;code&gt;o&lt;/code&gt;/&lt;code&gt;u&lt;/code&gt;/&lt;code&gt;x&lt;/code&gt;/&lt;code&gt;b&lt;/code&gt;) と型の種別を組み合わせる。&lt;/p&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SCNd&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;SCNi&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;SCNo&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;SCNu&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;SCNx&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intN_t&lt;/code&gt; / &lt;code&gt;uintN_t&lt;/code&gt;用&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cinttypes/scnb.html&#34;&gt;&lt;code&gt;SCNb&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intN_t&lt;/code&gt; / &lt;code&gt;uintN_t&lt;/code&gt;用 (2進数)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SCNdLEAST&lt;/code&gt;&lt;em&gt;N&lt;/em&gt; 等, &lt;code&gt;SCNdFAST&lt;/code&gt;&lt;em&gt;N&lt;/em&gt; 等&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;int_leastN_t&lt;/code&gt; / &lt;code&gt;int_fastN_t&lt;/code&gt;系用&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SCNdMAX&lt;/code&gt; 等, &lt;code&gt;SCNdPTR&lt;/code&gt; 等&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intmax_t&lt;/code&gt; / &lt;code&gt;intptr_t&lt;/code&gt;系用&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バージョン情報マクロ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cinttypes/stdc_version_inttypes_h.html&#34;&gt;__STDC_VERSION_INTTYPES_H__&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cinttypes&amp;gt;&lt;/code&gt;が提供するC標準ライブラリ機能のバージョン (&lt;code&gt;202311L&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バージョン&lt;/h2&gt;
+&lt;h3&gt;言語&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++11&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;関連項目&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;cstdint.html&#34;&gt;&amp;lt;cstdint&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;cstdio.html&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm&#34; target=&#34;_blank&#34;&gt;N1568 Proposed additions to TR-1 to improve compatibility with C99&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf&#34; target=&#34;_blank&#34;&gt;P3348R4 C++26 should refer to C23 not C17&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;C++26がC23を参照するようになり、2進数用の書式指定マクロ (&lt;code&gt;PRIb&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;・&lt;code&gt;PRIB&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;・&lt;code&gt;SCNb&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;等) と&lt;code&gt;__STDC_VERSION_INTTYPES_H__&lt;/code&gt;が追加された&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>imaxabs -- cinttypesのリファレンスを作成。constexpr対応などでバージョン追従が必要だった</title>
+      <link href="https://cpprefjp.github.io/reference/cinttypes/imaxabs.html"/>
+      <id>34bcddf751afc477084b9a783dd0e3a2c05f218f:reference/cinttypes/imaxabs.md</id>
+      <updated>2026-08-18T09:39:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cinttypes/imaxabs.md b/reference/cinttypes/imaxabs.md
+new file mode 100644
+index 000000000..d26e54c62
+--- /dev/null
++++ b/reference/cinttypes/imaxabs.md
+@@ -0,0 +1,67 @@
++# imaxabs
++* cinttypes[meta header]
++* std[meta namespace]
++* function[meta id-type]
++* cpp11[meta cpp]
++
++```cpp
++namespace std {
++  intmax_t imaxabs(intmax_t j);           // (1) C++11
++  constexpr intmax_t imaxabs(intmax_t j); // (1) C++23
++
++  intmax_t abs(intmax_t j);               // (2) C++11
++  constexpr intmax_t abs(intmax_t j);     // (2) C++23
++}
++```
++* intmax_t[link /reference/cstdint/intmax_t.md]
++
++## 概要
++最大幅の符号付き整数型 [`intmax_t`](/reference/cstdint/intmax_t.md) の絶対値を求める。imaxabs は integer maximum absolute value（最大幅整数の絶対値）の略。
++
++- (1) : [`intmax_t`](/reference/cstdint/intmax_t.md)に対するオーバーロード。
++- (2) : (1)と同じ機能を持つ、`abs`という名前のオーバーロード。
++
++
++## 戻り値
++引数 `j` の絶対値を返す。
++
++
++## 備考
++- (2) : このオーバーロードは、[`intmax_t`](/reference/cstdint/intmax_t.md)が拡張整数型である場合にのみ宣言される。（[`intmax_t`](/reference/cstdint/intmax_t.md)が`long`や`long long`のような標準の整数型である場合、[`&amp;lt;cstdlib&amp;gt;`](/reference/cstdlib.md)の`abs`のオーバーロードと重複するため宣言されない。）
++- `j`の絶対値が[`intmax_t`](/reference/cstdint/intmax_t.md)で表現できない場合、動作は未定義である。
++- 一般的な2の補数表現のシステムにおいて、[`intmax_t`](/reference/cstdint/intmax_t.md)の最小値の絶対値は、表現できる最大値よりも1大きくなってしまうため、この未定義動作に該当する。
++
++
++## 例
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;cinttypes&amp;gt;
++
++int main()
++{
++  std::intmax_t x = std::imaxabs(-1234);
++  std::cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; std::endl;
++}
++```
++* std::imaxabs[color ff0000]
++
++### 出力
++```
++1234
++```
++
++
++## バージョン
++### 言語
++- C++11
++
++
++## 関連項目
++- [`imaxdiv`](imaxdiv.md)
++- [`abs - &amp;lt;cstdlib&amp;gt;`](/reference/cstdlib/abs.md)
++
++
++## 参照
++- [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
++- [LWG Issue 3834. Missing `constexpr` for `std::intmax_t` math functions in `&amp;lt;cinttypes&amp;gt;`](https://cplusplus.github.io/LWG/issue3834)
++    - C++23で、P0533R9が`&amp;lt;cmath&amp;gt;`・`&amp;lt;cstdlib&amp;gt;`を`constexpr`化した際に漏れていた`imaxabs`（および`abs`のオーバーロード）が`constexpr`化された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>imaxdiv -- cinttypesのリファレンスを作成。constexpr対応などでバージョン追従が必要だった</title>
+      <link href="https://cpprefjp.github.io/reference/cinttypes/imaxdiv.html"/>
+      <id>34bcddf751afc477084b9a783dd0e3a2c05f218f:reference/cinttypes/imaxdiv.md</id>
+      <updated>2026-08-18T09:39:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cinttypes/imaxdiv.md b/reference/cinttypes/imaxdiv.md
+new file mode 100644
+index 000000000..1b80ad431
+--- /dev/null
++++ b/reference/cinttypes/imaxdiv.md
+@@ -0,0 +1,80 @@
++# imaxdiv
++* cinttypes[meta header]
++* std[meta namespace]
++* function[meta id-type]
++* cpp11[meta cpp]
++
++```cpp
++namespace std {
++  imaxdiv_t
++    imaxdiv(intmax_t numer,
++            intmax_t denom);  // (1) C++11
++  constexpr imaxdiv_t
++    imaxdiv(intmax_t numer,
++            intmax_t denom);  // (1) C++23
++
++  imaxdiv_t
++    div(intmax_t numer,
++        intmax_t denom);      // (2) C++11
++  constexpr imaxdiv_t
++    div(intmax_t numer,
++        intmax_t denom);      // (2) C++23
++}
++```
++* imaxdiv_t[link imaxdiv_t.md]
++* intmax_t[link /reference/cstdint/intmax_t.md]
++
++## 概要
++最大幅の符号付き整数型 [`intmax_t`](/reference/cstdint/intmax_t.md) に対して、`numer / denom`と`numer % denom`の計算をひとつの操作で行う。imaxdiv は integer maximum division（最大幅整数の除算）の略。
++
++- (1) : [`intmax_t`](/reference/cstdint/intmax_t.md)に対するオーバーロード。
++- (2) : (1)と同じ機能を持つ、`div`という名前のオーバーロード。
++
++
++## 戻り値
++[`imaxdiv_t`](imaxdiv_t.md)型オブジェクトの`quot`に商、`rem`に剰余を代入して返す。
++
++結果のどちらかが[`intmax_t`](/reference/cstdint/intmax_t.md)で表現できない場合、動作は未定義である。
++
++
++## 備考
++- (2) : このオーバーロードは、[`intmax_t`](/reference/cstdint/intmax_t.md)が拡張整数型である場合にのみ宣言される。（[`intmax_t`](/reference/cstdint/intmax_t.md)が`long`や`long long`のような標準の整数型である場合、[`&amp;lt;cstdlib&amp;gt;`](/reference/cstdlib.md)の`div`のオーバーロードと重複するため宣言されない。）
++
++
++## 例
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;cinttypes&amp;gt;
++
++int main()
++{
++  std::imaxdiv_t x = std::imaxdiv(17, 5);
++  std::cout &amp;lt;&amp;lt; x.quot &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; x.rem &amp;lt;&amp;lt; std::endl;
++}
++```
++* std::imaxdiv[color ff0000]
++* std::imaxdiv_t[link imaxdiv_t.md]
++
++### 出力
++```
++3
++2
++```
++
++
++## バージョン
++### 言語
++- C++11
++
++
++## 関連項目
++- [`imaxabs`](imaxabs.md)
++- [`imaxdiv_t`](imaxdiv_t.md)
++- [`div - &amp;lt;cstdlib&amp;gt;`](/reference/cstdlib/div.md)
++
++
++## 参照
++- [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
++- [LWG Issue 3834. Missing `constexpr` for `std::intmax_t` math functions in `&amp;lt;cinttypes&amp;gt;`](https://cplusplus.github.io/LWG/issue3834)
++    - C++23で、P0533R9が`&amp;lt;cmath&amp;gt;`・`&amp;lt;cstdlib&amp;gt;`を`constexpr`化した際に漏れていた`imaxdiv`（および`div`のオーバーロード）が`constexpr`化された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>imaxdiv_t -- cinttypesのリファレンスを作成。constexpr対応などでバージョン追従が必要だった</title>
+      <link href="https://cpprefjp.github.io/reference/cinttypes/imaxdiv_t.html"/>
+      <id>34bcddf751afc477084b9a783dd0e3a2c05f218f:reference/cinttypes/imaxdiv_t.md</id>
+      <updated>2026-08-18T09:39:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cinttypes/imaxdiv_t.md b/reference/cinttypes/imaxdiv_t.md
+new file mode 100644
+index 000000000..47cfba53d
+--- /dev/null
++++ b/reference/cinttypes/imaxdiv_t.md
+@@ -0,0 +1,58 @@
++# imaxdiv_t
++* cinttypes[meta header]
++* std[meta namespace]
++* class[meta id-type]
++* cpp11[meta cpp]
++
++```cpp
++namespace std {
++  struct imaxdiv_t {
++    intmax_t quot;
++    intmax_t rem;
++  };
++}
++```
++* intmax_t[link /reference/cstdint/intmax_t.md]
++
++## 概要
++[`std::imaxdiv()`](imaxdiv.md)関数の戻り値となる構造体型。
++
++`quot`は「quotient (商)」、`rem`は「remainder (剰余)」を表す。
++
++なお、メンバの宣言順序は未規定である。
++
++
++## 例
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;cinttypes&amp;gt;
++
++int main()
++{
++  std::imaxdiv_t x = std::imaxdiv(17, 5);
++  std::cout &amp;lt;&amp;lt; x.quot &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; x.rem &amp;lt;&amp;lt; std::endl;
++}
++```
++* std::imaxdiv_t[color ff0000]
++* std::imaxdiv[link imaxdiv.md]
++
++### 出力
++```
++3
++2
++```
++
++
++## バージョン
++### 言語
++- C++11
++
++
++## 関連項目
++- [`imaxdiv`](imaxdiv.md)
++- [`div_t`](/reference/cstdlib/div_t.md)
++
++
++## 参照
++- [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>__STDC_VERSION_INTTYPES_H__ -- cinttypesのリファレンスを作成。constexpr対応などでバージョン追従が必要だった</title>
+      <link href="https://cpprefjp.github.io/reference/cinttypes/stdc_version_inttypes_h.html"/>
+      <id>34bcddf751afc477084b9a783dd0e3a2c05f218f:reference/cinttypes/stdc_version_inttypes_h.md</id>
+      <updated>2026-08-18T09:39:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cinttypes/stdc_version_inttypes_h.md b/reference/cinttypes/stdc_version_inttypes_h.md
+new file mode 100644
+index 000000000..51ed74c41
+--- /dev/null
++++ b/reference/cinttypes/stdc_version_inttypes_h.md
+@@ -0,0 +1,25 @@
++# __STDC_VERSION_INTTYPES_H__
++* cinttypes[meta header]
++* macro[meta id-type]
++* cpp26[meta cpp]
++
++```cpp
++#define __STDC_VERSION_INTTYPES_H__ 202311L
++```
++
++## 概要
++`&amp;lt;cinttypes&amp;gt;`ヘッダが提供するC標準ライブラリ機能がC23の基準に準拠していることを示すマクロ。
++
++
++## バージョン
++### 言語
++- C++26
++
++
++## 関連項目
++- [`&amp;lt;cinttypes&amp;gt;`](../cinttypes.md)
++
++
++## 参照
++- [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf)
++    - C++26がC23を参照するようになり、このマクロが追加された
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>strtoimax -- cinttypesのリファレンスを作成。constexpr対応などでバージョン追従が必要だった</title>
+      <link href="https://cpprefjp.github.io/reference/cinttypes/strtoimax.html"/>
+      <id>34bcddf751afc477084b9a783dd0e3a2c05f218f:reference/cinttypes/strtoimax.md</id>
+      <updated>2026-08-18T09:39:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cinttypes/strtoimax.md b/reference/cinttypes/strtoimax.md
+new file mode 100644
+index 000000000..402ed9563
+--- /dev/null
++++ b/reference/cinttypes/strtoimax.md
+@@ -0,0 +1,78 @@
++# strtoimax
++* cinttypes[meta header]
++* std[meta namespace]
++* function[meta id-type]
++* cpp11[meta cpp]
++
++```cpp
++namespace std {
++  intmax_t
++    strtoimax(const char* nptr,
++              char** endptr,
++              int base);
++}
++```
++* intmax_t[link /reference/cstdint/intmax_t.md]
++
++## 概要
++文字列`nptr`を、最大幅の符号付き整数型 [`intmax_t`](/reference/cstdint/intmax_t.md) に変換する。文字列は`base`で指定された基数に従って解釈される。
++
++`endptr`が非`nullptr`の場合、変換が終了した位置の文字へのポインタがそこに格納される。
++
++基数`base`は 2〜36 または 0 の値を取る。`base`が0の場合、
++
++- 文字列の先頭が`0x`または`0X`のときは16進数
++- 文字列の先頭が`0`のときは8進数
++- その他のときは10進数
++
++として変換する。
++
++この関数は、[`std::strtol()`](/reference/cstdlib/strtol.md)の変換先の型を[`intmax_t`](/reference/cstdint/intmax_t.md)にしたものである。
++
++
++## 戻り値
++- 変換可能ならば変換後の数値。
++- 変換後の数値が[`intmax_t`](/reference/cstdint/intmax_t.md)の範囲外の場合、[`INTMAX_MAX`](/reference/cstdint/intmax_max.md)または[`INTMAX_MIN`](/reference/cstdint/intmax_min.md)。
++- 変換不可能なら`0`を返す。
++
++
++## 備考
++- 変換後の数値が[`intmax_t`](/reference/cstdint/intmax_t.md)の範囲を超えるときは、`errno`に`ERANGE`が設定される。
++
++
++## 例
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;cinttypes&amp;gt;
++
++int main()
++{
++  char* end = nullptr;
++  std::intmax_t x = std::strtoimax(&amp;#34;  -0x1F rest&amp;#34;, &amp;amp;end, 0);
++
++  std::cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34;未変換部分: \&amp;#34;&amp;#34; &amp;lt;&amp;lt; end &amp;lt;&amp;lt; &amp;#34;\&amp;#34;&amp;#34; &amp;lt;&amp;lt; std::endl;
++}
++```
++* std::strtoimax[color ff0000]
++
++### 出力
++```
++-31
++未変換部分: &amp;#34; rest&amp;#34;
++```
++
++
++## バージョン
++### 言語
++- C++11
++
++
++## 関連項目
++- [`strtoumax`](strtoumax.md)
++- [`wcstoimax`](wcstoimax.md)
++- [`strtol - &amp;lt;cstdlib&amp;gt;`](/reference/cstdlib/strtol.md)
++
++
++## 参照
++- [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>strtoumax -- cinttypesのリファレンスを作成。constexpr対応などでバージョン追従が必要だった</title>
+      <link href="https://cpprefjp.github.io/reference/cinttypes/strtoumax.html"/>
+      <id>34bcddf751afc477084b9a783dd0e3a2c05f218f:reference/cinttypes/strtoumax.md</id>
+      <updated>2026-08-18T09:39:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cinttypes/strtoumax.md b/reference/cinttypes/strtoumax.md
+new file mode 100644
+index 000000000..6eabcbe3a
+--- /dev/null
++++ b/reference/cinttypes/strtoumax.md
+@@ -0,0 +1,73 @@
++# strtoumax
++* cinttypes[meta header]
++* std[meta namespace]
++* function[meta id-type]
++* cpp11[meta cpp]
++
++```cpp
++namespace std {
++  uintmax_t
++    strtoumax(const char* nptr,
++              char** endptr,
++              int base);
++}
++```
++* uintmax_t[link /reference/cstdint/uintmax_t.md]
++
++## 概要
++文字列`nptr`を、最大幅の符号なし整数型 [`uintmax_t`](/reference/cstdint/uintmax_t.md) に変換する。文字列は`base`で指定された基数に従って解釈される。
++
++`endptr`が非`nullptr`の場合、変換が終了した位置の文字へのポインタがそこに格納される。
++
++基数`base`は 2〜36 または 0 の値を取る。`base`が0の場合、
++
++- 文字列の先頭が`0x`または`0X`のときは16進数
++- 文字列の先頭が`0`のときは8進数
++- その他のときは10進数
++
++として変換する。
++
++この関数は、[`std::strtoul()`](/reference/cstdlib/strtoul.md.nolink)の変換先の型を[`uintmax_t`](/reference/cstdint/uintmax_t.md)にしたものである。
++
++
++## 戻り値
++- 変換可能ならば変換後の数値。
++- 変換後の数値が[`uintmax_t`](/reference/cstdint/uintmax_t.md)の範囲外の場合、[`UINTMAX_MAX`](/reference/cstdint/uintmax_max.md)。
++- 変換不可能なら`0`を返す。
++
++
++## 備考
++- 変換後の数値が[`uintmax_t`](/reference/cstdint/uintmax_t.md)の範囲を超えるときは、`errno`に`ERANGE`が設定される。
++
++
++## 例
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;cinttypes&amp;gt;
++
++int main()
++{
++  std::uintmax_t x = std::strtoumax(&amp;#34;12345&amp;#34;, nullptr, 10);
++  std::cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; std::endl;
++}
++```
++* std::strtoumax[color ff0000]
++
++### 出力
++```
++12345
++```
++
++
++## バージョン
++### 言語
++- C++11
++
++
++## 関連項目
++- [`strtoimax`](strtoimax.md)
++- [`wcstoumax`](wcstoumax.md)
++
++
++## 参照
++- [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>wcstoimax -- cinttypesのリファレンスを作成。constexpr対応などでバージョン追従が必要だった</title>
+      <link href="https://cpprefjp.github.io/reference/cinttypes/wcstoimax.html"/>
+      <id>34bcddf751afc477084b9a783dd0e3a2c05f218f:reference/cinttypes/wcstoimax.md</id>
+      <updated>2026-08-18T09:39:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cinttypes/wcstoimax.md b/reference/cinttypes/wcstoimax.md
+new file mode 100644
+index 000000000..efc415621
+--- /dev/null
++++ b/reference/cinttypes/wcstoimax.md
+@@ -0,0 +1,75 @@
++# wcstoimax
++* cinttypes[meta header]
++* std[meta namespace]
++* function[meta id-type]
++* cpp11[meta cpp]
++
++```cpp
++namespace std {
++  intmax_t
++    wcstoimax(const wchar_t* nptr,
++              wchar_t** endptr,
++              int base);
++}
++```
++* intmax_t[link /reference/cstdint/intmax_t.md]
++
++## 概要
++ワイド文字列`nptr`を、最大幅の符号付き整数型 [`intmax_t`](/reference/cstdint/intmax_t.md) に変換する。文字列は`base`で指定された基数に従って解釈される。
++
++`endptr`が非`nullptr`の場合、変換が終了した位置の文字へのポインタがそこに格納される。
++
++基数`base`は 2〜36 または 0 の値を取る。`base`が0の場合、
++
++- 文字列の先頭が`0x`または`0X`のときは16進数
++- 文字列の先頭が`0`のときは8進数
++- その他のときは10進数
++
++として変換する。
++
++この関数は、[`std::strtoimax()`](strtoimax.md)のワイド文字列版である。
++
++
++## 戻り値
++- 変換可能ならば変換後の数値。
++- 変換後の数値が[`intmax_t`](/reference/cstdint/intmax_t.md)の範囲外の場合、[`INTMAX_MAX`](/reference/cstdint/intmax_max.md)または[`INTMAX_MIN`](/reference/cstdint/intmax_min.md)。
++- 変換不可能なら`0`を返す。
++
++
++## 備考
++- 変換後の数値が[`intmax_t`](/reference/cstdint/intmax_t.md)の範囲を超えるときは、`errno`に`ERANGE`が設定される。
++
++
++## 例
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;cinttypes&amp;gt;
++
++int main()
++{
++  wchar_t* end = nullptr;
++  std::intmax_t x = std::wcstoimax(L&amp;#34;777&amp;#34;, &amp;amp;end, 8);
++
++  std::cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; std::endl;
++}
++```
++* std::wcstoimax[color ff0000]
++
++### 出力
++```
++511
++```
++
++
++## バージョン
++### 言語
++- C++11
++
++
++## 関連項目
++- [`wcstoumax`](wcstoumax.md)
++- [`strtoimax`](strtoimax.md)
++
++
++## 参照
++- [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>wcstoumax -- cinttypesのリファレンスを作成。constexpr対応などでバージョン追従が必要だった</title>
+      <link href="https://cpprefjp.github.io/reference/cinttypes/wcstoumax.html"/>
+      <id>34bcddf751afc477084b9a783dd0e3a2c05f218f:reference/cinttypes/wcstoumax.md</id>
+      <updated>2026-08-18T09:39:28+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cinttypes/wcstoumax.md b/reference/cinttypes/wcstoumax.md
+new file mode 100644
+index 000000000..148662b1e
+--- /dev/null
++++ b/reference/cinttypes/wcstoumax.md
+@@ -0,0 +1,73 @@
++# wcstoumax
++* cinttypes[meta header]
++* std[meta namespace]
++* function[meta id-type]
++* cpp11[meta cpp]
++
++```cpp
++namespace std {
++  uintmax_t
++    wcstoumax(const wchar_t* nptr,
++              wchar_t** endptr,
++              int base);
++}
++```
++* uintmax_t[link /reference/cstdint/uintmax_t.md]
++
++## 概要
++ワイド文字列`nptr`を、最大幅の符号なし整数型 [`uintmax_t`](/reference/cstdint/uintmax_t.md) に変換する。文字列は`base`で指定された基数に従って解釈される。
++
++`endptr`が非`nullptr`の場合、変換が終了した位置の文字へのポインタがそこに格納される。
++
++基数`base`は 2〜36 または 0 の値を取る。`base`が0の場合、
++
++- 文字列の先頭が`0x`または`0X`のときは16進数
++- 文字列の先頭が`0`のときは8進数
++- その他のときは10進数
++
++として変換する。
++
++この関数は、[`std::strtoumax()`](strtoumax.md)のワイド文字列版である。
++
++
++## 戻り値
++- 変換可能ならば変換後の数値。
++- 変換後の数値が[`uintmax_t`](/reference/cstdint/uintmax_t.md)の範囲外の場合、[`UINTMAX_MAX`](/reference/cstdint/uintmax_max.md)。
++- 変換不可能なら`0`を返す。
++
++
++## 備考
++- 変換後の数値が[`uintmax_t`](/reference/cstdint/uintmax_t.md)の範囲を超えるときは、`errno`に`ERANGE`が設定される。
++
++
++## 例
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;cinttypes&amp;gt;
++
++int main()
++{
++  std::uintmax_t x = std::wcstoumax(L&amp;#34;FF&amp;#34;, nullptr, 16);
++  std::cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; std::endl;
++}
++```
++* std::wcstoumax[color ff0000]
++
++### 出力
++```
++255
++```
++
++
++## バージョン
++### 言語
++- C++11
++
++
++## 関連項目
++- [`wcstoimax`](wcstoimax.md)
++- [`strtoumax`](strtoumax.md)
++
++
++## 参照
++- [N1568 Proposed additions to TR-1 to improve compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>version -- version : C++29機能テストマクロを記載</title>
+      <link href="https://cpprefjp.github.io/reference/version.html"/>
+      <id>2113c834e06b486023904caddeb8aba7df2755c6:reference/version.md</id>
+      <updated>2026-08-18T09:26:11+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;version&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;cpp cpp20&#34; title=&#34;C++20で追加&#34;&gt;(C++20)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;version&amp;gt;&lt;/code&gt;ヘッダでは、実装依存でのC++標準ライブラリのバージョン情報を提供する。機能テストマクロ以外のバージョン情報以外に何が定義されるかは実装ごとに決められる。&lt;/p&gt;
+&lt;h2&gt;フリースタンディング&lt;/h2&gt;
+&lt;p&gt;このヘッダは、フリースタンディング処理系でも使用できる。ただし、どの機能テストマクロが定義されるかは、その処理系がサポートするライブラリ機能に依存する（フリースタンディング処理系では、対応していない機能のマクロは定義されないことがある）。&lt;/p&gt;
+&lt;h2&gt;機能テストマクロ&lt;/h2&gt;
+&lt;p&gt;本ヘッダをインクルードすることにより、標準で提供される全てのライブラリ機能テストマクロを利用することができる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../lang/cpp14/feature_test_macros.html&#34;&gt;C++14 機能テストマクロ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../lang/cpp17/feature_test_macros.html&#34;&gt;C++17 機能テストマクロ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../lang/cpp20/feature_test_macros.html&#34;&gt;C++20 機能テストマクロ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../lang/cpp23/feature_test_macros.html&#34;&gt;C++23 機能テストマクロ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../lang/cpp26/feature_test_macros.html&#34;&gt;C++26 機能テストマクロ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../lang/cpp29/feature_test_macros.html&#34;&gt;C++29 機能テストマクロ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0754r2.pdf&#34; target=&#34;_blank&#34;&gt;P0754R2 &lt;code&gt;&amp;lt;version&amp;gt;&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cplusplus.github.io/LWG/issue3841&#34; target=&#34;_blank&#34;&gt;LWG Issue 3841. &lt;code&gt;&amp;lt;version&amp;gt;&lt;/code&gt; should not be &#34;all freestanding&#34;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;C++23で、&lt;code&gt;&amp;lt;version&amp;gt;&lt;/code&gt;ヘッダ自体はフリースタンディングだが、非フリースタンディング機能に対応する機能テストマクロまで全て定義する必要はなく、処理系がサポートする機能のマクロのみ定義してよいことになった&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>version -- version : フリースタンディングについて、機能テストマクロが全て定義されない可能性があることを記載</title>
+      <link href="https://cpprefjp.github.io/reference/version.html"/>
+      <id>eeb6694f3d37a093f263810e1d08cb640b488997:reference/version.md</id>
+      <updated>2026-08-18T09:26:01+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;version&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;cpp cpp20&#34; title=&#34;C++20で追加&#34;&gt;(C++20)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;version&amp;gt;&lt;/code&gt;ヘッダでは、実装依存でのC++標準ライブラリのバージョン情報を提供する。機能テストマクロ以外のバージョン情報以外に何が定義されるかは実装ごとに決められる。&lt;/p&gt;
+&lt;h2&gt;フリースタンディング&lt;/h2&gt;
+&lt;p&gt;このヘッダは、フリースタンディング処理系でも使用できる。ただし、どの機能テストマクロが定義されるかは、その処理系がサポートするライブラリ機能に依存する（フリースタンディング処理系では、対応していない機能のマクロは定義されないことがある）。&lt;/p&gt;
+&lt;h2&gt;機能テストマクロ&lt;/h2&gt;
+&lt;p&gt;本ヘッダをインクルードすることにより、標準で提供される全てのライブラリ機能テストマクロを利用することができる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../lang/cpp14/feature_test_macros.html&#34;&gt;C++14 機能テストマクロ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../lang/cpp17/feature_test_macros.html&#34;&gt;C++17 機能テストマクロ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../lang/cpp20/feature_test_macros.html&#34;&gt;C++20 機能テストマクロ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../lang/cpp23/feature_test_macros.html&#34;&gt;C++23 機能テストマクロ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../lang/cpp26/feature_test_macros.html&#34;&gt;C++26 機能テストマクロ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0754r2.pdf&#34; target=&#34;_blank&#34;&gt;P0754R2 &lt;code&gt;&amp;lt;version&amp;gt;&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cplusplus.github.io/LWG/issue3841&#34; target=&#34;_blank&#34;&gt;LWG Issue 3841. &lt;code&gt;&amp;lt;version&amp;gt;&lt;/code&gt; should not be &#34;all freestanding&#34;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;C++23で、&lt;code&gt;&amp;lt;version&amp;gt;&lt;/code&gt;ヘッダ自体はフリースタンディングだが、非フリースタンディング機能に対応する機能テストマクロまで全て定義する必要はなく、処理系がサポートする機能のマクロのみ定義してよいことになった&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cinttypes -- cintypes : C++23のconstexpr対応 (あとで個別ページを作る)</title>
+      <link href="https://cpprefjp.github.io/reference/cinttypes.html"/>
+      <id>570a47555eb13d0bf44ad4a1bc800ce2e427663e:reference/cinttypes.md</id>
+      <updated>2026-08-18T09:25:18+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;cinttypes&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;cinttypes&lt;/span&gt;&lt;span class=&#34;cpp cpp11&#34; title=&#34;C++11で追加&#34;&gt;(C++11)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;cinttypes&amp;gt;&lt;/code&gt;ヘッダでは、&lt;code&gt;&lt;a href=&#34;cstdint.html&#34;&gt;&amp;lt;cstdint&amp;gt;&lt;/a&gt;&lt;/code&gt;の固定幅整数型を&lt;code&gt;&lt;a href=&#34;cstdio.html&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/a&gt;&lt;/code&gt;の&lt;code&gt;printf&lt;/code&gt;系・&lt;code&gt;scanf&lt;/code&gt;系関数で入出力するための書式指定マクロと、最大幅整数型に対する数値変換関数を提供する。これらの機能は、&lt;code&gt;std&lt;/code&gt;名前空間に属することを除いてC言語の標準ライブラリ&lt;code&gt;&amp;lt;inttypes.h&amp;gt;&lt;/code&gt;ヘッダと同じである。&lt;/p&gt;
+&lt;p&gt;このヘッダは&lt;code&gt;&lt;a href=&#34;cstdint.html&#34;&gt;&amp;lt;cstdint&amp;gt;&lt;/a&gt;&lt;/code&gt;をインクルードする。&lt;/p&gt;
+&lt;h2&gt;型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;imaxdiv_t&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;imaxdiv&lt;/code&gt;関数の戻り値型&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;imaxabs&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intmax_t&lt;/code&gt;の絶対値を取得する (C++23から&lt;code&gt;constexpr&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;imaxdiv&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intmax_t&lt;/code&gt;の除算と剰余算を行う (C++23から&lt;code&gt;constexpr&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;strtoimax&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を&lt;code&gt;intmax_t&lt;/code&gt;に変換する&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;strtoumax&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を&lt;code&gt;uintmax_t&lt;/code&gt;に変換する&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;wcstoimax&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字列を&lt;code&gt;intmax_t&lt;/code&gt;に変換する&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;wcstoumax&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字列を&lt;code&gt;uintmax_t&lt;/code&gt;に変換する&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;abs&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intmax_t&lt;/code&gt;の絶対値を取得する (&lt;code&gt;imaxabs&lt;/code&gt;のオーバーロード、処理系定義。C++23から&lt;code&gt;constexpr&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;div&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intmax_t&lt;/code&gt;の除算と剰余算を行う (&lt;code&gt;imaxdiv&lt;/code&gt;のオーバーロード、処理系定義。C++23から&lt;code&gt;constexpr&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;出力用の書式指定マクロ&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;printf&lt;/code&gt;系関数で固定幅整数型を出力するための変換指定子を表すマクロ。&lt;code&gt;PRI&lt;/code&gt;に続けて変換 (&lt;code&gt;d&lt;/code&gt;/&lt;code&gt;i&lt;/code&gt;/&lt;code&gt;o&lt;/code&gt;/&lt;code&gt;u&lt;/code&gt;/&lt;code&gt;x&lt;/code&gt;/&lt;code&gt;X&lt;/code&gt;/&lt;code&gt;b&lt;/code&gt;/&lt;code&gt;B&lt;/code&gt;) と型の種別を組み合わせる。&lt;/p&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PRId&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;PRIi&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;PRIo&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;PRIu&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;PRIx&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;PRIX&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intN_t&lt;/code&gt; / &lt;code&gt;uintN_t&lt;/code&gt;用&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cinttypes/prib.html&#34;&gt;&lt;code&gt;PRIb&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;PRIB&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intN_t&lt;/code&gt; / &lt;code&gt;uintN_t&lt;/code&gt;用 (2進数)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PRIdLEAST&lt;/code&gt;&lt;em&gt;N&lt;/em&gt; 等, &lt;code&gt;PRIdFAST&lt;/code&gt;&lt;em&gt;N&lt;/em&gt; 等&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;int_leastN_t&lt;/code&gt; / &lt;code&gt;int_fastN_t&lt;/code&gt;系用 (2進数の&lt;code&gt;b&lt;/code&gt;/&lt;code&gt;B&lt;/code&gt;はC++26)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PRIdMAX&lt;/code&gt; 等, &lt;code&gt;PRIdPTR&lt;/code&gt; 等&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intmax_t&lt;/code&gt; / &lt;code&gt;intptr_t&lt;/code&gt;系用 (2進数の&lt;code&gt;b&lt;/code&gt;/&lt;code&gt;B&lt;/code&gt;はC++26)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;入力用の書式指定マクロ&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;scanf&lt;/code&gt;系関数で固定幅整数型を入力するための変換指定子を表すマクロ。&lt;code&gt;SCN&lt;/code&gt;に続けて変換 (&lt;code&gt;d&lt;/code&gt;/&lt;code&gt;i&lt;/code&gt;/&lt;code&gt;o&lt;/code&gt;/&lt;code&gt;u&lt;/code&gt;/&lt;code&gt;x&lt;/code&gt;/&lt;code&gt;b&lt;/code&gt;) と型の種別を組み合わせる。&lt;/p&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SCNd&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;SCNi&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;SCNo&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;SCNu&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;, &lt;code&gt;SCNx&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intN_t&lt;/code&gt; / &lt;code&gt;uintN_t&lt;/code&gt;用&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cinttypes/scnb.html&#34;&gt;&lt;code&gt;SCNb&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intN_t&lt;/code&gt; / &lt;code&gt;uintN_t&lt;/code&gt;用 (2進数)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SCNdLEAST&lt;/code&gt;&lt;em&gt;N&lt;/em&gt; 等, &lt;code&gt;SCNdFAST&lt;/code&gt;&lt;em&gt;N&lt;/em&gt; 等&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;int_leastN_t&lt;/code&gt; / &lt;code&gt;int_fastN_t&lt;/code&gt;系用 (2進数の&lt;code&gt;b&lt;/code&gt;はC++26)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SCNdMAX&lt;/code&gt; 等, &lt;code&gt;SCNdPTR&lt;/code&gt; 等&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;intmax_t&lt;/code&gt; / &lt;code&gt;intptr_t&lt;/code&gt;系用 (2進数の&lt;code&gt;b&lt;/code&gt;はC++26)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バージョン情報マクロ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;__STDC_VERSION_INTTYPES_H__&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cinttypes&amp;gt;&lt;/code&gt;が提供するC標準ライブラリ機能のバージョン (&lt;code&gt;202311L&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バージョン&lt;/h2&gt;
+&lt;h3&gt;言語&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++11&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;関連項目&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;cstdint.html&#34;&gt;&amp;lt;cstdint&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;cstdio.html&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm&#34; target=&#34;_blank&#34;&gt;N1568 Proposed additions to TR-1 to improve compatibility with C99&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cplusplus.github.io/LWG/issue3834&#34; target=&#34;_blank&#34;&gt;LWG Issue 3834. Missing &lt;code&gt;constexpr&lt;/code&gt; for &lt;code&gt;std::intmax_t&lt;/code&gt; math functions in &lt;code&gt;&amp;lt;cinttypes&amp;gt;&lt;/code&gt;&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;C++23で、P0533R9が&lt;code&gt;&amp;lt;cmath&amp;gt;&lt;/code&gt;・&lt;code&gt;&amp;lt;cstdlib&amp;gt;&lt;/code&gt;を&lt;code&gt;constexpr&lt;/code&gt;化した際に漏れていた&lt;code&gt;imaxabs&lt;/code&gt;・&lt;code&gt;imaxdiv&lt;/code&gt;（および&lt;code&gt;intmax_t&lt;/code&gt;に対する&lt;code&gt;abs&lt;/code&gt;・&lt;code&gt;div&lt;/code&gt;のオーバーロード）が&lt;code&gt;constexpr&lt;/code&gt;化された&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf&#34; target=&#34;_blank&#34;&gt;P3348R4 C++26 should refer to C23 not C17&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;C++26がC23を参照するようになり、2進数用の書式指定マクロ (&lt;code&gt;PRIb&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;・&lt;code&gt;PRIB&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;・&lt;code&gt;SCNb&lt;/code&gt;&lt;em&gt;N&lt;/em&gt;等) と&lt;code&gt;__STDC_VERSION_INTTYPES_H__&lt;/code&gt;が追加された&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>reference_constructs_from_temporary -- reference_meows_from_temporary : conjunctionを使わない形で仕様が書き直された</title>
+      <link href="https://cpprefjp.github.io/reference/type_traits/reference_constructs_from_temporary.html"/>
+      <id>611a1171e5283433982aea3282d81295262f9023:reference/type_traits/reference_constructs_from_temporary.md</id>
+      <updated>2026-08-18T09:24:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/type_traits/reference_constructs_from_temporary.md b/reference/type_traits/reference_constructs_from_temporary.md
+index 2108b7d59..a427aac7b 100644
+--- a/reference/type_traits/reference_constructs_from_temporary.md
++++ b/reference/type_traits/reference_constructs_from_temporary.md
+@@ -33,7 +33,7 @@ namespace std {
+ - `U`が参照型や関数型の場合、[`declval`](/reference/utility/declval.md)`&amp;lt;U&amp;gt;()`と同じ型と値カテゴリを持つ式
+ - `U`が参照型や関数型でない場合、型`U`である`prvalue`（ただし、`U`に`const`/`volatile`修飾があれば調整される）
+ 
+-[`conjunction_v`](conjunction.md)`&amp;lt;`[`is_reference`](is_reference.md)`&amp;lt;T&amp;gt;,` [`is_constructible`](is_constructible.md)`&amp;lt;T, U&amp;gt;&amp;gt;`が`true`かつ、`T t(VAL&amp;lt;U&amp;gt;);`において`t`が一時オブジェクトの寿命を延長する場合に[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
++`T`が参照型であり、かつ初期化`T t(VAL&amp;lt;U&amp;gt;);`が適格(well-formed)であって`t`を寿命が延長された一時オブジェクトに束縛する場合に[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。アクセスチェックは`T`および`U`と無関係な文脈で行われるものとして扱い、この変数初期化の直接文脈(immediate context)における妥当性のみが考慮される。
+ 
+ この変数初期化`T t(VAL&amp;lt;U&amp;gt;);`の完全式は、未評価オペランドとして扱われる。したがって初期化に即時関数（`consteval`関数）が関与しても、その呼び出しが定数式に評価される必要はない。
+ 
+@@ -151,7 +151,7 @@ int main()
+ - [Visual C++](/implementation.md#visual_cpp): ???
+ 
+ 
+-## 備考
++### 備考
+ - [Bug 63604 - [C++11] A direct-initialization of a reference should use explicit conversion functions](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63604)
+     - GCCでは参照の直接初期化に `explicit` な変換関数が使われないバグがあり、上の例がコンパイルエラーになる。
+ 
+@@ -162,5 +162,7 @@ int main()
+ 
+ ## 参照
+ - [P2255R2 A type trait to detect reference binding to temporary](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2255r2.html)
++- [LWG Issue 3819. `reference_meows_from_temporary` should not use `is_meowible`](https://cplusplus.github.io/LWG/issue3819)
++    - C++23で、条件が`conjunction_v&amp;lt;is_reference&amp;lt;T&amp;gt;, is_constructible&amp;lt;T, U&amp;gt;&amp;gt;`を用いた形から、`T`が参照型であり初期化が適格で寿命延長された一時オブジェクトに束縛するという直接的な形へと書き換えられた（`is_constructible`はxvalueからの初期化しか考慮できずprvalueを正しく扱えないため）
+ - [LWG Issue 4536. Type traits have inconsistent interactions with immediate functions](https://cplusplus.github.io/LWG/issue4536)
+     - C++26で、変数初期化の完全式が未評価オペランドとして扱われることが明確化された（即時関数との相互作用を`is_assignable`等の他の型特性と一貫させるための文言修正であり、GCC・Clangなどの実装は以前からこの動作となっている）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>reference_converts_from_temporary -- reference_meows_from_temporary : conjunctionを使わない形で仕様が書き直された</title>
+      <link href="https://cpprefjp.github.io/reference/type_traits/reference_converts_from_temporary.html"/>
+      <id>611a1171e5283433982aea3282d81295262f9023:reference/type_traits/reference_converts_from_temporary.md</id>
+      <updated>2026-08-18T09:24:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/type_traits/reference_converts_from_temporary.md b/reference/type_traits/reference_converts_from_temporary.md
+index b26a04a6a..1ef2f9ffb 100644
+--- a/reference/type_traits/reference_converts_from_temporary.md
++++ b/reference/type_traits/reference_converts_from_temporary.md
+@@ -29,7 +29,7 @@ namespace std {
+ - `U`が参照型や関数型の場合、[`declval`](/reference/utility/declval.md)`&amp;lt;U&amp;gt;()`と同じ型と値カテゴリを持つ式
+ - `U`が参照型や関数型でない場合、型`U`である`prvalue`（ただし、`U`に`const`/`volatile`修飾があれば調整される）
+ 
+-[`conjunction_v`](conjunction.md)`&amp;lt;`[`is_reference`](is_reference.md)`&amp;lt;T&amp;gt;,` [`is_convertible`](is_convertible.md)`&amp;lt;U, T&amp;gt;&amp;gt;`が`true`かつ、`T t = VAL&amp;lt;U&amp;gt;;`において`t`が一時オブジェクトの寿命を延長する場合に[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
++`T`が参照型であり、かつ初期化`T t = VAL&amp;lt;U&amp;gt;;`が適格(well-formed)であって`t`を寿命が延長された一時オブジェクトに束縛する場合に[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。アクセスチェックは`T`および`U`と無関係な文脈で行われるものとして扱い、この変数初期化の直接文脈(immediate context)における妥当性のみが考慮される。
+ 
+ この変数初期化`T t = VAL&amp;lt;U&amp;gt;;`の完全式は、未評価オペランドとして扱われる。したがって初期化に即時関数（`consteval`関数）が関与しても、その呼び出しが定数式に評価される必要はない。
+ 
+@@ -150,5 +150,7 @@ int main()
+ 
+ ## 参照
+ - [P2255R2 A type trait to detect reference binding to temporary](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2255r2.html)
++- [LWG Issue 3819. `reference_meows_from_temporary` should not use `is_meowible`](https://cplusplus.github.io/LWG/issue3819)
++    - C++23で、条件が`conjunction_v&amp;lt;is_reference&amp;lt;T&amp;gt;, is_convertible&amp;lt;U, T&amp;gt;&amp;gt;`を用いた形から、`T`が参照型であり初期化が適格で寿命延長された一時オブジェクトに束縛するという直接的な形へと書き換えられた（`is_convertible`はxvalueからの初期化しか考慮できずprvalueを正しく扱えないため）
+ - [LWG Issue 4536. Type traits have inconsistent interactions with immediate functions](https://cplusplus.github.io/LWG/issue4536)
+     - C++26で、変数初期化の完全式が未評価オペランドとして扱われることが明確化された（即時関数との相互作用を`is_assignable`等の他の型特性と一貫させるための文言修正であり、GCC・Clangなどの実装は以前からこの動作となっている）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
