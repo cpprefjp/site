@@ -42,7 +42,7 @@ Point ar[] = { // 配列の初期化子リストで、要素ごとの初期化�
 
 
 ## 要件
-[`remove_all_extents_t`](remove_all_extents.md)`<T>`した結果の型が、完全型であるか、`const/volatile`修飾された (あるいはされていない) `void`でなければならない。
+型`T`が、配列型であるか、完全型であるか、`const/volatile`修飾された (あるいはされていない) `void`でなければならない。
 
 
 ## 効果
@@ -84,3 +84,5 @@ int main()
 
 ## 参照
 - [LWG Issue 2911. An `is_aggregate` type trait is needed](https://wg21.cmeerw.net/lwg/issue2911)
+- [LWG Issue 3823. Unnecessary precondition for `is_aggregate`](https://cplusplus.github.io/LWG/issue3823)
+    - C++23で、事前条件が`remove_all_extents_t<T>`ではなく`T`を主語とする形に整理され、配列型が明示的に許可された（要素が不完全型の配列型に対しても問い合わせできるようになった）
