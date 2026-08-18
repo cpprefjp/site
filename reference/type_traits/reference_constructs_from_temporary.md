@@ -33,7 +33,7 @@ namespace std {
 - `U`が参照型や関数型の場合、[`declval`](/reference/utility/declval.md)`<U>()`と同じ型と値カテゴリを持つ式
 - `U`が参照型や関数型でない場合、型`U`である`prvalue`（ただし、`U`に`const`/`volatile`修飾があれば調整される）
 
-[`conjunction_v`](conjunction.md)`<`[`is_reference`](is_reference.md)`<T>,` [`is_constructible`](is_constructible.md)`<T, U>>`が`true`かつ、`T t(VAL<U>);`において`t`が一時オブジェクトの寿命を延長する場合に[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+`T`が参照型であり、かつ初期化`T t(VAL<U>);`が適格(well-formed)であって`t`を寿命が延長された一時オブジェクトに束縛する場合に[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。アクセスチェックは`T`および`U`と無関係な文脈で行われるものとして扱い、この変数初期化の直接文脈(immediate context)における妥当性のみが考慮される。
 
 この変数初期化`T t(VAL<U>);`の完全式は、未評価オペランドとして扱われる。したがって初期化に即時関数（`consteval`関数）が関与しても、その呼び出しが定数式に評価される必要はない。
 
@@ -151,7 +151,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ???
 
 
-## 備考
+### 備考
 - [Bug 63604 - [C++11] A direct-initialization of a reference should use explicit conversion functions](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63604)
     - GCCでは参照の直接初期化に `explicit` な変換関数が使われないバグがあり、上の例がコンパイルエラーになる。
 
@@ -162,5 +162,7 @@ int main()
 
 ## 参照
 - [P2255R2 A type trait to detect reference binding to temporary](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2255r2.html)
+- [LWG Issue 3819. `reference_meows_from_temporary` should not use `is_meowible`](https://cplusplus.github.io/LWG/issue3819)
+    - C++23で、条件が`conjunction_v<is_reference<T>, is_constructible<T, U>>`を用いた形から、`T`が参照型であり初期化が適格で寿命延長された一時オブジェクトに束縛するという直接的な形へと書き換えられた（`is_constructible`はxvalueからの初期化しか考慮できずprvalueを正しく扱えないため）
 - [LWG Issue 4536. Type traits have inconsistent interactions with immediate functions](https://cplusplus.github.io/LWG/issue4536)
     - C++26で、変数初期化の完全式が未評価オペランドとして扱われることが明確化された（即時関数との相互作用を`is_assignable`等の他の型特性と一貫させるための文言修正であり、GCC・Clangなどの実装は以前からこの動作となっている）
