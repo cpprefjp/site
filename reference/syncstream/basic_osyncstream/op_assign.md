@@ -6,7 +6,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-basic_osyncstream& operator=(basic_osyncstream&& rhs) noexcept;
+basic_osyncstream& operator=(basic_osyncstream&& rhs);
 ```
 
 ## 概要
@@ -27,7 +27,7 @@ basic_osyncstream& operator=(basic_osyncstream&& rhs) noexcept;
 
 
 ## 例外
-投げない。`emit()`から例外が投げられた場合、その例外は捕捉され無視される。
+この関数は`noexcept`ではなく、ラップされた[`std::basic_syncbuf`](../basic_syncbuf.md)のムーブ代入から例外が送出される可能性がある。なお、`emit()`から例外が投げられた場合、その例外は捕捉され無視される。
 
 
 ## 備考
@@ -69,3 +69,5 @@ Hello, World!
 
 ## 参照
 - [P0053R7 C++ Synchronized Buffered Ostream](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0053r7.pdf)
+- [LWG Issue 3867. Should `std::basic_osyncstream`'s move assignment operator be `noexcept`?](https://cplusplus.github.io/LWG/issue3867)
+    - C++23で、基底のラップされた[`std::basic_syncbuf`](../basic_syncbuf.md)のムーブ代入が例外を送出しうる（LWG 3498）ことに合わせて、ムーブ代入演算子から`noexcept`が除去された
