@@ -136,3 +136,5 @@ int main()
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
 - [P2630R4 Submdspan](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html)
+- [LWG Issue 3876. Default constructor of `std::layout_XX::mapping` misses precondition](https://cplusplus.github.io/LWG/issue3876)
+    - C++23で、`Extents::rank_dynamic() == 0`のとき、多次元インデクス空間`Extents()`のサイズが`Extents::index_type`で表現可能であることの適格要件が追加された

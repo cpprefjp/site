@@ -28,11 +28,11 @@ namespace std {
 
 
 ## 事前条件
-- `Key`と`T`がムーブ代入可能であること
+- `Key`がムーブ代入可能であること
 
 
 ## 効果
-メンバ変数として保持しているコンテナ`c`の各要素`e`について、`bool(pred(e))`を`E`として、`E`が`true`であるすべての要素を削除する。
+メンバ変数として保持しているコンテナ`c`の各要素`e`について、`bool(pred(`[`as_const`](/reference/utility/as_const.md)`(e)))`を`E`として、`E`が`true`であるすべての要素を削除する。
 
 
 ## 戻り値
@@ -84,4 +84,6 @@ int main()
 
 
 ## 参照
+- [LWG Issue 3879. `erase_if` for `flat_{,multi}set` is incorrectly specified](https://cplusplus.github.io/LWG/issue3879)
+    - C++23で、`flat_set`／`flat_multiset`は要素の`const`ビューしか提供しないため、述語を`bool(pred(as_const(e)))`として評価するよう効果が修正された
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

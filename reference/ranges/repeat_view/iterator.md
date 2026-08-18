@@ -20,7 +20,7 @@
 namespace std::ranges {
   template<move_constructible T, semiregular Bound = unreachable_sentinel_t>
     requires (is_object_v<T> && same_as<T, remove_cv_t<T>> &&
-              (is-integer-like<Bound> || same_as<Bound, unreachable_sentinel_t>))
+              (integer-like-with-usable-difference-type<Bound> || same_as<Bound, unreachable_sentinel_t>))
   class repeat_view<T, Bound>::iterator {
   private:
     using index_type = conditional_t<same_as<Bound, unreachable_sentinel_t>, ptrdiff_t, Bound>;
@@ -106,7 +106,7 @@ namespace std::ranges {
 }
 ```
 * semiregular[link /reference/concepts/semiregular.md]
-* is-integer-like[link /reference/iterator/is_integer_like.md]
+* integer-like-with-usable-difference-type[italic]
 * repeat_view[link ../repeat_view.md]
 * conditional_t[link /reference/type_traits/conditional.md]
 * ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
@@ -126,3 +126,5 @@ namespace std::ranges {
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
+- [LWG Issue 3875. `std::ranges::repeat_view<T, IntegerClass>::iterator` may be ill-formed](https://cplusplus.github.io/LWG/issue3875)
+    - C++23で、`Bound`の制約に使う説明専用コンセプトが`is-integer-like<Bound>`から`integer-like-with-usable-difference-type<Bound>`へ変更された

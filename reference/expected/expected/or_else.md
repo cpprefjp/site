@@ -30,8 +30,8 @@ class expected {
 
 
 ## テンプレートパラメータ制約
-- (1), (2) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T> == true`
-- (3), (4) : [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> == true`
+- (1), (2) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, decltype(`[`value()`](value.md)`)> == true`
+- (3), (4) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, decltype(`[`std::move`](/reference/utility/move.md)`(`[`value()`](value.md)`))> == true`
 
 
 ## 適格要件
@@ -137,5 +137,7 @@ int main()
 
 ## 参照
 - [P2505R5 Monadic Functions for `std::expected`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2505r5.html)
+- [LWG Issue 3877. Incorrect constraints on `const`-qualified monadic overloads for `std::expected`](https://cplusplus.github.io/LWG/issue3877)
+    - C++23で、`const`修飾版で誤ってエラーになる問題を解消するため、制約が`is_copy_constructible_v<T>`から`is_constructible_v<T, decltype(value())>`（右辺値版は`decltype(std::move(value()))`）へ変更された
 - [LWG Issue 3938. Cannot use `std::expected` monadic ops with move-only `error_type`](https://cplusplus.github.io/LWG/issue3938)
     - C++26で、効果で正常値へのアクセスに[`value()`](value.md)ではなく[`**this`](op_deref.md)を使うよう修正され、ムーブのみ可能な`error_type`でも使用できるようになった

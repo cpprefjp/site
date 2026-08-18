@@ -32,6 +32,12 @@ namespace std {
 | [`(constructor)`](basic_format_args/op_constructor.md) | コンストラクタ                    | C++20          |
 | [`get`](basic_format_args/get.md)                      | フォーマット引数へアクセスする    | C++20          |
 
+## 推論補助
+
+| 名前 | 説明 | 対応バージョン |
+|--------------------------------------------------------------------|------------------------------------|-------|
+| [`(deduction_guide)`](basic_format_args/op_deduction_guide.md) | クラステンプレートの推論補助 | C++23 |
+
 ## バージョン
 ### 言語
 - C++20

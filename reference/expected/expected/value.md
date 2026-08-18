@@ -16,6 +16,11 @@ constexpr T&& value() &&;             // (4)
 正常値を取得する。
 
 
+## 適格要件
+- (1), (2) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<E> == true`
+- (3), (4) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<E> == true`、かつ、[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, decltype(`[`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))> == true`
+
+
 ## 戻り値
 動作説明用のメンバ変数として、正常値を保持する`val`を導入する。
 
@@ -28,7 +33,7 @@ constexpr T&& value() &&;             // (4)
 この関数は、例外を送出しうるため、フリースタンディング処理系では削除される（フリースタンディング処理系では使用できない）。
 
 ## 例外
-- (1), (2) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`error()`](error.md)`)`を送出する
+- (1), (2) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`as_const`](/reference/utility/as_const.md)`(`[`error()`](error.md)`))`を送出する
 - (3), (4) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`を送出する
 
 
@@ -82,3 +87,5 @@ throw:ERR
 
 ## 参照
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
+- [LWG Issue 3843. `std::expected<T,E>::value() &` assumes `E` is copy constructible](https://cplusplus.github.io/LWG/issue3843)
+    - C++23で、`E`のコピー構築可能性等を要求する適格要件が追加され、あわせて(1), (2)が送出する例外が`bad_expected_access(error())`から`bad_expected_access(as_const(error()))`に修正された

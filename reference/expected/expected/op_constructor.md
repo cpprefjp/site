@@ -73,7 +73,7 @@ constexpr bool converts-from-any-cvref =
 - (4) : 次の制約を全て満たすこと
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, const U&> == true`
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, const G&> == true`
-    - `converts-from-any-cvref<T, expected<U, G>> == false`
+    - `T`が cv `bool` でない場合、`converts-from-any-cvref<T, expected<U, G>> == false`
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<`[`unexpected`](../unexpected.md)`<E>, expected<U, G>&> == false`
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<`[`unexpected`](../unexpected.md)`<E>, expected<U, G>> == false`
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<`[`unexpected`](../unexpected.md)`<E>, const expected<U, G>&> == false`
@@ -81,7 +81,7 @@ constexpr bool converts-from-any-cvref =
 - (5) : 次の制約を全て満たすこと
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, U> == true`
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, G> == true`
-    - `converts-from-any-cvref<T, expected<U, G>> == false`
+    - `T`が cv `bool` でない場合、`converts-from-any-cvref<T, expected<U, G>> == false`
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<`[`unexpected`](../unexpected.md)`<E>, expected<U, G>&> == false`
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<`[`unexpected`](../unexpected.md)`<E>, expected<U, G>> == false`
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<`[`unexpected`](../unexpected.md)`<E>, const expected<U, G>&> == false`
@@ -91,6 +91,7 @@ constexpr bool converts-from-any-cvref =
     - [`is_same_v`](/reference/type_traits/is_same.md)`<expected,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>> == false`
     - [`is_same_v`](/reference/type_traits/is_same.md)`<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>,` [`unexpect_t`](../unexpect_t.md)`> == false`
     - [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>`は[`unexpected`](../unexpected.md)の特殊化でない
+    - `T`が cv `bool` の場合、[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>`は`expected`の特殊化でない
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<T, U> == true`
 - (7) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, const G&> == true`
 - (8) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<E, G> == true`
@@ -320,5 +321,7 @@ int main()
 
 ## 参照
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
+- [LWG Issue 3836. `std::expected<bool, E1>` conversion constructor `expected(const expected<U, G>&)` should take precedence over `expected(U&&)` with operator bool](https://cplusplus.github.io/LWG/issue3836)
+    - C++23で、`T`が cv `bool` のときに変換コンストラクタ(4)(5)が単一値コンストラクタ(6)に優先されるよう、(4)(5)の`converts-from-any-cvref`制約に「`T`が cv `bool` でない場合」の条件を付け、(6)に「`T`が cv `bool` の場合、`remove_cvref_t<U>`は`expected`の特殊化でない」制約を追加した
 - [LWG Issue 4222. `expected` constructor from a single value missing a constraint](https://cplusplus.github.io/LWG/issue4222)
     - C++26で、(6)の制約に[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<U>`が[`unexpect_t`](../unexpect_t.md)でないことが追加された

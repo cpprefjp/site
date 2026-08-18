@@ -81,3 +81,5 @@ int main() {
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [LWG Issue 3872. `basic_const_iterator` should have custom `iter_move`](https://cplusplus.github.io/LWG/issue3872)
+    - C++23で、`as_const`後に`as_rvalue`を適用しても効かない不整合を解消するため、専用の`iter_move`が追加された

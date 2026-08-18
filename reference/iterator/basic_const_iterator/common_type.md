@@ -80,3 +80,5 @@ int main() {
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [LWG Issue 3862. `basic_const_iterator`'s `common_type` specialization is underconstrained](https://cplusplus.github.io/LWG/issue3862)
+    - C++23で、3つの`common_type`特殊化に`common_type_t<T, U>`が`input_iterator`であることの制約が追加された

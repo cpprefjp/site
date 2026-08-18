@@ -73,7 +73,7 @@ namespace std::ranges {
 ```cpp
 template<class T>
 constexpr void* voidify(T& obj) noexcept {
-  return const_cast<void*>(static_cast<const volatile void*>(addressof(obj)));
+  return addressof(obj);
 }
 ```
 
@@ -189,3 +189,5 @@ int main() {
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
     - C++26から`constexpr`がついた
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 3870. Remove `voidify`](https://cplusplus.github.io/LWG/issue3870)
+    - C++23で、説明専用関数`voidify`の本体が`const_cast`／`static_cast`を用いる形から`addressof`を返す形に変更され、`const`記憶域へのオブジェクト構築が禁じられた

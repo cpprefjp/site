@@ -47,7 +47,7 @@ constexpr explicit
 - (4) :
     - `value_`を[`make_from_tuple`](/reference/tuple/make_from_tuple.md)`<T>(`[`std::move`](/reference/utility/move.md)`(value_args))`で初期化する
     - `bound_`を[`make_from_tuple`](/reference/tuple/make_from_tuple.md)`<Bound>(`[`std::move`](/reference/utility/move.md)`(bound_args))`で初期化する
-    - `bound`が型`unreachable_sentinel_t`である場合、もしくは`bound < 0`である場合、未定義動作を引き起こす
+    - 型`Bound`が[`unreachable_sentinel_t`](/reference/iterator/unreachable_sentinel_t.md)でなく、かつ`bound_ < 0`である場合、動作は未定義
 
 
 ## 例
@@ -116,3 +116,8 @@ aaa
 - [GCC](/implementation.md#gcc): 13 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2022 Update 6 [mark verified]
+
+
+## 参照
+- [LWG Issue 3772. `repeat_view`'s piecewise constructor is missing Postconditions](https://cplusplus.github.io/LWG/issue3772)
+    - C++23で、piecewiseコンストラクタ(4)の効果が[`make_from_tuple`](/reference/tuple/make_from_tuple.md)を用いる形に整理され、`Bound`が`unreachable_sentinel_t`でなく`bound_`が負の場合に動作は未定義であることが規定された
