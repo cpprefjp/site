@@ -184,3 +184,5 @@ struct doubler {
 
 ## 参照
 - [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
+- [P1642R11 Freestanding Library: Easy `[utilities]`, `[ranges]`, and `[iterators]`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1642r11.html)
+    - C++23で、このヘッダの多くの機能がフリースタンディング処理系で使用可能になった（`function`・`move_only_function`を除く）
