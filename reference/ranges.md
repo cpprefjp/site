@@ -488,3 +488,5 @@ range | adaptor(args...)
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
 - [P1642R11 Freestanding Library: Easy `[utilities]`, `[ranges]`, and `[iterators]`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1642r11.html)
     - C++23で、このヘッダのほとんどの機能がフリースタンディング処理系で使用可能になった（`istream_view`などを除く）
+- [LWG Issue 3814. Add freestanding items requested by NB comments](https://cplusplus.github.io/LWG/issue3814)
+    - C++23で、`repeat_view`／`views::repeat`・`stride_view`／`views::stride`・`cartesian_product_view`／`views::cartesian_product`がフリースタンディング処理系で使用可能であることが追加で規定された
