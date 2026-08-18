@@ -144,5 +144,7 @@ int main()
 ## 参照
 - [P0009R18 MDSPAN](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html)
 - [P2630R4 Submdspan](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html)
+- [LWG Issue 3876. Default constructor of `std::layout_XX::mapping` misses precondition](https://cplusplus.github.io/LWG/issue3876)
+    - C++23で、`Extents::rank_dynamic() == 0`のとき、多次元インデクス空間`Extents()`のサイズが`Extents::index_type`で表現可能であることの適格要件が追加された
 - [LWG Issue 4266. `layout_stride::mapping` should treat empty mappings as exhaustive](https://cplusplus.github.io/LWG/issue4266)
     - C++26で、`is_always_exhaustive()`が`rank() == 0`や静的要素数`0`の次元を持つ場合に`true`を返すよう変更された（C++23では常に`false`）。あわせて[`is_exhaustive()`](mapping/is_exhaustive.md)も多次元インデックス空間が空の場合に`true`を返すよう拡張された
