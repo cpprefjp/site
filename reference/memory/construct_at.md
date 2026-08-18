@@ -27,7 +27,7 @@ namespace std {
 ```cpp
 template<class T>
 constexpr void* voidify(T& ptr) noexcept {
-  return const_cast<void*>(static_cast<const volatile void*>(addressof(ptr)));
+  return addressof(ptr);
 }
 ```
 
@@ -89,3 +89,5 @@ int main()
 - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
 - [P0784R7 More `constexpr` containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
 - [LWG Issue 3436. `std::construct_at` should support arrays](https://wg21.cmeerw.net/lwg/issue3436)
+- [LWG Issue 3870. Remove `voidify`](https://cplusplus.github.io/LWG/issue3870)
+    - C++23で、説明専用関数`voidify`の本体が`const_cast`／`static_cast`を用いる形から`addressof`を返す形に変更され、`const`記憶域へのオブジェクト構築が禁じられた
