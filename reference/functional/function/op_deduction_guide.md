@@ -25,10 +25,12 @@ namespace std {
 - (2) :
     - `&F::operator()`は評価されないオペランドとして扱われ、以下のいずれかの場合に適格である：
         - C++17 :
-            - `decltype(&F::operator())`は、型`G`があるとして、`R(G::*)(A...) cv &(opt) noexcept(opt)`形式もしくは`R(*)(G cv ref(opt), A...) noexcept(opt)`形式であること
+            - `decltype(&F::operator())`は、型`G`があるとして、`R(G::*)(A...) cv &(opt) noexcept(opt)`形式であること
+        - C++23 :
+            - `decltype(&F::operator())`は、型`G`があるとして、`R(G::*)(A...) cv &(opt) noexcept(opt)`形式もしくは`R(*)(G, A...) noexcept(opt)`形式であること
         - C++26 :
-            - `F::operator()`が非静的メンバ関数であり、`decltype(&F::operator())`は、型`G`があるとして、`R(G::*)(A...) cv &(opt) noexcept(opt)`形式もしくは`R(*)(G cv ref(opt), A...) noexcept(opt)`形式であること
-            - `F::operator()`静的メンバ関数であり、`decltype(&F::operator())`は`R(*)(A...) noexcept(opt)`形式であること
+            - `F::operator()`が非静的メンバ関数であり、`decltype(&F::operator())`は、型`G`があるとして、`R(G::*)(A...) cv &(opt) noexcept(opt)`形式もしくは`R(*)(G, A...) noexcept(opt)`形式であること
+            - `F::operator()`が静的メンバ関数であり、`decltype(&F::operator())`は`R(*)(A...) noexcept(opt)`形式であること
 
 
 ## 例
@@ -94,3 +96,5 @@ int main()
 
 ## 参照
 - [LWG issue 3117. Missing `packaged_task` deduction guides](https://wg21.cmeerw.net/lwg/issue3117)
+- [LWG Issue 3617. `function`/`packaged_task` deduction guides and deducing `this`](https://cplusplus.github.io/LWG/issue3617)
+    - C++23で、明示的オブジェクトパラメータ（deducing this）をもつ関数呼び出し演算子に対応するため、推論補助の制約に`R(*)(G, A...) noexcept(opt)`形式が追加された
