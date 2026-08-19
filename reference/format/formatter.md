@@ -75,11 +75,11 @@ namespace std {
 2. 式 `cf.format(t, fc)` が有効であり、
     - 戻り値の型が`FC::iterator`である
     - フォーマット結果を`fc.out()`へ出力し、出力後のイテレータを返す
-    - 出力は`t`、`fc.locale()`、最後に呼び出された`f.parse(pc)`のイテレータ範囲`[pc.begin(), pc.end())`以外に依存しない
+    - 出力は`t`、`fc.locale()`、`fc.arg(n)`（任意の`n`について）、最後に呼び出された`f.parse(pc)`のイテレータ範囲`[pc.begin(), pc.end())`以外に依存しない
 3. 式 `cf.format(u, fc)` が有効であり、
     - 戻り値が`FC::iterator`である
     - フォーマット結果を`fc.out()`へ出力し、出力後のイテレータを返す
-    - 出力は`u`、`fc.locale()`、最後に呼び出された`f.parse(pc)`のイテレータ範囲`[pc.begin(), pc.end())`以外に依存しない
+    - 出力は`u`、`fc.locale()`、`fc.arg(n)`（任意の`n`について）、最後に呼び出された`f.parse(pc)`のイテレータ範囲`[pc.begin(), pc.end())`以外に依存しない
     - `u`を変更しない
 
 条件内の各要素を、以下のように定義する。
@@ -284,6 +284,8 @@ int main()
 - [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
 - [P2585R1 Improve default container formatting](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2585r1.html)
     - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された
+- [LWG Issue 3462. §[formatter.requirements]: Formatter requirements forbid use of `fc.arg()`](https://cplusplus.github.io/LWG/issue3462)
+    - C++23で、`format`の出力が依存してよい対象に`fc.arg(n)`が追加され、動的な幅・精度指定などをフォーマッターから実装できるようになった
 - [LWG Issue 3701. Make `formatter<remove_cvref_t<const charT[N]>, charT>` requirement explicit](https://cplusplus.github.io/LWG/issue3701)
     - C++23で、有効な標準特殊化の一覧に`formatter<charT[N], charT>`が明示的に追加された
 - [LWG Issue 3833. Remove specialization `template<size_t N> struct formatter<const charT[N], charT>`](https://cplusplus.github.io/LWG/issue3833)

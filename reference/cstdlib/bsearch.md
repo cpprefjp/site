@@ -44,6 +44,13 @@ namespace std {
 説明用の型`c-compare-pred`・`compare-pred`は、それぞれ`extern "C"`・`extern "C++"`の言語リンケージを持つ比較関数`int(const void*, const void*)`へのポインタ型である。これにより、いずれの言語リンケージの比較関数も渡せる。
 
 
+## 事前条件
+- 配列は、比較関数`compar`が定める順序に従って昇順にソートされていること。
+- 配列の要素型について：
+    - C++20まで : トリビアルな型であること
+    - C++23 : 要素型に対する要件は削除された（この要件は[`qsort`](qsort.md)にのみ残り、トリビアルにコピー可能な型に緩和された）
+
+
 ## 戻り値
 一致する要素が見つかった場合、その要素へのポインタを返す。一致する要素が複数ある場合、いずれが返されるかは未規定である。
 
@@ -59,8 +66,6 @@ namespace std {
 - `key`が要素より小さい場合 : 負の値
 - `key`が要素と等しい場合 : `0`
 - `key`が要素より大きい場合 : 正の値
-
-配列は、この比較関数の順序に従って昇順にソートされていなければならない。
 
 
 ## 備考
@@ -113,10 +118,12 @@ found: 5
 
 
 ## 関連項目
-- `qsort`: 範囲の並べ替えを行う
+- [`qsort`](qsort.md): 範囲の並べ替えを行う
 - [`std::lower_bound`](/reference/algorithm/lower_bound.md): ソート済み範囲から二分探索を行う
 
 
 ## 参照
+- [LWG Issue 3521. Overly strict requirements on `qsort` and `bsearch`](https://cplusplus.github.io/LWG/issue3521)
+    - C++23で、配列の要素型に対する「トリビアルな型であること」という事前条件が`bsearch`から削除された（この要件は`qsort`にのみ残った）
 - [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf)
     - C++26で`const`を保持するオーバーロードが追加された

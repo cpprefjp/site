@@ -16,20 +16,26 @@ constexpr explicit iota_view(W value);
 constexpr iota_view(type_identity_t<W> value, type_identity_t<Bound> bound);
 
 // (4)
-constexpr iota_view(iterator first, sentinel last);
+constexpr iota_view(iterator first, see-below last);
 ```
 * iota_view[link ../iota_view.md]
 * type_identity_t[link /reference/type_traits/type_identity.md]
 * iterator[link iterator.md]
-* sentinel[link sentinel.md]
+* see-below[italic]
 
 ## 概要
 - (1) : `[W(), Bound())` を範囲とする`iota_view`を構築する
 - (2) : `[value, Bound())` を範囲とする`iota_view`を構築する
 - (3) : `[value, bound)` を範囲とする`iota_view`を構築する
-- (4) : イテレータ `[first, last)` が指す値を範囲とする`iota_view`を構築する((3)に委譲)
+- (4) : イテレータ `[first, last)` が指す値を範囲とする`iota_view`を構築する
 
 `Bound`が[`unreachable_sentinel_t`](/reference/iterator/unreachable_sentinel_t.md)のとき、無限長の`iota_view`となる。
+
+(4)の第2引数`last`の型は、以下のように決まる：
+
+- [`same_as`](/reference/concepts/same_as.md)`<W, Bound>`が`true`の場合、[`iterator`](iterator.md)
+- `Bound`が[`unreachable_sentinel_t`](/reference/iterator/unreachable_sentinel_t.md)の場合、`Bound`
+- それ以外の場合、[`sentinel`](sentinel.md)
 
 ## 事前条件
 
@@ -40,7 +46,11 @@ constexpr iota_view(iterator first, sentinel last);
 
 ## 効果
 
-`iota_view`が内部で保持する先頭と終端の値を引数で初期化する。
+- (1), (2), (3) : `iota_view`が内部で保持する先頭と終端の値を引数で初期化する。
+- (4) : 以下と等価。
+    - [`same_as`](/reference/concepts/same_as.md)`<W, Bound>`が`true`の場合、`iota_view(first.value_, last.value_)`
+    - `Bound`が[`unreachable_sentinel_t`](/reference/iterator/unreachable_sentinel_t.md)の場合、`iota_view(first.value_, last)`
+    - それ以外の場合、`iota_view(first.value_, last.bound_)`
 
 ## 例
 ```cpp example
@@ -81,5 +91,7 @@ int main()
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 3523. `iota_view::sentinel` is not always `iota_view`'s sentinel](https://cplusplus.github.io/LWG/issue3523)
+    - C++23で、イテレータ対を取るコンストラクタ(4)の第2引数の型が、常に`sentinel`ではなく実際の終端型（`iterator`・`Bound`・`sentinel`）に応じて決まるよう修正され、効果も場合分けされた
 - [LWG Issue 3597. Unsigned integer types don't model `advanceable`](https://cplusplus.github.io/LWG/issue3597)
     - C++23で、1引数コンストラクタ(2)の事前条件に、2引数版と同様の`totally_ordered_with<W, Bound>`ならば`bool(value <= Bound())`が`true`という条件が追加された（符号なし整数のラップアラウンドで到達不能になる問題への対処）

@@ -25,8 +25,13 @@ constexpr size_type unique(BinaryPredicate pred); // (2) C++26
 コンテナがソート済みであること。ソート済みでない場合、この関数の動作は未規定。
 
 
+## 事前条件
+- (2) :
+    - C++23 : `pred`は同値関係であること。
+
+
 ## 効果
-イテレータ範囲`[first + 1, last)`の全てのイテレータ`i`について、オーバーロードごとに、以下の条件が`true`となる要素を削除する。
+連続する等価な要素のグループごとに、先頭の要素以外を削除する。すなわち、イテレータ範囲`[first + 1, last)`の全てのイテレータ`i`について、オーバーロードごとに、以下の条件が`true`となる要素を削除する。
 
 - (1) : `*i == *(i - 1)`
 - (2) : `pred(*i, *(i - 1))`
@@ -46,7 +51,7 @@ constexpr size_type unique(BinaryPredicate pred); // (2) C++26
 
 
 ## 計算量
-ちょうど`(last - first) - 1`回の等値比較、もしくは述語の適用を行う。
+コンテナが空でない場合、ちょうど`(last - first) - 1`回の等値比較、もしくは述語の適用を行う。空の場合、等値比較・述語の適用は行わない。
 
 
 ## 例
@@ -79,4 +84,6 @@ int main()
 
 ## 参照
 - [P0646R1 Improving the Return Value of Erase-Like Algorithms I: list/forward list](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0646r1.pdf)
+- [LWG Issue 2997. LWG 491 and the specification of `{forward_,}list::unique`](https://cplusplus.github.io/LWG/issue2997)
+    - C++23で、`pred`が同値関係であるという事前条件が追加され、効果・計算量の記述が整理された
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

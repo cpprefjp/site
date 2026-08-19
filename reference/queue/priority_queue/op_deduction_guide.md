@@ -133,3 +133,5 @@ int main()
 - [P0433R2 Toward a resolution of US7 and US14: Integrating template deduction for class templates into the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0433r2.html)
 - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
     - C++23での推論補助の制約についての変更
+- [LWG Issue 3506. Missing allocator-extended constructors for `priority_queue`](https://cplusplus.github.io/LWG/issue3506)
+    - C++23で、アロケータ拡張コンストラクタの追加に対応する推論補助が追加された
