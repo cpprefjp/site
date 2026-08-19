@@ -68,3 +68,5 @@ int main() {
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [LWG Issue 3765. `const_sentinel` should be constrained](https://cplusplus.github.io/LWG/issue3765)
+    - C++23で、テンプレートパラメータ制約が無制約の`class S`から`semiregular S`に強化された
