@@ -114,7 +114,23 @@ namespace std {
 
 
 ## 備考
-このクラスは、フリースタンディング処理系でも使用できる。
+- このクラスは、フリースタンディング処理系でも使用できる。
+- `char_traits`（およびユーザー定義の同等クラス）が備えるべき静的メンバ関数の呼び出しは、例外を送出してはならない。この要件の対象範囲は、バージョンによって以下のように規定されている。
+    - C++20まで : 「`char_traits`型に対する操作は例外を投げてはならない」と規定されていた。この「操作」の範囲は明確でなかった
+    - C++23 : 例外を送出してはならない対象が、上記の「静的メンバ関数」に挙げた以下の各関数の呼び出しに限定されることが明確化された
+        - [`assign()`](char_traits/assign.md)
+        - [`eq()`](char_traits/eq.md)
+        - [`lt()`](char_traits/lt.md)
+        - [`compare()`](char_traits/compare.md)
+        - [`length()`](char_traits/length.md)
+        - [`find()`](char_traits/find.md)
+        - [`move()`](char_traits/move.md)
+        - [`copy()`](char_traits/copy.md)
+        - [`not_eof()`](char_traits/not_eof.md)
+        - [`to_char_type()`](char_traits/to_char_type.md)
+        - [`to_int_type()`](char_traits/to_int_type.md)
+        - [`eq_int_type()`](char_traits/eq_int_type.md)
+        - [`eof()`](char_traits/eof.md)
 
 ## 例
 ### 基本的な使い方
@@ -237,3 +253,5 @@ equal
 ## 参照
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [LWG Issue 3518. Exception requirements on char trait operations unclear](https://cplusplus.github.io/LWG/issue3518)
+    - C++23で、例外を送出してはならない対象が、character traits要件で規定された式に限定されることが明確化された
