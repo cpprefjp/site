@@ -27,9 +27,12 @@ Rangeの大きさを取得する。
 (1), (2)共に、以下と等価：
 
 ```cpp
-ranges::end(derived()) - ranges::begin(derived());
+to-unsigned-like(ranges::end(derived()) - ranges::begin(derived()));
 ```
 * derived[link derived.md]
+* to-unsigned-like[italic]
+
+ここで`to-unsigned-like`は、引数を対応する符号なし整数型（相当の型）に変換する説明専用の関数である。
 
 ## 計算量
 償却定数時間
@@ -47,3 +50,5 @@ ranges::end(derived()) - ranges::begin(derived());
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 3646. `std::ranges::view_interface::size` returns a signed type](https://cplusplus.github.io/LWG/issue3646)
+    - C++23で、戻り値が符号付きの差分型ではなく、`to-unsigned-like`で符号なし整数型に変換した値を返すよう修正された
