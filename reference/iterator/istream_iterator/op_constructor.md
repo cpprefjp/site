@@ -14,13 +14,25 @@ istream_iterator(istream_type& s);                     // (3)
 
 istream_iterator(const istream_iterator& x);           // (4) C++03
 istream_iterator(const istream_iterator& x) = default; // (4) C++11
+constexpr istream_iterator(const istream_iterator& x)
+  noexcept(see below);                                 // (4) C++23
 ```
+* see below[italic]
 
 ## 概要
 - (1) : デフォルトコンストラクタ。メンバ変数として保持する入力ストリームへのポインタをヌル初期化する。デフォルトコンストラクタで構築された`istream_iterator`オブジェクトは、イテレータの終端値として使用できる。
 - (2) : [`default_sentinel`](/reference/iterator/default_sentinel_t.md)を受け取り、(1)と同等の構築をより明示的に行う。
 - (3) : 入力ストリームオブジェクトへの参照を受け取り、メンバ変数にそのオブジェクトへのポインタを保持する。`operator*()`で現在参照している値を返すために、この段階で入力ストリームから値を読み取り、メンバ変数に値を保持する。
 - (4) : コピーコンストラクタ
+
+
+## 例外
+- (4) :
+    - C++23 : `noexcept(see below)`の例外指定は、[`is_nothrow_copy_constructible_v`](/reference/type_traits/is_nothrow_copy_constructible.md)`<T>`と等価である。
+
+
+## 備考
+- (4) : C++23では、メンバ変数（入力ストリームへのポインタと保持値）をコピー初期化する明示的な定義に変更された。値型`T`がトリビアルにコピー構築可能であってもコピーコンストラクタはトリビアルにならない（ABI互換性のための変更）。
 
 
 ## 例
@@ -56,3 +68,5 @@ int main()
 
 ## 参照
 - [LWG Issue 2576. `istream_iterator` and `ostream_iterator` should use `std::addressof`](https://wg21.cmeerw.net/lwg/issue2576)
+- [LWG Issue 3600. Making `istream_iterator` copy constructor trivial is an ABI break](https://cplusplus.github.io/LWG/issue3600)
+    - C++23で、コピーコンストラクタが`= default`から明示的に定義された非トリビアルなコンストラクタ（`constexpr`・`noexcept`指定付き）に変更された。既存実装とのABI互換性を保つため、トリビアル化が見送られた
