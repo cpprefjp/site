@@ -102,5 +102,9 @@
 ## 参照
 
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
+- [LWG Issue 3750. Too many papers bump `__cpp_lib_format`](https://cplusplus.github.io/LWG/issue3750)
+    - C++23で、フォーマットRange系（P2286/P2585）用に`__cpp_lib_format_ranges`（値`202207L`）が追加され、`__cpp_lib_format`とマクロが分離された
+- [LWG Issue 3751. Missing feature macro for `flat_set`](https://cplusplus.github.io/LWG/issue3751)
+    - C++23で、`flat_set`/`flat_multiset`用の機能テストマクロ`__cpp_lib_flat_set`（値`202207L`）が追加された
 - [LWG Issue 4440. Forward declarations of entities need also in entries](https://cplusplus.github.io/LWG/issue4440)
     - C++26で、`__cpp_lib_spanstream`の定義ヘッダに[`<iosfwd>`](/reference/iosfwd.md)が追加された（`<iosfwd>`が`<spanstream>`のエンティティの先行宣言を含むため）

@@ -19,6 +19,9 @@ constexpr auto forward_like(U&& x) noexcept -> see below; // (1) C++26
 
 この関数は主に、クラスオブジェクトの`const`性と参照修飾を用いてメンバ変数を転送する目的で使用される。
 
+## 適格要件
+テンプレート引数`T`が参照可能型 (referenceable type) であること。（`void`など参照を作れない型に対して`forward_like<void>(x)`のように使用すると、プログラムは不適格となる。）
+
 ## 効果
 - `COPY_CONST(A, B)`を`A`が`const`修飾されているとき`const B`、そうでないとき`B`とする
 - `OVERRIDE_REF(A, B)`を`A`が右辺値参照のとき`remove_reference_t<B>&&`、そうでないとき`B&`とする
@@ -133,5 +136,7 @@ template <class T, class U>
 
 ## 参照
 - [P2445R1 `std::forward_like`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2445r1.pdf)
+- [LWG Issue 3757. What's the effect of `std::forward_like<void>(x)`?](https://cplusplus.github.io/LWG/issue3757)
+    - C++23で、テンプレート引数`T`が参照可能型でなければならないという適格要件が追加され、`forward_like<void>`のような非参照可能型に対する呼び出しが不適格であることが明確化された
 - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
     - C++26で`[[nodiscard]]`指定が削除された

@@ -63,3 +63,5 @@ first element: (1, 'a')
 
 ## 参照
 - [N4950 26.7.33 Cartesian product view](https://timsong-cpp.github.io/cppwp/n4950/range.cartesian)
+- [LWG Issue 3760. `cartesian_product_view::iterator`'s `parent_` is never valid](https://cplusplus.github.io/LWG/issue3760)
+    - C++23で、`begin`/`end`が`iterator`を構築する際に`*this`（親ビュー）を渡すよう修正され、`iterator`の`parent_`が常に無効であった問題が解消された

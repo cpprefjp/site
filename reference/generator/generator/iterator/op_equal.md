@@ -38,3 +38,8 @@ return i.coroutine_.done();
 
 ## 関連項目
 - [`generator::end()`](../end.md)
+
+
+## 参照
+- [LWG Issue 3762. `generator::iterator::operator==` should pass by reference](https://cplusplus.github.io/LWG/issue3762)
+    - C++23で、`operator==`のイテレータ引数がコピー渡しから`const iterator&`（参照渡し）に変更された

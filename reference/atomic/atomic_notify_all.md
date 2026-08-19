@@ -8,14 +8,14 @@
 namespace std {
   template <class T>
   void
-    atomic_notify_all(volatile atomic<T>* object); // (1) C++20
+    atomic_notify_all(volatile atomic<T>* object) noexcept; // (1) C++20
 
   template <class T>
   void
-    atomic_notify_all(atomic<T>* object);          // (2) C++20
+    atomic_notify_all(atomic<T>* object) noexcept;          // (2) C++20
   template <class T>
   constexpr void
-    atomic_notify_all(atomic<T>* object);          // (2) C++26
+    atomic_notify_all(atomic<T>* object) noexcept;          // (2) C++26
 }
 ```
 
@@ -102,3 +102,5 @@ int main()
     - C++20での、`volatile`版への制約追加
 - [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
     - C++26で`constexpr`に対応した
+- [LWG Issue 3745. `std::atomic_wait` and its friends lack `noexcept`](https://cplusplus.github.io/LWG/issue3745)
+    - C++23で、対応するメンバ関数や他の`atomic_*`フリー関数と一貫させるため、`noexcept`が付加された

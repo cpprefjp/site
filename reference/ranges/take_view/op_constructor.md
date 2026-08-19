@@ -20,6 +20,10 @@ constexpr explicit
 - (1) : デフォルト構築
 - (2) : 元となるviewと取得する要素数を指定して構築
 
+## 事前条件
+- (2) : `count >= 0`であること。
+
+
 ## 効果
 
 - (1) : `base_`と`count_`をデフォルト構築する
@@ -61,3 +65,5 @@ int main() {
 ## 参照
 - [N4861 24.7.10 Take view](https://timsong-cpp.github.io/cppwp/n4861/range.take)
 - [N4950 26.7.14 Take view](https://timsong-cpp.github.io/cppwp/n4950/range.take)
+- [LWG Issue 3738. Missing preconditions for `take_view` constructor](https://cplusplus.github.io/LWG/issue3738)
+    - C++23で、(2)のコンストラクタに事前条件`count >= 0`が追加された（`counted_iterator`の事前条件と一貫させ、`drop_view`と揃えるため）

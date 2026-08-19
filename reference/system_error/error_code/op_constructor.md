@@ -193,3 +193,8 @@ not found
 - [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010 (enum class未対応のため、ErrorCodeEnumのコンストラクタは動作しない) [mark verified]
+
+
+## 参照
+- [LWG Issue 3629. `make_error_code` and `make_error_condition` are customization points](https://cplusplus.github.io/LWG/issue3629)
+    - C++23で、`make_error_code`/`make_error_condition`がADLによって探索されるカスタマイゼーションポイントであることが明記された

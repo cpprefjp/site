@@ -42,9 +42,9 @@ constexpr ~inout_ptr_t(); // (1) C++26
 - 式 `s.reset(static_cast<SP>(p),` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)` が適格ならば、
 
     ```cpp
+    release-statement;
     if (p) {
       apply([&](auto&&... args) {
-        release-statement;
         s.reset(static_cast<SP>(p), std::forward<Args>(args)...); }, std::move(a));
     }
     ```
@@ -53,9 +53,9 @@ constexpr ~inout_ptr_t(); // (1) C++26
 - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<Smart, SP, Args...>`が`true`ならば、
 
     ```cpp
+    release-statement;
     if (p) {
       apply([&](auto&&... args) {
-        release-statement;
         s = Smart(static_cast<SP>(p), std::forward<Args>(args)...); }, std::move(a));
     }
     ```
@@ -84,5 +84,7 @@ constexpr ~inout_ptr_t(); // (1) C++26
 
 ## 参照
 - [P1132R8 out_ptr - a scalable output pointer abstraction](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1132r8.html)
+- [LWG Issue 3594. `inout_ptr` — inconsistent `release()` in destructor](https://cplusplus.github.io/LWG/issue3594)
+    - C++23で、`release-statement`が`if (p)`ブロックの内側から外側へ移され、取得ポインタ`p`がヌルの場合でも`release()`が呼ばれるよう修正された
 - [LWG Issue 3897. `inout_ptr` will not update raw pointer to 0](https://cplusplus.github.io/LWG/issue3897)
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

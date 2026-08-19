@@ -40,10 +40,11 @@ namespace std::ranges {
 以下と等価：
 
 ```cpp
-return destroy(counted_iterator(first, n), default_sentinel).base();
+return destroy(counted_iterator(std::move(first), n), default_sentinel).base();
 ```
 * destroy[link ranges_destroy.md]
 * counted_iterator[link /reference/iterator/counted_iterator.md]
+* std::move[link /reference/utility/move.md]
 * base()[link /reference/iterator/counted_iterator/base.md]
 
 
@@ -136,5 +137,7 @@ done
 ## 参照
 - [P0896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 3747. `ranges::uninitialized_copy_n`, `ranges::uninitialized_move_n`, and `ranges::destroy_n` should use `std::move`](https://cplusplus.github.io/LWG/issue3747)
+    - C++23で、入力イテレータが`input_iterator`（コピー可能とは限らない）であるため、`counted_iterator`へ渡す際に`std::move`するよう効果が修正された
 - [LWG Issue 4431. Parallel `std::ranges::destroy` should allow exceptions](https://cplusplus.github.io/LWG/issue4431)
     - C++26で、実行ポリシーをとる並列オーバーロードから`noexcept`が除去された。並列アルゴリズムの処理系定義の実行ポリシーがどの例外を送出しうるかは、その実行ポリシーに委ねられるため

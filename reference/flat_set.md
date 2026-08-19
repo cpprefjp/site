@@ -34,3 +34,5 @@
     - C++23で`flat_set`が導入された経緯・動機・設計について記載されている
 - [P1222R4 A Standard `flat_set`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1222r4.pdf)
     - C++23で導入された`flat_set`の仕様
+- [LWG Issue 3774. `<flat_set>` should include `<compare>`](https://cplusplus.github.io/LWG/issue3774)
+    - C++23で、`flat_set`/`flat_multiset`が`operator<=>`を持つため、`<flat_set>`が`<compare>`をインクルードすることが規定された

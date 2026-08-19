@@ -113,3 +113,5 @@ int main() {
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
 - [P2321R2 zip](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html)
+- [LWG Issue 3773. `views::zip_transform` still requires `F` to be `copy_constructible` when empty pack](https://cplusplus.github.io/LWG/issue3773)
+    - C++23で、空パック時の制約で`F`に要求する要件が`copy_constructible`から`move_constructible`に緩和された
