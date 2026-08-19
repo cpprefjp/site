@@ -6,30 +6,25 @@
 * cpp23[meta cpp]
 
 ```cpp
-chunk_view()
-  requires default_initializable<V> = default; // (1) C++23
-
 constexpr explicit
-chunk_view(V base, range_difference_t<V> n);   // (2) C++23
+chunk_view(V base, range_difference_t<V> n);   // (1) C++23
 ```
 
 ## 概要
 
 `chunk_view`オブジェクトを構築する。
 
-- (1) : デフォルトコンストラクタ。元となるRangeを値初期化する。
-- (2) : 元となるRangeと分割数を受け取るコンストラクタ。
+- (1) : 元となるRangeと分割数を受け取るコンストラクタ。
 
 ## 効果
 
-- (1) : `base_`と`n_`を値初期化する。
-- (2) : `base_(std::move(base))`、`n_(n)`で初期化する。
+- (1) : `base_(std::move(base))`、`n_(n)`で初期化する。
 
 ここで、`base_`は元となるRangeを保持するメンバ変数、`n_`は分割する要素数を保持するメンバ変数である。
 
 ## 事前条件
 
-- (2) : `n > 0`
+- (1) : `n > 0`
 
 ## 例
 ```cpp example
@@ -39,14 +34,11 @@ chunk_view(V base, range_difference_t<V> n);   // (2) C++23
 
 int main() {
   std::vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8};
-  
-  // デフォルトコンストラクタ
-  std::ranges::chunk_view<std::views::all_t<std::vector<int>>> cv1{};
-  
+
   // 元となるRangeと分割数を指定
-  std::ranges::chunk_view cv2{v, 3};
-  
-  std::println("{}", cv2);
+  std::ranges::chunk_view cv{v, 3};
+
+  std::println("{}", cv);
 }
 ```
 * std::ranges::chunk_view[color ff0000]
@@ -67,3 +59,5 @@ int main() {
 
 ## 参照
 - [N4950 26.7.29 Chunk view](https://timsong-cpp.github.io/cppwp/n4950/range.chunk)
+- [LWG Issue 3712. chunk_view and slide_view should not be default_initializable](https://cplusplus.github.io/LWG/issue3712)
+    - C++23で、事前条件`n > 0`を満たせないデフォルトコンストラクタが削除された

@@ -752,6 +752,8 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
     - C++26から非ロケール版が`constexpr`に対応した
 - [LWG Issue 3720. Restrict the valid types of _arg-id_ for _width_ and _precision_ in _std-format-spec_](https://cplusplus.github.io/LWG/issue3720)
     - C++23で、幅・精度を動的引数で指定する場合、その引数の型が標準の符号付き/符号なし整数型に制限された（`bool`や文字型は指定できなくなった）
+- [LWG Issue 3721. Allow an _arg-id_ with a value of zero for _width_ in _std-format-spec_](https://cplusplus.github.io/LWG/issue3721)
+    - C++23で、幅を動的引数で指定する場合に値0を許可するようになった（精度と要件を統一し、負値のみ例外となる）
 - [LWG Issue 4090. Underspecified use of locale facets for locale-dependent `std::format`](https://cplusplus.github.io/LWG/issue4090)
     - C++26で、`L`オプション指定時にロケール依存の置換で使用されるファセットが`numpunct`（`grouping`/`thousands_sep`/`decimal_point`/`truename`/`falsename`）であることが明確化された
 - [LWG Issue 4522. Clarify that `std::format` transcodes for `std::wformat_strings`](https://cplusplus.github.io/LWG/issue4522)

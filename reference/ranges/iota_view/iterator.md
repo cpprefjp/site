@@ -205,5 +205,7 @@ namespace std::ranges {
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 3670. Cpp17InputIterators don't have integer-class difference types](https://cplusplus.github.io/LWG/issue3670)
+    - C++23で、`iterator_category`は`iota_diff_t<W>`が整数型のときにのみ`input_iterator_tag`として定義されるよう条件が追加された
 - [P3059R2 Making user-defined constructors of view iterators/sentinels private](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3059r2.html)
     - C++26で、ユーザー定義のコンストラクタを`public`から`private`に移動

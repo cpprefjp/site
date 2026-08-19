@@ -178,6 +178,8 @@ int main()
 
 ## 参照
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
+- [LWG Issue 3687. `expected<cv void, E>` move constructor should move](https://cplusplus.github.io/LWG/issue3687)
+    - C++23で、ムーブ代入演算子(2)で両者がエラー値を保持する場合に、エラー値がコピーではなくムーブされるよう修正された
 - [LWG Issue 4025. Move assignment operator of `std::expected<cv void, E>` should not be conditionally deleted](https://cplusplus.github.io/LWG/issue4025)
     - C++26で、ムーブ代入演算子(2)が条件付きでdelete定義されるのではなく、テンプレートパラメータ制約によってオーバーロード解決から除外されるよう修正された
 - [LWG Issue 4026. Assignment operators of `std::expected` should propagate triviality](https://cplusplus.github.io/LWG/issue4026)

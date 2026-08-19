@@ -237,6 +237,13 @@ namespace std {
 | [`(deduction_guide)`](basic_string/op_deduction_guide.md) | クラステンプレートの推論補助 | C++17 |
 
 
+## ハッシュサポート
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`hash`](basic_string/hash.md) | `hash`クラスの特殊化 | C++11 |
+
+
 ## 例
 ### 基本的な使い方 (C++03)
 ```cpp example

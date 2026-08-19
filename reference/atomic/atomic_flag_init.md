@@ -55,4 +55,6 @@ false
 
 ## 参照
 - [P0883R2 Fixing Atomic Initialization, Rev2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0883r2.pdf)
-- [LWG Issue 3659. Consider `ATOMIC_FLAG_INIT` undeprecation](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#3659)
+    - C++20で、デフォルトコンストラクタが値初期化を行うようになり、あわせてこのマクロが非推奨とされた
+- [LWG Issue 3659. Consider `ATOMIC_FLAG_INIT` undeprecation](https://cplusplus.github.io/LWG/issue3659)
+    - C++23で、一部のプラットフォームでは静的初期化のために必要であることから、このマクロの非推奨が解除された

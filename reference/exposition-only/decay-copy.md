@@ -6,13 +6,15 @@
 
 ```cpp
 template<class T>
-constexpr decay_t<T> decay-copy(T&& v) noexcept(is_nothrow_convertible_v<T, decay_t<T>>)
-{
-  return std::forward<T>(v);
-}
+constexpr decay_t<T> decay-copy(T&& v)
+  noexcept(is_nothrow_convertible_v<T, decay_t<T>>);            // (1) C++20
+template<class T>
+  requires convertible_to<T, decay_t<T>>
+constexpr decay_t<T> decay-copy(T&& v)
+  noexcept(is_nothrow_convertible_v<T, decay_t<T>>);            // (1) C++23
 ```
 * decay-copy[italic]
-* forward[link /reference/utility/forward.md]
+* convertible_to[link /reference/concepts/convertible_to.md]
 * is_nothrow_convertible_v[link /reference/type_traits/is_nothrow_convertible.md]
 
 ## 概要
@@ -32,6 +34,15 @@ int g = 0;
 int f(){ return g; }
 ```
 
+## 効果
+以下と等価である：
+
+```cpp
+return std::forward<T>(v);
+```
+* forward[link /reference/utility/forward.md]
+
+
 ## 戻り値
 式`decay-copy(v)`の値は次のようになる。
 
@@ -47,3 +58,5 @@ int f(){ return g; }
 ## 参照
 - [N4861 16.4.2.1 Exposition-only functions](https://timsong-cpp.github.io/cppwp/n4861/expos.only.func)
 - [N3255 C++ Decay Copy](http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2011/n3255.html) 実際の関数として提案しているが、採用には至っていない。
+- [LWG Issue 3724. decay-copy should be constrained](https://cplusplus.github.io/LWG/issue3724)
+    - C++23で、`decay-copy`に`convertible_to<T, decay_t<T>>`制約が追加され、変換できない型に対してSFINAEフレンドリー（ill-formed）になった

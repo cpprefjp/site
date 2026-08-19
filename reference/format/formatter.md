@@ -284,6 +284,8 @@ int main()
 - [P2286R8 Formatting Ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html)
 - [P2585R1 Improve default container formatting](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2585r1.html)
     - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された
+- [LWG Issue 3701. Make `formatter<remove_cvref_t<const charT[N]>, charT>` requirement explicit](https://cplusplus.github.io/LWG/issue3701)
+    - C++23で、有効な標準特殊化の一覧に`formatter<charT[N], charT>`が明示的に追加された
 - [LWG Issue 3833. Remove specialization `template<size_t N> struct formatter<const charT[N], charT>`](https://cplusplus.github.io/LWG/issue3833)
     - C++23で、`formatter`がCV修飾のないオブジェクト型に対してのみ特殊化される設計と矛盾するため、`formatter<const charT[N], charT>`の特殊化が有効な標準特殊化の一覧から削除された
 - [LWG Issue 3944. Formatters converting sequences of `char` to sequences of `wchar_t`](https://cplusplus.github.io/LWG/issue3944)

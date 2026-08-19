@@ -205,4 +205,6 @@ int main()
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [LWG Issue 2059. C++0x ambiguity problem with `map::erase`](https://cplusplus.github.io/LWG/issue2059)
     - C++17で、`erase(iterator)`を追加
+- [LWG Issue 3704. LWG 2059 added overloads that might be ill-formed for sets](https://cplusplus.github.io/LWG/issue3704)
+    - C++23で、`iterator`と`const_iterator`が同一型のときにオーバーロード(1)と(2)が曖昧になる問題を避けるため、`erase(iterator)`(1)に`!same_as<iterator, const_iterator>`の制約が追加された
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
