@@ -10,6 +10,8 @@ basic_filebuf* open(const filesystem::path::value_type* s,
                     ios_base::openmode mode); // (2) C++17
 basic_filebuf* open(const string& s, ios_base::openmode mode); // (3)
 basic_filebuf* open(const filesystem::path& s, ios_base::openmode mode); // (4) C++17
+template <class T>
+basic_filebuf* open(const T& s, ios_base::openmode mode); // (4) C++23
 ```
 
 ## 概要
@@ -17,7 +19,10 @@ basic_filebuf* open(const filesystem::path& s, ios_base::openmode mode); // (4) 
 - (1): `s`で指定されたファイルを開く。`s`はヌル終端文字列。
 - (2): [`std::filesystem::path::value_type`](/reference/filesystem/path.md)の型が`char`ではないときのみ定義される。効果は(1)と同じ。
 - (3): ファイルを指定する引数の型が`std::string`である点を除き、(1)と同じ。
-- (4): ファイルを指定する引数の型が[`std::filesystem::path`](/reference/filesystem/path.md)である点を除き、(1)と同じ。
+- (4): ファイルを指定する引数の型が[`std::filesystem::path`](/reference/filesystem/path.md)である点を除き、(1)と同じ。C++23では、`path`へ暗黙変換可能な型（[`std::string_view`](/reference/string_view/basic_string_view.md)など）が渡されたときの高コストな暗黙変換を防ぐため、`filesystem::path`とまったく同じ型のみを受け取る制約付きテンプレートとして定義される。
+
+## テンプレートパラメータ制約
+- (4) C++23 : [`is_same_v`](/reference/type_traits/is_same.md)`<T, filesystem::path>`が`true`であること
 
 ## 効果
 
@@ -85,4 +90,6 @@ int main()
 ## 参照
 
 - [LGW issue 2676. Provide filesystem::path overloads for File-based streams](https://wg21.cmeerw.net/lwg/issue2676)
+- [LWG Issue 3430. `std::fstream` & co. should be constructible from `string_view`](https://cplusplus.github.io/LWG/issue3430)
+    - C++23で、`filesystem::path`を受け取る`open`(4)が、`path`へ暗黙変換可能な型による高コストな変換を防ぐため、`is_same_v<T, filesystem::path>`を制約とする制約付きテンプレートに変更された
 - [LGW issue 2943. Problematic specification of the wide version of basic_filebuf::open](https://wg21.cmeerw.net/lwg/issue2943)

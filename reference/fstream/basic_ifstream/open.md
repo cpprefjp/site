@@ -17,11 +17,18 @@ void open(
 void open(
   const filesystem::path& s,
   ios_base::openmode mode = ios_base::in); // (4) C++17
+template <class T>
+void open(
+  const T& s,
+  ios_base::openmode mode = ios_base::in); // (4) C++23
 ```
 
 ## 概要
 
 ファイルを開く
+
+## テンプレートパラメータ制約
+- (4) C++23 : [`is_same_v`](/reference/type_traits/is_same.md)`<T, filesystem::path>`が`true`であること
 
 ## 効果
 
@@ -29,7 +36,7 @@ void open(
     - [`rdbuf()->open(s, mode | std::ios_base::in)`](/reference/fstream/basic_filebuf/open.md)を呼び出す(少なくとも読み取り操作ができる)。その結果が成功だった（戻り値がヌルポインタではなかった）場合、[`clear()`](/reference/ios/basic_ios/clear.md)を呼び出す。その結果が失敗だった（戻り値がヌルポインタだった）場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
 - (2) : [`std::filesystem::path::value_type`](/reference/filesystem/path.md)の型が`char`ではないときのみ定義される。効果は(1)と同じ。
 - (3) : ファイルを指定する引数の型が`std::string`である点を除き、(1)と同じ。
-- (4) : ファイルを指定する引数の型が[`std::filesystem::path`](/reference/filesystem/path.md)である点を除き、(1)と同じ。
+- (4) : ファイルを指定する引数の型が[`std::filesystem::path`](/reference/filesystem/path.md)である点を除き、(1)と同じ。C++23では、`path`へ暗黙変換可能な型（[`std::string_view`](/reference/string_view/basic_string_view.md)など）が渡されたときの高コストな暗黙変換を防ぐため、`filesystem::path`とまったく同じ型のみを受け取る制約付きテンプレートとして定義される。
 
 ## 例
 
@@ -73,3 +80,5 @@ int main()
 ## 参照
 
 - [LGW issue 2676. Provide filesystem::path overloads for File-based streams](https://wg21.cmeerw.net/lwg/issue2676)
+- [LWG Issue 3430. `std::fstream` & co. should be constructible from `string_view`](https://cplusplus.github.io/LWG/issue3430)
+    - C++23で、`filesystem::path`を受け取る`open`(4)が、`path`へ暗黙変換可能な型による高コストな変換を防ぐため、`is_same_v<T, filesystem::path>`を制約とする制約付きテンプレートに変更された
