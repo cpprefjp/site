@@ -21,10 +21,27 @@ namespace std {
 これらの特殊化を使用することで、共通のスマートポインタオブジェクトに対する複数スレッドでの操作をアトミックに行える。
 
 
+## 定数初期化
+C++23で`constexpr atomic(nullptr_t) noexcept`コンストラクタが追加され、非アトミックな`shared_ptr`・`weak_ptr`と同様に、[`constinit`](/lang/cpp20/constinit.md)を使って`nullptr`から定数初期化できるようになった：
+
+```cpp
+// グローバル変数を、動的初期化ではなく定数初期化する
+constinit std::atomic<std::shared_ptr<int>> g_resource{nullptr};
+```
+
+非アトミックな`shared_ptr`では`constinit std::shared_ptr<int> p{nullptr};`が可能であったが、C++20時点の`atomic<shared_ptr<T>>`は`nullptr`を受け取るコンストラクタ経路（`nullptr`から一時オブジェクトの`shared_ptr`を構築し、`atomic(shared_ptr<T>)`コンストラクタに渡す）が`constexpr`でなかったため、`constinit`による定数初期化ができなかった。この非対称性が解消された。
+
+`constinit`による定数初期化には以下の利点がある：
+
+- **静的初期化順序問題 (static initialization order fiasco) の回避** : グローバル・名前空間スコープのオブジェクトを動的初期化すると、ほかの翻訳単位のグローバル変数の初期化との実行順序が未規定となり、初期化前のオブジェクトにアクセスしてしまう危険がある。定数初期化されるオブジェクトはプログラム開始前に初期化が完了しているため、どの動的初期化よりも先に初期化済みであることが保証され、この問題を避けられる
+- **動的初期化のオーバーヘッド排除** : 実行時に初期化コードが走らない
+
+
 ### 共通メンバ関数
 | 名前 | 説明 | 対応バージョン |
 |------|------|-----|
 | [`(constructor)`](/reference/atomic/atomic/op_constructor.md) | コンストラクタ | C++20 |
+| `constexpr atomic(nullptr_t) noexcept` | `nullptr`から構築する | C++23 |
 | `~atomic() = default`                       | デストラクタ | C++20 |
 | [`operator=`](/reference/atomic/atomic/op_assign.md)          | 代入演算子 | C++20 |
 | [`is_lock_free`](/reference/atomic/atomic/is_lock_free.md)    | オブジェクトがロックフリーに振る舞えるかを判定する | C++20 |
@@ -111,3 +128,5 @@ int main()
 - [cplusplus/draft #2824 - add forward declaration of `atomic` class for `atomic<shared_ptr<T>>` (P0718R2)](https://github.com/cplusplus/draft/pull/2824)
 - [P1644R0 Add wait/notify to `atomic<shared_ptr<T>>`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1644r0.html)
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+- [LWG Issue 3661. `constinit atomic<shared_ptr<T>> a(nullptr);` should work](https://cplusplus.github.io/LWG/issue3661)
+    - C++23で、`nullptr`から構築する`constexpr atomic(nullptr_t) noexcept`コンストラクタが追加された
