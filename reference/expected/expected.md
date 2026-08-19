@@ -212,3 +212,5 @@ int main()
 ## 参照
 - [P0323R12 std::expected](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html)
 - [P2505R5 Monadic Functions for `std::expected`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2505r5.html)
+- [LWG Issue 3703. Missing requirements for `expected<T, E>` requires `is_void<T>`](https://cplusplus.github.io/LWG/issue3703)
+    - C++23で、`expected<void, E>`部分特殊化にも型`E`に対する適格要件が明記された
