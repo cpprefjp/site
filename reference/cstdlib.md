@@ -80,7 +80,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`bsearch`](cstdlib/bsearch.md) | 二分探索を行う (function) | C++26で`const`版オーバーロードを追加 |
-| `qsort`   | 範囲の並べ替えを行う (function) | |
+| [`qsort`](cstdlib/qsort.md)   | 範囲の並べ替えを行う (function) | |
 
 
 ## 整数に対する算術関数
