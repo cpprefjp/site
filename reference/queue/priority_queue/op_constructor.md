@@ -208,6 +208,11 @@ constexpr
 `Compare`型パラメータ`x`が、[狭義の弱順序](/reference/algorithm.md#strict-weak-ordering)で定義されていること。
 
 
+## テンプレートパラメータ制約
+- (5), (6), (7), (15), (16), (17) :
+    - C++23 : `InputIterator`が入力イテレータの要件を満たすこと。
+
+
 ## 効果
 - (1) :
     - C++03
@@ -363,4 +368,8 @@ que5 : 5 4 3 2 1
 ## 参照
 
 - [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
+- [LWG Issue 3506. Missing allocator-extended constructors for `priority_queue`](https://cplusplus.github.io/LWG/issue3506)
+    - C++23で、イテレータ範囲を受け取るアロケータ拡張コンストラクタ(15)〜(17)が追加された
+- [LWG Issue 3522. Missing requirement on `InputIterator` template parameter for `priority_queue` constructors](https://cplusplus.github.io/LWG/issue3522)
+    - C++23で、イテレータ範囲を受け取るコンストラクタが、入力イテレータでない型が推論された場合にオーバーロード解決に参加しないという制約が追加された
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
