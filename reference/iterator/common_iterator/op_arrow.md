@@ -6,7 +6,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-decltype(auto) operator->() const requires see below;
+auto operator->() const requires see below;
 ```
 
 ## 概要
@@ -68,5 +68,7 @@ indirectly_readable<const I> &&
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [LWG Issue 3672. `common_iterator::operator->()` should return by value](https://cplusplus.github.io/LWG/issue3672)
+    - C++23で、戻り値の型が`decltype(auto)`から`auto`（値返し）に変更された
 - [P3697R1 Minor additions to C++26 standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3697r1.html)
 - [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)
