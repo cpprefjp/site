@@ -14,8 +14,15 @@ namespace std {
     requires (!sized_sentinel_for<Iterator1, Iterator2>)
   inline constexpr bool disable_sized_sentinel_for<reverse_iterator<Iterator1>,
                                                    reverse_iterator<Iterator2>> = true;
+
+  // move_iteratorに対する特殊化 (C++23)
+  template<class Iterator1, class Iterator2>
+    requires (!sized_sentinel_for<Iterator1, Iterator2>)
+  inline constexpr bool disable_sized_sentinel_for<move_iterator<Iterator1>,
+                                                   move_iterator<Iterator2>> = true;
 }
 ```
+* move_iterator[link move_iterator.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
 * reverse_iterator[link /reference/iterator/reverse_iterator.md]
 
@@ -53,3 +60,5 @@ namespace std {
 - [P1871R0 Should concepts be enabled or disabled?](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1871r0.html)
 - [P1871R1 Concept traits should be named after concepts](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1871r1.html)
 - [microsoft/STL P1871R1 disable_sized_sentinel_for #607 - Github](https://github.com/microsoft/STL/pull/607/files#r392700693)
+- [LWG Issue 3736. `move_iterator` missing `disable_sized_sentinel_for` specialization](https://cplusplus.github.io/LWG/issue3736)
+    - C++23で、`move_iterator`に対する`disable_sized_sentinel_for`の特殊化が追加され、`move_iterator`が意味論的に`sized_sentinel_for`を満たさない場合に誤ってそれを満たすと判定される問題が解消された
