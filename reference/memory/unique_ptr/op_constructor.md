@@ -208,4 +208,6 @@ int main()
 - [LWG Issue 2520 : N4089 broke initializing `unique_ptr<T[]>` from a nullptr](https://wg21.cmeerw.net/lwg/issue2520)
 - [LWG Issue 2801. Default-constructibility of `unique_ptr`](https://wg21.cmeerw.net/lwg/issue2948)
 - [LWG Issue 2905. `is_constructible_v<unique_ptr<P, D>, P, D const &>` should be false when D is not copy constructible](https://wg21.cmeerw.net/lwg/issue2905)
+- [LWG Issue 3632. `unique_ptr` "_Mandates_: This constructor is not selected by class template argument deduction"](https://cplusplus.github.io/LWG/issue3632)
+    - C++23で、クラステンプレート実引数推論(CTAD)による選択を防ぐ仕様が、Mandates指定から引数型を`type_identity_t<pointer>`とする方式へ書き換えられた（観測可能な振る舞いは変わらない）
 - [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)

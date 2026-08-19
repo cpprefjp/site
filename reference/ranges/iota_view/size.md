@@ -64,3 +64,5 @@ int main()
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 3610. `iota_view::size` sometimes rejects integer-class types](https://cplusplus.github.io/LWG/issue3610)
+    - C++23で、`size()`の効果の条件が`integral`から説明専用コンセプト`is-integer-like`に置き換えられ、整数クラス型も受け付けるよう修正された

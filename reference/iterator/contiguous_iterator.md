@@ -41,6 +41,8 @@ C++20で導入された`contiguous_iterator`は、要素がメモリー上で連
 `a, b`を間接参照可能なイテレータ、`c`を間接参照不可能なイテレータとし、`b`は`a`から、`c`は`b`からそれぞれ到達可能であるとする。そのような型`I`のイテレータ`a, b, c`と[`iter_difference_t<I>`](/reference/iterator/iter_difference_t.md)の示す型`D`について次の条件を満たす場合に限って、型`I`は`contiguous_iterator`のモデルである。
 
 ## 要件
+- [`ranges::iter_move`](/reference/iterator/iter_move.md)`(a)`は、`std::move(*a)`と同じ型・値カテゴリ・効果を持つ
+- [`ranges::iter_swap`](/reference/iterator/iter_swap.md)`(a, b)`が適格である場合、その効果は[`ranges::swap`](/reference/concepts/swap.md)`(*a, *b)`と等価である
 - C++26: このイテレータの範囲`[i, s)`はポインタ範囲`[to_address(i), to_address(i + ranges::distance(i, s)))`に置き換えて使用することが実装に許可される
     - 注：このイテレータをアルゴリズム適用した場合、イテレータのインクリメントが一回しか起こらない可能性があり、個々のインクリメントに対して副作用を起こすことを期待してはならない
     - 備考：連続イテレータの範囲に対する操作として、`std::copy()`の実装が[`std::memmove()`](/reference/cstring/memmove.md)の呼び出しで完了するなど、イテレータを一つずつ進めるのではなくメモリ操作で高速実装されることを許可するものである
@@ -114,5 +116,7 @@ std::ostream_iterator<double> is not contiguous_iterator
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P1474R1 Helpful pointers for `ContiguousIterator`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1474r1.pdf)
 - [P3349R1 Converting contiguous iterators to pointers](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3349r1.html)
+- [LWG Issue 3607. `contiguous_iterator` should not be allowed to have custom `iter_move` and `iter_swap` behavior](https://cplusplus.github.io/LWG/issue3607)
+    - C++23で、`ranges::iter_move`・`ranges::iter_swap`がデフォルトの挙動と一致することがモデル要件に追加された
 - [LWG Issue 4170. `contiguous_iterator` should require `to_address(I{})`](https://cplusplus.github.io/LWG/issue4170)
     - C++26で、`to_address`を要求する`requires`式の対象が`const I&`であることが整理された（cpprefjpの記述はもともとこの形と一致している）

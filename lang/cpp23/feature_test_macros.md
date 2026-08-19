@@ -102,6 +102,8 @@
 ## 参照
 
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
+- [LWG Issue 3621. Remove feature-test macro `__cpp_lib_monadic_optional`](https://cplusplus.github.io/LWG/issue3621)
+    - C++23で、重複していた`__cpp_lib_monadic_optional`が削除され、代わりに`__cpp_lib_optional`が`202106L`から`202110L`に更新された（`optional`のモナド操作を表す）
 - [LWG Issue 3750. Too many papers bump `__cpp_lib_format`](https://cplusplus.github.io/LWG/issue3750)
     - C++23で、フォーマットRange系（P2286/P2585）用に`__cpp_lib_format_ranges`（値`202207L`）が追加され、`__cpp_lib_format`とマクロが分離された
 - [LWG Issue 3751. Missing feature macro for `flat_set`](https://cplusplus.github.io/LWG/issue3751)

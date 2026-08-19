@@ -10,7 +10,7 @@
 namespace std {
 template<class charT, class traits, class Allocator>
   void swap(basic_syncbuf<charT, traits, Allocator>& a,
-            basic_syncbuf<charT, traits, Allocator>& b) noexcept;
+            basic_syncbuf<charT, traits, Allocator>& b);
 }
 ```
 
@@ -27,7 +27,7 @@ template<class charT, class traits, class Allocator>
 
 
 ## 例外
-投げない
+メンバ関数[`swap`](swap.md)が送出する例外を送出する。
 
 
 ## 例
@@ -69,3 +69,5 @@ Hello, World!
 
 ## 参照
 - [P0053R7 C++ Synchronized Buffered Ostream](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0053r7.pdf)
+- [LWG Issue 3616. LWG 3498 seems to miss the non-member swap for `basic_syncbuf`](https://cplusplus.github.io/LWG/issue3616)
+    - C++23で、非メンバ`swap`から`noexcept`が除去された

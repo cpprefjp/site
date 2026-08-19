@@ -24,7 +24,7 @@ namespace std {
 
 - [`name()`](error_category/name.md)関数によって返される文字列は`"system"`
 - [`equivalent()`](error_category/equivalent.md)仮想関数の挙動は、基底クラスである[`error_category`](error_category.md)と同じである
-- [`default_error_condition()`](error_category/default_error_condition.md)仮想関数は、パラメータ`ev`がPOSIXの`errno`であった場合 [`error_condition`](error_condition.md)`(ev,` [`generic_category()`](generic_category.md)`);` を返し、そうでない場合は[`error_condition`](error_condition.md)`(ev, system_category());` を返す。特定のOSに関する処理は未規定。ただし、POSIXのエラー値に対応していない場合がありえるため、環境によっては[`generic_category()`](generic_category.md)が返される挙動はサポートされない。
+- [`default_error_condition()`](error_category/default_error_condition.md)仮想関数は、パラメータ`ev`が`0`であるか、POSIXの`errno`に対応する値であった場合 [`error_condition`](error_condition.md)`(ev,` [`generic_category()`](generic_category.md)`);` を返し、そうでない場合は[`error_condition`](error_condition.md)`(ev, system_category());` を返す。特定のOSに関する処理は未規定。ただし、POSIXのエラー値に対応していない場合がありえるため、環境によっては[`generic_category()`](generic_category.md)が返される挙動はサポートされない。
 
 
 ## 例外
@@ -69,3 +69,5 @@ Invalid argument
 
 
 ## 参照
+- [LWG Issue 3598. `system_category().default_error_condition(0)` is underspecified](https://cplusplus.github.io/LWG/issue3598)
+    - C++23で、引数が`0`の場合に[`generic_category()`](generic_category.md)を使った[`error_condition`](error_condition.md)を返すことが明確化された

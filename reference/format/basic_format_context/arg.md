@@ -7,9 +7,11 @@
 
 ```cpp
 basic_format_arg<basic_format_context>
-  arg(size_t id) const;                // (1) C++20
+  arg(size_t id) const;                         // (1) C++20
+basic_format_arg<basic_format_context>
+  arg(size_t id) const noexcept;                // (1) C++23
 constexpr basic_format_arg<basic_format_context>
-  arg(size_t id) const;                // (1) C++26
+  arg(size_t id) const noexcept;                // (1) C++26
 ```
 * basic_format_arg[link /reference/format/basic_format_arg.md]
 * basic_format_context[link /reference/format/basic_format_context.md]
@@ -33,3 +35,5 @@ constexpr basic_format_arg<basic_format_context>
 - [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
 - [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
     - C++26から`constexpr`に対応した
+- [LWG Issue 3654. `basic_format_context::arg(size_t)` should be `noexcept`](https://cplusplus.github.io/LWG/issue3654)
+    - C++23で、`noexcept`が付加された

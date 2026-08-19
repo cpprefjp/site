@@ -88,5 +88,7 @@ int main(){
 - [P0600R1 `[[nodiscard]]` in the Library, Rev1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
     - C++20で`[[nodiscard]]`が付加された
 - [LWG Issue 2843. Unclear behavior of `std::pmr::memory_resource::do_allocate()`](https://wg21.cmeerw.net/lwg/issue2843) 
+- [LWG Issue 3471. `polymorphic_allocator::allocate` does not satisfy `Cpp17Allocator` requirements](https://cplusplus.github.io/LWG/issue3471)
+    - C++23で、確保した領域内でオブジェクトが暗黙的に生成され、生成されたオブジェクトへのポインタを返すことが明確化され、`Cpp17Allocator`要件を満たすようになった
 - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
     - C++26で`[[nodiscard]]`指定が削除された

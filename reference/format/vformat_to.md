@@ -78,11 +78,11 @@ namespace std {
 ## 効果
 
 書式文字列`fmt`に従ったフォーマットで`args`の文字列表現を出力イテレータ`out`の`[out, out + N)`のイテレータ範囲に出力する。ロケール`loc`が指定された場合は、ロケール依存のフォーマットにおいて使用される。
-(ただし、`N`=`formatted_size(fmt, args...)` または `formatted_size(loc, fmt, args...)`)
+(ただし、`N`は書式化された文字列表現の文字数)
 
 ## 戻り値
 
-`out + N` (ただし、`N`=`formatted_size(fmt, args...)` または `formatted_size(loc, fmt, args...)`)
+`out + N` (ただし、`N`は書式化された文字列表現の文字数)
 
 ## 例外
 
@@ -198,3 +198,5 @@ Out vformat_to(Out out, std::string_view fmt, std::basic_format_args<Context> ar
 - [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
 - [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
     - C++26から非ロケール版が`constexpr`に対応した
+- [LWG Issue 3619. Specification of `vformat_to` contains ill-formed `formatted_size` calls](https://cplusplus.github.io/LWG/issue3619)
+    - C++23で、効果・戻り値における出力文字数`N`の定義が、不適格な`formatted_size`呼び出しを使わない表現に修正された

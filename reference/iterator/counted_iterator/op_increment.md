@@ -6,12 +6,13 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr counted_iterator& operator++();   // (1)
+constexpr counted_iterator& operator++();   // (1) C++20
 
-decltype(auto) operator++(int);             // (2)
+decltype(auto) operator++(int);             // (2) C++20
+constexpr decltype(auto) operator++(int);   // (2) C++23
 
 constexpr counted_iterator operator++(int)
-  requires forward_iterator<I>;             // (3)
+  requires forward_iterator<I>;             // (3) C++20
 ```
 
 ## 概要
@@ -97,5 +98,7 @@ int main() {
 
 ## 参照
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [LWG Issue 3643. Missing `constexpr` in `std::counted_iterator`](https://cplusplus.github.io/LWG/issue3643)
+    - C++23で、後置インクリメント(2)に`constexpr`が追加された
 - [P3697R1 Minor additions to C++26 standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3697r1.html)
 - [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)
