@@ -35,7 +35,7 @@ constexpr iota_view(iterator first, sentinel last);
 
 `e`が`b`から到達できるとは、`b`をn回インクリメントしたとき、`e == b`が真となるようなnが存在することをいう。
 
-- (2): `Bound`は[`unreachable_sentinel_t`](/reference/iterator/unreachable_sentinel_t.md)である。または、`Bound()`は`value`から到達できる
+- (2): `Bound`は[`unreachable_sentinel_t`](/reference/iterator/unreachable_sentinel_t.md)である。または、`Bound()`は`value`から到達できる。[`totally_ordered_with`](/reference/concepts/totally_ordered.md)`<W, Bound>`ならば、`bool(value <= Bound())`が`true`である
 - (3): `Bound`は[`unreachable_sentinel_t`](/reference/iterator/unreachable_sentinel_t.md)である。または、`bound`は`value`から到達できる。[`totally_ordered_with`](/reference/concepts/totally_ordered.md)`<W, Bound>`ならば、`bool(value <= bound)`が`true`である
 
 ## 効果
@@ -81,3 +81,5 @@ int main()
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 3597. Unsigned integer types don't model `advanceable`](https://cplusplus.github.io/LWG/issue3597)
+    - C++23で、1引数コンストラクタ(2)の事前条件に、2引数版と同様の`totally_ordered_with<W, Bound>`ならば`bool(value <= Bound())`が`true`という条件が追加された（符号なし整数のラップアラウンドで到達不能になる問題への対処）
