@@ -77,3 +77,5 @@ int main() {
 
 ## 参照
 - [N4950 26.7.29 Chunk view](https://timsong-cpp.github.io/cppwp/n4950/range.chunk)
+- [LWG Issue 3710. The end of `chunk_view` for input ranges can be const](https://cplusplus.github.io/LWG/issue3710)
+    - C++23で、input rangeに対する`end()`(1)に`const`修飾が付き、const object からも番兵を取得できるようになった
