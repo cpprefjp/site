@@ -79,7 +79,7 @@ namespace std::ranges {
 以下と等価である：
 
 ```cpp
-auto t = uninitialized_copy(counted_iterator(ifirst, n),
+auto t = uninitialized_copy(counted_iterator(std::move(ifirst), n),
                             default_sentinel, ofirst, olast);
 return {std::move(t.in).base(), t.out};
 ```
@@ -192,3 +192,5 @@ int main() {
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
     - C++26から`constexpr`がついた
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 3747. `ranges::uninitialized_copy_n`, `ranges::uninitialized_move_n`, and `ranges::destroy_n` should use `std::move`](https://cplusplus.github.io/LWG/issue3747)
+    - C++23で、入力イテレータが`input_iterator`（コピー可能とは限らない）であるため、`counted_iterator`へ渡す際に`std::move`するよう効果が修正された
