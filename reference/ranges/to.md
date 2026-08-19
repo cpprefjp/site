@@ -234,6 +234,10 @@ int main() {
     - C++26で要素数の事前確保に[`ranges::size`](size.md)の代わりに[`ranges::reserve_hint`](reserve_hint.md)を使用するよう変更
 - [LWG Issue 3733. `ranges::to` misuses *cpp17-input-iterator*](https://cplusplus.github.io/LWG/issue3733)
     - C++23で、Cpp17InputIterator判定に説明専用コンセプト`cpp17-input-iterator`を使用するのをやめ、`iterator_traits<iterator_t<R>>::iterator_category`が`input_iterator_tag`から派生する有効な型であることを判定するよう修正された（[`common_iterator`](/reference/iterator/common_iterator.md)のように`iterator_traits`の特殊化を持つイテレータで正しく判定されるようにするため）
+- [LWG Issue 3743. `ranges::to`'s `reserve` may be ill-formed](https://cplusplus.github.io/LWG/issue3743)
+    - C++23で、`reserve`に渡す値を`static_cast<range_size_t<C>>(ranges::size(r))`と明示キャストするよう修正され、整数クラス型を返す`ranges::size`が暗黙変換できず不適格になる問題が解消された
+- [LWG Issue 3785. `ranges::to` is over-constrained on the destination type being a range](https://cplusplus.github.io/LWG/issue3785)
+    - C++23で、変換先`C`が`input_range`でない場合の分岐条件が加えられ、`range_value_t<C>`が不適格になる問題が回避された
 - [LWG Issue 3847. `ranges::to` can still return views](https://cplusplus.github.io/LWG/issue3847)
     - C++23で、(1)(3)に`C`がcv非修飾のクラス型であることの適格要件が追加され、`view`が返される問題が解消された
 - [LWG Issue 3984. `ranges::to`'s recursion branch may be ill-formed](https://cplusplus.github.io/LWG/issue3984)
