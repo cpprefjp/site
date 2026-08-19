@@ -30,7 +30,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |----------------|----------------------------------------------|-------|
 | `pointer`      | ポインタと見なせる型 `Ptr` | C++11 |
-| `element_type` | ポインタが指す要素型。<br/> 型`Ptr`が`element_type`型を持っていればそれを使用する。型`Ptr`が要素型`T`と0個以上の他のパラメータをとるクラステンプレートであれば`T`を使用する。そうでなければ不適格となる。 | C++11 |
+| `element_type` | ポインタが指す要素型。<br/> 型`Ptr`が`element_type`型を持っていればそれを使用する。型`Ptr`が要素型`T`と0個以上の他のパラメータをとるクラステンプレートであれば`T`を使用する。どちらでもなく要素型を決定できない場合、<br/>・C++11 : 不適格となる<br/>・C++23 : `pointer_traits<Ptr>`はメンバを一切持たない (SFINAEフレンドリ) | C++11 |
 | `difference_type` | ポインタの差を表す符号付き整数型。<br/> 型`Ptr`が`difference_type`型を持っていればそれを使用し、そうでなければ[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)型を使用する。 | C++11 |
 | `rebind<U>`    | 型の再束縛。<br/> 型`Ptr`が`rebind<U>`を持っていればそれを使用する。型`Ptr`が型`T`と0個以上の他のパラメータをとるクラステンプレートであれば、型`U`で再束縛した`Ptr`型を使用する。どちらもなければ、`rebind<U>`のインスタンス化は不適格となる。 | C++11 |
 
@@ -81,3 +81,5 @@ int main()
 ## 参照
 - [N2982 Allocators post Removal of C++ Concepts (Rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2982.pdf)
 - [Why `pointer_traits` was introduced in C++11 - Doug Judd's Blog](https://web.archive.org/web/20190228022724/http://blog.nuggetwheat.org/index.php/2015/09/01/why-pointer_traits-was-introduced-in-c11/)
+- [LWG Issue 3545. `std::pointer_traits` should be SFINAE-friendly](https://cplusplus.github.io/LWG/issue3545)
+    - C++23で、要素型を決定できない`Ptr`に対して`pointer_traits<Ptr>`が不適格となるのではなく、メンバを一切持たない（SFINAEで除外される）よう変更された
