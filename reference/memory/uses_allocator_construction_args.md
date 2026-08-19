@@ -322,5 +322,7 @@ tuple(piecewise_construct_t, tuple(allocator_arg_t, MyAlloc, 3, ), tuple(4, MyAl
 ## 参照
 - [P0591R4 Utility functions to implement uses-allocator construction](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0591r4.pdf)
 - [P2321R2 zip](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html)
+- [LWG Issue 3525. `uses_allocator_construction_args` fails to handle types convertible to `pair`](https://cplusplus.github.io/LWG/issue3525)
+    - C++23で、`T`が`pair`特殊化かつ引数`u`が`pair`に変換できない場合に対応する(10)のオーバーロードが追加された
 - [LWG Issue 3821. `uses_allocator_construction_args` should have overload for `pair-like`](https://cplusplus.github.io/LWG/issue3821)
     - C++23で、P2165R4が[`pair`](../utility/pair.md)に`pair-like`からのコンストラクタを追加したことに対応し、`pair-like`を受け取る(9)のオーバーロードが追加された。あわせて`U&&`を受け取る(10)のオーバーロードの制約が更新された
