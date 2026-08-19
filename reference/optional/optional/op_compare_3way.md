@@ -30,7 +30,7 @@ namespace std {
 
 
 ## テンプレートパラメータ制約
-- (3) : 比較する相手の型`U`が`optional`の特殊化でないこと
+- (3) : 比較する相手の型`U`が`optional`の特殊化、またはそれから公開かつ非曖昧に派生した型でないこと
 
 
 ## 戻り値
@@ -124,5 +124,5 @@ int main()
 ## 参照
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-- [LWG Issue 4072. `std::optional` comparisons: constrain harder](https://cplusplus.github.io/LWG/issue4072)
-    - C++26で、(3)の制約に、相手の型が`optional`の特殊化でないことが追加された
+- [LWG Issue 3746. `optional`'s spaceship with `U` with a type derived from `optional` causes infinite constraint recursion](https://cplusplus.github.io/LWG/issue3746)
+    - C++23で、(3)の制約が説明専用の`is-optional`から`is-derived-from-optional`に変更され、`U`が`optional`の特殊化から派生した型の場合も候補から除外することで、制約チェックの無限再帰を防ぐようになった
