@@ -88,7 +88,7 @@ v | std::views::transform(expensive) // 重い変換関数
 
 
 ## 備考
-このビュー（および`views::cache_latest`アダプタ）は、フリースタンディング処理系でも使用できる。
+- このビュー（および`views::cache_latest`アダプタ）は、フリースタンディング処理系でも使用できる。
 
 
 ## 例
