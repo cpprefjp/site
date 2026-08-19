@@ -55,7 +55,7 @@ int main()
 * imbue[color ff0000]
 * std::regex_search[link ../regex_search.md]
 * std::locale[link /reference/locale/locale.md]
-* classic()[link /reference/locale/locale/classic.md.nolink]
+* classic()[link /reference/locale/locale/classic.md]
 
 ### 出力
 ```

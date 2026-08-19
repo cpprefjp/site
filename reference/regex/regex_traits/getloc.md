@@ -36,7 +36,7 @@ int main()
 * getloc()[color ff0000]
 * std::locale[link /reference/locale/locale.md]
 * imbue[link imbue.md]
-* name()[link /reference/locale/locale/name.md.nolink]
+* name()[link /reference/locale/locale/name.md]
 
 ### 出力
 ```

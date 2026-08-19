@@ -50,7 +50,7 @@ int main() {
 ```
 * peek()[color ff0000]
 * to_char_type[link /reference/string/char_traits/to_char_type.md]
-* std::isdigit[link /reference/locale/isdigit.md.nolink]
+* std::isdigit[link /reference/locale/isdigit.md]
 * getloc()[link /reference/ios/ios_base/getloc.md]
 * std::cin[link /reference/iostream/cin.md]
 

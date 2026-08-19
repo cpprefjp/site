@@ -21,7 +21,7 @@ string_type str(first, last);
 return use_facet<collate<char_type>>(getloc())
          .transform(str.data(), str.data() + str.length());
 ```
-* use_facet[link /reference/locale/use_facet.md.nolink]
+* use_facet[link /reference/locale/use_facet.md]
 * collate[link /reference/locale/collate.md]
 * getloc()[link getloc.md]
 * transform[link /reference/locale/collate/transform.md.nolink]

@@ -37,7 +37,7 @@ locale(const locale& other, const locale& one, category cats);     // (8) C++03
 
 
 ## 効果
-- (1) : グローバル`locale`（[`global`](global.md.nolink)関数で設定される`locale`）のコピーを構築する。
+- (1) : グローバル`locale`（[`global`](global.md)関数で設定される`locale`）のコピーを構築する。
 - (2) : `other`のコピーを構築する。
 - (3) : ロケール名`std_name`で識別されるロケールを構築する。
 - (4) : `locale(std_name.c_str())`と等価。
@@ -55,7 +55,7 @@ locale(const locale& other, const locale& one, category cats);     // (8) C++03
 
 
 ## 備考
-構築される`locale`が名前を持つ（[`name`](name.md.nolink)関数が`"*"`以外を返す）かどうかは、以下のように定まる。
+構築される`locale`が名前を持つ（[`name`](name.md)関数が`"*"`以外を返す）かどうかは、以下のように定まる。
 
 - (1), (2) : コピー元が名前を持つ場合に限り、名前を持つ。
 - (3), (4) : 常に名前を持つ。
@@ -84,7 +84,7 @@ int main()
   std::cout << loc_facet.name() << std::endl;
 }
 ```
-* name()[link name.md.nolink]
+* name()[link name.md]
 * std::ctype[link ../ctype.md]
 
 ### 出力
@@ -101,9 +101,9 @@ C
 
 
 ## 関連項目
-- [`locale::operator=`](op_assign.md.nolink)
-- [`locale::global`](global.md.nolink)
-- [`locale::name`](name.md.nolink)
+- [`locale::operator=`](op_assign.md)
+- [`locale::global`](global.md)
+- [`locale::name`](name.md)
 
 
 ## 参照

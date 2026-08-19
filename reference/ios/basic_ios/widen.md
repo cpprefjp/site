@@ -13,7 +13,7 @@ char_type widen(char c) const;
 
 
 ## 戻り値
-[`use_facet`](../../locale/use_facet.md.nolink)`<`[`ctype`](../../locale/ctype.md)`<char_type>(`[`getloc`](../ios_base/getloc.md)`()).`[`widen`](../../locale/ctype/widen.md.nolink)`(c)`
+[`use_facet`](../../locale/use_facet.md)`<`[`ctype`](../../locale/ctype.md)`<char_type>(`[`getloc`](../ios_base/getloc.md)`()).`[`widen`](../../locale/ctype/widen.md.nolink)`(c)`
 
 
 ## 備考
@@ -51,5 +51,5 @@ int main()
 - [`ctype`](../../locale/ctype.md)
 - [`ctype`](../../locale/ctype.md)`::`[`narrow`](../../locale/ctype/narrow.md.nolink)
 - [`ctype`](../../locale/ctype.md)`::`[`widen`](../../locale/ctype/widen.md.nolink)
-- [`use_facet`](../../locale/use_facet.md.nolink)
+- [`use_facet`](../../locale/use_facet.md)
 - [`locale`](../../locale/locale.md)

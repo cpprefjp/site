@@ -9,27 +9,27 @@
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|-----------------------------|-------|
 | [`locale`](locale/locale.md) | ロケール(class) | |
-| `use_facet` | ロケールが持つファセットの取得(function) | |
-| `has_facet` | ロケールがファセットを持っているか判定(function) | |
+| [`use_facet`](locale/use_facet.md) | ロケールが持つファセットの取得(function) | |
+| [`has_facet`](locale/has_facet.md) | ロケールがファセットを持っているか判定(function) | |
 
 
 ## 利便性インタフェース
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|-----------------------------|-------|
-| `isspace` | 空白類文字の判定(function) | |
-| `isprint` | 印字可能文字の判定(function) | |
-| `iscntrl` | 制御文字の判定(function) | |
-| `isupper` | 英大文字の判定(function) | |
-| `islower` | 英小文字の判定(function) | |
-| `isalpha` | 英字の判定(function) | |
-| `isdigit` | 数字の判定(function) | |
-| `ispunct` | 区切り文字の判定(function) | |
-| `isxdigit` | 十六進数字の判定(function) | |
-| `isalnum` | 英字・数字の判定(function) | |
-| `isgraph` | 図形文字の判定(function) | |
+| [`isspace`](locale/isspace.md) | 空白類文字の判定(function) | |
+| [`isprint`](locale/isprint.md) | 印字可能文字の判定(function) | |
+| [`iscntrl`](locale/iscntrl.md) | 制御文字の判定(function) | |
+| [`isupper`](locale/isupper.md) | 英大文字の判定(function) | |
+| [`islower`](locale/islower.md) | 英小文字の判定(function) | |
+| [`isalpha`](locale/isalpha.md) | 英字の判定(function) | |
+| [`isdigit`](locale/isdigit.md) | 数字の判定(function) | |
+| [`ispunct`](locale/ispunct.md) | 区切り文字の判定(function) | |
+| [`isxdigit`](locale/isxdigit.md) | 十六進数字の判定(function) | |
+| [`isalnum`](locale/isalnum.md) | 英字・数字の判定(function) | |
+| [`isgraph`](locale/isgraph.md) | 図形文字の判定(function) | |
 | [`toupper`](locale/toupper.md) | 英大文字への変換(function) | |
-| [`tolower`](locale/tolower.md) | 英子文字への変換(function) | |
+| [`tolower`](locale/tolower.md) | 英小文字への変換(function) | |
 | [`wstring_convert`](locale/wstring_convert.md) | `codecvt`による文字列変換(class template) | C++11<br/> C++17から非推奨<br/> C++26で削除 |
 | [`wbuffer_convert`](locale/wbuffer_convert.md) | `codecvt`によるストリームバッファ変換(class template) | C++11<br/> C++17から非推奨<br/> C++26で削除 |
 | [`ctype_base`](locale/ctype_base.md) | 文字分類のための基底クラス(class) | |

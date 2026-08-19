@@ -18,7 +18,7 @@ char_type translate_nocase(char_type c) const;
 ```cpp
 use_facet<ctype<char_type>>(getloc()).tolower(c)
 ```
-* use_facet[link /reference/locale/use_facet.md.nolink]
+* use_facet[link /reference/locale/use_facet.md]
 * ctype[link /reference/locale/ctype.md]
 * getloc[link getloc.md]
 * tolower[link /reference/locale/ctype/tolower.md.nolink]

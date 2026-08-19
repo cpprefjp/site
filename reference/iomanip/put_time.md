@@ -39,7 +39,7 @@ void f(basic_ios<CharT, Traits>& out, const struct tm* tmb, const CharT* fmt)
 * basic_ios[link /reference/ios/basic_ios.md]
 * ostreambuf_iterator[link /reference/iterator/ostreambuf_iterator.md]
 * time_put[link /reference/locale/time_put.md]
-* use_facet[link /reference/locale/use_facet.md.nolink]
+* use_facet[link /reference/locale/use_facet.md]
 * out.getloc()[link /reference/ios/ios_base/getloc.md]
 * out.rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
 * out.fill()[link /reference/ios/basic_ios/fill.md]

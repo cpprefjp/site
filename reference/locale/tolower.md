@@ -37,7 +37,7 @@ int main()
 ```
 * std::tolower[color ff0000]
 * std::locale[link locale.md]
-* classic()[link locale/classic.md.nolink]
+* classic()[link locale/classic.md]
 
 ### 出力
 ```

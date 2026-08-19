@@ -47,11 +47,11 @@ int main()
 ```
 * imbue[color ff0000]
 * std::locale[link ../../locale/locale.md]
-* classic[link ../../locale/locale/classic.md.nolink]
+* classic[link ../../locale/locale/classic.md]
 * std::ios_base[link ../ios_base.md]
 * rdbuf[link rdbuf.md]
 * getloc[link ../../streambuf/basic_streambuf/getloc.md]
-* name[link ../../locale/locale/name.md.nolink]
+* name[link ../../locale/locale/name.md]
 
 ### 出力例
 ```
