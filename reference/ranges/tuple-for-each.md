@@ -25,3 +25,5 @@ namespace std::ranges {
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
+- [LWG Issue 3755. *tuple-for-each* can call user-defined `operator,`](https://cplusplus.github.io/LWG/issue3755)
+    - C++23で、`invoke`の呼び出しを`static_cast<void>(...)`で包み、ユーザー定義の`operator,`が呼ばれないよう修正された
