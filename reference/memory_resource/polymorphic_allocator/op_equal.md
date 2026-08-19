@@ -98,3 +98,4 @@ true
 ## 参照
 
 - [LWG Issue 3683. `operator==` for `polymorphic_allocator` cannot deduce template argument in common cases](https://cplusplus.github.io/LWG/issue3683)
+    - C++23で、hidden friendとして同次の`operator==`(1)が追加され、`memory_resource*`等からの変換を伴う比較ができるようになった
