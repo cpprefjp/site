@@ -24,9 +24,12 @@ namespace std::ranges {
 Rangeアダプタを適用するには、`viewable_range`である必要がある。
 
 ## モデル
-型`T`が`viewable_range`のモデルとなるのは、`T`が[`range`](range.md)のモデルであり、かつ`T`が[`borrowed_range`](borrowed_range.md)のモデルであるか、[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<T>`が[`view`](view.md)のモデルである場合である。
+型`T`が`viewable_range`のモデルとなるのは、`T`が[`range`](range.md)のモデルであり、かつ以下のいずれかを満たす場合である。
 
-[`borrowed_range`](borrowed_range.md)または[`view`](view.md)ではない[`range`](range.md)の右辺値は、`viewable_range`のモデルにはならない。
+- [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<T>`が[`view`](view.md)のモデルであり、かつ`T`から[`constructible_from`](/reference/concepts/constructible_from.md)`<remove_cvref_t<T>, T>`である（ムーブ専用の`view`の左辺値も安全に扱えるようにするための条件）
+- [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<T>`が[`view`](view.md)のモデルではなく、`T`が左辺値参照であるか、または[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<T>`が[`movable`](/reference/concepts/movable.md)でありかつ[`initializer_list`](/reference/initializer_list/initializer_list.md)の特殊化ではない
+
+[`view`](view.md)でも左辺値でもない[`range`](range.md)の右辺値のうち、ムーブできないものは`viewable_range`のモデルにはならない。
 
 ## 例
 (執筆中)
@@ -48,4 +51,5 @@ Rangeアダプタを適用するには、`viewable_range`である必要があ�
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [LWG Issue 3481 `viewable_range` mishandles lvalue move-only views](https://cplusplus.github.io/LWG/lwg-defects.html#3481)
+    - C++23で、`view`の場合に`constructible_from<remove_cvref_t<T>, T>`を要求するようコンセプト定義が変更され、ムーブ専用の`view`の左辺値も`views::all`で扱えるようになった
 - [P2415R2 What is a `view`?](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2415r2.html) (本提案文書はC++20に遡って適用されている)
