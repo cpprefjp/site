@@ -234,7 +234,7 @@ int main()
 }
 ```
 * std::time_t[link /reference/ctime/time_t.md]
-* std::time[link /reference/ctime/time.md.nolink]
+* std::time[link /reference/ctime/time.md]
 * chrono::system_clock[link system_clock.md]
 * from_time_t[link system_clock/from_time_t.md]
 * chrono::floor[link time_point/floor.md]

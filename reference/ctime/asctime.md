@@ -9,7 +9,7 @@ namespace std {
   char* asctime(const tm* timeptr);
 }
 ```
-* tm[link tm.md.nolink]
+* tm[link tm.md]
 
 この関数は、C++26で非推奨となった。代わりに`strftime`関数や、[`<chrono>`](/reference/chrono.md)ライブラリの書式化機能を使用すること。
 

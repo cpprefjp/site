@@ -72,8 +72,8 @@ int main()
 * tp.time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * sec.count()[link /reference/chrono/duration/count.md]
 * std::time_t[link /reference/ctime/time_t.md]
-* std::tm[link /reference/ctime/tm.md.nolink]
-* std::localtime[link /reference/ctime/localtime.md.nolink]
+* std::tm[link /reference/ctime/tm.md]
+* std::localtime[link /reference/ctime/localtime.md]
 
 ### 出力例
 ```

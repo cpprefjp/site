@@ -73,8 +73,8 @@ int main() {
 * now()[link /reference/chrono/system_clock/now.md]
 * to_time_t[link /reference/chrono/system_clock/to_time_t.md]
 * std::time_t[link /reference/ctime/time_t.md]
-* std::tm[link /reference/ctime/tm.md.nolink]
-* std::localtime[link /reference/ctime/localtime.md.nolink]
+* std::tm[link /reference/ctime/tm.md]
+* std::localtime[link /reference/ctime/localtime.md]
 
 ### 出力例
 ```

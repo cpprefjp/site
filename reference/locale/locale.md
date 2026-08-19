@@ -168,7 +168,7 @@ int main()
 ```
 * std::locale[color ff0000]
 * imbue[link /reference/ios/ios_base/imbue.md]
-* std::tm[link /reference/ctime/tm.md.nolink]
+* std::tm[link /reference/ctime/tm.md]
 * std::put_time[link /reference/iomanip/put_time.md]
 
 #### 出力例

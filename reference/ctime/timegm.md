@@ -10,12 +10,12 @@ namespace std {
 }
 ```
 * time_t[link time_t.md]
-* tm[link tm.md.nolink]
+* tm[link tm.md]
 
 ## 概要
 UTCで表現されたカレンダー時間 (`tm`構造体) を、経過秒 ([`time_t`](time_t.md)) に変換する。
 
-[`mktime`](mktime.md.nolink)がローカル時間を解釈するのに対し、この関数は入力をUTCとして解釈する。
+[`mktime`](mktime.md)がローカル時間を解釈するのに対し、この関数は入力をUTCとして解釈する。
 
 C23で`<time.h>`に追加された関数であり、C++26で`<ctime>`に取り込まれた。
 
@@ -67,8 +67,8 @@ int main()
 
 
 ## 関連項目
-- [`mktime`](mktime.md.nolink): ローカル時間のカレンダー時間から経過秒を生成する
-- [`gmtime`](gmtime.md.nolink): 経過秒からUTCのカレンダー時間を生成する
+- [`mktime`](mktime.md): ローカル時間のカレンダー時間から経過秒を生成する
+- [`gmtime`](gmtime.md): 経過秒からUTCのカレンダー時間を生成する
 
 
 ## 参照
