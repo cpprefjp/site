@@ -94,9 +94,9 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 ```
 
 * `fill` : アライメントに使う文字 (デフォルト: スペース)
-* `align` : アライメント(デフォルトは型による)
-    * `>` : 右寄せ
-    * `<` : 左寄せ
+* `align` : アライメント
+    * `>` : 右寄せ。算術型（整数・浮動小数点数）およびポインタ型のデフォルト
+    * `<` : 左寄せ。非算術型かつ非ポインタ型（文字列など）のデフォルト。`bool`・文字型を整数として出力しない場合もこちら
     * `^` : 中央寄せ
 * `sign` : 符号
     * `+` : 正の数でも符号を表示する
@@ -146,7 +146,7 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 
 デフォルトまたは `s` を指定すると、 `true` / `false` という文字列を出力する。
 
-整数型のオプションも指定できる。その場合は、`unsigned char` に `static_cast` される。
+整数型のオプションも指定できる。その場合は、`unsigned char` に `static_cast` される。ただし、C++23以降は `c` （文字として出力）を指定できない（`bool`を文字として出力する意味がないため）。
 
 #### 整数型の場合
 
@@ -252,9 +252,9 @@ Range・シーケンスコンテナに対して使用できる標準のオプシ
 ```
 
 * `fill` : アライメントに使う文字 (デフォルト: スペース)
-* `align` : アライメント(デフォルトは型による)
+* `align` : アライメント
     * `>` : 右寄せ
-    * `<` : 左寄せ
+    * `<` : 左寄せ（デフォルト）
     * `^` : 中央寄せ
 * `width` : 幅 (省略時は値に応じて幅が決まり、アライメントは機能しない)
     * 置換フィールドを使って変数で指定できる
@@ -299,9 +299,9 @@ std::format("{}", m); // {1: "aaa", 2: "bbb"}
 ```
 
 * `fill` : アライメントに使う文字 (デフォルト: スペース)
-* `align` : アライメント(デフォルトは型による)
+* `align` : アライメント
     * `>` : 右寄せ
-    * `<` : 左寄せ
+    * `<` : 左寄せ（デフォルト）
     * `^` : 中央寄せ
 * `width` : 幅 (省略時は値に応じて幅が決まり、アライメントは機能しない)
     * 置換フィールドを使って変数で指定できる
@@ -750,6 +750,10 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
     - C++26から、ポインタ値を大文字で出力する`P`オプションが追加された
 - [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
     - C++26から非ロケール版が`constexpr`に対応した
+- [LWG Issue 3612. Inconsistent pointer alignment in `std::format`](https://cplusplus.github.io/LWG/issue3612)
+    - C++23で、ポインタ型のデフォルトアライメントが算術型と同じ右寄せに統一された
+- [LWG Issue 3648. `format` should not print `bool` with `'c'`](https://cplusplus.github.io/LWG/issue3648)
+    - C++23で、`bool`に対する型指定オプションから`c`（文字として出力）が除外された
 - [LWG Issue 3720. Restrict the valid types of _arg-id_ for _width_ and _precision_ in _std-format-spec_](https://cplusplus.github.io/LWG/issue3720)
     - C++23で、幅・精度を動的引数で指定する場合、その引数の型が標準の符号付き/符号なし整数型に制限された（`bool`や文字型は指定できなくなった）
 - [LWG Issue 3721. Allow an _arg-id_ with a value of zero for _width_ in _std-format-spec_](https://cplusplus.github.io/LWG/issue3721)
