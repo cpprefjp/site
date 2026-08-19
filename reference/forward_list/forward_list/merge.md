@@ -33,7 +33,7 @@ constexpr void merge(forward_list&& x, Compare comp); // (4) C++26
 
 
 ## 効果
-2つのソート済みイテレータ範囲`[begin(), end())`と`[x.begin(), x.end())`をマージする。2つの`forward_list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。
+[`addressof`](/reference/memory/addressof.md)`(x) == this`である場合、何もしない。そうでない場合、2つのソート済みイテレータ範囲`[begin(), end())`と`[x.begin(), x.end())`をマージする。2つの`forward_list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。
 
 マージ後、`x`の要素に対するイテレータおよび参照は無効にならない。
 
@@ -47,7 +47,7 @@ constexpr void merge(forward_list&& x, Compare comp); // (4) C++26
 
 
 ## 計算量
-高々[`distance`](/reference/iterator/distance.md)`(`[`begin`](begin.md)()`,` [`end`](end.md)`()) +` [`distance`](/reference/iterator/distance.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`()) - 1`回の比較
+[`addressof`](/reference/memory/addressof.md)`(x) == this`である場合、比較を行わない。そうでない場合、高々[`distance`](/reference/iterator/distance.md)`(`[`begin`](begin.md)()`,` [`end`](end.md)`()) +` [`distance`](/reference/iterator/distance.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`()) - 1`回の比較
 
 
 ## 備考
@@ -102,3 +102,5 @@ int main()
 - [LWG Issue 2122. `merge()` stability for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2122)
 - [LWG Issue 2123. `merge()` allocator requirements for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2123)
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 3088. `forward_list::merge` behavior unclear when passed `*this`](https://cplusplus.github.io/LWG/issue3088)
+    - C++23で、`x`が`*this`自身である場合は何もしないことが明確化された
