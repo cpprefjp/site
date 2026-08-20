@@ -259,10 +259,9 @@ int main()
 - C++26
 
 ### 処理系
-- [Clang](/implementation.md#clang): 19 [mark noimpl]
-- [GCC](/implementation.md#gcc): 14 [mark noimpl]
-- [ICC](/implementation.md#icc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Clang](/implementation.md#clang): 23 [mark verified]
+- [GCC](/implementation.md#gcc): 16.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2026 Update 2 [mark noimpl]
 
 ## 参照
 - [P1932R0 Extension of the C++ random number generators](http://open-std.org/JTC1/SC22/WG21/docs/papers/2019/p1932r0.pdf)
