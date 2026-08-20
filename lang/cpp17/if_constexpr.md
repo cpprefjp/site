@@ -76,78 +76,6 @@ void f(Out& o, A1 const& a1, A2 const& a2)
 それでも記述が実際にしたい処理に比べて不必要に複雑になる。
 constexpr if文の導入によりそのような複雑な手法を用いずに素直に条件付きのコンパイルを実現できるようになった。
 
-### 2段階名前探索における注意点
-
-`constexpr if`文で、実行されない方の`statement`は廃棄文(discarded statement)となり、文の実体化を防ぐ。言い換えると、2段階名前探索における依存名(dependent name)は、廃棄文の場合検証されない。また文が実体化されないのだから通常のif文と同じくもちろん実行時に実行もされない。つまり次の例は意図と異なる挙動を示す。
-
-```cpp example
-#include <type_traits>
-
-template <typename T>
-void f(T)
-{
-  if constexpr (std::is_same_v<T, int>)
-  {
-    // Tがintのときのみ評価されてほしい
-    // 実際は常に評価される
-    static_assert(false);
-  }
-}
-
-int main()
-{
-  f(2.4);
-  f(3);
-}
-```
-
-なぜならば廃棄文はテンプレートの実体化を防ぐ (依存名の検証をしない) だけで、非依存名は検証されるからである。この例の[`static_assert`](/lang/cpp11/static_assert.md)に渡す条件式はテンプレートパラメータに依存していないので、テンプレートの宣言時に検証され、エラーとなる。言い換えれば`static_assert`に渡す条件式が依存名ならばテンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせることができる。
-
-```cpp example
-#include <type_traits>
-
-template <typename T>
-constexpr bool false_v = false;
-
-template <typename T>
-void f(T)
-{
-  if constexpr (std::is_same_v<T, int>)
-  {
-    // Tがintのときのみ評価される
-    static_assert(false_v<T>);
-  }
-}
-
-int main()
-{
-  f(2.4);
-  f(3);
-}
-```
-
-上の例では`false_v`を作ったが、ラムダ式でも同様のことができる。ラムダ式はそれが記述された位置から見て最小のスコープ (ブロックスコープ／クラススコープ／名前空間スコープ) で宣言されるクラスとして扱われる。例えば、下の例では`f()`という関数テンプレート内で宣言される。関数テンプレート内のクラスは依存名になるため、テンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせることができる。
-
-```cpp example
-#include <type_traits>
-
-template <typename T>
-void f(T)
-{
-  if constexpr (std::is_same_v<T, int>)
-  {
-    // Tがintのときのみ評価される
-    static_assert([]{return false;}());
-  }
-}
-
-int main()
-{
-  f(2.4);
-  f(3);
-}
-```
-
 `constexpr if`文の条件式内は実体化が起きる。したがって実体化するとコンパイルエラーになるものは書いてはいけない。
 
 ```cpp example
@@ -172,11 +100,9 @@ int main()
 }
 ```
 
-### (CWG 2518が適用された環境) `static_assert`文に関する例外
+### `static_assert`宣言に関する例外
 
-上に述べたように、`constexpr if`文の中の文は廃棄文においても、非依存名の検証を行う。このため特に`static_assert`文を使う時に直感的ではない挙動を示していた。
-
-C++23以降、もしくはCWG 2518が適用された環境においては、template文(もしくは適切な特殊化や`constexpr if`文の中の文)が実際にインスタンス化されるまで、`static_assert`文の宣言は遅延される。
+後に述べる2段階名前探索に関する注意点とは関係なく、C++23以降、もしくはCWG 2518が適用された環境においては、template文(もしくは適切な特殊化や`constexpr if`文の中の文)が実際に実体化されない限り、`static_assert`宣言による失敗は無視される。
 
 ```cpp example
 #include <cstdint>
@@ -191,8 +117,64 @@ void f(T t) {
 
 void g(std::int8_t c) {
   std::int32_t n = 0;
-  f(n); // OK: nはstd::int32_t型なので`use(t);`のほうがインスタンス化されるために、static_assert文は宣言されない。
-  f(c); // error: cはstd::int8_t型なので、static_assert文は宣言され、"must be 32bit"とコンパイラが診断メッセージを出力する
+  f(n); // OK: nはstd::int32_t型なので`use(t);`のほうが実体化されるために、static_assert宣言の失敗は無視される。
+  f(c); // error: cはstd::int8_t型なので、static_assert宣言は失敗し、"must be 32bit"とコンパイラが診断メッセージを出力する
+}
+```
+
+### 2段階名前探索における注意点
+
+`constexpr if`文で、実行されない方の`statement`は廃棄文(discarded statement)となり、文の実体化を防ぐ。言い換えると、2段階名前探索における依存名(dependent name)は、廃棄文の場合検証されない。また文が実体化されないのだから通常のif文と同じくもちろん実行時に実行もされない。
+
+CWG 2518が適用されていない環境においては`static_assert`を用いる時に直感的ではない挙動を示していた。
+
+```cpp example
+#include <type_traits>
+
+template <typename T>
+void f(T)
+{
+  if constexpr (std::is_same_v<T, int>)
+  {
+    // Tがintのときのみ評価されてほしい
+    // 実際は常に評価される
+    static_assert(false);
+  }
+}
+
+int main()
+{
+  f(2.4);
+  f(3);
+}
+```
+
+なぜならば廃棄文はテンプレートの実体化を防ぐ (依存名の検証をしない) だけで、非依存名は検証されるからである。この例の[`static_assert`](/lang/cpp11/static_assert.md)に渡す条件式はテンプレートパラメータに依存していないので、テンプレートの宣言時に検証され、エラーとなる。
+
+#### CWG 2518が適用されていない環境での回避策
+
+言い換えれば`static_assert`に渡す条件式が依存名ならばテンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせることができる。
+
+```cpp example
+#include <type_traits>
+
+template <typename T>
+constexpr bool false_v = false;
+
+template <typename T>
+void f(T)
+{
+  if constexpr (std::is_same_v<T, int>)
+  {
+    // Tがintのときのみ評価される
+    static_assert(false_v<T>);
+  }
+}
+
+int main()
+{
+  f(2.4);
+  f(3);
 }
 ```
 
