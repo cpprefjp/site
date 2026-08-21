@@ -199,3 +199,8 @@ int main()
 
 ## 関連項目
 - [`u8path()`](/reference/filesystem/u8path.md)
+
+
+## 参照
+- [LWG Issue 3244. Constraints for `Source` in [fs.path.req] insufficiently constrainty](https://cplusplus.github.io/LWG/issue3244)
+    - C++20で、`Source`型の制約に「`path`以外の型であること」という条件が追加され、`path`を`Source`として渡した際の循環参照が排除された
