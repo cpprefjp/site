@@ -24,6 +24,11 @@ basic_filebuf* open(const T& s, ios_base::openmode mode); // (4) C++23
 ## テンプレートパラメータ制約
 - (4) C++23 : [`is_same_v`](/reference/type_traits/is_same.md)`<T, filesystem::path>`が`true`であること
 
+## 事前条件
+- (1), (2) :
+    - C++20 : `s`はヌル終端文字列 (NTCTS) を指していること。
+
+
 ## 効果
 
 まず`mode & ~ios_base::ate`の結果からファイルの開くモードが決定される。`fopen`のモード文字列との対応は以下の通り。
