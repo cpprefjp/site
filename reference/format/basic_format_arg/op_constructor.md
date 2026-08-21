@@ -95,3 +95,5 @@ namespace std {
     - C++23で、コンストラクタが検査する型プロパティをcvref除去後の型で判定するよう整理された（最終的にコンストラクタは左辺値参照`T&`をとり、`TD = remove_const_t<T>`で判定する形になった）
 - [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
     - C++26から`constexpr`に対応した
+- [LWG Issue 3246. What are the constraints on the template parameter of `basic_format_arg`?](https://cplusplus.github.io/LWG/issue3246)
+    - C++20で、説明専用コンストラクタのテンプレート引数`T`の制約が、対応する`formatter`特殊化がFormatter要件を満たすこと、という表現に整理された
