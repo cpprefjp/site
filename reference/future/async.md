@@ -206,3 +206,5 @@ foo() = 3
 - [&lt;future&gt; functions - Microsoft Docs](https://docs.microsoft.com/en-us/cpp/standard-library/future-functions?view=vs-2019#remarks)
 - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
     - C++26で`[[nodiscard]]`指定が削除された
+- [LWG Issue 3476. `thread` and `jthread` constructors require that the parameters be move-constructible](https://cplusplus.github.io/LWG/issue3476)
+    - C++23で、`is_constructible`要件が既に目的を満たすため、冗長だったムーブ構築可能（`is_move_constructible`）の要件が削除された
