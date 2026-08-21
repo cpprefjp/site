@@ -112,6 +112,12 @@
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
 - [LWG Issue 3437. `__cpp_lib_polymorphic_allocator` is in the wrong header](https://cplusplus.github.io/LWG/issue3437)
     - C++23で、`__cpp_lib_polymorphic_allocator`が定義されるヘッダの記載が`<memory>`から`<memory_resource>`に修正された
+- [LWG Issue 3257. Missing feature testing macro update from P0858](https://cplusplus.github.io/LWG/issue3257)
+    - C++20で、`__cpp_lib_array_constexpr`が`201803L`に、`__cpp_lib_string_view`が`201803L`に更新された
+- [LWG Issue 3274. Missing feature test macro for `<span>`](https://cplusplus.github.io/LWG/issue3274)
+    - C++20で、機能テストマクロ`__cpp_lib_span`が追加された（最終的な値は後続の提案文書により`202002L`）
+- [LWG Issue 3256. Feature testing macro for `constexpr` algorithms](https://cplusplus.github.io/LWG/issue3256)
+    - C++20で、機能テストマクロ名が`__cpp_lib_constexpr_swap_algorithms`から`__cpp_lib_constexpr_algorithms`にリネームされた
 - [LWG Issue 3792. `__cpp_lib_constexpr_algorithms` should also be defined in `<utility>`](https://cplusplus.github.io/LWG/issue3792)
     - C++23で、`__cpp_lib_constexpr_algorithms`の定義ヘッダに[`<utility>`](/reference/utility.md)が追加された（値`201806L`は不変。C++20へ遡及適用される）
 - [LWG Issue 4440. Forward declarations of entities need also in entries](https://cplusplus.github.io/LWG/issue4440)
