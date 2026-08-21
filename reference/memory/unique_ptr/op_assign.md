@@ -28,18 +28,23 @@ unique_ptr& operator=(const unique_ptr&) = delete;    // (4) C++11
 - (4) : コピー代入禁止。
 
 
-## 要件
-- (1) : デリータの型`D`が、例外を投げずにムーブ構築可能であること。
-- (2) 単一オブジェクト : 以下の条件を満たさない場合、この関数はオーバーロード解決の候補から外れる：
+## テンプレートパラメータ制約
+- (1) :
+    - C++20 : [`is_move_assignable_v`](/reference/type_traits/is_move_assignable.md)`<D> == true`であること。
+- (2) 単一オブジェクト : 以下を全て満たすこと：
     - `unique_ptr<U, E>::pointer`が、`pointer`に暗黙変換可能な型であること。
     - `U`が配列型ではないこと。
     - [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<D&, E&&> == true`であること。
-- (2) 配列 : 以下の条件を満たさない場合、この関数はオーバーロード解決の候補から外れる：
+- (2) 配列 : 以下を全て満たすこと：
     - `U`は配列型であること。
     - `*this`の型`UP`について、`UP::pointer`と`UP::element_type*`が同じ型であること。
     - `u`の型`UP`について、`UP::pointer`と`UP::element_type*`が同じ型であること。
     - `unique_ptr<U, D>::element_type(*)[]`から`unique_ptr<T[], D>::element_type(*)[]`へ変換可能であること。
     - [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<D&, E&&> == true`であること。
+
+
+## 要件
+- (1) : デリータの型`D`が、例外を投げずにムーブ構築可能であること。
 
 
 ## 効果
@@ -55,6 +60,10 @@ d_ = std::forward<E>(u.get_deleter());
 
 
 - (3) : [`reset()`](reset.md)
+
+
+## 事後条件
+- (1), (2) : [`addressof`](/reference/memory/addressof.md)`(u) != this`である場合、`u.`[`get()`](get.md)` == nullptr`となる。そうでない（自己ムーブ代入の）場合、`u.`[`get()`](get.md)`は変更されない。
 
 
 ## 戻り値
@@ -116,4 +125,8 @@ int main()
 - [LWG 2246. `unique_ptr` assignment effects w.r.t. deleter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2246)
 - [LWG 2228: Missing SFINAE rule in unique_ptr templated assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4366)
     - (2)のSFINAEルール不足の欠陥修正の提案文書
+- [LWG Issue 2899. `is_(nothrow_)move_constructible` and `tuple`, `optional` and `unique_ptr`](https://cplusplus.github.io/LWG/issue2899)
+    - C++20で、ムーブ代入演算子(1)が、デリータ型`D`がムーブ代入可能でない場合はオーバーロード解決に参加しないよう制約化された
 - [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)
+- [LWG Issue 3455. Incorrect Postconditions on `unique_ptr` move assignment](https://cplusplus.github.io/LWG/issue3455)
+    - C++23で、ムーブ代入の事後条件が自己ムーブ代入を考慮するよう修正された（`this != addressof(u)`のときのみ`u.get() == nullptr`となる）。これは誤っていた事後条件の文言を修正したものであり、効果`reset(u.release())`による実際の挙動（自己ムーブ代入では`u`が変化しない）はC++11から一貫して同じであるため、本文の事後条件はバージョンによらずこの記述となる
