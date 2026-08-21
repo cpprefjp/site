@@ -26,7 +26,8 @@ path& operator+=(EcharT x);                        // (7)
 
 
 ## 効果
-`path(x).`[`native()`](native.md)を、`*this`が保持するパス文字列に加算する。
+- (1), (2), (3), (4), (6) : `path(x).`[`native()`](native.md)を、`*this`が保持するパス文字列に加算する。
+- (5), (7) : `*this += basic_string_view(&x, 1)`と等価。すなわち、1文字`x`を1要素の文字列ビューとして加算する。
 
 
 ## 戻り値
@@ -75,3 +76,8 @@ int main()
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2017 Update 7 [mark verified]
+
+
+## 参照
+- [LWG Issue 3055. `path::operator+=(single-character)` misspecified](https://cplusplus.github.io/LWG/issue3055)
+    - C++20で、1文字を加算するオーバーロード(5), (7)の効果が、`*this += basic_string_view(&x, 1)`と等価であるよう修正された（旧規定では1文字からのパス構築が破綻していた）
