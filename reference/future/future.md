@@ -105,3 +105,5 @@ int main()
 
 
 ## 参照
+- [LWG Issue 3466. Specify the requirements for `promise`/`future`/`shared_future` consistently](https://cplusplus.github.io/LWG/issue3466)
+    - C++23で、テンプレート引数`R`がCpp17Destructible要件を満たすオブジェクト型でなければならないという要件が一貫して規定された（配列型・関数型は不適格）
