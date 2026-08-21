@@ -47,6 +47,7 @@ path(InputIterator first, InputIterator last,
     - [`std::basic_string`](/reference/string/basic_string.md)`<EcharT, traits, Allocator>`
     - [`std::basic_string_view`](/reference/string_view/basic_string_view.md)`<EcharT, traits>`
     - `ECharT`型を要素とする文字配列と、文字配列へのポインタ
+    - `Source`は`path`以外の型であること（C++20）
     - これらの要件を満たさない場合、この関数はオーバーロード解決の候補から除外される
     - `source`はヌルポインタであってはならない
 - (6), (8) : `InputIterator`が指す値型は`EcharT`であること
