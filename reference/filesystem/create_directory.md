@@ -82,3 +82,8 @@ int main()
 - [Clang](/implementation.md#clang): 7.0 [mark verified]
 - [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue 3079. LWG 2935 forgot to fix the `existing_p` overloads of `create_directory`](https://cplusplus.github.io/LWG/issue3079)
+    - C++20で、既存アタッチメントを取る`existing_p`版オーバーロードも、指定したパスがすでにディレクトリとして存在する場合にエラーとしないよう修正された
