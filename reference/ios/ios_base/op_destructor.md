@@ -13,9 +13,10 @@ virtual ~ios_base();
 
 
 ## 効果
-オブジェクトを破棄する。  
-また、[`register_callback`](register_callback.md) で登録されたペア `(fn, index)` を `(*fn)(`[`erase_event`](type-event.md)`, *this, index)` として呼び出す。  
-コールバック関数が呼び出されている間、[`ios_base`](../ios_base.md) のあらゆるメンバ関数呼び出しが有効に機能することが保証されている。
+- オブジェクトを破棄する。  
+- また、[`register_callback`](register_callback.md) で登録されたペア `(fn, index)` を `(*fn)(`[`erase_event`](type-event.md)`, *this, index)` として呼び出す。  
+    - コールバック関数が呼び出されている間、[`ios_base`](../ios_base.md) のあらゆるメンバ関数呼び出しが有効に機能することが保証されている。
+- C++23 : コールバックの呼び出し後、[`iword`](iword.md)・[`pword`](pword.md) のために確保されていたメモリを解放する。
 
 
 ## バージョン
@@ -33,3 +34,5 @@ virtual ~ios_base();
 - [`ios_base`](../ios_base.md)`::`[`ios_base`](op_constructor.md)
 - [`basic_ios`](../basic_ios.md)
 - [`basic_ios`](../basic_ios.md)`::`[`~basic_ios`](../basic_ios/op_destructor.md)
+- [LWG Issue 3434. `ios_base` never reclaims memory for `iarray` and `parray`](https://cplusplus.github.io/LWG/issue3434)
+    - C++23で、デストラクタの効果に、`iword`・`pword`のために確保したメモリを解放することが追記された
