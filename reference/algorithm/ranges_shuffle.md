@@ -130,3 +130,5 @@ before: 0123456789abcdef
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [LWG Issue 3191. `std::ranges::shuffle` synopsis does not match algorithm definition](https://cplusplus.github.io/LWG/issue3191)
+    - C++20で、シノプシスとアルゴリズム定義の不一致を解消するため、冗長な`convertible_to`制約がシノプシスから削除された
