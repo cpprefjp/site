@@ -144,11 +144,11 @@ namespace std {
 ```cpp
 template<class I>
 concept cpp17-iterator =
-  copyable<I> && requires(I i) {
+  requires(I i) {
     {   *i } -> can-reference;
     {  ++i } -> same_as<I&>;
     { *i++ } -> can-reference;
-  };
+  } && copyable<I>;
 
 template<class I>
 concept cpp17-input-iterator =
@@ -255,3 +255,5 @@ int main()
 - [LWG 2952. `iterator_traits` should work for pointers to cv `T`](https://wg21.cmeerw.net/lwg/issue2952)
     - C++17から、`const T*`の部分特殊化が、`T*`の部分特殊化に統合され、`volatile`付きのポインタもこのクラスで扱えるようになった
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [LWG Issue 3420. cpp17-iterator should check that the type looks like an iterator first](https://cplusplus.github.io/LWG/issue3420)
+    - C++23で、説明専用コンセプト`cpp17-iterator`の定義で`copyable<I>`の位置が`requires`式の後ろに移動され、イテレータらしい形を先に確認するようになった（満たす型集合は不変）
