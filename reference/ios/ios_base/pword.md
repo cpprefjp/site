@@ -12,6 +12,10 @@ void*& pword(int idx);
 `void*` 型の私用記憶域への参照を取得する。
 
 
+## 事前条件
+- C++20 : `idx`は、[`xalloc`](xalloc.md)の呼び出しによって取得した値であること。この事前条件を満たさない値（たとえば `-1` ）を渡した場合の動作は未規定
+
+
 ## 効果
 `idx` で指定した記憶域がまだ確保されていなかった場合、新たに `void*` 型の記憶域を確保し、ヌルポインタで初期化する。
 もし、記憶域の確保に失敗し、かつ、`*this` が [`basic_ios`](../basic_ios.md) の基底サブオブジェクトの場合、[`basic_ios`](../basic_ios.md)`::`[`setstate`](../basic_ios/setstate.md)`(badbit)` を呼び出す（これは [`failure`](failure.md) 例外を送出するかもしれない）。
@@ -22,8 +26,7 @@ void*& pword(int idx);
 
 
 ## 備考
-- 引数 `idx` には、[`xalloc`](xalloc.md) で取得した値を渡すことが想定されている。
-    そうすることによって、各プログラムが他のプログラムと競合すること無く各ストリームオブジェクト内に `void*` 型の私用記憶域を確保することが可能となる。
+- 引数 `idx` に [`xalloc`](xalloc.md) で取得した値を渡すことによって、各プログラムが他のプログラムと競合すること無く各ストリームオブジェクト内に `void*` 型の私用記憶域を確保することが可能となる。
 - 本関数で取得した `void*` への参照は、本オブジェクトの他の操作によって無効になる可能性がある。  
     しかし、その場合でも引数 `idx` で指定した記憶域の内容は依然として有効である。
 - 本関数で取得した `void*` 型の記憶域の内容は、[`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md) でコピーされる。  
@@ -129,10 +132,14 @@ int main()
 （コールバックは例外を送出してはいけない。[`register_callback`](register_callback.md) の要件を参照）
 
 
-## 参照
+## 関連項目
 - [`xalloc`](xalloc.md)
 - [`iword`](iword.md)
 - [`basic_ios`](../basic_ios.md)`::`[`copyfmt`](../basic_ios/copyfmt.md)
 - [`register_callback`](register_callback.md)
 - [`event_callback`](type-event_callback.md)
 - [`event`](type-event.md)
+
+## 参照
+- [LWG Issue 3083. What should `ios::iword(-1)` do?](https://cplusplus.github.io/LWG/issue3083)
+    - C++20で、引数には[`xalloc`](xalloc.md)で取得した値を渡すことが事前条件として明確化された（それ以外の値を渡した場合の動作は未規定）
