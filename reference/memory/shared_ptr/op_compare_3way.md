@@ -40,7 +40,7 @@ namespace std {
 
 - (2) :
     ```cpp
-    return compare_three_way()(a.get(), nullptr);
+    return compare_three_way()(a.get(), static_cast<typename shared_ptr<T>::element_type*>(nullptr));
     ```
     * compare_three_way[link /reference/compare/compare_three_way.md]
     * get()[link get.md]
@@ -98,4 +98,6 @@ p3 is nullptr
 ## 参照
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [LWG Issue 3427. `operator<=>(const shared_ptr<T>&, nullptr_t)` definition ill-formed](https://cplusplus.github.io/LWG/issue3427)
+    - C++23で、`nullptr`との三方比較(2)の戻り値定義が、`compare_three_way`がポインタ型を推論できるよう`static_cast`でポインタ型に変換する形に修正された
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
