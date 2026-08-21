@@ -257,3 +257,5 @@ int main() {
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
 - [LWG Issue 4297. Missing `permutable` constraint for iterator overloads in Parallel Range Algorithms](https://cplusplus.github.io/LWG/issue4297)
     - C++26で、並列版のイテレータオーバーロード(3)に`permutable<I>`制約が追加された（範囲版(4)にはあったが、イテレータ版で欠落していたものの修正）
+- [LWG Issue 3186. Ranges `remove`, `partition`, and `partial_sort_copy` algorithms discard useful information](https://cplusplus.github.io/LWG/issue3186)
+    - C++20で、これらのアルゴリズムが処理後の終端イテレータ等の有用な情報を返すよう、戻り値が`subrange`や結果型に変更された

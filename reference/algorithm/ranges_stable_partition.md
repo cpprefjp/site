@@ -175,3 +175,5 @@ int main()
 - [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
     - C++26から`constexpr`に対応した
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 3186. Ranges `remove`, `partition`, and `partial_sort_copy` algorithms discard useful information](https://cplusplus.github.io/LWG/issue3186)
+    - C++20で、これらのアルゴリズムが処理後の終端イテレータ等の有用な情報を返すよう、戻り値が`subrange`や結果型に変更された
