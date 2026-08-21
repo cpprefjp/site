@@ -30,6 +30,7 @@ namespace std::filesystem {
 - (3), (4) : パス`existing_p`の属性を取得し、その属性を付加してパス`p`のディレクトリを作成する
     - POSIX環境では、[`stat`](https://web.archive.org/web/20230827123440/https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html)`(existing_p.c_str(), &attributes_stat)`の呼び出し後に、[`mkdir`](https://web.archive.org/web/20231009095236/https://linuxjm.osdn.jp/html/LDP_man-pages/man2/mkdir.2.html)`(p.c_str(), attributes_stat.st_mode)`の呼び出しでディレクトリを作成する
     - Windows環境では、`CreateDirectoryExW(existing_p.c_str(), p.c_str(), 0)`を呼び出す
+- (1)〜(4) : パス`p`がすでにディレクトリとして存在する場合、ディレクトリの作成は行われず、これはエラーとして扱われない（戻り値は`false`となる）
 
 
 ## 戻り値
