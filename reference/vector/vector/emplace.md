@@ -45,6 +45,9 @@ constexpr iterator
 
 ## 備考
 - 再確保の可能性、イテレータの有効性への影響、例外発生時に副作用が発生しない保証はいずれも[`insert()`](insert.md)と同様。
+- 引数`args`がこのコンテナ自身の要素を参照する場合の扱いは、バージョンによって以下のように異なる：
+    - C++17まで : 引数`args`がコンテナ自身の要素を参照する場合の動作は規定されていない
+    - C++20 : 引数`args`は、このコンテナ自身の要素を直接的または間接的に参照してもよい。たとえば`v.emplace(v.begin(), v.back())`のように、末尾要素を先頭に挿入する操作も正しく動作する
 
 
 ## 例
@@ -93,3 +96,5 @@ int main()
 - [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
     - 経緯の説明は、[`vector::push_back()`](/reference/vector/vector/push_back.md)ページを参照。
 - [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)
+- [LWG Issue 2164. What are the semantics of `vector.emplace(vector.begin(), vector.back())`?](https://cplusplus.github.io/LWG/issue2164)
+    - C++20で、引数がコンテナ自身の要素を参照してもよいことが明確化された
