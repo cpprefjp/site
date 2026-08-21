@@ -16,6 +16,7 @@ int compare(const value_type* s) const;             // (4)
 他のパスと、パスの各要素を辞書順で比較する。
 
 
+## 戻り値
 - (1) : 以下の順序で比較した結果を返す：
     1. `rootNameComparison`を`this->`[`root_name()`](root_name.md)`.`[`native()`](native.md)`.`[`compare`](/reference/string/basic_string/compare.md)`(p.`[`root_name()`](root_name.md)`.`[`native()`](native.md)`)`とする。`rootNameComparison`が0でなければ、その値を返す
     2. `this->`[`has_root_directory()`](has_root_directory.md)かつ`!p.`[`has_root_directory()`](has_root_directory.md)であれば、0より大きい値を返す
