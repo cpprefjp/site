@@ -39,17 +39,14 @@ match_results& operator=(match_results&& m) noexcept;   // (2)
     | [`length`](length.md)`()`               | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m.`[`length`](length.md)`(n)`     |
     | [`position`](position.md)`()`           | `n <` [`size`](size.md)`()` である全ての整数 `n` について、`m.`[`position`](position.md)`(n)` |
 
+- `match_results`はアロケータを持つコンテナの規則に従い、アロケータについて以下を満たす。
+    - (1) : [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::propagate_on_container_copy_assignment::value == true` である場合、[`get_allocator`](get_allocator.md)`() == m.`[`get_allocator`](get_allocator.md)`()`
+    - (2) : [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value == true` である場合、[`get_allocator`](get_allocator.md)`() == m.`[`get_allocator`](get_allocator.md)`()`
+
 
 ## 計算量
 - (1) 線形時間
 - (2) 線形時間
-
-
-## 備考
-規格では明確ではないものの、以下の事後条件を満たすべきであると思われる。
-
-- (1) [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::propagate_on_container_copy_assignment::value == true` である場合、[`get_allocator`](get_allocator.md)`() == m.`[`get_allocator`](get_allocator.md)`()`
-- (2) [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::propagate_on_container_move_assignment::value == true` である場合、[`get_allocator`](get_allocator.md)`() == m.`[`get_allocator`](get_allocator.md)`()`
 
 
 ## 例
@@ -137,4 +134,9 @@ suffix:' '
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ### 備考
-GCC(libstdc++) の 4.9.2 までは、アロケータが上記の備考欄のようには設定されず、また、[`regex_iterator`](../regex_iterator.md) を間接参照した結果を代入した場合に [`position`](position.md) の結果が正しくコピーされない。これは、4.9.3 以降で修正される予定である。
+GCC(libstdc++) の 4.9.2 までは、アロケータが上記の事後条件のようには設定されず、また、[`regex_iterator`](../regex_iterator.md) を間接参照した結果を代入した場合に [`position`](position.md) の結果が正しくコピーされない。これは、4.9.3 以降で修正される予定である。
+
+
+## 参照
+- [LWG Issue 2184. Muddled allocator requirements for `match_results` assignments](https://cplusplus.github.io/LWG/issue2184)
+    - コピー代入・ムーブ代入がサポートされることが明確化された。C++11時点の規格は、クラス概要でコピー代入・ムーブ代入演算子を宣言する一方、要件の除外句が「const修飾されたシーケンスコンテナの操作のみサポート」と読め、両者が矛盾していた。この修正はC++20に取り込まれたが、矛盾した文言を正すものであり、演算子自体はC++11から存在してアロケータ対応コンテナの規則に従うため、実装の挙動は変わらない（欠陥修正のため処理系は早期に対応している）
