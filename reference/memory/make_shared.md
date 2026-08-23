@@ -145,5 +145,9 @@ int main() {
 - [std::make_shared から private コンストラクタを呼び出す - 野良C++erの雑記帳](http://d.hatena.ne.jp/gintenlabo/20131211/1386771626)
 - [P0674R1 Extending `make_shared` to support arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0674r1.html)
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+- [LWG Issue 3005. Destruction order of arrays by `make_shared`/`allocate_shared` only recommended?](https://cplusplus.github.io/LWG/issue3005)
+    - C++20で、配列要素の破棄順が非規範的な推奨から規範的要件に格上げされ、元の構築順の逆順で破棄されることが明確化された
+- [LWG Issue 3008. `make_shared` (sub)object destruction semantics are not specified](https://cplusplus.github.io/LWG/issue3008)
+    - C++20で、生成した(サブ)オブジェクトの破棄方法（`make_shared`は式`pv->~U()`による破棄）が明示的に規定された
 - [LWG Issue 4451. `make_shared` should not refer to a type `U[N]` for runtime N](https://cplusplus.github.io/LWG/issue4451)
     - C++26で、`N`が実行時の値である配列版において、結果を「`U[N]`型のオブジェクト」ではなく「[`remove_extent_t`](../type_traits/remove_extent.md)`<T>`型の`N`要素の配列」と表現するよう文言が修正された（実行時サイズの`U[N]`は妥当な型ではないため）
