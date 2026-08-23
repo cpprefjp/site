@@ -15,6 +15,10 @@ namespace std {
 `shared_future`は、[`future`](future.md)クラスオブジェクトから変換によって生成されるクラスである。[`future`](future.md)オブジェクトが[`promise`](promise.md)との共有状態を単一オブジェクトで待機するのに対し、`shared_future`オブジェクトは同じ共有状態を複数オブジェクトで待機することを可能にする。
 
 
+## 適格要件
+- C++23 : `R`が参照型でも`void`でもない場合、`R`はデストラクト可能 (`Cpp17Destructible`) なオブジェクト型であること。配列型・関数型は不適格である。
+
+
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -108,3 +112,5 @@ int main()
 
 
 ## 参照
+- [LWG Issue 3466. Specify the requirements for `promise`/`future`/`shared_future` consistently](https://cplusplus.github.io/LWG/issue3466)
+    - C++23で、テンプレート引数`R`がCpp17Destructible要件を満たすオブジェクト型でなければならないという要件が一貫して規定された（配列型・関数型は不適格）

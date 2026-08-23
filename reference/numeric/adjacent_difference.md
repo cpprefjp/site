@@ -74,11 +74,11 @@ namespace std {
     - C++11からC++17まで : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`binary_op(b, a)`の結果が`result`出力イテレータに書き込めること
     - C++20から : `InputIterator`が指す値の型のオブジェクト`a`と`b`において、式`binary_op(b,` [`std::move`](/reference/utility/move.md)`(a))`の結果が`result`出力イテレータに書き込めること
 - (3) :
-    - `ForwardIterator1`が指す値の型が、[ムーブ代入可能](/reference/type_traits/is_move_assignable.md)であり、`*first`で初期化でき、`ForwardIterator2`が指す値の型に対して代入できること
-    - `ForwardIterator1`が指す値の型のオブジェクト`a`と`b`において、式`b - a`の結果が、`ForwardIterator2`が指す値の型に対して代入できること
+    - C++17 : `ForwardIterator1`が指す値の型が、[ムーブ代入可能](/reference/type_traits/is_move_assignable.md)であり、`*first`で初期化でき、`ForwardIterator2`が指す値の型に対して代入できること。かつ、オブジェクト`a`と`b`において式`b - a`の結果が`ForwardIterator2`が指す値の型に対して代入できること
+    - C++20から : 式`*first`、および式`*first - *first`の結果が、`result`出力イテレータに書き込めること
 - (4) :
-    - `ForwardIterator1`が指す値の型が、[ムーブ代入可能](/reference/type_traits/is_move_assignable.md)であり、`*first`で初期化でき、`ForwardIterator2`が指す値の型に対して代入できること
-    - `ForwardIterator1`が指す値の型のオブジェクト`a`と`b`において、式`binary_op(b, a)`の結果が、`ForwardIterator2`が指す値の型に対して代入できること
+    - C++17 : `ForwardIterator1`が指す値の型が、[ムーブ代入可能](/reference/type_traits/is_move_assignable.md)であり、`*first`で初期化でき、`ForwardIterator2`が指す値の型に対して代入できること。かつ、オブジェクト`a`と`b`において式`binary_op(b, a)`の結果が`ForwardIterator2`が指す値の型に対して代入できること
+    - C++20から : 式`*first`、および式`binary_op(*first, *first)`の結果が、`result`出力イテレータに書き込めること
 
 
 ## 効果
@@ -89,11 +89,9 @@ namespace std {
         - C++17 : (1)であれば`val - acc`、(2)であれば`binary_op(val, acc)`で隣接値を求めて、その結果を`*result`に代入する
         - C++20 : (1)であれば`val -` [`std::move`](/reference/utility/move.md)`(acc)`、(2)であれば`binary_op(val,` [`std::move`](/reference/utility/move.md)`d(acc))`で隣接値を求めて、その結果を`*result`に代入する
     4. `val`を`acc`にムーブ代入し、ひとつ前の位置の値を更新する
-- (3), (4) : 非空のイテレータ範囲`[first, last)`について、
-    1. `*result = *first`で結果の初期値を代入する
-    2. インデックス範囲`[1, last - first - 1]`のそれぞれの値`d`として定義する
-    3. (3)であれば`val = *(first + d) - *(first + d - 1)`、(4)であれば`val = binary_op(*(first + d), *(first + d - 1))`として、隣接値を求める
-    4. `*(result + d) = val`で各隣接値を出力する
+- (3), (4) : 非空のイテレータ範囲`[first, last)`について、((3)の場合、`binary_op`は[`minus`](/reference/functional/minus.md)`<>`型のオブジェクトとする)
+    1. `*result = *first`を行う
+    2. インデックス範囲`[1, last - first - 1]`のそれぞれの値`d`について、`*(result + d) = binary_op(*(first + d), *(first + (d - 1)))`を行う
 
 
 ## 戻り値
@@ -204,3 +202,5 @@ OutputIterator adjacent_difference(InputIterator first, InputIterator last, Outp
 - [P0616R0 De-pessimize legacy `<numeric>` algorithms with `std::move`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0616r0.pdf)
 - [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
     - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した
+- [LWG Issue 3058. Parallel `adjacent_difference` shouldn't require creating temporaries](https://cplusplus.github.io/LWG/issue3058)
+    - C++20で、並列版(3), (4)の効果から中間一時オブジェクトの生成要求が取り除かれ、要件も結果が`result`に書き込み可能であることへ整理された

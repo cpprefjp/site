@@ -34,7 +34,7 @@ namespace std {
 - `aligned_union`は、領域サイズ`Len`、要素型列`Types...`で調整した未初期化の共用体領域をメンバ型`type`として定義する。
 - メンバ型`type`は、以下の型分類となる：
     - C++11 : `Types...`のいずれかの型が非POD型だとしても、メンバ型`type`は[POD型](is_pod.md)となる
-    - C++20 : `Types...`のいずれかの型が非トリビアル型だとしても、メンバ型`type`は[トリビアル型](is_trivial.md)となる
+    - C++20 : `Types...`のいずれかの型が非トリビアル型だとしても、メンバ型`type`は[トリビアル型](is_trivial.md)かつ[標準レイアウト型](is_standard_layout.md)となる
 
 また、`Types...`全ての厳格なアライメント値を、[`std::size_t`](/reference/cstddef/size_t.md)型の静的メンバ定数`alignment_value`として定義する。
 
@@ -132,5 +132,7 @@ hello
 - [LWG Issue 2979. `aligned_union` should require complete object types](https://wg21.cmeerw.net/lwg/issue2979)
 - [P0767R1 Deprecate POD](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0767r1.html)
     - C++20でPOD用語の非推奨化にともない、メンバ型`type`がPOD型ではなくトリビアル型に分類されるよう規定が変更された
+- [LWG Issue 3034. P0767R1 breaks previously-standard-layout types](https://cplusplus.github.io/LWG/issue3034)
+    - C++20で、P0767R1がPOD要件をトリビアル要件へ置き換えた際に標準レイアウト性が欠落していたため、メンバ型`type`がトリビアルかつ標準レイアウトであることが要件として補われた
 - [P1413R3 Deprecate `std::aligned_storage` and `std::aligned_union`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1413r3.pdf)
     - C++23でこの機能が非推奨となった

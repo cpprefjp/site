@@ -35,7 +35,7 @@ namespace std {
 - `aligned_storage`は、領域サイズ`Len`、アライメント`Align`で調整した未初期化領域をメンバ型`type`として定義する。
 - メンバ型`type`は以下の型に分類されること：
     - C++11 : [POD型](is_pod.md)
-    - C++20 : [トリビアル型](is_trivial.md)
+    - C++20 : [トリビアル型](is_trivial.md)かつ[標準レイアウト型](is_standard_layout.md)
 
 `Align`のデフォルト値は、`Len`よりも大きくない、最も厳格なアライメント要件を持つ、C++の何らかのオブジェクト型のアライメント値。
 
@@ -215,5 +215,7 @@ int main()
     - C++14で`aligned_storage_t`が定義された
 - [P0767R1 Deprecate POD](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0767r1.html)
     - C++20でPOD用語の非推奨化にともない、メンバ型`type`がPOD型ではなくトリビアル型に分類されるよう規定が変更された
+- [LWG Issue 3034. P0767R1 breaks previously-standard-layout types](https://cplusplus.github.io/LWG/issue3034)
+    - C++20で、P0767R1がPOD要件をトリビアル要件へ置き換えた際に標準レイアウト性が欠落していたため、メンバ型`type`がトリビアルかつ標準レイアウトであることが要件として補われた
 - [P1413R3 Deprecate `std::aligned_storage` and `std::aligned_union`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1413r3.pdf)
     - C++23でこの機能が非推奨となった

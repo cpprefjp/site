@@ -16,10 +16,7 @@ namespace std::ranges {
 Rangeの要素数を符号付き整数型で取得する関数オブジェクト。
 
 ## 効果
-部分式`E`の型を`T`とする。このとき、式`ranges::ssize(E)`の効果は以下の式と等しい。
-
-1. [`range_difference_t`](range_difference_t.md)`<T>`が[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)より狭ければ、`static_cast<`[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)`>(`[`ranges::size`](size.md)`(E))`。
-2. それ以外のとき、`static_cast<`[`range_difference_t`](range_difference_t.md)`<T>>(`[`ranges::size`](size.md)`(E))`。
+式`ranges::ssize(E)`は、[`ranges::size`](size.md)`(E)`が有効な式であるときに有効であり、`static_cast<D>(`[`ranges::size`](size.md)`(E))`と等しい。ここで`D`は、`decltype(`[`ranges::size`](size.md)`(E))`を符号付き整数型にした型と[`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)のうち、幅の広い方の型である。
 
 ## 戻り値
 Rangeの要素数。
@@ -70,3 +67,5 @@ int main()
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 3403. Domain of `ranges::ssize(E)` doesn't match `ranges::size(E)`](https://cplusplus.github.io/LWG/issue3403)
+    - C++23で、`ranges::ssize`の定義が`decltype(ranges::size(E))`ベースに書き換えられ、`ranges::size`が有効なら`ranges::ssize`も有効となるようドメインが一致された

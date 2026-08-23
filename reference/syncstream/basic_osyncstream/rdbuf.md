@@ -59,4 +59,6 @@ Hello, World!
 
 ## 参照
 - [P0053R7 C++ Synchronized Buffered Ostream](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0053r7.pdf)
+- [LWG Issue 3127. `basic_osyncstream::rdbuf` needs a `const_cast`](https://cplusplus.github.io/LWG/issue3127)
+    - C++20で、const版の`rdbuf()`が非const版の`syncbuf_type*`を返せるよう、戻り値に`const_cast`が追加された
 - [LWG Issue 3130. §[input.output] needs many `addressof`](https://wg21.cmeerw.net/lwg/issue3130)

@@ -178,6 +178,7 @@ constexpr basic_string(from_range_t, R&& rg,
     ```
 
     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
+- C++20 では、(8), (9) は、`Allocator`がアロケータの要件を満たさない型の場合、オーバーロード解決に参加しない。これは、クラステンプレートの実引数推論 (CTAD) における曖昧性を回避するための制約である。
 
 
 ## 例
@@ -265,6 +266,8 @@ s14 : Hello
     - `string_view`から範囲を指定して構築する(15)を追加
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(14)の引数型を`const T&`に変更
+- [LWG Issue 3076. `basic_string` CTAD ambiguity](https://cplusplus.github.io/LWG/issue3076)
+    - C++20で、(8), (9)に`Allocator`がアロケータ要件を満たさない型の場合はオーバーロード解決に参加しないという制約が追加され、クラステンプレート実引数推論(CTAD)の曖昧性が解消された
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
 - [P2166R1 A Proposal to Prohibit std::basic_string and std::basic_string_view construction from nullptr.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2166r1.html)
     - C++23での(16)`nullptr_t`をとるコンストラクタのdelete宣言追加

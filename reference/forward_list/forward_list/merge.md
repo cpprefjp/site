@@ -33,7 +33,12 @@ constexpr void merge(forward_list&& x, Compare comp); // (4) C++26
 
 
 ## 効果
-[`addressof`](/reference/memory/addressof.md)`(x) == this`である場合、何もしない。そうでない場合、2つのソート済みイテレータ範囲`[begin(), end())`と`[x.begin(), x.end())`をマージする。2つの`forward_list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。
+2つのソート済みイテレータ範囲`[begin(), end())`と`[x.begin(), x.end())`をマージする。2つの`forward_list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。
+
+[`addressof`](/reference/memory/addressof.md)`(x) == this`（自己マージ）の場合の扱いは、バージョンによって異なる。
+
+- C++11 : 規定されていない
+- C++23 : 何もしない
 
 マージ後、`x`の要素に対するイテレータおよび参照は無効にならない。
 
@@ -47,7 +52,9 @@ constexpr void merge(forward_list&& x, Compare comp); // (4) C++26
 
 
 ## 計算量
-[`addressof`](/reference/memory/addressof.md)`(x) == this`である場合、比較を行わない。そうでない場合、高々[`distance`](/reference/iterator/distance.md)`(`[`begin`](begin.md)()`,` [`end`](end.md)`()) +` [`distance`](/reference/iterator/distance.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`()) - 1`回の比較
+高々[`distance`](/reference/iterator/distance.md)`(`[`begin`](begin.md)()`,` [`end`](end.md)`()) +` [`distance`](/reference/iterator/distance.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`()) - 1`回の比較。
+
+- C++23 : ただし、[`addressof`](/reference/memory/addressof.md)`(x) == this`である場合は比較を行わない
 
 
 ## 備考

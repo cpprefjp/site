@@ -55,6 +55,8 @@ for (; first != last; ++result, ++first)
 
 呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
 
+ただし、ムーブ元の範囲`[first, last)`のオブジェクトの一部は、すでにムーブされた結果として有効だが未規定の状態になっていることがある。
+
 ### 例
 ```cpp example
 #include <iostream>
@@ -120,6 +122,8 @@ int main()
 - [P0040R3 Extending memory management tools](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0040r3.html)
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
     - C++26から`constexpr`がついた
+- [LWG Issue 3054. `uninitialized_copy` appears to not be able to meet its exception-safety guarantee](https://cplusplus.github.io/LWG/issue3054)
+    - C++20で、例外送出時に「効果なし」とする達成不能な保証が撤廃され、構築済みのオブジェクトを未規定の順序で破棄してから例外を伝播すると明確化された
 - [LWG Issue 3918. `std::uninitialized_move`/`_n` and guaranteed copy elision](https://cplusplus.github.io/LWG/issue3918)
     - C++26で、要素の構築に説明専用ヘルパ`deref-move`を用いるようになり、`*first`がprvalueを返すイテレータに対してコピーの省略が保証されるようになった
 - [LWG Issue 4452. Make _deref-move_ constexpr](https://cplusplus.github.io/LWG/issue4452)

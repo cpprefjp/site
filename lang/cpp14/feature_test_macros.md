@@ -49,3 +49,5 @@ SD-6 は C++14 の機能について以下のテストマクロを定義する�
 
 ## 参照
 - [SD-6: SG10 Feature Test Recommendations: Standard C++](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations#recs.cpp14)
+- [LWG Issue 3122. `__cpp_lib_chrono_udls` was accidentally dropped](https://cplusplus.github.io/LWG/issue3122)
+    - C++20のドラフト作業中に誤って削除されていた機能テストマクロ`__cpp_lib_chrono_udls`（値`201304L`）が復活された

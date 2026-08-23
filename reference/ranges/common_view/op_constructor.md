@@ -66,3 +66,5 @@ int main() {
 
 ## 参照
 - [N4861 24.7.5.1 Overview](https://timsong-cpp.github.io/cppwp/n4861/range.common.view)
+- [LWG Issue 3405. `common_view`'s converting constructor is bad, too](https://cplusplus.github.io/LWG/issue3405)
+    - C++23で、問題のあった変換コンストラクタテンプレートが`common_view`からも削除された（LWG 3280が他のviewから削除した際の見落としの修正）

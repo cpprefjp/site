@@ -97,3 +97,5 @@ int main()
 ## 参照
 - [P0156R2 Variadic `lock_guard` (Rev. 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0156r2.html)
 - [P0739R0 Some improvements to class template argument deduction integration into the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0739r0.html)
+- [LWG Issue 2731. Existence of `lock_guard<MutexTypes...>::mutex_type` typedef unclear](https://cplusplus.github.io/LWG/issue2731)
+    - C++23で、`mutex_type`メンバ型がテンプレート引数を1つだけ持つ場合にのみ定義されることが明確化された

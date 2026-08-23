@@ -7,11 +7,17 @@
 
 ```cpp
 constexpr auto begin()
-  requires (!simple-view<V>);       // (1) C++20
+  requires (!(simple-view<V> &&
+              random_access_range<const V> &&
+              sized_range<const V>));       // (1) C++20
 
 constexpr auto begin() const
-  requires range<const V>;          // (2) C++20
+  requires random_access_range<const V> &&
+           sized_range<const V>;            // (2) C++20
 ```
+* simple-view[link /reference/ranges/simple-view.md]
+* random_access_range[link ../random_access_range.md]
+* sized_range[link ../sized_range.md]
 
 ## 概要
 
@@ -68,3 +74,8 @@ int main() {
 - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+
+
+## 参照
+- [LWG Issue 3482. `drop_view`'s const `begin` should additionally require `sized_range`](https://cplusplus.github.io/LWG/issue3482)
+    - C++23で、`const`版の`begin()`の制約に[`sized_range`](../sized_range.md)`<const V>`が追加され、あわせて非`const`版の`begin()`(1)の制約条件も見直された

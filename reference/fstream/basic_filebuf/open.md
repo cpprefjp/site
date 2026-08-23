@@ -24,6 +24,11 @@ basic_filebuf* open(const T& s, ios_base::openmode mode); // (4) C++23
 ## テンプレートパラメータ制約
 - (4) C++23 : [`is_same_v`](/reference/type_traits/is_same.md)`<T, filesystem::path>`が`true`であること
 
+## 事前条件
+- (1), (2) :
+    - C++20 : `s`はヌル終端文字列 (NTCTS) を指していること。
+
+
 ## 効果
 
 まず`mode & ~ios_base::ate`の結果からファイルの開くモードが決定される。`fopen`のモード文字列との対応は以下の通り。
@@ -92,4 +97,5 @@ int main()
 - [LGW issue 2676. Provide filesystem::path overloads for File-based streams](https://wg21.cmeerw.net/lwg/issue2676)
 - [LWG Issue 3430. `std::fstream` & co. should be constructible from `string_view`](https://cplusplus.github.io/LWG/issue3430)
     - C++23で、`filesystem::path`を受け取る`open`(4)が、`path`へ暗黙変換可能な型による高コストな変換を防ぐため、`is_same_v<T, filesystem::path>`を制約とする制約付きテンプレートに変更された
-- [LGW issue 2943. Problematic specification of the wide version of basic_filebuf::open](https://wg21.cmeerw.net/lwg/issue2943)
+- [LWG Issue 2943. Problematic specification of the wide version of `basic_filebuf::open`](https://cplusplus.github.io/LWG/issue2943)
+    - C++20で、ワイド版`open`の効果が、`fopen`をモード文字列付きで呼び出したかのように振る舞うと明確化された

@@ -27,6 +27,11 @@ pointer allocate(size_type n,
 ## 例外
 ストレージからのメモリ確保に失敗した場合、[`bad_alloc`](/reference/new/bad_alloc.md)例外を送出する。
 
+要求サイズが乗算オーバーフローを起こす（`SIZE_MAX / sizeof(T) < n`である）場合の扱いは、バージョンによって異なる。
+
+- C++03 : この場合の例外は規定されていない
+- C++20 : [`bad_array_new_length`](/reference/new/bad_array_new_length.md)例外を送出する
+
 
 ## 備考
 コンテナのメンバ関数でこの関数を使用する場合には、隣接要素のアドレスをヒントとして渡すのが適している。
@@ -73,3 +78,5 @@ int main()
     - C++20で`constexpr`が付加された
 - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
     - C++26で`[[nodiscard]]`指定が削除された
+- [LWG Issue 3190. `std::allocator::allocate` sometimes returns too little storage](https://cplusplus.github.io/LWG/issue3190)
+    - C++20で、要求サイズが乗算オーバーフローを起こす（`SIZE_MAX / sizeof(T) < n`）場合に[`bad_array_new_length`](/reference/new/bad_array_new_length.md)を送出することが規定された

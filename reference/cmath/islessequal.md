@@ -106,6 +106,8 @@ islessequal(nan, nan) = false
 
 
 ## 参照
+- [LWG Issue 3051. Floating point classifications were inadvertently changed in P0175](https://cplusplus.github.io/LWG/issue3051)
+    - C++20で、P0175が誤ってこれらの関数の戻り値型を`bool`から`int`に変更していたのが修正され、`bool`に戻された
 - [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
     - C++23での、一部関数の`constexpr`対応
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)

@@ -30,6 +30,7 @@ namespace std::filesystem {
 - (3), (4) : パス`existing_p`の属性を取得し、その属性を付加してパス`p`のディレクトリを作成する
     - POSIX環境では、[`stat`](https://web.archive.org/web/20230827123440/https://linuxjm.osdn.jp/html/LDP_man-pages/man2/stat.2.html)`(existing_p.c_str(), &attributes_stat)`の呼び出し後に、[`mkdir`](https://web.archive.org/web/20231009095236/https://linuxjm.osdn.jp/html/LDP_man-pages/man2/mkdir.2.html)`(p.c_str(), attributes_stat.st_mode)`の呼び出しでディレクトリを作成する
     - Windows環境では、`CreateDirectoryExW(existing_p.c_str(), p.c_str(), 0)`を呼び出す
+- (1)〜(4) : パス`p`がすでにディレクトリとして存在する場合、ディレクトリの作成は行われず、これはエラーとして扱われない（戻り値は`false`となる）
 
 
 ## 戻り値
@@ -82,3 +83,8 @@ int main()
 - [Clang](/implementation.md#clang): 7.0 [mark verified]
 - [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue 3079. LWG 2935 forgot to fix the `existing_p` overloads of `create_directory`](https://cplusplus.github.io/LWG/issue3079)
+    - C++20で、既存アタッチメントを取る`existing_p`版オーバーロードも、指定したパスがすでにディレクトリとして存在する場合にエラーとしないよう修正された

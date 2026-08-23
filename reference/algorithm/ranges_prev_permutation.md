@@ -112,3 +112,5 @@ int main ()
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [LWG Issue 3169. Ranges permutation generators discard useful information](https://cplusplus.github.io/LWG/issue3169)
+    - C++20で、`ranges::next_permutation`/`ranges::prev_permutation`の戻り値が`bool`から、順列生成後の終端イテレータも返す結果型に変更された

@@ -15,6 +15,10 @@ namespace std {
 `future`は、「別スレッドでの処理完了を待ち、その処理結果を取得する」といった非同期処理を実現するためのクラスであり、[`promise`](promise.md)クラスと組み合わせて使用する。[`promise`](promise.md)が別スレッドでの処理結果を書き込み、`future`がその結果を読み取る。[`promise`](promise.md)と`future`は内部的に同一の共有状態を参照する。これによってスレッド間での値の受け渡しやスレッド間同期を実現する。このクラスは`R&`および`void`の、2つの特殊化を持つ。
 
 
+## 適格要件
+- C++23 : `R`が参照型でも`void`でもない場合、`R`はデストラクト可能 (`Cpp17Destructible`) なオブジェクト型であること。配列型・関数型は不適格である。
+
+
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -105,3 +109,5 @@ int main()
 
 
 ## 参照
+- [LWG Issue 3466. Specify the requirements for `promise`/`future`/`shared_future` consistently](https://cplusplus.github.io/LWG/issue3466)
+    - C++23で、テンプレート引数`R`がCpp17Destructible要件を満たすオブジェクト型でなければならないという要件が一貫して規定された（配列型・関数型は不適格）

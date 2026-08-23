@@ -190,3 +190,5 @@ int main() {
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [LWG Issue 3186. Ranges `remove`, `partition`, and `partial_sort_copy` algorithms discard useful information](https://cplusplus.github.io/LWG/issue3186)
+    - C++20で、これらのアルゴリズムが処理後の終端イテレータ等の有用な情報を返すよう、戻り値が`subrange`や結果型に変更された

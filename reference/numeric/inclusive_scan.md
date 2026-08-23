@@ -239,3 +239,5 @@ int main()
 - [P0574R1: Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
 - [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
     - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した
+- [LWG Issue 3222. P0574R1 introduced preconditions on non-existent parameters](https://cplusplus.github.io/LWG/issue3222)
+    - C++20で、init無しオーバーロードの事前条件が、存在しないテンプレートパラメータを参照していた誤りを修正するeditorialな整理が行われた

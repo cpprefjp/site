@@ -19,7 +19,7 @@ void destroy(T* p);
 この関数において、以下の名称定義を行う。
 
 - `OUTERMOST(x)`関数は、アロケータオブジェクト`x`が`outer_allocator()`メンバ関数を持っている場合、その関数によって返されるアロケータを返す。そうでない場合は、`x`を返す。
-- [`allocator_traits`](/reference/memory/allocator_traits.md)`<decltype(OUTERMOST(x))>`を`OUTERMOST_ALLOC_TRAITS(x)`とする。
+- [`allocator_traits`](/reference/memory/allocator_traits.md)`<`[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<decltype(OUTERMOST(x))>>`を`OUTERMOST_ALLOC_TRAITS(x)`とする。
 
 この定義の元に、以下の関数呼び出しを行う：
 
@@ -90,3 +90,8 @@ int main()
 - [GCC](/implementation.md#gcc): 4.7.3 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 3116. `OUTERMOST_ALLOC_TRAITS` needs `remove_reference_t`](https://cplusplus.github.io/LWG/issue3116)
+    - C++20で、`OUTERMOST(x)`が参照を返しうることに対応し、`OUTERMOST_ALLOC_TRAITS`の定義に[`remove_reference_t`](/reference/type_traits/remove_reference.md)が挿入された

@@ -33,7 +33,7 @@ namespace std::ranges {
 ## 事前条件
 
 - (1) : `I`が[`bidirectional_iterator`](bidirectional_iterator.md)のモデルとならない場合、`n`は負数ではない
-- (2) : `[i, bound)`は有効なイテレータ範囲である
+- (2) : [`assignable_from`](/reference/concepts/assignable_from.md)`<I&, S>`または[`sized_sentinel_for`](sized_sentinel_for.md)`<S, I>`のいずれもモデルとならない場合、`[i, bound)`は有効なイテレータ範囲である
 - (3) : 次のいずれか
     - `n >  0` : `[i, bound)`は有効なイテレータ範囲である
     - `n == 0` : `[i, bound)`もしくは`[bound, i)`は有効なイテレータ範囲である
@@ -131,3 +131,5 @@ diff : 2
 ## 参照
 
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [LWG Issue 3306. `ranges::advance` violates its preconditions](https://cplusplus.github.io/LWG/issue3306)
+    - C++23で、番兵を取る(2)の事前条件が緩和され、`assignable_from<I&, S>`または`sized_sentinel_for<S, I>`のいずれかがモデルとなる場合は`[i, bound)`が有効な範囲であることを要求しないようになった

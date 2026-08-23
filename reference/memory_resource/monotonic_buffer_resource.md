@@ -86,3 +86,5 @@ namespace std::pmr {
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
 - [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)
 - [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
+- [LWG Issue 3143. `monotonic_buffer_resource` growth policy is unclear](https://cplusplus.github.io/LWG/issue3143)
+    - C++23で、クラスの性質の記述が整理・明確化された

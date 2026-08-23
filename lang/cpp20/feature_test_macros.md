@@ -88,7 +88,7 @@
 |`__cpp_lib_latch`|`201907L`|[`std::latch`](/reference/latch/latch.md)|[`<latch>`](/reference/latch.md)|
 |`__cpp_lib_list_remove_return_type`|`201806L`|[`std::list`](/reference/list/list.md)と[`std::forward_list`](/reference/forward_list/forward_list.md)の`remove(), remove_if(), unique()`の戻り値型変更|[`<forward_list>`](/reference/forward_list.md)<br/>[`<list>`](/reference/list.md)|
 |`__cpp_lib_math_constants`|`201907L`|数学定数|[`<numbers>`](/reference/numbers.md)|
-|`__cpp_lib_polymorphic_allocator`|`201902L`|[`std::pmr::polymorphic_allocator`](/reference/memory_resource/polymorphic_allocator.md)の改修|[`<memory>`](/reference/memory.md)|
+|`__cpp_lib_polymorphic_allocator`|`201902L`|[`std::pmr::polymorphic_allocator`](/reference/memory_resource/polymorphic_allocator.md)の改修|[`<memory_resource>`](/reference/memory_resource.md)|
 |`__cpp_lib_ranges`|`201911L`<br/>`202106L`<br/>`202110L`|RangeライブラリとRangeアルゴリズム<br/>[`view`](/reference/ranges/view.md)コンセプトのデフォルト構築要求を削除<br/>所有権を持つ`view`の許可と[`owning_view`](/reference/ranges/owning_view.md)|[`<algorithm>`](/reference/algorithm.md)<br/>[`<functional>`](/reference/functional.md)<br/>[`<iterator>`](/reference/iterator.md)<br/>[`<memory>`](/reference/memory.md)<br/>[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_remove_cvref`|`201711L`|[`std::remove_cvref`](/reference/type_traits/remove_cvref.md)|[`<type_traits>`](/reference/type_traits.md)|
 |`__cpp_lib_semaphore`|`201907L`|[`std::counting_semaphore`](/reference/semaphore/counting_semaphore.md)と`std::binary_semaphore`|[`<semaphore>`](/reference/semaphore.md)|
@@ -110,6 +110,14 @@
 ## 参照
 
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
+- [LWG Issue 3437. `__cpp_lib_polymorphic_allocator` is in the wrong header](https://cplusplus.github.io/LWG/issue3437)
+    - C++23で、`__cpp_lib_polymorphic_allocator`が定義されるヘッダの記載が`<memory>`から`<memory_resource>`に修正された
+- [LWG Issue 3257. Missing feature testing macro update from P0858](https://cplusplus.github.io/LWG/issue3257)
+    - C++20で、`__cpp_lib_array_constexpr`が`201803L`に、`__cpp_lib_string_view`が`201803L`に更新された
+- [LWG Issue 3274. Missing feature test macro for `<span>`](https://cplusplus.github.io/LWG/issue3274)
+    - C++20で、機能テストマクロ`__cpp_lib_span`が追加された（最終的な値は後続の提案文書により`202002L`）
+- [LWG Issue 3256. Feature testing macro for `constexpr` algorithms](https://cplusplus.github.io/LWG/issue3256)
+    - C++20で、機能テストマクロ名が`__cpp_lib_constexpr_swap_algorithms`から`__cpp_lib_constexpr_algorithms`にリネームされた
 - [LWG Issue 3792. `__cpp_lib_constexpr_algorithms` should also be defined in `<utility>`](https://cplusplus.github.io/LWG/issue3792)
     - C++23で、`__cpp_lib_constexpr_algorithms`の定義ヘッダに[`<utility>`](/reference/utility.md)が追加された（値`201806L`は不変。C++20へ遡及適用される）
 - [LWG Issue 4440. Forward declarations of entities need also in entries](https://cplusplus.github.io/LWG/issue4440)

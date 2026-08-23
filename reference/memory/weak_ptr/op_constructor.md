@@ -52,8 +52,8 @@ weak_ptr(weak_ptr<Y>&& r) noexcept;        // (6) C++26
 
 
 ## 効果
-- (1) : 監視対象を持たない、空の`weak_ptr`オブジェクトを構築する。
-- (2), (3) : `r`が空である場合、空の`weak_ptr`オブジェクトを構築する。そうでなければ、`r`の監視対象を`*this`にコピーする。
+- (1) : 監視対象を持たない、空の`weak_ptr`オブジェクトを構築する。この空の`weak_ptr`は、ヌルポインタ値を格納する。
+- (2), (3) : `r`が空である場合、空の`weak_ptr`オブジェクト（ヌルポインタ値を格納する）を構築する。そうでなければ、`r`の監視対象を`*this`にコピーする。
 - (4) : `r`を`*this`の監視対象とする。
 - (5), (6) : `r`の監視対象を`*this`に移動する。
 
@@ -61,7 +61,11 @@ weak_ptr(weak_ptr<Y>&& r) noexcept;        // (6) C++26
 ## 事後条件
 - (1) : [`use_count()`](use_count.md) `== 0`
 - (2), (3), (4) : [`use_count()`](use_count.md) `==` `r.`[`use_count()`](use_count.md)
-- (5), (6) : `r.`[`use_count()`](use_count.md) `== 0`
+- (5), (6) : `r`は空になり、ヌルポインタ値を格納し、`r.`[`use_count()`](use_count.md) `== 0`となる。
+
+
+## 備考
+- ここでいう「格納するポインタ値」とは、`weak_ptr`が内部的に保持するポインタであり、[`lock()`](lock.md)で得られる[`shared_ptr`](../shared_ptr.md)の格納ポインタ（[`get()`](../shared_ptr/get.md)が返す値）の元になるものである。空の`weak_ptr`がヌルポインタ値を格納することは、C++23で明確化された（それ以前は規定されていなかったが、`weak_ptr`自身にこの値を直接取得する手段はないため、観測可能な影響はない）。
 
 
 ## 例
@@ -156,3 +160,5 @@ int main()
 - [LWG Issue 2315. `weak_ptr` should be movable](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2315)
 - [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+- [LWG Issue 3195. What is the stored pointer value of an empty `weak_ptr`?](https://cplusplus.github.io/LWG/issue3195)
+    - C++23で、空の`weak_ptr`がヌルポインタ値を格納することが明確化された

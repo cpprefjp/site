@@ -99,3 +99,5 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 
 ## 参照
 - [SD-6: SG10 Feature Test Recommendations: Standard C++](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations#recs.cpp17)
+- [LWG Issue 3137. Header for `__cpp_lib_to_chars`](https://cplusplus.github.io/LWG/issue3137)
+    - C++20で、`__cpp_lib_to_chars`が定義されるヘッダの記載が`<utility>`から`<charconv>`に修正された

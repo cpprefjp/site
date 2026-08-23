@@ -6,7 +6,12 @@
 
 ```cpp
 namespace std::filesystem {
-  path operator/(const path& x, const path& y);
+  path operator/(const path& lhs, const path& rhs); // (1) C++17
+
+  class path {
+  public:
+    friend path operator/(const path& lhs, const path& rhs); // (1) C++20
+  };
 }
 ```
 
@@ -155,3 +160,8 @@ h : "D:bar"
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2017 Update 7 [mark verified]
+
+
+## 参照
+- [LWG Issue 3065. LWG 2989 missed that all path's other operators should be hidden friends as well](https://cplusplus.github.io/LWG/issue3065)
+    - C++20で、`operator/`が非メンバ関数から*Hidden friends*に変更された。これにより、少なくとも一方の被演算子が`path`型である場合のみ暗黙変換が働くようになり、両辺が同時に暗黙変換される問題が回避された

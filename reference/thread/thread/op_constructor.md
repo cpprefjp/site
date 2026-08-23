@@ -24,7 +24,8 @@ thread(thread&&) noexcept;              // (4)
 
 
 ## 要件
-- (2) : 型`F`および`Args`に含まれるすべての型`Ti`はムーブコンストラクト可能な型でなければならない。また、[`INVOKE`](/reference/concepts/Invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`が有効な式でなければならない。
+- (2) : [`INVOKE`](/reference/concepts/Invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`が有効な式でなければならない。
+    - C++20まで : これに加えて、型`F`および`Args`に含まれるすべての型`Ti`がムーブコンストラクト可能な型でなければならなかった。C++23では、`is_constructible`要件が既に目的を満たすため、この要件は削除された。
 
 
 ## 効果
@@ -112,3 +113,5 @@ int main()
 ## 参照
 - [LWG Issue 2097. `packaged_task` constructors should be constrained](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2097)
 - [LWG Issue 3039. Unnecessary `decay` in `thread` and `packaged_task`](https://wg21.cmeerw.net/lwg/issue3039)
+- [LWG Issue 3476. `thread` and `jthread` constructors require that the parameters be move-constructible](https://cplusplus.github.io/LWG/issue3476)
+    - C++23で、`is_constructible`要件が既に目的を満たすため、冗長だったムーブ構築可能（`is_move_constructible`）の要件が削除された

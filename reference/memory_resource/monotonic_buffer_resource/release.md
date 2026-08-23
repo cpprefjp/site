@@ -17,8 +17,10 @@ void release();
 必要に応じて[`this->upstream_resource()`](upstream_resource.md)[`->deallocate()`](/reference/memory_resource/memory_resource/deallocate.md)を呼び出し上流メモリリソースから割り当てた全てのメモリを解放する。  
 `deallocate()`によって割り当て解除されていないメモリがあったとしても、全てのメモリが解放される。
 
-コンストラクタから設定された初期メモリ領域の解放は行われない。
-<!-- 未規定かもしれないが、どのみちできないと思われるのでしない物と判断 -->
+解放後の状態は、バージョンによって異なる。
+
+- C++17 : コンストラクタで設定された初期メモリ領域が再び割り当てに利用可能になるかどうかは規定されていない
+- C++23 : `*this`を構築時の初期状態にリセットする。これにより、コンストラクタで設定された初期メモリ領域が再び割り当てに利用可能になる
 
 ## 例
 ```cpp example
@@ -63,3 +65,5 @@ int main() {
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
 - [P0337r0 | Delete operator= for polymorphic_allocator](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html)
 - [Working Draft, C++ Extensions for Library Fundamentals, Version 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop)
+- [LWG Issue 3120. Unclear behavior of `monotonic_buffer_resource::release()`](https://cplusplus.github.io/LWG/issue3120)
+    - C++23で、`release()`の効果が、`*this`を構築時の初期状態にリセットする（初期バッファが再び利用可能になる）ことと明確化された

@@ -161,3 +161,8 @@ int main()
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 10.2.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 3476. `thread` and `jthread` constructors require that the parameters be move-constructible](https://cplusplus.github.io/LWG/issue3476)
+    - C++23で、`is_constructible`要件が既に目的を満たすため、冗長だったムーブ構築可能（`is_move_constructible`）の要件が削除された

@@ -105,4 +105,6 @@ namespace std {
 
 ## 参照
 - [P0318R1 `unwrap_ref_decay` and `unwrap_reference`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0318r1.pdf)
+- [LWG Issue 3202. P0318R1 was supposed to be revised](https://cplusplus.github.io/LWG/issue3202)
+    - C++20で、P0318R1の改訂漏れにより漏れていた`unwrap_reference`/`unwrap_reference_t`/`unwrap_ref_decay`/`unwrap_ref_decay_t`が`<functional>`シノプシスに追加された
 - [LWG Issue 3348. `__cpp_lib_unwrap_ref` in wrong header](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3348)

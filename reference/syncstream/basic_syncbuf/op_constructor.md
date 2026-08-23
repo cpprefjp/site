@@ -7,39 +7,41 @@
 
 
 ```cpp
-explicit basic_syncbuf(streambuf_type* obuf = nullptr) 
-  : basic_syncbuf(obuf, Allocator()) { }                          // (1)
-basic_syncbuf(streambuf_type* obuf, const Allocator& allocator);  // (2)
-basic_syncbuf(basic_syncbuf&& other);                             // (3)
+basic_syncbuf() : basic_syncbuf(nullptr) {}                       // (1) C++20
+explicit basic_syncbuf(streambuf_type* obuf)
+  : basic_syncbuf(obuf, Allocator()) { }                          // (2) C++20
+basic_syncbuf(streambuf_type* obuf, const Allocator& allocator);  // (3) C++20
+basic_syncbuf(basic_syncbuf&& other);                             // (4) C++20
 ```
 
 ## 概要
-- (1) : デフォルトコンストラクタ。ラップする[`std::basic_streambuf`](../../streambuf/basic_streambuf.md)へのポインタを受け取る。
-- (2) : ラップする`std::basic_streambuf`へのポインタ、アロケータを受け取る。
-- (3) : ムーブコンストラクタ。
+- (1) : デフォルトコンストラクタ。
+- (2) : ラップする[`std::basic_streambuf`](../../streambuf/basic_streambuf.md)へのポインタを受け取る。
+- (3) : ラップする`std::basic_streambuf`へのポインタ、アロケータを受け取る。
+- (4) : ムーブコンストラクタ。
 
 ただし、これらは通常[`std::basic_osyncstream`](../basic_osyncstream.md)から呼ばれる。
 
 
 ## 効果
-- (1), (2) : 同期時排出ポリシー([`sync()`](sync.md)が呼ばれたとき[`emit()`](emit.md)を呼び出すかどうか)を`false`に設定し、`std::basic_syncbuf`オブジェクトを作成し、ラップされたストリームバッファを`obuf`に設定する。`obuf`が、関連する出力の最終的な宛先になる。
-- (3) : 他のオブジェクトからムーブコンストラクトする。
+- (1), (2), (3) : 同期時排出ポリシー([`sync()`](sync.md)が呼ばれたとき[`emit()`](emit.md)を呼び出すかどうか)を`false`に設定し、`std::basic_syncbuf`オブジェクトを作成し、ラップされたストリームバッファを`obuf`に設定する（(1)では`nullptr`）。`obuf`が、関連する出力の最終的な宛先になる。
+- (4) : 他のオブジェクトからムーブコンストラクトする。
 
 
 ## 例外
-- (1), (2) : ミューテックスの構築から[`std::system_error`](../../system_error/system_error.md)、またはメモリ割り当てによって[`std::bad_alloc`](../../new/bad_alloc.md)例外が送出される可能性がある。
+- (1), (2), (3) : ミューテックスの構築から[`std::system_error`](../../system_error/system_error.md)、またはメモリ割り当てによって[`std::bad_alloc`](../../new/bad_alloc.md)例外が送出される可能性がある。
 
 
 ## 事後条件
-- (1), (2) : `get_wrapped() == obuf`と`get_allocator() == allocator`が`true`となる。
-- (3) : `this->get_wrapped()`によって返される値は、このコンストラクタを呼び出す前に`other.get_wrapped()`によって返される値である。
+- (1), (2), (3) : `get_wrapped() == obuf`と`get_allocator() == allocator`が`true`となる。
+- (4) : `this->get_wrapped()`によって返される値は、このコンストラクタを呼び出す前に`other.get_wrapped()`によって返される値である。
 このコンストラクタを呼び出す前に`other`に格納された出力は、`*this`に格納される。
 `other.rdbuf()->pbase() == other.rdbuf()->pptr()`と`other.get_wrapped() == nullptr`は`true`である。
 
 
 ## 備考
-- (1), (2) : アロケータのコピーは、関連する出力を保持する内部バッファにメモリを割り当てるために使用される。
-- (3) : このコンストラクタは、`other`をそのラップされたストリームバッファから切り離し、`other`の破棄によって出力がされないようにする。
+- (1), (2), (3) : アロケータのコピーは、関連する出力を保持する内部バッファにメモリを割り当てるために使用される。
+- (4) : このコンストラクタは、`other`をそのラップされたストリームバッファから切り離し、`other`の破棄によって出力がされないようにする。
 
 
 ## 例
@@ -72,3 +74,5 @@ Hello, World!
 
 ## 参照
 - [P0053R7 C++ Synchronized Buffered Ostream](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0053r7.pdf)
+- [LWG Issue 3253. `basic_syncbuf::basic_syncbuf()` should not be `explicit`](https://cplusplus.github.io/LWG/issue3253)
+    - C++20で、非explicitなデフォルトコンストラクタ(1)が分離して新設され、`explicit`版のデフォルト引数`= nullptr`が削除された

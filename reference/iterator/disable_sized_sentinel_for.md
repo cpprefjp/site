@@ -62,3 +62,5 @@ namespace std {
 - [microsoft/STL P1871R1 disable_sized_sentinel_for #607 - Github](https://github.com/microsoft/STL/pull/607/files#r392700693)
 - [LWG Issue 3736. `move_iterator` missing `disable_sized_sentinel_for` specialization](https://cplusplus.github.io/LWG/issue3736)
     - C++23で、`move_iterator`に対する`disable_sized_sentinel_for`の特殊化が追加され、`move_iterator`が意味論的に`sized_sentinel_for`を満たさない場合に誤ってそれを満たすと判定される問題が解消された
+- [LWG Issue 3183. Normative permission to specialize Ranges variable templates](https://cplusplus.github.io/LWG/issue3183)
+    - C++20で、プログラム定義型に対してこの変数テンプレートを特殊化してよいという規範的な許可が明記された

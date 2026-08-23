@@ -68,3 +68,5 @@ one
 
 ## 参照
 - [N4861 24.7.21.1 Overview](https://timsong-cpp.github.io/cppwp/n4861/range.elements.view)
+- [LWG Issue 3406. `elements_view::begin()` and `elements_view::end()` have incompatible constraints](https://cplusplus.github.io/LWG/issue3406)
+    - C++23で、`begin()`と`end()`の制約の整合性が確保されるよう、`const`版`begin()`の制約と`end()`のオーバーロードが整理された

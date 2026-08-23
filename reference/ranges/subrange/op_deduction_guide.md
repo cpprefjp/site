@@ -68,3 +68,5 @@ int main()
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 3404. Finish removing `subrange`'s conversions from `pair`-like](https://cplusplus.github.io/LWG/issue3404)
+    - C++23で、LWG 3281/3282が削除した`pair-like`からの変換コンストラクタに対応する推論補助と、不要になった説明専用コンセプトが削除された

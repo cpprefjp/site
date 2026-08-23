@@ -22,6 +22,10 @@ namespace std {
 `basic_string_view`オブジェクトの三方比較を行う。
 
 
+## 適格要件
+戻り値の型`R`（`traits::comparison_category`が存在すればその型）が、比較カテゴリ型（[`strong_ordering`](/reference/compare/strong_ordering.md)・[`weak_ordering`](/reference/compare/weak_ordering.md)・[`partial_ordering`](/reference/compare/partial_ordering.md)のいずれか）であること。満たさない場合、この演算子の使用はプログラムを不適格とする。
+
+
 ## 戻り値
 戻り値の型`R`は、`traits::comparison_category`が存在していればその型、そうでなければ[`weak_ordering`](/reference/compare/weak_ordering.md)となり、以下と等価：
 
@@ -79,3 +83,5 @@ equal
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
 - [LWG Issue 3950. `std::basic_string_view` comparison operators are overspecified](https://cplusplus.github.io/LWG/issue3950)
     - C++26で、第2引数が`type_identity_t`で包まれ、`basic_string_view`へ暗黙変換可能な型と直接比較できるようになった（追加の比較オーバーロードの規定が不要になった）
+- [LWG Issue 3432. Missing requirement for `comparison_category`](https://cplusplus.github.io/LWG/issue3432)
+    - C++23で、戻り値型`R`が比較カテゴリ型でなければならないという要件（Mandates）が追加され、`traits::comparison_category`が妥当な型を示す場合にのみ使われることが明確化された

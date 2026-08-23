@@ -6,7 +6,7 @@
 
 ```cpp
 template<class T, class Alloc, class... Args>
-  T make_obj_using_allocator(const Alloc& alloc, Args&&... args);
+  constexpr T make_obj_using_allocator(const Alloc& alloc, Args&&... args);
 ```
 
 ## 概要
@@ -108,3 +108,5 @@ int main()
 
 ## 参照
 - [P0591R4 Utility functions to implement uses-allocator construction](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0591r4.pdf)
+- [LWG Issue 3185. Uses-allocator construction functions missing `constexpr` and `noexcept`](https://cplusplus.github.io/LWG/issue3185)
+    - C++20で、この関数に`constexpr`が付加された

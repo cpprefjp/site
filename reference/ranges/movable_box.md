@@ -67,3 +67,5 @@ constexpr movable-box& operator=(movable-box&& that) noexcept(is_nothrow_move_co
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
 - [P2494R2 Relaxing range adaptors to allow for move only types](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2494r2.html)
+- [LWG Issue 3477. Simplify constraints for _semiregular-box_](https://cplusplus.github.io/LWG/issue3477)
+    - C++23で、コピー/ムーブ代入演算子を定義する条件が、それぞれ`copyable<T>`・`movable<T>`を用いた形に簡略化された

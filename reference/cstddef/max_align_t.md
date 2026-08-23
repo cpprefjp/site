@@ -14,7 +14,10 @@ namespace std {
 ## 概要
 `std::max_align_t`のアライメントサイズは、スカラー型の中の最も大きなアライメントサイズと同じかそれ以上である。
 
-この型は、C++11では[POD型](/reference/type_traits/is_pod.md)、C++20では[トリビアル型](/reference/type_traits/is_trivial.md)に分類される。
+この型は、以下のように分類される：
+
+- C++11 : [POD型](/reference/type_traits/is_pod.md)
+- C++20 : [トリビアル型](/reference/type_traits/is_trivial.md)かつ[標準レイアウト型](/reference/type_traits/is_standard_layout.md)
 
 `alignas`指示子により、`std::max_align_t`のアライメントより大きいサイズのアライメントを指定できるかどうかは、実装依存である。
 
@@ -79,3 +82,5 @@ is_pod<max_align_t>: 1
 ## 参照
 - [P0767R1 Deprecate POD](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0767r1.html)
     - C++20でPOD用語の非推奨化にともない、この型がPOD型ではなくトリビアル型に分類されるよう規定が変更された
+- [LWG Issue 3034. P0767R1 breaks previously-standard-layout types](https://cplusplus.github.io/LWG/issue3034)
+    - C++20で、P0767R1がPOD要件をトリビアル要件へ置き換えた際に標準レイアウト性が欠落していたため、トリビアルかつ標準レイアウトであることが要件として補われた

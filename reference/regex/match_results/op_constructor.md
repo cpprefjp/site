@@ -65,7 +65,7 @@ match_results(match_results&& m,
 
 
 ## 備考
-規格では明確ではないものの、(3) の形式でも以下の事後条件を満たすべきであると思われる。
+`match_results`はアロケータを持つコンテナの規則に従う。これによりコピーコンストラクタ (3) は、以下の事後条件も満たす。
 
 - (5) の事後条件のアロケータ以外のもの
 - [`get_allocator`](get_allocator.md)`() ==` [`allocator_traits`](../../memory/allocator_traits.md)`<allocator_type>::`[`select_on_container_copy_construction`](../../memory/allocator_traits/select_on_container_copy_construction.md)`(m.`[`get_allocator`](get_allocator.md)`())`
@@ -164,5 +164,7 @@ GCC(libstdc++) の 4.9.2 までは、[`regex_iterator`](../regex_iterator.md) �
 ## 参照
 
 - [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
+- [LWG Issue 2183. Muddled allocator requirements for `match_results` constructors](https://cplusplus.github.io/LWG/issue2183)
+    - コンストラクタの曖昧なアロケータ要件が整理され、コピー時は`select_on_container_copy_construction`でアロケータを取得し、ムーブ時はアロケータをムーブ構築することが明確化された。この修正はC++20に取り込まれたが、`match_results`はC++11からアロケータ対応コンテナであり、これらのアロケータの扱いはその規則から従うものであるため、実装の挙動は変わらない（欠陥修正のため処理系は早期に対応している）
 - [LWG Issue 2195. Missing constructors for `match_results`](https://cplusplus.github.io/LWG/issue2195)
     - C++23で、アロケータを指定するコピーコンストラクタ(4)とムーブコンストラクタ(6)が追加された

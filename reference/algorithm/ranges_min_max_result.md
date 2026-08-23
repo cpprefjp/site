@@ -94,3 +94,5 @@ int main()
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [LWG Issue 3180. Inconsistently named return type for `ranges::minmax_element`](https://cplusplus.github.io/LWG/issue3180)
+    - C++20で、`ranges::minmax_element`の戻り値型のエイリアス名が`minmax_result`から`minmax_element_result`に改名され、命名の一貫性が確保された

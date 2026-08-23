@@ -68,3 +68,8 @@ int main() {
 - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+
+
+## 参照
+- [LWG Issue 3450. The const overloads of `take_while_view::begin`/`end` are underconstrained](https://cplusplus.github.io/LWG/issue3450)
+    - C++23で、`const`版の`begin()`/`end()`の制約に`indirect_unary_predicate<const Pred, iterator_t<const V>>`が追加された

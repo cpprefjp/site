@@ -19,9 +19,59 @@ namespace std::ranges {
 
 具体的には、大きさを求めることはできるが、その計算量が償却定数にならないようなRangeが該当する。
 
-## 例
+## 要件
 
-(執筆中)
+- cv修飾のないプログラム定義型に対して、この変数テンプレートを特殊化することが許可される。  
+    - そのような特殊化は定数式で使用可能であり、`const bool`型を持つ必要がある。
+
+
+## 例
+```cpp example
+#include <ranges>
+#include <iostream>
+#include <forward_list>
+#include <iterator>
+#include <cstddef>
+
+// std::forward_listをラップしたRange。
+// size()メンバを持つが、要素を数えるため計算量は要素数に比例する（償却定数ではない）
+struct MyRange {
+  std::forward_list<int> data;
+
+  auto begin() { return data.begin(); }
+  auto end()   { return data.end(); }
+
+  std::size_t size() const {
+    return static_cast<std::size_t>(std::distance(data.begin(), data.end()));
+  }
+};
+
+// size()の計算量が償却定数でないため、sized_rangeから除外する
+template <>
+inline constexpr bool std::ranges::disable_sized_range<MyRange> = true;
+
+int main()
+{
+  // disable_sized_rangeをtrueに特殊化したため、
+  // size()メンバを持っていてもsized_rangeのモデルにはならない
+  static_assert(!std::ranges::sized_range<MyRange>);
+
+  // rangeとしては使える
+  MyRange r{{1, 2, 3}};
+  for (int x : r) {
+    std::cout << x;
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::disable_sized_range[color ff0000]
+* std::ranges::sized_range[link sized_range.md]
+* std::distance[link /reference/iterator/distance.md]
+
+### 出力
+```
+123
+```
 
 ## バージョン
 ### 言語
@@ -36,3 +86,5 @@ namespace std::ranges {
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 3183. Normative permission to specialize Ranges variable templates](https://cplusplus.github.io/LWG/issue3183)
+    - C++20で、プログラム定義型に対してこの変数テンプレートを特殊化してよいという規範的な許可が明記された

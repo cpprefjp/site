@@ -43,7 +43,9 @@ constexpr void push_back(T&& x);      // (2) C++20
 
 
 ## 備考
-- 要素を追加した後の[`size()`](size.md)が要素を追加する前の[`capacity()`](capacity.md)よりも大きい場合は領域の再確保が生じる。領域の再確保が生じなかった場合には全てのイテレータや参照は有効である。
+- 要素を追加した後の[`size()`](size.md)が要素を追加する前の[`capacity()`](capacity.md)よりも大きい場合は領域の再確保が生じる。領域の再確保が生じた場合は、全てのイテレータ・参照・ポインタが無効になる（終端 (past-the-end) イテレータを含む）。領域の再確保が生じなかった場合の終端 (past-the-end) イテレータの扱いは、バージョンによって異なる。
+    - C++03 : 終端イテレータが無効化されるとは規定されていない（挿入位置より前のイテレータ・参照のみ有効性が保証される）
+    - C++20 : 終端イテレータは無効になる。それ以外のイテレータや参照は有効である
 - 非コピー挿入可能な要素型`T`のムーブコンストラクタ以外で例外が発生した場合、副作用は発生しない。
 
 
@@ -96,3 +98,5 @@ world
         - `deque`の[`emplace_back()`](/reference/deque/deque/emplace_back.md)と[`emplace_front()`](/reference/deque/deque/emplace_front.md) (C++14から)
         - `deque`の両端へ単一要素を挿入する[`insert()`](/reference/deque/deque/insert.md)と[`emplace()`](/reference/deque/deque/emplace.md) (C++14)
 - [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)
+- [LWG Issue 3077. `(push`&#x7C;`emplace)_back` should invalidate the end iterator](https://cplusplus.github.io/LWG/issue3077)
+    - C++20で、再確保が生じない場合でも終端 (past-the-end) イテレータが無効化されることが明確化された

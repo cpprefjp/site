@@ -69,6 +69,12 @@ namespace std::filesystem {
 | [`operator>`](directory_entry/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | C++17 |
 | [`operator>=`](directory_entry/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | C++17 |
 
+### ストリーム出力
+
+| 名前 | 説明 | 対応バージョン |
+|------------------------------------------------------|-------------|-------|
+| [`operator<<`](directory_entry/op_ostream.md) | ストリームへの出力 | C++17 |
+
 
 ## 例
 ```cpp example

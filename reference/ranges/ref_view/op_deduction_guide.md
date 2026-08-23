@@ -48,3 +48,8 @@ int main() {
 - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+
+
+## 参照
+- [LWG Issue 3173. Enable CTAD for `ref-view`](https://cplusplus.github.io/LWG/issue3173)
+    - C++20で、`ref_view`のクラステンプレート実引数推論(CTAD)を有効にする推論補助が追加された

@@ -164,3 +164,5 @@ int main()
 ## 参照
 - [LWG Issue 2315. `weak_ptr` should be movable](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2315)
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+- [LWG Issue 3195. What is the stored pointer value of an empty `weak_ptr`?](https://cplusplus.github.io/LWG/issue3195)
+    - C++23で、空の`weak_ptr`がヌルポインタ値を格納することが明確化された
