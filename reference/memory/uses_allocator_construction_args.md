@@ -9,7 +9,7 @@ template <class T, class Alloc, class... Args>
 constexpr auto
   uses_allocator_construction_args(
     const Alloc& alloc,
-    Args&&... args) -> see below;       // (1) C++20
+    Args&&... args) noexcept -> see below; // (1) C++20
 
 template <class T, class Alloc, class Tuple1, class Tuple2>
 constexpr auto
@@ -17,19 +17,19 @@ constexpr auto
     const Alloc& alloc,
     piecewise_construct_t,
     Tuple1&& x,
-    Tuple2&& y) -> see below;           // (2) C++20
+    Tuple2&& y) noexcept -> see below;   // (2) C++20
 
 template <class T, class Alloc>
 constexpr auto
   uses_allocator_construction_args(
-    const Alloc& alloc) -> see below;   // (3) C++20
+    const Alloc& alloc) noexcept -> see below; // (3) C++20
 
 template <class T, class Alloc, class U, class V>
 constexpr auto
   uses_allocator_construction_args(
     const Alloc& alloc,
     U&& u,
-    V&& v) -> see below;                // (4) C++20
+    V&& v) noexcept -> see below;        // (4) C++20
 
 template <class T, class Alloc, class U, class V>
 constexpr auto
@@ -41,13 +41,13 @@ template <class T, class Alloc, class U, class V>
 constexpr auto
   uses_allocator_construction_args(
     const Alloc& alloc,
-    const pair<U, V>& pr) -> see below; // (6) C++20
+    const pair<U, V>& pr) noexcept -> see below; // (6) C++20
 
 template <class T, class Alloc, class U, class V>
 constexpr auto
   uses_allocator_construction_args(
     const Alloc& alloc,
-    pair<U, V>&& pr) -> see below;      // (7) C++20
+    pair<U, V>&& pr) noexcept -> see below; // (7) C++20
 
 template <class T, class Alloc, class U, class V>
 constexpr auto
@@ -95,7 +95,7 @@ forward_as_tuple(std::forward<Args>(args)...)
 * forward_as_tuple[link ../tuple/forward_as_tuple.md]
 * forward[link ../utility/forward.md]
 
-	- 上記以外で、もし [`uses_allocator_v`](uses_allocator.md)`<T, Alloc>` が `true` で、かつ、[`is_constructible_v`](../type_traits/is_constructible.md)`<T,` [`allocator_arg_t`](allocator_arg_t.md)`, Alloc, Args...>` が `true` の場合、
+	- 上記以外で、もし [`uses_allocator_v`](uses_allocator.md)`<T, Alloc>` が `true` で、かつ、[`is_constructible_v`](../type_traits/is_constructible.md)`<T,` [`allocator_arg_t`](allocator_arg_t.md)`, const Alloc&, Args...>` が `true` の場合、
 
 		```cpp
 tuple<allocator_arg_t, const Alloc&, Args&&...>(
@@ -105,7 +105,7 @@ tuple<allocator_arg_t, const Alloc&, Args&&...>(
 * allocator_arg[link allocator_arg_t.md]
 * forward[link ../utility/forward.md]
 
-	- 上記以外で、もし [`uses_allocator_v`](uses_allocator.md)`<T, Alloc>` が `true` で、かつ、[`is_constructible_v`](../type_traits/is_constructible.md)`<T, Args..., Alloc>` が `true` の場合、
+	- 上記以外で、もし [`uses_allocator_v`](uses_allocator.md)`<T, Alloc>` が `true` で、かつ、[`is_constructible_v`](../type_traits/is_constructible.md)`<T, Args..., const Alloc&>` が `true` の場合、
 
 		```cpp
 forward_as_tuple(std::forward<Args>(args)..., alloc)
@@ -322,6 +322,10 @@ tuple(piecewise_construct_t, tuple(allocator_arg_t, MyAlloc, 3, ), tuple(4, MyAl
 ## 参照
 - [P0591R4 Utility functions to implement uses-allocator construction](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0591r4.pdf)
 - [P2321R2 zip](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html)
+- [LWG Issue 3185. Uses-allocator construction functions missing `constexpr` and `noexcept`](https://cplusplus.github.io/LWG/issue3185)
+    - C++20で、C++20時点の各オーバーロードに`noexcept`が付加された（[`make_obj_using_allocator`](make_obj_using_allocator.md)には`constexpr`が付加された）
+- [LWG Issue 3187. P0591R4 reverted DR 2586 fixes to `scoped_allocator_adaptor::construct()`](https://cplusplus.github.io/LWG/issue3187)
+    - C++20で、`is_constructible_v`による構築可能性の検査が、返却するタプルと一致するよう`Alloc`から`const Alloc&`に修正された
 - [LWG Issue 3525. `uses_allocator_construction_args` fails to handle types convertible to `pair`](https://cplusplus.github.io/LWG/issue3525)
     - C++23で、`T`が`pair`特殊化かつ引数`u`が`pair`に変換できない場合に対応する(10)のオーバーロードが追加された
 - [LWG Issue 3821. `uses_allocator_construction_args` should have overload for `pair-like`](https://cplusplus.github.io/LWG/issue3821)
