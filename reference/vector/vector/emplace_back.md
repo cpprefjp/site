@@ -93,3 +93,5 @@ int main()
 - [P0084R1 Emplace Return Type (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r1.pdf)
 - [P0084R2 Emplace Return Type (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf)
 - [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)
+- [LWG Issue 3077. `(push`&#x7C;`emplace)_back` should invalidate the end iterator](https://cplusplus.github.io/LWG/issue3077)
+    - C++20で、再確保が生じない場合でも終端 (past-the-end) イテレータが無効化されることが明確化された
