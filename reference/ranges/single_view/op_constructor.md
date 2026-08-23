@@ -97,3 +97,5 @@ aaa
 ## 参照
 - [N4861 24.7.4 Filter view](https://timsong-cpp.github.io/cppwp/n4861/range.filter)
 - [N4950 26.7.8 Filter view](https://timsong-cpp.github.io/cppwp/n4950/range.filter)
+- [LWG Issue 3428. `single_view`'s in place constructor should be `explicit`](https://cplusplus.github.io/LWG/issue3428)
+    - C++23で、`in_place`から構築するコンストラクタ(4)が`explicit`になった
