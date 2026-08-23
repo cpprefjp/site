@@ -163,3 +163,8 @@ match range = (67, 73), str = 'value3'
 ### 備考
 - libstdc++ には 5.0.0 rev.218373 現在、(6)-(9) の形式のコンストラクタは存在しない。
 - libc++ には、3.4 までは (6)-(9) の形式のコンストラクタは存在しない。また、3.0 には (4) の形式のコンストラクタも存在しない。
+
+
+## 参照
+- [LWG Issue 3129. `regex_token_iterator` constructor uses wrong pointer arithmetic](https://cplusplus.github.io/LWG/issue3129)
+    - C++20で、配列を受け取るコンストラクタの効果における範囲指定が、配列全体への誤ったポインタ演算から`[begin(submatches), end(submatches))`に修正された
