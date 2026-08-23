@@ -176,3 +176,5 @@ from string_view
 - [P0408R7 Efficient Access to `basic_stringbuf`'s Buffer](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0408r7.pdf)
 - [P2495R3 Interfacing stringstreams with `string_view`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2495r3.pdf)
     - C++26で[`std::string_view`](/reference/string_view/basic_string_view.md)に対応した
+- [LWG Issue 2995. `basic_stringbuf` default constructor forbids it from using SSO capacity](https://cplusplus.github.io/LWG/issue2995)
+    - C++20で、デフォルト構築時にシーケンスポインタがヌルポインタに初期化されるかどうかが実装定義とされ、SSO領域を利用できるようになった
