@@ -126,5 +126,7 @@ int main()
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [P2367R0 Remove misuses of list-initialization from Clause 24](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html) (本提案文書はC++20に遡って適用されている)
+- [LWG Issue 3179. `subrange` should always model `Range`](https://cplusplus.github.io/LWG/issue3179)
+    - C++20で、イテレータ・番兵からのコンストラクタに`[i, s)`が有効な範囲であるという事前条件が追加され、`subrange`が常に`Range`のモデルとなることが保証された
 - [LWG 3281 Conversion from `pair-like` types to `subrange` is a silent semantic promotion](https://cplusplus.github.io/LWG/issue3281)
 - [LWG 3282 `subrange` converting constructor should disallow derived to base conversions](https://cplusplus.github.io/LWG/issue3282)
