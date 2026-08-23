@@ -19,6 +19,12 @@ namespace std::ranges {
 
 具体的には、大きさを求めることはできるが、その計算量が償却定数にならないようなRangeが該当する。
 
+## 要件
+
+- cv修飾のないプログラム定義型に対して、この変数テンプレートを特殊化することが許可される。  
+    - そのような特殊化は定数式で使用可能であり、`const bool`型を持つ必要がある。
+
+
 ## 例
 
 (執筆中)
@@ -36,3 +42,5 @@ namespace std::ranges {
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 3183. Normative permission to specialize Ranges variable templates](https://cplusplus.github.io/LWG/issue3183)
+    - C++20で、プログラム定義型に対してこの変数テンプレートを特殊化してよいという規範的な許可が明記された
