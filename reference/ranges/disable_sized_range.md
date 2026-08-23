@@ -26,8 +26,52 @@ namespace std::ranges {
 
 
 ## 例
+```cpp example
+#include <ranges>
+#include <iostream>
+#include <forward_list>
+#include <iterator>
+#include <cstddef>
 
-(執筆中)
+// std::forward_listをラップしたRange。
+// size()メンバを持つが、要素を数えるため計算量は要素数に比例する（償却定数ではない）
+struct MyRange {
+  std::forward_list<int> data;
+
+  auto begin() { return data.begin(); }
+  auto end()   { return data.end(); }
+
+  std::size_t size() const {
+    return static_cast<std::size_t>(std::distance(data.begin(), data.end()));
+  }
+};
+
+// size()の計算量が償却定数でないため、sized_rangeから除外する
+template <>
+inline constexpr bool std::ranges::disable_sized_range<MyRange> = true;
+
+int main()
+{
+  // disable_sized_rangeをtrueに特殊化したため、
+  // size()メンバを持っていてもsized_rangeのモデルにはならない
+  static_assert(!std::ranges::sized_range<MyRange>);
+
+  // rangeとしては使える
+  MyRange r{{1, 2, 3}};
+  for (int x : r) {
+    std::cout << x;
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::disable_sized_range[color ff0000]
+* std::ranges::sized_range[link sized_range.md]
+* std::distance[link /reference/iterator/distance.md]
+
+### 出力
+```
+123
+```
 
 ## バージョン
 ### 言語
