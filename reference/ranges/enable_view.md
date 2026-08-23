@@ -19,6 +19,11 @@ namespace std::ranges {
 
 [`view`](view.md)コンセプトの要件は意味論要件がメインなため、[`view_base`](view_base.md)を基底クラスにするか、`enable_view`を特殊化することで、明示的に`view`であることを示すようになっている。
 
+## 要件
+
+- cv修飾のないプログラム定義型に対して、この変数テンプレートを特殊化することが許可される。  
+    - そのような特殊化は定数式で使用可能であり、`bool`型を持つ必要がある。
+
 ## *is-derived-from-view-interface*
 
 `is-derived-from-view-interface<T>`は説明専用の`bool`型の変数テンプレートである。
@@ -71,3 +76,5 @@ int main()
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
 - [LWG Issue 3549. `view_interface` is overspecified to derive from `view_base`](https://cplusplus.github.io/LWG/issue3549)
+- [LWG Issue 3183. Normative permission to specialize Ranges variable templates](https://cplusplus.github.io/LWG/issue3183)
+    - C++20で、プログラム定義型に対してこの変数テンプレートを特殊化してよいという規範的な許可が明記された
