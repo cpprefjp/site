@@ -35,7 +35,7 @@ void construct(pair<T1, T2>* p, pair<U, V>&& x);              // (6) C++17 ま�
 説明を簡略化するために、以下の説明用関数を使用する。
 
 - `OUTERMOST(x)` は、`x` が [`outer_allocator()`](outer_allocator.md) メンバ関数を持っている場合は `OUTERMOST(x.`[`outer_allocator()`](outer_allocator.md)`)` を、持っていない場合は `x` を返す。
-- `CONSTRUCT(...)` は、[`allocator_traits`](/reference/memory/allocator_traits.md)`<decltype(OUTERMOST(*this))>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(OUTERMOST(*this), p, ...)` とする。
+- `CONSTRUCT(...)` は、[`allocator_traits`](/reference/memory/allocator_traits.md)`<`[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<decltype(OUTERMOST(*this))>>::`[`construct`](/reference/memory/allocator_traits/construct.md)`(OUTERMOST(*this), p, ...)` とする。
 
 - (1) :
 	- C++17 まで : 以下のいずれかの動作を行う。
@@ -236,3 +236,5 @@ int main()
 ## 参照
 - [P0591R4 Utility functions to implement uses-allocator construction](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0591r4.pdf)
 - [LWG Issue 2975. Missing case for pair construction in scoped and polymorphic allocators](https://wg21.cmeerw.net/lwg/issue2975)
+- [LWG Issue 3116. `OUTERMOST_ALLOC_TRAITS` needs `remove_reference_t`](https://cplusplus.github.io/LWG/issue3116)
+    - C++20で、`OUTERMOST(x)`が参照を返しうることに対応し、`OUTERMOST_ALLOC_TRAITS`の定義に[`remove_reference_t`](/reference/type_traits/remove_reference.md)が挿入された
