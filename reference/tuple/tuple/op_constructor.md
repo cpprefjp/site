@@ -308,6 +308,7 @@ explicit(see below) constexpr
 ## 備考
 - (1) :
     - C++17 : `Types...`のうちいずれかの型が非暗黙にデフォルト構築できる場合、この関数は`explicit`となる
+    - C++23 : `sizeof...(Types) == 0`（空の`tuple<>`）の場合、このデフォルトコンストラクタはトリビアルである
 - (2) :
     - C++11からC++14まで : 無条件で`explicit`となる
     - C++17から : `!`[`conjunction_v`](/reference/type_traits/conjunction.md)`<`[`is_convertible`](/reference/type_traits/is_convertible.md)`<const Types&, Types>...>`である場合、この関数は`explicit`となる
@@ -455,3 +456,9 @@ int main()
     - すべての要素が[プロキシ参照](/reference/iterator/indirectly_writable.md)の場合、[プロキシ参照](/reference/iterator/indirectly_writable.md)として使用できるようにする
 - [LWG Issue 4045. `tuple` can create dangling references from `tuple-like`](https://cplusplus.github.io/LWG/issue4045)
     - C++26で、[`tuple-like`](../tuple-like.md)なオブジェクトから構築するコンストラクタ(14)について、いずれかの要素がダングリング参照を作成する場合に削除定義されることが規定された（C++23での`tuple-like`コンストラクタ導入時に欠けていた保護の追加）
+- [LWG Issue 3158. `tuple(allocator_arg_t, const Alloc&)` should be conditionally `explicit`](https://cplusplus.github.io/LWG/issue3158)
+    - C++20で、アロケータ拡張デフォルトコンストラクタ(15)が、非アロケータ版(1)と同じ条件で`explicit`となるよう修正された
+- [LWG Issue 2899. `is_(nothrow_)move_constructible` and `tuple`, `optional` and `unique_ptr`](https://cplusplus.github.io/LWG/issue2899)
+    - C++20で、ムーブコンストラクタ(5)が、いずれかの要素型がムーブ構築可能でない場合はオーバーロード解決に参加しないよう制約化された
+- [LWG Issue 3211. `std::tuple<>` should be trivially constructible](https://cplusplus.github.io/LWG/issue3211)
+    - C++23で、空の`tuple<>`のデフォルトコンストラクタがトリビアルであることが規定された
