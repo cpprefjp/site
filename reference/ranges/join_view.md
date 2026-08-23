@@ -42,7 +42,7 @@ namespace std::ranges {
 
 ## 効果
 
-- (2): 式`views::join(E)`の効果は`join_view{E}`と等しい。
+- (2): 式`views::join(E)`の効果は`join_view<`[`views::all_t`](all.md)`<decltype((E))>>{E}`と等しい。
 
 ## メンバ関数
 
@@ -112,4 +112,6 @@ h,e,l,l,o,w,o,r,l,d,
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 3474. Nesting `join_views` is broken because of CTAD](https://cplusplus.github.io/LWG/issue3474)
+    - C++23で、`views::join(E)`の効果が`join_view<views::all_t<decltype((E))>>{E}`と等価になるよう修正され、CTADによって`join_view`をネストできない問題が解消された
 - [P2328R1 `join_view` should join all views of ranges](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2328r1.html)
