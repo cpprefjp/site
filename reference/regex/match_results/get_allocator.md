@@ -118,3 +118,8 @@ int main()
 
 ### 備考
 `get_allocator` の問題ではないが、GCC(libstdc++) の 4.9.2 までは代入演算子を使用した場合に正しくアロケータを設定しない。
+
+
+## 参照
+- [LWG Issue 2183. Muddled allocator requirements for `match_results` constructors](https://cplusplus.github.io/LWG/issue2183)
+    - C++20で、`match_results`のアロケータ要件が整理され、返されるアロケータが構築時に渡されたもの、または直近の置換後のものであることが明確化された
