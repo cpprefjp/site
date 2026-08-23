@@ -54,3 +54,8 @@ int main() {
 - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
+
+
+## 参照
+- [LWG Issue 3447. Deduction guides for `take_view` and `drop_view` have different constraints](https://cplusplus.github.io/LWG/issue3447)
+    - C++23で、`take_view`の推論補助が`template<class R>`に変更され、`drop_view`と制約が統一された
