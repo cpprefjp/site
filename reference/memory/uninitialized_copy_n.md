@@ -131,5 +131,7 @@ int main()
 - [N2569 More STL algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2569.pdf)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 - [LWG Issue 2433 `uninitialized_copy()`/etc. should tolerate overloaded `operator&`](https://wg21.cmeerw.net/lwg/issue2433)
+- [LWG Issue 3054. `uninitialized_copy` appears to not be able to meet its exception-safety guarantee](https://cplusplus.github.io/LWG/issue3054)
+    - C++20で、例外送出時に「効果なし」とする達成不能な保証が撤廃され、構築済みのオブジェクトを未規定の順序で破棄してから例外を伝播すると明確化された
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
     - C++26から`constexpr`がついた
