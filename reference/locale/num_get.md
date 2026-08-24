@@ -13,14 +13,16 @@ namespace std {
 * locale::facet[link /reference/locale/locale/facet.md]
 
 ## 概要
-(ここに、クラスの概要を記載する)
+`num_get`は、入力ストリームから数値・真偽値・ポインタを読み取り、解析するためのロケールファセットである。[`basic_istream`](/reference/istream/basic_istream.md)の数値入力演算子`operator>>`は、このファセットを介して入力の解析を行う。
+
+テンプレートパラメータ`InputIterator`は、入力に使用するイテレータの型を表し、既定では[`istreambuf_iterator`](/reference/iterator/istreambuf_iterator.md)`<charT>`である。
 
 ### publicメンバ関数
 
 | 名前 | 説明 |
 |----------------------------|-----------------------|
 | `(constructor)` | コンストラクタ |
-| `get` | 数値の解析 |
+| [`get`](num_get/get.md) | 数値の解析 |
 
 ### 静的メンバ変数
 
@@ -33,7 +35,7 @@ namespace std {
 | 名前 | 説明 |
 |---------------------------|--------------------|
 | `(destructor)` | デストラクタ |
-| `do_get` | 数値の解析 |
+| [`do_get`](num_get/do_get.md) | 数値の解析 |
 
 ### メンバ型
 
