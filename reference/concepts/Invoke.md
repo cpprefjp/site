@@ -84,5 +84,7 @@ C++20 における 2. について、次の文言を項目の最後に追加す�
 - [P0777R1 Treating Unnecessary `decay`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0777r1.pdf)
     - C++20から`decay_t`を`remove_cvref_t`へ変更。
 - [P2136R3 `invoke_r`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2136r3.html)
+- [LWG Issue 2219. `INVOKE`-ing a pointer to member with a `reference_wrapper` as the object expression](https://cplusplus.github.io/LWG/issue2219)
+    - C++17で、メンバポインタに対する第1引数が[`reference_wrapper`](/reference/functional/reference_wrapper.md)の特殊化である場合に、`t1.get()`経由でメンバを呼び出すよう規定された
 - [LWG Issue 3655. The *INVOKE* operation and union types](https://cplusplus.github.io/LWG/issue3655)
     - C++23で、メンバポインタの判定を`is_base_of_v`単独から`is_same_v || is_base_of_v`に変更し、共用体(union)型でも正しく扱えるようにした
