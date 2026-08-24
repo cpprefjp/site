@@ -153,4 +153,8 @@ int main()
 
 ## 参照
 
+- [LWG Issue 2768. `any_cast` and move semantics](https://cplusplus.github.io/LWG/issue2768)
+    - C++17で、`any_cast(any&&)`版がムーブによる取り出しや右辺値参照の取得を行えるよう規定された（LWG 2769の解決に取り込まれた）
+- [LWG Issue 2769. Redundant const in the return type of `any_cast(const any&)`](https://cplusplus.github.io/LWG/issue2769)
+    - C++17で、`any_cast`の戻り値規定から冗長な`const`付与を除き、`U = remove_cv_t<remove_reference_t<ValueType>>`と`static_cast<ValueType>`を用いる形へ整理された（一時オブジェクトへのダングリング参照取得も防止）
 - [LWG Issue 3305. `any_cast<void>`](https://cplusplus.github.io/LWG/issue3305)
