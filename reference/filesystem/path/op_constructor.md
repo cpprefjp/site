@@ -203,5 +203,9 @@ int main()
 
 
 ## 参照
+- [LWG Issue 2707. `path` construction and assignment should have `string_type&&` overloads](https://cplusplus.github.io/LWG/issue2707)
+    - C++17の策定中に、一時的なネイティブ文字列からムーブできるよう`string_type&&`を受け取るコンストラクタ(4)が追加された
+- [LWG Issue 2711. `path` is convertible from approximately everything under the sun](https://cplusplus.github.io/LWG/issue2711)
+    - C++17の策定中に、`EcharT`がエンコード文字型であること、および`Source`が`basic_string`の特殊化か文字イテレータであることを要求する制約が追加され、任意の型からの意図しない変換が排除された
 - [LWG Issue 3244. Constraints for `Source` in [fs.path.req] insufficiently constrainty](https://cplusplus.github.io/LWG/issue3244)
     - C++20で、`Source`型の制約に「`path`以外の型であること」という条件が追加され、`path`を`Source`として渡した際の循環参照が排除された
