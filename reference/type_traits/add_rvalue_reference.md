@@ -21,7 +21,7 @@ namespace std {
 
 
 ## 効果
-`add_rvalue_reference`は、オブジェクト型もしくは関数型`T`の名前に`&&`修飾を付加した型を、メンバ型`type`として定義する。そうでない場合は、型`T`をそのままメンバ型`type`として定義する。
+`add_rvalue_reference`は、参照可能な型`T`の名前に`&&`修飾を付加した型を、メンバ型`type`として定義する。型`T`が参照可能でない型（`void`や、CV修飾・参照修飾された関数型）である場合は、型`T`をそのままメンバ型`type`として定義する。
 
 ※`T&`は`T&&`にはならず、`T&`のままとなる。
 
@@ -56,3 +56,6 @@ int main() {}
 ## 参照
 - [N3546 TransformationTraits Redux](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf)
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
+- [LWG Issue 2101. Some transformation types can produce impossible types](https://cplusplus.github.io/LWG/issue2101)
+    - C++17で、参照可能でない型（`void`やCV修飾・参照修飾された関数型）に対して不適格な型を生成しないよう規定が整理された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。CV修飾・参照修飾された関数型に対して`void(&)() const`のような型システムに存在しない型を作ろうとする元の規定は実装不可能であり、処理系は当初から型`T`をそのまま返していたため
