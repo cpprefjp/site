@@ -87,6 +87,8 @@ namespace std {
 
 - [`resource_unavailable_try_again`](/reference/system_error/errc.md) ： [`launch::async`](launch.md)が指定され、新たなスレッドを起動しようとしたができなかった
 
+また、内部データ構造のメモリ確保に失敗した場合、[`std::bad_alloc`](/reference/new/bad_alloc.md)が投げられる可能性がある。
+
 ## launch::asyncポリシーを指定した場合の注意点
 
 ### 戻り値
@@ -195,9 +197,9 @@ foo() = 3
 
 
 ## 参照
-- [LWG Issue 2120. What should `async` do if neither `async` nor `deferred` is set in policy?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2120)
 - [LWG Issue 2021. Further incorrect usages of `result_of`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2021)
     - C++14で、戻り値型の計算に`decay`を適用するようにした。
+- [LWG Issue 2120. What should `async` do if neither `async` nor `deferred` is set in policy?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2120)
 - [async関数launch::asyncポリシーとfutureのちょっと特殊な動作 - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20120317/p1)
 - [P0604R0 Resolving GB 55, US 84, US 85, US 86](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0604r0.html)
 - [P0600R1 `[[nodiscard]]` in the Library, Rev1](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf)
@@ -206,5 +208,8 @@ foo() = 3
 - [&lt;future&gt; functions - Microsoft Docs](https://docs.microsoft.com/en-us/cpp/standard-library/future-functions?view=vs-2019#remarks)
 - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
     - C++26で`[[nodiscard]]`指定が削除された
+- [LWG Issue 2752. Throws: clauses of `async` and `packaged_task` are unimplementable](https://cplusplus.github.io/LWG/issue2752)
+    - 実装上必要な内部確保を反映し、`async`が[`bad_alloc`](/reference/new/bad_alloc.md)も送出しうることが規定された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。型消去のための内部確保が必要なため元のThrows節は実装不可能であり、処理系は当初から`bad_alloc`を送出しえたため
 - [LWG Issue 3476. `thread` and `jthread` constructors require that the parameters be move-constructible](https://cplusplus.github.io/LWG/issue3476)
     - C++23で、`is_constructible`要件が既に目的を満たすため、冗長だったムーブ構築可能（`is_move_constructible`）の要件が削除された
