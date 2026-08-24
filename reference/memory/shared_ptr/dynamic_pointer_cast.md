@@ -26,6 +26,24 @@ namespace std {
 `shared_ptr` で管理するインスタンスに対して `dynamic_cast` を行う。
 
 
+## 適格要件
+- (1) :
+    - C++11 : 式`dynamic_cast<T*>(r.`[`get()`](get.md)`)`が適格であること
+    - C++17 : 式`dynamic_cast<T*>((U*)0)`が適格であること
+    - C++20 : 式`dynamic_cast<T*>((U*)nullptr)`と、式`dynamic_cast<typename shared_ptr<T>::element_type*>(r.`[`get()`](get.md)`)`が、いずれも適格であること
+- (2) :
+    - C++20 : (1)のC++20と同じ
+
+
+## 事前条件
+- (1) :
+    - C++11 : 式`dynamic_cast<T*>(r.`[`get()`](get.md)`)`が定義された動作をすること
+    - C++17 : 式`dynamic_cast<T*>((U*)0)`が定義された動作をすること
+    - C++20 : 式`dynamic_cast<typename shared_ptr<T>::element_type*>(r.`[`get()`](get.md)`)`が定義された動作をすること
+- (2) :
+    - C++20 : (1)のC++20と同じ
+
+
 ## 戻り値
 - `r` が空であった場合、この関数は空の `shared_ptr<T>` を返却する。
 - (1) :
@@ -102,5 +120,8 @@ B::call()
 
 
 ## 参照
+- [LWG Issue 2964. Apparently redundant requirement for `dynamic_pointer_cast`](https://cplusplus.github.io/LWG/issue2964)
+    - C++20で、実際にキャストされる式`dynamic_cast<typename shared_ptr<T>::element_type*>(r.get())`が適格で定義された動作をすることが要件として追加された（`dynamic_cast<T*>((U*)nullptr)`が適格であるという要件は残る）
+    - この修正は欠陥報告(DR)であり、C++17にも遡及して適用される。C++17では要件がヌルポインタに対する`dynamic_cast<T*>((U*)0)`のみを対象としており、ヌルポインタへの`dynamic_cast`は適格であれば常にヌルポインタを返すため、定義された動作であることの要件が実質的に無意味になっていた。実際にキャストされる式に対する要件を課す意図だったため
 - [LWG Issue 2996. Missing rvalue overloads for `shared_ptr` operations](https://wg21.cmeerw.net/lwg/issue2996)
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
