@@ -67,3 +67,5 @@ int main()
 ## 参照
 - [N3059 Proposal to Simplify `pair` (rev 5.2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3059.pdf)
 - [N3059 - togetter](https://togetter.com/li/17236)
+- [LWG Issue 2510. Tag types should not be `DefaultConstructible`](https://cplusplus.github.io/LWG/issue2510)
+    - C++17で、`{}`による暗黙構築を防ぐため、明示的なデフォルトコンストラクタ（`explicit piecewise_construct_t() = default;`）が追加された
