@@ -30,6 +30,8 @@ namespace std {
   // 右辺値参照ストリームからの入力
   template<class CharT, class Traits, class T>
   basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>&& is, T& x);           // (7) C++11
+  template<class CharT, class Traits, class T>
+  basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>&& is, T&& x);          // (7) C++17
 }
 ```
 
@@ -48,6 +50,11 @@ namespace std {
 
 あるいは、これらの代わりに`basic_string` (`std::string`、`std::wstring`など)に対して`>>`演算子を使用することでも、この危険を回避できる。
 参考: [`>>`演算子 (`basic_string`)](../../string/basic_string/op_istream.md)。
+
+## テンプレートパラメータ制約
+- (7) :
+    - C++17 : 式`is >> `[`std::forward`](/reference/utility/forward.md)`<T>(x)`が適格であること
+
 
 ## 効果
 
@@ -81,9 +88,13 @@ namespace std {
 
 `width()`の値を変更するには、`setw`マニピュレータまたは`width()`メンバ関数を使用する。
 
-### 右辺値参照ストリームからの入力 (C++11)
+### 右辺値参照ストリームからの入力
 
-`is >> x`を実行する。このオーバーロードは、ストリームの一時オブジェクトなどに対して`>>`演算子を利用可能にするためのものである。
+このオーバーロードは、ストリームの一時オブジェクトなどに対して`>>`演算子を利用可能にするためのものである。
+
+- C++11 : `is >> x`を実行する
+- C++17 : `is >> `[`std::forward`](/reference/utility/forward.md)`<T>(x)`を実行する
+    - 実引数`x`を`T&&`（転送参照）で受け取って完全転送するため、`&arr[0]`のような右辺値の被入力対象も扱えるようになった
 
 
 ## 戻り値
@@ -132,6 +143,10 @@ TBD
     - [`basic_streambuf`](../../streambuf/basic_streambuf.md)
 
 ## 参照
+- [LWG Issue 2328. Rvalue stream extraction should use perfect forwarding](https://cplusplus.github.io/LWG/issue2328)
+    - C++17で、右辺値参照ストリーム版(7)が被入力対象を`T&&`（転送参照）で受け取り完全転送するよう変更された
 - [P0487R1 Fixing `operator>>(basic_istream&, CharT*)` (LWG 2499)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0487r1.html)
+- [LWG Issue 2534. Constrain rvalue stream operators](https://cplusplus.github.io/LWG/issue2534)
+    - C++17で、右辺値ストリーム版`operator>>`が`is >> x`が妥当な場合のみオーバーロード解決に参加するよう制約化され、SFINAEでのストリーム可否判定が正しく機能するようになった
 - [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
     - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された
