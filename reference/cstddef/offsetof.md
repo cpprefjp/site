@@ -51,3 +51,8 @@ offsetof(mystruct,singlechar) is 0
 offsetof(mystruct,arraymember) is 1
 offsetof(mystruct,anotherchar) is 11
 ```
+
+
+## 参照
+- [LWG Issue 2709. `offsetof` is unnecessarily imprecise](https://cplusplus.github.io/LWG/issue2709)
+    - C++17で、標準レイアウトでないクラス型に対する`offsetof`の利用が「未定義動作」から「条件付きサポート」に変更された
