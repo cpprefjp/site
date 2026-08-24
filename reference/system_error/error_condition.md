@@ -49,6 +49,13 @@ Visual C++ 2010、GCC 4.6.1では[`generic_category()`](generic_category.md)と[
 | [`make_error_condition`](make_error_condition.md) | `errc`から`error_condition`オブジェクトを生成する | C++11 |
 
 
+## その他
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| `hash` | `error_condition`での特殊化 | C++17 |
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -102,3 +109,5 @@ Invalid argument
 
 
 ## 参照
+- [LWG Issue 2686. Why is `std::hash` specialized for `error_code`, but not `error_condition`?](https://cplusplus.github.io/LWG/issue2686)
+    - C++17で、[`error_code`](error_code.md)と同様に`std::`[`hash`](/reference/functional/hash.md)`<error_condition>`の特殊化が`<system_error>`に追加され、`unordered_set`等のキーとして使用できるようになった
