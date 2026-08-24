@@ -69,7 +69,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`uses_allocator`](packaged_task/uses_allocator.md) | `packaged_task`による特殊化 | C++11 |
+| [`uses_allocator`](packaged_task/uses_allocator.md) | `packaged_task`による特殊化 | C++11<br/>C++20で削除 |
 
 
 ## 例
