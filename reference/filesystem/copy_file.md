@@ -30,7 +30,7 @@ namespace std::filesystem {
 - (2) : `return copy_file(from, to,` [`copy_options::none`](copy_options.md)`, ec);`
 - (3) :
     - 以下のいずれかの場合にエラーとなる：
-        - `!`[`is_regular_file`](is_regular_file.md)`(from)` (コピー元のファイルが存在しない)
+        - `!`[`is_regular_file`](is_regular_file.md)`(from)` (コピー元が通常ファイルでない)
         - [`exists`](exists.md)`(to) && !`[`is_regular_file`](is_regular_file.md)`(to)` (コピー先に、通常ファイルではないファイルが存在している)
         - [`exists`](exists.md)`(to) &&` [`equivalent`](equivalent.md)`(from, to)` (コピー先にファイルが存在しており、それがコピー元と等価)
         - [`exists`](exists.md)`(to) && (options & (`[`copy_options::skip_existing`](copy_options.md) `|` [`copy_options::overwrite_existing`](copy_options.md) `|` [`copy_options::update_existing`](copy_options.md)`)) ==` [`copy_options::none`](copy_options.md) (コピー先にファイルが存在しており、その場合にエラーにならないオプションが指定されていない)
@@ -98,5 +98,7 @@ int main()
 
 
 ## 参照
+- [LWG Issue 2712. `copy_file(from, to, ...)` has a number of unspecified error conditions](https://cplusplus.github.io/LWG/issue2712)
+    - C++17の策定中に、`!is_regular_file(from)`（コピー元が通常ファイルでない）と`exists(to) && !is_regular_file(to)`（コピー先が存在するが通常ファイルでない）の2つがエラー条件として追加された
 - [LWG Issue 2849. Why does `!is_regular_file(from)` cause `copy_file` to report a "file already exists" error?](https://wg21.cmeerw.net/lwg/issue2849)
 - [LWG Issue 3014. More `noexcept` issues with filesystem operations](https://wg21.cmeerw.net/lwg/issue3014)
