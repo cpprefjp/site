@@ -113,7 +113,8 @@ basic_ifstream<CharT, Traits>::basic_ifstream(basic_ifstream&& rhs)
 
 ## 参照
 
-- [LGW issue 2676. Provide filesystem::path overloads for File-based streams](https://wg21.cmeerw.net/lwg/issue2676)
+- [LWG Issue 2676. Provide `filesystem::path` overloads for File-based streams](https://cplusplus.github.io/LWG/issue2676)
+    - C++17で、`filesystem::path`および`filesystem::path::value_type*`を受け取るオーバーロードが追加された（`basic_filebuf`は`open`のみ、`basic_ifstream`/`basic_ofstream`/`basic_fstream`はコンストラクタと`open`）
 - [LWG Issue 3130. §[input.output] needs many `addressof`](https://wg21.cmeerw.net/lwg/issue3130)
 - [LWG Issue 3430. `std::fstream` & co. should be constructible from `string_view`](https://cplusplus.github.io/LWG/issue3430)
     - C++23で、`filesystem::path`を受け取るコンストラクタ(5)が、`path`へ暗黙変換可能な型による高コストな変換を防ぐため、`is_same_v<T, filesystem::path>`を制約とする制約付きテンプレートに変更された
