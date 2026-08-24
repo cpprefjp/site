@@ -94,3 +94,5 @@ Clang 3.0では、上記サンプルにおける`X`型が、リテラル型と�
 - [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
 - [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)
 - [LWG Issue `is_literal_type_v` should be `inline`](https://wg21.cmeerw.net/lwg/issue3042)
+- [LWG Issue 2838. `is_literal_type` specification needs a little cleanup](https://cplusplus.github.io/LWG/issue2838)
+    - C++17で、非推奨annexへの移動時に失われていた「利用者による特殊化を禁止する（追加した場合は未定義動作）」規定が復元され、`UnaryTypeTrait`としての文言が整理された
