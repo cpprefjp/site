@@ -41,7 +41,7 @@ namespace std {
 - (6) : 修飾なし[`std::variant`](variant.md)型の候補型のうち、i番目の型を取得する
 
 
-## 要件
+## 適格要件
 - `I < sizeof...(Types)`であること。そうでない場合、プログラムは不適格となる
 
 
@@ -133,3 +133,6 @@ int main()
 
 ## 参照
 - [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+- [LWG Issue 2974. Diagnose out of bounds `tuple_element`/`variant_alternative`](https://cplusplus.github.io/LWG/issue2974)
+    - C++20で、`I < sizeof...(Types)`を満たさない範囲外のインデックス指定時にプログラムが不適格（診断必須）となることが規定された
+    - この修正は欠陥報告(DR)であり、C++17に遡及して適用される。範囲外のインデックス指定は元は要件違反であり動作は未定義だったため、妥当なプログラムが旧挙動に依存することはない
