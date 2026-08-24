@@ -22,6 +22,10 @@ namespace std {
 ストリームからの読み取りが`fail() == true`となる場合に、イテレータは`end`イテレータと等しくなる。
 
 
+## 要件
+- 型`T`が、デフォルト構築可能（*Cpp17DefaultConstructible*）、コピー構築可能（*Cpp17CopyConstructible*）、かつコピー代入可能（*Cpp17CopyAssignable*）の要件を満たすこと。
+
+
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -98,4 +102,7 @@ int main()
 ## 関連項目
 - [`basic_istream_view`](/reference/ranges/basic_istream_view.md): ストリームからデータを読み込むRange
 
-### 参照
+## 参照
+- [LWG Issue 2878. Missing `DefaultConstructible` requirement for `istream_iterator` default constructor](https://cplusplus.github.io/LWG/issue2878)
+    - 型`T`が`DefaultConstructible`・`CopyConstructible`・`CopyAssignable`の要件を満たす必要があることが明記された
+    - この修正は欠陥報告(DR)であり、C++98に遡及して適用される。メンバとして`T`のオブジェクトを保持する以上これらは実装上当初から必須だった要件であり、規定から抜け落ちていたものの明文化であるため
