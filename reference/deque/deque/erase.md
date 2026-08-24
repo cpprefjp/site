@@ -26,11 +26,15 @@ constexpr iterator erase(const_iterator first, const_iterator last); // (2) C++2
 
 
 ## 戻り値
-削除された要素の次の要素を指すイテレータを返す。そのような要素が存在しない場合は、[`end()`](end.md)を返す。さらに、削除された要素以降の要素の数と同じ回数の`T`のムーブ代入演算子が呼ばれる。
+削除された要素の次の要素を指すイテレータを返す。そのような要素が存在しない場合は、[`end()`](end.md)を返す。
+
+
+## 例外
+`T`の代入演算子が例外を投げる場合を除いて、この関数は例外を投げない。この関数はメモリの確保・解放や要素の構築を行わないため、コンストラクタは呼ばれない。
 
 
 ## 計算量
-削除された要素の数に対して線形時間（デストラクタ呼び出し）。加えて、`position`と終端位置の間にある要素の数に対してライブラリの実装に依存して線形時間で増加する。
+削除される要素の数と同じ回数の`T`のデストラクタが実行される。加えて`T`の代入演算子が呼ばれるが、その回数は「削除された要素より前にある要素数」と「削除された要素より後にある要素数」のうち少ない方以下となる（`deque`は前後どちらからでも要素を詰められるため）。
 
 
 ## 例
@@ -112,4 +116,6 @@ int main()
 ## 参照
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [LWG Issue 638. `deque` end invalidation during erase](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#638)
+- [LWG Issue 2953. LWG 2853 should apply to `deque::erase` too](https://cplusplus.github.io/LWG/issue2953)
+    - `erase`はメモリ確保・要素構築を行わないため、例外指定からコンストラクタへの言及が削除され`T`の代入演算子のみとされた（`vector::erase`のLWG 2853と同様）。この修正は欠陥報告(DR)であり、C++17にも遡及して適用される
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
