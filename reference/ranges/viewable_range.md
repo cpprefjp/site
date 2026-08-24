@@ -32,10 +32,36 @@ Rangeアダプタを適用するには、`viewable_range`である必要があ�
 [`view`](view.md)でも左辺値でもない[`range`](range.md)の右辺値のうち、ムーブできないものは`viewable_range`のモデルにはならない。
 
 ## 例
-(執筆中)
+```cpp example
+#include <ranges>
+#include <vector>
+#include <initializer_list>
+
+int main()
+{
+  using V = std::vector<int>;
+
+  // 左辺値のRangeはviewable_range
+  static_assert(std::ranges::viewable_range<V&>);
+
+  // 右辺値でも、ムーブ可能なRangeならviewable_range
+  static_assert(std::ranges::viewable_range<V&&>);
+
+  // viewはそれ自体viewable_range
+  static_assert(std::ranges::viewable_range<std::ranges::empty_view<int>>);
+
+  // initializer_listの右辺値は、danglingを避けるためviewable_rangeにならない
+  static_assert(!std::ranges::viewable_range<std::initializer_list<int>>);
+  // 左辺値なら参照先が存続するのでviewable_rangeになる
+  static_assert(std::ranges::viewable_range<std::initializer_list<int>&>);
+}
+```
+* std::ranges::viewable_range[color ff0000]
+* std::ranges::empty_view[link /reference/ranges/empty_view.md]
 
 ### 出力
-(執筆中)
+```
+```
 
 ## バージョン
 ### 言語

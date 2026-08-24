@@ -31,7 +31,31 @@ return x.current_ == y.current_;
 - この演算子により `!=` 演算子が使用可能になる。
 
 ## 例
-(執筆中)
+```cpp example
+#include <ranges>
+#include <vector>
+#include <cassert>
+
+int main()
+{
+  std::vector<int> v = {1, 2, 3, 4, 5};
+  auto fv = v | std::views::filter([](int i) { return i % 2 == 0; });
+
+  auto a = fv.begin();
+  auto b = fv.begin();
+
+  // aとbは同じ要素（2）を指すため等しい
+  assert(a == b);
+
+  ++a; // aは次の偶数（4）を指す
+  assert(a != b);
+}
+```
+* std::views::filter[link /reference/ranges/filter_view.md]
+
+### 出力
+```
+```
 
 ## バージョン
 ### 言語

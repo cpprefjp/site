@@ -60,10 +60,28 @@ namespace std::ranges {
 変換演算子は、各テンプレートパラメーターが変換できる場合のみオーバーロード解決に参加する。
 
 ## 例
-(執筆中)
+```cpp example
+#include <cassert>
+#include <numeric>
+#include <vector>
+
+int main() {
+  std::vector<int> v(5);
+
+  // ranges::iotaはout_value_result（iota_result）を返す
+  const std::ranges::out_value_result result = std::ranges::iota(v, 0);
+
+  assert(result.out == v.end()); // 書き込み終えた終端イテレータ
+  assert(result.value == 5);     // 次に書き込むはずの値
+  // v は {0, 1, 2, 3, 4}
+}
+```
+* std::ranges::out_value_result[color ff0000]
+* std::ranges::iota[link /reference/numeric/ranges_iota.md]
 
 ### 出力
-(執筆中)
+```
+```
 
 ## バージョン
 ### 言語

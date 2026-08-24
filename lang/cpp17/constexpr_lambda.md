@@ -195,12 +195,23 @@ C++14まではラムダ式がコンパイル時に呼び出せないため、
 
 ## 検討されたほかの選択肢
 
-(執筆中)
+### `constexpr`指定を必須とするか、推論するか
+
+ラムダ式に`constexpr`を明示的に指定することを必須とする案も考えられた。しかし、暗黙定義されるコンストラクタや代入演算子が条件を満たせば自動的に`constexpr`となる先例に倣い、`constexpr`指定を省略した場合は`operator()`が[`constexpr`関数](/lang/cpp11/constexpr.md)の要件を満たすなら自動的に`constexpr`として扱う方式が採用された。同時に、明示的な`constexpr`指定も可能とされている。
+
+これは、`constexpr`キーワードには、テンプレート特殊化の実体化タイミングの制御・コンパイル時間の削減・意図の表明・ライブラリのソース互換性の維持といった有用性がある、という指摘を踏まえたものである。
+
+### 未評価オペランド内のラムダ式
+
+`sizeof`や`decltype`といった未評価オペランドの内側にラムダ式を書けるようにする案は、シグネチャ内でのマングリングなど本提案とは独立した問題を含むため、この提案では見送られた。この機能はのちにC++20で、[未評価文脈でのラムダ式](/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md)として別途導入された。
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 `constexpr`](/lang/cpp11/constexpr.md)
+- [C++20 未評価文脈でのラムダ式](/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md)
 
 ## 参照
 
-(執筆中)
+- [N4487 Constexpr Lambda](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4487.pdf)
+    - EWGに採択された設計提案
 - [P0170R1 Wording for Constexpr Lambda](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0170r1.pdf)
+    - N4487に対応するコアワーディング提案

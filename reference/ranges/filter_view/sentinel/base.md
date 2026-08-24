@@ -18,7 +18,32 @@ constexpr const sentinel_t<V> base() const;
 入力`view`（`V`）の番兵を`end_`というメンバに保持するとして、`return end_;` と等しい
 
 ## 例
-(執筆中)
+```cpp example
+#include <ranges>
+#include <concepts>
+
+int main()
+{
+  // take_while_viewは非common_rangeなので、filter_viewのend()は番兵を返す
+  auto base = std::views::iota(1)
+            | std::views::take_while([](int i) { return i <= 10; });
+  auto fv = base | std::views::filter([](int i) { return i % 2 == 0; });
+
+  auto se = fv.end();
+
+  // base()で元のview（take_while_view）の番兵を取得する
+  auto s = se.base();
+  static_assert(std::same_as<decltype(s), std::ranges::sentinel_t<decltype(base)>>);
+}
+```
+* std::views::take_while[link /reference/ranges/take_while_view.md]
+* std::views::filter[link /reference/ranges/filter_view.md]
+* std::views::iota[link /reference/ranges/iota_view.md]
+* std::ranges::sentinel_t[link /reference/ranges/sentinel_t.md]
+
+### 出力
+```
+```
 
 ## バージョン
 ### 言語

@@ -32,7 +32,35 @@ return x.current_ == y.end_;
 - この演算子により逆順の `==` 演算子と、それぞれに対応する `!=` 演算子が使用可能になる。
 
 ## 例
-(執筆中)
+```cpp example
+#include <ranges>
+#include <iostream>
+
+int main()
+{
+  // take_while_viewは非common_rangeなので、filter_viewのend()は番兵を返す
+  auto base = std::views::iota(1)
+            | std::views::take_while([](int i) { return i <= 10; });
+  auto fv = base | std::views::filter([](int i) { return i % 2 == 0; });
+
+  auto it = fv.begin();
+  auto se = fv.end();
+
+  // operator==(iterator, sentinel) で終端を判定しながら走査する
+  for (; it != se; ++it) {
+    std::cout << *it;
+  }
+  std::cout << std::endl;
+}
+```
+* std::views::take_while[link /reference/ranges/take_while_view.md]
+* std::views::filter[link /reference/ranges/filter_view.md]
+* std::views::iota[link /reference/ranges/iota_view.md]
+
+### 出力
+```
+246810
+```
 
 ## バージョン
 ### 言語

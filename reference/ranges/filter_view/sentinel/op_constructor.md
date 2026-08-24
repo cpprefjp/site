@@ -27,7 +27,38 @@ private:
 - (2) : `end_`を[`std::ranges::end`](../../end.md)`(parent.base_)`で初期化する
 
 ## 例
-(執筆中)
+```cpp example
+#include <ranges>
+#include <iostream>
+#include <concepts>
+
+int main()
+{
+  // take_while_viewは非common_rangeなので、filter_viewのend()は番兵を返す
+  auto base = std::views::iota(1)
+            | std::views::take_while([](int i) { return i <= 10; });
+  auto fv = base | std::views::filter([](int i) { return i % 2 == 0; });
+
+  // (2) filter_viewのend()から番兵が構築される
+  auto se = fv.end();
+
+  // (1) デフォルト構築が可能
+  static_assert(std::default_initializable<decltype(se)>);
+
+  for (auto it = fv.begin(); it != se; ++it) {
+    std::cout << *it;
+  }
+  std::cout << std::endl;
+}
+```
+* std::views::take_while[link /reference/ranges/take_while_view.md]
+* std::views::filter[link /reference/ranges/filter_view.md]
+* std::views::iota[link /reference/ranges/iota_view.md]
+
+### 出力
+```
+246810
+```
 
 ## バージョン
 ### 言語

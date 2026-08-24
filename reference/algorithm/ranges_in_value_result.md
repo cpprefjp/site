@@ -68,10 +68,28 @@ namespace std::ranges {
 変換演算子は、各テンプレートパラメーターが変換できる場合のみオーバーロード解決に参加する。
 
 ## 例
-(執筆中)
+```cpp example
+#include <cassert>
+#include <algorithm>
+#include <functional>
+#include <vector>
+
+int main() {
+  std::vector<int> v = {1, 2, 3, 4};
+
+  // fold_left_with_iterはin_value_result（fold_left_with_iter_result）を返す
+  const std::ranges::in_value_result result = std::ranges::fold_left_with_iter(v, 0, std::plus<>{});
+
+  assert(result.in == v.end()); // 走査し終えた終端イテレータ
+  assert(result.value == 10);   // 畳み込み結果
+}
+```
+* std::ranges::in_value_result[color ff0000]
+* std::ranges::fold_left_with_iter[link /reference/algorithm/ranges_fold_left_with_iter.md]
 
 ### 出力
-(執筆中)
+```
+```
 
 ## バージョン
 ### 言語
