@@ -120,3 +120,8 @@ int main()
 - [Clang](/implementation.md#clang): 7.0 [mark verified]
 - [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue 2728. `status(p).permissions()` and `symlink_status(p).permissions()` are not specified](https://cplusplus.github.io/LWG/issue2728)
+    - C++17の策定中に、返される[`file_status`](file_status.md)にファイルの権限（`perms`）が設定されることが規定された
