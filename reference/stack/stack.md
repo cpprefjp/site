@@ -30,6 +30,10 @@ namespace std {
 - `Container`: 要素へのアクセス・保存に用いる内部実装のコンテナクラス
 
 
+## 適格要件
+`T`が`Container::value_type`と同じ型であること。
+
+
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -116,4 +120,6 @@ int main ()
 3 2 1 
 ```
 
-### 参照
+## 参照
+- [LWG Issue 2566. Requirements on the first template parameter of container adaptors](https://cplusplus.github.io/LWG/issue2566)
+    - C++17で、テンプレートパラメータ`T`が`Container::value_type`と同じ型であることが規定された
