@@ -368,6 +368,9 @@ que5 : 5 4 3 2 1
 ## 参照
 
 - [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
+- [LWG Issue 2537. Constructors for `priority_queue` taking allocators should call `make_heap`](https://cplusplus.github.io/LWG/issue2537)
+    - C++17で、アロケータを受け取るコンストラクタでも`make_heap`を呼び出すことが明記された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。元の文言を厳密に読むと呼び出し側がヒープ化済みのコンテナを渡す必要があるという意図しない解釈になり、処理系は当初から`make_heap`を呼んでいたため
 - [LWG Issue 3506. Missing allocator-extended constructors for `priority_queue`](https://cplusplus.github.io/LWG/issue3506)
     - C++23で、イテレータ範囲を受け取るアロケータ拡張コンストラクタ(15)〜(17)が追加された
 - [LWG Issue 3522. Missing requirement on `InputIterator` template parameter for `priority_queue` constructors](https://cplusplus.github.io/LWG/issue3522)
