@@ -44,6 +44,8 @@ namespace std {
 |-----------------------------------------|----------------------------------------------|-------|
 | [`(constructor)`][constructor]          | コンストラクタ                               | C++11 |
 | `~scoped_allocator_adaptor() = default` | デストラクタ                                 | C++11 |
+| `operator=(const scoped_allocator_adaptor&) = default` | コピー代入演算子             | C++17 |
+| `operator=(scoped_allocator_adaptor&&) = default`      | ムーブ代入演算子             | C++17 |
 | [`inner_allocator`][inner_allocator]    | 内側のアロケータを取得する                   | C++11 |
 | [`outer_allocator`][outer_allocator]    | 外側のアロケータを取得する                   | C++11 |
 | [`allocate`][allocate]                  | メモリを確保する                             | C++11 |
@@ -274,3 +276,5 @@ element allocator : 2
 - [N2554 The Scoped Allocator Model (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2554.pdf)
 - [Scoped allocators - C++11 FAQ](http://www.stroustrup.com/C++11FAQ.html#scoped-allocator)
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+- [LWG Issue 2476. `scoped_allocator_adaptor` is not assignable](https://cplusplus.github.io/LWG/issue2476)
+    - C++17で、デフォルト定義されたコピー代入演算子・ムーブ代入演算子がクラス定義に追加され、このアダプタ（およびそれを使うコンテナ）が代入可能になった
