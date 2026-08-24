@@ -66,8 +66,8 @@ Cの`FILE*`に対する入出力関数を使って実装される。
 | `imbue`                                     | ロケールを設定する (protected virtual) | |
 | `setbuf`                                    | バッファ領域を与える (protected virtual) | |
 | `seekoff`                                   | 相対指定での位置移動 (protected virtual) | |
-| `seekpos`                                   | 絶対指定での位置移動 (protected virtual) | |
-| `sync`                                      | 出力列の同期 (protected virtual) | |
+| [`seekpos`](basic_filebuf/seekpos.md)       | 絶対指定での位置移動 (protected virtual) | |
+| [`sync`](basic_filebuf/sync.md)             | 出力列の同期 (protected virtual) | |
 | `uflow`                                     | (protected virtual) |
 | `underflow`                                 | (protected virtual) |
 | `showmanyc`                                 | ブロックせずに読み取れると期待される文字数を得る (protected virtual) | |
