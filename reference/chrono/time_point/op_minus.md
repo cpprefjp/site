@@ -42,11 +42,12 @@ namespace chrono {
 
 
 ## 戻り値
-- (1)
+- (1) : 戻り値の型を`CT`として、
 
 ```cpp
-return lhs + (-rhs);
+return CT(lhs.time_since_epoch() - rhs);
 ```
+* time_since_epoch[link time_since_epoch.md]
 
 - (2)
 
@@ -101,3 +102,5 @@ int main()
 
 ## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
+- [LWG Issue 2739. Issue with `time_point` non-member subtraction with an `unsigned` duration](https://cplusplus.github.io/LWG/issue2739)
+    - C++17で、(1)の戻り値が`CT(lhs.time_since_epoch() - rhs)`に変更され、符号なし`duration`で負符号化による予期しないオーバーフローが起きないようになった
