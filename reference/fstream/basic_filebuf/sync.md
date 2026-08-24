@@ -6,7 +6,8 @@
 
 ```cpp
 protected:
-  int sync() override;
+  virtual int sync();  // (1) C++03
+  int sync() override; // (1) C++17
 ```
 
 ## 概要
@@ -16,7 +17,7 @@ protected:
 
 
 ## 効果
-put領域が存在する場合、`basic_filebuf`の[`overflow`](overflow.md.nolink)を呼び出して文字をファイルに書き込み、その後あたかも[`std::fflush`](/reference/cstdio/fflush.md)`(file)`を呼び出したかのようにファイルをフラッシュする。
+put領域が存在する場合、`basic_filebuf`の[`overflow`](overflow.md)を呼び出して文字をファイルに書き込み、その後あたかも[`std::fflush`](/reference/cstdio/fflush.md)`(file)`を呼び出したかのようにファイルをフラッシュする。
 
 get領域が存在する場合の効果は、処理系定義である。
 

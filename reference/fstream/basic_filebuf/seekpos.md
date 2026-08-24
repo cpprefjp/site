@@ -6,9 +6,12 @@
 
 ```cpp
 protected:
-  pos_type seekpos(pos_type sp,
-                   ios_base::openmode which
-                     = ios_base::in | ios_base::out) override;
+  virtual pos_type
+    seekpos(pos_type sp,
+            ios_base::openmode which = ios_base::in | ios_base::out);  // (1) C++03
+  pos_type
+    seekpos(pos_type sp,
+            ios_base::openmode which = ios_base::in | ios_base::out) override; // (1) C++17
 ```
 * ios_base::openmode[link /reference/ios/ios_base/type-openmode.md]
 
@@ -19,7 +22,7 @@ protected:
 
 
 ## 事前条件
-`sp`が、同一ファイルに対する位置指定関数（[`seekoff`](seekoff.md.nolink)または`seekpos`）の以前の成功した呼び出しによって取得された値であること。そうでない場合、動作は未定義である。
+`sp`が、同一ファイルに対する位置指定関数（[`seekoff`](seekoff.md)または`seekpos`）の以前の成功した呼び出しによって取得された値であること。そうでない場合、動作は未定義である。
 
 
 ## 効果

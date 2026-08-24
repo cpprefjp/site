@@ -5,22 +5,19 @@
 * function[meta id-type]
 
 ```cpp
-~basic_filebuf() override;
+virtual ~basic_filebuf(); // (1) C++98
 ```
 
 ## 概要
 オブジェクトを破棄する。
 
 ## 効果
-
-`close()`を呼び出す。
+[`close()`](close.md)を呼び出す。
 そこで例外が発生した場合、catchして何も行わない（再送出しない）。
-
-## 事後条件
 
 ## 実装例
 ```cpp
-~basic_filebuf() override {
+virtual ~basic_filebuf() {
   try {
     close();
   } catch (...) {
@@ -38,4 +35,3 @@
 ### 言語
 - C++98
 
-## 参照
