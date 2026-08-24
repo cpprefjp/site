@@ -85,3 +85,5 @@ int main()
 ## 参照
 - [N4536 An algorithm to "clamp" a value between a pair of boundary values](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4536.html)
 - [P0025R0 An algorithm to "clamp" a value between a pair of boundary values (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0025r0.html)
+- [LWG Issue 2688. `clamp` misses preconditions and has extraneous condition on result](https://cplusplus.github.io/LWG/issue2688)
+    - C++17で、事前条件（`low`は`high`より大きくてはならない）が追加され、戻り値の規定が整理された
