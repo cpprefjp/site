@@ -106,3 +106,5 @@ int main()
     - C++23での、一部関数の`constexpr`対応
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした
+- [LWG Issue 2192. Validity and return type of `std::abs(0u)` is unclear](https://cplusplus.github.io/LWG/issue2192)
+    - C++17で、`int`へ整数昇格できない符号なし整数型に対する`abs`の呼び出しが不適格であることが規定された
