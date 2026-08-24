@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-shared_future<R> share();
+shared_future<R> share();          // (1) C++11
+shared_future<R> share() noexcept; // (1) C++17
 ```
 * shared_future[link ../shared_future.md]
 
@@ -24,6 +25,11 @@ shared_future<R> share();
 
 ## 戻り値
 [`shared_future`](../shared_future.md)`<R>(std::`[`move`](/reference/utility/move.md)`(*this))`
+
+
+## 例外
+- 投げない
+- C++17以降は`noexcept`指定されている。[`valid()`](valid.md) `== false`である`future`に対して呼び出してもよく（広い契約）、その場合は無効な状態の[`shared_future`](../shared_future.md)が返る
 
 
 ## 例
@@ -91,3 +97,5 @@ int main()
 
 [futureとshared_future - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120201/p1)
 [future::share()は何のためにあるのか - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20121029/1351494001)
+- [LWG Issue 2556. Wide contract for `future::share()`](https://cplusplus.github.io/LWG/issue2556)
+    - C++17で、`share()`が広い契約（`valid()`が`false`でも呼び出し可）を持ち例外を投げないことを反映して`noexcept`が付与された
