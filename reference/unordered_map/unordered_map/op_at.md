@@ -27,6 +27,18 @@ constexpr T& operator[](K&& k); // (3) C++26
 - (3) : `key_compare::is_transparent` が妥当な式であること
 
 
+## 効果
+- (1) :
+    - C++11 : `x`と等価なキーを持つ要素が存在しない場合、`value_type(x, T())`を挿入する
+    - C++17 : [`try_emplace`](try_emplace.md)`(x).first->second`と等価
+- (2) :
+    - C++11 : `x`と等価なキーを持つ要素が存在しない場合、`value_type(`[`move`](/reference/utility/move.md)`(x), T())`を挿入する
+    - C++17 : [`try_emplace`](try_emplace.md)`(`[`move`](/reference/utility/move.md)`(x)).first->second`と等価
+- (1), (2) :
+    - C++17 : 要素（`value_type`）はアロケータを通じて一体で構築される
+- (3) : `try_emplace(`[`forward`](/reference/utility/forward.md)`<K>(k)).first->second`と等価
+
+
 ## 戻り値
 キー`x`に対応する値を返す。対応する要素が存在しない場合は、要素を値初期化して参照を返す。
 
@@ -106,3 +118,6 @@ size=2
 - [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
     - C++26で`template <class K>`のバージョンが追加された
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 2469. Wrong specification of Requires clause of `operator[]` for `map` and `unordered_map`](https://cplusplus.github.io/LWG/issue2469)
+    - C++17で、(1), (2)の効果が[`try_emplace`](try_emplace.md)を用いて規定され、要素を`value_type`として一体で構築する矛盾のない要件へ整理された
+    - 元の要件は`key_type`と`mapped_type`を別々に構築することを求めており、要素が`value_type`として一体で構築されるという規定と矛盾していた。ただし修正後の文言が用いる[`try_emplace`](try_emplace.md)はC++17で追加されたメンバ関数であるため、この規定自体をそれ以前のバージョンへ遡及して適用することはできない
