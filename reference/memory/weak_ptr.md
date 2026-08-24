@@ -50,7 +50,7 @@ namespace std {
 
 | 名前           | 説明      | 対応バージョン |
 |----------------|-----------|-------|
-| `element_type` | 要素型`T` | C++11 |
+| `element_type` | 監視するインスタンスの型<br/> C++11 : `T`<br/> C++17 : [`remove_extent_t`](/reference/type_traits/remove_extent.md)`<T>`（配列型`U[N]`, `U[]`に対しては`U`） | C++11 |
 
 
 ## 非メンバ関数
@@ -114,3 +114,5 @@ shared_ptr managed object deleted.
 - [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 ## 参照
+- [LWG Issue 3001. `weak_ptr::element_type` needs `remove_extent_t`](https://cplusplus.github.io/LWG/issue3001)
+    - C++20で、`shared_ptr`の配列対応に合わせて`element_type`が`remove_extent_t<T>`となるよう修正された。この修正は欠陥報告(DR)であり、C++17にも遡及して適用される
