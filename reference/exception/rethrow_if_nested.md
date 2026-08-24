@@ -17,15 +17,16 @@ namespace std {
 
 
 ## 効果
-型`E`が[`nested_exception`](/reference/exception/nested_exception.md)を継承した型だった場合、以下の処理を行う：
+- 型`E`が多相的（polymorphic）なクラス型でない場合、または[`nested_exception`](/reference/exception/nested_exception.md)が`E`のアクセス不能もしくは曖昧な基底クラスである場合、何もしない。
+- そうでなければ、以下を行う：
 
-```cpp
-dynamic_cast<const nested_exception&>(e).rethrow_nested()
-```
-* nested_exception[link nested_exception.md]
-* rethrow_nested()[link nested_exception/rethrow_nested.md]
-
-そうでなければ何もしない。
+    ```cpp
+    if (auto p = dynamic_cast<const nested_exception*>(addressof(e)))
+      p->rethrow_nested();
+    ```
+    * nested_exception[link nested_exception.md]
+    * rethrow_nested()[link nested_exception/rethrow_nested.md]
+    * addressof[link /reference/memory/addressof.md]
 
 
 ## 戻り値
@@ -124,3 +125,9 @@ inner
 ## 参照
 - [P3842R2 A conservative fix for constexpr `uncaught_exceptions()` and `current_exception()`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3842r2.pdf)
     - C++26の策定中に`constexpr`が追加されたが、本提案文書により巻き戻された (C++29で再検討予定)
+- [LWG Issue 2484. `rethrow_if_nested()` is doubly unimplementable](https://cplusplus.github.io/LWG/issue2484)
+    - 型`E`が多相的でない場合は何もしないこと、および`e`の静的型が[`nested_exception`](nested_exception.md)であるかそこからpublicかつ曖昧さなく派生している場合を対象とすることが規定された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。 C++11時点の規定は「`e`の動的型が`nested_exception`から派生しているか」で判定するとしていたが、非多相なクラス型では動的型を判別する`dynamic_cast`自体が不適格となるため、規定どおりに実装することが不可能だった。したがって処理系は当初からこの修正後の挙動（非多相型では何もしない）を採るしかなく、これと異なる観測可能な挙動が出荷されていたわけではない
+- [LWG Issue 2784. Resolution to LWG 2484 is missing "otherwise, no effects" and is hard to parse](https://cplusplus.github.io/LWG/issue2784)
+    - LWG 2484の解決を整理し、静的型の判定と動的型の判定を分離して、効果をポインタ版`dynamic_cast`とヌルチェックを用いる形に書き直した。あわせて、条件を満たさない場合は何もしないことが明記された
+    - この修正も欠陥報告(DR)であり、C++11以降に遡及して適用される。 LWG 2484と同じ規定を読みやすく書き換えたものであり、意図された挙動は変わらないため
