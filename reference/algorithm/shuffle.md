@@ -129,5 +129,7 @@ void shuffle(RandomAccessIterator first, RandomAccessIterator last, UniformRando
 - [`ranges::shuffle`](/reference/algorithm/ranges_shuffle.md)
 
 ## 参照
+- [LWG Issue 2716. Specification of `shuffle` and `sample` disallows lvalue URNGs](https://cplusplus.github.io/LWG/issue2716)
+    - C++17で、乱数生成器の要件が`remove_reference_t`を通して判定されるよう整理され、左辺値の乱数生成器を渡せることが明確化された
 - [P0346R1 A `<random>` Nomenclature Tweak](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0346r1.pdf)
     - URNGをURBGに変更
