@@ -25,10 +25,13 @@ namespace std {
 
 ## 戻り値
 
-### C++17まで
+### C++14まで
 `fn(t, a2, ..., aN)` の呼出しが [`INVOKE`](/reference/concepts/Invoke.md)`(pm, t, a2, ..., aN)` と等価となる [*Callable*](/reference/concepts/Callable.md) オブジェクト `fn` を返す。
 
 `fn` の型には、必要に応じて型の別名 `argument_type`, `first_argument_type`, `second_argument_type`, `result_type` が定義される。
+
+### C++17から
+C++14までと同様だが、`fn`が*simple call wrapper*（引数を完全転送する呼び出しラッパー）であることが要求される。すなわち、右辺値の実引数は右辺値参照として、左辺値の実引数は左辺値参照として、それぞれ`pm`へ渡される。これにより、値渡しのパラメータを持つメンバ関数ポインタに対して余分なコピーやムーブが発生しないことが保証される。
 
 ### C++20から
 `fn(call_args...)`の呼び出しが[`invoke`](/reference/functional/invoke.md)`(pmd,  call_args...)`を行う*simple call wrapper*オブジェクト `fn` を返す。  
@@ -92,5 +95,8 @@ true
 ## 参照
 - [LWG Issue 2048. Unnecessary `mem_fn` overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2048)
     - 不必要なオーバーロードを、C++14で削除
+- [LWG Issue 2486. `mem_fn()` should be required to use perfect forwarding](https://cplusplus.github.io/LWG/issue2486)
+    - `mem_fn`が返すオブジェクトが引数を完全転送する*simple call wrapper*であることが要求された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。引数の転送方法は元の規定では未規定であり、処理系は当初から完全転送していたため
 - [LWG Issue 2489. mem_fn() should be noexcept](https://wg21.cmeerw.net/lwg/issue2489)
 - [P1065R2 constexpr INVOKE](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1065r2.html)
