@@ -24,9 +24,9 @@ namespace std {
 
 
 ## 効果
-`is_trivially_destructible`は、`T`がトリビアルに破棄可能な型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
-
-「トリビアルに破棄可能」とは、ユーザー定義されないデストラクタを持っているということを意味する。
+- `is_trivially_destructible`は、`T`がトリビアルに破棄可能な型であるならば[`true_type`](true_type.md)から派生し、そうでなければ[`false_type`](false_type.md)から派生する。
+- 「トリビアルに破棄可能」とは、[`is_destructible`](is_destructible.md)`<T>::value == true`であり、かつ[`remove_all_extents`](remove_all_extents.md)`<T>::type`が非クラス型であるか、トリビアルなデストラクタを持つクラス型であることを意味する。
+    - `int`のような組み込み型や、それらの配列も、トリビアルに破棄可能である。
 
 
 ## 例
@@ -157,3 +157,5 @@ destruct
 - [An Example that Omits Destructor Calls For Types with Trivial Destructors](http://www.boost.org/doc/libs/1_65_1/libs/type_traits/doc/html/boost_typetraits/examples/destruct.html)
     - デストラクタを呼び出す必要のない型の配列に対して、デストラクタを呼び出すループを省略する最適化の例
 - [Multiple destructors with C++ concepts - Sandor Dargo's Blog](https://www.sandordargo.com/blog/2021/06/16/multiple-destructors-with-cpp-concepts)
+- [LWG Issue 2972. What is `is_trivially_destructible_v<int>`?](https://cplusplus.github.io/LWG/issue2972)
+    - C++20で、「`remove_all_extents_t<T>`が非クラス型か、トリビアルなデストラクタを持つクラス型である」という条件へ整理され、`int`のような組み込み型でも正しく`true`となることが明確化された。この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される
