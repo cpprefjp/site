@@ -13,6 +13,10 @@ bool recursion_pending() const;
 再帰しないかどうかが未決定かを確認する。
 
 
+## 事前条件
+`*this`がデリファレンス可能であること。終端イテレータや、インクリメントによって無効化されたコピーはデリファレンス可能ではない。
+
+
 ## 戻り値
 [`disable_recursion_pending()`](disable_recursion_pending.md)がそのディレクトリに対して呼ばれていなければ`true`、そうでなければ`false`を返す。
 
@@ -67,3 +71,7 @@ int main()
 - [Clang](/implementation.md#clang): 7.0 [mark verified]
 - [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):
+
+## 参照
+- [LWG Issue 2704. `recursive_directory_iterator`'s members should require '`*this` is dereferenceable'](https://cplusplus.github.io/LWG/issue2704)
+    - C++17の策定中に、`options`/`depth`/`recursion_pending`/`pop`/`disable_recursion_pending`は`*this`がデリファレンス可能であることを要求する（そうでない場合は未定義動作）と規定された

@@ -14,6 +14,10 @@ directory_options options() const;
 走査オプションを取得する。
 
 
+## 事前条件
+`*this`がデリファレンス可能であること。終端イテレータや、インクリメントによって無効化されたコピーはデリファレンス可能ではない。
+
+
 ## 戻り値
 コンストラクタで設定されたオプションを返す。コンストラクタで明示的にオプションを指定していない場合は、[`directory_options::none`](/reference/filesystem/directory_options.md)を返す。
 
@@ -54,3 +58,7 @@ int main()
 - [Clang](/implementation.md#clang): 7.0 [mark verified]
 - [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):
+
+## 参照
+- [LWG Issue 2704. `recursive_directory_iterator`'s members should require '`*this` is dereferenceable'](https://cplusplus.github.io/LWG/issue2704)
+    - C++17の策定中に、`options`/`depth`/`recursion_pending`/`pop`/`disable_recursion_pending`は`*this`がデリファレンス可能であることを要求する（そうでない場合は未定義動作）と規定された
