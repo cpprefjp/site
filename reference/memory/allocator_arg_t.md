@@ -35,3 +35,8 @@ namespace std {
 - [`std::tuple`](/reference/tuple/tuple.md)クラス
 - [`std::promise`](/reference/future/promise.md)クラス
 - [`std::function`](/reference/functional/function.md)クラス
+
+
+## 参照
+- [LWG Issue 2510. Tag types should not be `DefaultConstructible`](https://cplusplus.github.io/LWG/issue2510)
+    - C++17で、`{}`による暗黙構築を防ぐため、明示的なデフォルトコンストラクタ（`explicit allocator_arg_t() = default;`）が追加された
