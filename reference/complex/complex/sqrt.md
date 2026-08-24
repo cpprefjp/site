@@ -134,3 +134,5 @@ sqrt(-1.0 - 1.0i) = (0.45509,-1.09868)
 ## 参照
 - [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
     - C++26で`constexpr`対応した
+- [LWG Issue 2597. `std::log` misspecified for complex numbers](https://cplusplus.github.io/LWG/issue2597)
+    - 分岐切断上での挙動（負のゼロの扱い）の意味論がCの`clog`と同じであることを意図する、と整理された。この修正は欠陥報告(DR)であり、C++17にも遡及して適用される
