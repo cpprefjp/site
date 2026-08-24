@@ -53,8 +53,6 @@ constexpr explicit variant(in_place_index_t<I>,
 - 候補型`Types...`のi番目の型を`Ti`とする
 - (1) :
     - [`is_default_constructible_v`](/reference/type_traits/is_default_constructible.md)`<T0>`であること
-- (2) :
-    - 全ての型`Ti`について、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<Ti>`が`true`であること
 - (3) :
     - 全ての型`Ti`について、[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<Ti>`が`true`であること
 - (4) :
@@ -131,6 +129,11 @@ constexpr explicit variant(in_place_index_t<I>,
     - 型`T`の選択されたコンストラクタが任意の例外を送出する可能性がある
 - (7), (8) :
     - 型`Ti`の選択されたコンストラクタが任意の例外を送出する可能性がある
+
+
+## delete定義される条件
+- (2) : いずれかの型`Ti`について、[`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<Ti>`が`false`である場合、このコンストラクタは`delete`定義される
+    - オーバーロード解決から除外される（SFINAE）のではなく`delete`定義されるため、コピー構築できない`variant`をコピーしようとすると「削除された関数の呼び出し」として診断される
 
 
 ## トリビアルに定義される条件
@@ -370,6 +373,9 @@ int main()
 - [P0777R1 Treating Unnecessary `decay`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0777r1.pdf)
     - C++20からテンプレートパラメータ制約の`decay_t`を`remove_cvref_t`へ変更。
 - [LWG Issue 2991. `variant` copy constructor missing `noexcept(see below)`](https://cplusplus.github.io/LWG/issue2991)
-    - コピーコンストラクタ(2)に`noexcept(see below)`が追加され、その例外指定が全ての`Ti`についての`is_nothrow_copy_constructible_v<Ti>`を論理積したものと等価であることが規定された。ムーブコンストラクタと異なりコピー側で指定が欠落していた欠陥の修正であり、この仕様はC++26で規定されたが主要な実装は早期に対応している
+    - C++26で、コピーコンストラクタ(2)に`noexcept(see below)`が追加され、その例外指定が全ての`Ti`についての`is_nothrow_copy_constructible_v<Ti>`を論理積したものと等価であることが規定された。ムーブコンストラクタと異なりコピー側で指定が欠落していた欠陥の修正であるため、主要な実装は早期に対応している
+- [LWG Issue 3024. `variant`'s copies must be deleted instead of disabled via SFINAE](https://cplusplus.github.io/LWG/issue3024)
+    - C++20で、コピーコンストラクタ・コピー代入演算子は、いずれかの要素型がコピー構築／コピー代入できない場合にSFINAEで除外するのではなく`delete`定義されるよう変更された
+    - この修正は欠陥報告(DR)であり、C++17に遡及して適用される。コピーコンストラクタやコピー代入演算子をオーバーロード解決から除外する言語機構は存在せず元の規定は実装不可能であり、処理系は当初から`delete`定義していたため
 - [LWG Issue 4460. Missing _Throws_: for last `variant` constructor](https://cplusplus.github.io/LWG/issue4460)
-    - `in_place_index_t`と`initializer_list`をとる(8)のコンストラクタに、他のコンストラクタと同様に「格納する値の初期化で送出された例外を送出する」旨のThrows節が規格に追加された（規格の記載漏れの修正）
+    - C++26で、`in_place_index_t`と`initializer_list`をとる(8)のコンストラクタに、他のコンストラクタと同様に「格納する値の初期化で送出された例外を送出する」旨のThrows節が規格に追加された（規格の記載漏れの修正）
