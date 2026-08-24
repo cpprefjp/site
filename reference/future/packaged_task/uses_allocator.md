@@ -3,6 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp11[meta cpp]
+* cpp20removed[meta cpp]
 
 ```cpp
 namespace std {
@@ -12,6 +13,9 @@ namespace std {
 }
 ```
 * true_type[link /reference/type_traits/true_type.md]
+
+[`packaged_task`](../packaged_task.md)のアロケータサポートはC++17で削除されたが、この特殊化はC++17の規格には残っていた。C++20で、取り残されていたこの特殊化も削除された。
+
 
 ## 概要
 `uses_allocator`の、`packaged_task<R>`に対する特殊化。
@@ -37,3 +41,5 @@ namespace std {
 
 
 ## 参照
+- [LWG Issue 2976. Dangling `uses_allocator` specialization for `packaged_task`](https://cplusplus.github.io/LWG/issue2976)
+    - `packaged_task`のアロケータサポート削除に伴い残っていたこの特殊化が削除された。この修正は欠陥報告(DR)であり、C++17にも遡及して適用される
