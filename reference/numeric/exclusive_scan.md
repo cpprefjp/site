@@ -194,3 +194,5 @@ int main()
     - この関数の用途として、[`std::multiset`](/reference/set/multiset.md)のような構成になっているシーケンスから、それぞれのキーがはじまるインデックスのリストを取得するために使用できる
 - [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
     - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した
+- [LWG Issue 2687. `{inclusive,exclusive}_scan` misspecified](https://cplusplus.github.io/LWG/issue2687)
+    - C++17で、各出力位置が対象とする入力範囲の境界のoff-by-oneが修正され、正しい包括/排他スキャンの意味論となった
