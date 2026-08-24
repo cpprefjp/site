@@ -53,8 +53,7 @@ template<pair-like P>
 [プロキシ参照](/reference/iterator/indirectly_writable.md)版とは、[プロキシ参照](/reference/iterator/indirectly_writable.md)である（要素がどちらも[プロキシ参照](/reference/iterator/indirectly_writable.md)である）[`pair`](../pair.md)が持つ各要素について、その要素の参照先へ、他の[`pair`](../pair.md)又は[`pair-like`](/reference/tuple/pair-like.md)なオブジェクトの対応する値を代入する動作を行う版である。
 
 
-## 要件
-- (1) : [`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<T1>::value &&` [`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<T2>::value`であること
+## テンプレートパラメータ制約
 - (2) : C++23 : [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<const T1> &&` [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<const T2>`であること
 - (3) : [`is_assignable`](/reference/type_traits/is_assignable.md)`<T1&, const U&>::value &&` [`is_assignable`](/reference/type_traits/is_assignable.md)`<T2&, const V&>::value`であること
 - (4) : C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const T1&, const U&> &&` [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const T2&, const V&>`であること
@@ -72,6 +71,13 @@ template<pair-like P>
     - C++23 : [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<P>`が[`ranges::subrange`](/reference/ranges/subrange.md)の特殊化でないこと
     - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const T1&, decltype(get<0>(`[`std::forward`](/reference/utility/forward.md)`<P>(p)))>`
     - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const T2&, decltype(get<1>(`[`std::forward`](/reference/utility/forward.md)`<P>(p)))>`
+
+
+## delete定義される条件
+- (1) :
+    - C++11 : [`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<T1>::value &&` [`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<T2>::value`であることが、要件として規定されていた
+    - C++17 : [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<T1> &&` [`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<T2>`が`true`でない場合、この演算子は`delete`定義される
+        - コピー代入は制約（オーバーロード解決に参加しない）ではなく`delete`定義される。一方でムーブ代入(5)は制約であるため、ムーブ代入できない場合はコピー代入がオーバーロード解決の候補となりうる
 
 
 ## 効果
@@ -157,4 +163,9 @@ p4 : (1,abc)
 	- (1), (3)はそれより前から実装されている。
 
 ## 参照
+- [LWG Issue 2729. Missing SFINAE on `std::pair::operator=`](https://cplusplus.github.io/LWG/issue2729)
+    - C++17で、コピー代入演算子(1)が要素型のコピー代入可能性を満たさない場合は`delete`定義されるよう規定され、`is_copy_assignable`等が正しい結果を返すようになった
 - [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
+- [LWG Issue 2958. Moves improperly defined as deleted](https://cplusplus.github.io/LWG/issue2958)
+    - C++20で、ムーブ代入演算子が要素型の代入不可時に`delete`定義ではなくオーバーロード解決に参加しない形へ修正され、コピー代入へのフォールバックが可能になった
+    - この修正は欠陥報告(DR)であり、C++17に遡及して適用される。C++17の「`delete`定義される」という文言では、暗黙`delete`（オーバーロード解決に不参加）か明示`delete`（コピー代入を隠す）かが不明確で意図どおりに実装できなかったため
