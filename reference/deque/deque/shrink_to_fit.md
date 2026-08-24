@@ -21,7 +21,7 @@ constexpr void shrink_to_fit(); // (1) C++26
 ## 効果
 - 確保した未使用のメモリ領域を[`size()`](size.md)に縮小させるというリクエストを行う。
     - 実装依存の最適化を許可するために、縮小するという動作は仕様上強制されない。
-- C++17 : コンテナの要素に対する参照、ポインタ、およびイテレータとそれが指す要素への参照は無効となる。
+- C++17 : シーケンスの要素を指すすべての参照・ポインタ・イテレータ、および終端イテレータ（past-the-end iterator）が無効となる。
 - C++17 : コピー挿入可能でない型`T`のムーブコンストラクタによる例外を除き、例外が送出された場合この関数は何もしない。
 
 
@@ -57,4 +57,6 @@ constexpr void shrink_to_fit(); // (1) C++26
 - [LWG Issue 850. Should `shrink_to_fit` apply to `std::deque`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#850)
 - [LWG Issue 2033. Preconditions of `reserve`, `shrink_to_fit`, and `resize` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2033)
 - [LWG Issue 2223. `shrink_to_fit` effect on iterator validity](https://wg21.cmeerw.net/lwg/issue2223)
+- [LWG Issue 2834. Resolution to LWG 2223 is missing wording about end iterators](https://cplusplus.github.io/LWG/issue2834)
+    - C++17で、終端イテレータ（past-the-end iterator）も無効化されることが明確化された
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

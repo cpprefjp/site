@@ -18,7 +18,7 @@ constexpr void shrink_to_fit(); // (1) C++20
 - [`capacity`](capacity.md)`()`を[`size`](size.md)`()`に縮小させるリクエストを行う。
     - 実装依存の最適化を許可するために、縮小するという動作は仕様上強制されない。
 - C++17 : この関数によって[`capacity()`](capacity.md)が増えることはない。
-- C++17 : [`capacity()`](capacity.md)の縮小が起こる際に、メモリの再割り当てが発生する場合がある。その際、文字列の要素に対する参照、ポインタ、およびイテレータとそれが指す要素への参照は無効となる。
+- C++17 : [`capacity()`](capacity.md)の縮小が起こる際に、メモリの再割り当てが発生する場合がある。再割り当てが発生した場合、文字列の要素を指すすべての参照・ポインタ・イテレータ、および終端イテレータ（past-the-end iterator）が無効となる。再割り当てが発生しなければ、それらは有効なままである。
 
 
 ## 戻り値
@@ -89,4 +89,6 @@ void basic_string::shrink_to_fit() {
 - 『[Effective STL - STLを効果的に使いこなす50の鉄則](https://www.amazon.co.jp/dp/4894714108)』 第17項 余分な容量を取り除くには「swap技法」を使おう
 - [LWG Issue 755. `std::vector` and `std:string` lack explicit shrink-to-fit operations]
 - [LWG Issue 2223. `shrink_to_fit` effect on iterator validity](https://wg21.cmeerw.net/lwg/issue2223)
+- [LWG Issue 2834. Resolution to LWG 2223 is missing wording about end iterators](https://cplusplus.github.io/LWG/issue2834)
+    - C++17で、再割り当てが発生する場合に終端イテレータ（past-the-end iterator）も無効化されることが明確化された
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
