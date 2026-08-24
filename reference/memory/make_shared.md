@@ -145,6 +145,9 @@ int main() {
 - [std::make_shared から private コンストラクタを呼び出す - 野良C++erの雑記帳](http://d.hatena.ne.jp/gintenlabo/20131211/1386771626)
 - [P0674R1 Extending `make_shared` to support arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0674r1.html)
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+- [LWG Issue 2696. Interaction between `make_shared` and `enable_shared_from_this` is underspecified](https://cplusplus.github.io/LWG/issue2696)
+    - C++17で、`make_shared`/`allocate_shared`が呼び出すコンストラクタも`shared_from_this`を有効にすることが明確化された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。元の規定はpublicなコンストラクタについてのみ`shared_from_this`の有効化を述べており、これらの関数が使う非publicなコンストラクタについては未規定だったが、処理系は当初から有効化していたため
 - [LWG Issue 3005. Destruction order of arrays by `make_shared`/`allocate_shared` only recommended?](https://cplusplus.github.io/LWG/issue3005)
     - C++20で、配列要素の破棄順が非規範的な推奨から規範的要件に格上げされ、元の構築順の逆順で破棄されることが明確化された
 - [LWG Issue 3008. `make_shared` (sub)object destruction semantics are not specified](https://cplusplus.github.io/LWG/issue3008)

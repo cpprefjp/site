@@ -18,7 +18,8 @@ namespace std {
 複数の特性（bool値を返すメタ関数）の論理和を計算する。
 
 ## 要件
-Traits内の全ての型は基底クラスとして使用可能で（final指定されていない）、boolに変換可能なメンバ変数valueを持つこと。
+- `Traits`内の型のうち、`Bi::value`が実体化されるものは、基底クラスとして使用可能で（`final`指定されていない）、`bool`に変換可能なメンバ変数`value`を持つこと。
+    - 短絡評価によって`value`が参照されない型には、この要件は及ばない。
 
 ## 効果
 `sizeof...(Traits) == 0`ならば[`false_type`](false_type.md)から派生し
@@ -97,3 +98,9 @@ Tは何らかのポインタ
 - [C++17 で追加された std::conjunction/std::disjunction メタ関数 - Secret Garden(Instrumental)](http://secret-garden.hatenablog.com/entry/2017/08/13/203150)
 - [conjunction/disjunctionと短絡インスタンス化 - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20171103/p1)
 - [Logical Operator Type Traits (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0013r1.html)
+- [LWG Issue 2557. Logical operator traits are broken in the zero-argument case](https://cplusplus.github.io/LWG/issue2557)
+    - C++17の策定中に、引数が0個の場合（`conjunction<>`は`true_type`、`disjunction<>`は`false_type`）を正しく扱うよう文言が整理された
+- [LWG Issue 2567. Specification of logical operator traits uses `BaseCharacteristic`, which is defined only for `UnaryTypeTraits` and `BinaryTypeTraits`](https://cplusplus.github.io/LWG/issue2567)
+    - C++17の策定中に、`conjunction`/`disjunction`/`negation`のBaseCharacteristic（派生元の基底）の規定が、どの型から派生するかを明示する形に整理された
+- [LWG Issue 2569. `conjunction` and `disjunction` requirements are too strict](https://cplusplus.github.io/LWG/issue2569)
+    - C++17の策定中に、テンプレート引数のうち`Bi::value`が実体化されるものだけが基底クラスとして使用可能であればよい、と要件が緩和された（短絡評価される型には要件が及ばない）

@@ -67,6 +67,8 @@ namespace std {
 | 全ての列挙型         | C++14          |
 | `nullptr_t`          | C++17          |
 
+上記に加え、処理系が提供する拡張整数型（`__int128`など）を含むすべての整数型に対しても特殊化が提供される。
+
 
 ## メンバ関数
 
@@ -206,6 +208,8 @@ found : 3
 
 ## 参照
 - [ハッシュ関数 - Wikipedia](https://ja.wikipedia.org/wiki/ハッシュ関数)
+- [LWG 2119 - Missing hash specializations for extended integer types](https://cplusplus.github.io/LWG/issue2119)
+    - C++17で、拡張整数型を含むすべての整数型に対して特殊化が提供されることが明確化された
 - [LWG 2148 - Hashing enums should be supported directly by `std::hash`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2148)
 - [LWG 2291 - std::hash is vulnerable to collision DoS attack](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2291)
 - [LWG 2543 - LWG 2148 (hash support for enum types) seems under-specified](https://cplusplus.github.io/LWG/issue2543)

@@ -52,6 +52,10 @@ namespace std {
 投げない
 
 
+## 備考
+例外がアクティブな状態（例外処理中）で[`set_terminate()`](set_terminate.md)によって終了ハンドラが変更された場合、その後に`terminate()`が呼び出されたときにどのハンドラが呼び出されるかは未規定である。例外処理を開始する前に一度だけハンドラを設定する通常の使い方では、常に設定したハンドラが呼び出される。
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -81,3 +85,6 @@ terminate called without an active exception
 	- [`set_terminate`](set_terminate.md)
 - `terminate`が呼び出される状況
 	- N3337 15.5.1 The `std::terminate()` function `[except.terminal]`
+- [LWG Issue 2111. Which unexpected/terminate handler is called from the exception handling runtime?](https://cplusplus.github.io/LWG/issue2111)
+    - 例外がアクティブな状態でハンドラが変更された場合、どのハンドラが呼び出されるかは未規定と明確化された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。もともと処理系（Itanium ABI等）の実際の挙動が分かれていた領域を未規定として追認したものであり、規定の変更によって処理系の挙動が変わるわけではないため

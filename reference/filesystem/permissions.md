@@ -20,7 +20,9 @@ namespace std::filesystem {
 
 
 ## 効果
-- POSIX環境では、[`fchmodat()`](http://ja.manpages.org/fchmodat/2)関数を使用して、パス`to`のファイルに対する権限を設定する
+`opts`で指定されたアクションを、パス`p`が解決するファイルに対して適用する。ただし、`p`がシンボリックリンクであり、かつ`opts`に[`perm_options::nofollow`](perm_options.md)が設定されている場合は、シンボリックリンク自体に対して適用する。
+
+- POSIX環境では、[`fchmodat()`](http://ja.manpages.org/fchmodat/2)関数を使用して権限を設定する
 - (2) は、権限オプションとして[`perm_options::replace`](perm_options.md)が使用される
 
 
@@ -29,7 +31,8 @@ namespace std::filesystem {
 
 
 ## 例外
-- (1) : ファイルシステムがエラーを報告する場合がある。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+- (1), (3) : ファイルシステムがエラーを報告する場合がある。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+    - (3) は狭い契約（`opts`に`perm_options`の`replace`・`add`・`remove`のうち正確に1つが含まれること）を持つため`noexcept`ではない
 - (2) : 投げない
 
 
@@ -69,3 +72,10 @@ int main()
 ## 関連項目
 - [`status()`](status.md)
 - [`symlink_status()`](symlink_status.md)
+
+
+## 参照
+- [LWG Issue 2719. `permissions` function should not be `noexcept` due to narrow contract](https://cplusplus.github.io/LWG/issue2719)
+    - C++17の策定中に、狭い契約（`opts`に`perm_options`の`replace`・`add`・`remove`のうち正確に1つが含まれること）を持つため、`perm_options`と`error_code`を取る版(3)から`noexcept`が外された
+- [LWG Issue 2720. `permissions` function incorrectly specified for symlinks](https://cplusplus.github.io/LWG/issue2720)
+    - C++17の策定中に、シンボリックリンク自体を対象とするか解決先を対象とするかを制御する方向へ整理された（本issue自体は`perms::resolve_symlinks`を`perms::symlink_nofollow`へ置き換えるもので、最終的なC++17ではP0492R2により[`perm_options`](perm_options.md)`::nofollow`となった）

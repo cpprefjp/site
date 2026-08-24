@@ -38,6 +38,10 @@ namespace std {
 以下のリファレンス中では、テンプレート引数として同じ名前を用いる。
 
 
+## 適格要件
+`T`が`Container::value_type`と同じ型であること。
+
+
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -72,6 +76,7 @@ namespace std {
 | `const_reference` | `Container::const_reference` | C++11 |
 | `size_type`       | `Container::size_type`       | |
 | `container_type`  | `Container`                  | |
+| `value_compare`   | `Compare`                    | C++17 |
 
 
 ## 非メンバ関数
@@ -201,3 +206,10 @@ int main()
 - [`std::pop_heap`](/reference/algorithm/pop_heap.md)
 - [`std::make_heap`](/reference/algorithm/make_heap.md)
 - [`std::sort_heap`](/reference/algorithm/sort_heap.md)
+
+
+## 参照
+- [LWG Issue 2566. Requirements on the first template parameter of container adaptors](https://cplusplus.github.io/LWG/issue2566)
+    - C++17で、テンプレートパラメータ`T`が`Container::value_type`と同じ型であることが規定された
+- [LWG Issue 2684. `priority_queue` lacking comparator `typedef`](https://cplusplus.github.io/LWG/issue2684)
+    - C++17で、他の順序付きコンテナと同様に、比較関数型のメンバ型`value_compare`が追加された

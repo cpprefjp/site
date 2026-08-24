@@ -20,12 +20,18 @@ namespace std::filesystem {
 
 
 ## 効果
-- パス`p`のコンテンツを、再帰的に削除する
+- パス`p`が存在する場合、そのコンテンツを再帰的に削除し、続けてパス`p`自体を削除する
 - POSIX環境では、それぞれのコンテンツの削除に、[`remove()`](https://web.archive.org/web/20230207183630/http://linuxjm.osdn.jp/html/LDP_man-pages/man3/remove.3.html)関数を使用する
+- `p`がシンボリックリンクである場合、リンクが解決するファイルではなく、シンボリックリンク自体が削除される
 
 
 ## 戻り値
 削除されたファイルの数が返る
+
+
+## 事後条件
+- `!`[`exists`](exists.md)`(`[`symlink_status`](symlink_status.md)`(p))`
+    - [`symlink_status()`](symlink_status.md)を介して判定されるため（シンボリックリンクを解決しない）、リンク先が存在しないシンボリックリンク（ダングリングリンク）も削除される必要がある
 
 
 ## 例外
@@ -85,4 +91,6 @@ int main()
 
 
 ## 参照
+- [LWG Issue 2721. `remove_all` has incorrect post conditions](https://cplusplus.github.io/LWG/issue2721)
+    - C++17の策定中に、事後条件が`!exists(symlink_status(p))`に修正され、ダングリングなシンボリックリンク自体も削除されることが明確化された
 - [LWG Issue 3014. More `noexcept` issues with filesystem operations](https://wg21.cmeerw.net/lwg/issue3014)

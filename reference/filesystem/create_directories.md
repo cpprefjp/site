@@ -71,4 +71,7 @@ int main()
 
 
 ## 参照
+- [LWG Issue 2935. What should `create_directories` do when `p` already exists but is not a directory?](https://cplusplus.github.io/LWG/issue2935)
+    - `p`が解決する新しいディレクトリが作成された場合のみ`true`を返す旨が明確化され、事後条件`is_directory(p)`が削除された
+    - この修正は欠陥報告(DR)であり、C++17に遡及して適用される。元の事後条件`is_directory(p)`は、ディレクトリ作成の失敗後に状態を取得する追加のシステムコールを発行しなければ保証できない意図しない規定であり、処理系は当初から本ページの挙動を採っていたため
 - [LWG Issue 3014. More `noexcept` issues with filesystem operations](https://wg21.cmeerw.net/lwg/issue3014)

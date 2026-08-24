@@ -142,14 +142,6 @@ std::visit([](auto& x) {
 | `template <class ...Types> struct hash<variant<Types...>>;` | `hash`クラスの`variant`に対する特殊化 | C++17 |
 
 
-## アロケータインタフェース
-
-| 名前 | 説明 | 対応バージョン |
-|------------------------------------------------|----------------------------------------|-------|
-| `template <class T, class Alloc> struct uses_allocator;` | `uses_allocator`クラスの先行宣言 | C++17 |
-| `template <class... Types, class Alloc>`<br/> `struct uses_allocator<variant<Types...>, Alloc>;` | `uses_allocator`クラスの`variant`に対する特殊化 | C++17 |
-
-
 ## 例
 ```cpp example
 #include <iostream>
@@ -219,4 +211,6 @@ Hello
 - [P0110R0 Implementing the strong guarantee for `variant<>` assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0110r0.html)
 - [P0308R0 Valueless Variants Considered Harmful](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0308r0.html)
 - [P0510R0 Disallowing references, incomplete types, arrays, and empty variants](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0510r0.html)
+- [LWG Issue 2901. `variant`s cannot properly support allocators](https://cplusplus.github.io/LWG/issue2901)
+    - C++17の策定中に、アロケータ対応のコンストラクタと`uses_allocator`の特殊化が削除された（公開されたC++17にはこれらは存在しない）。`variant`は後続の値の代入で構築時のアロケータが失われるため、適切なアロケータ対応ができないという理由による
 - [LWG Issue 3196. `std::optional<T>` is ill-formed is `T` is an array](https://wg21.cmeerw.net/lwg/issue3196)

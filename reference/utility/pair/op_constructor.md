@@ -293,6 +293,8 @@ p8 : (X(1 2 3),Y(4 5))
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [N4387 Improving Pair and Tuple (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4387)
     - C++17での条件付き`explicit`の導入
+- [LWG Issue 2367. `pair` and `tuple` are not correctly implemented for `is_constructible` with no args](https://cplusplus.github.io/LWG/issue2367)
+    - C++17で、デフォルトコンストラクタ(1)が、いずれかの要素型がデフォルト構築可能でない場合はオーバーロード解決に参加しないよう制約化された
 - [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
 - [P0892R2 `explicit(bool)`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html)
     - C++20での`explicit(bool)`構文への対応

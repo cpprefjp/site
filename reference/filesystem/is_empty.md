@@ -79,4 +79,6 @@ int main()
 
 
 ## 参照
+- [LWG Issue 2672. Should `is_empty` use `error_code` in its specification?](https://cplusplus.github.io/LWG/issue2672)
+    - C++17の策定中に、`error_code`を取るシグネチャにおいて、内部で呼ぶ各操作でエラーが発生した場合は`false`を返し`ec`にエラーを伝播することが明確化された
 - [LWG Issue 3013. `(recursive_)directory_iterator` construction and traversal should not be `noexcept`](https://wg21.cmeerw.net/lwg/issue3013)

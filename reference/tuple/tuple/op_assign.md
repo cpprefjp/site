@@ -76,10 +76,9 @@ constexpr const tuple& operator=(UTuple&&) const;        // (14) C++23
 
 [プロキシ参照](/reference/iterator/indirectly_writable.md)版とは、[プロキシ参照](/reference/iterator/indirectly_writable.md)である（要素が全て[プロキシ参照](/reference/iterator/indirectly_writable.md)である）[`tuple`](../tuple.md)が持つ各要素について、その要素の参照先へ、他の[`tuple`](../tuple.md)又は[`tuple-like`](../tuple-like.md)なオブジェクトの対応する値を代入する動作を行う版である。
 
-## 要件
+## テンプレートパラメータ制約
 `Ti`（`i`は`[0, sizeof...(Types))`を範囲とする）が以下で現れた場合、元の[`tuple`](../tuple.md)のテンプレートパラメーターパックの`i`番目とする。また、`Ui`については、パラメーターの[`tuple`](../tuple.md)についてのテンプレートパラメーターパックの`i`番目とする。
 
-- (1) : 全ての`i`について、[`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<Ti>::value == true`であること
 - (2) : C++23 : 全ての`i`について、[`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<const Ti> == true`であること
 - (3) : 全ての`i`について、[`is_move_assignable`](/reference/type_traits/is_move_assignable.md)`<Ti>::value == true`であること
 - (4) : C++23 : 全ての`i`について、[`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const Ti&, Ti> == true`であること
@@ -99,6 +98,13 @@ constexpr const tuple& operator=(UTuple&&) const;        // (14) C++23
     - C++23 : [`different-from`](/reference/ranges/different-from.md)`<UTuple, tuple>`
     - C++23 : [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<UTuple>`が[`ranges::subrange`](/reference/ranges/subrange.md)の特殊化でないこと
     - C++23 : [`is_assignable_v`](/reference/type_traits/is_assignable.md)`<const Ti&, decltype(get<i>(`[`std::forward`](/reference/utility/forward.md)`<UTuple>(u)))>`
+
+
+## delete定義される条件
+- (1) :
+    - C++11 : すべての`i`について[`is_copy_assignable`](/reference/type_traits/is_copy_assignable.md)`<Ti>::value == true`であることが、要件として規定されていた
+    - C++17 : すべての`i`について[`is_copy_assignable_v`](/reference/type_traits/is_copy_assignable.md)`<Ti>`が`true`でない場合、この演算子は`delete`定義される
+        - コピー代入は制約（オーバーロード解決に参加しない）ではなく`delete`定義される。一方でムーブ代入(3)は制約であるため、ムーブ代入できない場合はコピー代入がオーバーロード解決の候補となりうる
 
 
 ## 例外
@@ -166,3 +172,8 @@ int main()
 ## 参照
 - [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
 - [P2165R4 Compatibility between `tuple`, `pair` and *tuple-like* objects](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2165r4.pdf)
+- [LWG Issue 2729. Missing SFINAE on `std::pair::operator=`](https://cplusplus.github.io/LWG/issue2729)
+    - C++17で、`pair`と同様に`tuple`のコピー代入演算子(1)も要素型のコピー代入可能性を満たさない場合は`delete`定義されるよう規定され、`is_copy_assignable`等が正しい結果を返すようになった
+- [LWG Issue 2958. Moves improperly defined as deleted](https://cplusplus.github.io/LWG/issue2958)
+    - C++20で、ムーブ代入演算子が要素型の代入不可時に`delete`定義ではなくオーバーロード解決に参加しない形へ修正され、コピー代入へのフォールバックが可能になった
+    - この修正は欠陥報告(DR)であり、C++17に遡及して適用される。C++17の「`delete`定義される」という文言では、暗黙`delete`（オーバーロード解決に不参加）か明示`delete`（コピー代入を隠す）かが不明確で意図どおりに実装できなかったため

@@ -52,3 +52,9 @@ C
 ## 関連項目
 - [`locale::classic`](classic.md)
 - [`locale::global`](global.md)
+
+
+## 参照
+- [LWG Issue 2394. `locale::name` specification unclear — what is implementation-defined?](https://cplusplus.github.io/LWG/issue2394)
+    - 「名前を持つ場合`locale(name().c_str())`は`*this`と等価である」「文字列の内容の詳細はそれ以外は処理系定義」という文言が削除され、戻り値は「名前があればその名前、なければ`"*"`」のみの規定となった
+    - この修正は欠陥報告(DR)であり、C++98に遡及して適用される。戻り値は最初の一文で既に完全に規定されており、何が処理系定義なのか不明瞭だった冗長な記述の削除であって、処理系の挙動は変わらないため

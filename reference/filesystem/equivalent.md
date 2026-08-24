@@ -19,13 +19,15 @@ namespace std::filesystem {
 
 
 ## 戻り値
-- [`status`](status.md)`(p1)`を`s1`、[`status`](status.md)`(p2)`を`s2`として、
-- `s1 == s2`かつ`p1`と`p2`がファイルシステムとして等価のエンティティに解決される場合、`true`を返し、そうでなければ`false`を返す
-- `p1`と`p2`両方のエンティティが存在しない、`p1`と`p2`両方が[`is_other()`](is_other.md)で`true`を返す種別のエンティティである場合、およびファイルシステムでエラーが発生した場合、 (1) では[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出し、 (2) では`ec`にエラー情報が設定されて`false`が返る
+- C++17 : [`status`](status.md)`(p1)`を`s1`、[`status`](status.md)`(p2)`を`s2`として、`s1 == s2`かつ`p1`と`p2`がファイルシステムとして等価のエンティティに解決される場合、`true`を返し、そうでなければ`false`を返す
+- C++20 : `p1`と`p2`がファイルシステムとして等価のエンティティに解決される場合、`true`を返し、そうでなければ`false`を返す
+- エラーとなる条件は以下である。 (1) では[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出し、 (2) では`ec`にエラー情報が設定されて`false`が返る
+    - C++17 : `p1`と`p2`両方のエンティティが存在しない、または`p1`と`p2`両方が[`is_other()`](is_other.md)で`true`を返す種別のエンティティである場合。およびファイルシステムでエラーが発生した場合
+    - C++20 : `p1`と`p2`のいずれか一方でもエンティティが存在しない場合（`!`[`exists`](exists.md)`(p1) || !`[`exists`](exists.md)`(p2)`）。およびファイルシステムでエラーが発生した場合
 
 
 ## 例外
-- (1) : ファイルシステムがエラーを報告する場合がある。それに加えて、`p1`と`p2`両方のエンティティが存在しない、`p1`と`p2`両方が[`is_other()`](is_other.md)で`true`を返す種別のエンティティである場合もエラーである。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+- (1) : ファイルシステムがエラーを報告する場合がある。それに加えて、上記「戻り値」に挙げた条件もエラーである。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
 - (2) : 投げない
 
 
@@ -76,3 +78,10 @@ int main()
 - [Clang](/implementation.md#clang): 7.0 [mark verified]
 - [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue 2722. `equivalent` incorrectly specifies throws clause](https://cplusplus.github.io/LWG/issue2722)
+    - C++17の策定中に、エラー報告の詳細を効果節へ移し、`noexcept`な`error_code`版と例外送出版の双方で正しく扱えるよう整理された
+- [LWG Issue 2937. Is `equivalent("existing_thing", "not_existing_thing")` an error?](https://cplusplus.github.io/LWG/issue2937)
+    - C++20で、`p1`と`p2`のいずれか一方でも存在しない場合はエラーとなるよう変更された（C++17では両方が存在しない場合のみエラー）。あわせて`is_other`による条件と、戻り値の`s1 == s2`の条件が削除された

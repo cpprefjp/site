@@ -99,3 +99,5 @@ int main()
 ## 参照
 - [LWG Issue 2746. Inconsistency between requirements for `emplace` between `optional` and `variant`](https://cplusplus.github.io/LWG/issue2746)
     - C++26で、`emplace`の制約が`Requires`（ハードエラー）から`Constraints`（SFINAE）に統一された（cpprefjpでは「テンプレートパラメータ制約」として記載済み）
+- [LWG Issue 2754. The `in_place` constructors and `emplace` functions added by P0032R3 don't require `CopyConstructible`](https://cplusplus.github.io/LWG/issue2754)
+    - C++17で、`emplace`に、格納する型がコピー構築可能であることの要件が追加された

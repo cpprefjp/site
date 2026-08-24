@@ -53,6 +53,7 @@ namespace std {
 さらに、マッチした結果を用いた書式出力機能も有する（[`format`](match_results/format.md)）。
 
 `match_results` はアロケータ対応コンテナの要件のすべてと、シーケンスコンテナの要件のうち読み取り専用の操作に加え、コピー代入・ムーブ代入・[`swap`](match_results/swap.md) をサポートしている。  
+ただし [`operator==`](match_results/op_equal.md) の意味論はコンテナの要件とは異なる。要素ごとの比較（[`equal`](/reference/algorithm/equal.md)による比較）とは一致しないため、コンテナとしての等価性の意味論には従わない。  
 `match_results` オブジェクトからメンバ関数で取得できるイテレータについて規格では特に言及されていないが、[`operator[]`](match_results/op_at.md) が使用できることから通常ランダムアクセスイテレータであるもの考えても差し支えないものと思われる。
 
 
@@ -196,6 +197,9 @@ The C++14 is very cool!!
 
 ## 参照
 - [LWG Issue 2183. Muddled allocator requirements for `match_results` constructors](https://cplusplus.github.io/LWG/issue2183)
-    - コンストラクタのアロケータ要件が整理され、`match_results`がアロケータ対応コンテナの規則に従うことが明確化された。C++20に取り込まれたが、矛盾した仕様文言の修正であり実装の挙動は変わらない
+    - C++20で、コンストラクタのアロケータ要件が整理され、`match_results`がアロケータ対応コンテナの規則に従うことが明確化された。C++20に取り込まれたが、矛盾した仕様文言の修正であり実装の挙動は変わらない
 - [LWG Issue 2184. Muddled allocator requirements for `match_results` assignments](https://cplusplus.github.io/LWG/issue2184)
-    - `match_results`が、読み取り専用のシーケンスコンテナ操作に加えてコピー代入・ムーブ代入・swapをサポートすることが明確化された。C++20に取り込まれたが、これらの演算子自体はC++11から存在しており、矛盾した仕様文言の修正であるため実装の挙動は変わらない
+    - C++20で、`match_results`が読み取り専用のシーケンスコンテナ操作に加えてコピー代入・ムーブ代入・swapをサポートすることが明確化された。C++20に取り込まれたが、これらの演算子自体はC++11から存在しており、矛盾した仕様文言の修正であるため実装の挙動は変わらない
+- [LWG Issue 2589. `match_results` can't satisfy the requirements of a container](https://cplusplus.github.io/LWG/issue2589)
+    - C++17で、`match_results`は`operator==`の意味論がコンテナ要件と異なる（要素ごとの比較と一致しない）ことが明確化され、コンテナ要件を「満たす」がその比較意味論は例外である旨に整理された
+    - この修正は欠陥報告(DR)であり、C++11に遡及して適用される。`operator==`の意味論とコンテナ要件が両立しないという充足不可能な要件記述の修正であり、`operator==`自体の挙動は変わらないため

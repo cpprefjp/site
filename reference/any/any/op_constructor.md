@@ -145,3 +145,10 @@ int main()
 - [GCC](/implementation.md#gcc): 7.3 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 2744. `any`'s `in_place` constructors](https://cplusplus.github.io/LWG/issue2744)
+    - C++17で、`in_place_type_t`を取るコンストラクタの`is_constructible`要件がオーバーロード解決参加条件（SFINAE）へ変更され、`any`に対する`is_constructible`問い合わせが正しい結果を返すようになった
+- [LWG Issue 2754. The `in_place` constructors and `emplace` functions added by P0032R3 don't require `CopyConstructible`](https://cplusplus.github.io/LWG/issue2754)
+    - C++17で、`in_place_type_t`を取るコンストラクタに、格納する型がコピー構築可能であることの要件が追加された

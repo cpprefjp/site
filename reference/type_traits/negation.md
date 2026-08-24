@@ -82,3 +82,5 @@ struct negation : bool_constant<!Trait::value> {};
 
 ## 参照
 - [Logical Operator Type Traits (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0013r1.html)
+- [LWG Issue 2567. Specification of logical operator traits uses `BaseCharacteristic`, which is defined only for `UnaryTypeTraits` and `BinaryTypeTraits`](https://cplusplus.github.io/LWG/issue2567)
+    - C++17の策定中に、`negation`の基底が`bool_constant<!bool(B::value)>`であると規定され、`bool()`による明示的変換が加えられた

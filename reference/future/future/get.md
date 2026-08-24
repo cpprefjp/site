@@ -216,3 +216,6 @@ int main()
 ## 参照
 - [LWG Issue 2096. Incorrect constraints of `future::get` in regard to `MoveAssignable`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2096)
     - C++14から、`future::get()`の戻り値が変更された。C++11では「ムーブ代入可能ならムーブで返し、そうでなければコピーで返す」となっていたが、これは現実的ではない制約だった。
+- [LWG Issue 2531. `future::get` should explicitly state that the shared state is released](https://cplusplus.github.io/LWG/issue2531)
+    - `get()`が共有状態を解放することが効果として明記された（`valid() == false`となる旨は事後条件に既出）
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。既存の事後条件から導かれる内容の明文化であり、挙動は変わらないため

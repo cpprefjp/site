@@ -18,6 +18,11 @@ namespace std {
 - C++20 : `T1`と`T2`がどちらも構造的型である場合、この型は構造的型となる
 
 
+## 備考
+- C++17 : 両方の要素型がトリビアルに破棄可能（[`is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<T1> &&` [`is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<T2>`が`true`）である場合、`pair`のデストラクタもトリビアルなデストラクタとなる
+    - これにより`pair`はリテラル型となり、定数式で使用できる
+
+
 ## メンバ変数
 
 | 名前 | 説明 | 対応バージョン |
@@ -261,3 +266,6 @@ after  b: i=0, d=0
 ## 参照
 - [タプル - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%97%E3%83%AB)
 - [P2321R2 zip](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html)
+- [LWG Issue 2796. `tuple` should be a literal type](https://cplusplus.github.io/LWG/issue2796)
+    - C++17で、両方の要素型がトリビアルに破棄可能な場合は`pair`のデストラクタもトリビアルになることが明記され、リテラル型として定数式で使用できることが保証された
+    - この修正は欠陥報告(DR)であり、C++98以降に遡及して適用される。処理系は当初からデストラクタを宣言しておらず（暗黙定義のトリビアルなデストラクタを持つ）挙動は変わらない、規格の記載漏れの補完であるため

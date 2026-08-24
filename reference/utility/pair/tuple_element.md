@@ -27,6 +27,10 @@ namespace std {
 `<utility>`ヘッダでは、[`pair`](../pair.md)に関する特殊化を定義する。
 
 
+## 適格要件
+- `I < 2`であること。そうでない場合、プログラムは不適格となる
+
+
 ## 例
 ```cpp example
 #include <utility>
@@ -63,3 +67,6 @@ int main()
 
 ## 参照
 - [`tuple_element - <tuple>`](/reference/tuple/tuple_element.md)
+- [LWG Issue 2974. Diagnose out of bounds `tuple_element`/`variant_alternative`](https://cplusplus.github.io/LWG/issue2974)
+    - C++20で、`I < 2`を満たさない範囲外のインデックス指定時にプログラムが不適格（診断必須）となることが規定された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。範囲外のインデックス指定は主テンプレート（不完全型）に解決されるだけで診断が保証されておらず、妥当なプログラムが旧挙動に依存することはないため

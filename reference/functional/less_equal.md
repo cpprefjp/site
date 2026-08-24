@@ -69,6 +69,10 @@ namespace std {
 | `is_transparent`       | `operator()` が関数テンプレートである事を示すタグ型。<br/>実装依存の型であるがあくまでタグ型であり、型そのものには意味はない。（`T` が `void` の場合のみ） | C++14 |
 
 
+## 備考
+- `less_equal<void>`の`operator()`が組み込みのポインタ比較演算子を呼び出す場合、その比較は厳密な全順序を与える。この順序は、`less`/`greater`/`less_equal`/`greater_equal`の各特殊化の間で一貫しており、かつ組み込みのポインタ比較演算子が定義される場合はその結果とも一致する。
+
+
 ## 例
 
 ```cpp example
@@ -93,3 +97,7 @@ true
 - [N3789 Constexpr Library Additions: functional](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3789.htm)
 - [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)
 - [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)
+- [LWG Issue 2450. `(greater|less|greater_equal|less_equal)<void>` do not yield a total order for pointers](https://cplusplus.github.io/LWG/issue2450)
+    - C++17で、`less_equal<void>`がポインタを比較する場合に全順序を与えることが規定された（非`void`版と同様）
+- [LWG Issue 2562. Consistent total ordering of pointers by comparison functors](https://cplusplus.github.io/LWG/issue2562)
+    - C++17で、`less`/`greater`/`less_equal`/`greater_equal`が同一ポインタ型に対して同じ全順序を与え、組み込みのポインタ比較演算子とも一致することが規定された

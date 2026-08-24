@@ -99,4 +99,6 @@ int main() {
 
 
 ## 参照
+- [LWG Issue 2773. Making `std::ignore` `constexpr`](https://cplusplus.github.io/LWG/issue2773)
+    - C++17で、`ignore`が`const`から`constexpr`に変更され、定数式で使用できるようになった
 - [P2968R2 Make `std::ignore` a first-class object](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2968r2.html)

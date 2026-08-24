@@ -37,6 +37,7 @@ directory_iterator(directory_iterator&& rhs) noexcept; // (7)
 - (3), (5) :
     - (2), (4)に加えて、
     - パス`p`へのアクセスが拒否された場合、`options`として[`directory_options::skip_permission_denied`](/reference/filesystem/directory_options.md)が指定されていれば、エラー報告をせず、終端イテレータを構築する
+- (2)〜(5) : 構築時にエラーが発生した場合、`*this`は特異な状態にはならず、終端イテレータと等しくなる
 - (6) : `rhs`を`*this`にコピーする。`rhs`と`*this`が同じオブジェクトである場合はなにもしない
 - (7) : `rhs`の所有権を`*this`に移動する。`rhs`と`*this`が同じオブジェクトである場合はなにもしない
 
@@ -115,4 +116,6 @@ int main()
 
 
 ## 参照
+- [LWG Issue 2723. Do `directory_iterator` and `recursive_directory_iterator` become the end iterator upon error?](https://cplusplus.github.io/LWG/issue2723)
+    - C++17の策定中に、構築やインクリメントでエラーが発生した場合、イテレータは特異状態ではなく終端イテレータと等しくなることが規定された（それ以前は処理系間で挙動が分かれていた）
 - [LWG Issue 3013. `(recursive_)directory_iterator` construction and traversal should not be `noexcept`](https://wg21.cmeerw.net/lwg/issue3013)

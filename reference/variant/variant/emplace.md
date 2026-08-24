@@ -69,10 +69,12 @@ constexpr variant_alternative_t<I, variant<Types...>>&
 
 - (3) :
     - 値を保持している場合、破棄する
-    - `Types...`の`I`番目の型を`Ti`として、`Ti`型オブジェクトをコンストラクタ引数[`std::forward`](/reference/utility/forward.md)`<Args>(args)...`で構築して保持する
+    - `Types...`の`I`番目の型を`Ti`として、`Ti`型オブジェクトをコンストラクタ引数[`std::forward`](/reference/utility/forward.md)`<Args>(args)...`から構築して保持する
 - (4) :
     - 値を保持している場合、破棄する
-    - `Types...`の`I`番目の型を`Ti`として、`Ti`型オブジェクトをコンストラクタ引数`il`と[`std::forward`](/reference/utility/forward.md)`<Args>(args)...`で構築して保持する
+    - `Types...`の`I`番目の型を`Ti`として、`Ti`型オブジェクトをコンストラクタ引数`il`と[`std::forward`](/reference/utility/forward.md)`<Args>(args)...`から構築して保持する
+
+いずれのオーバーロードでも、値の構築は丸カッコによる直接初期化 (direct-non-list-initialization) で行われる。波カッコによる初期化ではないため、要素型が[`std::initializer_list`](/reference/initializer_list/initializer_list.md)を受け取るコンストラクタを持つ場合でも、(1), (3)ではそのコンストラクタは選ばれない。
 
 
 ## 戻り値
@@ -190,3 +192,5 @@ int main()
 - [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)
 - [LWG Issue 2746. Inconsistency between requirements for `emplace` between `optional` and `variant`](https://cplusplus.github.io/LWG/issue2746)
     - C++26で、`emplace`の制約が`Requires`（ハードエラー）から`Constraints`（SFINAE）に統一された（cpprefjpでは「テンプレートパラメータ制約」として記載済み）
+- [LWG Issue 2903. The form of initialization for the emplace-constructors is not specified](https://cplusplus.github.io/LWG/issue2903)
+    - C++17の策定中に、`variant`の`emplace`が`optional`と同様に「direct-non-list-initialization（丸カッコによる直接初期化）」で値を初期化することが明確化された

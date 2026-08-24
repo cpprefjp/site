@@ -4,10 +4,14 @@
 * istreambuf_iterator[meta class]
 * function[meta id-type]
 * cpp11[meta cpp]
+* cpp17removed[meta cpp]
 
 ```cpp
 pointer operator->() const;
 ```
+
+このメンバ関数は、C++11で追加されたが仕様が定まらないまま各処理系で挙動が分かれていたため、C++17で削除された。
+
 
 ## 概要
 イテレータを介してメンバアクセスする
@@ -41,3 +45,6 @@ pointer operator->() const;
 
 
 ## 参照
+- [LWG Issue 2790. Missing specification of `istreambuf_iterator::operator->`](https://cplusplus.github.io/LWG/issue2790)
+    - C++17で、仕様が定まらないこのメンバ関数が削除された
+    - このメンバ関数には効果の規定が存在せず、主要な処理系も提供していなかったため、削除による実際の影響はほとんどない

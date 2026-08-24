@@ -62,6 +62,11 @@ namespace std {
 - 異体字切り換えシーケンス (IVS)
 
 
+## 適格要件
+- C++17 : `traits::char_type`が`charT`と同じ型であること
+    - C++03からC++14までは、要件ではなく注記として述べられていた
+
+
 ## メンバ関数
 ### 構築・破棄
 
@@ -165,7 +170,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |---------------------|----------------|------|
 | `traits_type` | 文字特性型 `traits` | |
-| `value_type` | 文字型 `traits::char_type` | |
+| `value_type` | 文字型<br/> C++03 : `traits::char_type`<br/> C++17 : `charT` | |
 | `allocator_type` | アロケータ型 `Allocator` | |
 | `size_type` | 要素数を表す符号なし整数型。<br/> `allocator_traits<Allocator>::size_type` | |
 | `difference_type` | イテレータの差を表す符号付き整数型。 `allocator_traits<Allocator>::difference_type` | |
@@ -306,3 +311,6 @@ int main()
 - [N2668 Concurrency Modifications to Basic String](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2668.htm)
     - C++11で、`basic_string`の仕様が、並行実行のパフォーマンスを考慮したものに変更された経緯の提案文書
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [LWG Issue 2861. `basic_string` should require that charT match `traits::char_type`](https://cplusplus.github.io/LWG/issue2861)
+    - C++17で、`value_type`が`traits::char_type`ではなく`charT`として定義されるようになり、「`traits::char_type`は`charT`と同じ型である」という注記が規範的要件へ格上げされた
+    - この修正は欠陥報告(DR)であり、C++98以降に遡及して適用される。修正前も注記で両者が同じ型であることが述べられており、`value_type`がどちらで定義されても観測できる違いはないため

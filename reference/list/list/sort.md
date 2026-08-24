@@ -23,10 +23,11 @@ constexpr void sort(Compare comp); // (2) C++26
 
 
 ## 効果
-型`T`の`operator<`もしくは`comp`に基いてコンテナの要素を並べ替える。  
-  
-この操作は安定である。同値要素の順序は保持される。  
-この操作は、イテレータと参照の有効性に影響しない。  
+型`T`の`operator<`もしくは`comp`に基いてコンテナの要素を並べ替える。
+
+- 例外が送出された場合、`*this`の要素の順序は未規定となる。  
+- この操作は安定である。同値要素の順序は保持される。
+- この操作は、イテレータと参照の有効性に影響しない。
 
 
 ## 戻り値
@@ -64,4 +65,7 @@ int main()
 
 
 ## 参照
+- [LWG Issue 2824. `list::sort` should say that the order of elements is unspecified if an exception is thrown](https://cplusplus.github.io/LWG/issue2824)
+    - 比較中に例外が送出された場合は`*this`の要素の順序が未規定となることが明記された（[`forward_list::sort`](/reference/forward_list/forward_list/sort.md)と同様）
+    - この修正は欠陥報告(DR)であり、C++98以降に遡及して適用される。この文言はもともと存在したが編集上の変更で失われたものであり、元の規定でも例外送出時の順序は保証されていなかったため
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

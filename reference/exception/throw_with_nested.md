@@ -15,8 +15,15 @@ namespace std {
 現在処理中の例外を入れ子にした例外を送出する
 
 
-## 要件
-型`T`がコピーコンストラクト可能であること。
+## 事前条件
+`U`を [`decay_t`](/reference/type_traits/decay.md)`<T>` として、型`U`がコピー構築可能（*Cpp17CopyConstructible*）の要件を満たすこと。
+
+
+## 例外
+`U`を [`decay_t`](/reference/type_traits/decay.md)`<T>` とする。
+
+- [`is_class_v`](/reference/type_traits/is_class.md)`<U> && !`[`is_final_v`](/reference/type_traits/is_final.md)`<U> && !`[`is_base_of_v`](/reference/type_traits/is_base_of.md)`<`[`nested_exception`](nested_exception.md)`, U>`が`true`である場合、`U`と[`nested_exception`](nested_exception.md)の両方からpublic派生した未規定の型のオブジェクトを、`std::`[`forward`](/reference/utility/forward.md)`<T>(t)`から構築して送出する。
+- そうでない場合、`std::`[`forward`](/reference/utility/forward.md)`<T>(t)`を送出する。
 
 
 ## 戻り値
@@ -116,3 +123,9 @@ inner
 ## 参照
 - [P3842R2 A conservative fix for constexpr `uncaught_exceptions()` and `current_exception()`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3842r2.pdf)
     - C++26の策定中に`constexpr`が追加されたが、本提案文書により巻き戻された (C++29で再検討予定)
+- [LWG Issue 2483. `throw_with_nested()` should use `is_final`](https://cplusplus.github.io/LWG/issue2483)
+    - ラップするかどうかの判定に[`is_final`](/reference/type_traits/is_final.md)による条件が追加され、`final`指定されたクラスも引数に取れるようになった
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。`final`指定されたクラスから派生した型を送出するという元の規定は実装不可能であり、処理系は当初から派生させずにそのまま送出していたため、これと異なる観測可能な挙動が出荷されていたわけではない
+- [LWG Issue 2855. `std::throw_with_nested("string_literal")`](https://cplusplus.github.io/LWG/issue2855)
+    - 判定に[`decay_t`](/reference/type_traits/decay.md)`<T>`を用いるよう変更され、文字列リテラルや関数など（配列型・関数型）を渡せることが明確化された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。配列型・関数型を排除していた元の要件は文言上の欠陥であり、処理系は当初から`decay`後の型で動作していたため

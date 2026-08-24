@@ -62,3 +62,8 @@ int main()
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 4.8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):
+
+
+## 参照
+- [LWG Issue 2787. [file_status.cons] doesn't match class definition](https://cplusplus.github.io/LWG/issue2787)
+    - C++17の策定中に、非explicitなデフォルトコンストラクタ(1)と、explicitな引数付きコンストラクタ(2)という形にクラス定義と整合するよう整理された

@@ -56,6 +56,9 @@ function(allocator_arg_t, const Alloc& alloc, F f);                // (10) C++17
 - (5) :
     - C++11
         - `F`は、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトであること
+    - C++17
+        - `F`が*Lvalue-Callable*であること。すなわち、式[*INVOKE*](/reference/concepts/Invoke.md)`<R>(`[`declval`](/reference/utility/declval.md)`<F&>(),` [`declval`](/reference/utility/declval.md)`<ArgTypes>()...)`が適格であること
+            - 左辺値参照として呼び出せることが要求されるため、右辺値参照修飾（`&&`修飾）された関数呼び出し演算子のみを持つ型は格納できない
     - C++23
         - `F`が`function`ではないこと
         - `FD`は、パラメータとして`ArgTypes...`型をとり、戻り値として`R`型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトであること
@@ -86,8 +89,26 @@ function(allocator_arg_t, const Alloc& alloc, F f);                // (10) C++17
 
 
 ## 例外
-- (3), (8) : `f`が[`reference_wrapper`](/reference/functional/reference_wrapper.md)か関数ポインタを保持している場合は、例外を投げるべきではない。`f`が関数オブジェクトを保持している場合は、そのコピーコンストラクタが[`bad_alloc`](/reference/new/bad_alloc.md)やその他の例外を投げる可能性がある。
-- (10) : `f`が[`reference_wrapper`](/reference/functional/reference_wrapper.md)か関数ポインタを保持している場合は、例外を投げるべきではない。`f`が関数オブジェクトを保持している場合は、そのコピーコンストラクタもしくはムーブコンストラクタが[`bad_alloc`](/reference/new/bad_alloc.md)やその他の例外を投げる可能性がある。
+- (3) :
+    - C++11
+        - `f`のターゲットが[`reference_wrapper`](/reference/functional/reference_wrapper.md)経由で渡された呼び出し可能オブジェクト、もしくは関数ポインタである場合は、例外を投げない
+        - そうでない場合は、[`bad_alloc`](/reference/new/bad_alloc.md)や、格納された呼び出し可能オブジェクトのコピーコンストラクタが投げる例外を送出する可能性がある
+    - C++17
+        - 例外を投げない条件が、`f`のターゲットが[`reference_wrapper`](/reference/functional/reference_wrapper.md)の特殊化、もしくは関数ポインタである場合として規定された
+- (4) :
+    - C++11
+        - 例外に関する規定はない
+    - C++17
+        - `f`のターゲットが[`reference_wrapper`](/reference/functional/reference_wrapper.md)の特殊化、もしくは関数ポインタである場合は、例外を投げない
+        - そうでない場合は、[`bad_alloc`](/reference/new/bad_alloc.md)や、格納された呼び出し可能オブジェクトのコピーコンストラクタ／ムーブコンストラクタが投げる例外を送出する可能性がある
+    - C++20
+        - 保持する対象によらず`noexcept`である
+- (8) :
+    - C++11 : (3)のC++11の規定と同じ
+- (10) :
+    - C++11
+        - `f`が関数ポインタ、もしくは`reference_wrapper<T>`である場合は、例外を投げない
+        - そうでない場合は、[`bad_alloc`](/reference/new/bad_alloc.md)や、`F`のコピーコンストラクタ／ムーブコンストラクタが投げる例外を送出する可能性がある
 
 
 ## 備考
@@ -276,6 +297,16 @@ int main()
 - [LWG Issue 2132. `std::function` ambiguity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2132)
     - C++14から、(5)と(10)でシグニチャが合わない関数オブジェクトが渡された場合に、SFINAEされるようになった。
 - [P0302R1 Removing Allocator Support in `std::function` (rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0302r1.html)
-- [P0771R1 std::function move constructor should be noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0771r1.pdf)
+- [LWG Issue 2393. `std::function`'s Callable definition is broken](https://cplusplus.github.io/LWG/issue2393)
+    - C++17で、格納可能な要件が*Lvalue-Callable*（`INVOKE`を左辺値参照として行える型）として整理され、右辺値参照修飾の呼び出し演算子のみを持つ型は格納できないことが明確化された
+- [LWG Issue 2565. `std::function`'s move constructor should guarantee nothrow for reference_wrappers and function pointers](https://cplusplus.github.io/LWG/issue2565)
+    - C++17で、ムーブコンストラクタ(4)も、`reference_wrapper`か関数ポインタを保持する場合は例外を投げないことが規定された（コピーコンストラクタと同様の保証）
 - [LWG Issue 2774. `std::function` construction vs assignment](https://cplusplus.github.io/LWG/issue2774)
     - C++23から、`function(F)`のオーバーロードが`function(F&&)`に変更された
+- [LWG Issue 2781. Contradictory requirements for `std::function` and `std::reference_wrapper`](https://cplusplus.github.io/LWG/issue2781)
+    - 例外を投げない対象が「`reference_wrapper`の特殊化」である旨に文言が整理され、矛盾が解消された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。矛盾した文言の修正であり、処理系の挙動は変わらないため
+- [P0771R1 std::function move constructor should be noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0771r1.pdf)
+- [LWG Issue 2850. `std::function` move constructor does unnecessary work](https://cplusplus.github.io/LWG/issue2850)
+    - ムーブコンストラクタの効果が「`*this`のターゲットが構築前の`f`のターゲットと等価になる」旨に緩和され、別途確保されたターゲットの所有権移動による最適化が許容された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。元の規定は主要な処理系の実際の動作（ヒープ上のターゲットはポインタを移動するだけ）と矛盾しており、規定を実装に合わせたものであるため

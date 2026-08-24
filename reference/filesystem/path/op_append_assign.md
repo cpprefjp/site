@@ -180,3 +180,8 @@ h : "D:bar"
 ### 備考
 - GCC 8.1 (SVN) の`operator/=`では、ルートディレクトリを持つパスを加算すると、左辺が削除されないバグがある
     - [Bug 84159 - `filesystem::path::operator/=` with has root directory path](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=84159)
+
+
+## 参照
+- [LWG Issue 2664. `operator/` (and other append) semantics not useful if argument has root](https://cplusplus.github.io/LWG/issue2664)
+    - ルート名を持つパスを追加すると`"c:\x" / "d:\y"`が`"c:\x\d:\y"`のような無意味な結果になる問題が指摘された。この issue 自体は事前条件`!p.has_root_name()`を課す解決を提案していたが、最終的なC++17では事前条件とはせず、`p`が絶対パスであるか異なるルート名を持つ場合は`p`で置き換える、という上記の効果として規定された

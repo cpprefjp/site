@@ -68,5 +68,8 @@ int main()
 
 ## 参照
 - [LWG Issue 2576. `istream_iterator` and `ostream_iterator` should use `std::addressof`](https://wg21.cmeerw.net/lwg/issue2576)
+- [LWG Issue 2804. Unconditional `constexpr` default constructor for `istream_iterator`](https://cplusplus.github.io/LWG/issue2804)
+    - デフォルトコンストラクタ(1)の宣言に書かれていた`see below`というプレースホルダが`constexpr`と綴り直された（`T`がトリビアルにデフォルト構築可能な場合に`constexpr`コンストラクタとなるという条件は、C++17時点でも効果として残っている）
+    - この修正は欠陥報告(DR)であり、C++11に遡及して適用される。宣言の書き方を直す編集上の修正であり、処理系は当初から`constexpr`と宣言していたため
 - [LWG Issue 3600. Making `istream_iterator` copy constructor trivial is an ABI break](https://cplusplus.github.io/LWG/issue3600)
     - C++23で、コピーコンストラクタが`= default`から明示的に定義された非トリビアルなコンストラクタ（`constexpr`・`noexcept`指定付き）に変更された。既存実装とのABI互換性を保つため、トリビアル化が見送られた

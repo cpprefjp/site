@@ -76,3 +76,8 @@ int main()
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2017 Update 7 [mark verified]
+
+
+## 参照
+- [LWG Issue 2667. `path::root_directory()` description is confusing](https://cplusplus.github.io/LWG/issue2667)
+    - C++17の策定中に、「ルートディレクトリが slash name で構成される場合、slash は戻り値の文字列から除外される」という、文法定義と矛盾する文言が削除された（戻り値の規定自体は変わっていない）

@@ -34,6 +34,10 @@ namespace std {
 以下のリファレンス中では、テンプレート引数として同じ名前を用いる。
 
 
+## 適格要件
+`T`が`Container::value_type`と同じ型であること。
+
+
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -121,3 +125,5 @@ int main()
 ```
 
 ## 参照
+- [LWG Issue 2566. Requirements on the first template parameter of container adaptors](https://cplusplus.github.io/LWG/issue2566)
+    - C++17で、テンプレートパラメータ`T`が`Container::value_type`と同じ型であることが規定された

@@ -88,7 +88,9 @@ constexpr basic_string&
 
 ## 効果
 - (1) : コピー代入。`str`オブジェクトと同じ文字列を構築する。
-    - `assign(str, 0, npos)`と等価。
+    - C++03 : `assign(str, 0, npos)`と等価
+    - C++17 : `*this = str`と等価
+        - アロケータの伝播（`propagate_on_container_copy_assignment`）について、コピー代入演算子と一貫した扱いとなる
 - (2) : ムーブ代入。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。
 - (3) : `str`オブジェクトの部分文字列のコピーから構築する。`str`オブジェクトの`pos`番目から`n`文字の部分文字列がコピーされる。
     - 文字列の長さ `rlen` は、`n` と `str.`[`size`](size.md)`() - pos` の小さい方である。 `n == npos` の場合は、 `str.`[`size`](size.md)`() - pos` が使用される。
@@ -226,9 +228,11 @@ s11 : Hello
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
     - C++14から(3)のオーバーロードに、`n = npos`のデフォルト引数を追加。
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [LWG Issue 2579. Inconsistency wrt Allocators in `basic_string` assignment vs. `basic_string::assign`](https://cplusplus.github.io/LWG/issue2579)
+    - C++17で、(1)の効果を`*this = str`と等価に変更し、アロケータ伝播についてコピー代入演算子と一貫させた
 - [LWG Issue 2758. `std::string{}.assign("ABCDE", 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
-    - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(9), (10)の引数型を`const T&`に変更
+    - C++20で、意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(9), (10)の引数型を`const T&`に変更
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
 - [LWG Issue 3662 `basic_string::append/assign(NTBS, pos, n)` suboptimal](https://cplusplus.github.io/LWG/issue3662)
     - C++26で、NULL終端文字列の一部分を代入する(11)のオーバーロードが追加された

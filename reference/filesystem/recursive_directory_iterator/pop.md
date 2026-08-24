@@ -14,6 +14,10 @@ void pop(std::error_code& ec);
 そのディレクトリの走査を中断する。
 
 
+## 事前条件
+`*this`がデリファレンス可能であること。終端イテレータや、インクリメントによって無効化されたコピーはデリファレンス可能ではない。
+
+
 ## 効果
 [`depth()`](depth.md) `== 0`の場合は、`*this`に終端イテレータを代入する。そうでない場合は、そのディレクトリの走査を終了し、親ディレクトリに戻る。
 
@@ -72,3 +76,7 @@ int main()
 
 ## 参照
 - [LWG Issue `recursive_directory_iterator::pop` must invalidate](https://wg21.cmeerw.net/lwg/issue3067)
+- [LWG Issue 2704. `recursive_directory_iterator`'s members should require '`*this` is dereferenceable'](https://cplusplus.github.io/LWG/issue2704)
+    - C++17の策定中に、`options`/`depth`/`recursion_pending`/`pop`/`disable_recursion_pending`は`*this`がデリファレンス可能であることを要求する（そうでない場合は未定義動作）と規定された
+- [LWG Issue 2706. Error reporting for `recursive_directory_iterator::pop()` is under-specified](https://cplusplus.github.io/LWG/issue2706)
+    - C++17の策定中に、`increment`と一貫したエラー報告のため`pop(error_code&)`オーバーロードが追加された

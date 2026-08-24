@@ -14,6 +14,10 @@ void set_exception(exception_ptr p);
 結果の例外を設定する
 
 
+## 事前条件
+`p`はヌルでないこと。
+
+
 ## 効果
 例外ポインタ`p`をアトミックに共有状態に格納し、準備完了状態([`future_status::ready`](../future_status.md))にする。
 
@@ -93,3 +97,5 @@ invalid argument!
 
 
 ## 参照
+- [LWG Issue 2276. Missing requirement on `std::promise::set_exception`](https://cplusplus.github.io/LWG/issue2276)
+    - C++17で、引数`p`がヌルでないことが事前条件として規定された

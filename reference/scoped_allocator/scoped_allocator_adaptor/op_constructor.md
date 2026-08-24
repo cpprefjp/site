@@ -37,8 +37,16 @@ scoped_allocator_adaptor(
 - (6) : 変換可能な外側のアロケータを持つ`scoped_allocator_adaptor`オブジェクトからのムーブ構築。
 
 
-## 要件
-- (2), (5), (6) : クラステンプレートのパラメータ`OuterAlloc`は、テンプレートパラメータの型`OuterA2`から構築可能であること。
+## テンプレートパラメータ制約
+- (2) :
+    - C++11 : クラステンプレートのパラメータ`OuterAlloc`が、テンプレートパラメータの型`OuterA2`から構築可能であること
+    - C++17 : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<OuterAlloc, OuterA2>`が`true`であること
+- (5) :
+    - C++11 : `OuterAlloc`が`OuterA2`から構築可能であること
+    - C++17 : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<OuterAlloc, const OuterA2&>`が`true`であること
+- (6) :
+    - C++11 : `OuterAlloc`が`OuterA2`から構築可能であること
+    - C++17 : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<OuterAlloc, OuterA2>`が`true`であること
 
 
 ## 効果
@@ -114,3 +122,9 @@ int main()
 - [GCC](/implementation.md#gcc): 4.7.3 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 2782. `scoped_allocator_adaptor` constructors must be constrained](https://cplusplus.github.io/LWG/issue2782)
+    - C++17で、(2), (5), (6)の各コンストラクタが、C++11では単なる要件だった「`OuterAlloc`が`OuterA2`から構築可能」をオーバーロード解決に参加する条件（制約）として規定するよう変更され、非互換なアロケータ型間の暗黙変換が排除された
+    - (5)の制約は`is_constructible_v<OuterAlloc, const OuterA2&>`、(2)と(6)の制約は`is_constructible_v<OuterAlloc, OuterA2>`である

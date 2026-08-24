@@ -162,6 +162,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | virtual base class                 | 仮想基底クラス               |
 | weak ordering                      | 弱順序                       |
 | well-formed                        | 適格                         |
+| well-defined behavior              | 定義された動作 ("well-defined" と英語のまま書かない) |
 | eligible                           | 資格のある                   |
 | synchronizes with                  | に対して同期する ("と同期する" だと対称関係に見えるため) |
 | happens before                     | よりも前に発生する                                       |

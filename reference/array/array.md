@@ -177,3 +177,7 @@ int main()
 
 
 ## 参照
+- [LWG Issue 2590. Aggregate initialization for `std::array`](https://cplusplus.github.io/LWG/issue2590)
+    - C++17で、`array`がコピーリスト初期化に限らず集成体初期化一般で初期化できることが明確化された（`std::array<int, 1> a{0};`のような直接波カッコ初期化も適格）
+- [LWG Issue 2310. Public exposition only member in `std::array`](https://cplusplus.github.io/LWG/issue2310)
+    - C++17で、`array`が集成体であることを示す説明専用メンバ（`elems`）がpublicである旨が明確化され、`data()`の規定が`addressof(front())`を用いる形に整理された

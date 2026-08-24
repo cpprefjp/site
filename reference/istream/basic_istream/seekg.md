@@ -19,7 +19,7 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir);
 
 ## 効果
 
-1. （`pos_type`を引数に取るもののみ）初めにeofbitを消去する。
+1. 初めにeofbitを消去する。
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
 1. 与えられた実引数により、以下のいずれかを実行する。
     - `rdbuf()->pubseekpos(pos, ios_base::in)`
@@ -84,6 +84,7 @@ basic_istream<CharT, Traits>& seekg(pos_type pos) {
 basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
   iostate state = goodbit;
   try {
+    this->clear(this->rdstate() & ~eofbit);
     sentry s(*this, true);
     if (s) {
       if (this->rdbuf()->pubseekoff(off, dir, ios_base::in) == -1) {
@@ -126,3 +127,6 @@ basic_istream<CharT, Traits>& seekg(off_type off, seekdir dir) {
 - [`basic_streambuf::seekoff`](../../streambuf/basic_streambuf/seekoff.md)
 - [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
     - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された
+- [LWG Issue 2244. Issue on `basic_istream::seekg`](https://cplusplus.github.io/LWG/issue2244)
+    - `(off_type, seekdir)`版でも初めにeofbitを消去することが規定された
+    - この修正は欠陥報告(DR)であり、C++11に遡及して適用される。LWG 1445の解決を適用する際に`(pos_type)`版にのみ文言が入り`(off_type, seekdir)`版への適用が漏れた編集上の誤りの修正であり、処理系は当初から両オーバーロードでeofbitを消去していたため

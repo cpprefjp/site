@@ -7,7 +7,9 @@
 ```cpp
 namespace std {
   template <class R, class... ArgTypes>
-  void swap(function<R(ArgTypes...)>& x, function<R(ArgTypes...)>& y);
+  void swap(function<R(ArgTypes...)>& x, function<R(ArgTypes...)>& y);          // (1) C++11
+  template <class R, class... ArgTypes>
+  void swap(function<R(ArgTypes...)>& x, function<R(ArgTypes...)>& y) noexcept; // (1) C++17
 }
 ```
 
@@ -66,3 +68,5 @@ int main()
 
 
 ## 参照
+- [LWG Issue 2062. Effect contradictions w/o no-throw guarantee of `std::function` swaps](https://cplusplus.github.io/LWG/issue2062)
+    - C++17で、メンバ`swap`と一貫させるため、非メンバ`swap`にも`noexcept`が付与された
