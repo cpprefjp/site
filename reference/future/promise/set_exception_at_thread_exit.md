@@ -14,6 +14,10 @@ void set_exception_at_thread_exit(exception_ptr p);
 スレッド終了時に結果の例外を設定する
 
 
+## 事前条件
+`p`はヌルでないこと。
+
+
 ## 効果
 例外ポインタ`p`を、すぐに準備完了状態([`future_status::ready`](../future_status.md))にはせずに共有状態に格納する。現在のスレッドが終了し、スレッドローカル記憶域を持つ全てのオブジェクトを破棄したあと、準備完了状態にする。
 
@@ -99,3 +103,5 @@ invalid argument!
 
 ## 参照
 - [_at_thread_exit系の関数が存在している理由](/article/lib/at_thread_exit.md)
+- [LWG Issue 2276. Missing requirement on `std::promise::set_exception`](https://cplusplus.github.io/LWG/issue2276)
+    - C++17で、引数`p`がヌルでないことが事前条件として規定された
