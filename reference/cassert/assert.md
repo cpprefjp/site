@@ -123,6 +123,8 @@ int main()
 - [What does it mean for C++ that assert takes a scalar argument?](https://groups.google.com/a/isocpp.org/d/topic/std-discussion/6EHDRo1A2EE/discussion)
   パラメータの式の型についての要件は参照規格であるCの規定によるものであり、「スカラ型」が[C++におけるスカラ型](/reference/type_traits/is_scalar.md)となるのか、あるいはCにおけるスカラ型の範囲に限定されるのか、少なくともC++14時点でははっきりしていない。
 - [LWG Issue 2234. `assert()` should allow usage in constant expressions](http://wg21.cmeerw.net/lwg/issue2234)
+- [LWG Issue 2559. Error in LWG 2234's resolution](https://cplusplus.github.io/LWG/issue2559)
+    - C++17で、`assert(E)`が定数部分式となる条件を、`assert`が最後に定義／再定義された時点の`NDEBUG`の状態で判定するよう修正された
 - [P2264R7 Make `assert()` macro user friendly for C and C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2264r7.html)
     - C++26から、カンマを含む式を条件式として使用できるようになった
 - [LWG Issue 4454. `assert` should forbid `co_await` and `co_yield`](https://cplusplus.github.io/LWG/issue4454)
