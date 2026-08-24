@@ -7,27 +7,27 @@
 ```cpp
 public:
   iter_type get(iter_type in, iter_type end, ios_base& str,
-                ios_base::iostate& err, bool& val) const;               // (1)
+                ios_base::iostate& err, bool& val) const;               // (1) C++98
   iter_type get(iter_type in, iter_type end, ios_base& str,
-                ios_base::iostate& err, long& val) const;               // (2)
+                ios_base::iostate& err, long& val) const;               // (2) C++98
   iter_type get(iter_type in, iter_type end, ios_base& str,
-                ios_base::iostate& err, long long& val) const;          // (3)
+                ios_base::iostate& err, long long& val) const;          // (3) C++11
   iter_type get(iter_type in, iter_type end, ios_base& str,
-                ios_base::iostate& err, unsigned short& val) const;     // (4)
+                ios_base::iostate& err, unsigned short& val) const;     // (4) C++98
   iter_type get(iter_type in, iter_type end, ios_base& str,
-                ios_base::iostate& err, unsigned int& val) const;       // (5)
+                ios_base::iostate& err, unsigned int& val) const;       // (5) C++98
   iter_type get(iter_type in, iter_type end, ios_base& str,
-                ios_base::iostate& err, unsigned long& val) const;      // (6)
+                ios_base::iostate& err, unsigned long& val) const;      // (6) C++98
   iter_type get(iter_type in, iter_type end, ios_base& str,
-                ios_base::iostate& err, unsigned long long& val) const; // (7)
+                ios_base::iostate& err, unsigned long long& val) const; // (7) C++11
   iter_type get(iter_type in, iter_type end, ios_base& str,
-                ios_base::iostate& err, float& val) const;              // (8)
+                ios_base::iostate& err, float& val) const;              // (8) C++98
   iter_type get(iter_type in, iter_type end, ios_base& str,
-                ios_base::iostate& err, double& val) const;             // (9)
+                ios_base::iostate& err, double& val) const;             // (9) C++98
   iter_type get(iter_type in, iter_type end, ios_base& str,
-                ios_base::iostate& err, long double& val) const;        // (10)
+                ios_base::iostate& err, long double& val) const;        // (10) C++98
   iter_type get(iter_type in, iter_type end, ios_base& str,
-                ios_base::iostate& err, void*& val) const;              // (11)
+                ios_base::iostate& err, void*& val) const;              // (11) C++98
 ```
 * ios_base[link /reference/ios/ios_base.md]
 * ios_base::iostate[link /reference/ios/ios_base/type-iostate.md]
