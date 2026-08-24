@@ -208,3 +208,6 @@ GCC(libstdc++) では、4.9.2 までは (4) の形式は存在しない。
 
 ## 参照
 * [C++の正規表現ライブラリ: std::regex | 本の虫](https://cpplover.blogspot.jp/2015/01/c-stdregex.html)
+* [LWG Issue 2273. `regex_match` ambiguity](https://cplusplus.github.io/LWG/issue2273)
+    * C++17で、マッチ判定において文字列全体にマッチする候補のみを考慮することが明確化された
+    * この修正は欠陥報告(DR)であり、C++11に遡及して適用される。元の文言が2通りに解釈できる曖昧なもので、規格制定当初からの意図（および主要な処理系の挙動）を明文化したものであるため
