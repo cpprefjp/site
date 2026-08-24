@@ -51,6 +51,7 @@ constexpr charT* data() noexcept;             // (2) C++20
 - 対象オブジェクト内に NULL 文字があった場合、C 言語の文字列表現では正しく扱うことができないので注意すること。
 - (2) :
     - この関数を使用するユーザーは、`p +` [`size()`](size.md) (NULL終端) に格納されている値を変更してはならない
+    - この関数を呼び出しても、対象オブジェクトの要素への既存の参照、ポインタ、イテレータは無効にはならない
 
 
 ## 例
@@ -83,5 +84,7 @@ Hello, world!
 
 ## 参照
 - [P0272R1 Give `std::string` a non-const `.data()` member function.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0272r1.html)
+- [LWG Issue 2760. non-`const` `basic_string::data` should not invalidate iterators](https://cplusplus.github.io/LWG/issue2760)
+    - C++17の策定中に、P0272R1で追加された非const版`data()`が、参照・ポインタ・イテレータを無効化しない関数の一覧に含まれていなかった記載漏れが修正された
 - [LWG Issue 3131. `addressof` all the things](https://wg21.cmeerw.net/lwg/issue3131)
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
