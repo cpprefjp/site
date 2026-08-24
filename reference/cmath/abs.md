@@ -111,3 +111,7 @@ namespace std {
     - C++23での、一部関数の`constexpr`対応
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした
+- [LWG Issue 2192. Validity and return type of `std::abs(0u)` is unclear](https://cplusplus.github.io/LWG/issue2192)
+    - C++17で、`int`/`long`/`long long`に対するオーバーロード (6)-(8) が追加され、`int`へ整数昇格できない符号なし整数型に対する`abs`の呼び出しが不適格であることが規定された
+- [LWG Issue 2735. `std::abs(short)`, `std::abs(signed char)` and others should return `int` instead of `double`](https://cplusplus.github.io/LWG/issue2735)
+    - C++17で、`abs`は`<cmath>`の整数引数を`double`に変換する追加オーバーロードの対象から除外され、`short`や`signed char`などの引数に対して（整数昇格により）`int`を返すようになった（C++98/Cとの互換性のため）
