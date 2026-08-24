@@ -17,6 +17,11 @@ namespace std {
 [`pair`](/reference/utility/pair.md)型は2つの型の値を保持する「組」を表現することができるが、`tuple`ではN個の型の値を扱うことができる。
 
 
+## 備考
+- C++17 : すべての要素型がトリビアルに破棄可能（`(`[`is_trivially_destructible_v`](/reference/type_traits/is_trivially_destructible.md)`<Types> && ...)`が`true`）である場合、`tuple`のデストラクタもトリビアルなデストラクタとなる
+    - これにより`tuple`はリテラル型となり、定数式で使用できる
+
+
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -266,3 +271,6 @@ after  b: i=0, d=0
 ## 参照
 - [タプル - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%BF%E3%83%97%E3%83%AB)
 - [P2321R2 `zip`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html)
+- [LWG Issue 2796. `tuple` should be a literal type](https://cplusplus.github.io/LWG/issue2796)
+    - C++17で、全ての要素型がトリビアルに破棄可能な場合は`tuple`のデストラクタもトリビアルになることが明記され、リテラル型として定数式で使用できることが保証された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。処理系は当初からデストラクタを宣言しておらず（暗黙定義のトリビアルなデストラクタを持つ）挙動は変わらない、規格の記載漏れの補完であるため
