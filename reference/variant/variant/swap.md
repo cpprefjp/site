@@ -14,8 +14,12 @@ constexpr void swap(variant& rhs) noexcept(see below);  // C++23
 他の`variant`オブジェクトとデータを入れ替える。
 
 
-## テンプレートパラメータ制約
-- `Types...`に含まれる全ての型`Ti`について、[`is_swappable_v`](/reference/type_traits/is_swappable.md)`<Ti>`が`true`、かつ[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<Ti>`が`true`であること
+## 適格要件
+- `Types...`に含まれる全ての型`Ti`について、[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<Ti>`が`true`であること
+
+
+## 事前条件
+- `Types...`に含まれる全ての型`Ti`が、交換可能（Cpp17Swappable）の要件を満たすこと
 
 
 ## 効果
@@ -73,3 +77,5 @@ int main()
 
 ## 参照
 - [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)
+- [LWG Issue 2749. swappable traits for `variant`s](https://cplusplus.github.io/LWG/issue2749)
+    - C++17の策定中に、メンバ`swap`の要件が「各代替型がムーブ構築可能かつ交換可能」に整理された（ムーブ代入可能は不要）。またメンバ`swap`はオーバーロード解決に参加しない制約（SFINAE）ではなく要件として規定される（SFINAE制約は非メンバ`swap`側にある）
