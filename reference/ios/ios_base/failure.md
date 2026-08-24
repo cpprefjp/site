@@ -54,6 +54,8 @@ C++11 からは、エラー内容としてメッセージだけではなく、[`
     このため、C++03 でも [`exception`](../../exception/exception.md) から直接派生していないかもしれないので、注意。  
     （当然 C++11 でも [`system_error`](../../system_error/system_error.md) を直接継承していない可能性がある）
 - C++03 まではデストラクタが宣言されていたが、例外指定が誤っていたため（基底クラス [`exception`](../../exception/exception.md) のデストラクタには `throw()` が付いているため、派生クラスにも `throw()` が必要）、C++11 では宣言自体が削除された。
+- C++17 からは、[`ios_base`](../ios_base.md)`::failure` を、クラスとして定義するのではなく、[`system_error`](../../system_error/system_error.md) から派生したクラスへの別名（シノニム）として定義してもよいことになっている。これは、規格バージョン間でABIの互換性を保つ柔軟性を処理系に与えるためである。  
+    このため、`class std::ios_base::failure` のような elaborated-type-specifier が使用できるとは限らない。
 
 
 ## バージョン
@@ -82,6 +84,8 @@ C++11 からは、エラー内容としてメッセージだけではなく、[`
 - [`iostream_category`](../iostream_category.md)
 - [N2769 Detailed Reporting for Input/Output Library Errors (Revision 2)](http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2008/n2769.htm)  
     基底クラスの変更を含む C++11 での提案文書
+- [LWG Issue 2462. `std::ios_base::failure` is overspecified](https://cplusplus.github.io/LWG/issue2462)  
+    C++17で、`ios_base::failure`を[`system_error`](../../system_error/system_error.md)から派生したクラスへのシノニム（typedef 等）として定義してよいことが規定された（ABI の柔軟性のため。上記 GCC の `_GLIBCXX_USE_CXX11_ABI` の事情もこれに関係する）
 - [DR331 bad declaration of destructor for ios_base::failure](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#331)  
     デストラクタ宣言削除の Defect Report
 - [Bug 66145 - [5/6 Regression] std::ios_base::failure objects thrown from libstdc++.so use old ABI](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=66145)  
