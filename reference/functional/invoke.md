@@ -138,4 +138,6 @@ int main()
 ## 参照
 - [C++1z INVOKEコンセプトに従った関数呼び出しをするinvoke()関数 - Faith and Brave - C++で遊ぼう](https://faithandbrave.hateblo.jp/entry/2016/09/07/173344)
 - [N4169 A proposal to add invoke function template (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4169.html)
+- [LWG Issue 2807. `std::invoke` should use `std::is_nothrow_callable`](https://cplusplus.github.io/LWG/issue2807)
+    - C++17で、`invoke`に`noexcept(is_nothrow_invocable_v<F, Args...>)`の例外指定が追加された
 - [P1065R2 constexpr INVOKE](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1065r2.html)
