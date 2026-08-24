@@ -264,7 +264,7 @@ int main()
 - [N3406 A proposal to add a utility class to represent optional objects (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3406.html)
 - [LWG Issue 2756. `optional<T>` should `forward` `T`'s implicit conversions](https://wg21.cmeerw.net/lwg/issue2756)
 - [LWG Issue 2842. `in_place_t` check for `optional::optional(U&&)` should decay `U`](https://wg21.cmeerw.net/lwg/issue2842)
-    - 説明の簡略化のため、このオーバーロードで`in_place_t`への言及は現在していない
+    - C++17で、変換コンストラクタの制約が、`U`をdecayしてから[`std::in_place_t`](/reference/utility/in_place_t.md)と比較するよう修正された。このページでは説明の簡略化のため、このオーバーロードで`in_place_t`への言及はしていない
 - [LWG Issue 2900. The copy and move constructors of `optional` are not `constexpr`](https://wg21.cmeerw.net/lwg/issue2900)
 - [P0777R1 Treating Unnecessary `decay`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0777r1.pdf)
 - [P0892R2 `explicit(bool)`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html)
@@ -273,3 +273,5 @@ int main()
 - [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)
 - [P2988R12 `std::optional<T&>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2988r12.pdf)
     - C++26で参照型`T&`に対する部分特殊化を追加
+- [LWG Issue 2900. The copy and move constructors of `optional` are not constexpr](https://cplusplus.github.io/LWG/issue2900)
+    - C++17の策定中に、コピーコンストラクタ(3)・ムーブコンストラクタ(4)が`constexpr`となった（それぞれ`T`がトリビアルにコピー/ムーブ構築可能な場合に定数式で使用可能）
