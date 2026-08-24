@@ -45,6 +45,10 @@ constexpr void merge(unordered_multiset<Key, H2, P2, Allocator>&& source); // (4
 平均的なケースでは `O(N)`、最悪ケースでは `O(N*size()+N)`、ただし `N` は `source.size()` である。
 
 
+## 例外
+[`max_load_factor()`](max_load_factor.md)の不変条件を維持するために再ハッシュが必要となる場合があり、その際のメモリ確保により例外が送出される可能性がある。また、ハッシュ関数やキー等価述語が例外を送出する場合もある。
+
+
 ## 備考
 `source` の転送された要素へのポインタおよび参照は、それらと同じ要素を参照するが、`*this` のメンバとして参照する。また、転送された要素を参照する反復子と`*this`を参照するすべての反復子は無効になるが、 `source` に残っている要素への反復子は有効なままになる。
 
@@ -97,4 +101,7 @@ s2 = { 20, 30, 10 }
 
 ## 参照
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+- [LWG Issue 2977. `unordered_meow::merge()` has incorrect Throws: clause](https://cplusplus.github.io/LWG/issue2977)
+    - C++20で、「ハッシュ関数とキー等価述語以外は例外を投げない」という誤った例外指定が削除された
+    - この修正は欠陥報告(DR)であり、C++17に遡及して適用される。`max_load_factor`の不変条件を維持するための再ハッシュでメモリ確保が発生しうるため、元の「投げない」保証は実装不可能だったため
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
