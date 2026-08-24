@@ -8,11 +8,11 @@ namespace std {
   template <class T>
   complex<T>
     polar(const T& rho,
-          const T& theta = 0); // (1) C++03
+          const T& theta = T()); // (1) C++03
   template <class T>
   constexpr complex<T>
     polar(const T& rho,
-          const T& theta = 0); // (1) C++26
+          const T& theta = T()); // (1) C++26
 }
 ```
 
@@ -27,7 +27,7 @@ namespace std {
 ## 備考
 - 規格には、偏角 `theta` の単位については何も記載がない。しかし、この引数の単位がラジアンであることは異論をはさむ余地はないだろう。  
 	実際、本関数の逆関数（の片割れ）とも言える [`arg`](arg.md) の戻り値はラジアンである。
-- コンストラクタのデフォルト引数を踏まえると、偏角 `theta` のデフォルト引数が `T()` ではなく `0` であるのは、規格の誤りであるように思われる。
+- 偏角 `theta` のデフォルト引数は、当初 `0` と規定されていたが、これは規格の誤りであり、LWG Issue 2870 によって `T()`（テンプレートパラメータに依存する値）に修正された。
 - `rho` と `theta` に現れる型 `T` は（残念ながら）同じ型でなければならない。（`int` と `double` を渡すなどといったことはできない）  
 	同じ [`<complex>`](/reference/complex.md) ヘッダの [`pow`](pow.md) や、[`cmath`](/reference/cmath.md) ヘッダの [`atan2`](/reference/cmath/atan2.md) などの関数群は、引数の型が異なっていても簡単に呼び出せるように C++11 でオーバーロードが追加されているため、単なる規格の考慮漏れかもしれない。
 
@@ -79,5 +79,7 @@ polar(1.0, pi / 4.0) = (0.707107,0.707107)
 
 
 ## 参照
+- [LWG Issue 2870. Default value of parameter theta of polar should be dependent](https://cplusplus.github.io/LWG/issue2870)
+    - 偏角`theta`のデフォルト引数が`0`から`T()`（テンプレートパラメータに依存する値）に修正された。この修正は欠陥報告(DR)であり、C++17以前にも遡及して適用される
 - [P1383R2 More constexpr for `<cmath>` and `<complex>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1383r2.pdf)
     - C++26で`constexpr`対応した
