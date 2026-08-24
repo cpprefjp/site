@@ -29,7 +29,8 @@ namespace std::filesystem {
 
 
 ## 例外
-- (1) : ファイルシステムがエラーを報告する場合がある。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+- (1), (3) : ファイルシステムがエラーを報告する場合がある。エラーが発生した場合は、[`std::filesystem::filesystem_error`](filesystem_error.md)例外を送出する
+    - (3) は狭い契約（`opts`に`perm_options`の`replace`・`add`・`remove`のうち正確に1つが含まれること）を持つため`noexcept`ではない
 - (2) : 投げない
 
 
@@ -69,3 +70,8 @@ int main()
 ## 関連項目
 - [`status()`](status.md)
 - [`symlink_status()`](symlink_status.md)
+
+
+## 参照
+- [LWG Issue 2719. `permissions` function should not be `noexcept` due to narrow contract](https://cplusplus.github.io/LWG/issue2719)
+    - C++17の策定中に、狭い契約（`opts`に`perm_options`の`replace`・`add`・`remove`のうち正確に1つが含まれること）を持つため、`perm_options`と`error_code`を取る版(3)から`noexcept`が外された
