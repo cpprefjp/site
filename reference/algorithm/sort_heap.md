@@ -47,7 +47,7 @@ namespace std {
 
 
 ## 計算量
-最大で N log(N) 回比較する（N == `last - first`）
+最大で 2N log(N) 回比較する（N == `last - first`）
 
 
 ## 例
@@ -85,3 +85,5 @@ int main()
 
 ## 参照
 - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)
+- [LWG Issue 2444. Inconsistent complexity for `std::sort_heap`](https://cplusplus.github.io/LWG/issue2444)
+    - 計算量の上限が「N log(N)回」から「2N log(N)回」に修正された（`sort_heap`はN回の`pop_heap`を行うため）。この修正は欠陥報告(DR)であり、C++17にも遡及して適用される
