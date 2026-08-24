@@ -72,6 +72,11 @@ namespace std {
 - 文字に対するオーバーロードは、書式化出力関数である。
 - 文字列に対するオーバーロードは、書式化出力関数である。
 
+## テンプレートパラメータ制約
+- (25) :
+    - C++17 : 式`os << x`が適格であること
+
+
 ## 効果
 
 ### (1)-(5) 文字の書式化出力
@@ -111,7 +116,7 @@ namespace std {
 
 ## 備考
 
-- (25) の形式は C++11 から追加されたが、より使いやすくするための変更が提案されている。  
+- (25) の形式は C++11 から追加され、C++17 で式`os << x`が適格な場合のみオーバーロード解決に参加するよう制約化された。  
 	[LWG1203. More useful rvalue stream insertion](https://wg21.cmeerw.net/lwg/issue1203)
 - (3)、および、(15) の形式は、オーバーロード解決時の曖昧さ解消のために存在する。  
 	（これらが存在しないと、`CharT` が `char` 型の場合に、(1) と (2)、あるいは (13) と (14) が同じ優先順位となりオーバーロード解決に失敗してしまう）
@@ -290,3 +295,5 @@ int main()
 ## 参照
 
 [P1423R3: char8_t backward compatibility remediation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1423r3.html)
+- [LWG Issue 2534. Constrain rvalue stream operators](https://cplusplus.github.io/LWG/issue2534)
+    - C++17で、右辺値ストリーム版`operator<<`が`os << x`が妥当な場合のみオーバーロード解決に参加するよう制約化され、SFINAEでのストリーム可否判定が正しく機能するようになった
