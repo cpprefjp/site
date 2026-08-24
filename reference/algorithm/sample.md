@@ -134,3 +134,5 @@ bcd
 - [N4531 `std::rand` replacement, revision 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4531.html)
 - [P0220R0 Adopt Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r0.html)
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
+- [LWG Issue 2716. Specification of `shuffle` and `sample` disallows lvalue URNGs](https://cplusplus.github.io/LWG/issue2716)
+    - C++17で、乱数生成器の要件が`remove_reference_t`を通して判定されるよう整理され、左辺値の乱数生成器を渡せることが明確化された
