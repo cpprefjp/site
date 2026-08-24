@@ -86,5 +86,9 @@ int main()
 
 
 ## 参照
+- [LWG Issue 2935. What should `create_directories` do when `p` already exists but is not a directory?](https://cplusplus.github.io/LWG/issue2935)
+    - 事後条件`is_directory(p)`が削除された
+    - この修正は欠陥報告(DR)であり、C++17に遡及して適用される。元の事後条件は、ディレクトリ作成の失敗後に状態を取得する追加のシステムコールを発行しなければ保証できない意図しない規定であり、処理系の挙動は変わらないため
+    - なお本issueは「パスが既に存在する場合はエラーとしない」形にも緩和したが、これは同じC++20でP1164R1により差し戻された。現在は「既存のディレクトリとして解決されたために作成が失敗した場合はエラーとしない」という本ページの記述となっている
 - [LWG Issue 3079. LWG 2935 forgot to fix the `existing_p` overloads of `create_directory`](https://cplusplus.github.io/LWG/issue3079)
     - C++20で、既存アタッチメントを取る`existing_p`版オーバーロードも、指定したパスがすでにディレクトリとして存在する場合にエラーとしないよう修正された
