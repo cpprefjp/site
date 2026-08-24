@@ -84,6 +84,8 @@ false
 - [N2637 Revisiting std::shared_ptr comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2637.pdf)
 - [LWG Issue 1406. Support hashing smart-pointers based on owner](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#1406)
 - [LWG Issue 2873. Add `noexcept` to several `shared_ptr` related functions](https://wg21.cmeerw.net/lwg/issue2873)
+- [LWG Issue 2942. LWG 2873's resolution missed `weak_ptr::owner_before`](https://cplusplus.github.io/LWG/issue2942)
+    - C++20で、LWG 2873で`shared_ptr::owner_before`等に付いた`noexcept`が`weak_ptr::owner_before`にも付与された。この修正は欠陥報告(DR)であり、C++17にも遡及して適用される
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
 - [LWG Issue 4557. Remove `constexpr` from `owner_less` and `owner_before`](https://cplusplus.github.io/LWG/issue4557)
     - C++26で、P3037R6により一旦付与された`constexpr`指定が取り消され、`owner_before`と`owner_less`の`operator()`は`constexpr`ではなくなった
