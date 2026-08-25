@@ -43,7 +43,7 @@ int main()
 ```
 * imbue[color ff0000]
 * std::locale[link ../../locale/locale.md]
-* classic[link ../../locale/classic.md.nolink]
+* classic[link /reference/locale/locale/classic.md]
 
 ### 出力例
 ```

@@ -42,7 +42,7 @@ int main()
 * std::locale[link locale.md]
 * classic()[link locale/classic.md]
 * std::ctype[link ctype.md]
-* toupper[link ctype/toupper.md.nolink]
+* toupper[link ctype/toupper.md]
 
 ### 出力
 ```

@@ -12,27 +12,61 @@ namespace std {
 * codecvt[link codecvt.md]
 
 ## 概要
+`codecvt_byname`は、名前で指定したロケールの文字コード変換を提供する、[`codecvt`](/reference/locale/codecvt.md)の派生クラスである。
 
-(ここに、クラスの概要を記載する)
+[`codecvt`](/reference/locale/codecvt.md)の仮想関数を、[`locale(const char*)`](locale/op_constructor.md)で同じ名前を指定して構築したロケールのファセットと等価な意味論で実装する。
+
+このクラスは[`codecvt`](/reference/locale/codecvt.md)が提供するインタフェースをそのまま継承しており、独自のメンバ関数は持たない。
+
+## メンバ関数
 
 ### publicメンバ関数
 
 | 名前 | 説明 |
 |----------------------------|-----------------------|
-| `(constructor)` | コンストラクタ |
+| [`(constructor)`](codecvt_byname/op_constructor.md) | コンストラクタ |
 
 ### protectedメンバ関数
 
 | 名前 | 説明 |
 |---------------------------|--------------------|
-| `(destructor)` | デストラクタ |
+| [`(destructor)`](codecvt_byname/op_destructor.md) | デストラクタ |
 
-### 例
-```cpp
+## 例
+```cpp example
+#include <iostream>
+#include <locale>
+#include <cwchar>
+
+int main()
+{
+  using codecvt_t = std::codecvt<wchar_t, char, std::mbstate_t>;
+
+  // ファセットのデストラクタはprotectedであるため、
+  // newで確保してlocaleに所有権を渡す
+  std::locale loc{std::locale::classic(),
+                  new std::codecvt_byname<wchar_t, char, std::mbstate_t>{"C"}};
+
+  std::cout << std::boolalpha << std::has_facet<codecvt_t>(loc) << std::endl;
+}
 ```
+* std::codecvt_byname[color ff0000]
+* std::locale[link locale.md]
+* std::locale::classic()[link locale/classic.md]
+* std::has_facet[link has_facet.md]
+* std::codecvt[link codecvt.md]
 
 ### 出力
 ```
+true
 ```
 
-### 参照
+
+## バージョン
+### 言語
+- C++98
+
+
+## 関連項目
+- [`codecvt`](/reference/locale/codecvt.md)
+- [`locale`](locale.md)

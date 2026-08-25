@@ -31,7 +31,7 @@ codecvt_base::result r =
 * pbase()[link /reference/streambuf/basic_streambuf/pbase.md]
 * pptr()[link /reference/streambuf/basic_streambuf/pptr.md]
 * codecvt_base::result[link /reference/locale/codecvt_base.md]
-* a_codecvt.out[link /reference/locale/codecvt/out.md.nolink]
+* a_codecvt.out[link /reference/locale/codecvt/out.md]
 
 ここで`a_codecvt`は、このストリームバッファに設定されているロケールの[`codecvt`](/reference/locale/codecvt.md)ファセットである。変換結果`r`に応じて、以下のように動作する。
 

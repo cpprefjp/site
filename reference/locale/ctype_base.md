@@ -10,7 +10,9 @@ namespace std {
 ```
 
 ## 概要
-(ここに、クラスの概要を記載する)
+`ctype_base`は、[`ctype`](ctype.md)が使用する文字分類のためのビットマスク型と、その定数を定義する基底クラスである。
+
+[`ctype`](ctype.md)はこのクラスを継承しており、[`ctype::is()`](ctype/is.md)などのメンバ関数へ渡す分類の指定にこれらの定数を使用する。複数の分類は`|`で組み合わせられる。
 
 ### メンバ型
 
@@ -37,12 +39,44 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
+#include <iostream>
+#include <locale>
+
+int main()
+{
+  const auto& ct = std::use_facet<std::ctype<char>>(std::locale::classic());
+
+  std::cout << std::boolalpha;
+
+  // 複数の分類を|で組み合わせて指定できる
+  std::cout << ct.is(std::ctype_base::alpha | std::ctype_base::digit, '5') << std::endl;
+  std::cout << ct.is(std::ctype_base::punct, '5') << std::endl;
+}
 ```
+* std::ctype_base::alpha[color ff0000]
+* std::ctype_base::digit[color ff0000]
+* std::ctype_base::punct[color ff0000]
+* std::ctype[link ctype.md]
+* ct.is[link ctype/is.md]
+* std::use_facet[link use_facet.md]
+* std::locale::classic()[link locale/classic.md]
 
 ### 出力
 ```
+true
+false
 ```
+
+
+## バージョン
+### 言語
+- C++98
+
+
+## 関連項目
+- [`ctype`](ctype.md)
+- [`ctype::is`](ctype/is.md)
 
 ## 参照
 - [LWG Issue 4037. Static data members of `ctype_base` are not yet required to be usable in constant expressions](https://cplusplus.github.io/LWG/issue4037)

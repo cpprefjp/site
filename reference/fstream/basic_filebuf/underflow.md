@@ -29,7 +29,7 @@ codecvt_base::result r =
                intern_buf, intern_buf+ISIZE, intern_end);
 ```
 * codecvt_base::result[link /reference/locale/codecvt_base.md]
-* a_codecvt.in[link /reference/locale/codecvt/in.md.nolink]
+* a_codecvt.in[link /reference/locale/codecvt/in.md]
 
 ここで`a_codecvt`は、このストリームバッファに設定されているロケールの[`codecvt`](/reference/locale/codecvt.md)ファセットである。
 

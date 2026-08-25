@@ -29,7 +29,7 @@ return std::use_facet<std::collate<charT>>(*this).compare(
 ```
 * std::use_facet[link ../use_facet.md]
 * std::collate[link ../collate.md]
-* compare[link ../collate/compare.md.nolink]
+* compare[link ../collate/compare.md]
 
 
 ## 例

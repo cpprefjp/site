@@ -52,8 +52,8 @@ protected:
 
     | 状態 | `stdio`の変換指定に相当 |
     |------|-------------------------|
-    | `basefield == `[`ios_base::oct`](/reference/ios/ios_base/type-fmtflags.md) | `%o` |
-    | `basefield == `[`ios_base::hex`](/reference/ios/ios_base/type-fmtflags.md) | `%X` |
+    | `basefield == `[`std::ios_base::oct`](/reference/ios/ios_base/type-fmtflags.md) | `%o` |
+    | `basefield == `[`std::ios_base::hex`](/reference/ios/ios_base/type-fmtflags.md) | `%X` |
     | `basefield == 0` | `%i` |
     | 符号付き整数型 | `%d` |
     | 符号なし整数型 | `%u` |
@@ -62,7 +62,7 @@ protected:
 - (11) : `%p`
 
 ### Stage 2 : 文字の抽出
-`[in, end)`から、変換指定に合致する文字を順次抽出する。`str.`[`getloc()`](/reference/ios/ios_base/getloc.md)から取得した[`numpunct`](/reference/locale/numpunct.md)ファセットにより、[`numpunct::grouping()`](/reference/locale/numpunct/grouping.md.nolink)が空でない場合は桁区切り文字（[`numpunct::thousands_sep()`](/reference/locale/numpunct/thousands_sep.md.nolink)）を取り除き、小数点文字（[`numpunct::decimal_point()`](/reference/locale/numpunct/decimal_point.md.nolink)）は`'.'`に置き換える。
+`[in, end)`から、変換指定に合致する文字を順次抽出する。`str.`[`getloc()`](/reference/ios/ios_base/getloc.md)から取得した[`numpunct`](/reference/locale/numpunct.md)ファセットにより、[`numpunct::grouping()`](/reference/locale/numpunct/grouping.md)が空でない場合は桁区切り文字（[`numpunct::thousands_sep()`](/reference/locale/numpunct/thousands_sep.md)）を取り除き、小数点文字（[`numpunct::decimal_point()`](/reference/locale/numpunct/decimal_point.md)）は`'.'`に置き換える。
 
 ### Stage 3 : 数値への変換と格納
 Stage 2で蓄積した文字列（フィールド）を、[`<cstdlib>`](/reference/cstdlib.md)で宣言される以下の関数の規則に従って数値へ変換する。
@@ -86,14 +86,14 @@ Stage 2で蓄積した文字列（フィールド）を、[`<cstdlib>`](/referen
 変換関数がフィールド全体を変換しなかった場合、または表現可能な範囲外の値を表す場合、`err`に[`std::ios_base::failbit`](/reference/ios/ios_base/type-iostate.md)が設定される。
 
 ### 桁区切りの検査
-(2)〜(10)では、取り除いた桁区切り文字の位置が[`numpunct::grouping()`](/reference/locale/numpunct/grouping.md.nolink)と整合しているかが検査される。整合していない場合、`err`に[`std::ios_base::failbit`](/reference/ios/ios_base/type-iostate.md)が設定される。
+(2)〜(10)では、取り除いた桁区切り文字の位置が[`numpunct::grouping()`](/reference/locale/numpunct/grouping.md)と整合しているかが検査される。整合していない場合、`err`に[`std::ios_base::failbit`](/reference/ios/ios_base/type-iostate.md)が設定される。
 
 ### 入力終端の扱い
 いずれの場合も、Stage 2の処理が`in == end`の判定によって終了した場合は、`err |= `[`std::ios_base::eofbit`](/reference/ios/ios_base/type-iostate.md)が行われる。
 
 ### (1) `bool`版の処理
 - `(str.`[`flags()`](/reference/ios/ios_base/flags.md)` & `[`std::ios_base::boolalpha`](/reference/ios/ios_base/type-fmtflags.md)`) == 0`の場合 : `long`と同様に入力を読み取り、格納しようとする値が`0`なら`false`、`1`なら`true`を格納する。それ以外の場合は`true`を格納し、`err`に[`std::ios_base::failbit`](/reference/ios/ios_base/type-iostate.md)を設定する
-- そうでない場合 : [`numpunct::truename()`](/reference/locale/numpunct/truename.md.nolink)と[`numpunct::falsename()`](/reference/locale/numpunct/falsename.md.nolink)を対象列として、一意に定まるまで文字を照合する。一意にマッチした場合は対応する値を`val`へ格納する。そうでない場合は`false`を格納し、`err`に[`std::ios_base::failbit`](/reference/ios/ios_base/type-iostate.md)を設定する
+- そうでない場合 : [`numpunct::truename()`](/reference/locale/numpunct/truename.md)と[`numpunct::falsename()`](/reference/locale/numpunct/falsename.md)を対象列として、一意に定まるまで文字を照合する。一意にマッチした場合は対応する値を`val`へ格納する。そうでない場合は`false`を格納し、`err`に[`std::ios_base::failbit`](/reference/ios/ios_base/type-iostate.md)を設定する
 
 
 ## 戻り値
