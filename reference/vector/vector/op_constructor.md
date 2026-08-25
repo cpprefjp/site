@@ -16,7 +16,7 @@ explicit vector(const Allocator& a);                  // (2) C++14
 explicit vector(const Allocator&) noexcept;           // (2) C++17
 constexpr explicit vector(const Allocator&) noexcept; // (2) C++20
 
-explicit vector(const Allocator& a = Allocator());    // (1) + (2) C++03
+explicit vector(const Allocator& a = Allocator());    // (1) + (2) C++98
 
 explicit vector(size_type n);                                // (3) C++11
 explicit vector(size_type n,
@@ -30,16 +30,16 @@ constexpr vector(size_type n, const T& value,
                  const Allocator& a = Allocator());  // (4) C++20
 
 explicit vector(size_type n, const T& value = T(),
-                const Allocator& a = Allocator());   // (3) + (4) C++03
+                const Allocator& a = Allocator());   // (3) + (4) C++98
 
 template <class InputIter>
 vector(InputIter first, InputIter last,
-      const Allocator& a = Allocator());             // (5) C++03
+      const Allocator& a = Allocator());             // (5) C++98
 template <class InputIter>
 constexpr vector(InputIter first, InputIter last,
                  const Allocator& a = Allocator());  // (5) C++20
 
-vector(const vector& x);                             // (6) C++03
+vector(const vector& x);                             // (6) C++98
 constexpr vector(const vector& x);                   // (6) C++20
 
 vector(vector&& x);                                  // (7) C++11
@@ -106,7 +106,7 @@ constexpr vector(std::from_range_t, R&& rg,
 
 
 ## 備考
-- イテレータ範囲コンストラクタ(5) `template <class InputIter> vector(InputIter first, InputIter last, const Allocator& a = Allocator())` は、C++03 までは `InputIter` が整数型の場合には `vector(static_cast<typename vector::size_type>(first), static_cast<typename vector::value_type>(last), a)` と等価とされていたが、C++11 では `InputIter` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
+- イテレータ範囲コンストラクタ(5) `template <class InputIter> vector(InputIter first, InputIter last, const Allocator& a = Allocator())` は、C++98 までは `InputIter` が整数型の場合には `vector(static_cast<typename vector::size_type>(first), static_cast<typename vector::value_type>(last), a)` と等価とされていたが、C++11 では `InputIter` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
 - C++11 では、`explicit vector(size_type n, const T& value = T(), const Allocator& a = Allocator())` の引数 `value` に関するデフォルト引数が削除され、新たなコンストラクタ `explicit vector(size_type n)` が追加された。  
 	これは、デフォルト引数を使用すると、引数 `value` のデフォルト初期化 1 回＋`vector` の要素へのコピー初期化 `n` 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ `vector` の要素へのデフォルト初期化 `n` 回のコンストラクタ呼び出しで済むためである。
 

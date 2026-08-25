@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-bad_cast& operator=(const bad_cast&);                    // (1) C++03
+bad_cast& operator=(const bad_cast&);                    // (1) C++98
 bad_cast& operator=(const bad_cast&) noexcept;           // (1) C++11
 constexpr bad_cast& operator=(const bad_cast&) noexcept; // (1) C++26
 ```

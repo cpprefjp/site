@@ -64,7 +64,7 @@ namespace std {
 
 ## 適格要件
 - C++17 : `traits::char_type`が`charT`と同じ型であること
-    - C++03からC++14までは、要件ではなく注記として述べられていた
+    - C++98からC++14までは、要件ではなく注記として述べられていた
 
 
 ## メンバ関数
@@ -170,7 +170,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |---------------------|----------------|------|
 | `traits_type` | 文字特性型 `traits` | |
-| `value_type` | 文字型<br/> C++03 : `traits::char_type`<br/> C++17 : `charT` | |
+| `value_type` | 文字型<br/> C++98 : `traits::char_type`<br/> C++17 : `charT` | |
 | `allocator_type` | アロケータ型 `Allocator` | |
 | `size_type` | 要素数を表す符号なし整数型。<br/> `allocator_traits<Allocator>::size_type` | |
 | `difference_type` | イテレータの差を表す符号付き整数型。 `allocator_traits<Allocator>::difference_type` | |
@@ -250,7 +250,7 @@ namespace std {
 
 
 ## 例
-### 基本的な使い方 (C++03)
+### 基本的な使い方 (C++98)
 ```cpp example
 #include <iostream>
 #include <cstdio>

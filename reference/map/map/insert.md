@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-pair<iterator, bool> insert(const value_type& x);           // (1) C++03
+pair<iterator, bool> insert(const value_type& x);           // (1) C++98
 constexpr pair<iterator, bool> insert(const value_type& x); // (1) C++26
 
 template <class P>
@@ -16,7 +16,7 @@ constexpr pair<iterator, bool> insert(P&& x); // (2) C++26
 pair<iterator, bool> insert(value_type&& x);                   // (3) C++17
 constexpr pair<iterator, bool> insert(value_type&& x);         // (3) C++26
 
-iterator insert(iterator position, const value_type& x);                 // (4) C++03
+iterator insert(iterator position, const value_type& x);                 // (4) C++98
 iterator insert(const_iterator position, const value_type& x);           // (4) C++11
 constexpr iterator insert(const_iterator position, const value_type& x); // (4) C++26
 
@@ -29,7 +29,7 @@ iterator insert(const_iterator position, value_type&& x);           // (6) C++17
 constexpr iterator insert(const_iterator position, value_type&& x); // (6) C++26
 
 template <class InputIterator>
-void insert(InputIterator first, InputIterator last);           // (7) C++03
+void insert(InputIterator first, InputIterator last);           // (7) C++98
 template <class InputIterator>
 constexpr void insert(InputIterator first, InputIterator last); // (7) C++26
 
@@ -126,8 +126,8 @@ constexpr iterator
 ## 備考
 - これらの関数が呼ばれた後も、当該コンテナ内の要素を指す参照やイテレータは無効にはならない。  
 	なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
-- (4), (5), (6): C++03 までの仕様では、計算量が償却定数時間となる条件は、「`position` が指す要素の**後ろ**に挿入された場合」となっているが、主要な実装はC++03時点から `position` が指す**前**に挿入する場合に償却定数時間となっていた。これは、`position` の後ろでは、適切な位置が先頭の場合に指定する方法がないこと、`vector::insert` の場合、`position` の前に挿入されること、STL のオリジナルである HP 社の実装が `position` の前に挿入する場合に償却定数時間であったことなどによる。
-- (7) : C++03 までの仕様では、`first` と `last` の間が昇順にソートされていた場合、計算量が線形時間となっていたが、この仕様は実現性がないため C++11 では削除された。（例えば、コンテナの既存の要素が 2 から 100 の偶数のみの場合に、1 から 99 のソートされた奇数の範囲を挿入する場合を考えてみよ）
+- (4), (5), (6): C++98 までの仕様では、計算量が償却定数時間となる条件は、「`position` が指す要素の**後ろ**に挿入された場合」となっているが、主要な実装はC++98時点から `position` が指す**前**に挿入する場合に償却定数時間となっていた。これは、`position` の後ろでは、適切な位置が先頭の場合に指定する方法がないこと、`vector::insert` の場合、`position` の前に挿入されること、STL のオリジナルである HP 社の実装が `position` の前に挿入する場合に償却定数時間であったことなどによる。
+- (7) : C++98 までの仕様では、`first` と `last` の間が昇順にソートされていた場合、計算量が線形時間となっていたが、この仕様は実現性がないため C++11 では削除された。（例えば、コンテナの既存の要素が 2 から 100 の偶数のみの場合に、1 から 99 のソートされた奇数の範囲を挿入する場合を考えてみよ）
 - (9), (10) : 要素は、コピーもムーブもされない。
 
 

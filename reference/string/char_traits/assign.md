@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-static void assign(char_type& c1, const char_type& c2);             // (1) C++03
+static void assign(char_type& c1, const char_type& c2);             // (1) C++98
 static void assign(char_type& c1, const char_type& c2) noexcept;    // (1) C++11
 
 static char_type*
-  assign(char_type* s, std::size_t n, char_type a);                 // (2) C++03
+  assign(char_type* s, std::size_t n, char_type a);                 // (2) C++98
 static constexpr char_type*
   assign(char_type* s, std::size_t n, char_type a);                 // (2) C++20
 ```

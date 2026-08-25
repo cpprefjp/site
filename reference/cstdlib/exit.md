@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  void exit(int status);              // C++03
+  void exit(int status);              // C++98
   [[noreturn]] void exit(int status); // C++11
 }
 ```

@@ -8,7 +8,7 @@
 protected:
   virtual pos_type
     seekpos(pos_type sp,
-            ios_base::openmode which = ios_base::in | ios_base::out);  // (1) C++03
+            ios_base::openmode which = ios_base::in | ios_base::out);  // (1) C++98
   pos_type
     seekpos(pos_type sp,
             ios_base::openmode which = ios_base::in | ios_base::out) override; // (1) C++17

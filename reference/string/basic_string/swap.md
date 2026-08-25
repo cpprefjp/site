@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void swap(basic_string& str);                                // (1) C++03
+void swap(basic_string& str);                                // (1) C++98
 void swap(basic_string& str) noexcept
   (allocator_traits<Allocator>::propagate_on_container_swap::value
    || allocator_traits<Allocator>::is_always_equal::value);  // (1) C++17

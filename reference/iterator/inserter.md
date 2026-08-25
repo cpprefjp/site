@@ -7,7 +7,7 @@
 namespace std {
   template <class Container>
   insert_iterator<Container>
-    inserter(Container& x, typename Container::iterator i);   // (1) C++03
+    inserter(Container& x, typename Container::iterator i);   // (1) C++98
 
   template <class Container>
   constexpr insert_iterator<Container>

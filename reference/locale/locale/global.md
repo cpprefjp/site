@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-static locale global(const locale& loc); // (1) C++03
+static locale global(const locale& loc); // (1) C++98
 ```
 
 ## 概要
@@ -49,7 +49,7 @@ C
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 
 ## 関連項目

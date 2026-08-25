@@ -7,7 +7,7 @@
 ```cpp
 template <class charT, class traits, class Allocator>
 bool operator()(const basic_string<charT, traits, Allocator>& s1,
-                const basic_string<charT, traits, Allocator>& s2) const; // (1) C++03
+                const basic_string<charT, traits, Allocator>& s2) const; // (1) C++98
 ```
 * basic_string[link /reference/string/basic_string.md]
 
@@ -64,7 +64,7 @@ charlie
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 
 ## 関連項目

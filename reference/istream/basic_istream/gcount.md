@@ -16,7 +16,7 @@ streamsize gcount();
 
 入力文字数が[`streamsize`](/reference/ios/type-streamsize.md)で表現できる範囲を超える場合の扱いは、バージョンによって異なる。
 
-- C++03 : 規定されていない
+- C++98 : 規定されていない
 - C++23 : その文字数が[`numeric_limits`](/reference/limits/numeric_limits.md)`<`[`streamsize`](/reference/ios/type-streamsize.md)`>::`[`max()`](/reference/limits/numeric_limits/max.md)を超える場合は、[`numeric_limits`](/reference/limits/numeric_limits.md)`<`[`streamsize`](/reference/ios/type-streamsize.md)`>::`[`max()`](/reference/limits/numeric_limits/max.md)を返す
 
 ## 例

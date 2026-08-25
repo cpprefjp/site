@@ -10,7 +10,7 @@ namespace std {
     rotate_copy(ForwardIterator first,
                 ForwardIterator middle,
                 ForwardIterator last,
-                OutputIterator result);   // (1) C++03
+                OutputIterator result);   // (1) C++98
 
   template <class ForwardIterator, class OutputIterator>
   constexpr OutputIterator

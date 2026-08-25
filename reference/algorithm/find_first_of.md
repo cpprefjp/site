@@ -10,7 +10,7 @@ namespace std {
     find_first_of(ForwardIterator1 first1,
                   ForwardIterator1 last1,
                   ForwardIterator2 first2,
-                  ForwardIterator2 last2); // (1) C++03
+                  ForwardIterator2 last2); // (1) C++98
 
   template <class InputIterator, class ForwardIterator>
   InputIterator
@@ -32,7 +32,7 @@ namespace std {
                   ForwardIterator1 last1,
                   ForwardIterator2 first2,
                   ForwardIterator2 last2,
-                  BinaryPredicate pred);   // (2) C++03
+                  BinaryPredicate pred);   // (2) C++98
 
   template <class InputIterator, class ForwardIterator, class BinaryPredicate>
   InputIterator

@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-void sort();           // (1) C++03
+void sort();           // (1) C++98
 constexpr void sort(); // (1) C++26
 
 template <class Compare>
-void sort(Compare comp);           // (2) C++03
+void sort(Compare comp);           // (2) C++98
 template <class Compare>
 constexpr void sort(Compare comp); // (2) C++26
 ```

@@ -7,7 +7,7 @@
 * cpp20removed[meta cpp]
 
 ```cpp
-// C++03
+// C++98
 void destroy(pointer p);
 
 // C++11
@@ -23,7 +23,7 @@ void destroy(U* p);
 
 
 ## 効果
-- C++03 : `((T*)p)->~T()`
+- C++98 : `((T*)p)->~T()`
 - C++11 : `p->~U()`
 
 

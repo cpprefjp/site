@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  void swap(T& a, T& b);                               // (1) C++03 in <algorithm> header
+  void swap(T& a, T& b);                               // (1) C++98 in <algorithm> header
 
   template <class T>
   void swap(T& a, T& b) noexcept(see below);           // (1) C++11
@@ -81,7 +81,7 @@ swap(a, b);
 
 
 ## 備考
-C++03では`<algorithm>`ヘッダに定義されていた。
+C++98では`<algorithm>`ヘッダに定義されていた。
 
 
 ## 例

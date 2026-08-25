@@ -8,7 +8,7 @@ namespace std {
   template <class ForwardIterator>
   ForwardIterator
     adjacent_find(ForwardIterator first,
-                  ForwardIterator last); // (1) C++03
+                  ForwardIterator last); // (1) C++98
 
   template <class ForwardIterator>
   constexpr ForwardIterator
@@ -19,7 +19,7 @@ namespace std {
   ForwardIterator
     adjacent_find(ForwardIterator first,
                   ForwardIterator last,
-                  BinaryPredicate pred); // (2) C++03
+                  BinaryPredicate pred); // (2) C++98
 
   template <class ForwardIterator, class BinaryPredicate>
   constexpr ForwardIterator

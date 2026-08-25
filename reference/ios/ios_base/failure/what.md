@@ -5,7 +5,7 @@
 * ios_base::failure[meta class]
 
 ```cpp
-virtual const char* what() const throw();                   // C++03 まで
+virtual const char* what() const throw();                   // C++98 まで
 ```
 
 ## 概要
@@ -53,7 +53,7 @@ error message
 
 ### 備考
 - GCC 5.1.0 以降では、単に C++03 モードにしても [`strcmp`](../../../cstring/strcmp.md)`(what(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` にはならない。  
-    どうしても C++03 の挙動にしたい場合には、コンパイルオプションに `-D_GLIBCXX_USE_CXX11_ABI=0` を指定する必要がある。
+    どうしても C++98 の挙動にしたい場合には、コンパイルオプションに `-D_GLIBCXX_USE_CXX11_ABI=0` を指定する必要がある。
 - Clang では、C++03 モードでも [`strcmp`](../../../cstring/strcmp.md)`(what(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` にはならない。  
 
 

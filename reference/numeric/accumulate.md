@@ -6,13 +6,13 @@
 ```cpp
 namespace std {
   template <class InputIterator, class T>
-  T accumulate(InputIterator first, InputIterator last, T init);           // (1) C++03
+  T accumulate(InputIterator first, InputIterator last, T init);           // (1) C++98
   template <class InputIterator, class T>
   constexpr T accumulate(InputIterator first, InputIterator last, T init); // (1) C++20
 
   template <class InputIterator, class T, class BinaryOperation>
   T accumulate(InputIterator first, InputIterator last, T init,
-               BinaryOperation binary_op);                                 // (2) C++03
+               BinaryOperation binary_op);                                 // (2) C++98
   template <class InputIterator, class T, class BinaryOperation>
   constexpr T accumulate(InputIterator first, InputIterator last, T init,
                          BinaryOperation binary_op);                       // (2) C++20
@@ -31,7 +31,7 @@ namespace std {
 
 
 ## 要件
-- C++03まで : `binary_op`は副作用を起こしてはならない
+- C++98まで : `binary_op`は副作用を起こしてはならない
 - C++11から : `binary_op`は、イテレータ範囲`[first, last]`の要素変更およびイテレータの無効化をしてはならない
 
 
@@ -43,7 +43,7 @@ namespace std {
 ## 効果
 - (1) : `binary_op`を`operator+`として (2) の効果を適用する
 - (2) :
-    - C++03 : `acc = init`、`[first, last)`の各イテレータを`i`とし、`acc = binary_op(acc, *i)`を範囲の全要素に対して適用し、その結果となる`acc`を返す
+    - C++98 : `acc = init`、`[first, last)`の各イテレータを`i`とし、`acc = binary_op(acc, *i)`を範囲の全要素に対して適用し、その結果となる`acc`を返す
     - C++20 : `acc = init`、`[first, last)`の各イテレータを`i`とし、`acc = binary_op(`[`std::move`](/reference/utility/move.md)`(acc), *i)`を範囲の全要素に対して適用し、その結果となる`acc`を返す
 
 

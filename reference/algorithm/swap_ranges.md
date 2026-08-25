@@ -9,7 +9,7 @@ namespace std {
   ForwardIterator2
     swap_ranges(ForwardIterator1 first1,
                 ForwardIterator1 last1,
-                ForwardIterator2 first2); // (1) C++03
+                ForwardIterator2 first2); // (1) C++98
 
   template <class ForwardIterator1, class ForwardIterator2>
   constexpr ForwardIterator2

@@ -16,7 +16,7 @@ constexpr explicit
            const Allocator& = Allocator()); // (2) C++26
 
 explicit multiset(const Compare& comp = Compare(),
-                  const Allocator& alloc = Allocator()); // (1) + (2) C++03
+                  const Allocator& alloc = Allocator()); // (1) + (2) C++98
 
 explicit multiset(const Allocator& alloc);           // (3) C++11
 constexpr explicit multiset(const Allocator& alloc); // (3) C++26
@@ -25,7 +25,7 @@ template <class InputIterator>
 multiset(InputIterator first,
          InputIterator last,
          const Compare& comp = Compare(),
-         const Allocator& alloc = Allocator());   // (4) C++03
+         const Allocator& alloc = Allocator());   // (4) C++98
 template <class InputIterator>
 constexpr
   multiset(InputIterator first,
@@ -43,7 +43,7 @@ constexpr
            InputIterator last,
            const Allocator& a); // (5) C++26
 
-multiset(const set& x);           // (6) C++03
+multiset(const set& x);           // (6) C++98
 constexpr multiset(const set& x); // (6) C++26
 
 multiset(set&& y);           // (7) C++11

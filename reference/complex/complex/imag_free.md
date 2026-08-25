@@ -6,7 +6,7 @@
 ```cpp
 namespace std {
   template <class T>
-  T imag(const complex<T>& x);           // (1) C++03
+  T imag(const complex<T>& x);           // (1) C++98
   template <class T>
   constexpr T imag(const complex<T>& x); // (1) C++14
 

@@ -9,7 +9,7 @@ namespace std {
   OutputIterator
     reverse_copy(BidirectionalIterator first,
                  BidirectionalIterator last,
-                 OutputIterator result);      // (1) C++03
+                 OutputIterator result);      // (1) C++98
 
   template <class BidirectionalIterator, class OutputIterator>
   constexpr OutputIterator

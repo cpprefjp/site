@@ -9,7 +9,7 @@ namespace std {
   BidirectionalIterator
     partition(BidirectionalIterator first,
               BidirectionalIterator last,
-              Predicate pred);              // (1) C++03
+              Predicate pred);              // (1) C++98
 
   template <class ForwardIterator, class Predicate>
   ForwardIterator
@@ -37,7 +37,7 @@ namespace std {
 
 
 ## 要件
-- C++03 : `BidirectionalIterator` は `ValueSwappable` の要件を満たしている必要がある。
+- C++98 : `BidirectionalIterator` は `ValueSwappable` の要件を満たしている必要がある。
 - C++11 : `ForwardIterator` は `ValueSwappable` の要件を満たしている必要がある。
 
 ## 効果

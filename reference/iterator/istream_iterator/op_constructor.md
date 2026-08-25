@@ -5,14 +5,14 @@
 * function[meta id-type]
 
 ```cpp
-istream_iterator();                                    // (1) C++03
+istream_iterator();                                    // (1) C++98
 constexpr istream_iterator();                          // (1) C++11
 
 constexpr istream_iterator(default_sentinel_t);        // (2) C++20
 
 istream_iterator(istream_type& s);                     // (3)
 
-istream_iterator(const istream_iterator& x);           // (4) C++03
+istream_iterator(const istream_iterator& x);           // (4) C++98
 istream_iterator(const istream_iterator& x) = default; // (4) C++11
 constexpr istream_iterator(const istream_iterator& x)
   noexcept(see below);                                 // (4) C++23

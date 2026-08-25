@@ -10,11 +10,11 @@ basic_stringbuf()
 explicit basic_stringbuf(
   ios_base::openmode which);                                  // (2) C++11
 explicit basic_stringbuf(
-  ios_base::openmode which = ios_base::in | ios_base::out);   // (1)+(2) C++03
+  ios_base::openmode which = ios_base::in | ios_base::out);   // (1)+(2) C++98
 
 explicit basic_stringbuf(
   const basic_string<CharT, Traits, Allocator>& s,
-  ios_base::openmode which = ios_base::in | ios_base::out);   // (3) C++03
+  ios_base::openmode which = ios_base::in | ios_base::out);   // (3) C++98
 
 explicit basic_stringbuf(
   basic_string<CharT, Traits, Allocator>&& s,

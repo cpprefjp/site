@@ -6,12 +6,12 @@
 ```cpp
 namespace std {
   float
-    modf(float value, float* iptr);     // (1) C++03からC++20まで
+    modf(float value, float* iptr);     // (1) C++98からC++20まで
   double
-    modf(double value, double* iptr);   // (2) C++03からC++20まで
+    modf(double value, double* iptr);   // (2) C++98からC++20まで
   long double
     modf(long double value,
-         long double* iptr);            // (3) C++03からC++20まで
+         long double* iptr);            // (3) C++98からC++20まで
 
   constexpr floating-point-type
     modf(floating-point-type value,

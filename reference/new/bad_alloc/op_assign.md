@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-bad_alloc& operator=(const bad_alloc&);                    // (1) C++03
+bad_alloc& operator=(const bad_alloc&);                    // (1) C++98
 bad_alloc& operator=(const bad_alloc&) noexcept;           // (1) C++11
 constexpr bad_alloc& operator=(const bad_alloc&) noexcept; // (1) C++26
 ```

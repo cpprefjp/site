@@ -5,10 +5,10 @@
 
 ```cpp
 namespace std {
-  extern "C" int atexit(void (*f)(void));          // (1) C++03
+  extern "C" int atexit(void (*f)(void));          // (1) C++98
   extern "C" int atexit(void (*f)(void)) noexcept; // (1) C++11
 
-  extern "C++" int atexit(void (*f)(void));          // (2) C++03
+  extern "C++" int atexit(void (*f)(void));          // (2) C++98
   extern "C++" int atexit(void (*f)(void)) noexcept; // (2) C++11
 }
 ```

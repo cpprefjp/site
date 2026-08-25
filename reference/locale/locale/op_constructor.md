@@ -5,17 +5,17 @@
 * function[meta id-type]
 
 ```cpp
-locale() noexcept;                                                 // (1) C++03
-locale(const locale& other) noexcept;                              // (2) C++03
-explicit locale(const char* std_name);                             // (3) C++03
-explicit locale(const string& std_name);                           // (4) C++03
+locale() noexcept;                                                 // (1) C++98
+locale(const locale& other) noexcept;                              // (2) C++98
+explicit locale(const char* std_name);                             // (3) C++98
+explicit locale(const string& std_name);                           // (4) C++98
 locale(const locale& other,
-       const char* std_name, category cats);                       // (5) C++03
+       const char* std_name, category cats);                       // (5) C++98
 locale(const locale& other,
-       const string& std_name, category cats);                     // (6) C++03
+       const string& std_name, category cats);                     // (6) C++98
 template <class Facet>
-locale(const locale& other, Facet* f);                             // (7) C++03
-locale(const locale& other, const locale& one, category cats);     // (8) C++03
+locale(const locale& other, Facet* f);                             // (7) C++98
+locale(const locale& other, const locale& one, category cats);     // (8) C++98
 ```
 * string[link /reference/string/basic_string.md]
 

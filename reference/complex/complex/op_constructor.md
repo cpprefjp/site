@@ -5,15 +5,15 @@
 * function[meta id-type]
 
 ```cpp
-complex(const T& re = T(), const T& im = T());            // (1) C++03
+complex(const T& re = T(), const T& im = T());            // (1) C++98
 constexpr complex(const T& re = T(), const T& im = T());  // (1) C++14
 
-complex(const complex& other);                            // (2) C++03
+complex(const complex& other);                            // (2) C++98
 constexpr complex(const complex& other);                  // (2) C++14
 constexpr complex(const complex& other) = default;        // (2) C++23
 
 template <class X>
-complex(const complex<X>& other);                         // (3) C++03
+complex(const complex<X>& other);                         // (3) C++98
 template <class X>
 constexpr complex(const complex<X>& other);               // (3) C++14
 template <class X>

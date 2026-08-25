@@ -6,11 +6,11 @@
 
 ```cpp
 template <class InputIterator>
-void assign(InputIterator first, InputIterator last);           // (1) C++03
+void assign(InputIterator first, InputIterator last);           // (1) C++98
 template <class InputIterator>
 constexpr void assign(InputIterator first, InputIterator last); // (1) C++20
 
-void assign(size_type n, const T& t);           // (2) C++03
+void assign(size_type n, const T& t);           // (2) C++98
 constexpr void assign(size_type n, const T& t); // (2) C++20
 
 void assign(initializer_list<T> il);           // (3) C++11

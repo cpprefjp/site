@@ -6,8 +6,8 @@
 
 ```cpp
 private:
-  indirect_array();                      // (1) C++03 まで
-  indirect_array(const indirect_array&)  // (2) C++03 まで
+  indirect_array();                      // (1) C++98 まで
+  indirect_array(const indirect_array&)  // (2) C++98 まで
 
 public:
   indirect_array() = delete;             // (1) C++11 から

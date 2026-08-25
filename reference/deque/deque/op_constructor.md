@@ -14,7 +14,7 @@ constexpr explicit deque(const Allocator& a);     // (2) C++26
 explicit deque(const Allocator& a = Allocator()); // (1)+(2) : C++11 まで。C++14 で削除
 
 explicit deque(size_type n, const T& value = T(),
-               const Allocator& a = Allocator()); // (3) C++03 まで。C++11 で削除
+               const Allocator& a = Allocator()); // (3) C++98 まで。C++11 で削除
 
 deque(size_type n,
       const T& value,
@@ -36,14 +36,14 @@ constexpr explicit
 template <class InputIterator>
 deque(InputIterator first,
       InputIterator last,
-      const Allocator& a = Allocator());   // (5) C++03
+      const Allocator& a = Allocator());   // (5) C++98
 template <class InputIterator>
 constexpr
   deque(InputIterator first,
         InputIterator last,
         const Allocator& a = Allocator()); // (5) C++26
 
-deque(const deque& x);           // (6) C++03
+deque(const deque& x);           // (6) C++98
 constexpr deque(const deque& x); // (6) C++26
 
 deque(deque&& y);           // (7) C++11 から
@@ -125,7 +125,7 @@ constexpr
 
 
 ## 備考
-- イテレータ範囲コンストラクタ `template <class InputIterator> deque(InputIterator first, InputIterator last, const Allocator& a = Allocator())` は、C++03 までは `InputIterator` が整数型の場合には `deque(static_cast<typename deque::size_type>(first), static_cast<typename deque::value_type>(last), a)` と等価とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
+- イテレータ範囲コンストラクタ `template <class InputIterator> deque(InputIterator first, InputIterator last, const Allocator& a = Allocator())` は、C++98 までは `InputIterator` が整数型の場合には `deque(static_cast<typename deque::size_type>(first), static_cast<typename deque::value_type>(last), a)` と等価とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
 - C++11 では、`explicit deque(size_type n, const T& value = T(), const Allocator& a = Allocator())` の引数 `value` に関するデフォルト引数が削除され、新たなコンストラクタ `explicit deque(size_type n)` が追加された。  
 	これは、デフォルト引数を使用すると、引数 `value` のデフォルト初期化 1 回＋`deque` の要素へのコピー初期化 `n` 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ `deque` の要素へのデフォルト初期化 `n` 回のコンストラクタ呼び出しで済むためである。
 

@@ -8,7 +8,7 @@ namespace std {
   // operator<=>により、以下の演算子が使用可能になる (C++20)
   template <class T, class Allocator>
   bool operator>=(const list<T, Allocator>& x,
-                  const list<T, Allocator>& y); // (1) C++03
+                  const list<T, Allocator>& y); // (1) C++98
   template <class T, class Allocator>
   constexpr bool operator>=(const list<T, Allocator>& x,
                   const list<T, Allocator>& y); // (1) C++26

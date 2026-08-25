@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-~list();           // (1) C++03
+~list();           // (1) C++98
 constexpr ~list(); // (1) C++26
 ```
 

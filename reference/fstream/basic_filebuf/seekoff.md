@@ -9,7 +9,7 @@ protected:
   virtual pos_type
     seekoff(off_type off,
             ios_base::seekdir way,
-            ios_base::openmode which = ios_base::in | ios_base::out);  // (1) C++03
+            ios_base::openmode which = ios_base::in | ios_base::out);  // (1) C++98
   pos_type
     seekoff(off_type off,
             ios_base::seekdir way,

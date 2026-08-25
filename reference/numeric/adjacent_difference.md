@@ -9,7 +9,7 @@ namespace std {
   OutputIterator
     adjacent_difference(InputIterator first,
                         InputIterator last,
-                        OutputIterator result);     // (1) C++03
+                        OutputIterator result);     // (1) C++98
   template <class InputIterator, class OutputIterator>
   constexpr OutputIterator
     adjacent_difference(InputIterator first,
@@ -21,7 +21,7 @@ namespace std {
     adjacent_difference(InputIterator first,
                         InputIterator last,
                         OutputIterator result,
-                        BinaryOperation binary_op); // (2) C++03
+                        BinaryOperation binary_op); // (2) C++98
   template <class InputIterator, class OutputIterator, class BinaryOperation>
   constexpr OutputIterator
     adjacent_difference(InputIterator first,
@@ -58,7 +58,7 @@ namespace std {
 
 ## 要件
 - (2) :
-    - C++03まで : 関数オブジェクト`binary_op`の呼び出しは、副作用を起こしてはならない
+    - C++98まで : 関数オブジェクト`binary_op`の呼び出しは、副作用を起こしてはならない
     - C++11から : 関数オブジェクト`binary_op`の呼び出しが、イテレータ範囲`[first, last]`およびイテレータ範囲`[result, result + (last - first)]`の要素変更、イテレータの無効化をしてはならない
 - (3), (4) :
     - イテレータ範囲`[first, last)`とイテレータ範囲`[result, result + (last - first))`は重なってはならない

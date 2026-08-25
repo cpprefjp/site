@@ -8,7 +8,7 @@ namespace std {
   template <class BidirectionalIterator>
   void inplace_merge(BidirectionalIterator first,
                      BidirectionalIterator middle,
-                     BidirectionalIterator last);  // (1) C++03
+                     BidirectionalIterator last);  // (1) C++98
   template <class BidirectionalIterator>
   constexpr
   void inplace_merge(BidirectionalIterator first,
@@ -19,7 +19,7 @@ namespace std {
   void inplace_merge(BidirectionalIterator first,
                      BidirectionalIterator middle,
                      BidirectionalIterator last,
-                     Compare comp);                // (2) C++03
+                     Compare comp);                // (2) C++98
   template <class BidirectionalIterator, class Compare>
   constexpr
   void inplace_merge(BidirectionalIterator first,

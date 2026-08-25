@@ -9,7 +9,7 @@ namespace std {
   T inner_product(InputIterator1 first1,
                   InputIterator1 last1,
                   InputIterator2 first2,
-                  T init);                        // (1) C++03
+                  T init);                        // (1) C++98
   template <class InputIterator1, class InputIterator2, class T>
   constexpr T
     inner_product(InputIterator1 first1,
@@ -24,7 +24,7 @@ namespace std {
                   InputIterator2 first2,
                   T init,
                   BinaryOperation1 binary_op1,
-                  BinaryOperation2 binary_op2);   // (2) C++03
+                  BinaryOperation2 binary_op2);   // (2) C++98
   template <class InputIterator1, class InputIterator2, class T,
             class BinaryOperation1, class BinaryOperation2>
   constexpr T
@@ -49,7 +49,7 @@ namespace std {
 
 
 ## 要件
-- C++03まで : `binary_op1`および`binary_op2`は、副作用を起こしてはならない
+- C++98まで : `binary_op1`および`binary_op2`は、副作用を起こしてはならない
 - C++11から : `binary_op1`および`binary_op2`が、イテレータ範囲`[first1, last1]`とイテレータ範囲`[first2, first2 + (last1 - first2)]`の要素変更およびイテレータの無効化をしてはならない
 
 
@@ -60,10 +60,10 @@ namespace std {
 
 ## 効果
 - (1) :
-    - C++03 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータを`j`として、`acc = acc + (*i) * (*j);` の演算を行い、`acc`を返す
+    - C++98 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータを`j`として、`acc = acc + (*i) * (*j);` の演算を行い、`acc`を返す
     - C++20 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータを`j`として、`acc =` [`std::move`](/reference/utility/move.md)`(acc) + (*i) * (*j);` の演算を行い、`acc`を返す
 - (2) :
-    - C++03 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータを`j`として、`acc = binary_op1(acc, binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
+    - C++98 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータを`j`として、`acc = binary_op1(acc, binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
     - C++20 : `acc = init;`、イテレータ範囲`[first1, last1)`の各イテレータを`i`、イテレータ範囲`[first2, first2 + (last1 - first1))`の各イテレータを`j`として、`acc = binary_op1(`[`std::move`](/reference/utility/move.md)`(acc), binary_op2((*i), (*j)));` の演算を行い、`acc`を返す
 
 

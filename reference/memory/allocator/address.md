@@ -7,10 +7,10 @@
 * cpp20removed[meta cpp]
 
 ```cpp
-pointer address(reference x) const;                      // (1) C++03
+pointer address(reference x) const;                      // (1) C++98
 pointer address(reference x) const noexcept;             // (1) C++11
 
-const_pointer address(const_reference x) const;          // (2) C++03
+const_pointer address(const_reference x) const;          // (2) C++98
 const_pointer address(const_reference x) const noexcept; // (2) C++11
 ```
 
@@ -22,7 +22,7 @@ const_pointer address(const_reference x) const noexcept; // (2) C++11
 
 
 ## 戻り値
-- C++03 : `&x`
+- C++98 : `&x`
 - C++11 : `operator&`がオーバーロードされていたとしても、`x`が参照するオブジェクトのアドレスを返す。
 
 

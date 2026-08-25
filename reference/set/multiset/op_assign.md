@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-multiset& operator=(const multiset& x);           // (1) C++03
+multiset& operator=(const multiset& x);           // (1) C++98
 constexpr multiset& operator=(const multiset& x); // (1) C++26
 
 multiset& operator=(multiset&& x);                          // (2) C++11

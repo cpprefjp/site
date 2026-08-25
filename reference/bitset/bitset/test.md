@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-bool test(size_t pos) const;           // (1) C++03
+bool test(size_t pos) const;           // (1) C++98
 constexpr bool test(size_t pos) const; // (1) C++23
 ```
 

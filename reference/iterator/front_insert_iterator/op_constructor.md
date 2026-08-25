@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-explicit front_insert_iterator(Container& x);           // C++03
+explicit front_insert_iterator(Container& x);           // C++98
 explicit constexpr front_insert_iterator(Container& x); // C++20
 ```
 

@@ -8,7 +8,7 @@ namespace std {
   template <class InputIterator, class Predicate>
   InputIterator find_if(InputIterator first,
                         InputIterator last,
-                        Predicate pred);               // (1) C++03
+                        Predicate pred);               // (1) C++98
 
   template <class InputIterator, class Predicate>
   constexpr InputIterator find_if(InputIterator first,

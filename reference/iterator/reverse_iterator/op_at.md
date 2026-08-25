@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-unspecified operator[](difference_type n) const;           // C++03
+unspecified operator[](difference_type n) const;           // C++98
 constexpr unspecified operator[](difference_type n) const; // C++17
 ```
 * unspecified[italic]

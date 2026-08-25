@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  // C++03
+  // C++98
   template <typename T>
   struct negate {
     T operator()(const T& x) const;

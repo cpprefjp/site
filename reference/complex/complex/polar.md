@@ -8,7 +8,7 @@ namespace std {
   template <class T>
   complex<T>
     polar(const T& rho,
-          const T& theta = T()); // (1) C++03
+          const T& theta = T()); // (1) C++98
   template <class T>
   constexpr complex<T>
     polar(const T& rho,

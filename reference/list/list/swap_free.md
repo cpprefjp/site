@@ -8,7 +8,7 @@ namespace std {
   template <class T, class Allocator>
   void
     swap(list<T, Allocator>& x,
-         list<T, Allocator>& y);       // (1) C++03
+         list<T, Allocator>& y);       // (1) C++98
   template <class T, class Allocator>
   void
     swap(list<T,Allocator>& x,

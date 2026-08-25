@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-bool empty() const;                                  // C++03
+bool empty() const;                                  // C++98
 bool empty() const noexcept;                         // C++11
 [[nodiscard]] constexpr bool empty() const noexcept; // C++20
 constexpr bool empty() const noexcept;               // C++26

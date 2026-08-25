@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-~basic_string();           // (1) C++03
+~basic_string();           // (1) C++98
 constexpr ~basic_string(); // (1) C++20
 ```
 

@@ -6,7 +6,7 @@
 
 ```cpp
 template <class Facet>
-locale combine(const locale& other) const; // (1) C++03
+locale combine(const locale& other) const; // (1) C++98
 ```
 
 ## 概要
@@ -56,7 +56,7 @@ false
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 
 ## 関連項目

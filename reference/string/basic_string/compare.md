@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-int compare(const basic_string& str) const;          // (1) C++03
+int compare(const basic_string& str) const;          // (1) C++98
 int compare(const basic_string& str) const noexcept; // (1) C++11
 constexpr int
   compare(const basic_string& str) const noexcept;   // (1) C++20
@@ -13,7 +13,7 @@ constexpr int
 int
   compare(size_type pos1,
           size_type n1,
-          const basic_string& str) const; // (2) C++03
+          const basic_string& str) const; // (2) C++98
 constexpr int
   compare(size_type pos1,
           size_type n1,
@@ -24,7 +24,7 @@ int
           size_type n1,
           const basic_string& str,
           size_type pos2,
-          size_type n2) const;        // (3) C++03
+          size_type n2) const;        // (3) C++98
 int
   compare(size_type pos1,
           size_type n1,
@@ -38,13 +38,13 @@ constexpr int
           size_type pos2,
           size_type n2 = npos) const; // (3) C++20
 
-int compare(const charT* s) const;           // (4) C++03
+int compare(const charT* s) const;           // (4) C++98
 constexpr int compare(const charT* s) const; // (4) C++20
 
 int
   compare(size_type pos1,
           size_type n1,
-          const charT* s) const; // (5) C++03
+          const charT* s) const; // (5) C++98
 constexpr int
   compare(size_type pos1,
           size_type n1,
@@ -54,7 +54,7 @@ int
   compare(size_type pos1,
           size_type n1,
           const charT* s,
-          size_type n2) const; // (6) C++03
+          size_type n2) const; // (6) C++98
 constexpr int
   compare(size_type pos1,
           size_type n1,

@@ -5,7 +5,7 @@
 * variable[meta id-type]
 
 ```cpp
-static const int digits10;     // (1) C++03
+static const int digits10;     // (1) C++98
 static constexpr int digits10; // (1) C++11
 ```
 

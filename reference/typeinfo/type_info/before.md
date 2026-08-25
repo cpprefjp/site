@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-bool before(const type_info& rhs) const;          // C++03
+bool before(const type_info& rhs) const;          // C++98
 bool before(const type_info& rhs) const noexcept; // C++11
 ```
 

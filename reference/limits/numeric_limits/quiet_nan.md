@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-// C++03
+// C++98
 static T quiet_NaN() throw();
 
 // C++11

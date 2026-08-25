@@ -12,7 +12,7 @@ namespace std {
     replace_if(ForwardIterator first,
                ForwardIterator last,
                Predicate pred,
-               const T& new_value);   // (1) C++03
+               const T& new_value);   // (1) C++98
   template <class ForwardIterator,
             class Predicate,
             class T>

@@ -7,7 +7,7 @@
 namespace std {
   template <class BidirectionalIterator>
   bool prev_permutation(BidirectionalIterator first,
-                        BidirectionalIterator last);           // (1) C++03
+                        BidirectionalIterator last);           // (1) C++98
 
   template <class BidirectionalIterator>
   constexpr bool prev_permutation(BidirectionalIterator first,
@@ -16,7 +16,7 @@ namespace std {
   template <class BidirectionalIterator, class Compare>
   bool prev_permutation(BidirectionalIterator first,
                         BidirectionalIterator last,
-                        Compare comp);                         // (2) C++03
+                        Compare comp);                         // (2) C++98
 
   template <class BidirectionalIterator, class Compare>
   constexpr bool prev_permutation(BidirectionalIterator first,

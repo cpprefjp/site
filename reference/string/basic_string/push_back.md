@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void push_back(charT c);           // (1) C++03
+void push_back(charT c);           // (1) C++98
 constexpr void push_back(charT c); // (1) C++20
 ```
 

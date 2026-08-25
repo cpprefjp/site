@@ -6,7 +6,7 @@
 ```cpp
 namespace std {
   template <class T1, class T2>
-  bool operator==(const pair<T1, T2>& x, const pair<T1, T2>& y);           // (1) C++03
+  bool operator==(const pair<T1, T2>& x, const pair<T1, T2>& y);           // (1) C++98
 
   template <class T1, class T2>
   constexpr bool operator==(const pair<T1, T2>& x, const pair<T1, T2>& y); // (1) C++14

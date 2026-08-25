@@ -9,7 +9,7 @@ namespace std {
   template <class Key, class T, class Compare, class Allocator>
   bool
     operator!=(const multimap<Key,T,Compare,Allocator>& x,
-               const multimap<Key,T,Compare,Allocator>& y); // (1) C++03
+               const multimap<Key,T,Compare,Allocator>& y); // (1) C++98
   template <class Key, class T, class Compare, class Allocator>
   constexpr bool
     operator!=(const multimap<Key,T,Compare,Allocator>& x,

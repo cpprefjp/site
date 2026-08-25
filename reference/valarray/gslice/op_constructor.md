@@ -20,7 +20,7 @@ gslice(const slice&);                  // (3)
 `gslice`オブジェクトを次に示す通りの要素で初期化する。
 
 - (1) :
-    - C++03 : 未規定
+    - C++98 : 未規定
     - C++11 : `gslice( 0, valarray<size_t>(), valarray<size_t>() )`と等価。
 - (2) : 初期位置`start`から要素数群`lengths`と間隔数群`strides`でスライスする`gslice`オブジェクトを構築する。
     - `lengths`と`strides`はインデックス`0`番目から順に読み出され、`strides[0]`個おきに`lengths[0]`個を選び、そのそれぞれの位置からさらに`strides[1]`個おきに`lengths[1]`個を選び…とスライスされる。

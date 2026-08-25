@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-allocator_type get_allocator() const;                    // (1) C++03
+allocator_type get_allocator() const;                    // (1) C++98
 allocator_type get_allocator() const noexcept;           // (1) C++11
 constexpr allocator_type get_allocator() const noexcept; // (1) C++26
 ```
@@ -59,7 +59,7 @@ int main ()
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 - C++11
 
 ### 処理系

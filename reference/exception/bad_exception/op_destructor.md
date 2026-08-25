@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-virtual ~bad_exception();           // (1) C++03
+virtual ~bad_exception();           // (1) C++98
 constexpr virtual ~bad_exception(); // (1) C++26
 ```
 

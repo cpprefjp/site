@@ -6,7 +6,7 @@
 * cpp23deprecated[meta cpp]
 
 ```cpp
-static const float_denorm_style has_denorm;     // (1) C++03
+static const float_denorm_style has_denorm;     // (1) C++98
 static constexpr float_denorm_style has_denorm; // (1) C++11
 ```
 * float_denorm_style[link /reference/limits/float_denorm_style.md]

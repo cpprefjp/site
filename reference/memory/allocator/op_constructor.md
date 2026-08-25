@@ -5,16 +5,16 @@
 * function[meta id-type]
 
 ```cpp
-allocator() throw();                                    // (1) C++03 まで
+allocator() throw();                                    // (1) C++98 まで
 allocator() noexcept;                                   // (1) C++11 から C++17 まで
 constexpr allocator() noexcept;                         // (1) C++20 から
 
-allocator(const allocator&) throw();                    // (2) C++03 まで
+allocator(const allocator&) throw();                    // (2) C++98 まで
 allocator(const allocator&) noexcept;                   // (2) C++11 から C++17 まで
 constexpr allocator(const allocator&) noexcept;         // (2) C++20 から
 
 template <class U>
-allocator(const allocator<U>&) throw();                 // (3) C++03 まで
+allocator(const allocator<U>&) throw();                 // (3) C++98 まで
 
 template <class U>
 allocator(const allocator<U>&) noexcept;                // (3) C++11 から C++17 まで

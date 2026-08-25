@@ -7,7 +7,7 @@
 namespace std {
   template <class T>
   complex<T>
-    operator-(const complex<T>& lhs, const complex<T>& rhs); // (1) C++03
+    operator-(const complex<T>& lhs, const complex<T>& rhs); // (1) C++98
 
   template <class T>
   constexpr complex<T>
@@ -15,7 +15,7 @@ namespace std {
 
   template <class T>
   complex<T>
-    operator-(const complex<T>& lhs, const T& rhs);          // (2) C++03
+    operator-(const complex<T>& lhs, const T& rhs);          // (2) C++98
 
   template <class T>
   constexpr complex<T>
@@ -23,7 +23,7 @@ namespace std {
 
   template <class T>
   complex<T>
-    operator-(const T& lhs, const complex<T>& rhs);          // (3) C++03
+    operator-(const T& lhs, const complex<T>& rhs);          // (3) C++98
 
   template <class T>
   constexpr complex<T>

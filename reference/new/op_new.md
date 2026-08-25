@@ -4,7 +4,7 @@
 * [meta namespace]
 
 ```cpp
-void* operator new(std::size_t size) throw(std::bad_alloc);         // (1) C++03
+void* operator new(std::size_t size) throw(std::bad_alloc);         // (1) C++98
 void* operator new(std::size_t size);                               // (1) C++11
 [[nodiscard]] void* operator new(std::size_t size);                 // (1) C++20
 void* operator new(std::size_t size);                               // (1) C++26
@@ -17,7 +17,7 @@ void* operator new(std::size_t size,
                    std::align_val_t alignment);                     // (2) C++26
 
 void* operator new(std::size_t size,
-                   const std::nothrow_t&) throw();                  // (3) C++03
+                   const std::nothrow_t&) throw();                  // (3) C++98
 void* operator new(std::size_t size,
                    const std::nothrow_t&) noexcept;                 // (3) C++11
 [[nodiscard]] void* operator new(std::size_t size,
@@ -35,7 +35,7 @@ void* operator new(std::size_t size,
                    std::align_val_t alignment,
                    const std::nothrow_t&) noexcept;                 // (4) C++26
 
-void* operator new(std::size_t size, void* ptr) throw();            // (5) C++03
+void* operator new(std::size_t size, void* ptr) throw();            // (5) C++98
 void* operator new(std::size_t size, void* ptr) noexcept;           // (5) C++11
 [[nodiscard]] void* operator new(std::size_t size,
                                  void* ptr) noexcept;               // (5) C++20
@@ -105,14 +105,14 @@ constexpr void* operator new(std::size_t size,
 
         なお、[`new_handler`](new_handler.md) は [`bad_alloc`](bad_alloc.md) 例外を送出したり、呼び出し元に戻らなかったりすることがあるので注意。
 
-- (3) の形式の詳細な正確な挙動は、以下の通り C++03 までと C++11 以降で異なる。
-    - C++03 までの場合、(1) の形式とほぼ同様の処理を行うが、記憶域が確保できなかったり、現在の [`new_handler`](new_handler.md) が[`bad_alloc`](bad_alloc.md) 例外を送出したりした場合には、ヌルポインタを返す。
+- (3) の形式の詳細な正確な挙動は、以下の通り C++98 までと C++11 以降で異なる。
+    - C++98 までの場合、(1) の形式とほぼ同様の処理を行うが、記憶域が確保できなかったり、現在の [`new_handler`](new_handler.md) が[`bad_alloc`](bad_alloc.md) 例外を送出したりした場合には、ヌルポインタを返す。
     - C++11 以降の場合、(1) の形式を呼び出し、[`bad_alloc`](bad_alloc.md) 例外が送出された場合には、ヌルポインタを返す。
 
-    この差は、利用者が `operator new` を置き換えていない場合には顕在化しないが、利用者が (1) の形式のみを置き換えた場合、C++03 までは (2) の形式を呼び出しても置き換えられたバージョンは呼び出されない。  
+    この差は、利用者が `operator new` を置き換えていない場合には顕在化しないが、利用者が (1) の形式のみを置き換えた場合、C++98 までは (2) の形式を呼び出しても置き換えられたバージョンは呼び出されない。  
     `new` 式と異なり、`delete` 式には配置構文が存在しないため、(3) の形式で確保した記憶域も通常の `delete` 式で解放することになる（コンストラクタで例外が送出された場合を除く。[`operator delete`](op_delete.md)も参照）。  
-    従って、C++03 までの場合、(1) の形式を利用者提供の関数で置き換える場合は、(3) の形式も (1) の形式と同様の記憶域確保を行う利用者提供の関数で置き換えるべきである。その場合、C++11 の (3) の形式のように、(1) を呼び出した上で例外ハンドリングする方法が安全確実な方法である。  
-    なお、C++11 からは (3) の形式は (1) を呼び出すことになっているため、 (1) の形式のみを置き換えれば問題はないが、C++03 までのバージョンでも同様に動くようにするため、あるいは、標準ライブラリのバグで (3) の形式が (1) の形式を呼び出していない可能性もあるため、(3) の形式も提供した方が良いかもしれない。
+    従って、C++98 までの場合、(1) の形式を利用者提供の関数で置き換える場合は、(3) の形式も (1) の形式と同様の記憶域確保を行う利用者提供の関数で置き換えるべきである。その場合、C++11 の (3) の形式のように、(1) を呼び出した上で例外ハンドリングする方法が安全確実な方法である。  
+    なお、C++11 からは (3) の形式は (1) を呼び出すことになっているため、 (1) の形式のみを置き換えれば問題はないが、C++98 までのバージョンでも同様に動くようにするため、あるいは、標準ライブラリのバグで (3) の形式が (1) の形式を呼び出していない可能性もあるため、(3) の形式も提供した方が良いかもしれない。
 
 - (5) の形式は、実質何もしていない。この形式は、記憶域を確保した上でそこに新たなオブジェクトを構築するのではなく、あらかじめ確保されている記憶域上に新たなオブジェクトを構築するのに用いられる。  
     一般に、プログラム実行中の記憶域の動的確保は、処理系が OS からヒープを確保するのに対し、(5) の形式では、既にプログラムに確保済みの任意の記憶域上にオブジェクトを構築するため、上手く使った場合には `new` / `delete` を大量に繰り返す必要のある処理を高速に実現しうる。

@@ -7,7 +7,7 @@
 ```cpp
 static char_type* move(char_type* s1,
                        const char_type* s2,
-                       std::size_t n);                // (1) C++03
+                       std::size_t n);                // (1) C++98
 
 static constexpr char_type* move(char_type* s1,
                                  const char_type* s2,

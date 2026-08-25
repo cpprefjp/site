@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-T& operator[](const key_type& x);           // (1) C++03
+T& operator[](const key_type& x);           // (1) C++98
 constexpr T& operator[](const key_type& x); // (1) C++26
 
 T& operator[](key_type&& x);           // (2) C++11
@@ -28,7 +28,7 @@ constexpr T& operator[](K&& x); // (3) C++26
 
 ## 効果
 - (1) :
-    - C++03 : `x`と等価なキーを持つ要素が存在しない場合、`value_type(x, T())`を挿入する
+    - C++98 : `x`と等価なキーを持つ要素が存在しない場合、`value_type(x, T())`を挿入する
     - C++17 : [`try_emplace`](try_emplace.md)`(x).first->second`と等価
 - (2) :
     - C++11 : `x`と等価なキーを持つ要素が存在しない場合、`value_type(`[`move`](/reference/utility/move.md)`(x), T())`を挿入する

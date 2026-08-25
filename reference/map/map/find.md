@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-iterator find(const key_type& x);           // (1) C++03
+iterator find(const key_type& x);           // (1) C++98
 constexpr iterator find(const key_type& x); // (1) C++26
 
 template <class K>
@@ -13,7 +13,7 @@ iterator find(const K& x);           // (2) C++14
 template <class K>
 constexpr iterator find(const K& x); // (2) C++26
 
-const_iterator find(const key_type& x) const;           // (3) C++03
+const_iterator find(const key_type& x) const;           // (3) C++98
 constexpr const_iterator find(const key_type& x) const; // (3) C++26
 
 template <class K>

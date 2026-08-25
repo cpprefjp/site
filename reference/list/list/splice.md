@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void splice(iterator position, list& x);                 // (1) C++03
+void splice(iterator position, list& x);                 // (1) C++98
 void splice(const_iterator position, list& x);           // (1) C++11
 constexpr void splice(const_iterator position, list& x); // (1) C++26
 
@@ -15,7 +15,7 @@ constexpr void splice(const_iterator position, list&& x); // (2) C++26
 void
   splice(iterator position,
          list& x,
-         iterator i);       // (3) C++03
+         iterator i);       // (3) C++98
 void
   splice(const_iterator
          position, list& x,
@@ -38,7 +38,7 @@ void
   splice(iterator position,
          list& x,
          iterator first,
-         iterator last);       // (5) C++03
+         iterator last);       // (5) C++98
 void
   splice(const_iterator position,
          list& x,
@@ -74,7 +74,7 @@ constexpr void
 - 第1パラメータ`position`が、イテレータ範囲`[`[`begin()`](begin.md)`,` [`end()`](end.md)`)`の間接参照可能なイテレータであること。
 - `i`, `first`, `last`が、`x`のイテレータであること。
 - (1), (2) :
-    - C++03 : `&x != this`であること
+    - C++98 : `&x != this`であること
     - C++11 : [`addressof`](/reference/memory/addressof.md)`(x) != this`であること
 - (5), (6) : `position`が`[first, last)`に含まれる場合、未定義動作。
 
@@ -84,7 +84,7 @@ constexpr void
 
 
 ## 計算量
-- C++03まで
+- C++98まで
     - (1) : `x`の要素数に対して線形時間
     - (3) : 定数時間
     - (5) : `[first, last)`の要素数に対して線形時間
@@ -99,9 +99,9 @@ constexpr void
 
 
 ## 備考
-- (1), (2) : C++03の場合、移動元の`list`オブジェクト`x`は、全てのイテレータと参照が無効になる。C++11以降は、無効にならない。
-- (3), (4) : C++03の場合、移動元の要素を指すイテレータ`i`は、そのイテレータおよび参照が無効になる。C++11以降は、無効にならない。
-- (5), (6) : C++03の場合、移動元のイテレータ範囲`[first, last)`は、その範囲のイテレータおよび参照が無効になる。C++11以降は、無効にならない。
+- (1), (2) : C++98の場合、移動元の`list`オブジェクト`x`は、全てのイテレータと参照が無効になる。C++11以降は、無効にならない。
+- (3), (4) : C++98の場合、移動元の要素を指すイテレータ`i`は、そのイテレータおよび参照が無効になる。C++11以降は、無効にならない。
+- (5), (6) : C++98の場合、移動元のイテレータ範囲`[first, last)`は、その範囲のイテレータおよび参照が無効になる。C++11以降は、無効にならない。
 - 移動先と移動元のアロケータが等値でない場合(`get_allocator() != x.get_allocator()`の場合)、動作は未定義である。
 
 

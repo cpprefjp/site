@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-const char* name() const;          // C++03
+const char* name() const;          // C++98
 const char* name() const noexcept; // C++11
 ```
 

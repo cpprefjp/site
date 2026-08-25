@@ -101,7 +101,7 @@ namespace std {
 
 
 ## 例
-### 基本的な使い方 (C++03)
+### 基本的な使い方 (C++98)
 ```cpp example
 #include <iostream>
 #include <utility>

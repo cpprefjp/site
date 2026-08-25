@@ -6,7 +6,7 @@
 ```cpp
 namespace std {
   template <class T, class Container>
-  bool operator!=(const queue<T, Container>& x, const queue<T, Container>& y);           // (1) C++03
+  bool operator!=(const queue<T, Container>& x, const queue<T, Container>& y);           // (1) C++98
   template <class T, class Container>
   constexpr bool operator!=(const queue<T, Container>& x, const queue<T, Container>& y); // (1) C++26
 }

@@ -34,7 +34,7 @@
 ## <a id="difference-from-c" href="#difference-from-c">標準Cライブラリとの差異</a>
 `<cmath>`は基本的には、標準 C ライブラリの `<math.h>` に準拠しているが、いくつかの変更点がある。
 
-### <a id="cpp03" href="#cpp03">C++03のC90との差異</a>
+### <a id="cpp03" href="#cpp03">C++98のC90との差異</a>
 - 各関数は std 名前空間に定義されている。
 - `fabs` と等価の関数 `abs` を追加している。
 - `pow` の第 2 引数が `int` のオーバーロードを追加している。
@@ -128,7 +128,7 @@ floating-point-type abs(floating-point-type x);
 
 `<cmath>` で提供される各関数においてエラーが発生した場合、[`errno`](cerrno/errno.md)、あるいは、浮動小数点例外のいずれか、もしくは両方によってエラーが通知される。  
 C++11 以降の場合、どちらの方法によって通知されるかは [`math_errhandling`](cmath/math_errhandling.md) の値によって判別可能である。（利用者が選択する事はできない）  
-C++03 までの場合、[`errno`](cerrno/errno.md) でしか通知されない。
+C++98 までの場合、[`errno`](cerrno/errno.md) でしか通知されない。
 
 ### [`errno`](cerrno/errno.md) によるエラーの通知
 [`errno`](cerrno/errno.md) によってエラーが通知される場合、エラー内容は [`errno`](cerrno/errno.md) に設定された値によって判別可能である。  

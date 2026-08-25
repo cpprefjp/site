@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-allocator& operator=(const allocator&);                     // (1) C++03 (暗黙定義)
+allocator& operator=(const allocator&);                     // (1) C++98 (暗黙定義)
 allocator& operator=(const allocator&) = default;           // (1) C++11
 constexpr allocator& operator=(const allocator&) = default; // (1) C++20
 ```

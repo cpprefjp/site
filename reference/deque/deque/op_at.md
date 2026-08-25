@@ -5,10 +5,10 @@
 * function[meta id-type]
 
 ```cpp
-reference operator[](size_type n);           // (1) C++03
+reference operator[](size_type n);           // (1) C++98
 constexpr reference operator[](size_type n); // (1) C++26
 
-const_reference operator[](size_type n) const;           // (2) C++03
+const_reference operator[](size_type n) const;           // (2) C++98
 constexpr const_reference operator[](size_type n) const; // (2) C++26
 ```
 

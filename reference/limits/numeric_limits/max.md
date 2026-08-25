@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-static T max() throw();            // C++03
+static T max() throw();            // C++98
 static constexpr T max() noexcept; // C++11
 ```
 
@@ -24,7 +24,7 @@ static constexpr T max() noexcept; // C++11
 
 ## 備考
 `is_specialized == false`の場合は`T()`が返される。  
-C++03バージョンは`constexpr`ではないため、非定数式となる。  
+C++98バージョンは`constexpr`ではないため、非定数式となる。  
 
 対応するマクロを次の表に挙げる。
 

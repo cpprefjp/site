@@ -5,20 +5,20 @@
 * function[meta id-type]
 
 ```cpp
-istreambuf_iterator() throw();            // (1) C++03
+istreambuf_iterator() throw();            // (1) C++98
 constexpr istreambuf_iterator() noexcept; // (1) C++11
 
 constexpr istreambuf_iterator(default_sentinel_t) noexcept; // (2) C++20
 
 istreambuf_iterator(const istreambuf_iterator&) noexcept = default; // (3) C++11
 
-istreambuf_iterator(istream_type& s) throw();  // (4) C++03
+istreambuf_iterator(istream_type& s) throw();  // (4) C++98
 istreambuf_iterator(istream_type& s) noexcept; // (4) C++11
 
-istreambuf_iterator(streambuf_type* s) throw();  // (5) C++03
+istreambuf_iterator(streambuf_type* s) throw();  // (5) C++98
 istreambuf_iterator(streambuf_type* s) noexcept; // (5) C++11
 
-istreambuf_iterator(const proxy& p) throw();  // (6) C++03
+istreambuf_iterator(const proxy& p) throw();  // (6) C++98
 istreambuf_iterator(const proxy& p) noexcept; // (6) C++11
 ```
 

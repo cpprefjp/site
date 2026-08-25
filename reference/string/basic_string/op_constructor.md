@@ -16,10 +16,10 @@ explicit basic_string(const Allocator& a);                      // (2) C++14
 explicit basic_string(const Allocator& a) noexcept;             // (2) C++17
 constexpr explicit basic_string(const Allocator& a) noexcept;   // (2) C++20
 
-explicit basic_string(const Allocator& a = Allocator());        // (1) + (2) C++03
+explicit basic_string(const Allocator& a = Allocator());        // (1) + (2) C++98
 
 // コピーコンストラクタ
-basic_string(const basic_string& str);                          // (3) C++03
+basic_string(const basic_string& str);                          // (3) C++98
 constexpr basic_string(const basic_string& str);                // (3) C++20
 
 // ムーブコンストラクタ
@@ -30,7 +30,7 @@ constexpr basic_string(basic_string&& str) noexcept;            // (4) C++20
 basic_string(const basic_string& str,
              size_type pos,
              size_type n = npos,
-             const Allocator& a = Allocator());                 // (5) C++03
+             const Allocator& a = Allocator());                 // (5) C++98
 basic_string(const basic_string& str,
              size_type pos,
              size_type n,
@@ -59,13 +59,13 @@ constexpr basic_string(basic_string&& str,
 // 文字列ポインタから構築するコンストラクタ
 basic_string(const charT* s,
              size_type n,
-             const Allocator& a = Allocator());                 // (7) C++03
+             const Allocator& a = Allocator());                 // (7) C++98
 constexpr basic_string(const charT* s,
                        size_type n,
                        const Allocator& a = Allocator());       // (7) C++20
 
 basic_string(const charT* s,
-             const Allocator& a = Allocator());                 // (8) C++03
+             const Allocator& a = Allocator());                 // (8) C++98
 constexpr basic_string(const charT* s,
                        const Allocator& a = Allocator());       // (8) C++20
 
@@ -74,7 +74,7 @@ basic_string(nullptr_t) = delete;                               // (16) C++23
 // 文字個数から構築するコンストラクタ
 basic_string(size_type n,
              charT c,
-             const Allocator& a = Allocator());                 // (9) C++03
+             const Allocator& a = Allocator());                 // (9) C++98
 constexpr basic_string(size_type n,
                        charT c,
                        const Allocator& a = Allocator());       // (9) C++20
@@ -82,7 +82,7 @@ constexpr basic_string(size_type n,
 // イテレータ範囲から構築するコンストラクタ
 template <class InputIterator>
 basic_string(InputIterator begin, InputIterator end,
-             const Allocator& a = Allocator());                 // (10) C++03
+             const Allocator& a = Allocator());                 // (10) C++98
 template <class InputIterator>
 constexpr basic_string(InputIterator begin, InputIterator end,
                        const Allocator& a = Allocator());       // (10) C++20
@@ -157,10 +157,10 @@ constexpr basic_string(from_range_t, R&& rg,
 
 ## 要件
 - (7)
-    - C++03 : `s`がヌルポインタではないこと。`n < npos`であること。
+    - C++98 : `s`がヌルポインタではないこと。`n < npos`であること。
     - C++14 : `s`は、`charT`型の要素を少なくても`n`個を持つ配列を指していること。
 - (8)
-    - C++03 : `s`がヌルポインタではないこと。
+    - C++98 : `s`がヌルポインタではないこと。
     - C++14 : `s`は、`charT`型の要素を少なくても[`traits::length`](/reference/string/char_traits/length.md)`(s) + 1`個持つ配列を指していること。
 
 

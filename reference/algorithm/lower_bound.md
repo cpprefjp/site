@@ -10,7 +10,7 @@ namespace std {
   ForwardIterator
     lower_bound(ForwardIterator first,
                 ForwardIterator last,
-                const T& value);       // (1) C++03
+                const T& value);       // (1) C++98
   template <class ForwardIterator,
             class T>
   constexpr ForwardIterator
@@ -31,7 +31,7 @@ namespace std {
     lower_bound(ForwardIterator first,
                 ForwardIterator last,
                 const T& value,
-                Compare comp);         // (2) C++03
+                Compare comp);         // (2) C++98
   template <class ForwardIterator,
             class T,
             class Compare>
@@ -58,7 +58,7 @@ namespace std {
 
 
 ## 要件
-- C++03 まで
+- C++98 まで
 	- `first`、`last` は前方向イテレータの要件を満たすこと。
 	- `comp` は 2 引数の関数オブジェクトで、結果の型は `bool` 型に変換可能であること。また、引数に非 `const` の関数を適用しないこと。
 	- `T` は `LessThanComparable` であること。
@@ -87,8 +87,8 @@ namespace std {
 - [`std::set`](/reference/set/set.md)や[`std::multiset`](/reference/set/multiset.md)に対しては専用の[`lower_bound`](/reference/set/set/lower_bound.md)メンバ関数が定義されているため、そちらを使用すること
 - 本関数は、本質的に C++11 で追加された [`partition_point`](partition_point.md) と等価である。  
 	具体的には、[`partition_point`](partition_point.md)`(first, last, [value](const T& e) { return e < value; })`、あるいは、[`partition_point`](partition_point.md)`(first, last, [value, comp](const T& e) { return comp(e, value); })` とすることで等価の結果が得られる。
-- 本関数の要件は、上記の通り C++03 までの方が C++11 よりも厳しい。
-	しかし、本アルゴリズムの特性上、処理系が C++03 までにしか準拠していない場合でも、昇順に並んでいなくても正常に動作する可能性は高いものと思われる。
+- 本関数の要件は、上記の通り C++98 までの方が C++11 よりも厳しい。
+	しかし、本アルゴリズムの特性上、処理系が C++98 までにしか準拠していない場合でも、昇順に並んでいなくても正常に動作する可能性は高いものと思われる。
 - (1), (2) :
     - C++26 : 引数として波カッコ初期化`{}`を受け付ける
         ```cpp

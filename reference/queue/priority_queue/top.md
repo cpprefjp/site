@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-const_reference top() const;           // (1) C++03
+const_reference top() const;           // (1) C++98
 constexpr const_reference top() const; // (1) C++26
 ```
 

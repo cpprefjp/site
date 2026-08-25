@@ -8,7 +8,7 @@
 namespace std {
   template <class T>
   complex<T>
-    sqrt(const complex<T>& x); // (1) C++03
+    sqrt(const complex<T>& x); // (1) C++98
   template <class T>
   constexpr complex<T>
     sqrt(const complex<T>& x); // (1) C++26

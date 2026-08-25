@@ -5,10 +5,10 @@
 * function[meta id-type]
 
 ```cpp
-bool operator[](size_t pos) const;           // (1) C++03
+bool operator[](size_t pos) const;           // (1) C++98
 constexpr bool operator[](size_t pos) const; // (1) C++11
 
-reference operator[](size_t pos);            // (2) C++03
+reference operator[](size_t pos);            // (2) C++98
 constexpr reference operator[](size_t pos);  // (2) C++23
 ```
 * reference[link reference.md]

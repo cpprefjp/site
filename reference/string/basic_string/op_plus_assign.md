@@ -5,13 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& operator+=(const basic_string& str);           // (1) C++03
+basic_string& operator+=(const basic_string& str);           // (1) C++98
 constexpr basic_string& operator+=(const basic_string& str); // (1) C++20
 
-basic_string& operator+=(const charT* s);           // (2) C++03
+basic_string& operator+=(const charT* s);           // (2) C++98
 constexpr basic_string& operator+=(const charT* s); // (2) C++20
 
-basic_string& operator+=(charT c);           // (3) C++03
+basic_string& operator+=(charT c);           // (3) C++98
 constexpr basic_string& operator+=(charT c); // (3) C++20
 
 basic_string& operator+=(initializer_list<charT> il);           // (4) C++11
@@ -44,7 +44,7 @@ constexpr basic_string& operator+=(const T& t); // (5) C++20
 	[`append`](append.md)`(str)` と等価。
 
 - (2) 対象オブジェクトの末尾に `s` から始まる NULL で終端された文字列が追加される。  
-	[`append`](append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(s))`（C++03 まで）、あるいは、[`append`](append.md)`(s)`（C++11 から）と等価。  
+	[`append`](append.md)`(`[`basic_string`](/reference/string/basic_string.md)`<value_type, traits_type, allocator_type>(s))`（C++98 まで）、あるいは、[`append`](append.md)`(s)`（C++11 から）と等価。  
 	なお、`s` から始まる NULL 終端された文字列の長さは、`traits_type::length(s)` で求められる。
 
 - (3) 対象オブジェクトの末尾に文字 `c` が追加される。  

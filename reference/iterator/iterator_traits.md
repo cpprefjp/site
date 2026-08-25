@@ -31,7 +31,7 @@ namespace std {
   struct iterator_traits<T*> {
     using difference_type   = ptrdiff_t;
 
-    using value_type        = T;              // C++03
+    using value_type        = T;              // C++98
     using value_type        = remove_cv_t<T>; // C++17
 
     using pointer           = T*;

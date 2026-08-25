@@ -7,7 +7,7 @@
 ```cpp
 basic_string
   substr(size_type pos = 0,
-         size_type n = npos) const; // (1) C++03
+         size_type n = npos) const; // (1) C++98
 constexpr basic_string
   substr(size_type pos = 0,
          size_type n = npos) const; // (1) C++20

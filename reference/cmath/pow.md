@@ -8,23 +8,23 @@
 namespace std {
   float
     pow(float x,
-        float y);               // (1) C++03からC++20まで
+        float y);               // (1) C++98からC++20まで
   double
     pow(double x,
-        double y);              // (2) C++03からC++20まで
+        double y);              // (2) C++98からC++20まで
   long double
     pow(long double x,
-        long double y);         // (3) C++03からC++20まで
+        long double y);         // (3) C++98からC++20まで
 
   float
     pow(float x,
-        int y);                 // (4) C++03まで
+        int y);                 // (4) C++98まで
   double
     pow(double x,
-        int y);                 // (5) C++03まで
+        int y);                 // (5) C++98まで
   long double
     pow(long double x,
-        int y);                 // (6) C++03まで
+        int y);                 // (6) C++98まで
 
   floating-point-type
     pow(floating-point-type x,
@@ -147,7 +147,7 @@ pow(2.0, -∞)   = 0.000000
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 ### 処理系
 - [Clang](/implementation.md#clang): 1.9 [mark verified], 2.9 [mark verified], 3.1 [mark verified]

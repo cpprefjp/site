@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void swap(set& st);                                                      // (1) C++03
+void swap(set& st);                                                      // (1) C++98
 void swap(set& x)
   noexcept(allocator_traits<Allocator>::is_always_equal::value
             && noexcept(swap(declval<Compare&>(),declval<Compare&>()))); // (1) C++17

@@ -10,7 +10,7 @@ namespace std {
   bool
     binary_search(ForwardIterator first,
                   ForwardIterator last,
-                  const T& value);       // (1) C++03
+                  const T& value);       // (1) C++98
   template <class ForwardIterator,
             class T>
   constexpr bool
@@ -25,7 +25,7 @@ namespace std {
     binary_search(ForwardIterator first,
                   ForwardIterator last,
                   const T& value,
-                  Compare comp);         // (2) C++03
+                  Compare comp);         // (2) C++98
   template <class ForwardIterator,
             class T,
             class Compare>
@@ -170,7 +170,7 @@ bool binary_search(ForwardIterator first, ForwardIterator last,
 
 ## 参照
 - [LWG Issue 787. complexity of `binary_search`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#787)
-    - C++03までの計算量が間違っていたので、C++11で修正。
+    - C++98までの計算量が間違っていたので、C++11で修正。
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
     - C++26で波カッコ初期化 (リスト初期化) に対応した

@@ -6,7 +6,7 @@
 ```cpp
 namespace std {
   template <size_t N>
-  bitset<N> operator&(const bitset<N>& lhs, const bitset<N>& rhs);          // (1) C++03
+  bitset<N> operator&(const bitset<N>& lhs, const bitset<N>& rhs);          // (1) C++98
 
   template <size_t N>
   bitset<N> operator&(const bitset<N>& lhs, const bitset<N>& rhs) noexcept; // (1) C++11

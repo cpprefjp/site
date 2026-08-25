@@ -209,8 +209,8 @@ int main()
 cpprefjp
 ```
 
-なお、この例は C++03 でもコンパイル・実行可能だが、その場合は出力に謎の 16 進数が出力される。  
-これは、C++03 では `"cpprefjp"` の出力の際に `operator<<(basic_ostream<char, Traits>&, const char*)` ではなく `basic_ostream<char, Traits>::operator<<(const void*)` が呼び出されるためである。  
+なお、この例は C++98 でもコンパイル・実行可能だが、その場合は出力に謎の 16 進数が出力される。  
+これは、C++98 では `"cpprefjp"` の出力の際に `operator<<(basic_ostream<char, Traits>&, const char*)` ではなく `basic_ostream<char, Traits>::operator<<(const void*)` が呼び出されるためである。  
 （`operator<<(basic_ostream<char, Traits>&, const char*)` は左辺に `const` ではない参照を必要とするため `ofstream` の一時オブジェクトを受け取れないが、`basic_ostream<char, Traits>::operator<<(const void*)` はメンバ関数であるため `ofstream` の一時オブジェクトに対しても呼び出す事が可能）
 
 

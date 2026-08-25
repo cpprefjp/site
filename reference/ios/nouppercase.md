@@ -42,7 +42,7 @@ beef
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 ## 参照
 - [`uppercase`](uppercase.md)

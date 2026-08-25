@@ -8,7 +8,7 @@ namespace std {
   template <class Key, class Compare, class Allocator>
   void
     swap(multiset<Key, Compare, Allocator>& x,
-         multiset<Key, Compare, Allocator>& y); // (1) C++03
+         multiset<Key, Compare, Allocator>& y); // (1) C++98
   template <class Key, class Compare, class Allocator>
   void
     swap(multiset<Key, Compare, Allocator>& x,

@@ -7,14 +7,14 @@
 namespace std {
   template <class T>
   bool operator==(const complex<T>& lhs,
-                  const complex<T>& rhs);           // (1) C++03
+                  const complex<T>& rhs);           // (1) C++98
   template <class T>
   constexpr bool operator==(const complex<T>& lhs,
                             const complex<T>& rhs); // (1) C++14
 
   template <class T>
   bool operator==(const complex<T>& lhs,
-                  const T& rhs);                    // (2) C++03
+                  const T& rhs);                    // (2) C++98
   template <class T>
   constexpr bool operator==(const complex<T>& lhs,
                             const T& rhs);          // (2) C++14
@@ -22,7 +22,7 @@ namespace std {
   // (2)により、以下のオーバーロードが使用可能になる (C++20)
   template <class T>
   bool operator==(const T& lhs,
-                  const complex<T>& rhs);           // (3) C++03
+                  const complex<T>& rhs);           // (3) C++98
   template <class T>
   constexpr bool operator==(const T& lhs,
                             const complex<T>& rhs); // (3) C++14

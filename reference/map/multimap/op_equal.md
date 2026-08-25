@@ -8,7 +8,7 @@ namespace std {
   template <class Key, class T, class Compare, class Allocator>
   bool
     operator==(const multimap<Key,T,Compare,Allocator>& x,
-               const multimap<Key,T,Compare,Allocator>& y); // (1) C++03
+               const multimap<Key,T,Compare,Allocator>& y); // (1) C++98
   template <class Key, class T, class Compare, class Allocator>
   constexpr bool
     operator==(const multimap<Key,T,Compare,Allocator>& x,
@@ -21,7 +21,7 @@ namespace std {
 
 
 ## 戻り値
-- C++03 : `x.`[`size`](size.md)`() == y.`[`size`](size.md)`() &&` [`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`(), y.`[`begin`](begin.md)`());`
+- C++98 : `x.`[`size`](size.md)`() == y.`[`size`](size.md)`() &&` [`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`(), y.`[`begin`](begin.md)`());`
 - C++14 : [`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`(), y.`[`begin`](begin.md)`(), y.`[`end`](end.md)`());`
 
 

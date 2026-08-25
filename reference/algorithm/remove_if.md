@@ -9,7 +9,7 @@ namespace std {
   ForwardIterator
     remove_if(ForwardIterator first,
               ForwardIterator last,
-              Predicate pred);        // (1) C++03
+              Predicate pred);        // (1) C++98
 
   template <class ForwardIterator, class Predicate>
   constexpr ForwardIterator

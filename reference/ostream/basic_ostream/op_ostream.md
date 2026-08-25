@@ -8,32 +8,32 @@
 // マニピュレータの実行
 // 3つとも関数へのポインタを引数に取る。
 basic_ostream&
-  operator<<(basic_ostream& (*pf)(basic_ostream&));                       // (1) C++03
+  operator<<(basic_ostream& (*pf)(basic_ostream&));                       // (1) C++98
 basic_ostream<CharT, Traits>&
-  operator<<(basic_ios<CharT, Traits>& (*pf)(basic_ios<CharT, Traits>&)); // (2) C++03
+  operator<<(basic_ios<CharT, Traits>& (*pf)(basic_ios<CharT, Traits>&)); // (2) C++98
 basic_ostream<CharT, Traits>&
-  operator<<(ios_base& (*pf)(ios_base&));                                 // (3) C++03
+  operator<<(ios_base& (*pf)(ios_base&));                                 // (3) C++98
 
 // bool値・数値・ポインタの書式化出力
-basic_ostream& operator<<(bool n);                   // (4) C++03
-basic_ostream& operator<<(short n);                  // (5) C++03
-basic_ostream& operator<<(unsigned short n);         // (6) C++03
-basic_ostream& operator<<(int n);                    // (7) C++03
-basic_ostream& operator<<(unsigned int n);           // (8) C++03
-basic_ostream& operator<<(long n);                   // (9) C++03
-basic_ostream& operator<<(unsigned long n);          // (10) C++03
+basic_ostream& operator<<(bool n);                   // (4) C++98
+basic_ostream& operator<<(short n);                  // (5) C++98
+basic_ostream& operator<<(unsigned short n);         // (6) C++98
+basic_ostream& operator<<(int n);                    // (7) C++98
+basic_ostream& operator<<(unsigned int n);           // (8) C++98
+basic_ostream& operator<<(long n);                   // (9) C++98
+basic_ostream& operator<<(unsigned long n);          // (10) C++98
 basic_ostream& operator<<(long long n);              // (11) C++11
 basic_ostream& operator<<(unsigned long long n);     // (12) C++11
-basic_ostream& operator<<(float f);                  // (13) C++03
-basic_ostream& operator<<(double f);                 // (14) C++03
-basic_ostream& operator<<(long double f);            // (15) C++03
+basic_ostream& operator<<(float f);                  // (13) C++98
+basic_ostream& operator<<(double f);                 // (14) C++98
+basic_ostream& operator<<(long double f);            // (15) C++98
 basic_ostream& operator<<(extended-floating-point-type f); // (16) C++23
-basic_ostream& operator<<(const void* p);            // (17) C++03
+basic_ostream& operator<<(const void* p);            // (17) C++98
 basic_ostream& operator<<(const volatile void* val); // (18) C++23
 basic_ostream& operator<<(nullptr_t);                // (19) C++17
 
 // ストリームバッファの非書式化出力
-basic_ostream& operator<<(basic_streambuf<CharT, Traits>* sb); // (20) C++03
+basic_ostream& operator<<(basic_streambuf<CharT, Traits>* sb); // (20) C++98
 ```
 * extended-floating-point-type[link /reference/stdfloat.md]
 

@@ -8,7 +8,7 @@ namespace std {
   template <class T, class Allocator>
   void
     swap(deque<T,Allocator>& x,
-         deque<T,Allocator>& y);       // (1) C++03
+         deque<T,Allocator>& y);       // (1) C++98
   template <class T, class Allocator>
   void
     swap(deque<T,Allocator>& x,

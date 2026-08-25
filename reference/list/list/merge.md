@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void merge(list& x);           // (1) C++03
+void merge(list& x);           // (1) C++98
 constexpr void merge(list& x); // (1) C++26
 
 void merge(list&& x);           // (2) C++11
@@ -13,7 +13,7 @@ constexpr void merge(list&& x); // (2) C++26
 
 template <class Compare>
 void
-  merge(list& x, Compare comp); // (3) C++03
+  merge(list& x, Compare comp); // (3) C++98
 template <class Compare>
 constexpr void
   merge(list& x, Compare comp); // (3) C++26

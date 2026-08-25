@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-pointer allocate(size_type n);                          // (1) C++03
+pointer allocate(size_type n);                          // (1) C++98
 [[nodiscard]] constexpr pointer allocate(size_type n);  // (1) C++20
 constexpr pointer allocate(size_type n);                // (1) C++26
 
@@ -29,7 +29,7 @@ pointer allocate(size_type n,
 
 要求サイズが乗算オーバーフローを起こす（`SIZE_MAX / sizeof(T) < n`である）場合の扱いは、バージョンによって異なる。
 
-- C++03 : この場合の例外は規定されていない
+- C++98 : この場合の例外は規定されていない
 - C++20 : [`bad_array_new_length`](/reference/new/bad_array_new_length.md)例外を送出する
 
 

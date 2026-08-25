@@ -7,7 +7,7 @@
 ```cpp
 protected:
   virtual basic_streambuf<CharT, Traits>*
-    setbuf(char_type* s, streamsize n);          // (1) C++03
+    setbuf(char_type* s, streamsize n);          // (1) C++98
   basic_streambuf<CharT, Traits>*
     setbuf(char_type* s, streamsize n) override; // (1) C++17
 ```

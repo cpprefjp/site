@@ -12,7 +12,7 @@ namespace std {
     search_n(ForwardIterator first,
              ForwardIterator last,
              Size count,
-             const T& value);       // (1) C++03
+             const T& value);       // (1) C++98
   template <class ForwardIterator,
             class Size,
             class T>
@@ -39,7 +39,7 @@ namespace std {
              ForwardIterator last,
              Size count,
              const T& value,
-             BinaryPredicate pred); // (2) C++03
+             BinaryPredicate pred); // (2) C++98
   template <class ForwardIterator,
             class Size,
             class T,

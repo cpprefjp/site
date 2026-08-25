@@ -5,13 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-iterator insert(const value_type& x);           // (1) C++03
+iterator insert(const value_type& x);           // (1) C++98
 constexpr iterator insert(const value_type& x); // (1) C++26
 
 iterator insert(value_type&& y);           // (2) C++11
 constexpr iterator insert(value_type&& y); // (2) C++26
 
-iterator insert(iterator position, const value_type& x);                 // (3) C++03
+iterator insert(iterator position, const value_type& x);                 // (3) C++98
 iterator insert(const_iterator position, const value_type& x);           // (3) C++11
 constexpr iterator insert(const_iterator position, const value_type& x); // (3) C++26
 
@@ -19,11 +19,11 @@ iterator insert(const_iterator position, value_type&& y);           // (4) C++11
 constexpr iterator insert(const_iterator position, value_type&& y); // (4) C++26
 
 template <class InputIterator>
-void insert(InputIterator first, InputIterator last);           // (5) C++03
+void insert(InputIterator first, InputIterator last);           // (5) C++98
 template <class InputIterator>
 constexpr void insert(InputIterator first, InputIterator last); // (5) C++26
 
-void insert(initializer_list<value_type> init);           // (6) C++03
+void insert(initializer_list<value_type> init);           // (6) C++98
 constexpr void insert(initializer_list<value_type> init); // (6) C++26
 
 iterator insert(node_type&& nh);           // (7) C++17

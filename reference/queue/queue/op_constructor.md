@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-// C++03まで
-explicit queue(const Container& other = Container()); // (1), (2) C++03
+// C++98まで
+explicit queue(const Container& other = Container()); // (1), (2) C++98
 
 // C++11以降 C++17まで
 explicit queue(const Container& other);          // (2) C++11

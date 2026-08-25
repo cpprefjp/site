@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-~map();           // (1) C++03
+~map();           // (1) C++98
 constexpr ~map(); // (1) C++26
 ```
 

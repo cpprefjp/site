@@ -5,12 +5,12 @@
 * function[meta id-type]
 
 ```cpp
-void unique();                // (1) C++03
+void unique();                // (1) C++98
 size_type unique();           // (1) C++20
 constexpr size_type unique(); // (1) C++26
 
 template <class BinaryPredicate>
-void unique(BinaryPredicate pred);                // (2) C++03
+void unique(BinaryPredicate pred);                // (2) C++98
 template <class BinaryPredicate>
 size_type unique(BinaryPredicate pred);           // (2) C++20
 template <class BinaryPredicate>
@@ -41,7 +41,7 @@ constexpr size_type unique(BinaryPredicate pred); // (2) C++26
 
 ## 戻り値
 - (1), (2) :
-    - C++03 : なし
+    - C++98 : なし
     - C++20 : 削除された要素数を返す
 
 

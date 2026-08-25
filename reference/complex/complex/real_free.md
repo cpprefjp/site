@@ -7,7 +7,7 @@
 namespace std {
   template <class T>
   T
-    real(const complex<T>& x); // (1) C++03
+    real(const complex<T>& x); // (1) C++98
   template <class T>
   constexpr T
     real(const complex<T>& x); // (1) C++14

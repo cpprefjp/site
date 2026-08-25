@@ -10,7 +10,7 @@ namespace std {
     partial_sort_copy(InputIterator first,
                       InputIterator last,
                       RandomAccessIterator result_first,
-                      RandomAccessIterator result_last); // (1) C++03
+                      RandomAccessIterator result_last); // (1) C++98
 
   template <class InputIterator, class RandomAccessIterator>
   constexpr RandomAccessIterator
@@ -25,7 +25,7 @@ namespace std {
                       InputIterator last,
                       RandomAccessIterator result_first,
                       RandomAccessIterator result_last,
-                      Compare comp);                     // (2) C++03
+                      Compare comp);                     // (2) C++98
 
   template <class InputIterator, class RandomAccessIterator, class Compare>
   constexpr RandomAccessIterator

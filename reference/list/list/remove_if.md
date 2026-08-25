@@ -6,7 +6,7 @@
 
 ```cpp
 template <class Predicate>
-void remove_if(Predicate pred);                // (1) C++03
+void remove_if(Predicate pred);                // (1) C++98
 template <class Predicate>
 size_type remove_if(Predicate pred);           // (1) C++20
 template <class Predicate>
@@ -23,7 +23,7 @@ constexpr size_type remove_if(Predicate pred); // (1) C++26
 
 
 ## 戻り値
-- C++03 : なし
+- C++98 : なし
 - C++20 : 削除された要素数を返す
 
 

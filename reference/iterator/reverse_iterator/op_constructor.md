@@ -5,14 +5,14 @@
 * function[meta id-type]
 
 ```cpp
-reverse_iterator();                                       // (1) C++03
+reverse_iterator();                                       // (1) C++98
 constexpr reverse_iterator();                             // (1) C++17
 
-explicit reverse_iterator(Iterator x);                    // (2) C++03
+explicit reverse_iterator(Iterator x);                    // (2) C++98
 constexpr explicit reverse_iterator(Iterator x);          // (2) C++17
 
 template <class U>
-reverse_iterator(const reverse_iterator<U>& u);           // (3) C++03
+reverse_iterator(const reverse_iterator<U>& u);           // (3) C++98
 
 template <class U>
 constexpr reverse_iterator(const reverse_iterator<U>& u); // (3) C++17

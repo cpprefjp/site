@@ -5,7 +5,7 @@
 * variable[meta id-type]
 
 ```cpp
-// C++03
+// C++98
 static const bool has_infinity;
 
 // C++11

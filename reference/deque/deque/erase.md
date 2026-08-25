@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-iterator erase(iterator position);                         // (1) C++03
+iterator erase(iterator position);                         // (1) C++98
 iterator erase(const_iterator position);                   // (1) C++11
 constexpr iterator erase(const_iterator position);         // (1) C++26
 
-iterator erase(iterator first, iterator last);                       // (2) C++03
+iterator erase(iterator first, iterator last);                       // (2) C++98
 iterator erase(const_iterator first, const_iterator last);           // (2) C++11
 constexpr iterator erase(const_iterator first, const_iterator last); // (2) C++26
 ```

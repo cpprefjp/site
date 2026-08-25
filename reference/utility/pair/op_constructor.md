@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-pair();                                                       // (1) C++03
+pair();                                                       // (1) C++98
 constexpr pair();                                             // (1) C++11
 EXPLICIT constexpr pair();                                    // (1) C++17
 explicit(see below) constexpr pair();                         // (1) C++20
@@ -13,7 +13,7 @@ explicit(see below) constexpr pair();                         // (1) C++20
 pair(const pair&) = default;                                  // (2)
 pair(pair&&) = default;                                       // (3) C++11
 
-pair(const T1& x, const T2& y);                               // (4) C++03
+pair(const T1& x, const T2& y);                               // (4) C++98
 constexpr pair(const T1& x, const T2& y);                     // (4) C++14
 EXPLICIT constexpr pair(const T1& x, const T2& y);            // (4) C++17
 explicit(see below) constexpr pair(const T1& x, const T2& y); // (4) C++20
@@ -33,7 +33,7 @@ template<class U, class V>
 explicit(see below) constexpr pair(pair<U, V>& p);            // (6) C++23
 
 template <class U, class V>
-pair(const pair<U, V>& p);                                    // (7) C++03
+pair(const pair<U, V>& p);                                    // (7) C++98
 template <class U, class V>
 constexpr pair(const pair<U, V>& p);                          // (7) C++14
 template <class U, class V>
@@ -278,7 +278,7 @@ p8 : (X(1 2 3),Y(4 5))
 - [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
-	- C++03で規定されていたものは、2010より前のバージョンから実装されている。
+	- C++98で規定されていたものは、2010より前のバージョンから実装されている。
 	- 2010までは、(11) `std::piecewise_construct`版が実装されていない。
 	- 2013までは、デフォルトコンストラクタに`constexpr`が付与されていない。
 

@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-iterator begin();                      // (1) C++03
+iterator begin();                      // (1) C++98
 iterator begin() noexcept;             // (1) C++11
 constexpr iterator begin() noexcept;   // (1) C++20
 
-const_iterator begin() const;                    // (2) C++03
+const_iterator begin() const;                    // (2) C++98
 const_iterator begin() const noexcept;           // (2) C++11
 constexpr const_iterator begin() const noexcept; // (2) C++20
 ```

@@ -10,7 +10,7 @@ namespace std {
     remove_copy_if(InputIterator first,
                    InputIterator last,
                    OutputIterator result,
-                   Predicate pred);         // (1) C++03
+                   Predicate pred);         // (1) C++98
 
   template <class InputIterator, class OutputIterator, class Predicate>
   constexpr OutputIterator

@@ -5,10 +5,10 @@
 * function[meta id-type]
 
 ```cpp
-const_reference at(size_type pos) const;           // (1) C++03
+const_reference at(size_type pos) const;           // (1) C++98
 constexpr const_reference at(size_type pos) const; // (1) C++20
 
-reference at(size_type pos);                       // (2) C++03
+reference at(size_type pos);                       // (2) C++98
 constexpr reference at(size_type pos);             // (2) C++20
 ```
 

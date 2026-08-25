@@ -6,7 +6,7 @@
 
 ```cpp
 front_insert_iterator&
-  operator=(const typename Container::value_type& value); // (1) C++03
+  operator=(const typename Container::value_type& value); // (1) C++98
 constexpr front_insert_iterator&
   operator=(const typename Container::value_type& value); // (1) C++20
 

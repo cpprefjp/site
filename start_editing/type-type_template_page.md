@@ -87,7 +87,7 @@ typedef origin_type new_type;
 - [Visual C++](/implementation.md#visual_cpp): 2003 [mark verified], 2005 [mark verified], 2008 [mark verified], 2010 [mark verified], 2012 [mark verified]
 
 (ここには、その機能が存在する言語のバージョンと、確認がとれたコンパイラとそのバージョンを記述します。)  
-(これらの項目を削除した場合、C++03のあらゆる環境で使用できることを意味します。)
+(これらの項目を削除した場合、C++98のあらゆる環境で使用できることを意味します。)
 (確認のテストできないときは、??を記述してください。)
 
 ### 備考

@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-~vector();           // (1) C++03
+~vector();           // (1) C++98
 constexpr ~vector(); // (1) C++20
 ```
 

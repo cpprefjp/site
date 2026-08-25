@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void reserve(size_type res_arg = 0);       // (1)+(2) C++03
+void reserve(size_type res_arg = 0);       // (1)+(2) C++98
 
 void reserve();  // (1) C++20で非推奨化, C++26で削除
 
@@ -17,7 +17,7 @@ constexpr void reserve(size_type res_arg); // (2) C++20
 
 
 ## 効果
-- C++03 : [`capacity()`](capacity.md) `>= res_arg` となる
+- C++98 : [`capacity()`](capacity.md) `>= res_arg` となる
 - C++20 : 現在の[`capacity()`](capacity.md)が`res_arg`より小さい場合に限り、[`capacity()`](capacity.md) `>= res_arg` となるようメモリの伸長をリクエストする
 
 
@@ -31,7 +31,7 @@ constexpr void reserve(size_type res_arg); // (2) C++20
 
 
 ## 非推奨・削除の詳細
-C++03で`reserve`操作でのメモリの縮小ができたことは、以下の問題があった：
+C++98で`reserve`操作でのメモリの縮小ができたことは、以下の問題があった：
 
 - パフォーマンスの罠となっていた。この関数に指定する引数の値を慎重に選ばなければ、予想外の動的な再確保によってパフォーマンスを低下させる原因となっていた
 - 移植性の壁になっていた。メモリ縮小は実装に任せられたオプション機能であったため、環境による動作の違いがあった

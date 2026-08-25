@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-deque& operator=(const deque& x);           // (1) C++03
+deque& operator=(const deque& x);           // (1) C++98
 constexpr deque& operator=(const deque& x); // (1) C++26
 
 deque& operator=(deque&& x);                                       // (2) C++11

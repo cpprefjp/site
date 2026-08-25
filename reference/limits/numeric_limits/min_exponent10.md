@@ -5,7 +5,7 @@
 * variable[meta id-type]
 
 ```cpp
-// C++03
+// C++98
 static const int min_exponent10;
 
 // C++11

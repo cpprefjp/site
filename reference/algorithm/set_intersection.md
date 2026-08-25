@@ -11,7 +11,7 @@ namespace std {
                      InputIterator1 last1,
                      InputIterator2 first2,
                      InputIterator2 last2,
-                     OutputIterator result); // (1) C++03
+                     OutputIterator result); // (1) C++98
 
   template <class InputIterator1, class InputIterator2, class OutputIterator>
   constexpr OutputIterator
@@ -29,7 +29,7 @@ namespace std {
                      InputIterator2 first2,
                      InputIterator2 last2,
                      OutputIterator result,
-                     Compare comp);           // (2) C++03
+                     Compare comp);           // (2) C++98
 
   template <class InputIterator1, class InputIterator2, class OutputIterator,
             class Compare>

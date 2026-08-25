@@ -6,7 +6,7 @@
 ```cpp
 namespace std {
   template <class ForwardIterator1, class ForwardIterator2>
-  void iter_swap(ForwardIterator1 a, ForwardIterator2 b);           // (1) C++03
+  void iter_swap(ForwardIterator1 a, ForwardIterator2 b);           // (1) C++98
 
   template <class ForwardIterator1, class ForwardIterator2>
   constexpr void iter_swap(ForwardIterator1 a, ForwardIterator2 b); // (1) C++20
@@ -23,12 +23,12 @@ namespace std {
 
 
 ## 効果
-- C++03 : 2つのイテレータ`a`と`b`が指す値を入れ替える
+- C++98 : 2つのイテレータ`a`と`b`が指す値を入れ替える
 - C++11 : [`swap`](/reference/utility/swap.md)`(*a, *b)`
 
 
 ## 備考
-C++03版の仕様は、以下の2点で問題があった：
+C++98版の仕様は、以下の2点で問題があった：
 
 1. `std::swap()`関数ではなく、汎用的な入れ替え操作を行うようにも読めるため、コンテナに特化した定数時間の入れ替え操作ではなく、線形時間の入れ替えが行われることを許可していた。
 2. `std::vector<bool>::iterator`のような、参照のように動作するプロキシオブジェクトを指すイテレータを許可していなかった。
@@ -76,5 +76,5 @@ void iter_swap(ForwardIterator1 a, ForwardIterator2 b) {
 
 ## 参照
 - [LWG Issue 187. `iter_swap` underspecified](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#187)
-    - C++03での効果を見直す経緯となったIssue
+    - C++98での効果を見直す経緯となったIssue
 - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

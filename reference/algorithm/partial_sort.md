@@ -8,7 +8,7 @@ namespace std {
   template <class RandomAccessIterator>
   void partial_sort(RandomAccessIterator first,
                     RandomAccessIterator middle,
-                    RandomAccessIterator last);            // (1) C++03
+                    RandomAccessIterator last);            // (1) C++98
 
   template <class RandomAccessIterator>
   constexpr void partial_sort(RandomAccessIterator first,
@@ -19,7 +19,7 @@ namespace std {
   void partial_sort(RandomAccessIterator first,
                     RandomAccessIterator middle,
                     RandomAccessIterator last,
-                    Compare comp);                         // (2) C++03
+                    Compare comp);                         // (2) C++98
 
   template <class RandomAccessIterator, class Compare>
   constexpr void partial_sort(RandomAccessIterator first,

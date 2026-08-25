@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-const charT* data() const;                    // (1) C++03
+const charT* data() const;                    // (1) C++98
 const charT* data() const noexcept;           // (1) C++11
 constexpr const charT* data() const noexcept; // (1) C++20
 
@@ -22,7 +22,7 @@ constexpr charT* data() noexcept;             // (2) C++20
 
 ## 戻り値
 - (1) :
-    - C++03 : 文字配列の先頭へのポインタを返す。ただし、NULLで終端はされない
+    - C++98 : 文字配列の先頭へのポインタを返す。ただし、NULLで終端はされない
     - C++11 : C 言語で使用されている文字列表現である、NULL（つまり `charT()`）で終端された文字配列の先頭へのポインタを返す
 - (2) :
     - C 言語で使用されている文字列表現である、NULL（つまり `charT()`）で終端された文字配列の先頭へのポインタを返す
@@ -34,7 +34,7 @@ constexpr charT* data() noexcept;             // (2) C++20
 
 ## 備考
 - (1) :
-    - C++03まで :
+    - C++98まで :
         - 本メンバ関数で返されたポインタが指す配列の値を変更してはいけない。
         - 本メンバ関数を呼び出すと、対象オブジェクトの要素への既存の参照、ポインタ、イテレータは無効になる可能性がある。
         - 本メンバ関数で返されたポインタは、対象オブジェクトに対する非constメンバ関数呼び出しにより無効になる可能性がある。

@@ -6,7 +6,7 @@
 
 ```cpp
 protected:
-  virtual void imbue(const locale& loc);  // (1) C++03
+  virtual void imbue(const locale& loc);  // (1) C++98
   void imbue(const locale& loc) override; // (1) C++17
 ```
 * locale[link /reference/locale/locale.md]

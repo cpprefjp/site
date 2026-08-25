@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-static T min() throw();            // C++03
+static T min() throw();            // C++98
 static constexpr T min() noexcept; // C++11
 ```
 

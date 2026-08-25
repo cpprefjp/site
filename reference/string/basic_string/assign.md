@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& assign(const basic_string& str);                  // (1) C++03
+basic_string& assign(const basic_string& str);                  // (1) C++98
 constexpr basic_string& assign(const basic_string& str);        // (1) C++20
 
 basic_string& assign(basic_string&& str) noexcept;              // (2) C++11
@@ -14,7 +14,7 @@ constexpr basic_string& assign(basic_string&& str) noexcept;    // (2) C++20
 basic_string&
   assign(const basic_string& str,
          size_type pos,
-         size_type n);             // (3) C++03
+         size_type n);             // (3) C++98
 basic_string&
   assign(const basic_string& str,
          size_type pos,
@@ -24,19 +24,19 @@ constexpr basic_string&
          size_type pos,
          size_type n = npos);      // (3) C++20
 
-basic_string& assign(const charT* s, size_type n);              // (4) C++03
+basic_string& assign(const charT* s, size_type n);              // (4) C++98
 constexpr basic_string& assign(const charT* s, size_type n);    // (4) C++20
 
-basic_string& assign(const charT* s);                           // (5) C++03
+basic_string& assign(const charT* s);                           // (5) C++98
 constexpr basic_string& assign(const charT* s);                 // (5) C++20
 
-basic_string& assign(size_type n, charT c);                     // (6) C++03
+basic_string& assign(size_type n, charT c);                     // (6) C++98
 constexpr basic_string& assign(size_type n, charT c);           // (6) C++20
 
 template <class InputIterator>
 basic_string&
   assign(InputIterator first,
-         InputIterator last);  // (7) C++03
+         InputIterator last);  // (7) C++98
 template <class InputIterator>
 constexpr basic_string&
   assign(InputIterator first,
@@ -88,7 +88,7 @@ constexpr basic_string&
 
 ## 効果
 - (1) : コピー代入。`str`オブジェクトと同じ文字列を構築する。
-    - C++03 : `assign(str, 0, npos)`と等価
+    - C++98 : `assign(str, 0, npos)`と等価
     - C++17 : `*this = str`と等価
         - アロケータの伝播（`propagate_on_container_copy_assignment`）について、コピー代入演算子と一貫した扱いとなる
 - (2) : ムーブ代入。`str`オブジェクトが指すデータの所有権を自身に移動する。`str`は未規定の値になる。

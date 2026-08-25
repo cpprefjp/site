@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-pair<iterator,bool> insert(const value_type& x);           // (1) C++03
+pair<iterator,bool> insert(const value_type& x);           // (1) C++98
 constexpr pair<iterator,bool> insert(const value_type& x); // (1) C++26
 
 pair<iterator,bool> insert(value_type&& y);           // (2) C++11
@@ -14,7 +14,7 @@ constexpr pair<iterator,bool> insert(value_type&& y); // (2) C++26
 template <class K>
 constexpr pair<iterator, bool> insert(K&& x); // (3) C++26
 
-iterator insert(iterator hint, const value_type& x);                 // (4) C++03
+iterator insert(iterator hint, const value_type& x);                 // (4) C++98
 iterator insert(const_iterator hint, const value_type& x);           // (4) C++11
 constexpr iterator insert(const_iterator hint, const value_type& x); // (4) C++26
 
@@ -25,11 +25,11 @@ template <class K>
 constexpr iterator insert(const_iterator hint, K&& x); // (6) C++26
 
 template <class InputIterator>
-void insert(InputIterator first, InputIterator last);           // (7) C++03
+void insert(InputIterator first, InputIterator last);           // (7) C++98
 template <class InputIterator>
 constexpr void insert(InputIterator first, InputIterator last); // (7) C++26
 
-void insert(initializer_list<value_type> init);           // (8) C++03
+void insert(initializer_list<value_type> init);           // (8) C++98
 constexpr void insert(initializer_list<value_type> init); // (8) C++26
 
 insert_return_type insert(node_type&& nh);           // (9) C++17

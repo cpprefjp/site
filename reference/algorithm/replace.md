@@ -11,7 +11,7 @@ namespace std {
     replace(ForwardIterator first,
             ForwardIterator last,
             const T& old_value,
-            const T& new_value);   // (1) C++03
+            const T& new_value);   // (1) C++98
   template <class ForwardIterator,
             class T>
   constexpr void

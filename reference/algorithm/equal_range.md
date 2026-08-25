@@ -10,7 +10,7 @@ namespace std {
   pair<ForwardIterator, ForwardIterator>
     equal_range(ForwardIterator first,
                 ForwardIterator last,
-                const T& value);      // (1) C++03
+                const T& value);      // (1) C++98
   template <class ForwardIterator,
             class T>
   constexpr pair<ForwardIterator, ForwardIterator>
@@ -31,7 +31,7 @@ namespace std {
     equal_range(ForwardIterator first,
                 ForwardIterator last,
                 const T& value,
-                Compare comp);        // (2) C++03
+                Compare comp);        // (2) C++98
   template <class ForwardIterator,
             class T,
             class Compare>

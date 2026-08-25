@@ -10,7 +10,7 @@ namespace std {
     transform(InputIterator first,
               InputIterator last,
               OutputIterator result,
-              UnaryOperation op);         // (1) C++03
+              UnaryOperation op);         // (1) C++98
 
   template <class InputIterator, class OutputIterator, class UnaryOperation>
   constexpr OutputIterator
@@ -26,7 +26,7 @@ namespace std {
               InputIterator1 last1,
               InputIterator2 first2,
               OutputIterator result,
-              BinaryOperation binary_op); // (2) C++03
+              BinaryOperation binary_op); // (2) C++98
 
   template <class InputIterator1, class InputIterator2,
             class OutputIterator, class BinaryOperation>

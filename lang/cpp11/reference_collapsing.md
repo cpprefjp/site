@@ -10,7 +10,7 @@
 <!-- last lang caution -->
 
 ## 概要
-C++03までは、`T&`型に左辺値参照を足すと、「参照への参照 (reference to reference)」となってしまいコンパイルエラーとなっていた。
+C++98までは、`T&`型に左辺値参照を足すと、「参照への参照 (reference to reference)」となってしまいコンパイルエラーとなっていた。
 
 C++11では、型の別名定義、テンプレートパラメータ、および`decltype`の文脈において、`T&`型に左辺値参照を足しても`T&`型となることが規定された。これを「reference collapsing (参照を折りたたむ)」という。
 
@@ -22,7 +22,7 @@ int main()
 {
   typedef int& ir;
 
-  // C++03ではint& &となりコンパイルエラー
+  // C++98ではint& &となりコンパイルエラー
   // C++11ではint&となりOK
   typedef ir& irr;
 }
@@ -37,7 +37,7 @@ struct add_lvalue_reference {
   typedef T& type;
 };
 
-// C++03では、参照への参照にならないように、この部分特殊化が必要
+// C++98では、参照への参照にならないように、この部分特殊化が必要
 // C++11ではこの部分特殊化は必要ない (あっても問題はない)
 template <class T>
 struct add_lvalue_reference<T&> {

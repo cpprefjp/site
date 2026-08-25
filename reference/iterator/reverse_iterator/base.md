@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-Iterator base() const;           // C++03
+Iterator base() const;           // C++98
 constexpr Iterator base() const; // C++17
 ```
 

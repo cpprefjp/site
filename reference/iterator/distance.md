@@ -7,7 +7,7 @@
 namespace std {
   template <class InputIterator>
   typename iterator_traits<InputIterator>::difference_type
-    distance(InputIterator first, InputIterator last);     // C++03
+    distance(InputIterator first, InputIterator last);     // C++98
 
   template <class InputIterator>
   constexpr typename iterator_traits<InputIterator>::difference_type

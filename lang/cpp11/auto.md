@@ -26,7 +26,7 @@ auto f = []{};                      // f は 引数を取らずに値を返さ�
 * std::make_shared[link ../../reference/memory/make_shared.md]
 
 型推論のための `auto` は、基本的には糖衣構文であり具体的な型で書き替えることが可能であるが、上記のクロージャ型のように書き換えが不可能なケースも存在する。  
-この機能の追加に伴って、C++03 までの `auto` に存在した、自動変数である事を意味する記憶クラス指定子としての使用はできなくなった。
+この機能の追加に伴って、C++98 までの `auto` に存在した、自動変数である事を意味する記憶クラス指定子としての使用はできなくなった。
 
 なお、`auto` は[戻り値の型を後置する関数宣言構文](trailing_return_types.md)でも使用されるが、その場合の `auto` には型推論の意味は無い。  
 さらに、C++14 では `auto` キーワードを使用する機能として、[ユーザ定義変換関数の型推論](../cpp14/return_type_deduction_for_normal_functions.md)、[通常関数の戻り値型推論](../cpp14/return_type_deduction_for_normal_functions.md)、[後置戻り値型をプレースホルダーにすることを許可](../cpp14/placeholder_type_in_trailing_return_type.md)、[ジェネリックラムダ](../cpp14/generic_lambdas.md)、および、[`decltype(auto)`](../cpp14/decltype_auto.md) が追加されている。  

@@ -8,7 +8,7 @@ namespace std {
   template <class InputIterator, class Function>
   Function for_each(InputIterator first,
                     InputIterator last,
-                    Function f);                   // (1) C++03
+                    Function f);                   // (1) C++98
 
   template <class InputIterator, class Function>
   constexpr Function for_each(InputIterator first,
@@ -38,7 +38,7 @@ namespace std {
 
 
 ## 戻り値
-* C++03 の場合 : `f`
+* C++98 の場合 : `f`
 * C++11 の場合 : `std::move(f)`
 
 
@@ -53,7 +53,7 @@ namespace std {
 
 
 ## 例
-### C++03での例
+### C++98での例
 ```cpp example
 #include <iostream>
 #include <vector>

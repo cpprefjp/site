@@ -6,7 +6,7 @@
 
 ```cpp
 size_type
-  copy(charT* s, size_type n, size_type pos = 0) const; // (1) C++03
+  copy(charT* s, size_type n, size_type pos = 0) const; // (1) C++98
 constexpr size_type
   copy(charT* s, size_type n, size_type pos = 0) const; // (1) C++20
 ```

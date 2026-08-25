@@ -5,7 +5,7 @@
 * variable[meta id-type]
 
 ```cpp
-// C++03
+// C++98
 static const float_round_style round_style;
 
 // C++11

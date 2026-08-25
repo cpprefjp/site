@@ -6,7 +6,7 @@
 
 ```cpp
 void
-  swap(map<Key,T, Compare,Allocator>& st);                                 // (1) C++03
+  swap(map<Key,T, Compare,Allocator>& st);                                 // (1) C++98
 void
   swap(map& x)
     noexcept(allocator_traits<Allocator>::is_always_equal::value
@@ -74,7 +74,7 @@ m2 : {[10,a], [20,b], [30,c], }
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??

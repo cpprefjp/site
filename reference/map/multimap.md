@@ -134,8 +134,8 @@ namespace std {
 | `const_iterator`  | 読み取り専用双方向イテレータ。 | |
 | `size_type`       | 要素数を表す符号なし整数型。`difference_type` で表現可能な非負整数（0以上の整数）を表すことが可能。(通常は [`size_t`](/reference/cstddef/size_t.md)) | |
 | `difference_type` | 同一のコンテナを指す `iterator` の差を表す符号付き整数型(通常は [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)) <br/>`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<iterator>::difference_type`、および、`std::`[`iterator_traits`](/reference/iterator/iterator_traits.md)`<const_iterator>::difference_type` と同じ。 | |
-| `pointer`         | 要素 `value_type`へのポインタ。<br/> C++03 : `typename Allocator::pointer`。<br/> C++11以降 : `typename` [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer`。 | |
-| `const_pointer`         | 要素 `value_type`への`const`ポインタ。<br/> C++03 : `typename Allocator::const_pointer`。<br/> C++11以降 : `typename` [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer`。 | |
+| `pointer`         | 要素 `value_type`へのポインタ。<br/> C++98 : `typename Allocator::pointer`。<br/> C++11以降 : `typename` [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::pointer`。 | |
+| `const_pointer`         | 要素 `value_type`への`const`ポインタ。<br/> C++98 : `typename Allocator::const_pointer`。<br/> C++11以降 : `typename` [`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::const_pointer`。 | |
 | `reverse_iterator` | 逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<iterator>`。 | |
 | `const_reverse_iterator` | 読み取り専用逆順双方向イテレータ。`std::`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<const_iterator>`。 | |
 | `node_type`       | [`node_handle`](/reference/node_handle/node_handle.md)クラステンプレートの特殊化。  | C++17          |
@@ -177,7 +177,7 @@ namespace std {
 
 
 ## 例
-### C++03版
+### C++98版
 ```cpp example
 #include <iostream>
 #include <map>
@@ -186,7 +186,7 @@ namespace std {
 int main()
 {
   // charをキー、intを値として扱う連想配列
-  typedef std::multimap<char, int> MCI; // C++03 では型名を何度も書く必要があるので typedef しておく
+  typedef std::multimap<char, int> MCI; // C++98 では型名を何度も書く必要があるので typedef しておく
   MCI m;
 
   // 挿入
@@ -244,7 +244,7 @@ int main()
 * m.count[link multimap/count.md]
 * m.equal_range[link multimap/equal_range.md]
 
-### 出力(C++03版、C++11版共通)
+### 出力(C++98版、C++11版共通)
 ```
 count = 2
 10

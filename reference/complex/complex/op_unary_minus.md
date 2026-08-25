@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class T>
-  complex<T> operator-(const complex<T>& lhs);           // (1) C++03
+  complex<T> operator-(const complex<T>& lhs);           // (1) C++98
 
   template <class T>
   constexpr complex<T> operator-(const complex<T>& lhs); // (1) C++20

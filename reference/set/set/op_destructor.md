@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-~set();           // (1) C++03
+~set();           // (1) C++98
 constexpr ~set(); // (1) C++26
 ```
 

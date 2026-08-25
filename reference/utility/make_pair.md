@@ -6,7 +6,7 @@
 ```cpp
 namespace std {
   template <class T1, class T2>
-  pair<V1, V2> make_pair(T1, T2);                   // C++03
+  pair<V1, V2> make_pair(T1, T2);                   // C++98
 
   template <class T1, class T2>
   pair<V1, V2> make_pair(T1&& x, T2&& y);           // C++11
@@ -21,7 +21,7 @@ pairクラスのオブジェクトを構築する。
 
 結果型の`V1`および`V2`は以下のような型となる：
 
-- C++03 :
+- C++98 :
     - `V1` : `T1`
     - `V2` : `T2`
 - C++11 : `T1`と`T2`それぞれの型`T`において、

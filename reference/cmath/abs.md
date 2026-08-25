@@ -6,11 +6,11 @@
 
 ```cpp
 namespace std {
-  float abs(float x);                       // (1) C++03からC++20まで
+  float abs(float x);                       // (1) C++98からC++20まで
 
-  double abs(double x);                     // (2) C++03からC++20まで
+  double abs(double x);                     // (2) C++98からC++20まで
 
-  long double abs(long double x);           // (3) C++03からC++20まで
+  long double abs(long double x);           // (3) C++98からC++20まで
 
   constexpr floating-point-type
     abs(floating-point-type x);             // (4) C++23

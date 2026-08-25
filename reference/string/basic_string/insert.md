@@ -6,13 +6,13 @@
 
 ```cpp
 basic_string&
-  insert(size_type pos1, const basic_string& str);    // (1) C++03
+  insert(size_type pos1, const basic_string& str);    // (1) C++98
 constexpr basic_string&
   insert(size_type pos1, const basic_string& str);    // (1) C++20
 
 basic_string&
   insert(size_type pos1, const basic_string& str,
-         size_type pos2, size_type n);                // (2) C++03
+         size_type pos2, size_type n);                // (2) C++98
 basic_string&
   insert(size_type pos1, const basic_string& str,
          size_type pos2, size_type n = npos);         // (2) C++14
@@ -21,32 +21,32 @@ constexpr basic_string&
          size_type pos2, size_type n = npos);         // (2) C++20
 
 basic_string&
-  insert(size_type pos, const charT* s, size_type n); // (3) C++03
+  insert(size_type pos, const charT* s, size_type n); // (3) C++98
 constexpr basic_string&
   insert(size_type pos, const charT* s, size_type n); // (3) C++20
 
 basic_string&
-  insert(size_type pos, const charT* s);              // (4) C++03
+  insert(size_type pos, const charT* s);              // (4) C++98
 constexpr basic_string&
   insert(size_type pos, const charT* s);              // (4) C++20
 
 basic_string&
-  insert(size_type pos, size_type n, charT c);        // (5) C++03
+  insert(size_type pos, size_type n, charT c);        // (5) C++98
 constexpr basic_string&
   insert(size_type pos, size_type n, charT c);        // (5) C++20
 
-iterator insert(iterator p, charT c);                 // (6) C++03
+iterator insert(iterator p, charT c);                 // (6) C++98
 iterator insert(const_iterator p, charT c);           // (6) C++11
 constexpr iterator insert(const_iterator p, charT c); // (6) C++20
 
-void insert(iterator p, size_type n, charT c);                     // (7) C++03
+void insert(iterator p, size_type n, charT c);                     // (7) C++98
 iterator insert(const_iterator p, size_type n, charT c);           // (7) C++11
 constexpr iterator insert(const_iterator p, size_type n, charT c); // (7) C++20
 
 template<class InputIterator>
 void
   insert(iterator p,
-         InputIterator first, InputIterator last); // (8) C++03
+         InputIterator first, InputIterator last); // (8) C++98
 template<class InputIterator>
 iterator
   insert(const_iterator p,

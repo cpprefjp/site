@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-// C++03
+// C++98
 static const T round_error() throw();
 
 // C++11

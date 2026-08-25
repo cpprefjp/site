@@ -8,7 +8,7 @@ namespace std {
   // operator==により、以下のオーバーロードが使用可能になる (C++20)
   template <class T1, class T2>
   bool operator!=(const allocator<T1>&,
-                  const allocator<T2>&) throw();           // (1) C++03
+                  const allocator<T2>&) throw();           // (1) C++98
 
   template <class T, class U>
   bool operator!=(const allocator<T>&,

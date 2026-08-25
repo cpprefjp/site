@@ -7,7 +7,7 @@
 ```cpp
 size_type
   find_last_not_of(const basic_string& str,
-                  size_type pos = npos) const;           // (1) C++03
+                  size_type pos = npos) const;           // (1) C++98
 size_type
   find_last_not_of(const basic_string& str,
                    size_type pos = npos) const noexcept; // (1) C++11
@@ -18,7 +18,7 @@ constexpr size_type
 size_type
   find_last_not_of(const charT* s,
                    size_type pos,
-                   size_type n) const; // (2) C++03
+                   size_type n) const; // (2) C++98
 constexpr size_type
   find_last_not_of(const charT* s,
                    size_type pos,
@@ -26,14 +26,14 @@ constexpr size_type
 
 size_type
   find_last_not_of(const charT* s,
-                   size_type pos = npos) const; // (3) C++03
+                   size_type pos = npos) const; // (3) C++98
 constexpr size_type
   find_last_not_of(const charT* s,
                    size_type pos = npos) const; // (3) C++20
 
 size_type
   find_last_not_of(charT c,
-                   size_type pos = npos) const; // (4) C++03
+                   size_type pos = npos) const; // (4) C++98
 constexpr size_type
   find_last_not_of(charT c,
                    size_type pos = npos) const; // (4) C++20

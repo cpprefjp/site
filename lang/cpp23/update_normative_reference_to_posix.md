@@ -27,7 +27,7 @@ C++20まではPOSIX規格としてISO/IEC 9945:2003 (POSIX.1-2001 別名 The Sin
 ここでは、具体的に問題になった、標準C++が参照するPOSIXの機能を列挙する。
 
 ### errno
-C++03まで、[`<cerrno>`](/reference/cerrno.md)と`<errno.h>`にはISO Cが要求する`EDOM` (定義域エラー)、`ERANGE` (値域エラー)、`errno`といった必要最低限のマクロのみが含まれていた。
+C++98まで、[`<cerrno>`](/reference/cerrno.md)と`<errno.h>`にはISO Cが要求する`EDOM` (定義域エラー)、`ERANGE` (値域エラー)、`errno`といった必要最低限のマクロのみが含まれていた。
 
 C++11での[`<system_error>`](/reference/system_error.md)ライブラリの導入にともなって、「[`<cerrno>`](/reference/cerrno.md)で定義される内容は、`errno`がマクロ定義されることを除いてPOSIXの`<errno.h>`ヘッダと同じである」という規定となった。この規定のあとにマクロのリストが定義されるが、`ENOTRECOVERABLE`と`EOWNERDEAD`はPOSIXの2006規格、`ENOTSUP`と`EOPNOTSUPP`は2008規格で追加されたものだった。
 

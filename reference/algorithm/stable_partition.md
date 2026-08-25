@@ -9,7 +9,7 @@ namespace std {
   BidirectionalIterator
     stable_partition(BidirectionalIterator first,
                      BidirectionalIterator last,
-                     Predicate pred);             // (1) C++03
+                     Predicate pred);             // (1) C++98
   template<class BidirectionalIterator, class Predicate>
   constexpr BidirectionalIterator
     stable_partition(BidirectionalIterator first,

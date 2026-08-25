@@ -8,7 +8,7 @@ namespace std {
   template <class Key, class Compare, class Allocator>
   void
     swap(set<Key, Compare, Allocator>& x,
-         set<Key, Compare, Allocator>& y); // (1) C++03
+         set<Key, Compare, Allocator>& y); // (1) C++98
   template <class Key, class Compare, class Allocator>
   void
     swap(set<Key, Compare, Allocator>& x,

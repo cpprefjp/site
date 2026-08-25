@@ -5,10 +5,10 @@
 * function[meta id-type]
 
 ```cpp
-const_reference operator[](size_type pos) const;           // (1) C++03
+const_reference operator[](size_type pos) const;           // (1) C++98
 constexpr const_reference operator[](size_type pos) const; // (1) C++20
 
-reference operator[](size_type pos);                       // (2) C++03
+reference operator[](size_type pos);                       // (2) C++98
 constexpr reference operator[](size_type pos);             // (2) C++20
 ```
 
@@ -21,7 +21,7 @@ constexpr reference operator[](size_type pos);             // (2) C++20
 
 
 ## 戻り値
-- C++03
+- C++98
     - `pos <` [`size()`](size.md) の場合、`*(`[`begin()`](begin.md) `+ pos)` を返す。
     - `pos ==` [`size()`](size.md) の場合、(1) は `charT()` の値を持ったオブジェクトへの参照を返す。
     - それ以外の場合は、未定義動作。

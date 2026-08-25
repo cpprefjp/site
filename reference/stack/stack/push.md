@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void push(const value_type& x);           // (1) C++03
+void push(const value_type& x);           // (1) C++98
 constexpr void push(const value_type& x); // (1) C++26
 
 void push(value_type&& x);           // (2) C++11

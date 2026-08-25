@@ -6,12 +6,12 @@
 
 ```cpp
 reference
-  at(size_type n);           // (1) C++03
+  at(size_type n);           // (1) C++98
 constexpr
   reference at(size_type n); // (1) C++26
 
 const_reference
-  at(size_type n) const;     // (2) C++03
+  at(size_type n) const;     // (2) C++98
 constexpr const_reference
   at(size_type n) const;     // (2) C++26
 ```

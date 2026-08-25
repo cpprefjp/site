@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  // C++03 まで
+  // C++98 まで
   class ios_base::failure : public exception {
   public:
     explicit failure(const string& msg);
@@ -42,18 +42,18 @@ C++11 からは、エラー内容としてメッセージだけではなく、[`
 | 名前                                         | 説明                   | 対応バージョン |
 |----------------------------------------------|------------------------|----------------|
 | [`(constructor)`](failure/op_constructor.md) | コンストラクタ         |                |
-| [`what`](failure/what.md)                    | エラーメッセージの取得 | C++03 まで     |
+| [`what`](failure/what.md)                    | エラーメッセージの取得 | C++98 まで     |
 
 なお、一見 C++11 で `what()` が無くなっているように見えるが、[`system_error`](../../system_error/system_error.md)`::what()` を継承しているため、メンバ関数自体は使用可能である。
 
 
 ## 備考
 - [`ios_base`](../ios_base.md)`::failure` は、C++11 から基底クラスが変更になっている。  
-    このため、C++03 まででも使用可能とするためには、基底クラスが [`system_error`](../../system_error/system_error.md) であることに依存しないようにする必要がある。  
+    このため、C++98 まででも使用可能とするためには、基底クラスが [`system_error`](../../system_error/system_error.md) であることに依存しないようにする必要がある。  
     なお、C++ 標準規格では、ライブラリの各クラスは基底クラスを直接継承しなくても（間接的に継承していれば）良いことになっている。  
-    このため、C++03 でも [`exception`](../../exception/exception.md) から直接派生していないかもしれないので、注意。  
+    このため、C++98 でも [`exception`](../../exception/exception.md) から直接派生していないかもしれないので、注意。  
     （当然 C++11 でも [`system_error`](../../system_error/system_error.md) を直接継承していない可能性がある）
-- C++03 まではデストラクタが宣言されていたが、例外指定が誤っていたため（基底クラス [`exception`](../../exception/exception.md) のデストラクタには `throw()` が付いているため、派生クラスにも `throw()` が必要）、C++11 では宣言自体が削除された。
+- C++98 まではデストラクタが宣言されていたが、例外指定が誤っていたため（基底クラス [`exception`](../../exception/exception.md) のデストラクタには `throw()` が付いているため、派生クラスにも `throw()` が必要）、C++11 では宣言自体が削除された。
 - C++17 からは、[`ios_base`](../ios_base.md)`::failure` を、クラスとして定義するのではなく、[`system_error`](../../system_error/system_error.md) から派生したクラスへの別名（シノニム）として定義してもよいことになっている。これは、規格バージョン間でABIの互換性を保つ柔軟性を処理系に与えるためである。  
     このため、`class std::ios_base::failure` のような elaborated-type-specifier が使用できるとは限らない。
 

@@ -4,7 +4,7 @@
 * [meta namespace]
 
 ```cpp
-void* operator new[](std::size_t size) throw(std::bad_alloc);             // (1) C++03
+void* operator new[](std::size_t size) throw(std::bad_alloc);             // (1) C++98
 void* operator new[](std::size_t size);                                   // (1) C++11
 [[nodiscard]] void* operator new[](std::size_t size);                     // (1) C++20
 void* operator new[](std::size_t size);                                   // (1) C++26
@@ -18,7 +18,7 @@ void* operator new[](std::size_t size,
                      std::align_val_t alignment);                         // (2) C++26
 
 void* operator new[](std::size_t size,
-                     const std::nothrow_t&) throw();                      // (3) C++03
+                     const std::nothrow_t&) throw();                      // (3) C++98
 void* operator new[](std::size_t size,
                      const std::nothrow_t&) noexcept;                     // (3) C++11
 [[nodiscard]] void* operator new[](std::size_t size,
@@ -36,7 +36,7 @@ void* operator new[](std::size_t size,
                      std::align_val_t alignment,
                      const std::nothrow_t&) noexcept;                     // (4) C++26
 
-void* operator new[](std::size_t size, void* ptr) throw();                // (5) C++03
+void* operator new[](std::size_t size, void* ptr) throw();                // (5) C++98
 void* operator new[](std::size_t size, void* ptr) noexcept;               // (5) C++11
 [[nodiscard]] void* operator new[](std::size_t size, void* ptr) noexcept; // (5) C++20
 constexpr void* operator new[](std::size_t size, void* ptr) noexcept;     // (5) C++26
@@ -58,8 +58,8 @@ constexpr void* operator new[](std::size_t size, void* ptr) noexcept;     // (5)
 
 ## 効果
 - (1), (2) : [`operator new`](op_new.md)`(size)` を呼び出す。アライメントに関しては単一オブジェクト版と同様に動作する。
-- (3), (4) : C++03 までと C++11 からで異なる。  
-    - C++03 まで：[`operator new`](op_new.md)`(size, std::`[`nothrow`](nothrow_t.md)`)` を呼び出す。  
+- (3), (4) : C++98 までと C++11 からで異なる。  
+    - C++98 まで：[`operator new`](op_new.md)`(size, std::`[`nothrow`](nothrow_t.md)`)` を呼び出す。  
     - C++11 から：(1) の形式を `operator new[](size)` で呼び出す。ただし、記憶域の確保に失敗しても例外を送出しない。
 - (5) : 何もしない。
 
@@ -67,7 +67,7 @@ constexpr void* operator new[](std::size_t size, void* ptr) noexcept;     // (5)
 ## 戻り値
 - (1), (2) : 確保した記憶域の先頭アドレスを指すポインタ（[`operator new`](op_new.md)`(size)` の戻り値）。
 - (3), (4) : 記憶域を確保できた場合、確保した記憶域の先頭アドレスを指すポインタ。確保できなかった場合、ヌルポインタ。
-    - C++03 まで：[`operator new`](op_new.md)`(size, std::`[`nothrow`](nothrow_t.md)`)` の戻り値
+    - C++98 まで：[`operator new`](op_new.md)`(size, std::`[`nothrow`](nothrow_t.md)`)` の戻り値
     - C++11 から：`operator new[](size)` の戻り値。ただし、`std::`[`bad_alloc`](bad_alloc.md) 例外が送出された場合には、ヌルポインタ。
 - (5) : 引数 `ptr`
 
@@ -87,11 +87,11 @@ constexpr void* operator new[](std::size_t size, void* ptr) noexcept;     // (5)
 
 - (1)と(2) の形式の `operator new[]` を呼び出すだけであれば、（`new` 式から間接的に呼ばれる場合も含めて）`new` ヘッダをインクルードする必要はない。
 
-- (3) の形式の挙動の C++03 までと C++11 からの差は、利用者が [`operator new`](op_new.md)、あるいは `operator new[]` を置き換えていない場合には顕在化しない。  
-    しかし、例えば利用者が (1) の形式のみを置き換えた場合、C++03 までは (3) の形式を呼び出しても置き換えられたバージョンは呼び出されずに、間接的に[`operator new`](op_new.md) の (3) の形式を呼び出す。  
+- (3) の形式の挙動の C++98 までと C++11 からの差は、利用者が [`operator new`](op_new.md)、あるいは `operator new[]` を置き換えていない場合には顕在化しない。  
+    しかし、例えば利用者が (1) の形式のみを置き換えた場合、C++98 までは (3) の形式を呼び出しても置き換えられたバージョンは呼び出されずに、間接的に[`operator new`](op_new.md) の (3) の形式を呼び出す。  
     `new` 式と異なり、`delete` 式には配置構文が存在しないため、(3) の形式で確保した記憶域も通常の `delete` 式で解放する事になる（コンストラクタで例外が送出された場合を除く。[`operator delete[]`](op_delete[].md) も参照）。  
-    従って、C++03 までの場合、(1) の形式を利用者提供の関数で置き換える場合は、(3) の形式も (1) の形式と同様の記憶域確保を行う利用者提供の関数で置き換えるべきである。その場合、C++11 の (3) の形式のように、(1) を呼び出した上で例外ハンドリングする方法が安全確実な方法である。  
-    なお、C++11 からは (3) の形式は (1) を呼び出すことになっているため、 (1) の形式のみを置き換えれば問題はないが、C++03 までのバージョンでも同様に動くようにするため、あるいは、標準ライブラリのバグで (3) の形式が (1) の形式を呼び出していない可能性もあるため、(3) の形式も提供した方が良いかもしれない。
+    従って、C++98 までの場合、(1) の形式を利用者提供の関数で置き換える場合は、(3) の形式も (1) の形式と同様の記憶域確保を行う利用者提供の関数で置き換えるべきである。その場合、C++11 の (3) の形式のように、(1) を呼び出した上で例外ハンドリングする方法が安全確実な方法である。  
+    なお、C++11 からは (3) の形式は (1) を呼び出すことになっているため、 (1) の形式のみを置き換えれば問題はないが、C++98 までのバージョンでも同様に動くようにするため、あるいは、標準ライブラリのバグで (3) の形式が (1) の形式を呼び出していない可能性もあるため、(3) の形式も提供した方が良いかもしれない。
 
 - (5) の形式は、実質何もしていない。この形式は、記憶域を確保した上でそこに新たなオブジェクトを構築するのではなく、あらかじめ確保されている記憶域上に新たなオブジェクトを構築するのに用いられる。  
     しかし、配列版 `new` 式では、指定した配列が必要とする記憶域のサイズをあらかじめ予測することが極めて困難であるため（下記を参照）、配列版 `new` 式の配置形式は使用すべきではない。  
