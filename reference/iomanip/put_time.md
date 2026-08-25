@@ -43,7 +43,7 @@ void f(basic_ios<CharT, Traits>& out, const struct tm* tmb, const CharT* fmt)
 * out.getloc()[link /reference/ios/ios_base/getloc.md]
 * out.rdbuf()[link /reference/ios/basic_ios/rdbuf.md]
 * out.fill()[link /reference/ios/basic_ios/fill.md]
-* tp.put[link /reference/locale/time_put/put.md.nolink]
+* tp.put[link /reference/locale/time_put/put.md]
 * end.failed()[link /reference/iterator/ostreambuf_iterator/failed.md]
 * out.setstate[link /reference/ios/basic_ios/setstate.md]
 * ios_base[link /reference/ios/ios_base.md]

@@ -13,12 +13,12 @@ char narrow(char_type c, char def) const;
 
 
 ## 戻り値
-[`use_facet`](../../locale/use_facet.md)`<`[`ctype`](../../locale/ctype.md)`<char_type>(`[`getloc`](../ios_base/getloc.md)`()).`[`narrow`](../../locale/ctype/narrow.md.nolink)`(c, def)`
+[`use_facet`](../../locale/use_facet.md)`<`[`ctype`](../../locale/ctype.md)`<char_type>(`[`getloc`](../ios_base/getloc.md)`()).`[`narrow`](../../locale/ctype/narrow.md)`(c, def)`
 
 
 ## 備考
 ストリームに設定されているロケールに従って、`char_type` 型の文字 `c` を対応する `char` 型の文字に変換する。変換できなかった場合には `def` を返す。  
-詳細は [`ctype`](../../locale/ctype.md)`::`[`narrow`](../../locale/ctype/narrow.md.nolink) を参照。
+詳細は [`ctype`](../../locale/ctype.md)`::`[`narrow`](../../locale/ctype/narrow.md) を参照。
 
 
 ## 例
@@ -49,7 +49,7 @@ int main()
 - [`ios_base`](../ios_base.md)`::`[`imbue`](../ios_base/imbue.md)
 - [`ios_base`](../ios_base.md)`::`[`getloc`](../ios_base/getloc.md)
 - [`ctype`](../../locale/ctype.md)
-- [`ctype`](../../locale/ctype.md)`::`[`narrow`](../../locale/ctype/narrow.md.nolink)
-- [`ctype`](../../locale/ctype.md)`::`[`widen`](../../locale/ctype/widen.md.nolink)
+- [`ctype`](../../locale/ctype.md)`::`[`narrow`](../../locale/ctype/narrow.md)
+- [`ctype`](../../locale/ctype.md)`::`[`widen`](../../locale/ctype/widen.md)
 - [`use_facet`](../../locale/use_facet.md)
 - [`locale`](../../locale/locale.md)

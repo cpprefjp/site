@@ -10,7 +10,9 @@ namespace std {
 ```
 
 ## 概要
-(ここに、クラスの概要を記載する)
+`codecvt_base`は、[`codecvt`](codecvt.md)による変換の結果を表す列挙型を定義する基底クラスである。
+
+[`codecvt`](codecvt.md)はこのクラスを継承しており、[`codecvt::in()`](codecvt/in.md)・[`codecvt::out()`](codecvt/out.md)・[`codecvt::unshift()`](codecvt/unshift.md)がこの列挙値を返す。
 
 ### メンバ型
 
@@ -29,11 +31,47 @@ namespace std {
 
 
 ## 例
-```cpp
+```cpp example
+#include <iostream>
+#include <locale>
+#include <cwchar>
+
+int main()
+{
+  using codecvt_t = std::codecvt<wchar_t, char, std::mbstate_t>;
+  const auto& cv = std::use_facet<codecvt_t>(std::locale::classic());
+
+  const char from[] = "abc";
+  wchar_t to[4] = {};
+
+  std::mbstate_t state{};
+  const char* from_next = nullptr;
+  wchar_t* to_next = nullptr;
+
+  // 変換結果はcodecvt_baseの列挙値として返る
+  codecvt_t::result r = cv.in(state, from, from + 3, from_next, to, to + 3, to_next);
+
+  std::cout << std::boolalpha << (r == std::codecvt_base::ok) << std::endl;
+}
 ```
+* std::codecvt_base::ok[color ff0000]
+* std::codecvt[link codecvt.md]
+* cv.in[link codecvt/in.md]
+* std::use_facet[link use_facet.md]
+* std::locale::classic()[link locale/classic.md]
 
 ### 出力
 ```
+true
 ```
 
-### 参照
+
+## バージョン
+### 言語
+- C++98
+
+
+## 関連項目
+- [`codecvt`](codecvt.md)
+- [`codecvt::in`](codecvt/in.md)
+- [`codecvt::out`](codecvt/out.md)

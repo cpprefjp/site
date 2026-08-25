@@ -12,33 +12,65 @@ namespace std {
 * moneypunct[link /reference/locale/moneypunct.md]
 
 ## 概要
-(ここに、クラスの概要を記載する)
+`moneypunct_byname`は、名前で指定したロケールの金額のフォーマットを提供する、[`moneypunct`](/reference/locale/moneypunct.md)の派生クラスである。
 
-### メンバ関数
+[`moneypunct`](/reference/locale/moneypunct.md)の仮想関数を、[`locale(const char*)`](locale/op_constructor.md)で同じ名前を指定して構築したロケールのファセットと等価な意味論で実装する。
+
+このクラスは[`moneypunct`](/reference/locale/moneypunct.md)が提供するインタフェースをそのまま継承しており、独自のメンバ関数は持たない。
+
+## メンバ関数
+
+### publicメンバ関数
 
 | 名前 | 説明 |
 |----------------------------|-----------------------|
-| `(constructor)` | コンストラクタ |
+| [`(constructor)`](moneypunct_byname/op_constructor.md) | コンストラクタ |
 
-### 静的メンバ関数
+### protectedメンバ関数
 
 | 名前 | 説明 |
 |---------------------------|--------------------|
-| `(destructor)` | デストラクタ |
+| [`(destructor)`](moneypunct_byname/op_destructor.md) | デストラクタ |
 
-### メンバ型
+## メンバ型
 
 | 名前 | 説明 |
 |-------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pattern` | 金額のフォーマット型 [`money_base`](/reference/locale/money_base.md)`::pattern` |
-| `string_type` | 文字列型 [`basic_string`](/reference/string/basic_string.md)`<charT>` |
+| `string_type` | 文字列型 [`std::basic_string`](/reference/string/basic_string.md)`<charT>` |
 
-### 例
-```cpp
+## 例
+```cpp example
+#include <iostream>
+#include <locale>
+
+int main()
+{
+  // ファセットのデストラクタはprotectedであるため、
+  // newで確保してlocaleに所有権を渡す
+  std::locale loc{std::locale::classic(), new std::moneypunct_byname<char>{"C"}};
+
+  std::cout << std::boolalpha
+            << std::has_facet<std::moneypunct<char>>(loc) << std::endl;
+}
 ```
+* std::moneypunct_byname[color ff0000]
+* std::locale[link locale.md]
+* std::locale::classic()[link locale/classic.md]
+* std::has_facet[link has_facet.md]
+* std::moneypunct[link moneypunct.md]
 
 ### 出力
 ```
+true
 ```
 
-### 参照
+
+## バージョン
+### 言語
+- C++98
+
+
+## 関連項目
+- [`moneypunct`](/reference/locale/moneypunct.md)
+- [`locale`](locale.md)
