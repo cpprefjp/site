@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-static bool lt(const char_type& c1, const char_type& c2);      // C++03
+static bool lt(const char_type& c1, const char_type& c2);      // C++98
 static constexpr bool lt(char_type c1, char_type c2) noexcept; // C++11
 ```
 

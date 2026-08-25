@@ -8,7 +8,7 @@ namespace std {
   template <class CharT, class Traits, class Allocator>
   bool
     operator==(const basic_string<CharT, Traits, Allocator>& a,
-               const basic_string<CharT, Traits, Allocator>& b);          // (1) C++03
+               const basic_string<CharT, Traits, Allocator>& b);          // (1) C++98
   template <class CharT, class Traits, class Allocator>
   bool
     operator==(const basic_string<CharT, Traits, Allocator>& a,
@@ -21,7 +21,7 @@ namespace std {
   template <class CharT, class Traits, class Allocator>
   bool
     operator==(const basic_string<CharT, Traits, Allocator>& a,
-               const CharT* b);                                  // (2) C++03
+               const CharT* b);                                  // (2) C++98
   template <class CharT, class Traits, class Allocator>
   constexpr bool
     operator==(const basic_string<CharT, Traits, Allocator>& a,
@@ -31,7 +31,7 @@ namespace std {
   template <class CharT, class Traits, class Allocator>
   bool
     operator==(const CharT* a,
-               const basic_string<CharT, Traits, Allocator>& b); // (3) C++03
+               const basic_string<CharT, Traits, Allocator>& b); // (3) C++98
   template <class CharT, class Traits, class Allocator>
   constexpr bool
     operator==(const CharT* a,

@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-exception();                    // (1) C++03
+exception();                    // (1) C++98
 exception() noexcept;           // (1) C++11
 constexpr exception() noexcept; // (1) C++26
 
-exception(const exception&);                    // (2) C++03
+exception(const exception&);                    // (2) C++98
 exception(const exception&) noexcept;           // (2) C++11
 constexpr exception(const exception&) noexcept; // (2) C++26
 ```

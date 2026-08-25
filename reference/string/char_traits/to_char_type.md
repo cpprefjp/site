@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-static char_type to_char_type(const int_type& c);             // C++03
+static char_type to_char_type(const int_type& c);             // C++98
 static constexpr char_type to_char_type(int_type c) noexcept; // C++11
 ```
 

@@ -6,7 +6,7 @@
 * cpp20removed[meta cpp]
 
 ```cpp
-// C++03
+// C++98
 template <class T>
 pair<T*, ptrdiff_t> get_temporary_buffer(ptrdiff_t n);
 

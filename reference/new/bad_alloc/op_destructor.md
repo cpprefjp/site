@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-virtual ~bad_alloc();           // (1) C++03
+virtual ~bad_alloc();           // (1) C++98
 constexpr virtual ~bad_alloc(); // (1) C++26
 ```
 

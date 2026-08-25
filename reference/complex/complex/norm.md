@@ -7,7 +7,7 @@
 namespace std {
   template <class T>
   T
-    norm(const complex<T>& x); // (1) C++03
+    norm(const complex<T>& x); // (1) C++98
   template <class T>
   constexpr T
     norm(const complex<T>& x); // (1) C++20

@@ -6,9 +6,9 @@
 
 ```cpp
 namespace std {
-  float acos(float x);             // (1) C++03からC++20まで
-  double acos(double x);           // (2) C++03からC++20まで
-  long double acos(long double x); // (3) C++03からC++20まで
+  float acos(float x);             // (1) C++98からC++20まで
+  double acos(double x);           // (2) C++98からC++20まで
+  long double acos(long double x); // (3) C++98からC++20まで
 
   floating-point-type
     acos(floating-point-type x);   // (4) C++23
@@ -95,7 +95,7 @@ acos(-1.0) = 3.141593
 
 
 ### 言語
-- C++03
+- C++98
 
 ### 処理系
 - [Clang](/implementation.md#clang): 1.9 [mark verified], 2.9 [mark verified], 3.1 [mark verified]

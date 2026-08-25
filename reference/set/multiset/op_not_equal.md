@@ -9,7 +9,7 @@ namespace std {
   template <class Key, class Compare, class Allocator>
   bool
     operator!=(const multiset<Key,Compare,Allocator>& x,
-               const multiset<Key,Compare,Allocator>& y); // (1) C++03
+               const multiset<Key,Compare,Allocator>& y); // (1) C++98
   template <class Key, class Compare, class Allocator>
   constexpr bool
     operator!=(const multiset<Key,Compare,Allocator>& x,

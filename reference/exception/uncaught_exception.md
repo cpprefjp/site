@@ -7,7 +7,7 @@
 
 ```cpp
 namespace std {
-  bool uncaught_exception() throw();  // C++03
+  bool uncaught_exception() throw();  // C++98
   bool uncaught_exception() noexcept; // C++11
 }
 ```

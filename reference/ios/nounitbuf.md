@@ -44,7 +44,7 @@ test
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 ## 参照
 - [`unitbuf`](unitbuf.md)

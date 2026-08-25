@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-map& operator=(const map& x);           // (1) C++03
+map& operator=(const map& x);           // (1) C++98
 constexpr map& operator=(const map& x); // (1) C++26
 
 map& operator=(map&& x);           // (2) C++11

@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-iterator insert(const value_type& x);           // (1) C++03
+iterator insert(const value_type& x);           // (1) C++98
 constexpr iterator insert(const value_type& x); // (1) C++26
 
 iterator insert(value_type&& y);           // (2) C++17
@@ -16,7 +16,7 @@ iterator insert(P&& x);           // (3) C++11
 template <class P>
 constexpr iterator insert(P&& x); // (3) C++26
 
-iterator insert(iterator position, const value_type& x);                 // (4) C++03
+iterator insert(iterator position, const value_type& x);                 // (4) C++98
 iterator insert(const_iterator position, const value_type& x);           // (4) C++11
 constexpr iterator insert(const_iterator position, const value_type& x); // (4) C++26
 
@@ -29,7 +29,7 @@ template <class P>
 constexpr iterator insert(const_iterator position, P&& x); // (6) C++26
 
 template <class InputIterator>
-void insert(InputIterator first, InputIterator last);           // (7) C++03
+void insert(InputIterator first, InputIterator last);           // (7) C++98
 template <class InputIterator>
 constexpr void insert(InputIterator first, InputIterator last); // (7) C++26
 

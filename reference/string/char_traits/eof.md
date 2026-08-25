@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-static int_type eof();                    // C++03
+static int_type eof();                    // C++98
 static constexpr int_type eof() noexcept; // C++11
 ```
 

@@ -6,7 +6,7 @@
 ```cpp
 namespace std {
   template <class T, class Allocator>
-  void swap(vector<T, Allocator>& x, vector<T, Allocator>& y); // (1) C++03
+  void swap(vector<T, Allocator>& x, vector<T, Allocator>& y); // (1) C++98
 
   template <class T, class Allocator>
   void swap(vector<T,Allocator>& x, vector<T,Allocator>& y)

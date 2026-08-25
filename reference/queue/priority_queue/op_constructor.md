@@ -7,7 +7,7 @@
 ```cpp
 explicit
   priority_queue(const Compare& x = Compare(),
-                 const Container& other = Container()); // (1) C++03
+                 const Container& other = Container()); // (1) C++98
 explicit
   priority_queue(const Compare& x = Compare(),
                  Container&& y = Container());          // (1) C++11
@@ -27,7 +27,7 @@ constexpr explicit
 priority_queue(const Compare& x, const Container& other);           // (3) C++11
 constexpr priority_queue(const Compare& x, const Container& other); // (3) C++26
 
-priority_queue(const priority_queue&);                     // (4) C++03
+priority_queue(const priority_queue&);                     // (4) C++98
 priority_queue(const priority_queue&) = default;           // (4) C++11
 constexpr priority_queue(const priority_queue&) = default; // (4) C++26
 
@@ -35,7 +35,7 @@ template <class InputIterator>
 priority_queue(InputIterator first,
                InputIterator last,
                const Compare& x = Compare(),
-               const Container& other = Container()); // (5) C++03
+               const Container& other = Container()); // (5) C++98
 template <class InputIterator>
 constexpr
   priority_queue(InputIterator first,
@@ -186,7 +186,7 @@ constexpr
 
 ## 概要
 - (1) : デフォルトコンストラクタ
-    - C++03 : 比較関数と元となるコンテナをコピーして構築する。
+    - C++98 : 比較関数と元となるコンテナをコピーして構築する。
     - C++11 : 比較関数をコピー、元となるコンテナをムーブして構築する。
     - C++20 : (2)に委譲。
 - (2) : 比較関数のコピーと元となるコンテナをデフォルト構築して構築するコンストラクタ。
@@ -215,7 +215,7 @@ constexpr
 
 ## 効果
 - (1) :
-    - C++03
+    - C++98
         1. メンバ変数`comp`を`x`でコピー構築する。
         2. メンバ変数`c`を`other`でコピー構築する。
         3. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。

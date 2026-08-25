@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void clear();                    // (1) C++03
+void clear();                    // (1) C++98
 void clear() noexcept;           // (1) C++11
 constexpr void clear() noexcept; // (1) C++26
 ```

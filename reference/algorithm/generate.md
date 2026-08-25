@@ -8,7 +8,7 @@ namespace std {
   template <class ForwardIterator, class Generator>
   void generate(ForwardIterator first,
                 ForwardIterator last,
-                Generator gen);                  // (1) C++03
+                Generator gen);                  // (1) C++98
 
   template <class ForwardIterator, class Generator>
   constexpr void generate(ForwardIterator first,

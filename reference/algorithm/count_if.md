@@ -9,7 +9,7 @@ namespace std {
   typename iterator_traits<InputIterator>::difference_type
     count_if(InputIterator first,
              InputIterator last,
-             Predicate pred);        // (1) C++03
+             Predicate pred);        // (1) C++98
 
   template <class InputIterator, class Predicate>
   constexpr typename iterator_traits<InputIterator>::difference_type

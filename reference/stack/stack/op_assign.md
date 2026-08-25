@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-stack& operator=(const stack& st);           // (1) C++03
+stack& operator=(const stack& st);           // (1) C++98
 constexpr stack& operator=(const stack& st); // (1) C++26
 
 stack& operator=(stack&& st);           // (2) C++11

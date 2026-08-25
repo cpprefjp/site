@@ -10,7 +10,7 @@ namespace std {
   InputIterator
     find(InputIterator first,
          InputIterator last,
-         const T& value);     // (1) C++03
+         const T& value);     // (1) C++98
   template <class InputIterator,
             class T>
   constexpr InputIterator

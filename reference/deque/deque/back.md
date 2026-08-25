@@ -6,12 +6,12 @@
 
 ```cpp
 reference
-  back();           // (1) C++03
+  back();           // (1) C++98
 constexpr reference
   back();           // (1) C++26
 
 const_reference
-  back() const;           // (2) C++03
+  back() const;           // (2) C++98
 constexpr const_reference
   back() const;           // (2) C++26
 ```

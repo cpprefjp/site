@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-size_type size() const;           // (1) C++03
+size_type size() const;           // (1) C++98
 constexpr size_type size() const; // (1) C++26
 ```
 

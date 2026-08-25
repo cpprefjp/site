@@ -6,7 +6,7 @@
 
 ```cpp
 // operator==により、以下のオーバーロードが使用可能になる (C++20)
-bool operator!=(const locale& other) const; // (1) C++03
+bool operator!=(const locale& other) const; // (1) C++98
 ```
 
 ## 概要

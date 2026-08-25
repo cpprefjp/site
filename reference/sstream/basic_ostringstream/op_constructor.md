@@ -10,11 +10,11 @@ basic_ostringstream()
 explicit basic_ostringstream(
   ios_base::openmode which);                  // (2) C++11
 explicit basic_ostringstream(
-  ios_base::openmode which = ios_base::out);  // (1)+(2) C++03
+  ios_base::openmode which = ios_base::out);  // (1)+(2) C++98
 
 explicit basic_ostringstream(
   const basic_string<CharT, Traits, Allocator>& s,
-  ios_base::openmode which = ios_base::out);         // (2) C++03
+  ios_base::openmode which = ios_base::out);         // (2) C++98
 
 explicit basic_ostringstream(
   basic_string<CharT, Traits, Allocator>&& s,

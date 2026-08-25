@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-size_type size() const;                    // (1) C++03
+size_type size() const;                    // (1) C++98
 size_type size() const noexcept;           // (1) C++11
 constexpr size_type size() const noexcept; // (1) C++26
 ```
@@ -23,7 +23,7 @@ constexpr size_type size() const noexcept; // (1) C++26
 
 
 ## 計算量
-- C++03 : 実装依存（多くの実装で定数時間 or 線形時間）
+- C++98 : 実装依存（多くの実装で定数時間 or 線形時間）
 - C++11 : 定数時間
 
 

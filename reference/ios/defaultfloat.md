@@ -67,7 +67,7 @@ defaultfloat             fixed      scientific        hexfloat
 ```
 
 ## 実装例
-この実装はC++03の下でも可能である。
+この実装はC++98の下でも可能である。
 ```cpp
 namespace std {
   ios_base& defaultfloat(ios_base& str) {

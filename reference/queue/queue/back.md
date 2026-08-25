@@ -5,10 +5,10 @@
 * function[meta id-type]
 
 ```cpp
-value_type& back();           // (1) C++03
+value_type& back();           // (1) C++98
 constexpr value_type& back(); // (1) C++26
 
-const value_type& back() const;           // (2) C++03
+const value_type& back() const;           // (2) C++98
 constexpr const value_type& back() const; // (2) C++26
 ```
 

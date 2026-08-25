@@ -7,7 +7,7 @@
 namespace std {
   template <class RandomAccessIterator>
   void sort_heap(RandomAccessIterator first,
-                 RandomAccessIterator last);           // (1) C++03
+                 RandomAccessIterator last);           // (1) C++98
 
   template <class RandomAccessIterator>
   constexpr void sort_heap(RandomAccessIterator first,
@@ -16,7 +16,7 @@ namespace std {
   template <class RandomAccessIterator, class Compare>
   void sort_heap(RandomAccessIterator first,
                  RandomAccessIterator last,
-                 Compare comp);                        // (2) C++03
+                 Compare comp);                        // (2) C++98
 
   template <class RandomAccessIterator, class Compare>
   constexpr void sort_heap(RandomAccessIterator first,

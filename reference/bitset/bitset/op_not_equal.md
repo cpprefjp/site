@@ -6,7 +6,7 @@
 
 ```cpp
 // operator==により、以下のオーバーロードが使用可能になる (C++20)
-bool operator!=(const bitset<N>& rhs) const;          // (1) C++03
+bool operator!=(const bitset<N>& rhs) const;          // (1) C++98
 bool operator!=(const bitset<N>& rhs) const noexcept; // (1) C++11
 constexpr bool operator!=(const bitset<N>& rhs) const noexcept; // (1) C++23
 ```

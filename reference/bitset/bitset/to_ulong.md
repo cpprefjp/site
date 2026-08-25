@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-unsigned long to_ulong() const;           // (1) C++03
+unsigned long to_ulong() const;           // (1) C++98
 constexpr unsigned long to_ulong() const; // (1) C++23
 ```
 

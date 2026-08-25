@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-bool operator==(const bitset<N>& rhs) const;          // (1) C++03
+bool operator==(const bitset<N>& rhs) const;          // (1) C++98
 bool operator==(const bitset<N>& rhs) const noexcept; // (1) C++11
 constexpr bool operator==(const bitset<N>& rhs) const noexcept; // (1) C++23
 ```

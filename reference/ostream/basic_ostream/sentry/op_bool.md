@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-operator bool() const;              // C++03 まで
+operator bool() const;              // C++98 まで
 explicit operator bool() const;     // C++11 から
 ```
 

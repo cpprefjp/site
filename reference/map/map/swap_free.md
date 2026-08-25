@@ -8,7 +8,7 @@ namespace std {
   template <class Key, class T, class Compare, class Allocator>
   void
     swap(map<Key,T,Compare,Allocator>& x,
-         map<Key,T,Compare,Allocator>& y); // (1) C++03
+         map<Key,T,Compare,Allocator>& y); // (1) C++98
   template <class Key, class T, class Compare, class Allocator>
   void
     swap(map<Key,T,Compare,Allocator>& x,
@@ -84,7 +84,7 @@ m2 : {[10,a], [20,b], [30,c], }
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??

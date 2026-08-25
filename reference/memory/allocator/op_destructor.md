@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-~allocator() throw();       // C++03 まで
+~allocator() throw();       // C++98 まで
 ~allocator();               // C++11 から C++17 まで
 constexpr ~allocator();     // C++20 から
 ```

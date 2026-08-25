@@ -8,32 +8,32 @@
 // マニピュレータ
 // 3つとも関数へのポインタを引数に取る。
 basic_istream<CharT, Traits>&
-  operator>>(basic_istream<CharT, Traits>& (*pf)(basic_istream<CharT, Traits>&)); // (1) C++03
+  operator>>(basic_istream<CharT, Traits>& (*pf)(basic_istream<CharT, Traits>&)); // (1) C++98
 basic_istream<CharT, Traits>&
-  operator>>(basic_ios<CharT, Traits>& (*pf)(basic_ios<CharT, Traits>&));         // (2) C++03
+  operator>>(basic_ios<CharT, Traits>& (*pf)(basic_ios<CharT, Traits>&));         // (2) C++98
 basic_istream<CharT, Traits>&
-  operator>>(ios_base& (*pf)(ios_base&));                                         // (3) C++03
+  operator>>(ios_base& (*pf)(ios_base&));                                         // (3) C++98
 
 // bool値・数値・ポインタ
-basic_istream<CharT, Traits>& operator>>(bool& n);               // (4) C++03
-basic_istream<CharT, Traits>& operator>>(short& n);              // (5) C++03
-basic_istream<CharT, Traits>& operator>>(unsigned short& n);     // (6) C++03
-basic_istream<CharT, Traits>& operator>>(int& n);                // (7) C++03
-basic_istream<CharT, Traits>& operator>>(unsigned int& n);       // (8) C++03
-basic_istream<CharT, Traits>& operator>>(long& n);               // (9) C++03
-basic_istream<CharT, Traits>& operator>>(unsigned long& n);      // (10) C++03
+basic_istream<CharT, Traits>& operator>>(bool& n);               // (4) C++98
+basic_istream<CharT, Traits>& operator>>(short& n);              // (5) C++98
+basic_istream<CharT, Traits>& operator>>(unsigned short& n);     // (6) C++98
+basic_istream<CharT, Traits>& operator>>(int& n);                // (7) C++98
+basic_istream<CharT, Traits>& operator>>(unsigned int& n);       // (8) C++98
+basic_istream<CharT, Traits>& operator>>(long& n);               // (9) C++98
+basic_istream<CharT, Traits>& operator>>(unsigned long& n);      // (10) C++98
 basic_istream<CharT, Traits>& operator>>(long long& n);          // (11) C++11
 basic_istream<CharT, Traits>& operator>>(unsigned long long& n); // (12) C++11
-basic_istream<CharT, Traits>& operator>>(float& f);              // (13) C++03
-basic_istream<CharT, Traits>& operator>>(double& f);             // (14) C++03
-basic_istream<CharT, Traits>& operator>>(long double& f);        // (15) C++03
+basic_istream<CharT, Traits>& operator>>(float& f);              // (13) C++98
+basic_istream<CharT, Traits>& operator>>(double& f);             // (14) C++98
+basic_istream<CharT, Traits>& operator>>(long double& f);        // (15) C++98
 basic_istream<CharT, Traits>&
   operator>>(extended-floating-point-type& f);                   // (16) C++23
-basic_istream<CharT, Traits>& operator>>(void*& p);              // (17) C++03
+basic_istream<CharT, Traits>& operator>>(void*& p);              // (17) C++98
 
 // ストリームバッファ
 basic_istream<CharT, Traits>&
-  operator>>(basic_streambuf<char_type, Traits>* sb); // (18) C++03
+  operator>>(basic_streambuf<char_type, Traits>* sb); // (18) C++98
 ```
 
 ## 概要

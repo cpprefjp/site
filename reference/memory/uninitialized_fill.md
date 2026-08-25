@@ -9,7 +9,7 @@ namespace std {
   void
     uninitialized_fill(ForwardIterator first,
                        ForwardIterator last,
-                       const T& x);           // (1) C++03
+                       const T& x);           // (1) C++98
   template <class NoThrowForwardIterator,
             class T = typename iterator_traits<NoThrowForwardIterator>::value_type>
   constexpr void
@@ -41,7 +41,7 @@ namespace std {
 
 
 ## 効果
-- C++03 : 以下と等価
+- C++98 : 以下と等価
     ```cpp
     for (; first != last; ++first)
       ::new (static_cast<void*>(&*first))

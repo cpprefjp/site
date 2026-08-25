@@ -14,7 +14,7 @@ namespace std {
   template <class RandomAccessIterator, class RandomNumberGenerator>
   void random_shuffle(RandomAccessIterator first,
                       RandomAccessIterator last,
-                      RandomNumberGenerator& rand);  // (2) C++03
+                      RandomNumberGenerator& rand);  // (2) C++98
 
   template <class RandomAccessIterator, class RandomNumberGenerator>
   void random_shuffle(RandomAccessIterator first,

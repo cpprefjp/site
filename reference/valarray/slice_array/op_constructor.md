@@ -6,8 +6,8 @@
 
 ```cpp
 private:
-  slice_array();                   // (1) C++03 まで
-  slice_array(const slice_array&)  // (2) C++03 まで
+  slice_array();                   // (1) C++98 まで
+  slice_array(const slice_array&)  // (2) C++98 まで
 
 public:
   slice_array() = delete;          // (1) C++11 から

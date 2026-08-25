@@ -6,7 +6,7 @@
 
 ```cpp
 protected:
-  virtual int_type overflow(int_type c = traits::eof());  // (1) C++03
+  virtual int_type overflow(int_type c = traits::eof());  // (1) C++98
   int_type overflow(int_type c = traits::eof()) override; // (1) C++17
 ```
 

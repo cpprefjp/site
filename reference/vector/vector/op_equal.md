@@ -7,7 +7,7 @@
 namespace std {
   template <class T, class Allocator>
   bool operator==(const vector<T, Allocator>& x,
-                  const vector<T, Allocator>& y);           // (1) C++03
+                  const vector<T, Allocator>& y);           // (1) C++98
 
   template <class T, class Allocator>
   constexpr bool operator==(const vector<T, Allocator>& x,
@@ -24,7 +24,7 @@ namespace std {
 
 
 ## 効果
-- C++03 : `x.`[`size`](size.md)`() == y.`[`size`](size.md)`() &&` [`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`(), y.`[`begin`](begin.md)`());`
+- C++98 : `x.`[`size`](size.md)`() == y.`[`size`](size.md)`() &&` [`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`(), y.`[`begin`](begin.md)`());`
 - C++14 : [`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`(), y.`[`begin`](begin.md)`(), y.`[`end`](end.md)`());`
 
 

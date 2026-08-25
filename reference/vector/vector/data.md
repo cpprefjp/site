@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-T* data();                      // (1) C++03
+T* data();                      // (1) C++98
 T* data() noexcept;             // (1) C++11
 constexpr T* data() noexcept;   // (1) C++20
 
-const T* data() const;                    // (2) C++03
+const T* data() const;                    // (2) C++98
 const T* data() const noexcept;           // (2) C++11
 constexpr const T* data() const noexcept; // (2) C++20
 ```

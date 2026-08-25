@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-const locale& operator=(const locale& other) noexcept; // (1) C++03
+const locale& operator=(const locale& other) noexcept; // (1) C++98
 ```
 
 ## 概要
@@ -48,7 +48,7 @@ int main()
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 
 ## 関連項目

@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-set& operator=(const set& x);           // (1) C++03
+set& operator=(const set& x);           // (1) C++98
 constexpr set& operator=(const set& x); // (1) C++26
 
 set& operator=(set&& x);                                    // (2) C++11

@@ -7,7 +7,7 @@
 ```cpp
 iterator
   insert(iterator position,
-         const T& x);               // (1) C++03
+         const T& x);               // (1) C++98
 iterator
   insert(const_iterator position,
          const T& x);               // (1) C++11
@@ -25,7 +25,7 @@ constexpr iterator
 void
   insert(iterator position,
          size_type n,
-         const T& x);               // (3) C++03
+         const T& x);               // (3) C++98
 iterator
   insert(const_iterator position,
          size_type n,
@@ -39,7 +39,7 @@ template <class InputIterator>
 void
   insert(iterator position,
          InputIterator first,
-         InputIterator last);       // (4) C++03
+         InputIterator last);       // (4) C++98
 template <class InputIterator>
 iterator
   insert(const_iterator position,
@@ -81,7 +81,7 @@ constexpr iterator
 
 
 ## 戻り値
-- C++03まで一番上のバージョンのみ、新しい要素が挿入された場所を指すイテレータを返す。
+- C++98まで一番上のバージョンのみ、新しい要素が挿入された場所を指すイテレータを返す。
 - C++11以降新しい要素が挿入された場所を示すイテレータ。
 
 
@@ -91,7 +91,7 @@ constexpr iterator
 
 ## 備考
 - 条件付きで、例外が発生した場合に副作用が発生しない保証がある。
-	- C++03: 要素型`T`のコピーコンストラクタ、代入演算子以外で例外が発生した場合、副作用は発生しない。
+	- C++98: 要素型`T`のコピーコンストラクタ、代入演算子以外で例外が発生した場合、副作用は発生しない。
 	- C++11: 要素型`T`のコピーコンストラクタ、ムーブコンストラクタ、代入演算子、ムーブ代入演算子以外で例外が発生した場合、副作用は発生しない。（ムーブについて規定が追加された。）
 	- C++14: 単一要素を終端あるいは先頭に追加する際に例外が発生した場合、副作用は発生しない。それ以外はC++11と同様。
 

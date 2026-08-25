@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void remove(const T& value);                // (1) C++03
+void remove(const T& value);                // (1) C++98
 size_type remove(const T& value);           // (1) C++20
 constexpr size_type remove(const T& value); // (1) C++26
 ```
@@ -20,7 +20,7 @@ constexpr size_type remove(const T& value); // (1) C++26
 
 
 ## 戻り値
-- C++03 : なし
+- C++98 : なし
 - C++20 : 削除された要素数を返す
 
 

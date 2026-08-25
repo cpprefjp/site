@@ -41,7 +41,7 @@ int main()
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 ## 参照
 - [`noshowpoint`](noshowpoint.md)

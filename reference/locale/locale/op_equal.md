@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-bool operator==(const locale& other) const; // (1) C++03
+bool operator==(const locale& other) const; // (1) C++98
 ```
 
 ## 概要

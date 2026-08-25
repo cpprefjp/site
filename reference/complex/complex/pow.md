@@ -8,7 +8,7 @@ namespace std {
   template <class T>
   complex<T>
     pow(const complex<T>& x,
-        const complex<T>& y);    // (1) C++03
+        const complex<T>& y);    // (1) C++98
   template <class T>
   constexpr complex<T>
     pow(const complex<T>& x,
@@ -17,7 +17,7 @@ namespace std {
   template <class T>
   complex<T>
     pow(const complex<T>& x,
-        const T& y);             // (2) C++03
+        const T& y);             // (2) C++98
   template <class T>
   constexpr complex<T>
     pow(const complex<T>& x,
@@ -26,7 +26,7 @@ namespace std {
   template <class T>
   complex<T>
     pow(const T& x,
-        const complex<T>& y);    // (3) C++03
+        const complex<T>& y);    // (3) C++98
   template <class T>
   constexpr complex<T>
     pow(const T& x,
@@ -35,7 +35,7 @@ namespace std {
   template <class T>
   complex<T>
     pow(const complex<T>& x,
-        int y);                  // (4) C++03 まで
+        int y);                  // (4) C++98 まで
 
   complex<Promoted>
     pow(ArithmeticOrComplex1 x,

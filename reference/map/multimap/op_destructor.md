@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-~multimap();           // (1) C++03
+~multimap();           // (1) C++98
 constexpr ~multimap(); // (1) C++26
 ```
 

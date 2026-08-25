@@ -11,7 +11,7 @@ namespace std {
   void
     fill_n(OutputIterator first,
            Size n,
-           const T& value);        // (1) C++03
+           const T& value);        // (1) C++98
   template <class OutputIterator,
             class Size,
             class T>
@@ -69,7 +69,7 @@ namespace std {
 
 
 ## 戻り値
-- C++03 まで  
+- C++98 まで  
 	無し
 - C++11 から  
 	`n` が 1 以上の場合は `first + n`、そうでない場合は `first` を返す。

@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-pointer operator->() const;           // C++03
+pointer operator->() const;           // C++98
 constexpr pointer operator->() const; // C++17
 constexpr pointer operator->() const  // C++20
   requires (is_pointer_v<Iterator> ||
@@ -18,7 +18,7 @@ constexpr pointer operator->() const  // C++20
 
 
 ## 戻り値
-- C++03 : `&(operator*())`
+- C++98 : `&(operator*())`
 - C++14 : [`addressof`](/reference/memory/addressof.md)`(operator*())`
 - C++20 : 次のいずれか
     - `Iterator`がポインタ型である場合

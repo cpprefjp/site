@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-bool any() const;                    // (1) C++03
+bool any() const;                    // (1) C++98
 bool any() const noexcept;           // (1) C++11
 constexpr bool any() const noexcept; // (1) C++23
 ```

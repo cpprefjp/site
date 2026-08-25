@@ -6,7 +6,7 @@
 
 ```cpp
 pair<iterator, iterator>
-  equal_range(const key_type& x); // (1) C++03
+  equal_range(const key_type& x); // (1) C++98
 constexpr pair<iterator, iterator>
   equal_range(const key_type& x); // (1) C++26
 
@@ -18,7 +18,7 @@ constexpr pair<iterator, iterator>
   equal_range(const K& x);        // (2) C++26
 
 pair<const_iterator, const_iterator>
-  equal_range(const key_type& x) const; // (3) C++03
+  equal_range(const key_type& x) const; // (3) C++98
 constexpr pair<const_iterator, const_iterator>
   equal_range(const key_type& x) const; // (3) C++26
 

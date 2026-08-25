@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-string name() const; // (1) C++03
+string name() const; // (1) C++98
 ```
 * string[link /reference/string/basic_string.md]
 
@@ -46,7 +46,7 @@ C
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 
 ## 関連項目

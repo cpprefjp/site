@@ -6,7 +6,7 @@
 * cpp23deprecated[meta cpp]
 
 ```cpp
-static const bool has_denorm_loss;     // (1) C++03
+static const bool has_denorm_loss;     // (1) C++98
 static constexpr bool has_denorm_loss; // (1) C++11
 ```
 

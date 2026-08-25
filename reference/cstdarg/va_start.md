@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-#define va_start(ap, parmN) unspecified // (1) C++03
+#define va_start(ap, parmN) unspecified // (1) C++98
 #define va_start(ap, ...) unspecified   // (1) C++26
 ```
 * unspecified[italic]
@@ -13,7 +13,7 @@
 
 `ap`を初期化した後は、[`va_arg`](va_arg.md)マクロで各引数を順に取り出せる。使用後は、同じ`ap`に対して[`va_end`](va_end.md)マクロを呼び出さなければならない。
 
-- C++03 : 第2引数`parmN`には、可変引数（`...`）の直前にある関数の仮引数を指定する。
+- C++98 : 第2引数`parmN`には、可変引数（`...`）の直前にある関数の仮引数を指定する。
 - C++26 : 可変引数マクロとなり、`ap`以降の引数（`...`）は破棄される。歴史的経緯から第2引数を受け付けるが、その値は使用されない。
 
 
@@ -68,7 +68,7 @@ int main()
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 
 ## 関連項目

@@ -7,23 +7,23 @@
 namespace std {
   // 文字
   template<class CharT, class Traits>
-  basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT& c);        // (1) C++03
+  basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT& c);        // (1) C++98
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char& c); // (2) C++03
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char& c); // (2) C++98
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char& c);   // (3) C++03
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char& c);   // (3) C++98
 
   // 文字列
   template<class CharT, class Traits>
-  basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT* c);             // (4) C++03
+  basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT* c);             // (4) C++98
   template<class CharT, class Traits, std::size_t N>
   basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT (&s)[N]);        // (4) C++20
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char* c);      // (5) C++03
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char* c);      // (5) C++98
   template<class Traits, std::size_t N>
   basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char (&s)[N]); // (5) C++20
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char* c);        // (6) C++03
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char* c);        // (6) C++98
   template<class Traits, std::size_t N>
   basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char (&s)[N]);   // (6) C++20
 
@@ -70,7 +70,7 @@ namespace std {
 
 ### 文字列
 
-- C++03 : 文字型`CharT`の配列の要素を指し示すポインタを実引数として受け取る
+- C++98 : 文字型`CharT`の配列の要素を指し示すポインタを実引数として受け取る
     - ただし、`CharT`が`char`の場合に限り、`unsigned char`および`signed char`の配列の要素を指し示すポインタも受け付ける
 - C++20 : 文字型`CharT`の要素数が判明している配列への参照を受け取る
 

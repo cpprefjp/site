@@ -6,8 +6,8 @@
 
 ```cpp
 private:
-  mask_array();                  // (1) C++03
-  mask_array(const mask_array&)  // (2) C++03
+  mask_array();                  // (1) C++98
+  mask_array(const mask_array&)  // (2) C++98
 
 public:
   mask_array() = delete;         // (1) C++11

@@ -9,7 +9,7 @@ namespace std {
   ForwardIterator
     uninitialized_copy(InputIterator first,
                        InputIterator last,
-                       ForwardIterator result); // (1) C++03
+                       ForwardIterator result); // (1) C++98
   template <class InputIterator, class ForwardIterator>
   constexpr ForwardIterator
     uninitialized_copy(InputIterator first,
@@ -35,7 +35,7 @@ namespace std {
 - イテレータ範囲`[result, result + (last - first))`が`[first, last)`と重ならないこと
 
 ## 効果
-- C++03 : 以下と等価
+- C++98 : 以下と等価
     ```cpp
     for (; first != last; ++result, ++first)
       ::new (static_cast<void*>(&*result))

@@ -6,7 +6,7 @@
 
 ```cpp
 // operator==により、以下の演算子が使用可能になる (C++20)
-bool operator!=(const type_info& rhs) const;          // (1) C++03
+bool operator!=(const type_info& rhs) const;          // (1) C++98
 bool operator!=(const type_info& rhs) const noexcept; // (1) C++11
 ```
 

@@ -6,7 +6,7 @@
 ```cpp
 namespace std {
   template <class T, class Allocator>
-  bool operator==(const list<T, Allocator>& x, const list<T, Allocator>& y);           // (1) C++03
+  bool operator==(const list<T, Allocator>& x, const list<T, Allocator>& y);           // (1) C++98
   template <class T, class Allocator>
   constexpr bool operator==(const list<T, Allocator>& x, const list<T, Allocator>& y); // (1) C++26
 }
@@ -21,7 +21,7 @@ namespace std {
 
 
 ## 効果
-- C++03 : [`distance`](/reference/iterator/distance.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`()) ==` [`distance`](/reference/iterator/distance.md)`(y.`[`begin`](begin.md)`(), y.`[`end`](end.md)`()) &&` [`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`(), y.`[`begin`](begin.md)`());`
+- C++98 : [`distance`](/reference/iterator/distance.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`()) ==` [`distance`](/reference/iterator/distance.md)`(y.`[`begin`](begin.md)`(), y.`[`end`](end.md)`()) &&` [`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`(), y.`[`begin`](begin.md)`());`
 - C++14 : [`equal`](/reference/algorithm/equal.md)`(x.`[`begin`](begin.md)`(), x.`[`end`](end.md)`(), y.`[`begin`](begin.md)`(), y.`[`end`](end.md)`());`
 
 

@@ -7,7 +7,7 @@
 namespace std {
   template <class T, class CharT, class Traits, class Distance>
   bool operator==(const istream_iterator<T, CharT, Traits, Distance>& x,
-                  const istream_iterator<T, CharT, Traits, Distance>& y); // (1) C++03
+                  const istream_iterator<T, CharT, Traits, Distance>& y); // (1) C++98
 
   template <class T,
            class charT = char,

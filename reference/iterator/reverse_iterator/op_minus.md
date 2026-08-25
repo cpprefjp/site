@@ -8,7 +8,7 @@ namespace std {
   template<class Iterator1, class Iterator2>
   typename reverse_iterator<Iterator>::difference_type
   operator-(const reverse_iterator<Iterator1>& x,
-            const reverse_iterator<Iterator2>& y);               // C++03
+            const reverse_iterator<Iterator2>& y);               // C++98
 
   template <class Iterator1, class Iterator2>
   auto operator-(const reverse_iterator<Iterator1>& x,

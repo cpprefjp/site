@@ -9,7 +9,7 @@ namespace std {
   OutputIterator
     copy(InputIterator first,
          InputIterator last,
-         OutputIterator result);   // (1) C++03
+         OutputIterator result);   // (1) C++98
 
   template <class InputIterator, class OutputIterator>
   constexpr OutputIterator

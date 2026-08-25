@@ -22,7 +22,7 @@ namespace std {
 | [`operator=`](ios_base/op_assign.md)          | 代入演算子     |                |
 
 なお、コピーコンストラクタとコピー代入演算子はdelete定義されている。
-C++03では、delete定義の代わりに`private`で宣言のみされていた。
+C++98では、delete定義の代わりに`private`で宣言のみされていた。
 
 ### 書式化
 

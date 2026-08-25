@@ -14,7 +14,7 @@ constexpr list(const Allocator& a);              // (2) C++26
 explicit list(const Allocator& a = Allocator()); // (1), (2) C++11 まで。C++14 で削除
 
 explicit list(size_type n, const T& value = T(),
-              const Allocator& a = Allocator()); // (3) C++03 まで。C++11 で削除
+              const Allocator& a = Allocator()); // (3) C++98 まで。C++11 で削除
 list(size_type n, const T& value,
      const Allocator& a = Allocator());          // (3) C++11 から
 constexpr
@@ -33,14 +33,14 @@ constexpr explicit
 template <class InputIterator>
 list(InputIterator first,
      InputIterator last,
-     const Allocator& a = Allocator());   // (5) C++03
+     const Allocator& a = Allocator());   // (5) C++98
 template <class InputIterator>
 constexpr
   list(InputIterator first,
        InputIterator last,
        const Allocator& a = Allocator()); // (5) C++26
 
-list(const list& x);           // (6) C++03
+list(const list& x);           // (6) C++98
 constexpr list(const list& x); // (6) C++26
 
 list(list&& x);           // (7) C++11
@@ -111,7 +111,7 @@ list オブジェクトの構築
 
 
 ## 備考
-- (5) の形式は、C++03 までは `InputIterator` が整数型の場合には `list(static_cast<typename list::size_type>(first), static_cast<typename list::value_type>(last), a)` と等価とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
+- (5) の形式は、C++98 までは `InputIterator` が整数型の場合には `list(static_cast<typename list::size_type>(first), static_cast<typename list::value_type>(last), a)` と等価とされていたが、C++11 では `InputIterator` が入力イテレータの要件を満たさなければオーバーロード解決に参加しないように変更された。
 - C++11 では、(3) の形式の引数 `value` に関するデフォルト引数が削除され、新たに (4) の形式が追加された。  
 	これは、デフォルト引数を使用すると、引数 `value` のデフォルト初期化 1 回＋`list` の要素へのコピー初期化 `n` 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ `list` の要素へのデフォルト初期化 `n` 回のコンストラクタ呼び出しで済むためである。
 

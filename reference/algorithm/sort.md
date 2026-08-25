@@ -7,7 +7,7 @@
 namespace std {
   template <class RandomAccessIterator>
   void sort(RandomAccessIterator first,
-            RandomAccessIterator last);           // (1) C++03
+            RandomAccessIterator last);           // (1) C++98
 
   template <class RandomAccessIterator>
   constexpr void sort(RandomAccessIterator first,
@@ -16,7 +16,7 @@ namespace std {
   template <class RandomAccessIterator, class Compare>
   void sort(RandomAccessIterator first,
             RandomAccessIterator last,
-            Compare comp);                        // (2) C++03
+            Compare comp);                        // (2) C++98
 
   template <class RandomAccessIterator, class Compare>
   constexpr void sort(RandomAccessIterator first,
@@ -53,14 +53,14 @@ namespace std {
 
 
 ## 計算量
-- C++03: 平均して約N log N (N == `last - first`) 回の比較
+- C++98: 平均して約N log N (N == `last - first`) 回の比較
 - C++11以降: O(N log N) (N == `last - first`) 回の比較
 
 
 ## 備考
 - この関数には、特定のアルゴリズムで実装すべきという規定はない
 - 実装のアルゴリズムとしては、クイックソートの改良版であるイントロソートが使われることが多い
-- クイックソートは平均計算量がO(N log N)だが、最悪計算量がO(n<sup>2</sup>)である。そのため、C++03の計算量要件には合致するが、C++11の要件には合致しない
+- クイックソートは平均計算量がO(N log N)だが、最悪計算量がO(n<sup>2</sup>)である。そのため、C++98の計算量要件には合致するが、C++11の要件には合致しない
 
 
 ## 例

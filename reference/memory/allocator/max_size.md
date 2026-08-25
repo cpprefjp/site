@@ -7,7 +7,7 @@
 * cpp20removed[meta cpp]
 
 ```cpp
-size_type max_size() const throw();  // C++03
+size_type max_size() const throw();  // C++98
 size_type max_size() const noexcept; // C++11
 ```
 

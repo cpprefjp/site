@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-iterator end();                    // (1) C++03
+iterator end();                    // (1) C++98
 iterator end() noexcept;           // (1) C++11
 constexpr iterator end() noexcept; // (1) C++26
 
-const_iterator end() const;                    // (2) C++03
+const_iterator end() const;                    // (2) C++98
 const_iterator end() const noexcept;           // (2) C++11
 constexpr const_iterator end() const noexcept; // (2) C++26
 ```
@@ -72,7 +72,7 @@ int main()
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 ### 処理系
 - [Clang](/implementation.md#clang): 2.9 [mark verified], 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified]

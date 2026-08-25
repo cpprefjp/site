@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-bool operator==(const type_info& rhs) const;                     // (1) C++03
+bool operator==(const type_info& rhs) const;                     // (1) C++98
 bool operator==(const type_info& rhs) const noexcept;            // (1) C++11
 constexpr bool operator==(const type_info& rhs) const noexcept;  // (1) C++23
 ```

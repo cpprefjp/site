@@ -6,7 +6,7 @@
 ```cpp
 namespace std {
   template <class InputIterator, class Distance>
-  void advance(InputIterator& i, Distance n);               // C++03
+  void advance(InputIterator& i, Distance n);               // C++98
 
   template <class InputIterator, class Distance>
   constexpr void advance(InputIterator& i, Distance n);     // C++17

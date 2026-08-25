@@ -6,7 +6,7 @@
 
 ```cpp
 protected:
-  virtual int sync();  // (1) C++03
+  virtual int sync();  // (1) C++98
   int sync() override; // (1) C++17
 ```
 

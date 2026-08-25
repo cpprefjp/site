@@ -8,7 +8,7 @@ namespace std {
   template <class charT, class traits, class Allocator>
   basic_string<charT, traits, Allocator>
     operator+(const basic_string<charT, traits, Allocator>& lhs,
-              const basic_string<charT, traits, Allocator>& rhs); // (1) C++03
+              const basic_string<charT, traits, Allocator>& rhs); // (1) C++98
   template <class charT, class traits, class Allocator>
   constexpr basic_string<charT, traits, Allocator>
     operator+(const basic_string<charT, traits, Allocator>& lhs,
@@ -45,7 +45,7 @@ namespace std {
   template <class charT, class traits, class Allocator>
   basic_string<charT, traits, Allocator>
     operator+(const charT* lhs,
-              const basic_string<charT, traits, Allocator>& rhs); // (5) C++03
+              const basic_string<charT, traits, Allocator>& rhs); // (5) C++98
   template <class charT, class traits, class Allocator>
   constexpr basic_string<charT, traits, Allocator>
     operator+(const charT* lhs,
@@ -63,7 +63,7 @@ namespace std {
   template <class charT, class traits, class Allocator>
   basic_string<charT, traits, Allocator>
     operator+(charT lhs,
-              const basic_string<charT, traits, Allocator>& rhs); // (7) C++03
+              const basic_string<charT, traits, Allocator>& rhs); // (7) C++98
   template <class charT, class traits, class Allocator>
   constexpr basic_string<charT, traits, Allocator>
     operator+(charT lhs,
@@ -81,7 +81,7 @@ namespace std {
   template <class charT, class traits, class Allocator>
   basic_string<charT, traits, Allocator>
     operator+(const basic_string<charT, traits, Allocator>& lhs,
-              const charT* rhs);                                  // (9) C++03
+              const charT* rhs);                                  // (9) C++98
   template <class charT, class traits, class Allocator>
   constexpr basic_string<charT, traits, Allocator>
     operator+(const basic_string<charT, traits, Allocator>& lhs,
@@ -99,7 +99,7 @@ namespace std {
   template <class charT, class traits, class Allocator>
   basic_string<charT, traits, Allocator>
     operator+(const basic_string<charT, traits, Allocator>& lhs,
-              charT rhs);                                         // (11) C++03
+              charT rhs);                                         // (11) C++98
   template <class charT, class traits, class Allocator>
   constexpr basic_string<charT, traits, Allocator>
     operator+(const basic_string<charT, traits, Allocator>& lhs,
@@ -352,7 +352,7 @@ Hello, World!
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 - C++26 : (13), (14)
 
 ### 処理系

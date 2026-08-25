@@ -7,7 +7,7 @@
 * cpp20removed[meta cpp]
 
 ```cpp
-// C++03
+// C++98
 void construct(pointer p, const T& val);
 
 // C++11
@@ -23,7 +23,7 @@ void construct(U* p, Args&&... args);
 
 
 ## 効果
-- C++03 : `new((void *)p) T(val)`
+- C++98 : `new((void *)p) T(val)`
 - C++11 : `::new((void *)p) U(`[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
 
 

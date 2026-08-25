@@ -5,14 +5,14 @@
 * function[meta id-type]
 
 ```cpp
-void erase(iterator position);               // (1) C++03 (C++11で一旦削除)
+void erase(iterator position);               // (1) C++98 (C++11で一旦削除)
 iterator erase(iterator position);           // (1) C++17
 constexpr iterator erase(iterator position); // (1) C++26
 
 iterator erase(const_iterator position);           // (2) C++11
 constexpr iterator erase(const_iterator position); // (2) C++26
 
-size_type erase(const key_type& x);           // (3) C++03
+size_type erase(const key_type& x);           // (3) C++98
 constexpr size_type erase(const key_type& x); // (3) C++26
 
 template <class K>
@@ -20,7 +20,7 @@ size_type erase(K&& x);           // (4) C++23
 template <class K>
 constexpr size_type erase(K&& x); // (4) C++26
 
-void erase(iterator first, iterator last);                           // (5) C++03
+void erase(iterator first, iterator last);                           // (5) C++98
 iterator erase(const_iterator first, const_iterator last);           // (5) C++11
 constexpr iterator erase(const_iterator first, const_iterator last); // (5) C++26
 ```
@@ -45,12 +45,12 @@ constexpr iterator erase(const_iterator first, const_iterator last); // (5) C++2
 
 ## 戻り値
 - (1) :
-    - C++03 : 戻り値なし
+    - C++98 : 戻り値なし
     - C++17 : 削除された要素の次を指すイテレータを返す。そのような要素がない場合、[`end()`](end.md)を返す (要素を削除した結果としてコンテナが空になった場合)
 - (2) : 削除された要素の次を指すイテレータを返す。そのような要素がない場合、[`end()`](end.md)を返す (要素を削除した結果としてコンテナが空になった場合)
 - (3), (4) : 削除された要素の数を返す
 - (5) :
-    - C++03 : 戻り値なし
+    - C++98 : 戻り値なし
     - C++11 : 削除された要素の次を指すイテレータを返す。そのような要素がない場合、[`end()`](end.md)を返す (要素を削除した結果としてコンテナが空になった場合)
 
 
@@ -64,7 +64,7 @@ constexpr iterator erase(const_iterator first, const_iterator last); // (5) C++2
 - (1) : C++17で再追加されたこのオーバーロードは、それ以前の言語バージョンから使用できる可能性がある
 - (1), (2) : この関数に、範囲外のイテレータ (終端イテレータを含む) を指定した場合の動作は未定義
 - 削除された要素を指すイテレータ、および、参照のみ無効になる。なお、規格書に明確な記載は無いが、削除された要素を指すポインタも無効になる。
-- ループ中で `multiset` の要素を削除するためには、C++03 までは以下のようなコードを書く必要があった。
+- ループ中で `multiset` の要素を削除するためには、C++98 までは以下のようなコードを書く必要があった。
     ```cpp
     while (it != set_object.end()) {
       if (条件) {
@@ -89,7 +89,7 @@ constexpr iterator erase(const_iterator first, const_iterator last); // (5) C++2
 
 
 ## 例
-### 基本的な使い方 (C++03)
+### 基本的な使い方 (C++98)
 ```cpp example
 #include <iostream>
 #include <set>
@@ -138,7 +138,7 @@ int main()
     // 条件一致した要素を削除する
     if (*it == 1) {
       // 削除された要素の次を指すイテレータが返される。
-      // C++03では、erase()の戻り値を使用せず、 c.erase(it++); のように書く
+      // C++98では、erase()の戻り値を使用せず、 c.erase(it++); のように書く
       it = c.erase(it);
     }
     // 要素削除をしない場合に、イテレータを進める

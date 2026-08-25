@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-bad_cast();                    // (1) C++03
+bad_cast();                    // (1) C++98
 bad_cast() noexcept;           // (1) C++11
 constexpr bad_cast() noexcept; // (1) C++26
 
-bad_cast(const bad_cast&);                    // (2) C++03
+bad_cast(const bad_cast&);                    // (2) C++98
 bad_cast(const bad_cast&) noexcept;           // (2) C++11
 constexpr bad_cast(const bad_cast&) noexcept; // (2) C++26
 ```

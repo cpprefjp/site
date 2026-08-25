@@ -7,28 +7,28 @@
 namespace std {
   div_t
     div(int numer,
-        int denom);         // (1) C++03
+        int denom);         // (1) C++98
   constexpr div_t
     div(int numer,
         int denom);         // (1) C++23
 
   ldiv_t
     div(long numer,
-        long denom);        // (2) C++03
+        long denom);        // (2) C++98
   constexpr ldiv_t
     div(long numer,
         long denom);        // (2) C++23
 
   lldiv_t
     div(long long numer,
-        long long denom);   // (3) C++03
+        long long denom);   // (3) C++98
   constexpr lldiv_t
     div(long long numer,
         long long denom);   // (3) C++23
 
   ldiv_t
     ldiv(long numer,
-         long denom);       // (4) C++03
+         long denom);       // (4) C++98
   constexpr ldiv_t
     ldiv(long numer,
          long denom);       // (4) C++23

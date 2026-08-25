@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-bitset<N>& reset();                     // (1) C++03
+bitset<N>& reset();                     // (1) C++98
 bitset<N>& reset() noexcept;            // (1) C++11
 constexpr bitset<N>& reset() noexcept;  // (1) C++23
 
-bitset<N>& reset(size_t pos);           // (2) C++03
+bitset<N>& reset(size_t pos);           // (2) C++98
 constexpr bitset<N>& reset(size_t pos); // (2) C++23
 ```
 

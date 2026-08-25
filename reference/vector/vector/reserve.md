@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void reserve(size_type n);           // (1) C++03
+void reserve(size_type n);           // (1) C++98
 constexpr void reserve(size_type n); // (1) C++20
 ```
 

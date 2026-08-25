@@ -8,13 +8,13 @@ namespace std {
   template<class ForwardIterator>
   ForwardIterator
     min_element(ForwardIterator first,
-                ForwardIterator last); // (1) C++03
+                ForwardIterator last); // (1) C++98
 
   template<class ForwardIterator, class Compare>
   ForwardIterator
     min_element(ForwardIterator first,
                 ForwardIterator last,
-                Compare comp);         // (2) C++03
+                Compare comp);         // (2) C++98
 
   template <class ExecutionPolicy, class ForwardIterator>
   ForwardIterator

@@ -6,7 +6,7 @@
 
 ```cpp
 private:
-  indirect_array& operator=(const indirect_array&);                // (1) C++03 まで（宣言のみ）
+  indirect_array& operator=(const indirect_array&);                // (1) C++98 まで（宣言のみ）
 
 public:
   const indirect_array& operator=(const indirect_array& ar) const; // (1) C++11 から
@@ -32,7 +32,7 @@ public:
 ## 備考
 - 引数の型 *`ValOrProxy`* は、[`valarray`](../valarray.md)、あるいは、その代理となる型である。  
 	[`<valarray>`](../../valarray.md) の概要も参照のこと。
-- (1) : C++03まで、このオーバーロードは使用できなかった。
+- (1) : C++98まで、このオーバーロードは使用できなかった。
 - [`valarray`](../valarray.md) から抽出した要素数と `ar` の要素数が異なる場合、未定義動作を引き起こす。
 
 

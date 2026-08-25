@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-size_type count(const key_type& x) const;           // (1) C++03
+size_type count(const key_type& x) const;           // (1) C++98
 constexpr size_type count(const key_type& x) const; // (1) C++26
 
 template <class K>

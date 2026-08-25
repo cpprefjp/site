@@ -8,7 +8,7 @@
 basic_string&
   replace(size_type pos1,
           size_type n1,
-          const basic_string& str); // (1) C++03
+          const basic_string& str); // (1) C++98
 constexpr basic_string&
   replace(size_type pos1,
           size_type n1,
@@ -37,7 +37,7 @@ basic_string&
   replace(size_type pos,
           size_type n1,
           const charT* s,
-          size_type n2);  // (3) C++03
+          size_type n2);  // (3) C++98
 constexpr basic_string&
   replace(size_type pos,
           size_type n1,
@@ -47,7 +47,7 @@ constexpr basic_string&
 basic_string&
   replace(size_type pos,
           size_type n1,
-          const charT* s); // (4) C++03
+          const charT* s); // (4) C++98
 constexpr basic_string&
   replace(size_type pos,
           size_type n1,
@@ -57,7 +57,7 @@ basic_string&
   replace(size_type pos,
           size_type n1,
           size_type n2,
-          charT c);      // (5) C++03
+          charT c);      // (5) C++98
 constexpr basic_string&
   replace(size_type pos,
           size_type n1,
@@ -67,7 +67,7 @@ constexpr basic_string&
 basic_string&
   replace(iterator i1,
           iterator i2,
-          const basic_string& str); // (6) C++03
+          const basic_string& str); // (6) C++98
 basic_string&
   replace(const_iterator i1,
           const_iterator i2,
@@ -81,7 +81,7 @@ basic_string&
   replace(iterator i1,
           iterator i2,
           const charT* s,
-          size_type n);      // (7) C++03
+          size_type n);      // (7) C++98
 basic_string&
   replace(const_iterator i1,
           const_iterator i2,
@@ -96,7 +96,7 @@ constexpr basic_string&
 basic_string&
   replace(iterator i1,
           iterator i2,
-          const charT* s);   // (8) C++03
+          const charT* s);   // (8) C++98
 basic_string&
   replace(const_iterator i1,
           const_iterator i2,
@@ -110,7 +110,7 @@ basic_string&
   replace(iterator i1,
           iterator i2,
           size_type n,
-          charT c);              // (9) C++03
+          charT c);              // (9) C++98
 basic_string&
   replace(const_iterator i1,
           const_iterator i2,
@@ -125,7 +125,7 @@ basic_string&
   replace(iterator i1,
           iterator i2,
           InputIterator j1,
-          InputIterator j2);     // (10) C++03
+          InputIterator j2);     // (10) C++98
 template <class InputIterator>
 basic_string&
   replace(const_iterator i1,

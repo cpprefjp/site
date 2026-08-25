@@ -25,7 +25,7 @@ template <class InputIterator>
 multimap(InputIterator first,
          InputIterator last,
          const Compare& comp = Compare(),
-         const Allocator& alloc = Allocator());    // (4) C++03
+         const Allocator& alloc = Allocator());    // (4) C++98
 template <class InputIterator>
 constexpr
   multimap(InputIterator first,
@@ -43,7 +43,7 @@ constexpr
            InputIterator last,
            const Allocator& alloc);  // (5) C++26
 
-multimap(const multimap& x);           // (6) C++03
+multimap(const multimap& x);           // (6) C++98
 constexpr multimap(const multimap& x); // (6) C++26
 
 multimap(const multimap& x,

@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-bad_alloc();                    // (1) C++03
+bad_alloc();                    // (1) C++98
 bad_alloc() noexcept;           // (1) C++11
 constexpr bad_alloc() noexcept; // (1) C++26
 
-bad_alloc(const bad_alloc&);                    // (2) C++03
+bad_alloc(const bad_alloc&);                    // (2) C++98
 bad_alloc(const bad_alloc&) noexcept;           // (2) C++11
 constexpr bad_alloc(const bad_alloc&) noexcept; // (2) C++26
 ```

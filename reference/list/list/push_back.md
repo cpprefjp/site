@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void push_back(const T& x);           // (1) C++03
+void push_back(const T& x);           // (1) C++98
 constexpr void push_back(const T& x); // (1) C++26
 
 void push_back(T&& x);           // (2) C++11
@@ -57,7 +57,7 @@ world
 ```
 
 
-### イテレート中に要素を追加する (C++03)
+### イテレート中に要素を追加する (C++98)
 ```cpp example
 #include <iostream>
 #include <list>

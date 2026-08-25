@@ -5,10 +5,10 @@
 
 ```cpp
 namespace std {
-  float fmod(float x, float y);    // (1) C++03からC++20まで
-  double fmod(double x, double y); // (2) C++03からC++20まで
+  float fmod(float x, float y);    // (1) C++98からC++20まで
+  double fmod(double x, double y); // (2) C++98からC++20まで
   long double fmod(long double x,
-                   long double y); // (3) C++03からC++20まで
+                   long double y); // (3) C++98からC++20まで
 
   constexpr floating-point-type
     fmod(floating-point-type x,

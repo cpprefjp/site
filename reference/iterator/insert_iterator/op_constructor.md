@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-insert_iterator(Container& x, typename Container::iterator i);            // C++03
+insert_iterator(Container& x, typename Container::iterator i);            // C++98
 constexpr insert_iterator(Container& x, ranges::iterator_t<Container> i); // C++20
 ```
 

@@ -16,7 +16,7 @@
 int* p = nullptr;
 ```
 
-C++03まで、ヌルポインタを表すために`0`数値リテラルや[`NULL`](/reference/cstddef/null.md)マクロを使用していた。C++11からは、`nullptr`キーワードでヌルポインタ値を表すことを推奨する。
+C++98まで、ヌルポインタを表すために`0`数値リテラルや[`NULL`](/reference/cstddef/null.md)マクロを使用していた。C++11からは、`nullptr`キーワードでヌルポインタ値を表すことを推奨する。
 
 特定の型へのポインタではなく、`nullptr`のみを受け取りたい場合は、[`std::nullptr_t`][nullptr_t]型を使用する。
 

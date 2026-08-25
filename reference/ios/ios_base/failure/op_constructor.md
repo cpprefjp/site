@@ -5,7 +5,7 @@
 * ios_base::failure[meta class]
 
 ```cpp
-explicit failure(const std::string& msg);                                            // (1) C++03 まで
+explicit failure(const std::string& msg);                                            // (1) C++98 まで
 
 explicit failure(const std::string& msg, const error_code& ec = io_errc::stream);    // (2) C++11 から
 
@@ -24,7 +24,7 @@ explicit failure(const char* msg, const error_code& ec = io_errc::stream);      
 
 
 ## 例
-### C++03 までの例
+### C++98 までの例
 ```cpp example
 #include <iostream>
 
@@ -82,7 +82,7 @@ error message: No such file or directory
 
 ### 備考
 - GCC 5.1.0 以降では、単に C++03 モードにしても [`strcmp`](../../../cstring/strcmp.md)`(`[`what`](what.md)`(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` にはならない。  
-    マクロ `_GLIBCXX_USE_CXX11_ABI` を `0`に設定すれば完全に C++03 の挙動になる。  
+    マクロ `_GLIBCXX_USE_CXX11_ABI` を `0`に設定すれば完全に C++98 の挙動になる。  
     [クラスページ](../failure.md)のバージョン欄の備考も参照。
 - Clang では、C++03 モードでも [`strcmp`](../../../cstring/strcmp.md)`(`[`what`](what.md)`(), msg.`[`c_str`](../../../string/basic_string/c_str.md)`()) == 0` にはならない。  
 

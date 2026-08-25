@@ -5,9 +5,9 @@
 
 ```cpp
 namespace std {
-  float frexp(float value, int* exp);             // (1) C++03からC++20まで
-  double frexp(double value, int* exp);           // (2) C++03からC++20まで
-  long double frexp(long double value, int* exp); // (3) C++03からC++20まで
+  float frexp(float value, int* exp);             // (1) C++98からC++20まで
+  double frexp(double value, int* exp);           // (2) C++98からC++20まで
+  long double frexp(long double value, int* exp); // (3) C++98からC++20まで
 
   constexpr floating-point-type
     frexp(floating-point-type value, int* exp);   // (4) C++23

@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void reverse();                    // (1) C++03
+void reverse();                    // (1) C++98
 void reverse() noexcept;           // (1) C++11
 constexpr void reverse() noexcept; // (1) C++26
 ```

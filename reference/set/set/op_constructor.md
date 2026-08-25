@@ -16,7 +16,7 @@ constexpr explicit
 
 explicit
   set(const Compare& comp = Compare(),
-      const Allocator& alloc = Allocator()); // (1) + (2) C++03
+      const Allocator& alloc = Allocator()); // (1) + (2) C++98
 
 explicit set(const Allocator& alloc);           // (3) C++11
 constexpr explicit set(const Allocator& alloc); // (3) C++26
@@ -25,7 +25,7 @@ template <class InputIterator>
 set(InputIterator first,
     InputIterator last,
     const Compare& comp = Compare(),
-    const Allocator& alloc = Allocator());   // (4) C++03
+    const Allocator& alloc = Allocator());   // (4) C++98
 template <class InputIterator>
 constexpr
   set(InputIterator first,
@@ -43,7 +43,7 @@ constexpr
       InputIterator last,
       const Allocator& a); // (5) C++26
 
-set(const set& x);           // (6) C++03
+set(const set& x);           // (6) C++98
 constexpr set(const set& x); // (6) C++26
 
 set(set&& y);           // (7) C++11

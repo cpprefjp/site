@@ -35,7 +35,7 @@ basic_ostream<CharT, Traits>* tie(basic_ostream<CharT, Traits>* tiestr);    // (
     なお、この動作は、[`basic_istream`](../../istream/basic_istream.md)`::`[`sentry`](../../istream/basic_istream/sentry.md)`::`[`sentry`](../../istream/basic_istream/sentry/op_constructor.md)、および、[`basic_ostream`](../../ostream/basic_ostream.md)`::`[`sentry`](../../ostream/basic_ostream/sentry.md)`::`[`sentry`](../../ostream/basic_ostream/sentry/op_constructor.md) によって引き起こされる。
 - 上記の要件欄の記載は C++11 で追加されたが、これは、[`basic_ostream`](../../ostream/basic_ostream.md)`::`[`flush`](../../ostream/basic_ostream/flush.md)`()` が非書式化出力であることによる。  
     （[`basic_ostream`](../../ostream/basic_ostream.md)`::`[`flush`](../../ostream/basic_ostream/flush.md)`()` が `tie()` で指定された出力ストリームのフラッシュを引き起こし、それが次のフラッシュを引き起こし…となり、無限ループを引き起こしてしまうため）  
-    したがって、明記はされていないものの C++03 まででも必要な要件であるものと思われる。（C++03 では、[`basic_ostream`](../../ostream/basic_ostream.md)`::`[`flush`](../../ostream/basic_ostream/flush.md)`()` が非書式化出力ではない旨の記載が追加されたが、これは誤りということで C++11 で修正された）  
+    したがって、明記はされていないものの C++98 まででも必要な要件であるものと思われる。（C++03 では、[`basic_ostream`](../../ostream/basic_ostream.md)`::`[`flush`](../../ostream/basic_ostream/flush.md)`()` が非書式化出力ではない旨の記載が追加されたが、これは誤りということで C++11 で修正された）  
     なお、この要件は「`tie` に設定した後でこのようになってはいけない」という意味であるものと思われる。（さもないと、設定したことによって無限ループが生じることを防げない）
 - 標準入出力ストリームは、以下のような設定が行われている。
     - [`cin`](../../iostream/cin.md)`.tie() == &`[`cout`](../../iostream/cout.md)
@@ -109,7 +109,7 @@ new
 
 ## 参照
 - [60. What is a formatted input function?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#60)  
-    C++03 で [`basic_ostream`](../../ostream/basic_ostream.md)`::`[`flush`](../../ostream/basic_ostream/flush.md)`()` が非書式化出力ではないと明記された Defect Report
+    C++03 で [`basic_ostream`](../../ostream/basic_ostream.md)`::`[`flush`](../../ostream/basic_ostream/flush.md)`()` が非書式化出力ではないと明記された Defect Report（Status: TC1）
 - [581. flush() not unformatted function](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#581)  
     上記の Defect Report で非書式化出力ではなくなってしまった [`basic_ostream`](../../ostream/basic_ostream.md)`::`[`flush`](../../ostream/basic_ostream/flush.md)`()` を非書式化出力に変更する Defect Report
 - [835. Tying two streams together (correction to DR 581)](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#835)  

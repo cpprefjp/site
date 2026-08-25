@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-~stack();           // (1) C++03
+~stack();           // (1) C++98
 constexpr ~stack(); // (1) C++26
 ```
 

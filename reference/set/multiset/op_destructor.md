@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-~multiset();           // (1) C++03
+~multiset();           // (1) C++98
 constexpr ~multiset(); // (1) C++26
 ```
 

@@ -7,7 +7,7 @@
 namespace std {
   template <class T>
   complex<T>
-    conj(const complex<T>& x); // (1) C++03
+    conj(const complex<T>& x); // (1) C++98
   template <class T>
   constexpr complex<T>
     conj(const complex<T>& x); // (1) C++20

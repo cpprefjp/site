@@ -6,7 +6,7 @@
 
 ```cpp
 void
-  swap(list& x);                                                   // (1) C++03
+  swap(list& x);                                                   // (1) C++98
 void
   swap(list& x)
     noexcept(allocator_traits<Allocator>::is_always_equal::value); // (1) C++17

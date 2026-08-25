@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-reverse_iterator operator-(difference_type n) const;           // C++03
+reverse_iterator operator-(difference_type n) const;           // C++98
 constexpr reverse_iterator operator-(difference_type n) const; // C++17
 ```
 

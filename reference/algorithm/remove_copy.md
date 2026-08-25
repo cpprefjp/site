@@ -12,7 +12,7 @@ namespace std {
     remove_copy(InputIterator first,
                 InputIterator last,
                 OutputIterator result,
-                const T& value);         // (1) C++03
+                const T& value);         // (1) C++98
   template <class InputIterator,
             class OutputIterator,
             class T>

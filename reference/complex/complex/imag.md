@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-T imag() const;             // (1) C++03
+T imag() const;             // (1) C++98
 constexpr T imag() const;   // (1) C++14
 
 void imag(T val);           // (2) C++11

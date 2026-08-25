@@ -9,7 +9,7 @@ namespace std {
   ForwardIterator
     uninitialized_fill_n(ForwardIterator first,
                          Size n,
-                         const T& x);           // (1) C++03
+                         const T& x);           // (1) C++98
   template <class NoThrowForwardIterator,
             class Size,
             class T = typename iterator_traits<NoThrowForwardIterator>::value_type>
@@ -43,7 +43,7 @@ namespace std {
 
 
 ## 効果
-- C++03 : 以下と等価
+- C++98 : 以下と等価
     ```cpp
     for (; n--; ++first)
       ::new (static_cast<void*>(&*first))

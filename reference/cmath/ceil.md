@@ -5,9 +5,9 @@
 
 ```cpp
 namespace std {
-  float ceil(float x);              // (1) C++03からC++20まで
-  double ceil(double x);            // (2) C++03からC++20まで
-  long double ceil(long double x);  // (3) C++03からC++20まで
+  float ceil(float x);              // (1) C++98からC++20まで
+  double ceil(double x);            // (2) C++98からC++20まで
+  long double ceil(long double x);  // (3) C++98からC++20まで
 
   constexpr floating-point-type
    ceil(floating-point-type x);     // (4) C++23

@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-T real() const;             // (1) C++03
+T real() const;             // (1) C++98
 constexpr T real() const;   // (1) C++14
 
 void real(T val);           // (2) C++11

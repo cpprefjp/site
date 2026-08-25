@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-~deque();           // (1) C++03
+~deque();           // (1) C++98
 constexpr ~deque(); // (1) C++26
 ```
 

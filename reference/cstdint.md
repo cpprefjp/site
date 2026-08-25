@@ -194,7 +194,7 @@ C99 の 7.18.3 `<stdint.h>` についての脚注で、同ヘッダを C++ で�
 > `__STDC_CONSTANT_MACROS` (mentioned in footnotes 219, 220, and 222 in
 > the C standard) play no role in C++.
 
-おそらく上記 C99 の脚注のため、 C++ 処理系によってはヘッダ `<stdint.h>` および `<cstdint>` での限界値マクロ、定数値マクロの提供にこれらマクロの定義が必要となっているかもしれない。（特に C++03 対応の処理系が拡張として C99 由来のこれらヘッダを提供していた場合など。）
+おそらく上記 C99 の脚注のため、 C++ 処理系によってはヘッダ `<stdint.h>` および `<cstdint>` での限界値マクロ、定数値マクロの提供にこれらマクロの定義が必要となっているかもしれない。（特に C++98 対応の処理系が拡張として C99 由来のこれらヘッダを提供していた場合など。）
 
 - glibc に対するバグ報告（修正は 2013/05/21 ）
   [Bug 15366 – Per C11 and C++11, `<stdint.h>` should not look at `__STDC_LIMIT_MACROS` or `__STDC_CONSTANT_MACROS`](https://sourceware.org/bugzilla/show_bug.cgi?id=15366)

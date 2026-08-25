@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-bitset<N> operator~() const;          // (1) C++03
+bitset<N> operator~() const;          // (1) C++98
 bitset<N> operator~() const noexcept; // (1) C++11
 constexpr bitset<N> operator~() const noexcept; // (1) C++23
 ```

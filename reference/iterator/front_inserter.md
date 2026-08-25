@@ -6,7 +6,7 @@
 ```cpp
 namespace std {
   template <class Container>
-  front_insert_iterator<Container> front_inserter(Container& x);           // (1) C++03
+  front_insert_iterator<Container> front_inserter(Container& x);           // (1) C++98
 
   template <class Container>
   constexpr front_insert_iterator<Container> front_inserter(Container& x); // (1) C++20

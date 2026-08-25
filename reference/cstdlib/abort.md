@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  void abort();                       // C++03
+  void abort();                       // C++98
   [[noreturn]] void abort() noexcept; // C++11
 }
 ```

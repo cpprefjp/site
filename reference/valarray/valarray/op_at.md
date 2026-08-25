@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-T operator[](std::size_t n) const;                                      // (1) C++03 まで
+T operator[](std::size_t n) const;                                      // (1) C++98 まで
 const T& operator[](std::size_t n) const;                               // (1) C++11 から
 
 T& operator[](std::size_t n);                                           // (2)
@@ -275,4 +275,4 @@ int main()
 
 ## 参照
 - [LWG Issue 389. Const overload of `valarray::operator[]` returns by value](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#389)
-    - (1)の戻り値の型が、C++03の`T`から、C++11の`const T&`に変更された経緯のレポート
+    - (1)の戻り値の型が、C++98の`T`から、C++11の`const T&`に変更された経緯のレポート

@@ -8,7 +8,7 @@ namespace std {
   template <class InputIterator1, class InputIterator2>
   bool equal(InputIterator1 first1,
              InputIterator1 last1,
-             InputIterator2 first2);           // (1) C++03
+             InputIterator2 first2);           // (1) C++98
 
   template <class InputIterator1, class InputIterator2>
   constexpr bool equal(InputIterator1 first1,
@@ -19,7 +19,7 @@ namespace std {
   bool equal(InputIterator1 first1,
              InputIterator1 last1,
              InputIterator2 first2,
-             BinaryPredicate pred);            // (2) C++03
+             BinaryPredicate pred);            // (2) C++98
 
   template <class InputIterator1, class InputIterator2, class BinaryPredicate>
   constexpr bool equal(InputIterator1 first1,

@@ -6,7 +6,7 @@
 
 ```cpp
 template <class CharT, class Traits, class Allocator>
-basic_string<CharT, Traits, Allocator> to_string() const;           // (1) C++03
+basic_string<CharT, Traits, Allocator> to_string() const;           // (1) C++98
 
 template <class CharT = char,
           class Traits = char_traits<CharT>,
@@ -29,7 +29,7 @@ constexpr basic_string<CharT, Traits, Allocator>
 ## 戻り値
 1. `bitset`クラスのテンプレートパラメータ`N`の長さの`basic_string`オブジェクトを構築する。
 2. 各ビットを文字表現に変換する
-	- C++03 : ビット値0は文字`CharT(0)`に、ビット値1は文字`CharT(1)`に変換。
+	- C++98 : ビット値0は文字`CharT(0)`に、ビット値1は文字`CharT(1)`に変換。
 	- C++11 : ビット値0はパラメータ`zero`の文字に、ビット値1はパラメータ`one`に変換。
 3. 各ビットの文字表現を、構築した`basic_string`オブジェクトに順番に設定して返す。
 
@@ -44,7 +44,7 @@ int main()
 {
   std::bitset<8> bs(131uL);
 
-  // C++03版の使用法
+  // C++98版の使用法
   std::string s1 = bs.to_string<char, std::char_traits<char>, std::allocator<char>>();
   std::cout << s1 << std::endl;
 
@@ -62,7 +62,7 @@ int main()
 
 
 ## 備考
-- Visual C++、GCC(libstdc++)には、C++03でも`bs.to_string()`のように簡単に使用するための独自実装が追加で導入されていた。
+- Visual C++、GCC(libstdc++)には、C++98でも`bs.to_string()`のように簡単に使用するための独自実装が追加で導入されていた。
 
 
 ## 参照

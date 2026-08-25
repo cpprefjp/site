@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-// C++03まで
+// C++98まで
 explicit stack(const Container& cont = Container()); // (1), (2)
 
 // C++11以降 C++17まで

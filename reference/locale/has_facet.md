@@ -43,7 +43,7 @@ true
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0 [mark verified]

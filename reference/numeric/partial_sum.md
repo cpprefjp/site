@@ -9,7 +9,7 @@ namespace std {
   OutputIterator
     partial_sum(InputIterator first,
                 InputIterator last,
-                OutputIterator result);    // (1) C++03
+                OutputIterator result);    // (1) C++98
   template <class InputIterator, class OutputIterator>
   constexpr OutputIterator
     partial_sum(InputIterator first,
@@ -21,7 +21,7 @@ namespace std {
     partial_sum(InputIterator first,
                InputIterator last,
                OutputIterator result,
-               BinaryOperation binary_op); // (2) C++03
+               BinaryOperation binary_op); // (2) C++98
   template <class InputIterator, class OutputIterator, class BinaryOperation>
   constexpr OutputIterator
     partial_sum(InputIterator first,
@@ -63,7 +63,7 @@ namespace std {
 
 
 ## 要件
-- C++03まで : `binary_op`を呼び出した結果として、いかなる副作用も起こしてはならない
+- C++98まで : `binary_op`を呼び出した結果として、いかなる副作用も起こしてはならない
 - C++11から : `InputIterator`の値型は、`*first`の型から構築可能でなければならない
 - C++11から : `binary_op`の戻り値が、`InputIterator`の値型に変換可能でなければならない
 - C++11から : `binary_op`の戻り値が、`result`出力イテレータに書き込めなければならない
@@ -73,7 +73,7 @@ namespace std {
 ## 効果
 - (1) : `binary_op`を`operator+`として、(2)の演算を行う
 - (2) : 出力結果のイテレータ範囲`[result, result + (last - first))`には、以下が書き込まれる：
-    - C++03 :
+    - C++98 :
 
     ```
     *firstが書き込まれる                             // (1)

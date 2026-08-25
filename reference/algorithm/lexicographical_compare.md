@@ -10,7 +10,7 @@ namespace std {
          InputIterator1 first1,
          InputIterator1 last1,
          InputIterator2 first2,
-         InputIterator2 last2);   // (1) C++03
+         InputIterator2 last2);   // (1) C++98
 
   template <class InputIterator1, class InputIterator2>
   constexpr bool lexicographical_compare(
@@ -25,7 +25,7 @@ namespace std {
          InputIterator1 last1,
          InputIterator2 first2,
          InputIterator2 last2,
-         Compare comp);           // (2) C++03
+         Compare comp);           // (2) C++98
 
   template <class InputIterator1, class InputIterator2, class Compare>
   constexpr bool lexicographical_compare(

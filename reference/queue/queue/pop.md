@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void pop();           // (1) C++03
+void pop();           // (1) C++98
 constexpr void pop(); // (1) C++26
 ```
 

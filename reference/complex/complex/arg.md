@@ -7,7 +7,7 @@
 namespace std {
   template <class T>
   T
-    arg(const complex<T>& x); // (1) C++03
+    arg(const complex<T>& x); // (1) C++98
   template <class T>
   constexpr T
     arg(const complex<T>& x); // (1) C++26

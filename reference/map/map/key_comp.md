@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-key_compare key_comp() const;           // (1) C++03
+key_compare key_comp() const;           // (1) C++98
 constexpr key_compare key_comp() const; // (1) C++26
 ```
 

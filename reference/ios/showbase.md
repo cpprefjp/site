@@ -54,7 +54,7 @@ f 0
 
 ## バージョン
 ### 言語
-- C++03
+- C++98
 
 ## 参照
 - [`noshowbase`](noshowbase.md)

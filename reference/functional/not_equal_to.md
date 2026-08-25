@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  // C++03
+  // C++98
   template <typename T>
   struct not_equal_to {
     bool operator ()(const T& x, const T& y) const;

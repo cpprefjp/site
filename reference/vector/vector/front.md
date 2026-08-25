@@ -5,10 +5,10 @@
 * function[meta id-type]
 
 ```cpp
-reference front();                       // (1) C++03
+reference front();                       // (1) C++98
 constexpr reference front();             // (1) C++20
 
-const_reference front() const;           // (2) C++03
+const_reference front() const;           // (2) C++98
 constexpr const_reference front() const; // (2) C++20
 ```
 

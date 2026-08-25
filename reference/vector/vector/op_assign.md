@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-vector& operator=(const vector& x);           // (1) C++03
+vector& operator=(const vector& x);           // (1) C++98
 constexpr vector& operator=(const vector& x); // (1) C++20
 
 vector& operator=(vector&& x);          // (2) C++11

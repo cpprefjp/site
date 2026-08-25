@@ -6,7 +6,7 @@
 
 ```cpp
 protected:
-  virtual streamsize showmanyc();  // (1) C++03
+  virtual streamsize showmanyc();  // (1) C++98
   streamsize showmanyc() override; // (1) C++17
 ```
 * streamsize[link /reference/ios/type-streamsize.md]

@@ -9,7 +9,7 @@ namespace std {
   BidirectionalIterator2
     copy_backward(BidirectionalIterator1 first,
                   BidirectionalIterator1 last,
-                  BidirectionalIterator2 result); // C++03
+                  BidirectionalIterator2 result); // C++98
 
   template <class BidirectionalIterator1, class BidirectionalIterator2>
   constexpr BidirectionalIterator2

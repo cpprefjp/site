@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-exception& operator=(const exception&);                    // (1) C++03
+exception& operator=(const exception&);                    // (1) C++98
 exception& operator=(const exception&) noexcept;           // (1) C++11
 constexpr exception& operator=(const exception&) noexcept; // (1) C++26
 ```

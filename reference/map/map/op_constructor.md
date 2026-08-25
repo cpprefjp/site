@@ -24,7 +24,7 @@ template <class InputIterator>
 map(InputIterator first,
     InputIterator last,
     const Compare& comp = Compare(),
-    const Allocator& alloc = Allocator());          // (4) C++03
+    const Allocator& alloc = Allocator());          // (4) C++98
 template <class InputIterator>
 constexpr
   map(InputIterator first,
@@ -42,7 +42,7 @@ constexpr
       InputIterator last,
       const Allocator& alloc);                      // (5) C++26
 
-map(const map& x);           // (6) C++03
+map(const map& x);           // (6) C++98
 constexpr map(const map& x); // (6) C++26
 
 map(const map& x, const Allocator& alloc);    // (7) C++11

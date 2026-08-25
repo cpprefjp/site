@@ -7,7 +7,7 @@
 namespace std {
   template <class T>
   complex<T>
-    sin(const complex<T>& x); // (1) C++03
+    sin(const complex<T>& x); // (1) C++98
   template <class T>
   constexpr complex<T>
     sin(const complex<T>& x); // (1) C++26

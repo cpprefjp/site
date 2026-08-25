@@ -5,10 +5,10 @@
 * function[meta id-type]
 
 ```cpp
-void resize(size_type n, charT c);           // (1) C++03
+void resize(size_type n, charT c);           // (1) C++98
 constexpr void resize(size_type n, charT c); // (1) C++20
 
-void resize(size_type n);                    // (2) C++03
+void resize(size_type n);                    // (2) C++98
 constexpr void resize(size_type n);          // (2) C++20
 ```
 

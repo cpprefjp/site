@@ -9,7 +9,7 @@ namespace std {
   void
     rotate(ForwardIterator first,
            ForwardIterator middle,
-           ForwardIterator last);  // (1) C++03
+           ForwardIterator last);  // (1) C++98
 
   template <class ForwardIterator>
   ForwardIterator
@@ -50,7 +50,7 @@ namespace std {
 
 
 ## 戻り値
-- C++03 まで  
+- C++98 まで  
 	無し
 - C++11 から  
 	回転前の先頭の要素を指すイテレータ`first + (last - middle)`

@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-multimap& operator=(const multimap& x);           // (1) C++03
+multimap& operator=(const multimap& x);           // (1) C++98
 constexpr multimap& operator=(const multimap& x); // (1) C++26
 
 multimap& operator=(multimap&& x);                           // (2) C++11

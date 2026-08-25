@@ -15,7 +15,7 @@ basic_ios& copyfmt(const basic_ios& rhs);
 
 ## 効果
 - `*this`と`rhs`が同じオブジェクトを指している場合、何もしない
-    - C++03 : `this == &rhs`
+    - C++98 : `this == &rhs`
     - C++11 : `this ==` [`addressof`](/reference/memory/addressof.md)`(rhs)`
 - そうでなければ、以下のように引数 `rhs` のメンバオブジェクトを `*this` の対応するメンバオブジェクトに代入する。
 

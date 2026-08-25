@@ -5,13 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-pair& operator=(const pair& p);                             // (1) C++03
+pair& operator=(const pair& p);                             // (1) C++98
 constexpr pair& operator=(const pair& p);                   // (1) C++20
 
 constexpr const pair& operator=(const pair& p) const;       // (2) C++23
 
 template <class U, class V>
-  pair& operator=(const pair<U, V>& p);                     // (3) C++03
+  pair& operator=(const pair<U, V>& p);                     // (3) C++98
 template <class U, class V>
   constexpr pair& operator=(const pair<U, V>& p);           // (3) C++20
 

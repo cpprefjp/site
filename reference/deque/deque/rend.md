@@ -5,11 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-reverse_iterator rend();                    // (1) C++03
+reverse_iterator rend();                    // (1) C++98
 reverse_iterator rend() noexcept;           // (1) C++11
 constexpr reverse_iterator rend() noexcept; // (1) C++26
 
-const_reverse_iterator rend() const;                    // (2) C++03
+const_reverse_iterator rend() const;                    // (2) C++98
 const_reverse_iterator rend() const noexcept;           // (2) C++11
 constexpr const_reverse_iterator rend() const noexcept; // (2) C++26
 ```

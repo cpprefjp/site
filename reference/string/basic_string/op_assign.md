@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-basic_string& operator=(const basic_string& str);                  // (1) C++03
+basic_string& operator=(const basic_string& str);                  // (1) C++98
 constexpr basic_string& operator=(const basic_string& str);        // (1) C++20
 
 basic_string& operator=(basic_string&& str) noexcept;              // (2) C++11
@@ -16,10 +16,10 @@ constexpr basic_string& operator=(basic_string&& str) noexcept
   (allocator_traits<Allocator>::propagate_on_container_move_assignment::value
     || allocator_traits<Allocator>::is_always_equal::value);       // (2) C++20
 
-basic_string& operator=(const charT* s);                           // (3) C++03
+basic_string& operator=(const charT* s);                           // (3) C++98
 constexpr basic_string& operator=(const charT* s);                 // (3) C++20
 
-basic_string& operator=(charT c);                                  // (4) C++03
+basic_string& operator=(charT c);                                  // (4) C++98
 constexpr basic_string& operator=(charT c);                        // (4) C++20
 
 basic_string& operator=(initializer_list<charT> il);               // (5) C++11

@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-list& operator=(const list& x);           // (1) C++03
+list& operator=(const list& x);           // (1) C++98
 constexpr list& operator=(const list& x); // (1) C++26
 
 list& operator=(list&& x);                                       // (2) C++11

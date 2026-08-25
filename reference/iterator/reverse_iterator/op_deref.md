@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-reference operator*() const;           // C++03
+reference operator*() const;           // C++98
 constexpr reference operator*() const; // C++17
 ```
 

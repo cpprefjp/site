@@ -5,14 +5,14 @@
 * function[meta id-type]
 
 ```cpp
-complex<T>& operator=(const T& rhs);                    // (1) C++03
+complex<T>& operator=(const T& rhs);                    // (1) C++98
 constexpr complex<T>& operator=(const T& rhs);          // (1) C++20
 
-complex<T>& operator=(const complex<T>& rhs);           // (2) C++03
+complex<T>& operator=(const complex<T>& rhs);           // (2) C++98
 constexpr complex<T>& operator=(const complex<T>& rhs); // (2) C++20
 
 template <class X>
-complex<T>& operator=(const complex<X>& rhs);           // (3) C++03
+complex<T>& operator=(const complex<X>& rhs);           // (3) C++98
 template <class X>
 constexpr complex<T>& operator=(const complex<X>& rhs); // (3) C++20
 ```

@@ -6,7 +6,7 @@
 
 ```cpp
 void
-  swap(deque& other);                                              // (1) C++03
+  swap(deque& other);                                              // (1) C++98
 void
   swap(deque& x)
     noexcept(allocator_traits<Allocator>::is_always_equal::value); // (1) C++17

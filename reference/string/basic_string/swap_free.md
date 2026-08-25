@@ -7,7 +7,7 @@
 namespace std {
   template <class CharT, class Traits, class Allocator>
   void swap(basic_string<CharT, Traits, Allocator>& x,
-            basic_string<CharT, Traits, Allocator>& y); // (1) C++03
+            basic_string<CharT, Traits, Allocator>& y); // (1) C++98
   template <class CharT, class Traits, class Allocator>
   void swap(basic_string<CharT, Traits, Allocator>& x,
             basic_string<CharT, Traits, Allocator>& y)

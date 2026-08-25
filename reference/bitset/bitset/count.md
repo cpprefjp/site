@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-size_t count() const;                    // (1) C++03
+size_t count() const;                    // (1) C++98
 size_t count() const noexcept;           // (1) C++11
 constexpr size_t count() const noexcept; // (1) C++23
 ```

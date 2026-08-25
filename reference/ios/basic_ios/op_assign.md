@@ -6,7 +6,7 @@
 
 ```cpp
 private:
-  basic_ios& operator=(const basic_ios&);                               // 宣言のみ、C++03 まで
+  basic_ios& operator=(const basic_ios&);                               // 宣言のみ、C++98 まで
 public:
   basic_ios& operator=(const basic_ios&) = delete;                      // C++11 から
 ```
@@ -23,7 +23,7 @@ public:
 
 ## 備考
 - コピー代入演算子は、
-    - C++03 : アクセス指定子`private`で宣言のみされ、定義はされない
+    - C++98 : アクセス指定子`private`で宣言のみされ、定義はされない
     - C++11 : アクセス指定子`public`で`delete`定義される
     （いずれにせよコピーすることはできないが、`public` で `delete` の方が誤ってコピーしようとした際のエラーメッセージが分かりやすいため、変更されている）
 - コピー代入演算子が宣言されているため、ムーブ代入演算子も自動生成されない。  

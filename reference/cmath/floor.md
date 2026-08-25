@@ -5,9 +5,9 @@
 
 ```cpp
 namespace std {
-  float floor(float x);             // (1) C++03からC++20まで
-  double floor(double x);           // (2) C++03からC++20まで
-  long double floor(long double x); // (3) C++03からC++20まで
+  float floor(float x);             // (1) C++98からC++20まで
+  double floor(double x);           // (2) C++98からC++20まで
+  long double floor(long double x); // (3) C++98からC++20まで
 
   constexpr floating-point-type
     floor(floating-point-type x);   // (4) C++23

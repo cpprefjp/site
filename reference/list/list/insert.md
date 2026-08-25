@@ -7,7 +7,7 @@
 ```cpp
 iterator
   insert(iterator position,
-         const T& x);             // (1) C++03
+         const T& x);             // (1) C++98
 iterator
   insert(const_iterator position,
          const T& x);             // (1) C++11
@@ -25,7 +25,7 @@ constexpr iterator
 void
   insert(iterator position,
          size_type n,
-         const T& x); // (3) C++03
+         const T& x); // (3) C++98
 iterator
   insert(const_iterator position,
          size_type n,
@@ -39,7 +39,7 @@ template <class InputIterator>
 void
   insert(iterator position,
          InputIterator first,
-         InputIterator last); // (4) C++03
+         InputIterator last); // (4) C++98
 template <class InputIterator>
 iterator
   insert(const_iterator position,
@@ -78,7 +78,7 @@ constexpr iterator
 ## 戻り値
 - (1), (2) : 挿入された要素を指すイテレータ
 - (3), (4) :
-	- C++03 : なし
+	- C++98 : なし
 	- C++11 : 挿入された要素の先頭を指すイテレータ
 - (5) : 挿入された要素の先頭を指すイテレータ
 

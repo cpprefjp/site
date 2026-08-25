@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void push_front(const T& x);           // (1) C++03
+void push_front(const T& x);           // (1) C++98
 constexpr void push_front(const T& x); // (1) C++26
 
 void push_front(T&& y);           // (2) C++11

@@ -6,7 +6,7 @@
 
 ```cpp
 protected:
-  virtual int_type underflow();  // (1) C++03
+  virtual int_type underflow();  // (1) C++98
   int_type underflow() override; // (1) C++17
 ```
 
