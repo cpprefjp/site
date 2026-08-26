@@ -161,5 +161,9 @@
 - [Boost Atomic Library](http://www.boost.org/doc/libs/release/libs/atomic/)
 - [P1642R11 Freestanding Library: Easy `[utilities]`, `[ranges]`, and `[iterators]`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1642r11.html)
     - C++23で、フリースタンディング処理系での`<atomic>`の要件が、フリースタンディングエンティティの仕組みに基づいて整理された
+- [LWG Issue 943. `ssize_t` undefined](https://cplusplus.github.io/LWG/issue943)
+    - C++11で、標準の`typedef`に対するアトミック型の一覧から`atomic_ssize_t`が削除された。`ssize_t`はPOSIXの型であり、C++の標準ライブラリでは定義されていないため
+- [LWG Issue 1360. Add `<atomic>` to free-standing implementations](https://cplusplus.github.io/LWG/issue1360)
+    - C++11で、このヘッダがフリースタンディング処理系でも提供されることが規定された
 - [LWG Issue 3814. Add freestanding items requested by NB comments](https://cplusplus.github.io/LWG/issue3814)
     - C++23で、`memory_order`の各定数などがフリースタンディング処理系で使用可能であることが追加で規定された
