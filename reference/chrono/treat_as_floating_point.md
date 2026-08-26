@@ -21,7 +21,9 @@ namespace chrono {
 ## 概要
 `treat_as_floating_point`は、テンプレートパラメータ`Rep`が浮動小数点型かを判定する型特性である。
 
-[`duration`](/reference/chrono/duration.md)クラスにおいて、他の[`duration`](/reference/chrono/duration.md)の型から変換可能な型かどうかを判定するために使用される。`treat_as_floating_point<Rep>::value == true`の場合に、変換可能である。
+[`duration`](/reference/chrono/duration.md)クラスにおいて、他の[`duration`](/reference/chrono/duration.md)の型から変換可能な型かどうかを判定するために使用される。`treat_as_floating_point<Rep>::value == true`の場合に、`duration`間の暗黙変換が許可される。そうでない場合、暗黙変換できるかは各`duration`の周期に依存する。
+
+この型特性は、型が浮動小数点数型のように振る舞うか、すなわち値同士の除算において許容できる精度の損失で済むかを示すことを意図している。
 
 
 ## 例
@@ -64,3 +66,5 @@ int main()
 
 ## 参照
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
+- [LWG Issue 951. Various threading bugs #1](https://cplusplus.github.io/LWG/issue951)
+    - C++11で、`value`が`true`であることが「`Rep`が浮動小数点数型である」ことを意味するのではなく、`duration`間の暗黙変換を許可することを意味すると明確化された。あわせて、この型特性の意図を述べる注記が追加された
