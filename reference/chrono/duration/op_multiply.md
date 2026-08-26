@@ -86,3 +86,5 @@ int main()
 
 ## 参照
 - [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
+- [LWG Issue 2004. `duration::operator*` has template parameters in funny order](https://cplusplus.github.io/LWG/issue2004)
+    - C++11で、スカラーを左辺にとるオーバーロードのテンプレートパラメータの並び順が`Rep1, Period, Rep2`から`Rep1, Rep2, Period`へ修正された。宣言で使用している順序と一致していなかった

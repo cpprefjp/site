@@ -68,3 +68,5 @@ int main()
 
 ## 参照
 - [P0505R0 Wording for GB 50](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0505r0.html)
+- [LWG Issue 934. `duration` is missing `operator%`](https://cplusplus.github.io/LWG/issue934)
+    - C++11で、剰余演算子が追加された。時間を単位ごとに分解する (秒数から分と秒を求めるなど) 用途で必要となるため

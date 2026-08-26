@@ -85,6 +85,10 @@ d5 : 3000
 ## 参照
 - [`std::chrono::duration` construction - ISO C++ Standard - Discussion](https://groups.google.com/a/isocpp.org/forum/#!topic/std-discussion/OcGX7Yj3meI)
 - [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
+- [LWG Issue 974. `duration<double>` should not implicitly convert to `duration<int>`](https://cplusplus.github.io/LWG/issue974)
+    - C++11で、変換コンストラクタの要件に「変換元の`Rep2`が浮動小数点数型として扱われないこと」が追加された。浮動小数点数の`duration`から整数の`duration`へ暗黙変換すると、意図しない切り捨てが起きるため
+- [LWG Issue 1177. Improve "diagnostic required" wording](https://cplusplus.github.io/LWG/issue1177)
+    - C++11で、値から変換するコンストラクタと、ほかの`duration`から変換するコンストラクタの要件が、オーバーロード解決に参加する条件へ改められた
 - [LWG Issue 2094. `duration` conversion overflow shouldn't participate in overload resolution](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2094)
 - [LWG Issue 3090. What is §[time.duration.cons]p4's "no overflow is induced in the conversion" intended to mean?](https://cplusplus.github.io/LWG/issue3090)
     - (3)のテンプレートパラメータ制約から意味の不明確だった「変換でオーバーフローが生じないこと」という表現が削除され、代わりに`is_convertible_v<const Rep2&, rep>`が`true`であることと`ratio_divide<typename Period2::type, period>`が有効な`ratio`の特殊化であることが明示された。この整理はC++26で規定されたが、実装は元々この意図どおりに制約していたため挙動は変わらない
