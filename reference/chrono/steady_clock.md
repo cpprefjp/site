@@ -93,3 +93,5 @@ int main()
 
 ## 参照
 - [N3469 Constexpr Library Additions: chrono, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3469.html)
+- [LWG Issue 990. `monotonic_clock::is_monotonic` must be true](https://cplusplus.github.io/LWG/issue990)
+    - C++11で、このクロックが[`system_clock`](system_clock.md)の別名となってよいのは、`system_clock`が単調である場合に限られると規定された。なおC++11の策定中に、このクラスは`monotonic_clock`から`steady_clock`へ改称された
