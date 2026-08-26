@@ -11,11 +11,14 @@ namespace std {
   template <class Elem, unsigned long Maxcode = 0x10ffff,
             codecvt_mode Mode = (codecvt_mode)0>
   class codecvt_utf8_utf16 : public codecvt<Elem, char, mbstate_t> {
-    // 未規定...
+  public:
+    explicit codecvt_utf8_utf16(size_t refs = 0);
+    ~codecvt_utf8_utf16();
   };
 }
 ```
 * codecvt_mode[link /reference/codecvt/codecvt_mode.md]
+* size_t[link /reference/cstddef/size_t.md]
 * codecvt[link /reference/locale/codecvt.md]
 
 ## 概要
@@ -90,5 +93,8 @@ int main()
 
 ## 参照
 - [N2401 Code Conversion Facets for the Standard C++ Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2401.htm)
+- [LWG Issue 2229. Standard code conversion facets underspecified](https://cplusplus.github.io/LWG/issue2229)
+    - C++14で、クラス定義が「未規定」ではなく、コンストラクタとデストラクタを持つことが明示された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。利用者がこれらのファセットを構築できることが規定上不明確だったものの明文化であり、処理系は当初からこれらを提供していたため
 - [P0618R0 Deprecating `<codecvt>`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0618r0.html)
 - [P2871R3 Remove Deprecated Unicode Conversion Facets from C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2871r3.pdf)
