@@ -58,3 +58,5 @@ namespace std {
 - [How to correctly use std::atomic_signal_fence()?](http://stackoverflow.com/questions/14581090/how-to-correctly-use-stdatomic-signal-fence)
 - [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
     - C++26で`constexpr`に対応した
+- [LWG Issue 1480. Atomic fences don't have synchronizes with relation](https://cplusplus.github.io/LWG/issue1480)
+    - C++11で、この関数が確立するものが「に対して同期する関係」ではなく「順序付けの制約」であると修正された。同一スレッド内のシグナルハンドラとの間では、スレッド間の同期関係は生じないため
