@@ -5,8 +5,8 @@
 
 ```cpp
 namespace std {
-  void abort();                       // C++98
-  [[noreturn]] void abort() noexcept; // C++11
+  void abort();                       // (1) C++98
+  [[noreturn]] void abort() noexcept; // (1) C++11
 }
 ```
 
@@ -51,3 +51,8 @@ int main()
 ```
 Aborted
 ```
+
+
+## 参照
+- [LWG Issue 1066. Use `[[noreturn]]` attribute in the library](https://cplusplus.github.io/LWG/issue1066)
+    - C++11で、呼び出し元へ戻らない標準ライブラリ関数に`[[noreturn]]`属性が付加された
