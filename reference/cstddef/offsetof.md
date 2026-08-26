@@ -25,6 +25,12 @@ C++ での構造体の機能的拡張のため、`offsetof` の利用は、C++11
 `type` 中の `member` へのオフセット値を示す `size_t` 型の値
 
 
+## 例外
+投げない。
+
+C++11から、このマクロの展開結果を`noexcept`演算子に渡した`noexcept(offsetof(type, member))`は`true`となることが規定されている。
+
+
 ## 例
 ```cpp example
 #include <cstdio>
@@ -54,5 +60,7 @@ offsetof(mystruct,anotherchar) is 11
 
 
 ## 参照
+- [LWG Issue 1363. offsetof should be marked `noexcept`](https://cplusplus.github.io/LWG/issue1363)
+    - C++11で、このマクロが例外を送出せず、`noexcept(offsetof(type, member-designator))`が`true`となることが規定された
 - [LWG Issue 2709. `offsetof` is unnecessarily imprecise](https://cplusplus.github.io/LWG/issue2709)
     - C++17で、標準レイアウトでないクラス型に対する`offsetof`の利用が「未定義動作」から「条件付きサポート」に変更された
