@@ -96,3 +96,5 @@ bool all_of(InputIterator first, InputIterator last, Predicate pred) {
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+- [LWG Issue 1205. Some algorithms could more clearly document their handling of empty ranges](https://cplusplus.github.io/LWG/issue1205)
+    - C++11で、空のイテレータ範囲を渡した場合の戻り値が明記された

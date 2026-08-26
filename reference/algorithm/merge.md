@@ -182,3 +182,5 @@ OutputIterator merge(InputIterator1 first1, InputIterator1 last1,
 - [P0574R1 Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+- [LWG Issue 780. `std::merge()` specification incorrect/insufficient](https://cplusplus.github.io/LWG/issue780)
+    - C++11で、効果が「2つの範囲をマージする」という記述から、「全要素をコピーし、結果がソート済みになるようにする」という具体的な記述へ改められ、入力範囲がソート済みであることが事前条件として明記された

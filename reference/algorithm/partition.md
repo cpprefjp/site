@@ -118,6 +118,8 @@ ForwardIterator partition(ForwardIterator first, ForwardIterator last, Predicate
 
 
 ## 参照
-- [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+- [LWG Issue 498. Requirements for `partition()` and `stable_partition()` too strong](https://cplusplus.github.io/LWG/issue498)
+    - C++11で、`partition`のイテレータ要件が`BidirectionalIterator`から`ForwardIterator`へ緩和され、計算量も`ForwardIterator`の場合の回数が別途規定された。前方向にしか進めないイテレータでも区分化は実装できるため
 - [P0574R1 Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
 - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)
+- [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)

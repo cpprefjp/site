@@ -120,3 +120,5 @@ BidirectionalIterator2 move_backward(BidirectionalIterator1 first, Bidirectional
 
 ## 参照
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+- [LWG Issue 1206. Incorrect requires for `move_backward` and `copy_backward`](https://cplusplus.github.io/LWG/issue1206)
+    - C++11で、`result`が含まれてはならない範囲が`[first, last)`から`(first, last]`に修正された。後方へコピーする場合に上書きされうるのは`last`までであり、`first`は上書きされないため

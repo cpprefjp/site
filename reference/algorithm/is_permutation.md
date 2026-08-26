@@ -231,3 +231,5 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
 - [N3671 Making non-modifying sequence operations more robust: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html)
     - C++14から追加された、`last2`を受け取るオーバーロードの提案文書
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+- [LWG Issue 1431. `is_permutation` must be more restrictive](https://cplusplus.github.io/LWG/issue1431)
+    - C++11で、2つのイテレータ範囲の値型が同じであり、比較関数が同値関係であることが要件に追加された。それ以外の場合は仕様として意味が定まらないため

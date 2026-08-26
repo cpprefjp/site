@@ -145,3 +145,5 @@ InputIterator find_first_of(InputIterator first1, InputIterator last1,
     - C++11から、パラメータのイテレータ型に対する制約が緩和され、`ForwardIterator`から`InputIterator`に変更になった経緯のレポート
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+- [LWG Issue 1205. Some algorithms could more clearly document their handling of empty ranges](https://cplusplus.github.io/LWG/issue1205)
+    - C++11で、空のイテレータ範囲を渡した場合の戻り値が明記された
