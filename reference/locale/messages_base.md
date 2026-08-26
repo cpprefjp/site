@@ -18,7 +18,7 @@ namespace std {
 
 | 名前 | 説明 |
 |----------------------|----------------------------------------|
-| `catalog` | 翻訳カタログ型 `int` |
+| `catalog` | 翻訳カタログ型<br/>・C++98 : `int`<br/>・C++14 : 未規定の符号付き整数型 |
 
 ## 例
 ```cpp example
@@ -62,3 +62,8 @@ done
 ## 関連項目
 - [`messages`](messages.md)
 - [`messages::open`](messages/open.md)
+
+
+## 参照
+- [LWG Issue 2028. `messages_base::catalog` overspecified](https://cplusplus.github.io/LWG/issue2028)
+    - C++14で、`catalog`の型が`int`から未規定の符号付き整数型に変更された。POSIXのメッセージカタログAPIが使用する`nl_catd`は未規定の型であり（macOSでは`void*`）、`int`に固定すると処理系がOSの提供するメッセージカタログ機能をそのまま利用できなかったため
