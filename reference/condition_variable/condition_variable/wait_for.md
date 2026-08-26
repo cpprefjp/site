@@ -179,6 +179,10 @@ process data
 
 
 ## 参照
+- [LWG Issue 857. `condition_variable::time_wait` return bool error prone](https://cplusplus.github.io/LWG/issue857)
+    - C++11で、述語を取らないオーバーロードの戻り値が`bool`から[`cv_status`](/reference/condition_variable/cv_status.md)へ変更された。`bool`ではタイムアウトを表すのか条件成立を表すのかが読み取れず、取り違えやすかったため
+- [LWG Issue 859. Monotonic Clock is Conditionally Supported?](https://cplusplus.github.io/LWG/issue859)
+    - C++11で、効果を[`wait_until()`](wait_until.md)経由で規定するのをやめ、この関数自体のブロッキング動作として直接規定するよう改められた。当時の`monotonic_clock`が条件付きサポートであり、その存在を前提にできなかったため。あわせて、ロック状態に関する事前条件が追加された
 - [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
 - [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
 - [LWG Issue 3504. `condition_variable::wait_for` is overspecified](https://cplusplus.github.io/LWG/issue3504)

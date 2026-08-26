@@ -47,3 +47,5 @@ int main()
 	- 2012までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 ## 参照
+- [LWG Issue 965. Various threading bugs #15](https://cplusplus.github.io/LWG/issue965)
+    - C++11で、コンストラクタが送出しうるエラー条件から`device_or_resource_busy`が削除された。これはPOSIXのエラーだが、C++では宣言と初期化が分離されないため発生しえないため

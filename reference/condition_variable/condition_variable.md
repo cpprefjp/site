@@ -133,6 +133,8 @@ process data
 
 ## 参照
 - [Condition Variables - Operating Systems: Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/threads-cv.pdf)
+- [LWG Issue 1220. What does `condition_variable` wait on?](https://cplusplus.github.io/LWG/issue1220)
+    - C++11で、このクラスが待機できるのが[`unique_lock`](/reference/mutex/unique_lock.md)`<`[`mutex`](/reference/mutex/mutex.md)`>`のオブジェクトであることが明記された
 - [LWG Issue 2190. Condition variable specification](https://cplusplus.github.io/LWG/issue2190)
     - C++14で、条件変数の操作が「ある未規定な全順序」ではなく「happens beforeの順序と一貫した単一の未規定な全順序」で実行されると規定された
     - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。元の規定では複数の全順序が存在しうると読め、待機と通知の順序がプログラムの実行順序と矛盾することを許してしまっていたが、これは矛盾した文言の修正であり、処理系の動作は変わらないため

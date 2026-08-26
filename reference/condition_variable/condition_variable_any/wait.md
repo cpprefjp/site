@@ -178,7 +178,9 @@ process data
 
 
 ## 参照
+- [LWG Issue 1222. `condition_variable` incorrect effects for exception safety](https://cplusplus.github.io/LWG/issue1222)
+    - C++11で、例外送出によってこの関数を抜ける場合に呼び出されるのが`lock.unlock()`ではなく`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)であると修正された
 - [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
-- [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
 - [P0660R10 Stop Token and Joining Thread, Rev 10](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0660r10.pdf)
 - [P1869R1 Rename `condition_variable_any` interruptible wait methods](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1869r1.html)
+- [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
