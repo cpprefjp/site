@@ -72,5 +72,7 @@ int main()
 ## 参照
 - [N3470 Constexpr Library Additions: containers, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3470.html)
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
+- [LWG Issue 1417. `front`/`back` on a zero-sized array should be undefined](https://cplusplus.github.io/LWG/issue1417)
+    - C++11で、長さ0の配列に対して呼び出したときの動作が、処理系定義から未定義動作へ改められた
 - [LWG Issue 4276. `front()` and `back()` are not hardened for zero-length `std::array`](https://cplusplus.github.io/LWG/issue4276)
     - C++26で、[array.zero]の「長さ0の配列で`front()`/`back()`を呼び出したときの動作は未定義」という特別規定が削除され、他の要素アクセス関数と同様に堅牢化された事前条件の対象となった
