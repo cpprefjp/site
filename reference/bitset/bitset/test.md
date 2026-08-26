@@ -49,3 +49,5 @@ int main()
 
 ## 参照
 - [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)
+- [LWG Issue 907. Bitset's immutable element retrieval is inconsistently defined](https://cplusplus.github.io/LWG/issue907)
+    - C++11で、この関数に付けられていた`constexpr`が取り消された。この関数は範囲外の`pos`に対して例外を送出するため、当時の`constexpr`関数の要件を満たせなかった

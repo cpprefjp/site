@@ -170,5 +170,7 @@ int main()
 - [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)
 - [P2697R1 Interfacing `bitset` with `string_view`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2697r1.pdf)
     - C++26から`string_view`を受け取るコンストラクタが追加された
+- [LWG Issue 1325. `bitset`](https://cplusplus.github.io/LWG/issue1325)
+    - C++11で、`const char*`から構築するコンストラクタが、任意の文字型を扱えるテンプレートへ改められ、文字数と`0`/`1`を表す文字を指定できるようになった
 - [LWG Issue 4294. `bitset(const CharT*)` constructor needs to be constrained](https://cplusplus.github.io/LWG/issue4294)
     - C++26で、(5)の`const CharT*`をとるコンストラクタに、`CharT`が文字型に相当することを表すテンプレートパラメータ制約（`is_array_v<CharT>`が`false`、`is_trivially_copyable_v`／`is_standard_layout_v`／`is_trivially_default_constructible_v`が`true`）が追加された。`CharT`が推論されるために不適当な型でもオーバーロード解決に参加してしまう問題を防ぐもの

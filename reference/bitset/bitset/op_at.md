@@ -61,3 +61,5 @@ false
 - [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)
 - [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
 - [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)
+- [LWG Issue 907. Bitset's immutable element retrieval is inconsistently defined](https://cplusplus.github.io/LWG/issue907)
+    - C++11で、`const`版の戻り値の規定が[`test(pos)`](test.md)という自己参照から「`pos`番目のビットが1なら`true`」という直接の記述へ改められた。`test()`は例外を送出しうるため、`constexpr`であるこの演算子を`test()`で定義することはできなかった
