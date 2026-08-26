@@ -34,6 +34,9 @@ namespace chrono {
 | [`months`](/reference/chrono/duration_aliases.md)       | 月         | C++20          |
 
 
+このクラスはリテラル型である。コンストラクタ、算術演算子、比較演算子、[`duration_cast`](duration_cast.md)は`constexpr`であり、定数式で時間の計算を行える。
+
+
 ## 適格要件
 - `Rep`が`duration`の特殊化ではないこと。
 - C++26 : `Rep`がCV修飾された型ではないこと。
