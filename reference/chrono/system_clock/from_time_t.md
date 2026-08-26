@@ -18,7 +18,7 @@ static time_point from_time_t(time_t t) noexcept;
 ## 戻り値
 パラメータtと同じ時間を指す[`time_point`](/reference/chrono/time_point.md)を返す。
 
-[`time_t`](/reference/ctime/time_t.md)の分解能が[`time_point`](/reference/chrono/time_point.md)よりも高い場合は、[`time_point`](/reference/chrono/time_point.md)の分解能に切り捨てられる。
+[`time_t`](/reference/ctime/time_t.md)の分解能が[`time_point`](/reference/chrono/time_point.md)よりも高い場合は、[`time_point`](/reference/chrono/time_point.md)の分解能に制限される。丸めるか切り捨てるかは処理系定義である。
 
 
 ## 例外
@@ -62,3 +62,8 @@ Tue Sep 27 14:21:13 2011
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
+
+
+## 参照
+- [LWG Issue 957. Various threading bugs #7](https://cplusplus.github.io/LWG/issue957)
+    - C++11で、精度が異なる場合に値を丸めるか切り捨てるかは処理系定義であることが明記された
