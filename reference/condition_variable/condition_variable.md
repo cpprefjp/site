@@ -22,6 +22,10 @@ namespace std {
 `condition_variable`の適切な利用については、[条件変数の利用方法](/article/lib/how_to_use_cv.md)も参照のこと。
 
 
+## 備考
+- 処理系は、[`notify_one()`](condition_variable/notify_one.md)・[`notify_all()`](condition_variable/notify_all.md)の全ての実行、および[`wait()`](condition_variable/wait.md)・[`wait_for()`](condition_variable/wait_for.md)・[`wait_until()`](condition_variable/wait_until.md)の実行の各部分が、単一の未規定な全順序で実行されるかのように振る舞う。この全順序は「happens before」の順序と一貫している。
+
+
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -129,3 +133,6 @@ process data
 
 ## 参照
 - [Condition Variables - Operating Systems: Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/threads-cv.pdf)
+- [LWG Issue 2190. Condition variable specification](https://cplusplus.github.io/LWG/issue2190)
+    - C++14で、条件変数の操作が「ある未規定な全順序」ではなく「happens beforeの順序と一貫した単一の未規定な全順序」で実行されると規定された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。元の規定では複数の全順序が存在しうると読め、待機と通知の順序がプログラムの実行順序と矛盾することを許してしまっていたが、これは矛盾した文言の修正であり、処理系の動作は変わらないため
