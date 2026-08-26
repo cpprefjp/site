@@ -76,6 +76,8 @@ namespace std {
 - `policy & launch::deferred`が`0`でない場合、関数オブジェクト`f`をその場では実行せず、遅延状態にする
     - (`DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f))`と`DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...`を[`future`](future.md)オブジェクトとの共有状態に格納する)。
     - この関数の戻り値である[`future`](future.md)オブジェクトの[`get()`](future/get.md)もしくは[`wait()`](future/wait.md)が呼び出されるタイミングで、関数オブジェクト`f`に`args...`を渡して実行する。
+    - 関数オブジェクト`f`の戻り値が、共有状態に書き込まれる。
+    - 関数オブジェクト`f`の内部で例外が投げられた場合は、共有状態に投げられた例外が設定される。
 - 有効な実行ポリシーが指定されていない場合(整数値を`launch`型にキャストするような状況)、その動作は未定義(C++14)。
 
 
@@ -208,6 +210,9 @@ foo() = 3
 - [&lt;future&gt; functions - Microsoft Docs](https://docs.microsoft.com/en-us/cpp/standard-library/future-functions?view=vs-2019#remarks)
 - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
     - C++26で`[[nodiscard]]`指定が削除された
+- [LWG Issue 2186. Incomplete action on `async`/`launch::deferred`](https://cplusplus.github.io/LWG/issue2186)
+    - C++14で、`launch::deferred`で遅延実行した場合にも、戻り値と送出された例外が共有状態へ格納されることが規定された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。`launch::async`側にのみ規定があり遅延実行の結果をどう扱うかが規定から抜けていた記載漏れの補完であり、処理系は当初から現在の動作を採っていたため
 - [LWG Issue 2752. Throws: clauses of `async` and `packaged_task` are unimplementable](https://cplusplus.github.io/LWG/issue2752)
     - 実装上必要な内部確保を反映し、`async`が[`bad_alloc`](/reference/new/bad_alloc.md)も送出しうることが規定された
     - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。型消去のための内部確保が必要なため元のThrows節は実装不可能であり、処理系は当初から`bad_alloc`を送出しえたため
