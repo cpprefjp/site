@@ -53,3 +53,9 @@ int main()
 - [GCC](/implementation.md#gcc): 4.9.0 [mark verified], 4.9.1 [mark verified], 4.9.2 [mark verified], 5.0.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 2359. How does `regex_constants::nosubs` affect `basic_regex::mark_count()`?](https://cplusplus.github.io/LWG/issue2359)
+    - C++14で、[`regex_constants::nosubs`](../regex_constants/syntax_option_type.md)が「いかなる部分式もマークされたものとして扱わない」ことを指定するものであると明確化され、本関数が`0`を返すことが規定から導かれるようになった
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。`nosubs`が本関数へ及ぼす影響が未規定だったものの明文化であり、処理系は当初から`0`を返していたため

@@ -55,7 +55,7 @@ namespace std {
 
 
 ## 効果
-`nth_element()` を呼び出した後、`nth` が指している位置の要素は、全ての範囲がソートされた場合の位置にある要素になる。そして、`[first,nth)` にあるイテレータ `i` と、`[nth,last)` にあるイテレータ `j` について、`!(*j < *i)` または `comp(*j, *i) == false` になる。
+`nth_element()` を呼び出した後、`nth` が指している位置の要素は、全ての範囲がソートされた場合の位置にある要素になる。ただし`nth == last`である場合、この規定は適用されない。そして、`[first,nth)` にあるイテレータ `i` と、`[nth,last)` にあるイテレータ `j` について、`!(*j < *i)` または `comp(*j, *i) == false` になる。
 
 
 ## 戻り値
@@ -109,5 +109,8 @@ int main()
 - [LWG Issue 2163. `nth_element` requires inconsistent post-conditions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2163)
     - C++11まで、この関数を呼び出したあとの状態について「`!(*i > *j)`」と記載していたが、並べ替えには`operator<()`を使用するので、C++14で「`!(*j < *i)`」に訂正。
 - [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+- [LWG Issue 2339. Wording issue in `nth_element`](https://cplusplus.github.io/LWG/issue2339)
+    - C++14で、`nth == last`の場合には`nth`が指す位置の要素についての規定が適用されないことが明確化された
+    - この修正は欠陥報告(DR)であり、C++98以降に遡及して適用される。`nth == last`は終端イテレータであり指す要素が存在しないため、元の規定はそもそも意味を成さず、処理系は当初から現在の動作を採っていたため
 - [P0574R1 Algorithm Complexity Constraints and Parallel Overloads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0574r1.html)
 - [P0879R0 Constexpr for `swap` and `swap` related functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html)

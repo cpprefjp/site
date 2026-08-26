@@ -80,6 +80,9 @@ TBD
 - C++98
 
 ## 参照
+- [LWG Issue 2085. Wrong description of effect 1 of `basic_istream::ignore`](https://cplusplus.github.io/LWG/issue2085)
+    - C++14で、`n`文字を入力したという終了条件が「`n != numeric_limits<streamsize>::max()`であり、かつそこまでに`n`文字を入力した場合」であると明確化された
+    - この修正は欠陥報告(DR)であり、C++98以降に遡及して適用される。元の文言は「`n != numeric_limits<streamsize>::max()`ならば`n`文字を入力する」という条件文だったため、`n == numeric_limits<streamsize>::max()`のときは前提が偽となって条件が成り立ってしまい、1文字も入力せずに終了すると読めてしまっていた。処理系は当初から意図どおりの動作をしていたため
 - [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
     - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された
 - [P3223R2 Making std::istream::ignore less surprising](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3223r2.html)

@@ -47,6 +47,10 @@ namespace std {
 
     通知（`notify_all()`）を先に行い、その後でロックを解放するよう順序が変更された。これにより、`lk`のロック解除を待っている別スレッドは、`notify_all()`の呼び出し完了後にはじめて起床できるため、デタッチされたスレッドで`cond`が破棄されて`notify_all()`がダングリング参照になる競合を避けられる。
 
+## 同期操作
+暗黙に行われる`lk.`[`unlock()`](/reference/mutex/unique_lock/unlock.md)の呼び出しは、現在のスレッドに関連付けられたスレッドストレージ期間を持つ全てのオブジェクトの破棄より後に順序付けられる。
+
+
 ## 戻り値
 なし
 
@@ -142,5 +146,8 @@ data is ready: true
 ## 参照
 - [_at_thread_exit系の関数が存在している理由](/article/lib/at_thread_exit.md)
 - [N3070 - Handling Detached Threads and thread_local Variables](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3070.html)
+- [LWG Issue 2140. Meaning of `notify_all_at_thread_exit` synchronization requirement?](https://cplusplus.github.io/LWG/issue2140)
+    - C++14で、同期の規定が「スレッドローカル変数のデストラクタの完了が`cond`を待っているスレッドと同期する」から「暗黙の`unlock()`がスレッドストレージ期間のオブジェクトの破棄より後に順序付けられる」という形へ改められた
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。元の規定は待機側スレッドが起床する条件を`notify_all()`ではなくデストラクタの完了に結び付けており実装不可能であって、処理系は当初から現在の動作を採っていたため
 - [LWG Issue 3343. Ordering of calls to `unlock()` and `notify_all()` in Effects element of `notify_all_at_thread_exit()` should be reversed](https://cplusplus.github.io/LWG/issue3343)
     - C++26で、通知処理の順序が`notify_all()`→`unlock()`へ変更された。デタッチされたスレッドで`cond`が破棄され`notify_all()`がダングリング参照となる競合を避けるためである。この変更は欠陥報告 (DR) であり、C++26より前のバージョンでもコンパイラが早期に対応している場合がある

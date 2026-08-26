@@ -50,7 +50,7 @@ namespace std {
 
 
 ## テンプレートパラメータ制約
-- `InputIterator` の value type は `Assignable` で、`out_true` と `out_false` の `OutputIterator` へ書き込み可能で、`Predicate` の引数型へ変換可能であること
+- `InputIterator` の value type は `CopyAssignable` で、`out_true` と `out_false` の `OutputIterator` へ書き込み可能で、`Predicate` の引数型へ変換可能であること
 
 
 ## 事前条件
@@ -134,5 +134,8 @@ odds : 1,3,5,
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+- [LWG Issue 2357. Remaining "Assignable" requirement](https://cplusplus.github.io/LWG/issue2357)
+    - C++14で、要件の名前が、C++98から使われていた`Assignable`から`CopyAssignable`へ改められた
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。C++11で名前付き要件を改名した際に本関数への適用が漏れた編集上の誤りの修正であり、要件の内容そのものは変わらないため
 - [LWG Issue 4465. §[alg.partitions] Clarify _Returns:_ element](https://cplusplus.github.io/LWG/issue4465)
     - C++26で、戻り値の`pair`が、それぞれ`out_true`／`out_false`の各出力範囲へコピーされた最後の要素の次を指すイテレータであることが明確化された

@@ -69,9 +69,9 @@ apply(
 	- [`uses_allocator`](/reference/memory/uses_allocator.md)`<T1, inner_allocator_type>::value == false` かつ [`is_constructible`](/reference/type_traits/is_constructible.md)`<T1, Args1...>::value == true` の場合  
 		`x` を `xprime` とする。
 	- [`uses_allocator`](/reference/memory/uses_allocator.md)`<T1, inner_allocator_type>::value == true` かつ [`is_constructible`](/reference/type_traits/is_constructible.md)`<T1,` [`allocator_arg_t`](/reference/memory/allocator_arg_t.md)`, inner_allocator_type, Args1...>::value == true` の場合  
-		[`tuple_cat`](/reference/tuple/tuple_cat.md)`(`[`tuple`](/reference/tuple/tuple.md)`<`[`allocator_arg_t`](/reference/memory/allocator_arg_t.md)`, inner_allocator_type&>(`[`allocator_arg`](/reference/memory/allocator_arg_t.md)`, inner_allocator_type()), x)` を `xprime` とする。
+		[`tuple_cat`](/reference/tuple/tuple_cat.md)`(`[`tuple`](/reference/tuple/tuple.md)`<`[`allocator_arg_t`](/reference/memory/allocator_arg_t.md)`, inner_allocator_type&>(`[`allocator_arg`](/reference/memory/allocator_arg_t.md)`,` [`inner_allocator`](inner_allocator.md)`()),` [`move`](/reference/utility/move.md)`(x))` を `xprime` とする。
 	- [`uses_allocator`](/reference/memory/uses_allocator.md)`<T1, inner_allocator_type>::value == true` かつ [`is_constructible`](/reference/type_traits/is_constructible.md)`<T1, Args1..., inner_allocator_type>::value == true` の場合  
-		[`tuple_cat`](/reference/tuple/tuple_cat.md)`(x,` [`tuple`](/reference/tuple/tuple.md)`<inner_allocator_type&>(inner_allocator_type()))` を `xprime` とする。
+		[`tuple_cat`](/reference/tuple/tuple_cat.md)`(`[`move`](/reference/utility/move.md)`(x),` [`tuple`](/reference/tuple/tuple.md)`<inner_allocator_type&>(`[`inner_allocator`](inner_allocator.md)`()))` を `xprime` とする。
 	- それ以外の場合、プログラムは不適格となる。
 
 - (3) : 以下と等価の動作を行う。  
@@ -235,6 +235,9 @@ int main()
 
 ## 参照
 - [P0591R4 Utility functions to implement uses-allocator construction](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0591r4.pdf)
+- [LWG Issue 2203. `scoped_allocator_adaptor` uses wrong argument types for piecewise construction](https://cplusplus.github.io/LWG/issue2203)
+    - C++14で、`xprime`／`yprime`の構築において、引数の`tuple`を[`move`](/reference/utility/move.md)で渡すようになり、内側のアロケータの取得も`inner_allocator_type()`（デフォルト構築した一時オブジェクト）ではなく[`inner_allocator()`](inner_allocator.md)（実際に保持しているアロケータ）を使うよう修正された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。元の規定は右辺値`inner_allocator_type()`を`inner_allocator_type&`へ束縛するもので、そもそもコンパイルできない実装不可能な文言だったため
 - [LWG Issue 2975. Missing case for pair construction in scoped and polymorphic allocators](https://wg21.cmeerw.net/lwg/issue2975)
 - [LWG Issue 3116. `OUTERMOST_ALLOC_TRAITS` needs `remove_reference_t`](https://cplusplus.github.io/LWG/issue3116)
     - C++20で、`OUTERMOST(x)`が参照を返しうることに対応し、`OUTERMOST_ALLOC_TRAITS`の定義に[`remove_reference_t`](/reference/type_traits/remove_reference.md)が挿入された

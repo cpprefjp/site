@@ -94,4 +94,7 @@ int main()
 
 ## 参照
 - [LWG Issue 2018. [CD] `regex_traits::isctype` Returns clause is wrong](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2018)
-    - C++14から、戻り値の仕様文面が見直された。
+    - C++14で、戻り値の仕様文面が見直された
+- [LWG Issue 2271. `regex_traits::lookup_classname` specification unclear](https://cplusplus.github.io/LWG/issue2271)
+    - C++14で、クラス名が認識できなかった場合の戻り値が、「`0`と等値比較できる値」から`char_class_type()`に変更された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。`char_class_type`はビットマスク型であり、ビットマスク型は[`bitset`](/reference/bitset/bitset.md)で実装してもよいため`0`と等値比較できるとは限らず、元の規定は実装不可能だったため
