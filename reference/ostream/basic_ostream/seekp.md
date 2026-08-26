@@ -16,20 +16,38 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir); // (2)
 
 ## 効果
 
-- (1) 出力ストリームの書き込み位置を `pos` に設定する。
-- (2) 出力ストリームの書き込み位置を `dir` を基準として相対位置 `off` に設定する。
+- (1) :
+    - 出力ストリームの書き込み位置を `pos` に設定する。
+    - 設定に失敗した場合、[`setstate`](../../ios/basic_ios/setstate.md)`(failbit)`を呼び出す。
+- (2) :
+    - 出力ストリームの書き込み位置を `dir` を基準として相対位置 `off` に設定する。
+    - 設定に失敗した場合の動作は、以下のようにバージョンによって異なる。
+        - C++98 : ストリームの状態は変化しない。
+        - C++14 : [`setstate`](../../ios/basic_ios/setstate.md)`(failbit)`を呼び出す。
 
 ## 戻り値
 `*this`
 
 ## 備考
-本関数の処理内容は以下の通り。
+- 本関数の処理内容は以下の通り。
+    1. [`sentry`](sentry.md) オブジェクトを構築する（C++11 以降のみ）。
+    1. 与えられた実引数により、以下のいずれかを実行する。
+        - (1) [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubseekpos`](../../streambuf/basic_streambuf/pubseekpos.md)`(pos, ios_base::out)`
+        - (2) [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md)`(off, dir, ios_base::out)`
+    1. 処理に失敗した場合（上記の戻り値が `-1` だった場合）、[`setstate`](../../ios/basic_ios/setstate.md)`(failbit)`を呼び出す。
+- C++14より前の(2)には、この3番目の手順が規定されていなかった。そのため、位置の移動に失敗しても[`fail()`](../../ios/basic_ios/fail.md)は`false`のままとなり、呼び出し側は失敗を検知できなかった。移動できなかったことに気付かないまま出力を続けると、意図しない位置へ書き込んでしまう。
+    ```cpp
+    os.seekp(-100, std::ios_base::cur); // シーク不能なストリームでは失敗する
 
-1. [`sentry`](sentry.md) オブジェクトを構築する（C++11 以降のみ）。
-1. 与えられた実引数により、以下のいずれかを実行する。
-    - (1) [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubseekpos`](../../streambuf/basic_streambuf/pubseekpos.md)`(pos, ios_base::out)`
-    - (2) [`rdbuf`](../../ios/basic_ios/rdbuf.md)`()->`[`pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md)`(off, dir, ios_base::out)`
-1. 処理に失敗した場合（上記の戻り値が `-1` だった場合）、[`setstate`](../../ios/basic_ios/setstate.md)`(failbit)`を呼び出す。
+    // C++98 : 失敗してもfail()はfalseのままであり、このifは実行されない
+    // C++14 : 失敗するとfailbitが設定され、このifが実行される
+    if (os.fail()) {
+      // 移動に失敗したことを検知できる
+    }
+    ```
+    * seekp[color ff0000]
+    * os.fail()[link ../../ios/basic_ios/fail.md]
+
 
 ## 例
 以下は、`off_type` と `seekdir` を使用する例。
@@ -72,7 +90,7 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir) {
   sentry s(*this);
   if (!this->fail()) {
     if (this->rdbuf()->pubseekoff(off, dir, ios_base::out) == pos_type(-1)) {
-      this->setstate(failbit);
+      this->setstate(failbit); // C++14から
     }
   }
   return *this;
@@ -94,3 +112,5 @@ basic_ostream<CharT, Traits>& seekp(off_type off, seekdir dir) {
 - [`basic_ostream::tellp`](tellp.md)
 - [`basic_streambuf::pubseekpos`](../../streambuf/basic_streambuf/pubseekpos.md)
 - [`basic_streambuf::pubseekoff`](../../streambuf/basic_streambuf/pubseekoff.md)
+- [LWG Issue 2341. Inconsistency between `basic_ostream::seekp(pos)` and `basic_ostream::seekp(off, dir)`](https://cplusplus.github.io/LWG/issue2341)
+    - C++14で、(2)の相対位置指定版についても、位置の移動に失敗した場合に`setstate(failbit)`を呼び出すことが規定された。(1)の絶対位置指定版のみに規定があり、(2)では失敗を検知する手段がなかったため
