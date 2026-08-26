@@ -45,7 +45,7 @@ namespace regex_constants {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `icase`      | 正規表現のマッチで大文字小文字を区別しないことを指定する。 | C++11 |
-| `nosubs`     | 正規表現のマッチ成功時に、渡された[`match_results`](/reference/regex/match_results.md)オブジェクトへの参照に、部分式のマッチ情報を格納しないことを指定する | C++11 |
+| `nosubs`     | いかなる部分式もマークされたものとして扱わないことを指定する。これにより、正規表現のマッチ成功時に、渡された[`match_results`](/reference/regex/match_results.md)オブジェクトへの参照に、部分式のマッチ情報が格納されなくなる | C++11 |
 | `optimize`   | 正規表現エンジンに、正規表現オブジェクトの構築速度よりもマッチ速度に注意を払うべきであることを指定する。 | C++11 |
 | `collate`    | \[a-b\]形式の文字範囲がロケールを考慮することを指定する | C++11 |
 | `ECMAScript` | ECMA-262仕様第 3 版のECMAScript言語で使用されている正規表現と同じ構文を使用する | C++11 |
@@ -79,5 +79,8 @@ namespace regex_constants {
     - 定数定義に不要な`static`が付いていたため、C++14で削除
 - [LWG Issue 2330. regex("meow", regex::icase) is technically forbidden but should be permitted](http://cplusplus.github.io/LWG/lwg-defects.html#2330)
     - [`regex`](../basic_regex.md)`("meow", regex::icase)` のような指定を許可する
+- [LWG Issue 2359. How does `regex_constants::nosubs` affect `basic_regex::mark_count()`?](https://cplusplus.github.io/LWG/issue2359)
+    - C++14で、`nosubs`が「いかなる部分式もマークされたものとして扱わない」ことを指定するものであると明確化された。これにより[`basic_regex::mark_count()`](/reference/regex/basic_regex/mark_count.md)が`0`を返すことが規定から導かれる
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。`nosubs`が[`basic_regex::mark_count()`](/reference/regex/basic_regex/mark_count.md)へ及ぼす影響が未規定だったものの明文化であり、処理系は当初から`0`を返していたため
 - [LWG Issue 2503. `multiline` option should be added to `syntax_option_type`](https://wg21.cmeerw.net/lwg/issue2503)
     - C++17で`multiline`オプションを追加
