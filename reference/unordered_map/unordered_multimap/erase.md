@@ -57,7 +57,8 @@ constexpr iterator erase(const_iterator first, const_iterator last); // (4) C++2
 
 
 ## 備考
-削除された要素を指すイテレータ、および、参照のみ無効になる。なお、規格書に明確な記載は無いが、削除された要素を指すポインタも無効になる。
+- 削除された要素を指すイテレータ、および、参照のみ無効になる。なお、規格書に明確な記載は無いが、削除された要素を指すポインタも無効になる。
+- 削除されなかった要素の相対順序は維持される。
 
 
 ## 例
@@ -221,4 +222,7 @@ int main()
     - 安定性の保証が規定された経緯のレポート
 - [LWG Issue 2059. C++0x ambiguity problem with `map::erase`](https://cplusplus.github.io/LWG/issue2059)
     - C++17で、`erase(iterator)`を追加
+- [LWG Issue 2356. Stability of erasure in unordered associative containers](https://cplusplus.github.io/LWG/issue2356)
+    - C++14で、`erase()`が削除されなかった要素の相対順序を維持することが規定された
+    - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。イテレータの無効化についての規定はあったものの残った要素の並び順が維持されるかが未規定だったものの明文化であり、処理系は当初から相対順序を維持していたため
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
