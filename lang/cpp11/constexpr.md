@@ -131,6 +131,12 @@ constexpr int f(bool b)
 
 
 ## 備考
+### 標準ライブラリ関数への`constexpr`指定
+標準ライブラリの関数に`constexpr`が付くかどうかは、規格が明示的に要求している場合に限られる。処理系が独自の判断で、規格が要求していない標準ライブラリ関数のシグニチャに`constexpr`を付けることは許可されていない。
+
+これは、ある処理系では定数式で使えるが別の処理系では使えない、といった移植性の問題を防ぐためである。
+
+
 ### 浮動小数点数演算での注意
 `constexpr`関数での浮動小数点数は、コンパイル時に実行するとコンパイル環境で計算が行われ、実行時に実行すると実行環境で計算が行われる。これによって、コンパイル時と実行時で、結果が異なる可能性がある。
 
@@ -234,3 +240,5 @@ GCC 5.2、Clang 3.7、Visual C++ 2015時点で、3つともデフォルトは512
     - リテラル型のメンバ変数のみを持つクラスは、`constexpr`コンストラクタを明示的に定義しなくても、リテラル型となる
 - [CWG Issue 699. Must constexpr member functions be defined in the class member-specification?](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#699)
     - ゼロ割りの扱い、再帰回数の規定
+- [LWG Issue 2013. Do library implementers have the freedom to add `constexpr`?](https://cplusplus.github.io/LWG/issue2013)
+    - C++14で、処理系が規格の要求を超えて標準ライブラリ関数に`constexpr`を付けることは許可されないと規定された。処理系ごとに定数式で使える関数が異なると、移植性のあるプログラムを書けなくなるため
