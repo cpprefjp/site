@@ -34,7 +34,9 @@ valarray& operator=(const indirect_array<T>& x); // (8)
 
 
 ## 効果
-- (1) : `*this`と`x`が異なる要素数の場合、`resize(x.size())`を呼び出す。`*this`の各要素に、`x`の各要素を代入する。
+- (1) :
+    - C++98 : `*this`の各要素に、`x`の各要素を代入する。要素数が異なる場合、動作は未定義
+    - C++11 : `*this`と`x`が異なる要素数の場合、`resize(x.size())`を呼び出す。`*this`の各要素に、`x`の各要素を代入する
 - (2) : `*this`に`x`の所有権を譲渡する。ムーブ後の`x`の状態は未規定。
 - (3) : `*this = valarray(init)`と等価。
 - (4) : `*this`の全ての要素に値`value`を代入する。
@@ -147,5 +149,7 @@ va8 : {1,3,5}
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (3)の経緯となる提案文書
+- [LWG Issue 630. arrays of `valarray`](https://cplusplus.github.io/LWG/issue630)
+    - C++11で、コピー代入において要素数が異なる場合に`resize()`で長さを合わせることが規定された。それ以前は動作は未定義とされており、`valarray`の配列を宣言するとデフォルト構築（要素数0）された要素へ代入できず、事実上使えなかった
 - [LWG Issue 2071. `std::valarray` move-assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2071)
     - C++11でムーブ代入の計算量を「定数時間」であると記載していたが、実際には全要素のデストラクタを呼び出すために「線形時間」が正しかった。C++14で文面を修正。
