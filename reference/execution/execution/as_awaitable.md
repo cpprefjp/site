@@ -30,9 +30,11 @@ Promise型`p`をもつコルーチンにおいて、Await式`co_await as_awaitab
 
 
 ## 効果
-説明用の式`expr`と左辺値`p`に対して、型`Expr`を`decltype((expr))`、型`Promise`を[`decay_t`](/reference/type_traits/decay.md)`<decltype((p))>`とする。
+説明用の式`expr`と`p`に対して、型`Expr`を`decltype((expr))`、型`Promise`を[`decay_t`](/reference/type_traits/decay.md)`<decltype((p))>`とする。
 
-呼び出し式`as_awaitable(expr, p)`は、`expr`と`p`の評価が不定順で順序付けられることを除いて、下記と等価。
+`p`が左辺値ではない場合、呼び出し式`as_awaitable(expr, p)`は不適格となる。
+
+そうでなければ、呼び出し式`as_awaitable(expr, p)`は、`expr`と`p`の評価が不定順で順序付けられることを除いて、下記と等価。
 
 - 適格であるならば、式`expr.as_awaitable(p)`
     - 適格要件 : 同式の型を`A`としたとき、[`is-awaitable`](../is-awaitable.md)`<A, Promise> == true`であるべき。
@@ -263,3 +265,5 @@ value-type await_resume();
 - [LWG4361 `awaitable-receiver::set_value` should use Mandates instead of constraints](https://cplusplus.github.io/LWG/issue4361)
 - [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)
 - [P4159R0 Make `sender_in` and `receiver_of` exposition-only](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4159r0.html)
+- [LWG Issue 4359. `as_awaitable(expr, p)` does not define semantics of call if `p` is not an lvalue](https://cplusplus.github.io/LWG/issue4359)
+    - `p`が左辺値でない場合にこの呼び出しが不適格となることが規定された。それ以前は`p`が左辺値である場合の意味しか規定されておらず、そうでない場合の扱いが不明だった。規格としてはC++29のワーキングドラフトへ適用されたが、未規定だった点の明文化であるため、`as_awaitable`が追加されたC++26へ遡及して適用される
