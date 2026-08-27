@@ -21,6 +21,8 @@ constexpr element_type*
 ## 戻り値
 保持しているポインタを返す。
 
+空の`shared_ptr`が保持しているポインタは必ずしもヌルポインタではない。[エイリアスコンストラクタ](op_constructor.md)を使うと、所有権を持たずに非ヌルのポインタを保持する`shared_ptr`を構築できるためである。
+
 
 ## 備考
 リソースの所有権は`*this`が持っているので、この関数によって返されたポインタに対して、リソース解放をしてはならない。
@@ -61,3 +63,5 @@ int main()
 ## 参照
 - [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+- [LWG Issue 711. Contradiction in empty `shared_ptr`](https://cplusplus.github.io/LWG/issue711)
+    - C++11で、「空の場合はヌルポインタを返す」という記述が削除された。エイリアスコンストラクタにより、空でありながら非ヌルのポインタを保持する`shared_ptr`を構築できるため、この記述は矛盾していた
