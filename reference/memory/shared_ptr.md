@@ -227,3 +227,7 @@ Y dtor
 - [P0163R0 `shared_ptr::weak_type`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0163r0.html)
 - [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)
 - [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)
+- [LWG Issue 896. Library thread safety issue](https://cplusplus.github.io/LWG/issue896)
+    - C++11で、データ競合の有無を判定する上で、メンバ関数がアクセス・変更するのは`shared_ptr`と[`weak_ptr`](weak_ptr.md)のオブジェクト自体であって、それらが参照するオブジェクトではないことが明記された
+- [LWG Issue 978. Hashing smart pointers](https://cplusplus.github.io/LWG/issue978)
+    - C++11で、[`hash`](/reference/functional/hash.md)クラスの特殊化が追加された。非順序連想コンテナのキーとしてスマートポインタを使えるようにするため

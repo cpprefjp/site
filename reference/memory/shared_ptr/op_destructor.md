@@ -72,3 +72,5 @@ Y dtor
 
 ## 参照
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+- [LWG Issue 899. Adjusting `shared_ptr` for `nullptr_t`](https://cplusplus.github.io/LWG/issue899)
+    - C++11で、削除子を呼び出す条件の記述が「ポインタ`p`を所有している場合」から「オブジェクト`p`を所有している場合」へ改められた。`nullptr`と削除子から構築した`shared_ptr`でも削除子が呼ばれることを明確にするため
