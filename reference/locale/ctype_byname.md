@@ -73,3 +73,8 @@ true
 ## 関連項目
 - [`ctype`](/reference/locale/ctype.md)
 - [`locale`](locale.md)
+
+
+## 参照
+- [LWG Issue 1298. Missing specialization of `ctype_byname<char>`](https://cplusplus.github.io/LWG/issue1298)
+    - C++11で、`char`に対する明示的特殊化の宣言が削除された。特殊化の内容が規定されておらず、基本テンプレートで足りるため
