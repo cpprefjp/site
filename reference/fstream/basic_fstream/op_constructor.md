@@ -5,9 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-basic_fstream(); // (1)
-explicit basic_fstream(const char* s, ios_base::openmode mode = ios_base::in | ios_base::out); // (2)
-explicit basic_fstream(const string& s, ios_base::openmode mode = ios_base::in | ios_base::out); // (3)
+basic_fstream(); // (1) C++98
+explicit basic_fstream(const char* s, ios_base::openmode mode = ios_base::in | ios_base::out); // (2) C++98
+explicit basic_fstream(const string& s, ios_base::openmode mode = ios_base::in | ios_base::out); // (3) C++11
 explicit basic_fstream(const filesystem::path::value_type* s,
                        ios_base::openmode mode = ios_base::in|ios_base::out); // (4) C++17
 explicit basic_fstream(const filesystem::path& s,

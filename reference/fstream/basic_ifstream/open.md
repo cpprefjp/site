@@ -7,13 +7,13 @@
 ```cpp
 void open(
   const char* s,
-  ios_base::openmode mode = ios_base::in); // (1)
+  ios_base::openmode mode = ios_base::in); // (1) C++98
 void open(
   const filesystem::path::value_type* s,
   ios_base::openmode mode = ios_base::in); // (2) C++17
 void open(
   const string& s,
-  ios_base::openmode mode = ios_base::in); // (3)
+  ios_base::openmode mode = ios_base::in); // (3) C++11
 void open(
   const filesystem::path& s,
   ios_base::openmode mode = ios_base::in); // (4) C++17
