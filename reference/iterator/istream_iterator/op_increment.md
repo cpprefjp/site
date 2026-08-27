@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-istream_iterator<T, CharT, Traits, Distance>& operator++();
-istream_iterator<T, CharT, Traits, Distance> operator++(int);
+istream_iterator<T, CharT, Traits, Distance>& operator++();   // (1) C++98
+istream_iterator<T, CharT, Traits, Distance> operator++(int); // (2) C++98
 ```
 
 ## 概要
