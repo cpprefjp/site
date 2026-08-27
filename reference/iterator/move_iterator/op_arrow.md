@@ -6,8 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-pointer operator->() const;           // C++11
-constexpr pointer operator->() const; // C++17
+pointer operator->() const;           // (1) C++11
+constexpr pointer operator->() const; // (1) C++17
 ```
 
 ## 概要

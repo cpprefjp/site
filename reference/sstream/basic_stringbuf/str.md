@@ -50,6 +50,8 @@ void str(const T& t);                                       // (7) C++26
 - (6) : 与えられた文字列オブジェクト`s`をムーブして設定する
 - (7) : [`std::basic_string_view`](/reference/string_view/basic_string_view.md)に変換可能な文字列を設定する
 
+(4)〜(7)では、設定後に入力位置と出力位置がオープンモードに従って初期化される。オープンモードに[`ios_base::ate`](/reference/ios/ios_base/type-openmode.md)が含まれる場合、出力位置は文字列の末尾に設定される。
+
 
 ## 例
 ### 基本的な使い方
@@ -158,3 +160,5 @@ set from string_view
 - [P0408R7 Efficient Access to `basic_stringbuf`'s Buffer](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0408r7.pdf)
 - [P2495R3 Interfacing stringstreams with `string_view`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2495r3.pdf)
     - C++26で[`std::string_view`](/reference/string_view/basic_string_view.md)に対応した
+- [LWG Issue 1448. Concerns about `basic_stringbuf::str`(`basic_string`) postconditions](https://cplusplus.github.io/LWG/issue1448)
+    - C++11で、出力位置を末尾に設定するかどうかの判定が`ios_base::in`から[`ios_base::ate`](/reference/ios/ios_base/type-openmode.md)へ修正された

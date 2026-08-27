@@ -101,5 +101,7 @@ int main()
 
 
 ## 参照
-- [LWG Issue 3104. Fixing `duration` division](https://wg21.cmeerw.net/lwg/issue3104)
+- [LWG Issue 1271. CR undefined in `duration` operators](https://cplusplus.github.io/LWG/issue1271)
+    - C++11で、戻り値の記述で使用していた`CR`が、引数の型を明示した`CR(Rep1, Rep2)`という表記へ修正された
 - [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
+- [LWG Issue 3104. Fixing `duration` division](https://wg21.cmeerw.net/lwg/issue3104)

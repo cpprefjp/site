@@ -78,7 +78,9 @@ Stage 2で蓄積した文字列（フィールド）を、[`<cstdlib>`](/referen
 
 格納される値は以下のいずれかであり、いずれの場合も結果は`val`へ格納される。
 
-- (2)〜(11) : 変換関数がフィールド全体を変換しなかった場合、`0`
+- (2)〜(11) : 変換関数がフィールド全体を変換しなかった場合
+    - C++98 : 値は格納されない
+    - C++11 : `0`
 - (2), (3) : `val`に表現できないほど大きな正（負）の値を表す場合、表現可能な最大（最小）の値
 - (4), (5), (6), (7) : `val`に表現できない値を表す場合、表現可能な最大の値
 - (2)〜(11) : それ以外の場合、変換された値
@@ -113,5 +115,9 @@ Stage 2で蓄積した文字列（フィールド）を、[`<cstdlib>`](/referen
 
 
 ## 参照
+- [LWG Issue 696. `istream::operator>>`(int&) broken](https://cplusplus.github.io/LWG/issue696)
+    - C++11で、変換に失敗した場合に値を変更しないという記述が削除され、抽出に失敗した場合は`0`が代入されるという規定に一本化された。整数の抽出をより広い型で行ってから範囲検査する規定と矛盾していたため
 - [LWG Issue 1169. `num_get` not fully compatible with `strto*`](https://cplusplus.github.io/LWG/issue1169)
     - C++17で、`float`に`std::strtof`、`long double`に`std::strtold`を使用することが明示され（`std::strtoll`/`std::strtoull`/`std::strtod`は変更なし）、符号なし整数型で表現できない値に対しては（正負によらず）常に表現可能な最大の値を格納する形に整理された。これによりC標準ライブラリと整合するようになった
+- [LWG Issue 2041. Stage 2 accumulate incompatibilty](https://cplusplus.github.io/LWG/issue2041)
+    - C++11で、Stage 2において、変換指定に対して許容される文字であるかの検査を行ってから蓄積することが明記された

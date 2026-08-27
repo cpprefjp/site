@@ -121,12 +121,16 @@ int main()
 	- 2012までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 ## 参照
-- [LWG Issue 2047. Incorrect "mixed" move-assignment semantics of `unique_ptr`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2047)
+- [LWG Issue 1021. Allow `nullptr_t` assignments to `unique_ptr`](https://cplusplus.github.io/LWG/issue1021)
+    - C++11で、代入演算子の引数型が未規定のポインタ型から`nullptr_t`へ改められた。`nullptr`を代入して解放する用途を、処理系ごとの実装技法に依存せず規定できるようにするため
 - [LWG 2246. `unique_ptr` assignment effects w.r.t. deleter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2246)
 - [LWG 2228: Missing SFINAE rule in unique_ptr templated assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4366)
     - (2)のSFINAEルール不足の欠陥修正の提案文書
+- [LWG Issue 1303. `shared_ptr`, `unique_ptr`, and rvalue references v2](https://cplusplus.github.io/LWG/issue1303)
+    - C++11で、変換可能な型からのコピー代入演算子の`delete`宣言が削除された。テンプレートの代入演算子はコピー代入演算子にならないため、宣言する必要がなかった
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)
+- [LWG Issue 2047. Incorrect "mixed" move-assignment semantics of `unique_ptr`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2047)
 - [LWG Issue 2899. `is_(nothrow_)move_constructible` and `tuple`, `optional` and `unique_ptr`](https://cplusplus.github.io/LWG/issue2899)
     - C++20で、ムーブ代入演算子(1)が、デリータ型`D`がムーブ代入可能でない場合はオーバーロード解決に参加しないよう制約化された
-- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)
 - [LWG Issue 3455. Incorrect Postconditions on `unique_ptr` move assignment](https://cplusplus.github.io/LWG/issue3455)
     - C++23で、ムーブ代入の事後条件が自己ムーブ代入を考慮するよう修正された（`this != addressof(u)`のときのみ`u.get() == nullptr`となる）。これは誤っていた事後条件の文言を修正したものであり、効果`reset(u.release())`による実際の挙動（自己ムーブ代入では`u`が変化しない）はC++11から一貫して同じであるため、本文の事後条件はバージョンによらずこの記述となる

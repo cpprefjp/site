@@ -53,4 +53,6 @@ int main()
 ```
 
 ## 参照
+- [LWG Issue 876. `basic_string` access operations should give stronger guarantees](https://cplusplus.github.io/LWG/issue876)
+    - C++11で、例外を送出しないことが規定された
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

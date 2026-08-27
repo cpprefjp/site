@@ -175,6 +175,10 @@ insert initializer_list : 1 2 3 4 5 6
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (5)の経緯となる提案文書
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 878. `forward_list` preconditions](https://cplusplus.github.io/LWG/issue878)
+    - C++11で、`position`の事前条件が「デリファレンス可能、もしくは`before_begin()`と等しい」から「`before_begin()`であるか、範囲`[begin(), end())`のデリファレンス可能なイテレータ」へ改められた。他の`forward_list`オブジェクトのイテレータを渡す誤用を排除するため
+- [LWG Issue 1278. Inconsistent return values for `forward_list::insert_after`](https://cplusplus.github.io/LWG/issue1278)
+    - C++11で、複数要素を挿入するオーバーロードの戻り値が`position`から「最後に挿入された要素を指すイテレータ」へ変更された。挿入した範囲の末尾を知る手段がなく、続けて挿入する用途で使いづらかったため
 - [LWG Issue 3817. Missing preconditions on `forward_list` modifiers](https://cplusplus.github.io/LWG/issue3817)
     - C++23で、各オーバーロードに要素型`T`の挿入可能性（`CopyInsertable`／`MoveInsertable`／`EmplaceConstructible`）に関する事前条件が追加された
 - [LWG Issue 4164. Missing guarantees for `forward_list` modifiers](https://cplusplus.github.io/LWG/issue4164)

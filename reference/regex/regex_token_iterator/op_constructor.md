@@ -166,5 +166,7 @@ match range = (67, 73), str = 'value3'
 
 
 ## 参照
+- [LWG Issue 909. `regex_token_iterator` should use `initializer_list`](https://cplusplus.github.io/LWG/issue909)
+    - C++11で、部分マッチ番号を[`initializer_list`](/reference/initializer_list/initializer_list.md)`<int>`で受け取るコンストラクタが追加された。`vector<int>`とC配列を受け取るオーバーロードはあったが、波カッコで直接指定できなかったため
 - [LWG Issue 3129. `regex_token_iterator` constructor uses wrong pointer arithmetic](https://cplusplus.github.io/LWG/issue3129)
     - C++20で、配列を受け取るコンストラクタの効果における範囲指定が、配列全体への誤ったポインタ演算から`[begin(submatches), end(submatches))`に修正された

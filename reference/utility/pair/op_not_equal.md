@@ -52,3 +52,5 @@ true
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [LWG Issue 296. Missing descriptions and requirements of `pair` operators](https://cplusplus.github.io/LWG/issue296)
+    - C++11で、`operator==`と`operator<`以外の比較演算子についても、戻り値が`!(x == y)`であることが明記された。それ以前は`<utility>`の概要に宣言があるだけで、動作の規定がなかった

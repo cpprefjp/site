@@ -19,28 +19,25 @@ namespace std {
 ## 概要
 `default_delete`は、リソースを自動的に解放するスマートポインタクラスである[`unique_ptr`](/reference/memory/unique_ptr.md)において、デフォルトで使用されるデリータクラスである。[`unique_ptr`](/reference/memory/unique_ptr.md)が配列を所有できるようにするため、`T[]`時には`delete[]`を呼びだすように特殊化される。
 
-型`T`が不完全型である場合、`operator()`の実行は不適格となる。
+テンプレートパラメータ`T`には不完全型を指定してよい。ただし、型`T`が不完全型である場合、`operator()`の実行は不適格となる。
 
 
 ## 単一オブジェクト版のメンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `constexpr default_delete() noexcept = default;` | コンストラクタ。 | C++11 |
-| `template<class U> default_delete()(default_delete<U> const& other) noexcept;` | 変換可能な型からのコピーコンストラクタ。 | C++11<br/>C++23からconstexpr指定 |
-| `~default_delete() = default;` | デストラクタ | C++11 |
-| `void operator()(T* ptr) const;` | 関数呼び出し演算子。渡されたポインタ`ptr`を `delete ptr;`で削除する | C++11<br/>C++23からconstexpr指定 |
+| [`(constructor)`](default_delete/op_constructor.md) | コンストラクタ | C++11 |
+| [`operator()`](default_delete/op_call.md) | 渡されたポインタを`delete`で削除する | C++11 |
 
 
 ## 配列版のメンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `constexpr default_delete() noexcept=default;` | デフォルトコンストラクタ。 | C++11|
-| `template <class U> default_delete()(const default_delete<U[]>&) noexcept;` | 変換可能な型からのコピーコンストラクタ。 | C++17<br/>C++23からconstexpr指定 |
-| `~default_delete() = default;` | デストラクタ | C++11 |
-| `void operator()(T* ptr) const;`<br/>`template <class U>`<br/>`void operator()(U*) const = delete;` | 関数呼び出し演算子。渡されたポインタ`ptr`を `delete[] ptr;`で削除する | C++11<br/>C++14まで |
-| `template <class U> void operator()(U* ptr) const;`| 関数呼び出し演算子。渡されたポインタ`ptr`を `delete[] ptr;`で削除する。変換可能な型の配列へのポインタも削除可能。 | C++17<br/>C++23からconstexpr指定 |
+| [`(constructor)`](default_delete/op_constructor.md) | コンストラクタ | C++11 |
+| [`operator()`](default_delete/op_call.md) | 渡されたポインタを`delete[]`で削除する | C++11 |
+
+デストラクタは宣言されておらず、暗黙に定義される。
 
 
 ## 例
@@ -83,5 +80,13 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 
+## 関連項目
+- [`unique_ptr`](unique_ptr.md)
+
+
 ## 参照
+- [LWG Issue 1193. `default_delete` cannot be instantiated with incomplete types](https://cplusplus.github.io/LWG/issue1193)
+    - C++11で、テンプレートパラメータ`T`が不完全型であってもよいことが明記された。不完全型を扱う[`unique_ptr`](unique_ptr.md)を宣言できるようにするため
+- [N4089 Safe conversions in `unique_ptr<T[]>`, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
+    - C++17で、配列版に変換コンストラクタが追加され、関数呼び出し演算子が制約付きのテンプレートへ置き換えられた
 - [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)

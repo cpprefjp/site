@@ -48,3 +48,5 @@ namespace std {
 - [`error_code`](../system_error/error_code.md)
 - [`error_code`](../system_error/error_code.md)`::`[`error_code`](../system_error/error_code/op_constructor.md)
 - [`ios_base`](ios_base.md)`::`[`failure`](ios_base/failure.md)
+- [LWG Issue 1257. Header `<ios>` still contains a `concept_map`](https://cplusplus.github.io/LWG/issue1257)
+    - C++11で、コンセプトマップによる指定が[`is_error_code_enum`](/reference/system_error/is_error_code_enum.md)の特殊化へ置き換えられた。コンセプトがC++11から削除されたため

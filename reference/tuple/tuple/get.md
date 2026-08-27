@@ -188,5 +188,7 @@ int main() {
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [N3887 Consistent Metafunction Aliases](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3887.pdf)
 - [N3670 Wording for Addressing Tuples by Type: Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3670.html)
+- [LWG Issue 1191. `tuple` `get` API should respect rvalues](https://cplusplus.github.io/LWG/issue1191)
+    - C++11で、右辺値の`tuple`から要素を取り出す(2)のオーバーロードが追加された
 - [LWG Issue 2485. `get()` should be overloaded for `const tuple&&`](https://wg21.cmeerw.net/lwg/issue2485)
     - C++17で`const tuple&&`をとるオーバーロードが追加された。このようなオーバーロードはほかでは用意していないが、`tuple`は基本的(fundamental)な型であるために用意された

@@ -86,6 +86,8 @@ true
 - [P0497R0 Fixes to `shared_ptr` support for arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0497r0.html)
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [LWG Issue 1262. `std::less<std::shared_ptr<T>>` is underspecified](https://cplusplus.github.io/LWG/issue1262)
+    - C++11で、戻り値が`a.get() < b.get()`から[`less`](/reference/functional/less.md)を用いた比較へ改められた。無関係なポインタ同士でも全順序となることを保証するため
 - [LWG Issue 2908. The less-than operator for shared pointers could do more](https://cplusplus.github.io/LWG/issue2908)
     - C++17で、合成ポインタ型を用いる規定から`less<>`（透過的な`less`）を用いる形に規定が簡素化された。比較可能な組み合わせ自体は変わらない（コア言語の`operator<`が常に合成ポインタ型を形成するため、元の規定でも同等に一般的だった）
     - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。観測可能な挙動を変えない規定の簡素化であるため

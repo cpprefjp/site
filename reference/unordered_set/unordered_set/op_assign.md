@@ -99,3 +99,5 @@ constexpr unordered_set& operator=(initializer_list<value_type> il); // (3) C++2
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 981. Unordered container requirements should add `initializer_list` support](https://cplusplus.github.io/LWG/issue981)
+    - C++11で、非順序連想コンテナの要件に[`initializer_list`](/reference/initializer_list/initializer_list.md)からの構築・代入・挿入が追加された。他のコンテナには追加されていたが、非順序連想コンテナでは漏れていたため

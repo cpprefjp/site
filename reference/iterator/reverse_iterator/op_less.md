@@ -7,11 +7,11 @@
 namespace std {
   template <class Iterator1, class Iterator2>
   bool operator<(const reverse_iterator<Iterator1>& x,
-                 const reverse_iterator<Iterator2>& y);           // C++98
+                 const reverse_iterator<Iterator2>& y);           // (1) C++98
 
   template <class Iterator1, class Iterator2>
   constexpr bool operator<(const reverse_iterator<Iterator1>& x,
-                           const reverse_iterator<Iterator2>& y); // C++17
+                           const reverse_iterator<Iterator2>& y); // (1) C++17
 }
 ```
 

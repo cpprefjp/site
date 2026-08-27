@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-~basic_ios();
+virtual ~basic_ios(); // (1) C++98
 ```
 
 

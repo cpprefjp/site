@@ -125,3 +125,5 @@ false
 ## 参照
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [LWG Issue 1181. Invalid `sub_match` comparison operators](https://cplusplus.github.io/LWG/issue1181)
+    - C++11で、文字列や文字と比較するオーバーロードが[`compare()`](compare.md)を用いる形へ改められた。`str()`との比較では文字列の`traits`が考慮されず、また一時オブジェクトの生成が必要だったため

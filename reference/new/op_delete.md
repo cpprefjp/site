@@ -37,6 +37,10 @@ constexpr void operator delete(void* ptr, void*) noexcept;                      
 - (7) : 配置newで確保された記憶域の解放
 
 
+## 事前条件
+- (1), (5) : 処理系が厳密なポインタ安全性 ([`pointer_safety::strict`](/reference/memory/pointer_safety.md)) を持つ場合、`ptr`は安全に派生したポインタであること
+
+
 ## 効果
 [`new`](op_new.md)演算子によって動的に確保した記憶域を解放する。
 
@@ -44,6 +48,8 @@ constexpr void operator delete(void* ptr, void*) noexcept;                      
 
 
 ## 備考
+- これらの関数と、利用者が置き換えた版、および[`std::free`](/reference/cstdlib/free.md)は、異なるスレッドから並行に呼び出されてもデータ競合を引き起こさない。  
+    ある記憶域の確保が、同じ記憶域を返した以前の解放よりも後に発生する（*happens after*）ことが保証されるため、再利用された記憶域へのアクセスがデータ競合とならない。
 - `alignment` 引数を取らない `delete` 演算子に渡される `ptr` は、 `alignment` 引数を取らない `new` 演算子によって確保されたものでなければならない。
 - `alignment` 引数を取る `delete` 演算子に渡される `ptr` は、同じ `alignment` の値を取った `alignment` 版 `new` 演算子によって確保されたものでなければならない。
 
@@ -88,5 +94,9 @@ int main()
 
 ## 参照
 - [LWG 2458. N3778 and new library deallocation signatures](https://wg21.cmeerw.net/lwg/issue2458)
+- [LWG Issue 1006. `operator delete` in garbage collected implementation](https://cplusplus.github.io/LWG/issue1006)
+    - C++11で、厳密なポインタ安全性を持つ処理系では`ptr`が安全に派生したポインタでなければならないという事前条件が追加された
+- [LWG Issue 1524. Allocation functions are missing happens-before requirements and guarantees](https://cplusplus.github.io/LWG/issue1524)
+    - C++11で、記憶域の確保・解放関数について、ある確保が以前の解放よりも後に発生するという順序関係が規定された。再利用された記憶域に対するアクセスがデータ競合とならないようにするため
 - [LWG Issue 4477. Placement `operator delete` should be constexpr](https://cplusplus.github.io/LWG/issue4477)
     - C++26で、配置`new`に対応する配置`operator delete` (7) に`constexpr`が付いた。定数式評価中の配置new式でコンストラクタが例外を送出した場合に、この解放処理が定数評価文脈で呼ばれるために必要となった

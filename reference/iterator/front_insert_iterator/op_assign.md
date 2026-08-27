@@ -6,7 +6,9 @@
 
 ```cpp
 front_insert_iterator&
-  operator=(const typename Container::value_type& value); // (1) C++98
+  operator=(typename Container::const_reference value);   // (1) C++98
+front_insert_iterator&
+  operator=(const typename Container::value_type& value); // (1) C++11
 constexpr front_insert_iterator&
   operator=(const typename Container::value_type& value); // (1) C++20
 
@@ -21,8 +23,8 @@ constexpr front_insert_iterator&
 
 
 ## 効果
-- `const`参照版：`container->push_front(value);`
-- 右辺値参照版： `container->push_front(`[`std::move`](/reference/utility/move.md)`(value));`
+- (1) : `container->push_front(value);`
+- (2) : `container->push_front(`[`std::move`](/reference/utility/move.md)`(value));`
 
 
 ## 戻り値
@@ -31,3 +33,5 @@ constexpr front_insert_iterator&
 
 ## 参照
 - [P1032R1 Misc `constexpr` bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
+- [LWG Issue 1334. Insert iterators are broken for some proxy containers compared to C++03](https://cplusplus.github.io/LWG/issue1334)
+    - C++11で、代入演算子の引数型が`Container::const_reference`から`const Container::value_type&`へ改められた。[`vector<bool>`](/reference/vector/vector.md)のようにプロキシ参照を持つコンテナでは、`const_reference`が参照型ではないため代入できなかった

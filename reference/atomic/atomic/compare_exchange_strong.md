@@ -199,3 +199,5 @@ true
     - C++20での、`volatile`版への制約追加
 - [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
     - C++26で`constexpr`に対応した
+- [LWG Issue 1474. weak compare-and-exchange confusion](https://cplusplus.github.io/LWG/issue1474)
+    - C++11で、見かけ上の失敗が起こりうるのが弱い版に限られることと、その場合に`expected`が更新されないことが明確化された

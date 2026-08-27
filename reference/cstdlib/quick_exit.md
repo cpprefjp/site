@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  [[noreturn]] void quick_exit(int status) noexcept;
+  [[noreturn]] void quick_exit(int status) noexcept; // (1) C++11
 }
 ```
 
@@ -82,3 +82,7 @@ int main()
 ## 参照
 - [N2440 Abandoning a Process](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2440.htm)
 - [detachスレッドとプログラム終了処理 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120512/p1)
+- [LWG Issue 1066. Use `[[noreturn]]` attribute in the library](https://cplusplus.github.io/LWG/issue1066)
+    - C++11で、呼び出し元へ戻らない標準ライブラリ関数に`[[noreturn]]`属性が付加された
+- [LWG Issue 1264. `quick_exit` support for freestanding implementations](https://cplusplus.github.io/LWG/issue1264)
+    - C++11で、フリースタンディング処理系でもこの関数が提供されることが規定された

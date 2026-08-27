@@ -215,3 +215,5 @@ Size of c2: 7
 - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
     - C++23でのアロケータ引数を`type_identity_t`で包む変更
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 1426. multi`set` constructor accepting an allocator as a single parameter should be explicit](https://cplusplus.github.io/LWG/issue1426)
+    - C++11で、アロケータのみを受け取るコンストラクタに`explicit`が付加された。アロケータからコンテナへの意図しない暗黙変換を防ぐため

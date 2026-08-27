@@ -34,7 +34,8 @@ void resize(size_type sz, T c = T()); // (1) + (2) C++98
         - C++11まで : [`erase`](erase.md)`(`[`begin()`](begin.md) `+ sz,` [`end()`](end.md)`);`
         - C++14 : [`pop_back()`](pop_back.md)関数を[`size()`](size.md) `- sz`回呼ぶ
         - C++17以降 : 後ろから[`size()`](size.md) `- sz`個の要素を削除する
-    - もし`sz`が現在のコンテナの[`size()`](size.md)より大きい場合、`sz -` [`size()`](size.md)個だけ値初期化された`T`型オブジェクトのコピーを追加する。
+    - そうでない場合、`sz -` [`size()`](size.md)個だけ値初期化された`T`型オブジェクトのコピーを追加する。
+    - `sz ==` [`size()`](size.md)である場合、追加される要素は`0`個であり、コンテナは変更されない。
 
 
 - (2) :
@@ -110,7 +111,11 @@ int main()
 
 
 ## 参照
+- [LWG Issue 868. Default construction and value-initialization](https://cplusplus.github.io/LWG/issue868)
+    - C++11の策定時に、値を指定しない`resize(sz)`の要素追加が「デフォルト構築」から「値初期化」へ改められた。ドラフト段階の文言では組み込み型の要素が未初期化になりうるものだったため（値を指定するC++98の`resize(sz, T())`とは挙動は変わらない）
+- [LWG Issue 1525. Effects of `resize(size())` on a `vector`](https://cplusplus.github.io/LWG/issue1525)
+    - C++11で、効果の条件が`sz <= size()`へ修正された。C++11のドラフトでは`sz < size()`と`size() < sz`のみが規定されており、`sz == size()`の場合の効果が規定されていなかったため（C++98では`else ; // do nothing`と明記されていた）。なお現在の規格では、`sz < size()`でない場合に`sz - size()`個（`sz == size()`なら`0`個）を追加すると規定されており、どの版でも`sz == size()`ならコンテナは変更されない
 - [LWG Issue 2033. Preconditions of `reserve`, `shrink_to_fit`, and `resize` functions](https://wg21.cmeerw.net/lwg/issue2033)
-- [LWG Issue 2323. `vector::resize(n, t)`'s specification should be simplified](https://wg21.cmeerw.net/lwg/issue2323)
-- [LWG Issue 2160. Unintended destruction ordering-specification of `resize`](https://wg21.cmeerw.net/lwg/issue2160)
 - [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)
+- [LWG Issue 2160. Unintended destruction ordering-specification of `resize`](https://wg21.cmeerw.net/lwg/issue2160)
+- [LWG Issue 2323. `vector::resize(n, t)`'s specification should be simplified](https://wg21.cmeerw.net/lwg/issue2323)

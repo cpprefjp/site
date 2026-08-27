@@ -34,6 +34,9 @@ namespace chrono {
 | [`months`](/reference/chrono/duration_aliases.md)       | 月         | C++20          |
 
 
+このクラスはリテラル型である。コンストラクタ、算術演算子、比較演算子、[`duration_cast`](duration_cast.md)は`constexpr`であり、定数式で時間の計算を行える。
+
+
 ## 適格要件
 - `Rep`が`duration`の特殊化ではないこと。
 - C++26 : `Rep`がCV修飾された型ではないこと。
@@ -233,5 +236,7 @@ Tue Oct 16 16:25:11 2012
 ## 参照
 - [P2592R3 Hashing support for `std::chrono` value classes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2592r3.html)
     - C++26でハッシュサポートが追加された
+- [LWG Issue 1171. `duration` types should be literal](https://cplusplus.github.io/LWG/issue1171)
+    - C++11で、コンストラクタ・算術演算子・比較演算子・[`duration_cast`](duration_cast.md)に`constexpr`が付加され、このクラスがリテラル型となった。定数式で時間の計算を行えるようにするため
 - [LWG Issue 4481. Disallow `chrono::duration<const T, P>`](https://cplusplus.github.io/LWG/issue4481)
     - C++26で、テンプレートパラメータ`Rep`にCV修飾された型を指定した場合に不適格となることが規定された。CV修飾された`Rep`はメンバ演算子・ハッシュ・汎用の算術コードで問題を起こすため、`const`は`Rep`ではなく`duration`オブジェクト自体に付けるべきである

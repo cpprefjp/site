@@ -34,12 +34,12 @@
 
 テンプレートパラメータ名が `Predicate` となっている場合、`Predicate` の値 `pred` と、引数として渡すイテレータ `i` について以下の要件を満たす必要がある
 
-- `pred(*i)` が `bool` として評価できなければならない。
+- `pred(*i)` が `bool` へ文脈依存の変換をできなければならない。
 - `pred(*i)` 内で `*i` を書き変えてはならない。
 
 テンプレートパラメータ名が `BinaryPredicate` となっている場合、`BinaryPredicate` の値 `binary_pred` と、引数として渡すイテレータ `i1`, `i2` について以下の要件を満たす必要がある
 
-- `binary_pred(*i1, *i2)` が `bool` として評価できなければならない。
+- `binary_pred(*i1, *i2)` が `bool` へ文脈依存の変換をできなければならない。
 - `binary_pred(*i1, *i2)` 内で `*i1` や `*i2` を書き変えてはならない。
 
 ### 要素の書き換え操作
@@ -471,7 +471,9 @@ ranges::sort(pv, {}, &Person::name);
 ## 参照
 - [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)
 - [N4821 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
-- [LWG Issue 4457. freestanding for `stable_sort`, `stable_partition` and `inplace_merge`](https://cplusplus.github.io/LWG/issue4457)
-
+- [LWG Issue 556. Is `Compare` a `BinaryPredicate`?](https://cplusplus.github.io/LWG/issue556)
+    - C++11で、`Predicate`・`BinaryPredicate`・`Compare`の戻り値の要件が「`bool`へ文脈依存の変換ができること」に統一された。それ以前は`Predicate`が「`true`として検査可能な値」、`Compare`が「`bool`へ文脈依存の変換」と揃っておらず、`Compare`が`BinaryPredicate`の要件を満たすかが不明確だった
 - [P2976R1 Freestanding Library: algorithm, numeric, and random](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2976r1.html)
     - C++26で、`<algorithm>`の大部分（実行ポリシーをとる並列アルゴリズムを除く）がフリースタンディング処理系に対応した
+- [LWG Issue 4457. freestanding for `stable_sort`, `stable_partition` and `inplace_merge`](https://cplusplus.github.io/LWG/issue4457)
+

@@ -237,3 +237,5 @@ c7 : {1 2 3 }
 - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
     - C++23でのアロケータ引数を`type_identity_t`で包む変更
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 1234. "Do the right thing" and NULL](https://cplusplus.github.io/LWG/issue1234)
+    - C++11で、イテレータ範囲を受け取るオーバーロードの扱いが、`InputIterator`が整数型の場合に要素数と値を受け取るオーバーロードと等価とみなす規定から、入力イテレータの要件を満たさない場合はオーバーロード解決に参加しないという制約へ改められた

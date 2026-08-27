@@ -35,8 +35,9 @@ constexpr void
 
 
 ## 効果
-`x`を`*this`にマージする。2つの`list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。  
-マージ後、`x`の要素に対するイテレータおよび参照は無効にならない。
+- [`addressof`](/reference/memory/addressof.md)`(x) == this`である場合、何もしない。
+- そうでない場合、`x`を`*this`にマージする。2つの`list`オブジェクトの要素を`*this`に併合し、`x`はマージ後に空となる。  
+- マージ後、`x`の要素に対するイテレータおよび参照は無効にならない。
 
 
 ## 戻り値
@@ -90,3 +91,5 @@ int main()
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 1215. `list::merge` with unequal allocators](https://cplusplus.github.io/LWG/issue1215)
+    - C++11で、`&x == this`である場合は何もしないことが明記され、アロケータが等値でない場合の動作は未定義であることが規定された

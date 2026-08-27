@@ -19,7 +19,7 @@ namespace std {
 
 
 ## 戻り値
-例外オブジェクトが生成され、送出されてからキャッチするまでの間に`true`を返す。
+現在のスレッドで例外オブジェクトが生成され、送出されてからキャッチするまでの間に`true`を返す。ほかのスレッドで例外が送出中であっても、この関数の結果には影響しない。
 
 また、明示的に[`terminate()`](/reference/exception/terminate.md)を呼び出し、実際に呼び出されるまでの間に`true`を返す。
 
@@ -67,3 +67,5 @@ catch
 - [GotW #47 Uncaught Exceptions](http://www.gotw.ca/gotw/047.htm)
 - [CWG Issue 475. When is `std::uncaught_exception()` true? (take 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#475)
 - [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)
+- [LWG Issue 1368. Thread safety of `std::uncaught_exception()`](https://cplusplus.github.io/LWG/issue1368)
+    - C++11で、判定の対象が現在のスレッドであることが明記された。ほかのスレッドで例外が送出中であってもこの関数の結果に影響しない

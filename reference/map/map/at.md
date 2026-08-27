@@ -111,3 +111,5 @@ exception std::out_of_range
 - [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
     - C++26で`template <class K>`のバージョンが追加された
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 2007. Incorrect specification of return value for `map<>::at()`](https://cplusplus.github.io/LWG/issue2007)
+    - C++11で、戻り値の記述が「キーが等価な要素への参照」から「`x`に対応する`mapped_type`への参照」へ修正された。この関数が返すのは要素 (キーと値の`pair`) ではなく値であるため

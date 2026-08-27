@@ -80,5 +80,7 @@ Hello
 
 
 ## 参照
+- [LWG Issue 876. `basic_string` access operations should give stronger guarantees](https://cplusplus.github.io/LWG/issue876)
+    - C++11で、例外を送出しないことと計算量が定数時間であることが規定された
 - [LWG Issue 3131. `addressof` all the things](https://wg21.cmeerw.net/lwg/issue3131)
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

@@ -106,9 +106,11 @@ isgreater(nan, nan) = false
 
 
 ## 参照
-- [LWG Issue 3051. Floating point classifications were inadvertently changed in P0175](https://cplusplus.github.io/LWG/issue3051)
-    - C++20で、P0175が誤ってこれらの関数の戻り値型を`bool`から`int`に変更していたのが修正され、`bool`に戻された
+- [LWG Issue 1441. Floating-point test functions are incorrectly specified](https://cplusplus.github.io/LWG/issue1441)
+    - C++11で、C言語のマクロではなく、`float`/`double`/`long double`それぞれに対するオーバーロードとして規定された
 - [P0533R9 constexpr for `<cmath>` and `<cstdlib>`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf)
     - C++23での、一部関数の`constexpr`対応
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で導入された拡張浮動小数点数型への対応として、`float`、`double`、`long double`のオーバーロードを`floating-point-type`のオーバーロードに統合し、拡張浮動小数点数型も扱えるようにした
+- [LWG Issue 3051. Floating point classifications were inadvertently changed in P0175](https://cplusplus.github.io/LWG/issue3051)
+    - C++20で、P0175が誤ってこれらの関数の戻り値型を`bool`から`int`に変更していたのが修正され、`bool`に戻された

@@ -164,3 +164,5 @@ Function for_each(InputIterator first, InputIterator last, Function f) {
 ## 参照
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+- [LWG Issue 1110. Is `for_each` overconstrained?](https://cplusplus.github.io/LWG/issue1110)
+    - C++11で、`Function`に対する要件がコピー構築可能からムーブ構築可能へ緩和され、戻り値が`std::move(f)`と規定された

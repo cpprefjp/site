@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class Callable, class ...Args>
-  void call_once(once_flag& flag, Callable func, Args&&... args);
+  void call_once(once_flag& flag, Callable&& func, Args&&... args); // (1) C++11
 }
 ```
 * once_flag[link /reference/mutex/once_flag.md]
@@ -88,5 +88,9 @@ initialize
 
 
 ## 参照
+- [LWG Issue 891. `std::thread`, `std::call_once` issue](https://cplusplus.github.io/LWG/issue891)
+    - C++11で、`func`を右辺値参照で受け取るようになり、要件がコピー構築可能からムーブ構築可能へ緩和された。また、実引数を`decay_copy`によってコピーすることが規定された
+- [LWG Issue 1494. Term "are serialized" not defined](https://cplusplus.github.io/LWG/issue1494)
+    - C++11で、「直列化される」という規格上定義されていない用語が使われていた効果の記述が、有効な呼び出しの有無に基づく規定へ整理された
 - [LWG Issue 2080. Specify when `once_flag` becomes invalid](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2080)
     - C++11では、`once_flag`が無効(invalid)な場合に`system_error`が送出される仕様になっていた。実際には、`once_flag`が無効になる状況はないため、C++14でこの例外仕様が削除された。

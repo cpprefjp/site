@@ -6,8 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-reference operator*() const;           // C++11
-constexpr reference operator*() const; // C++17
+reference operator*() const;           // (1) C++11
+constexpr reference operator*() const; // (1) C++17
 ```
 
 ## 概要

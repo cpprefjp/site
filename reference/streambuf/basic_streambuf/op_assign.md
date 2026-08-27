@@ -10,7 +10,7 @@ namespace std {
   template<class CharT, class Traits = char_traits<CharT>>
   class basic_streambuf {
   protected:
-    basic_streambuf& operator=(const basic_streambuf& rhs);
+    basic_streambuf& operator=(const basic_streambuf& rhs); // (1) C++11
 
     ……
   };
@@ -69,7 +69,7 @@ B
 
 ## バージョン
 ### 言語
-- C++98
+- C++11
 
 ## 参照
 - [`eback()`](eback.md)

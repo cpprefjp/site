@@ -163,5 +163,9 @@ process data
 
 
 ## 参照
+- [LWG Issue 1222. `condition_variable` incorrect effects for exception safety](https://cplusplus.github.io/LWG/issue1222)
+    - C++11で、例外送出によってこの関数を抜ける場合に呼び出されるのが`lock.unlock()`ではなく`lock.`[`lock()`](/reference/mutex/unique_lock/lock.md)であると修正された
+- [LWG Issue 1497. `lock()` postcondition can not be generally achieved](https://cplusplus.github.io/LWG/issue1497)
+    - C++11で、要件と事後条件が`lock.`[`owns_lock()`](/reference/mutex/unique_lock/owns_lock.md)`== true`かつ`lock.mutex()`が呼び出し元スレッドでロックされていることという形へ整理された
 - [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
 - [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)

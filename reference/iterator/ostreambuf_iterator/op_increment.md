@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-ostreambuf_iterator& operator++();
-ostreambuf_iterator& operator++(int);
+ostreambuf_iterator& operator++();    // (1) C++98
+ostreambuf_iterator& operator++(int); // (2) C++98
 ```
 
 ## 概要

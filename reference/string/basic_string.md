@@ -67,6 +67,10 @@ namespace std {
     - C++98からC++14までは、要件ではなく注記として述べられていた
 
 
+## 例外安全性
+`basic_string`のメンバ関数および演算子が例外を送出した場合、そのメンバ関数・演算子は何の効果も持たない。また、[`erase()`](basic_string/erase.md)と[`pop_back()`](basic_string/pop_back.md)は例外を送出しない。
+
+
 ## メンバ関数
 ### 構築・破棄
 
@@ -308,9 +312,13 @@ int main()
 * s.data()[link basic_string/data.md]
 
 ## 参照
+- [LWG Issue 847. `string` exception safety guarantees](https://cplusplus.github.io/LWG/issue847)
+    - C++11で、メンバ関数・演算子が例外を送出した場合に何の効果も持たないこと、[`erase()`](basic_string/erase.md)と[`pop_back()`](basic_string/pop_back.md)が例外を送出しないことが、クラス全体に対する包括的な規定として追加された
 - [N2668 Concurrency Modifications to Basic String](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2668.htm)
     - C++11で、`basic_string`の仕様が、並行実行のパフォーマンスを考慮したものに変更された経緯の提案文書
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [LWG Issue 1170. String char-like types no longer PODs](https://cplusplus.github.io/LWG/issue1170)
+    - C++11で、`charT`に指定できる文字likeな型が、リテラル型から配列でないPOD型へ改められた
 - [LWG Issue 2861. `basic_string` should require that charT match `traits::char_type`](https://cplusplus.github.io/LWG/issue2861)
     - C++17で、`value_type`が`traits::char_type`ではなく`charT`として定義されるようになり、「`traits::char_type`は`charT`と同じ型である」という注記が規範的要件へ格上げされた
     - この修正は欠陥報告(DR)であり、C++98以降に遡及して適用される。修正前も注記で両者が同じ型であることが述べられており、`value_type`がどちらで定義されても観測できる違いはないため

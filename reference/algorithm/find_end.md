@@ -141,5 +141,7 @@ ForwardIterator1 find_end(ForwardIterator1 first1, ForwardIterator1 last1,
 
 
 ## 参照
-- [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+- [LWG Issue 1205. Some algorithms could more clearly document their handling of empty ranges](https://cplusplus.github.io/LWG/issue1205)
+    - C++11で、空のイテレータ範囲を渡した場合の戻り値が明記された
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+- [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)

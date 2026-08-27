@@ -93,3 +93,8 @@ Thu Dec 25 15:12:30 2014
 - [GCC](/implementation.md#gcc): 5.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 関連項目
+- [`get_time`](get_time.md)
+- [`time_put`](/reference/locale/time_put.md)

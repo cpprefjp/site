@@ -86,3 +86,5 @@ true
 ## 参照
 - [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+- [LWG Issue 1401. Provide support for `unique_ptr<T>` == `nullptr`](https://cplusplus.github.io/LWG/issue1401)
+    - C++11で、[`nullptr`](/reference/cstddef/nullptr_t.md)と比較するオーバーロードが追加された。`unique_ptr`同士を比較するオーバーロードは両辺のテンプレート引数を推論するため、`nullptr`を渡しても`unique_ptr`として推論されず、比較できなかった

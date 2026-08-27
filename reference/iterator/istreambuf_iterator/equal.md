@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-bool equal(const istreambuf_iterator& b) const;
+bool equal(istreambuf_iterator& b) const;       // (1) C++98
+bool equal(const istreambuf_iterator& b) const; // (1) C++11
 ```
 
 ## 概要
@@ -59,3 +60,5 @@ equal
 ```
 
 ## 参照
+- [LWG Issue 1126. `istreambuff_iterator::equal` needs a const & parameter](https://cplusplus.github.io/LWG/issue1126)
+    - C++11で、引数の型が`istreambuf_iterator&`から`const istreambuf_iterator&`へ改められた。一時オブジェクトを渡せるようにするため

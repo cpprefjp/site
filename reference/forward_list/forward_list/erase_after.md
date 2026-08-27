@@ -147,3 +147,5 @@ int main()
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 1416. `forward_list::erase_after` should not be allowed to throw](https://cplusplus.github.io/LWG/issue1416)
+    - C++11で、この関数が例外を送出しないことが規定された

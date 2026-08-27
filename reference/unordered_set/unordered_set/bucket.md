@@ -109,3 +109,5 @@ key = H, bucket = 2, bucket_size = 0
 - [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
     - C++26で`template <class K>`のバージョンが追加された
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 1197. Can unordered containers have `bucket_count()` == 0?](https://cplusplus.github.io/LWG/issue1197)
+    - C++11で、[`bucket_count()`](bucket_count.md)` > 0`という事前条件が追加された。バケット数が`0`の場合、剰余によるバケット決定が行えないため

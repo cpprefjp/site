@@ -49,3 +49,8 @@ namespace std {
 - [`wcout`](../../iostream/wcout.md)
 - [`wcerr`](../../iostream/wcerr.md.nolink)
 - [`wclog`](../../iostream/wclog.md.nolink)
+
+
+## 参照
+- [LWG Issue 1123. No requirement that standard streams be flushed](https://cplusplus.github.io/LWG/issue1123)
+    - C++11で、[`<iostream>`](../../iostream.md)をインクルードした翻訳単位が、静的記憶域期間の`ios_base::Init`型オブジェクトを定義しているかのように振る舞うと規定された。以前は初期化順序のみが規定されており、標準ストリームがフラッシュされることが保証されていなかった

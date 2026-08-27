@@ -173,3 +173,5 @@ va11 : {1,2,3}
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (11)の経緯となる提案文書
+- [LWG Issue 1208. `valarray` `initializer_list` constructor has incorrect effects](https://cplusplus.github.io/LWG/issue1208)
+    - C++11で、初期化子リストからのコンストラクタの効果が`valarray(il.begin(), il.end())`から`valarray(il.begin(), il.size())`へ修正された。ポインタと要素数を受け取るコンストラクタに対して、終端イテレータを要素数として渡していたため

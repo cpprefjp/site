@@ -6,8 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-move_iterator& operator+=(difference_type n);           // C++11
-constexpr move_iterator& operator+=(difference_type n); // C++17
+move_iterator& operator+=(difference_type n);           // (1) C++11
+constexpr move_iterator& operator+=(difference_type n); // (1) C++17
 ```
 
 ## 概要

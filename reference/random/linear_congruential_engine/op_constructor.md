@@ -103,3 +103,5 @@ int main()
 ## 参照
 
 - [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
+- [LWG Issue 1436. Random number engine constructor concerns](https://cplusplus.github.io/LWG/issue1436)
+    - C++11で、シードシーケンスをとるコンストラクタが、`Sseq`がシードシーケンスとして適格でない型である場合にオーバーロード解決に参加しないよう規定された。適格でないと判定する型の範囲は未規定だが、少なくとも`result_type`へ暗黙変換可能な型はシードシーケンスとみなさない。整数のシードを渡したときに、こちらが選ばれてしまわないようにするため

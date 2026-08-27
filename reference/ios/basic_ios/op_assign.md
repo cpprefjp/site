@@ -6,9 +6,9 @@
 
 ```cpp
 private:
-  basic_ios& operator=(const basic_ios&);                               // 宣言のみ、C++98 まで
+  basic_ios& operator=(const basic_ios&);          // (1) C++98 宣言のみ
 public:
-  basic_ios& operator=(const basic_ios&) = delete;                      // C++11 から
+  basic_ios& operator=(const basic_ios&) = delete; // (1) C++11
 ```
 
 

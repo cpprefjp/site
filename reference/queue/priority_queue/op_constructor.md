@@ -368,11 +368,15 @@ que5 : 5 4 3 2 1
 ## 参照
 
 - [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
+- [LWG Issue 1194. Unintended `queue` constructor](https://cplusplus.github.io/LWG/issue1194)
+    - C++11で、アロケータを受け取るコンストラクタ群が、[`uses_allocator`](/reference/memory/uses_allocator.md)`<container_type, Alloc>::value`が`true`である場合にのみオーバーロード解決に参加するよう制約された。制約がないと、`Alloc`にコンテナが構築可能な任意の型を渡せてしまい、`priority_queue<int> q(5);`のような意図しない構築が通ってしまうため
+- [LWG Issue 1199. Missing extended copy constructor in container adaptors](https://cplusplus.github.io/LWG/issue1199)
+    - C++11で、アロケータを指定する拡張コピーコンストラクタが追加された。ムーブ版は既に用意されていたが、コピー版が漏れていた
 - [LWG Issue 2537. Constructors for `priority_queue` taking allocators should call `make_heap`](https://cplusplus.github.io/LWG/issue2537)
     - C++17で、アロケータを受け取るコンストラクタでも`make_heap`を呼び出すことが明記された
     - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。元の文言を厳密に読むと呼び出し側がヒープ化済みのコンテナを渡す必要があるという意図しない解釈になり、処理系は当初から`make_heap`を呼んでいたため
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
 - [LWG Issue 3506. Missing allocator-extended constructors for `priority_queue`](https://cplusplus.github.io/LWG/issue3506)
     - C++23で、イテレータ範囲を受け取るアロケータ拡張コンストラクタ(15)〜(17)が追加された
 - [LWG Issue 3522. Missing requirement on `InputIterator` template parameter for `priority_queue` constructors](https://cplusplus.github.io/LWG/issue3522)
     - C++23で、イテレータ範囲を受け取るコンストラクタが、入力イテレータでない型が推論された場合にオーバーロード解決に参加しないという制約が追加された
-- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

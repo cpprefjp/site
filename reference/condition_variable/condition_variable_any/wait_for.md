@@ -193,10 +193,14 @@ process data
 
 
 ## 参照
-- [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
-- [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
+- [LWG Issue 857. `condition_variable::time_wait` return bool error prone](https://cplusplus.github.io/LWG/issue857)
+    - C++11で、述語を取らないオーバーロードの戻り値が`bool`から[`cv_status`](/reference/condition_variable/cv_status.md)へ変更された。`bool`ではタイムアウトを表すのか条件成立を表すのかが読み取れず、取り違えやすかったため
+- [LWG Issue 1267. Incorrect wording for `condition_variable_any::wait_for`](https://cplusplus.github.io/LWG/issue1267)
+    - C++11で、[`condition_variable`](/reference/condition_variable/condition_variable.md)由来の事前条件が削除された。このクラスは任意のロック型を扱うため、`lock.mutex()`を前提にできないため
 - [P0660R10 Stop Token and Joining Thread, Rev 10](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0660r10.pdf)
 - [P1869R1 Rename `condition_variable_any` interruptible wait methods](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1869r1.html)
+- [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
+- [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
 - [LWG Issue 3504. `condition_variable::wait_for` is overspecified](https://cplusplus.github.io/LWG/issue3504)
     - C++26で、相対時間を絶対時間へ変換する際に`ceil`で整数時間へ丸めるよう変更され、浮動小数点の`duration`での精度の問題が修正された。この変更は欠陥報告 (DR) であり、C++26より前のバージョンでもコンパイラが早期に対応している場合がある
 - [LWG Issue 4301. `condition_variable{_any}::wait_{for, until}` should take timeout by value](https://cplusplus.github.io/LWG/issue4301)

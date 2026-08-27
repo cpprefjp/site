@@ -102,3 +102,5 @@ process data
 
 
 ## 参照
+- [LWG Issue 1089. Unify "Throws: Nothing." specifications](https://cplusplus.github.io/LWG/issue1089)
+    - C++11で、この関数が例外を送出しないことが明記された

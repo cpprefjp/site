@@ -28,6 +28,7 @@
 | [`isxdigit`](locale/isxdigit.md) | 十六進数字の判定(function) | |
 | [`isalnum`](locale/isalnum.md) | 英字・数字の判定(function) | |
 | [`isgraph`](locale/isgraph.md) | 図形文字の判定(function) | |
+| [`isblank`](locale/isblank.md) | ブランク文字の判定(function) | C++11 |
 | [`toupper`](locale/toupper.md) | 英大文字への変換(function) | |
 | [`tolower`](locale/tolower.md) | 英小文字への変換(function) | |
 | [`wstring_convert`](locale/wstring_convert.md) | `codecvt`による文字列変換(class template) | C++11<br/> C++17から非推奨<br/> C++26で削除 |
@@ -87,3 +88,14 @@
 | [`messages_base`](locale/messages_base.md) | メッセージ取得のための基底クラス(class) | |
 | [`messages`](locale/messages.md) | メッセージカタログから対応する翻訳メッセージの取得(class template) | |
 | [`messages_byname`](locale/messages_byname.md) | 名前による翻訳メッセージの取得(class template) | |
+
+
+## 備考
+ロケールファセットにおいて、ある仮想関数が別の仮想関数を呼び出すかどうかは未規定である。
+
+そのため、たとえば[`ctype`](locale/ctype.md)を継承して[`do_widen`](locale/ctype/do_widen.md)の1引数版だけをオーバーライドしても、範囲版が内部でそれを呼び出す保証はない。挙動を変更したい場合は、対応する仮想関数をすべてオーバーライドする必要がある。
+
+
+## 参照
+- [LWG Issue 473. underspecified `ctype` calls](https://cplusplus.github.io/LWG/issue473)
+    - C++11で、ロケールファセットのある仮想関数が別の仮想関数を呼び出すかどうかは未規定であると明記された。それ以前も呼び出し関係は規定されておらず、片方だけをオーバーライドしたときの挙動は処理系によって異なっていた

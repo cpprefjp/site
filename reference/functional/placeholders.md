@@ -43,5 +43,7 @@ C++20以降、それらのコンストラクタ及び代入演算子（定義さ
 - C++11
 
 ## 参照
-- [LWG Issue 2488. Placeholders should be allowed and encouraged to be constexpr](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2488)
+- [LWG Issue 922. §`[func.bind.place]` Number of placeholders](https://cplusplus.github.io/LWG/issue922)
+    - C++11で、処理系がサポートすべきプレースホルダーの数の推奨値 (10) が、処理系の制限の一覧に追加された
 - [P0607R0 Inline Variables for the Standard Library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0607r0.html)
+- [LWG Issue 2488. Placeholders should be allowed and encouraged to be constexpr](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2488)

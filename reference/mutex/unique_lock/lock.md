@@ -89,3 +89,5 @@ int main()
 
 
 ## 参照
+- [LWG Issue 1159. Unclear spec for `resource_deadlock_would_occur`](https://cplusplus.github.io/LWG/issue1159)
+    - C++11で、送出される例外が個別に列挙され、`pm`がヌルポインタの場合は[`operation_not_permitted`](/reference/system_error/errc.md)、すでにロックを所有している場合は[`resource_deadlock_would_occur`](/reference/system_error/errc.md)となることが規定された

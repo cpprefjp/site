@@ -106,3 +106,5 @@ int main()
 ## 参照
 - [N3887 Consistent Metafunction Aliases](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3887.pdf)
 - [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+- [LWG Issue 1118. `tuple` query APIs do not support cv-qualification](https://cplusplus.github.io/LWG/issue1118)
+    - C++11で、`const`/`volatile`/`const volatile`修飾された型に対する部分特殊化が追加された

@@ -214,3 +214,5 @@ std::wstring to_wstring(long double val)
     - C++26から`sprintf`ベースの仕様をやめて`std::format()`ベースの仕様になった
 - [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
     - C++26から整数バージョンが`constexpr`に対応した
+- [LWG Issue 1261. Insufficent overloads for `to_string` / `to_wstring`](https://cplusplus.github.io/LWG/issue1261)
+    - C++11で、`int`/`unsigned`/`long`/`unsigned long`/`float`/`double`を受け取るオーバーロードが追加された。より大きな型のオーバーロードしかないと、変換が曖昧になったり意図しない拡張が起きたりするため

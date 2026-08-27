@@ -7,7 +7,7 @@
 
 ```cpp
 protected:
-  void set_rdbuf(basic_streambuf<CharT, Traits>* sb);
+  void set_rdbuf(basic_streambuf<CharT, Traits>* sb); // (1) C++11
 ```
 * basic_streambuf[link ../../streambuf/basic_streambuf.md]
 
@@ -40,3 +40,5 @@ protected:
 
 ## 参照
 - [`rdbuf`](rdbuf.md)
+- [LWG Issue 1183. `basic_ios::set_rdbuf` may break class invariants](https://cplusplus.github.io/LWG/issue1183)
+    - C++11で、`sb`がヌルポインタでないという要件が追加された。ヌルポインタを設定すると、[`clear()`](clear.md)を呼ばないこの関数ではエラー状態が更新されず、クラス不変条件が壊れるため

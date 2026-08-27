@@ -33,6 +33,10 @@ void lock();
 - C++14まで : [`device_or_resource_busy`](/reference/system_error/errc.md) : ミューテックスがすでにロックされていて、ブロッキングできない
 
 
+## 備考
+- すでにミューテックスの所有権を保持しているスレッドがこの関数を呼び出した場合、処理系がデッドロックを検出すれば[`resource_deadlock_would_occur`](/reference/system_error/errc.md)が設定された例外が送出されるが、検出しなければデッドロックする。
+
+
 ## 例
 ```cpp example
 #include <thread>
@@ -81,5 +85,7 @@ int main()
 
 
 ## 参照
+- [LWG Issue 893. `std::mutex` issue](https://cplusplus.github.io/LWG/issue893)
+    - C++11で、所有権を保持しているスレッドが再度この関数を呼び出した場合の動作は未定義であるという規定が削除され、デッドロックしうるという注記に改められた。あわせて[`resource_deadlock_would_occur`](/reference/system_error/errc.md)の条件が「処理系がデッドロックを検出した場合」に改められた
 - [LWG Issue 2309. `mutex::lock()` should not throw `device_or_resource_busy`](https://wg21.cmeerw.net/lwg/issue2309)
     - C++17以降、この関数から`device_or_resource_busy`が送出される可能性がなくなった。デッドロックが検出できればbusyではなく`resource_deadlock_would_occur`が送出されるべき。busyの検出は`mutex`クラスではなく[`condition_variable`](/reference/condition_variable/condition_variable.md)`::`[`wait()`](/reference/condition_variable/condition_variable/wait.md)で行うこと

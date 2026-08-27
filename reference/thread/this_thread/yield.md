@@ -80,3 +80,5 @@ result=42
 
 ## 参照
 - [thread::yield()の実装 - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20120618/1340000626)
+- [LWG Issue 888. `this_thread::yield` too strong](https://cplusplus.github.io/LWG/issue888)
+    - C++11で、効果の記述が「OSに他のスレッドをスケジュールする機会を与える」から「処理系に再スケジュールの機会を与える」へ改められた。OSを持たない環境や、他に実行可能なスレッドがない場合を排除しないため

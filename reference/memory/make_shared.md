@@ -145,6 +145,8 @@ int main() {
 - [std::make_shared から private コンストラクタを呼び出す - 野良C++erの雑記帳](http://d.hatena.ne.jp/gintenlabo/20131211/1386771626)
 - [P0674R1 Extending `make_shared` to support arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0674r1.html)
 - [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
+- [LWG Issue 866. Qualification of placement new-expressions](https://cplusplus.github.io/LWG/issue866)
+    - C++11で、`make_shared`が要素を構築する際に使用する配置`new`が`::new`と修飾された。修飾がないと、要素型がクラススコープの`operator new`をオーバーロードしている場合にそちらが選ばれてしまい、対応する`operator delete`が呼ばれず不整合を起こすため
 - [LWG Issue 2696. Interaction between `make_shared` and `enable_shared_from_this` is underspecified](https://cplusplus.github.io/LWG/issue2696)
     - C++17で、`make_shared`/`allocate_shared`が呼び出すコンストラクタも`shared_from_this`を有効にすることが明確化された
     - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。元の規定はpublicなコンストラクタについてのみ`shared_from_this`の有効化を述べており、これらの関数が使う非publicなコンストラクタについては未規定だったが、処理系は当初から有効化していたため

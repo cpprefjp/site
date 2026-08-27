@@ -111,6 +111,8 @@ int main()
 ## 参照
 
 - [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
+- [LWG Issue 1436. Random number engine constructor concerns](https://cplusplus.github.io/LWG/issue1436)
+    - C++11で、シードシーケンスをとるコンストラクタが、`Sseq`がシードシーケンスとして適格でない型である場合にオーバーロード解決に参加しないよう規定された。適格でないと判定する型の範囲は未規定だが、少なくとも`result_type`へ暗黙変換可能な型はシードシーケンスとみなさない。整数のシードを渡したときに、こちらが選ばれてしまわないようにするため
 - [LWG Issue 3809. Is `std::subtract_with_carry_engine<uint16_t>` supposed to work?](https://cplusplus.github.io/LWG/issue3809)
 - [LWG Issue 4014. LWG 3809 changes behavior of some existing `std::subtract_with_carry_engine` code](https://cplusplus.github.io/LWG/issue4014)
     - C++26で、内部状態の初期化に用いる線形合同法エンジンの呼び出し回数が $\lceil 32 / \mathtt{w} \rceil$ から $\lceil \mathtt{w} / 32 \rceil$ に修正された（LWG 3809が既存コードの生成列を変えてしまった問題の修正）

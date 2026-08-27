@@ -164,6 +164,8 @@ GCC(libstdc++) の 4.9.2 までは、[`regex_iterator`](../regex_iterator.md) �
 ## 参照
 
 - [P0935R0 Eradicating unnecessarily explicit default constructors from the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0935r0.html)
+- [LWG Issue 1209. `match_results` should be moveable](https://cplusplus.github.io/LWG/issue1209)
+    - C++11で、ムーブコンストラクタとムーブ代入演算子が追加された
 - [LWG Issue 2183. Muddled allocator requirements for `match_results` constructors](https://cplusplus.github.io/LWG/issue2183)
     - コンストラクタの曖昧なアロケータ要件が整理され、コピー時は`select_on_container_copy_construction`でアロケータを取得し、ムーブ時はアロケータをムーブ構築することが明確化された。この修正はC++20に取り込まれたが、`match_results`はC++11からアロケータ対応コンテナであり、これらのアロケータの扱いはその規則から従うものであるため、実装の挙動は変わらない（欠陥修正のため処理系は早期に対応している）
 - [LWG Issue 2195. Missing constructors for `match_results`](https://cplusplus.github.io/LWG/issue2195)

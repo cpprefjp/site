@@ -56,7 +56,7 @@ namespace std {
 
 
 ## 要件
-- 二項関数オブジェクト`pred`は、ふたつの値の等値性を判定できなければならない
+- 二項関数オブジェクト`pred`は、ふたつの値の等値性を判定できなければならない。また、`pred`は同値関係でなければならない
 - `[first,last)` と `[result,result + (last - first))` は重なっていてはならない
 
 
@@ -183,5 +183,7 @@ OutputIterator unique_copy(InputIterator first, InputIterator last,
 ## 参照
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
 - [P0467R2 Iterator Concerns for Parallel Algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html)
+- [LWG Issue 1241. `unique_copy` needs to require EquivalenceRelation](https://cplusplus.github.io/LWG/issue1241)
+    - C++11で、比較関数が同値関係でなければならないことが要件に追加された
 - [LWG Issue 4269. `unique_copy` passes arguments to its predicate backwards](https://cplusplus.github.io/LWG/issue4269)
     - C++26で、述語`pred`に渡す引数の順序が`pred(*i, *(i - 1))`から`pred(*(i - 1), *i)`へ修正された（記述上の引数順の誤りの修正。`pred`は同値関係であることが要求されるため動作は変わらない）

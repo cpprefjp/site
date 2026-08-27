@@ -131,5 +131,7 @@ int main()
 
 
 ## 参照
+- [LWG Issue 1180. Missing `string_type` member typedef in class `sub_match`](https://cplusplus.github.io/LWG/issue1180)
+    - C++11で、メンバ型`string_type`が追加された。`str()`と`operator string_type()`が返す型を参照できるようにするため
 - [LWG Issue 3204. `sub_match::swap` only swaps the base class](https://cplusplus.github.io/LWG/issue3204)
     - C++23で、メンバ変数`matched`も交換する専用のメンバ関数`swap`が追加された

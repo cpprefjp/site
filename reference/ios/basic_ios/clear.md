@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-void clear(iostate state = goodbit);
+void clear(iostate state = goodbit); // (1) C++98
 ```
 * iostate[link ../ios_base/type-iostate.md]
 * goodbit[link ../ios_base/type-iostate.md]
@@ -15,17 +15,21 @@ void clear(iostate state = goodbit);
 
 ## 効果
 状態値を`state`にする。
-ただし、[`rdbuf`](rdbuf.md)`() == nullptr`であれば、さらに[`ios_base`](../ios_base.md)`::`[`badbit`](../ios_base/type-iostate.md)をビットORした値にする。
+ただし、[`rdbuf`](rdbuf.md)`()`がヌルポインタであれば、さらに[`ios_base`](../ios_base.md)`::`[`badbit`](../ios_base/type-iostate.md)をビットORした値にする。
 
 ## 例外
 
-変更後の状態値のビットと[`exceptions`](exceptions.md)`()`で設定した値でビットごとのANDを行って非0になれば、[`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md)型の例外を送出する。  
-その際、[`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md)の[コンストラクタ](../ios_base/failure/op_constructor.md)に渡される引数は、処理系定義である。
+変更後の状態値のビットと[`exceptions`](exceptions.md)`()`で設定した値でビットごとのANDを行って非0になれば、[`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md)型の例外を送出する。
+
+送出する例外オブジェクトの構築方法は、以下のように規定されている。
+
+- C++98 : 規定されていない
+- C++11 : [`ios_base`](../ios_base.md)`::`[`failure`](../ios_base/failure.md)の[コンストラクタ](../ios_base/failure/op_constructor.md)に渡される引数は、処理系定義である
 
 ## 実装例
 ```cpp
 void clear(iostate state = goodbit) {
-  iostate newstate = rdbuf() != nullptr
+  iostate newstate = rdbuf() != 0
     ? state
     : state | badbit;
 

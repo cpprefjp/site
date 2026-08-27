@@ -88,3 +88,7 @@ int main()
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 868. Default construction and value-initialization](https://cplusplus.github.io/LWG/issue868)
+    - C++11の策定時に、値を指定しない`resize(sz)`の要素追加が「デフォルト構築」から「値初期化」へ改められた。ドラフト段階の文言では組み込み型の要素が未初期化になりうるものだったため（値を指定するC++98の`resize(sz, T())`とは挙動は変わらない）
+- [LWG Issue 1340. Why does `forward_list::resize` take the object to be copied by value?](https://cplusplus.github.io/LWG/issue1340)
+    - C++11で、値を指定するオーバーロードの引数型が`value_type`から`const value_type&`へ改められた。ほかのコンテナと扱いを揃え、不要なコピーを避けるため

@@ -196,5 +196,7 @@ not found
 
 
 ## 参照
+- [LWG Issue 1237. Constrained `error_code`/`error_condition` members](https://cplusplus.github.io/LWG/issue1237)
+    - C++11で、(3)の制約が`enable_if`によるデフォルトテンプレート引数から、オーバーロード解決に参加する条件という規定へ改められた。制約の実現方法を処理系に委ねるため
 - [LWG Issue 3629. `make_error_code` and `make_error_condition` are customization points](https://cplusplus.github.io/LWG/issue3629)
     - C++23で、`make_error_code`/`make_error_condition`がADLによって探索されるカスタマイゼーションポイントであることが明記された

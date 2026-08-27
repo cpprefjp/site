@@ -87,5 +87,7 @@ int main()
 
 ## 参照
 - [P0883R2 Fixing Atomic Initialization, Rev2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0883r2.pdf)
+- [LWG Issue 1478. Clarify race conditions in atomics initialization](https://cplusplus.github.io/LWG/issue1478)
+    - C++11で、初期化がアトミック操作ではないことが規定された。構築中のオブジェクトに対する他スレッドからのアクセスはデータ競合となる
 - [LWG Issue 4169. `std::atomic<T>`'s default constructor should be constrained](https://cplusplus.github.io/LWG/issue4169)
     - C++26で、デフォルトコンストラクタの`is_default_constructible_v<T>`要件が適格要件（Mandates）からテンプレートパラメータ制約（Constraints）に変更され、SFINAEフレンドリに振る舞うようになった

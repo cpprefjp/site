@@ -253,5 +253,7 @@ equal
 ## 参照
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [LWG Issue 1414. Fixing remaining dead links to `POS_T` and `OFF_T`](https://cplusplus.github.io/LWG/issue1414)
+    - C++11で、`u16streampos`/`u32streampos`が満たすべき要件の参照先が、存在しない`POS_T`から`pos_type`の規定へ修正された
 - [LWG Issue 3518. Exception requirements on char trait operations unclear](https://cplusplus.github.io/LWG/issue3518)
     - C++23で、例外を送出してはならない対象が、character traits要件で規定された式に限定されることが明確化された

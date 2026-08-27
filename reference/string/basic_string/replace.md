@@ -436,7 +436,9 @@ int main()
 - [LWG ISsue 2268. Setting a default argument in the declaration of a member function `assign` of `std::basic_string`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268)
     - C++14から(2)のオーバーロードに、`n = npos`のデフォルト引数を追加。
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
+- [LWG Issue 1323. `basic_string::replace` should use `const_iterator`](https://cplusplus.github.io/LWG/issue1323)
+    - C++11で、イテレータで範囲を指定するオーバーロードの引数型が`iterator`から`const_iterator`へ改められた。ほかのコンテナと扱いを揃えるため
 - [LWG Issue 2758. `std::string{}.assign("ABCDE", 0, 1)` is ambiguous](https://wg21.cmeerw.net/lwg/issue2758)
+- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(12), (13), (14)の引数型を`const T&`に変更
-- [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)

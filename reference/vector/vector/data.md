@@ -73,6 +73,8 @@ gcc 4.8.2 の時点で libstdc++ の実装にはバグがあり、`vector` が�
 
 ## 参照
 - [LWG Issue 464. Suggestion for new member functions in standard containers](https://wg21.cmeerw.net/lwg/issue464)
-- [LWG Issue 2596. `vector::data()` should use addressof](https://wg21.cmeerw.net/lwg/issue2596)
+- [LWG Issue 1312. `vector::data` no longer returns a raw pointer](https://cplusplus.github.io/LWG/issue1312)
+    - C++11で、戻り値の型が`pointer`から`T*`へ改められた。アロケータが独自のポインタ型を持つ場合でも、生ポインタが返ることを保証するため
 - [[gcc] Revision 207241](https://gcc.gnu.org/viewcvs/gcc?view=revision&revision=207241)
 - [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)
+- [LWG Issue 2596. `vector::data()` should use addressof](https://wg21.cmeerw.net/lwg/issue2596)

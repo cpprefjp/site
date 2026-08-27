@@ -82,6 +82,10 @@ p doesn't have resource
 
 
 ## 参照
-- [LWG Issue 2169. Missing `reset()` requirements in `unique_ptr` specialization](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2169)
+- [LWG Issue 821. Minor cleanup : `unique_ptr`](https://cplusplus.github.io/LWG/issue821)
+    - C++11で、配列版に`nullptr_t`を受け取るオーバーロード(2)と、`delete`定義されたテンプレート版(3)が追加された。配列版では派生クラスのポインタを受け取ると要素サイズの不一致で誤った`delete[]`が行われるため、`pointer`に変換可能な他のポインタ型を受け付けないようにしたもの
 - [N4089 Safe conversions in `unique_ptr<T[]>`, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
 - [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)
+- [LWG Issue 998. Smart pointer referencing its owner](https://cplusplus.github.io/LWG/issue998)
+    - C++11で、効果が「まず`p`を格納ポインタへ代入し、その後で古いポインタに対して削除子を呼び出す」という順序で規定された。逆順だと、削除対象のオブジェクトが所有者である`unique_ptr`を参照している場合に、破棄途中の状態を観測できてしまうため
+- [LWG Issue 2169. Missing `reset()` requirements in `unique_ptr` specialization](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2169)

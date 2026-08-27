@@ -223,10 +223,14 @@ ForwardIterator1 search(ForwardIterator1 first1, ForwardIterator1 last1,
 - [`ranges::search`](/reference/algorithm/ranges_search.md)
 
 ## 参照
-- [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
-- [LWG Issue 4179. Wrong range in [alg.search]](https://cplusplus.github.io/LWG/issue4179)
-    - C++26で、探索対象のイテレータ`i`の範囲が`[first1, last1 - (last2 - first2)]`（右端を含む閉区間）であることが明確化された
+- [LWG Issue 1205. Some algorithms could more clearly document their handling of empty ranges](https://cplusplus.github.io/LWG/issue1205)
+    - C++11で、空のイテレータ範囲を渡した場合の戻り値が明記された
+- [LWG Issue 1338. LWG 1205 incorrectly applied](https://cplusplus.github.io/LWG/issue1338)
+    - C++11で、探索範囲の記述が`[first1, last1 - (last2 - first2))`と修正され、空範囲の場合の戻り値の記述が整理された
 - [N3905 Extending `std::search` to use Additional Searching Algorithms (Version 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3905.html)
 - [P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html)
 - [P0253R1 Fixing a design mistake in the searchers interface in Library Fundamentals](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0253r1.pdf)
 - [P0202R3 Add Constexpr Modifiers to Functions in `<algorithm>` and `<utility>` Headers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html)
+- [LWG Issue 2150. Unclear specification of `find_end`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150)
+- [LWG Issue 4179. Wrong range in [alg.search]](https://cplusplus.github.io/LWG/issue4179)
+    - C++26で、探索対象のイテレータ`i`の範囲が`[first1, last1 - (last2 - first2)]`（右端を含む閉区間）であることが明確化された

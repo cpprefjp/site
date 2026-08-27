@@ -100,3 +100,7 @@ int main()
 
 ## 参照
 - [P2117R0 C++ Standard Library Issues Resolved Directly In Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html)
+- [LWG Issue 934. `duration` is missing `operator%`](https://cplusplus.github.io/LWG/issue934)
+    - C++11で、剰余演算子が追加された。時間を単位ごとに分解する (秒数から分と秒を求めるなど) 用途で必要となるため
+- [LWG Issue 1271. CR undefined in `duration` operators](https://cplusplus.github.io/LWG/issue1271)
+    - C++11で、戻り値の記述で使用していた`CR`が、引数の型を明示した`CR(Rep1, Rep2)`という表記へ修正された

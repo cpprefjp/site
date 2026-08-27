@@ -212,3 +212,5 @@ int main() {
 - [N2982 Allocators post Removal of C++ Concepts (Rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2982.pdf)
 - [AllocatorAwareContainer: Introduction and pitfalls of `propagate_on_container_XXX` defaults](https://www.foonathan.net/2015/10/allocatorawarecontainer-propagation-pitfalls/)
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+- [LWG Issue 1404. `pointer_traits` should have a `size_type` member](https://cplusplus.github.io/LWG/issue1404)
+    - C++11で、アロケータのメンバ型が省略された場合の既定値が、`size_t`/`ptrdiff_t`から[`pointer_traits`](pointer_traits.md)と[`make_unsigned`](/reference/type_traits/make_unsigned.md)を用いて導出する形へ改められた。独自のポインタ型を持つアロケータに対応するため

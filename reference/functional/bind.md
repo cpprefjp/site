@@ -117,5 +117,7 @@ int main()
 
 
 ## 参照
-- [LWG Issue 2021. Further incorrect usages of `result_of`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2021)
+- [LWG Issue 817. `bind` needs to be moved](https://cplusplus.github.io/LWG/issue817)
+    - C++11で、`f`と束縛する引数を右辺値参照で受け取るようになり、ムーブのみ可能な関数オブジェクトや引数を渡せるようになった。あわせて、呼び出しラッパーに要求される要件がコピー構築可能からムーブ構築可能へ緩和された
 - [P1065R2 constexpr INVOKE](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1065r2.html)
+- [LWG Issue 2021. Further incorrect usages of `result_of`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2021)

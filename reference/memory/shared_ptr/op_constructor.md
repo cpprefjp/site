@@ -342,11 +342,20 @@ int main()
 - [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
 - [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)
 - [P0497R0 Fixes to `shared_ptr` support for arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0497r0.html)
+- [LWG Issue 758. `shared_ptr` and `nullptr`](https://cplusplus.github.io/LWG/issue758)
+    - C++11で、削除子（とアロケータ）を`nullptr`とともに渡すオーバーロードが追加された。`Y*`をとるオーバーロードでは`nullptr`から`Y`を推論できないため、削除子付きの空の`shared_ptr`を構築できなかった
+- [LWG Issue 881. `shared_ptr` conversion issue](https://cplusplus.github.io/LWG/issue881)
+    - C++11で、(11)のムーブコンストラクタの`Y*`から`T*`への変換可能性が、単なる要件からオーバーロード解決に参加する条件へ改められた
+- [LWG Issue 925. `shared_ptr`'s explicit conversion from `unique_ptr`](https://cplusplus.github.io/LWG/issue925)
+    - C++11で、[`unique_ptr`](/reference/memory/unique_ptr.md)および`auto_ptr`から構築するコンストラクタの`explicit`指定が外された。これらからの所有権の移動は安全であり、暗黙変換を禁止する理由がなかったため
+- [LWG Issue 1402. `nullptr` constructors for smart pointers should be `constexpr`](https://cplusplus.github.io/LWG/issue1402)
+    - C++11で、[`nullptr`](/reference/cstddef/nullptr_t.md)からのコンストラクタに`constexpr`が付加された。デフォルトコンストラクタと同様に、静的初期化できるようにするため
 - [LWG Issue 2365. Missing `noexcept` in `shared_ptr::shared_ptr(nullptr_t)`](https://wg21.cmeerw.net/lwg/issue2365)
 - [LWG Issue 2685. `shared_ptr` deleters must not throw on move construction](https://cplusplus.github.io/LWG/issue2685)
     - C++17で、削除子`D`の構築（`CopyConstructible`は維持）が例外を投げないという要件が追加された
 - [LWG Issue 2802. `shared_ptr` constructor requirements for a deleter](https://cplusplus.github.io/LWG/issue2802)
     - C++17で、削除子`D`の要件が`CopyConstructible`から`MoveConstructible`に緩和され、`d`および`std::move(d)`からの構築が例外を投げないこと、`d(p)`が適格であり定義された動作をし、例外を投げないことが規定された。あわせて「`D`のデストラクタが例外を投げない」要件は削除された
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
 - [LWG Issue 2874. Constructor `shared_ptr::shared_ptr(Y*)` should be constrained](https://cplusplus.github.io/LWG/issue2874)
     - C++17で、ポインタから構築するコンストラクタが、`delete p`（配列版は`delete[] p`）が妥当で`Y*`が`T*`と互換な場合のみオーバーロード解決に参加するよう制約化された
 - [LWG Issue 2875. `shared_ptr::shared_ptr(Y* | D | […])` constructors should be constrained](https://cplusplus.github.io/LWG/issue2875)
@@ -354,4 +363,3 @@ int main()
 - [LWG Issue 2876. `shared_ptr::shared_ptr(const weak_ptr<Y>&)` constructor should be constrained](https://cplusplus.github.io/LWG/issue2876)
     - C++17で、`weak_ptr`から構築するコンストラクタ(12)が、`Y*`が`T*`と互換な場合のみオーバーロード解決に参加するよう制約化され、`is_constructible`が正しい結果を返すようになった
 - [LWG Issue 2996. Missing rvalue overloads for `shared_ptr` operations](https://wg21.cmeerw.net/lwg/issue2996)
-- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

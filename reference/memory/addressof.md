@@ -26,7 +26,7 @@ namespace std {
 
 
 ## 戻り値
-変数`r`のアドレスを返す。
+`r`が参照するオブジェクトまたは関数の実際のアドレスを返す。`operator&()`がオーバーロードされている場合でも、そのオーバーロードは使用されない。
 
 
 ## 例外
@@ -83,5 +83,9 @@ int main()
 
 ## 参照
 - [`boost::addressof()` - Boost C++ Libraries](http://www.boost.org/doc/libs/release/libs/utility/utility.htm#addressof)
+- [LWG Issue 970. `addressof` overload unneeded](https://cplusplus.github.io/LWG/issue970)
+    - C++11で、右辺値参照を受け取るオーバーロードが削除された。一時オブジェクトのアドレスを取得する用途がないため
+- [LWG Issue 999. Taking the address of a function](https://cplusplus.github.io/LWG/issue999)
+    - C++11で、関数のアドレスも取得できることが明記された
 - [LWG Issue 2296. `std::addressof` should be `constexpr`](https://wg21.cmeerw.net/lwg/issue2296)
 - [LWG Issue 2598. `addressof` works on temporaries](https://wg21.cmeerw.net/lwg/issue2598)

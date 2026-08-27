@@ -24,7 +24,7 @@ namespace std {
 
 
 ## 要件
-- `ForwardIterator`の値型が、型`T`に変換可能であること
+- 型`T`が、`ForwardIterator`の値型に代入可能であること
 - 型`T`の値`val`に対して、式`++val`が有効であること
 
 
@@ -111,3 +111,5 @@ void iota(ForwardIterator first, ForwardIterator last, T value)
 - [N2666 More STL algorithms (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2666.pdf)
 - [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
     - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した
+- [LWG Issue 871. Iota's requirements on `T` are too strong](https://cplusplus.github.io/LWG/issue871)
+    - C++11で、型`T`に対する`CopyConstructible`と`Assignable`の要件が削除され、`ForwardIterator`の値型へ代入可能であることのみが要求されるようになった

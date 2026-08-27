@@ -31,6 +31,7 @@ constexpr pair<iterator, bool> emplace(Args&&... args); // (1) C++26
 
 
 ## 備考
+- この関数が例外を送出した場合、コンテナは何の効果も持たない。
 この関数が呼ばれた後も、当該コンテナ内の要素を指す参照やイテレータは無効にはならない。  
 なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。
 
@@ -85,3 +86,5 @@ int main()
 ## 参照
 - [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 1253. invalidation of iterators and `emplace` vs. `insert` inconsistence in assoc. containers](https://cplusplus.github.io/LWG/issue1253)
+    - C++11で、単一要素の挿入時に例外が送出された場合に効果を持たないという保証と、イテレータ・参照が無効化されないという保証が、`insert()`だけでなく`emplace()`にも及ぶことが明記された

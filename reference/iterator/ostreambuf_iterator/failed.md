@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-bool failed() const noexcept;
+bool failed() const throw();    // (1) C++98
+bool failed() const noexcept;   // (1) C++11
 ```
 
 ## 概要

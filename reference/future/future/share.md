@@ -97,5 +97,7 @@ int main()
 
 [futureとshared_future - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120201/p1)
 [future::share()は何のためにあるのか - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20121029/1351494001)
+- [LWG Issue 2031. `std::future<>`::`share()` only applies to rvalues](https://cplusplus.github.io/LWG/issue2031)
+    - C++11で、右辺値参照修飾 (`&&`) が削除された。`auto f = p.get_future(); auto sf = f.share();`のように、名前を持つ`future`から直接呼び出せるようにするため
 - [LWG Issue 2556. Wide contract for `future::share()`](https://cplusplus.github.io/LWG/issue2556)
     - C++17で、`share()`が広い契約（`valid()`が`false`でも呼び出し可）を持ち例外を投げないことを反映して`noexcept`が付与された

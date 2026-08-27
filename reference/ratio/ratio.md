@@ -25,8 +25,8 @@ namespace std {
 - `num` : [`sign`](https://ja.wikipedia.org/wiki/符号関数)`(N) *` [`sign`](https://ja.wikipedia.org/wiki/符号関数)`(D) *` [`abs`](/reference/cmath/abs.md)`(N) /` [`gcd`](https://ja.wikipedia.org/wiki/最大公約数)`(N, D)`
 - `den` : [`abs`](/reference/cmath/abs.md)`(D) /` [`gcd`](https://ja.wikipedia.org/wiki/最大公約数)`(N, D)`
 
-## 要件
-`den`の値が`0`でもなく、[`intmax_t`](/reference/cstdint/intmax_t.md)の最小値でもないこと。
+## 適格要件
+- `den`の値が`0`でもなく、[`intmax_t`](/reference/cstdint/intmax_t.md)の最小値でもないこと。
 
 
 ## 例
@@ -55,3 +55,12 @@ int main()
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [GCC](/implementation.md#gcc): 4.4.7 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 921. Rational Arithmetic should use template aliases](https://cplusplus.github.io/LWG/issue921)
+    - C++11で、`ratio`の算術演算がクラステンプレートからエイリアステンプレートへ改められ、[`ratio`](ratio.md)にネストされた型`type`が追加された。演算結果が既約化された`ratio`そのものとして扱えるようにするため
+- [LWG Issue 1195. "Diagnostic required" wording is insufficient to prevent UB](https://cplusplus.github.io/LWG/issue1195)
+    - C++11で、テンプレート引数が要件を満たさない場合の扱いが、診断が必要な要件違反から、プログラムが不適格となる規定へ改められた
+- [LWG Issue 1388. LWG 1281 incorrectly accepted](https://cplusplus.github.io/LWG/issue1388)
+    - C++11で、ネストされた型`type`が`ratio<num, den>`として定義されることが規定された

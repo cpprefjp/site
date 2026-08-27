@@ -29,6 +29,8 @@ namespace std {
 - この関数は、フリースタンディング処理系でも使用できる。
 - この関数では、複数の関数を登録できる。
     - 登録できる上限数は実装定義だが、32個以上は登録できることが実装に要求される。
+- 登録された関数は、登録した順序と逆順に呼び出される。
+    - 複数のスレッドから並行にこの関数を呼び出した場合、それらの呼び出しどうしの順序は不定順である。
 
 
 ## 例
@@ -69,3 +71,7 @@ on exit
 
 ## 参照
 - [N2440 Abandoning a Process](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2440.htm)
+- [LWG Issue 1144. "thread safe" is undefined](https://cplusplus.github.io/LWG/issue1144)
+    - C++11で、登録された関数どうしの実行順序と、登録の呼び出しに対する順序関係が整理された。並行に呼び出された`at_quick_exit()`どうしの順序は不定順である
+- [LWG Issue 1264. `quick_exit` support for freestanding implementations](https://cplusplus.github.io/LWG/issue1264)
+    - C++11で、フリースタンディング処理系でもこの関数が提供されることが規定された

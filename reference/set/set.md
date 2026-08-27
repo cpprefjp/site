@@ -213,3 +213,8 @@ int main()
 ```
 1
 ```
+
+
+## 参照
+- [LWG Issue 1040. Clarify possible sameness of associative container's `iterator` and `const_iterator`](https://cplusplus.github.io/LWG/issue1040)
+    - C++11で、要素型がキー型と同じ連想コンテナでは`iterator`と`const_iterator`が同じ型であってもよく、そうでなくてもよい旨が注記として明記された

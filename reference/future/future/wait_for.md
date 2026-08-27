@@ -138,4 +138,6 @@ true
 
 
 ## 参照
+- [LWG Issue 1518. Waiting for deferred functions](https://cplusplus.github.io/LWG/issue1518)
+    - C++11で、遅延実行の関数を持つ共有状態に対してはブロッキングせず、[`future_status::deferred`](/reference/future/future_status.md)を返すことが規定された
 - [LWG Issue 2185. Missing throws clause for `future`/`shared_future::wait_for`/`wait_until`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2185)

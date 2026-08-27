@@ -294,11 +294,18 @@ int main()
 
 ## 参照
 - [N2308 Adding allocator support to `std::function` for C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2308.html)
+- [LWG Issue 1287. `std::function` requires CopyConstructible target object](https://cplusplus.github.io/LWG/issue1287)
+    - C++11で、関数オブジェクト`F`がコピー構築可能であることが要件として明記された。このクラス自体がコピー可能であるため、保持する関数オブジェクトもコピー可能である必要がある
+- [P0302R1 Removing Allocator Support in `std::function` (rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0302r1.html)
+- [LWG Issue 1292. `std::function` should support all callable types](https://cplusplus.github.io/LWG/issue1292)
+    - C++11で、事後条件がヌルのメンバポインタ全般を含むよう整理され、対象オブジェクトが`std::move(f)`で初期化されることが規定された
+- [LWG Issue 1399. function does not need an explicit default constructor](https://cplusplus.github.io/LWG/issue1399)
+    - C++11の策定時に、デフォルトコンストラクタから`explicit`が取り除かれた。引数を取らないコンストラクタに`explicit`を付ける意味がないため
 - [LWG Issue 2132. `std::function` ambiguity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2132)
     - C++14から、(5)と(10)でシグニチャが合わない関数オブジェクトが渡された場合に、SFINAEされるようになった。
-- [P0302R1 Removing Allocator Support in `std::function` (rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0302r1.html)
 - [LWG Issue 2393. `std::function`'s Callable definition is broken](https://cplusplus.github.io/LWG/issue2393)
     - C++17で、格納可能な要件が*Lvalue-Callable*（`INVOKE`を左辺値参照として行える型）として整理され、右辺値参照修飾の呼び出し演算子のみを持つ型は格納できないことが明確化された
+- [P0771R1 std::function move constructor should be noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0771r1.pdf)
 - [LWG Issue 2565. `std::function`'s move constructor should guarantee nothrow for reference_wrappers and function pointers](https://cplusplus.github.io/LWG/issue2565)
     - C++17で、ムーブコンストラクタ(4)も、`reference_wrapper`か関数ポインタを保持する場合は例外を投げないことが規定された（コピーコンストラクタと同様の保証）
 - [LWG Issue 2774. `std::function` construction vs assignment](https://cplusplus.github.io/LWG/issue2774)
@@ -306,7 +313,6 @@ int main()
 - [LWG Issue 2781. Contradictory requirements for `std::function` and `std::reference_wrapper`](https://cplusplus.github.io/LWG/issue2781)
     - 例外を投げない対象が「`reference_wrapper`の特殊化」である旨に文言が整理され、矛盾が解消された
     - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。矛盾した文言の修正であり、処理系の挙動は変わらないため
-- [P0771R1 std::function move constructor should be noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0771r1.pdf)
 - [LWG Issue 2850. `std::function` move constructor does unnecessary work](https://cplusplus.github.io/LWG/issue2850)
     - ムーブコンストラクタの効果が「`*this`のターゲットが構築前の`f`のターゲットと等価になる」旨に緩和され、別途確保されたターゲットの所有権移動による最適化が許容された
     - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。元の規定は主要な処理系の実際の動作（ヒープ上のターゲットはポインタを移動するだけ）と矛盾しており、規定を実装に合わせたものであるため

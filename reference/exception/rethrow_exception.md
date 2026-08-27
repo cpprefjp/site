@@ -90,3 +90,5 @@ terminate called after throwing an instance of 'std::runtime_error'
 - [N2179 Language Support for Transporting Exceptions between Threads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2179.html)
 - [P1675R2 `rethrow_exception` must be allowed to copy](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1675r2.pdf)
     - 既存C++コンパイラの挙動にあわせて効果(Effects)文面を修正。
+- [LWG Issue 1066. Use `[[noreturn]]` attribute in the library](https://cplusplus.github.io/LWG/issue1066)
+    - C++11で、呼び出し元へ戻らない標準ライブラリ関数に`[[noreturn]]`属性が付加された

@@ -254,22 +254,24 @@ s14 : Hello
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (11)の経緯となる提案文書
+- [LWG Issue 1234. "Do the right thing" and NULL](https://cplusplus.github.io/LWG/issue1234)
+    - C++11で、イテレータ範囲を受け取るオーバーロードの扱いが、`InputIterator`が整数型の場合に要素数と値を受け取るオーバーロードと等価とみなす規定から、入力イテレータの要件を満たさない場合はオーバーロード解決に参加しないという制約へ改められた
 - [LWG Issue 2069. Inconsistent exception spec for `basic_string` move constructor](https://wg21.cmeerw.net/lwg/issue2069)
 - [LWG Issue 2193. Default constructors for standard library containers are explicit](https://wg21.cmeerw.net/lwg/issue2193)
     - `explicit basic_string(const Allocator& a = Allocator())` を 2 つのオーバーロードに分割するきっかけとなったレポート
 - [LWG Issue 2235. Undefined behavior without proper requirements on `basic_string` constructors](https://wg21.cmeerw.net/lwg/issue2235)
     - C++14で、(7)と(8)の要件を見直した。
-- [LWG Issue 2583. There is no way to supply an allocator for `basic_string(str, pos)`](https://wg21.cmeerw.net/lwg/issue2583)
 - [P0254R2 Integrating `std::string_view` and `std::string`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf)
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+- [LWG Issue 2583. There is no way to supply an allocator for `basic_string(str, pos)`](https://wg21.cmeerw.net/lwg/issue2583)
 - [LWG Issue 2742. Inconsistent string interface taking `string_view`](https://wg21.cmeerw.net/lwg/issue2742)
     - `string_view`から範囲を指定して構築する(15)を追加
 - [LWG Issue 2946. LWG 2758's resolution missed further corrections](https://wg21.cmeerw.net/lwg/issue2946)
     - 意図しない暗黙変換防止のために`string_view`を受けるオーバーロード(14)の引数型を`const T&`に変更
-- [LWG Issue 3076. `basic_string` CTAD ambiguity](https://cplusplus.github.io/LWG/issue3076)
-    - C++20で、(8), (9)に`Allocator`がアロケータ要件を満たさない型の場合はオーバーロード解決に参加しないという制約が追加され、クラステンプレート実引数推論(CTAD)の曖昧性が解消された
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
 - [P2166R1 A Proposal to Prohibit std::basic_string and std::basic_string_view construction from nullptr.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2166r1.html)
     - C++23での(16)`nullptr_t`をとるコンストラクタのdelete宣言追加
 - [P2438R2 `std::string::substr() &&`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2438r2.html)
     - C++23での(17), (18)`basic_string&&`と範囲指定をとるコンストラクタ追加
+- [LWG Issue 3076. `basic_string` CTAD ambiguity](https://cplusplus.github.io/LWG/issue3076)
+    - C++20で、(8), (9)に`Allocator`がアロケータ要件を満たさない型の場合はオーバーロード解決に参加しないという制約が追加され、クラステンプレート実引数推論(CTAD)の曖昧性が解消された

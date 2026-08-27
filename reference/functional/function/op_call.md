@@ -62,3 +62,5 @@ int main()
 
 
 ## 参照
+- [LWG Issue 1333. Missing forwarding during `std::function` invocation](https://cplusplus.github.io/LWG/issue1333)
+    - C++11で、引数を[`std::forward`](/reference/utility/forward.md)によって完全転送することが規定された。右辺値参照の引数を持つシグニチャで、値がコピーされてしまっていたため

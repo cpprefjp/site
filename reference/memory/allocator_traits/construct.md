@@ -76,3 +76,5 @@ int main()
 
 ## 参照
 - [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
+- [LWG Issue 1285. `allocator_traits` call to new](https://cplusplus.github.io/LWG/issue1285)
+    - C++11で、要素の構築に使用する配置newが`::new`と、グローバル名前空間を明示する形へ改められた。クラス独自の`operator new`が使用されないようにするため

@@ -11,7 +11,7 @@ constexpr pair& operator=(const pair& p);                   // (1) C++20
 constexpr const pair& operator=(const pair& p) const;       // (2) C++23
 
 template <class U, class V>
-  pair& operator=(const pair<U, V>& p);                     // (3) C++98
+  pair& operator=(const pair<U, V>& p);                     // (3) C++11
 template <class U, class V>
   constexpr pair& operator=(const pair<U, V>& p);           // (3) C++20
 
@@ -163,9 +163,11 @@ p4 : (1,abc)
 	- (1), (3)はそれより前から実装されている。
 
 ## 参照
+- [LWG Issue 885. `pair` assignment](https://cplusplus.github.io/LWG/issue885)
+    - C++11で、変換可能な[`pair`](../pair.md)からのコピー代入(3)が追加された。変換可能な[`pair`](../pair.md)からの構築はC++98からできたが、代入はできなかった
+- [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
 - [LWG Issue 2729. Missing SFINAE on `std::pair::operator=`](https://cplusplus.github.io/LWG/issue2729)
     - C++17で、コピー代入演算子(1)が要素型のコピー代入可能性を満たさない場合は`delete`定義されるよう規定され、`is_copy_assignable`等が正しい結果を返すようになった
-- [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
 - [LWG Issue 2958. Moves improperly defined as deleted](https://cplusplus.github.io/LWG/issue2958)
     - C++20で、ムーブ代入演算子が要素型の代入不可時に`delete`定義ではなくオーバーロード解決に参加しない形へ修正され、コピー代入へのフォールバックが可能になった
     - この修正は欠陥報告(DR)であり、C++17に遡及して適用される。C++17の「`delete`定義される」という文言では、暗黙`delete`（オーバーロード解決に不参加）か明示`delete`（コピー代入を隠す）かが不明確で意図どおりに実装できなかったため

@@ -141,3 +141,7 @@ int main()
 - [P1425R4 Iterators pair constructors for stack and queue](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1425r4.pdf)
     - C++23でのイテレータペアへの対応
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 1194. Unintended `queue` constructor](https://cplusplus.github.io/LWG/issue1194)
+    - C++11で、アロケータを受け取るコンストラクタ群が、[`uses_allocator`](/reference/memory/uses_allocator.md)`<container_type, Alloc>::value`が`true`である場合にのみオーバーロード解決に参加するよう制約された。制約がないと、`Alloc`にコンテナが構築可能な任意の型を渡せてしまい、`stack<int> s(5);`のような意図しない構築が通ってしまうため
+- [LWG Issue 1199. Missing extended copy constructor in container adaptors](https://cplusplus.github.io/LWG/issue1199)
+    - C++11で、アロケータを指定する拡張コピーコンストラクタが追加された。ムーブ版は既に用意されていたが、コピー版が漏れていた

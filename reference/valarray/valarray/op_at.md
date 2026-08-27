@@ -62,6 +62,8 @@ indirect_array<T> operator[](const ValOrProxy<std::size_t>& mask);      // (10)
 	[`<valarray>`](../../valarray.md) の概要も参照のこと。
 - (3), (5), (7), (9) : `valarray<T>`型のオブジェクトを返すこの関数を含むあらゆる関数は、`valarray`クラスと同じ`const`メンバ関数をもつほかの型を返すことが実装に許可される。例として複数の`valarray`操作をつなげて記述したときに最適化できるよう、式テンプレートを返す実装もある
 - (7), (8) : [`size()`](size.md) `!= mask.`[`size()`](size.md)の場合、未定義動作を引き起こす。
+- (9), (10) : `mask`に含まれるインデックス値のいずれかが[`size()`](size.md)以上である場合、未定義動作を引き起こす。また、`mask`に同じインデックス値が複数含まれる場合、非`const`版(10)の動作は未定義である。
+- (4), (6), (8), (10) : 返される`slice_array`・`gslice_array`・`mask_array`・`indirect_array`は、元の`valarray`の要素への参照を保持する。元の`valarray`が破棄されたあと、あるいは要素数が変化したあとにこれらのオブジェクトを使用した場合、動作は未定義である。
 
 
 ## 例
@@ -276,3 +278,5 @@ int main()
 ## 参照
 - [LWG Issue 389. Const overload of `valarray::operator[]` returns by value](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#389)
     - (1)の戻り値の型が、C++98の`T`から、C++11の`const T&`に変更された経緯のレポート
+- [LWG Issue 430. `valarray` subset operations](https://cplusplus.github.io/LWG/issue430)
+    - C++11で、部分集合を取り出す各オーバーロードの規定が整理され、インデックス値が範囲外である場合や、`indirect_array`で同じインデックスが重複する場合の動作は未定義であることが明記された

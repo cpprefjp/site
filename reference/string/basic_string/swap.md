@@ -30,6 +30,11 @@ constexpr void swap(basic_string& str) noexcept
 定数時間
 
 
+## 備考
+- swapされるコンテナの要素を指す参照、ポインタ、イテレータを無効化しない。
+    - ただし、[`end()`](end.md)が指すイテレータはどの要素も指していないが、無効になることがある。
+
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -58,3 +63,5 @@ hello
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
+- [LWG Issue 765. More on iterator validity](https://cplusplus.github.io/LWG/issue765)
+    - C++11で、`swap()`が参照・ポインタ・イテレータを無効化しないという要件に対して、「`end()`が返すイテレータはどの要素も指していないため、無効化されることがある」という注記が追加された

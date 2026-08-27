@@ -105,9 +105,13 @@ int main()
 	- 2010は、`&`バージョン(1)と(3)のみ実装されている。
 
 ## 参照
+- [LWG Issue 898. Small contradiction in `n2723` to forward to committee](https://cplusplus.github.io/LWG/issue898)
+    - C++11で、計算量の記述が`size() + x.size()`から`distance(begin(), end()) + distance(x.begin(), x.end())`へ改められた。[`forward_list`](../forward_list.md)は`size()`メンバ関数を持たないため
+- [LWG Issue 1310. `forward_list` `splice_after` from lvalues](https://cplusplus.github.io/LWG/issue1310)
+    - C++11で、左辺値の[`forward_list`](../forward_list.md)を受け取るオーバーロードが追加された。右辺値参照版しかないと、名前を持つオブジェクトから移動する際に[`std::move`](/reference/utility/move.md)が必要だった
 - [LWG Issue 2045. `forward_list::merge` and `forward_list::splice_after` with unequal allocators](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2045)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
 - [LWG Issue 2122. `merge()` stability for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2122)
 - [LWG Issue 2123. `merge()` allocator requirements for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2123)
-- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
 - [LWG Issue 3088. `forward_list::merge` behavior unclear when passed `*this`](https://cplusplus.github.io/LWG/issue3088)
     - C++23で、`x`が`*this`自身である場合は何もしないことが明確化された

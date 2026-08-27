@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-reference operator*() const;           // C++98
-constexpr reference operator*() const; // C++17
+reference operator*() const;           // (1) C++98
+constexpr reference operator*() const; // (1) C++17
 ```
 
 ## 概要

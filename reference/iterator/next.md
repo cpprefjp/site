@@ -84,5 +84,7 @@ int main()
 ## 参照
 - [boost::next() - Boost Utility Library](http://www.boost.org/doc/libs/release/libs/utility/utility.htm#functions_next_prior)
 - [N2246 2 of the least crazy ideas for the standard library in C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2246.html)
-- [LWG Issue 2353. `std::next` is over-constrained](https://wg21.cmeerw.net/lwg/issue2353)
+- [LWG Issue 1011. next/prev wrong iterator type](https://cplusplus.github.io/LWG/issue1011)
+    - C++11で、テンプレートパラメータが`InputIterator`から`ForwardIterator`へ改められた。入力イテレータでは進めたあとに元のイテレータのコピーを返すことができないため
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
+- [LWG Issue 2353. `std::next` is over-constrained](https://wg21.cmeerw.net/lwg/issue2353)

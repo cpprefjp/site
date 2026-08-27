@@ -127,3 +127,5 @@ generic
 
 
 ## 参照
+- [LWG Issue 1237. Constrained `error_code`/`error_condition` members](https://cplusplus.github.io/LWG/issue1237)
+    - C++11で、列挙値からのコンストラクタの制約が`enable_if`によるデフォルトテンプレート引数から、オーバーロード解決に参加する条件という規定へ改められた。制約の実現方法を処理系に委ねるため

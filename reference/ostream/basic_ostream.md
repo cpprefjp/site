@@ -63,9 +63,12 @@ namespace std {
 |----------------------------------------------------|----------------|----------------|
 | [`(constructor)`](basic_ostream/op_constructor.md) | コンストラクタ |                |
 | [`(destructor)`](basic_ostream/op_destructor.md)   | デストラクタ   |                |
+| [`operator=`](basic_ostream/op_assign.md)          | ムーブ代入     | C++11          |
+| [`swap`](basic_ostream/swap.md)                    | 値の交換       | C++11          |
 
-- コピーコンストラクタとコピー代入演算子はdelete定義されている。
-- ムーブコンストラクタ・ムーブ代入演算子と`swap`はprotectedで定義されている。
+- コピーコンストラクタとコピー代入演算子は、アクセス指定子`protected`で`delete`定義されている。
+    - C++98では、これらは宣言されていなかった。コピーしようとすると、基底クラスである[`basic_ios`](../ios/basic_ios.md)のコピーコンストラクタ・コピー代入演算子がアクセス指定子`private`で宣言されているため、エラーとなっていた。
+- ムーブコンストラクタ・ムーブ代入演算子と`swap`は、アクセス指定子`protected`で定義されている。
 
 ### 出力処理
 
@@ -111,3 +114,5 @@ namespace std {
     - [`wclog`](../iostream/wclog.md.nolink)
     - [`cerr`](../iostream/cerr.md)
     - [`wcerr`](../iostream/wcerr.md.nolink)
+- [LWG Issue 911. I/O streams and move/swap semantic](https://cplusplus.github.io/LWG/issue911)
+    - C++11で、ムーブコンストラクタ・ムーブ代入演算子・`swap`が`protected`となり、非メンバ関数の`swap`が削除された。派生クラスのみが使用でき、基底クラスのオブジェクトを直接ムーブ・交換できないようにするため

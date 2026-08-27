@@ -125,6 +125,10 @@ Stage 3の終了時点での`charT`の列が、`*out++ = c`によって出力さ
 
 
 ## 参照
+- [LWG Issue 671. precision of hexfloat](https://cplusplus.github.io/LWG/issue671)
+    - C++11で、浮動小数点数の出力において`str.precision()`が精度として使われるのは`floatfield != (fixed | scientific)`の場合に限られ、`%a`／`%A`（16進浮動小数点）では精度を指定しないことが明記された
+- [LWG Issue 1152. Expressions parsed differently than intended](https://cplusplus.github.io/LWG/issue1152)
+    - C++11で、浮動小数点数の変換指定を決める条件の`floatfield == ios_base::fixed | ios_base::scientific`にカッコが補われた。演算子の優先順位により意図と異なる解釈になっていたため
 - [LWG Issue 2293. Wrong facet used by `num_put::do_put`](https://cplusplus.github.io/LWG/issue2293)
     - C++14で、`bool`版が[`truename()`](/reference/locale/numpunct/truename.md)・[`falsename()`](/reference/locale/numpunct/falsename.md)を取得するファセットが、[`ctype`](/reference/locale/ctype.md)から[`numpunct`](/reference/locale/numpunct.md)へ修正された
     - この修正は欠陥報告(DR)であり、C++98以降に遡及して適用される。これらのメンバ関数を持つのは[`numpunct`](/reference/locale/numpunct.md)であり、[`ctype`](/reference/locale/ctype.md)を指定した元の規定は実装不可能だったため

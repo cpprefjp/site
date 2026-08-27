@@ -112,3 +112,5 @@ int main()
 
 
 ## 参照
+- [LWG Issue 1436. Random number engine constructor concerns](https://cplusplus.github.io/LWG/issue1436)
+    - C++11で、シードシーケンスをとるこの関数が、`Sseq`がシードシーケンスとして適格でない型である場合にオーバーロード解決に参加しないよう規定された。整数のシードを渡したときに、こちらが選ばれてしまわないようにするため

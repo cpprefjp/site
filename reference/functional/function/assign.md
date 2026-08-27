@@ -75,4 +75,6 @@ int main()
 ## 参照
 - [N2308 Adding allocator support to `std::function` for C++0x](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2308.html)
 - [P0302R1 Removing Allocator Support in `std::function` (rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0302r1.html)
+- [LWG Issue 1288. `std::function` assignment from rvalues](https://cplusplus.github.io/LWG/issue1288)
+    - C++11で、関数オブジェクトを右辺値参照で受け取り、完全転送するようになった。ムーブのみ可能な引数を渡せるようにするため
 - [LWG Issue 2385. `function::assign` allocator argument doesn't make sense](https://wg21.cmeerw.net/lwg/issue2385)

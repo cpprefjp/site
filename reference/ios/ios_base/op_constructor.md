@@ -52,3 +52,5 @@ public:
 - [`basic_ios`](../basic_ios.md)
 - [`basic_ios`](../basic_ios.md)`::`[`basic_ios`](../basic_ios/op_constructor.md)
 - [`basic_ios`](../basic_ios.md)`::`[`init`](../basic_ios/init.md)
+- [LWG Issue 1249. `basic_ios` default ctor](https://cplusplus.github.io/LWG/issue1249)
+    - C++11で、[`init()`](../basic_ios/init.md)による初期化を行わなければならない期限が「初めて使用する時かデストラクタが呼ばれる時のいずれか早い方の前まで」と明確化された

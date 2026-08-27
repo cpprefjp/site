@@ -78,3 +78,5 @@ int main()
 - [P0357R3 reference_wrapper for incomplete types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0357r3.html)
     - テンプレートパラメータ`T`に不完全型が許可された経緯
 - [P1065R2 constexpr INVOKE](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1065r2.html)
+- [LWG Issue 688. `reference_wrapper`, `cref` unsafe, allow binding to rvalues](https://cplusplus.github.io/LWG/issue688)
+    - C++11で、`const`右辺値を受け取るオーバーロードが`delete`定義され、一時オブジェクトへの参照を保持してしまう誤用がコンパイルエラーになるようになった

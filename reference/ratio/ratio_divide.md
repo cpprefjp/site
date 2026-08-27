@@ -51,3 +51,10 @@ int main()
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [GCC](/implementation.md#gcc): 4.6.4 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 921. Rational Arithmetic should use template aliases](https://cplusplus.github.io/LWG/issue921)
+    - C++11で、`ratio`の算術演算がクラステンプレートからエイリアステンプレートへ改められ、[`ratio`](ratio.md)にネストされた型`type`が追加された。演算結果が既約化された`ratio`そのものとして扱えるようにするため
+- [LWG Issue 948. `ratio` arithmetic tweak](https://cplusplus.github.io/LWG/issue948)
+    - C++11で、処理系がオーバーフローを避けるために別のアルゴリズムを使ってよいこと、オーバーフローが起きた場合は診断が必要であることが明記された

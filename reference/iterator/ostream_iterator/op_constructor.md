@@ -5,9 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-ostream_iterator(ostream_type& s);                                       // (1)
-ostream_iterator(ostream_type& s, const CharT* delimiter);               // (2)
-ostream_iterator(const ostream_iterator<T, CharT, Traits>& x) = default; // (3)
+ostream_iterator(ostream_type& s);                             // (1) C++98
+ostream_iterator(ostream_type& s, const CharT* delimiter);     // (2) C++98
+ostream_iterator(const ostream_iterator& x);                   // (3) C++98
 ```
 
 ## 概要

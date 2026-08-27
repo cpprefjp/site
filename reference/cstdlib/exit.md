@@ -5,8 +5,8 @@
 
 ```cpp
 namespace std {
-  void exit(int status);              // C++98
-  [[noreturn]] void exit(int status); // C++11
+  void exit(int status);              // (1) C++98
+  [[noreturn]] void exit(int status); // (1) C++11
 }
 ```
 
@@ -71,3 +71,8 @@ int main()
 |------|------|
 | [`atexit`](atexit.md) | プログラムが通常の方法で終了するときに呼ばれる関数を登録する |
 | [`quick_exit`](quick_exit.md) | 後処理をせずに、プログラムを終了させる |
+
+
+## 参照
+- [LWG Issue 1066. Use `[[noreturn]]` attribute in the library](https://cplusplus.github.io/LWG/issue1066)
+    - C++11で、呼び出し元へ戻らない標準ライブラリ関数に`[[noreturn]]`属性が付加された

@@ -27,6 +27,9 @@ constexpr const_local_iterator begin(size_type n) const; // (2) C++26
 インデックス（添え字） `n` で指定したバケット内の先頭の要素を指すイテレータ
 
 
+バケットが空である場合、[`end(size_type)`](end-size_type.md)が返すイテレータと等値になる。
+
+
 ## 計算量
 定数
 
@@ -100,3 +103,5 @@ bucket = 4, bucket_size = 2, keys = { C, B, }
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 869. Bucket (local) iterators and iterating past end](https://cplusplus.github.io/LWG/issue869)
+    - C++11で、要件表の記述が「`[b.begin(n), b.end(n))`が有効な範囲である」という注記から、「バケットの最初の要素を指すイテレータを返す。バケットが空なら`b.begin(n) == b.end(n)`となる」という直接の記述へ改められた

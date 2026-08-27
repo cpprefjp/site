@@ -91,3 +91,5 @@ bucket = 4, bucket_size = 2, keys = { C, B, }
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 869. Bucket (local) iterators and iterating past end](https://cplusplus.github.io/LWG/issue869)
+    - C++11で、この関数がバケットの終端を指すイテレータを返すことが明記された。それ以前は終端を指すことが規定されておらず、バケットを走査してよいかが不明確だった

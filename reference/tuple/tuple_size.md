@@ -87,7 +87,9 @@ int main()
 
 
 ## 参照
-- [LWG Issue 2770. `tuple_size<const T>` specialization is not SFINAE compatible and breaks decomposition declarations](https://wg21.cmeerw.net/lwg/issue2770)
-    - C++17で[構造化束縛](/lang/cpp17/structured_bindings.md)機能が導入されたことに合わせて、`tuple_size`がSFINAEと組み合わせて使用できるようになった
+- [LWG Issue 1118. `tuple` query APIs do not support cv-qualification](https://cplusplus.github.io/LWG/issue1118)
+    - C++11で、`const`/`volatile`/`const volatile`修飾された型に対する部分特殊化が追加された
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
 - [P1831R1 Deprecating `volatile`: library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1831r1.html)
+- [LWG Issue 2770. `tuple_size<const T>` specialization is not SFINAE compatible and breaks decomposition declarations](https://wg21.cmeerw.net/lwg/issue2770)
+    - C++17で[構造化束縛](/lang/cpp17/structured_bindings.md)機能が導入されたことに合わせて、`tuple_size`がSFINAEと組み合わせて使用できるようになった

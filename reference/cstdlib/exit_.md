@@ -91,3 +91,5 @@ int main()
 ## 参照
 - [N2440 Abandoning a Process](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2440.htm)
 - [detachスレッドとプログラム終了処理 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120512/p1)
+- [LWG Issue 993. `_Exit` needs better specification](https://cplusplus.github.io/LWG/issue993)
+    - C++11で、この関数が自動記憶域期間・スレッド記憶域期間・静的記憶域期間のオブジェクトのデストラクタを実行せず、[`atexit`](atexit.md)で登録した関数も呼び出さずにプログラムを終了することが明記された

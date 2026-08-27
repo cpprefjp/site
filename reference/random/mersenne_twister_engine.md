@@ -176,8 +176,10 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
-* [Mersenne Twister Home Page](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/mt.html)
-* [メルセンヌ・ツイスタ - Wikipedia](https://ja.wikipedia.org/wiki/メルセンヌ・ツイスタ)
-* GCC(libstdc++) 4.8以降では、`<ext/random>`ヘッダに、SSE最適化されたメルセンヌ・ツイスターである`simd_fast_mersenne_twister_engine`クラスが実装されている
+- [Mersenne Twister Home Page](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/mt.html)
+- [メルセンヌ・ツイスタ - Wikipedia](https://ja.wikipedia.org/wiki/メルセンヌ・ツイスタ)
+- GCC(libstdc++) 4.8以降では、`<ext/random>`ヘッダに、SSE最適化されたメルセンヌ・ツイスターである`simd_fast_mersenne_twister_engine`クラスが実装されている
+- [LWG Issue 1437. Mersenne twister meaningless for word sizes less than two](https://cplusplus.github.io/LWG/issue1437)
+    - C++11の策定時に、テンプレートパラメータが満たすべき関係式に`2u < w`が追加された。ワードサイズが小さすぎると意味のある生成ができないため
 - [P4037R1 Supporting `signed char` and `unsigned char` in random number generation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4037r1.html)
     - `UIntType`テンプレートパラメータの要件が明文化された（拡張符号なし整数型および処理系定義のサブセットを許容）。この仕様はC++26から導入されたが、仕様の欠陥を修正したものであるためコンパイラは早期に対応している場合がある

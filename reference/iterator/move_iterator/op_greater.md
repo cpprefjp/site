@@ -8,11 +8,11 @@
 namespace std {
   template <class Iterator1, class Iterator2>
   bool operator>(const move_iterator<Iterator1>& x,
-                 const move_iterator<Iterator2>& y);           // C++11
+                 const move_iterator<Iterator2>& y);           // (1) C++11
 
   template <class Iterator1, class Iterator2>
   constexpr bool operator>(const move_iterator<Iterator1>& x,
-                           const move_iterator<Iterator2>& y); // C++17
+                           const move_iterator<Iterator2>& y); // (1) C++17
 }
 ```
 

@@ -74,3 +74,5 @@ int main()
 ## 参照
 - [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
 - [P2321R2 `zip`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html)
+- [LWG Issue 1349. `swap` should not throw](https://cplusplus.github.io/LWG/issue1349)
+    - C++11の策定時に、ドラフト段階で無条件`noexcept`となっていたものが、条件付きの形 (`noexcept(see below)`) へ修正された
