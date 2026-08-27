@@ -143,7 +143,9 @@ int main(int argc, char** argv) {
 - [P0174R2 Deprecating Vestigial Library Parts in C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html)
 - [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
-- [LWG Issue 3170. `is_always_equal` added to `std::allocator` makes the standard library treat derived types as always equal](https://cplusplus.github.io/LWG/issue3170)
-    - C++23で`is_always_equal`メンバ型が非推奨化された
+- [LWG Issue 752. Allocator complexity requirement](https://cplusplus.github.io/LWG/issue752)
+    - C++11で、「アロケータのすべての操作は償却定数時間であることが期待される」という要件が削除された。`allocate`や`deallocate`は本質的に定数時間で実装できるとは限らず、満たせない要件だったため
 - [P2868R3 Remove Deprecated `std::allocator` Typedef From C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2868r3.pdf)
     - C++26で`is_always_equal`メンバ型が削除された
+- [LWG Issue 3170. `is_always_equal` added to `std::allocator` makes the standard library treat derived types as always equal](https://cplusplus.github.io/LWG/issue3170)
+    - C++23で`is_always_equal`メンバ型が非推奨化された
