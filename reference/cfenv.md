@@ -87,3 +87,8 @@
 
 ## 関連項目
 - [`<cmath>`](/reference/cmath.md)
+
+
+## 参照
+- [LWG Issue 860. Floating-Point State](https://cplusplus.github.io/LWG/issue860)
+    - C++11で、浮動小数点環境がスレッドごとに保持され、各関数は呼び出し元スレッドの環境にアクセスすることが規定された
