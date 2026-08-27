@@ -53,3 +53,5 @@ int main() {}
 
 ## 参照
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
+- [LWG Issue 1071. `is_bind_expression` should derive from `integral_constant<bool>`](https://cplusplus.github.io/LWG/issue1071)
+    - C++11で、静的メンバ変数`value`を直接持つ形から、[`integral_constant`](/reference/type_traits/integral_constant.md)から派生する形へ改められた。ほかの型特性と扱いを揃えるため
