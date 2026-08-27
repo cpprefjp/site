@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-operator bool() const;              // C++98 まで
-explicit operator bool() const;     // C++11 から
+operator bool() const;          // (1) C++98
+explicit operator bool() const; // (1) C++11
 ```
 
 ## 概要
@@ -15,5 +15,11 @@ explicit operator bool() const;     // C++11 から
 ## 戻り値
 本オブジェクトの構築時に出力処理の前処理が正常に完了していれば `true`、そうでなければ `false`。
 
-## 参照
+
+## バージョン
+### 言語
+- C++98
+
+
+## 関連項目
 - [`(constructor)`](op_constructor.md)
