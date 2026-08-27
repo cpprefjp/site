@@ -207,3 +207,7 @@ sixth : {1 2 3 }
     - C++23でのアロケータ引数を`type_identity_t`で包む変更
 - [P2846R6 `reserve_hint`: Eagerly reserving memory for not-quite-sized lazy ranges](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2846r6.pdf)
     - C++26で、(11) Range版コンストラクタが[`ranges::approximately_sized_range`](../../ranges/approximately_sized_range.md)の要素数近似値を利用して再確保を回避するよう変更
+- [LWG Issue 1234. "Do the right thing" and NULL](https://cplusplus.github.io/LWG/issue1234)
+    - C++11で、イテレータ範囲を受け取るオーバーロードの扱いが、`InputIterator`が整数型の場合に要素数と値を受け取るオーバーロードと等価とみなす規定から、入力イテレータの要件を満たさない場合はオーバーロード解決に参加しないという制約へ改められた
+- [LWG Issue 1284. `vector<bool>` `initializer_list` constructor missing an allocator argument](https://cplusplus.github.io/LWG/issue1284)
+    - C++11で、`vector<bool>`の特殊化における初期化子リストのコンストラクタにも、アロケータの引数が追加された

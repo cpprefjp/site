@@ -458,3 +458,5 @@ int main()
     - C++23から、Range・コンテナ、`pair`、`tuple`のフォーマット出力、および文字・文字列のデバッグ指定 (`"?"`) が追加された
 - [P3612R1 Harmonize proxy-reference operations (LWG 3638 and 4187)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3612r1.html)
     - C++26で、`vector<bool>::reference`にADLで見つかる非メンバ`swap`関数が追加され、従来の`static`メンバ関数版`swap`が非推奨となった
+- [LWG Issue 814. `vector<bool>::swap(reference, reference)` not defined](https://cplusplus.github.io/LWG/issue814)
+    - C++11で、`vector<bool>::reference`同士を交換する静的メンバ関数`swap()`の効果が規定された。宣言のみで意味が規定されていなかった
