@@ -9,8 +9,8 @@ namespace std {
   template<class CharT, class Traits = char_traits<CharT>>
   class basic_streambuf {
   protected:
-    basic_streambuf();  // (1)
-    basic_streambuf(const basic_streambuf& rhs);  // (2)
+    basic_streambuf();                            // (1) C++98
+    basic_streambuf(const basic_streambuf& rhs);  // (2) C++11
 
     ……
   };
