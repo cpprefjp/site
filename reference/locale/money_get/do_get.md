@@ -93,3 +93,8 @@ ct.widen(src, src + sizeof(src) - 1, atoms);
 - [`money_get::get`](get.md)
 - [`moneypunct`](/reference/locale/moneypunct.md)
 - [`money_base`](/reference/locale/money_base.md)
+
+
+## 参照
+- [LWG Issue 836. Effects of `money_base::space` and `money_base::none` on `money_get`](https://cplusplus.github.io/LWG/issue836)
+    - C++11で、書式パターン中の[`money_base::space`](/reference/locale/money_base.md)と[`money_base::none`](/reference/locale/money_base.md)に対する空白の消費規則が、位置ごとに明確化された
