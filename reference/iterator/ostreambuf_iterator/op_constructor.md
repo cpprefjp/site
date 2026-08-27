@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-ostreambuf_iterator(ostream_type& s) noexcept;
-ostreambuf_iterator(streambuf_type* s) noexcept;
+ostreambuf_iterator(ostream_type& s) throw();     // (1) C++98
+ostreambuf_iterator(ostream_type& s) noexcept;    // (1) C++11
+
+ostreambuf_iterator(streambuf_type* s) throw();   // (2) C++98
+ostreambuf_iterator(streambuf_type* s) noexcept;  // (2) C++11
 ```
 
 ## ostreambuf_iteratorオブジェクトの構築
