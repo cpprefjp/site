@@ -12,7 +12,7 @@ namespace std {
 
   template <class charT,
             class traits = char_traits<charT>>
-  class istream_iterator {
+  class istreambuf_iterator {
   public:
     friend bool operator!=(const istreambuf_iterator& i, default_sentinel_t); // (2) C++20
     friend bool operator!=(default_sentinel_t, const istreambuf_iterator& i); // (3) C++20
