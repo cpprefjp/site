@@ -11,10 +11,16 @@ namespace std {
   public:
     explicit sentry(basic_ostream<CharT, Traits>& os);
     ~sentry();
-    explicit operator bool() const;
 
-    sentry(const sentry&) = delete;
-    sentry& operator=(const setnry&) = delete;
+    operator bool() const;          // C++98
+    explicit operator bool() const; // C++11
+
+  private:
+    sentry(const sentry&);            // C++98 宣言のみ
+    sentry& operator=(const sentry&); // C++98 宣言のみ
+  public:
+    sentry(const sentry&) = delete;            // C++11
+    sentry& operator=(const sentry&) = delete; // C++11
   };
 }
 ```
