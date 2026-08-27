@@ -114,3 +114,5 @@ int main()
 
 ## 参照
 - [P2186R2 Removing Garbage Collection Support](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2186r2.html)
+- [LWG Issue 1408. Allow recycling of pointers after `undeclare_no_pointers`](https://cplusplus.github.io/LWG/issue1408)
+    - C++11で、要件が「以前に登録されていないこと」から「現在登録されていないこと」へ改められた。[`undeclare_no_pointers()`](undeclare_no_pointers.md)で登録を解除した範囲を再登録できるようにするため
