@@ -148,3 +148,10 @@ int main()
 - [GCC](/implementation.md#gcc): 4.9.0 [mark verified], 4.9.1 [mark verified], 4.9.2 [mark verified], 5.0.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 2001. Class template `basic_regex` uses non existent `string_type`](https://cplusplus.github.io/LWG/issue2001)
+    - C++11で、メンバ型`traits_type`と`string_type`が追加された。ほかの箇所でこれらの型名が使われていたが、定義されていなかった
+- [LWG Issue 2029. Missing '`noexcept`' on `basic_regex` move-assignment operator](https://cplusplus.github.io/LWG/issue2029)
+    - C++11で、ムーブ代入演算子に`noexcept`が付加された

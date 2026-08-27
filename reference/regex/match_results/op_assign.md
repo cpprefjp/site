@@ -138,5 +138,7 @@ GCC(libstdc++) の 4.9.2 までは、アロケータが上記の事後条件の�
 
 
 ## 参照
+- [LWG Issue 1209. `match_results` should be moveable](https://cplusplus.github.io/LWG/issue1209)
+    - C++11で、ムーブコンストラクタとムーブ代入演算子が追加された
 - [LWG Issue 2184. Muddled allocator requirements for `match_results` assignments](https://cplusplus.github.io/LWG/issue2184)
     - コピー代入・ムーブ代入がサポートされることが明確化された。C++11時点の規格は、クラス概要でコピー代入・ムーブ代入演算子を宣言する一方、要件の除外句が「const修飾されたシーケンスコンテナの操作のみサポート」と読め、両者が矛盾していた。この修正はC++20に取り込まれたが、矛盾した文言を正すものであり、演算子自体はC++11から存在してアロケータ対応コンテナの規則に従うため、実装の挙動は変わらない（欠陥修正のため処理系は早期に対応している）

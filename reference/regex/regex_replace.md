@@ -244,4 +244,6 @@ int main()
 
 
 ## 参照
-* [C++の正規表現ライブラリ: std::regex | 本の虫](https://cpplover.blogspot.jp/2015/01/c-stdregex.html)
+- [C++の正規表現ライブラリ: std::regex | 本の虫](https://cpplover.blogspot.jp/2015/01/c-stdregex.html)
+- [LWG Issue 727. `regex_replace()` doesn't accept `basic_strings` with custom traits and allocators](https://cplusplus.github.io/LWG/issue727)
+    - C++11で、`fmt`および`s`に指定する[`basic_string`](/reference/string/basic_string.md)の`traits`とアロケータを任意に指定できるよう、テンプレートパラメータが追加された

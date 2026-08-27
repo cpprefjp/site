@@ -134,3 +134,5 @@ Clang バージョン 3.0 は [`initializer_list`](../../initializer_list.md) �
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (7)の経緯となる提案文書
+- [LWG Issue 723. `basic_regex` should be moveable](https://cplusplus.github.io/LWG/issue723)
+    - C++11で、ムーブコンストラクタ、ムーブ代入演算子、`assign()`のムーブ版が追加された

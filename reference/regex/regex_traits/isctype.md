@@ -64,5 +64,7 @@ int main()
 
 
 ## 参照
+- [LWG Issue 1337. Swapped arguments in `regex_traits::isctype`](https://cplusplus.github.io/LWG/issue1337)
+    - C++11で、[`ctype::is()`](/reference/locale/ctype/is.md)に渡す引数の順序が`is(c, m)`から`is(m, c)`へ修正された
 - [LWG Issue 2018. [CD] `regex_traits::isctype` Returns clause is wrong](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2018)
     - C++14から、戻り値の仕様文面が見直された。

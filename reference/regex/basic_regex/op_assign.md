@@ -97,3 +97,12 @@ true
 ### 備考
 Clang バージョン 3.0 は [`initializer_list`](../../initializer_list.md) に対応していないため、(4) の形式は提供されていない。  
 また、Clang(libc++) では例外が発生した場合に `*this` が元の状態を保持せずに中途半端に更新されてしまう。
+
+
+## 参照
+- [LWG Issue 723. `basic_regex` should be moveable](https://cplusplus.github.io/LWG/issue723)
+    - C++11で、ムーブコンストラクタ、ムーブ代入演算子、`assign()`のムーブ版が追加された
+- [LWG Issue 1014. `basic_regex` should be created/assigned from initializer lists](https://cplusplus.github.io/LWG/issue1014)
+    - C++11で、[`initializer_list`](/reference/initializer_list/initializer_list.md)`<charT>`からの代入演算子が追加された
+- [LWG Issue 2029. Missing '`noexcept`' on `basic_regex` move-assignment operator](https://cplusplus.github.io/LWG/issue2029)
+    - C++11で、ムーブ代入演算子に`noexcept`が付加された
