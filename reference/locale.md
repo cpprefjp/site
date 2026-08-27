@@ -28,6 +28,7 @@
 | [`isxdigit`](locale/isxdigit.md) | 十六進数字の判定(function) | |
 | [`isalnum`](locale/isalnum.md) | 英字・数字の判定(function) | |
 | [`isgraph`](locale/isgraph.md) | 図形文字の判定(function) | |
+| [`isblank`](locale/isblank.md) | ブランク文字の判定(function) | C++11 |
 | [`toupper`](locale/toupper.md) | 英大文字への変換(function) | |
 | [`tolower`](locale/tolower.md) | 英小文字への変換(function) | |
 | [`wstring_convert`](locale/wstring_convert.md) | `codecvt`による文字列変換(class template) | C++11<br/> C++17から非推奨<br/> C++26で削除 |
