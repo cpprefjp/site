@@ -76,5 +76,7 @@ int main()
 
 
 ## 参照
+- [LWG Issue 1288. `std::function` assignment from rvalues](https://cplusplus.github.io/LWG/issue1288)
+    - C++11で、関数オブジェクトを右辺値参照で受け取り、完全転送するようになった。ムーブのみ可能な引数を渡せるようにするため
 - [LWG Issue 2132. `std::function` ambiguity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2132)
     - C++14から、(4)でシグニチャが合わない関数オブジェクトが渡された場合に、SFINAEされるようになった。

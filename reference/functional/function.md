@@ -130,3 +130,5 @@ int main()
 - [P0302R1 Removing Allocator Support in `std::function` (rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0302r1.html)
 - [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)
 - [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)
+- [LWG Issue 1240. Deleted comparison functions of `std::function` not needed](https://cplusplus.github.io/LWG/issue1240)
+    - C++11で、`delete`定義されていた`operator==`/`operator!=`のメンバ宣言が削除された。`explicit operator bool()`によって`bool`への意図しない暗黙変換が起きなくなったため、比較を禁止する宣言が不要になった
