@@ -55,4 +55,6 @@ int main()
 
 
 ## 参照
+- [LWG Issue 1044. Empty tag types should be `constexpr` literals](https://cplusplus.github.io/LWG/issue1044)
+    - C++11で、タグ型が空のクラスとして定義され、その値が`extern const`から`constexpr`へ改められた。定数式で使用でき、別途の定義を必要としないようにするため
 - [LWG Issue 2510. Tag types should not be `DefaultConstructible`](https://cplusplus.github.io/LWG/issue2510)
