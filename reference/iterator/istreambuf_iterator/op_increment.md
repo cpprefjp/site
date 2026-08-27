@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-istreambuf_iterator<CharT, Traits>& operator++();
-proxy operator++(int);
+istreambuf_iterator<CharT, Traits>& operator++(); // (1) C++98
+proxy operator++(int);                            // (2) C++98
 ```
 * proxy[italic]
 
