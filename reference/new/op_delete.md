@@ -48,6 +48,8 @@ constexpr void operator delete(void* ptr, void*) noexcept;                      
 
 
 ## 備考
+- これらの関数と、利用者が置き換えた版、および[`std::free`](/reference/cstdlib/free.md)は、異なるスレッドから並行に呼び出されてもデータ競合を引き起こさない。  
+    ある記憶域の確保が、同じ記憶域を返した以前の解放よりも後に発生する（*happens after*）ことが保証されるため、再利用された記憶域へのアクセスがデータ競合とならない。
 - `alignment` 引数を取らない `delete` 演算子に渡される `ptr` は、 `alignment` 引数を取らない `new` 演算子によって確保されたものでなければならない。
 - `alignment` 引数を取る `delete` 演算子に渡される `ptr` は、同じ `alignment` の値を取った `alignment` 版 `new` 演算子によって確保されたものでなければならない。
 

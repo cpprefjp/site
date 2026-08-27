@@ -82,6 +82,9 @@ constexpr void* operator new(std::size_t size,
 
 
 ## 備考
+- これらの関数と、利用者が置き換えた版、および[`std::calloc`](/reference/cstdlib/calloc.md)・[`std::malloc`](/reference/cstdlib/malloc.md)・[`std::realloc`](/reference/cstdlib/realloc.md)・[`std::free`](/reference/cstdlib/free.md)は、異なるスレッドから並行に呼び出されてもデータ競合を引き起こさない。  
+    ある記憶域の確保が、同じ記憶域を返した以前の解放よりも後に発生する（*happens after*）ことが保証されるため、再利用された記憶域へのアクセスがデータ競合とならない。
+
 - (1)と(2)、および、(3)と(4) の形式は、`size` が `0` でも他の確保済みの記憶域と異なるアドレスを返す。  
     ただし、記憶域の確保に失敗する可能性もあり、また、成功しても当該ポインタを間接参照した場合は未定義動作を引き起こす。
 
@@ -97,7 +100,7 @@ constexpr void* operator new(std::size_t size,
 - (1)と(2) の形式の `operator new` を呼び出すだけであれば、（`new` 式から間接的に呼ばれる場合も含めて）`new` ヘッダをインクルードする必要はない。
 
 - (1)と(2) の形式の詳細な正確な挙動は以下の通りである。
-    - `size` で指定したサイズ（バイト）の記憶域を確保しようとする。なお、記憶域の確保に C 互換ライブラリ関数 `malloc()` や [`aligned_alloc()`](/reference/cstdlib/aligned_alloc.md) を用いるか否かは規定されていない。
+    - `size` で指定したサイズ（バイト）の記憶域を確保しようとする。なお、記憶域の確保に C 互換ライブラリ関数 [`malloc()`](/reference/cstdlib/malloc.md) や [`aligned_alloc()`](/reference/cstdlib/aligned_alloc.md) を用いるか否かは規定されていない。
     - もし、記憶域を確保できた場合、確保した先頭アドレスを返す。
     - もし、確保できなかった場合、
         - 現在の [`new_handler`](new_handler.md) が ヌルポインタであれば、[`bad_alloc`](bad_alloc.md) 例外を送出する。
@@ -177,3 +180,5 @@ int main()
     - C++26で`[[nodiscard]]`指定が削除された
 - [P2747R2 constexpr placement new](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2747r2.html)
     - C++26で配置newのオーバーロードが`constexpr`対応した
+- [LWG Issue 1524. Allocation functions are missing happens-before requirements and guarantees](https://cplusplus.github.io/LWG/issue1524)
+    - C++11で、記憶域の確保・解放関数について、ある確保が以前の解放よりも後に発生するという順序関係が規定された。再利用された記憶域に対するアクセスがデータ競合とならないようにするため
