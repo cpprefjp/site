@@ -207,3 +207,5 @@ std::string to_string(long double val)
     - C++26から整数バージョンが`constexpr`に対応した
 - [LWG Issue 1261. Insufficent overloads for `to_string` / `to_wstring`](https://cplusplus.github.io/LWG/issue1261)
     - C++11で、`int`/`unsigned`/`long`/`unsigned long`/`float`/`double`を受け取るオーバーロードが追加された。より大きな型のオーバーロードしかないと、変換が曖昧になったり意図しない拡張が起きたりするため
+- [LWG Issue 4531. Should there be a feature-test macro update for constexpr `std::to_(w)string`?](https://cplusplus.github.io/LWG/issue4531)
+    - この関数の`constexpr`対応を反映するために`__cpp_lib_constexpr_string`が`202511L`に更新された。このIssueは規格としてはC++29のワーキングドラフトへ適用されたが、C++26で追加された機能に対する修正であるため、C++26へ遡及して適用される
