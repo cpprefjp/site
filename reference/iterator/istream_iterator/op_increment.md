@@ -14,6 +14,10 @@ istream_iterator<T, CharT, Traits, Distance> operator++(int);
 入力ストリームから`operator>>`でデータを読み取る。
 
 
+## 事前条件
+`*this`が終端イテレータではないこと（保持している入力ストリームへのポインタがヌルポインタではないこと）。この条件を満たさない場合、動作は未定義である。
+
+
 ## 効果
 前置`operator++`：
 `*in_stream >> value;`
@@ -25,6 +29,7 @@ istream_iterator<T, CharT, Traits, Distance> operator++(int);
 `return tmp;`
 
 ※`in_stream`は、メンバ変数として保持している入力ストリームオブジェクトへのポインタ
+
 
 ## 例
 ```cpp example
@@ -59,3 +64,5 @@ int main()
 ```
 
 ## 参照
+- [LWG Issue 838. Can an end-of-stream iterator become a non-end-of-stream one?](https://cplusplus.github.io/LWG/issue838)
+    - C++11で、終端イテレータに対してこの演算子を呼び出したときの動作は未定義であることが明記された。終端イテレータが再び非終端イテレータに戻ることはない
