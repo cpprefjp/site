@@ -7,7 +7,8 @@
 
 ```cpp
 namespace std {
-  void unexpected();
+  void unexpected();               // (1) C++98
+  [[noreturn]] void unexpected();  // (1) C++11
 }
 ```
 
@@ -51,3 +52,5 @@ unexpected handler called
 
 ## 参照
 - [C++17 非推奨だった古い例外仕様を削除](/lang/cpp17/remove_deprecated_exception_specifications.md)
+- [LWG Issue 1066. Use `[[noreturn]]` attribute in the library](https://cplusplus.github.io/LWG/issue1066)
+    - C++11で、呼び出し元へ戻らない標準ライブラリ関数に`[[noreturn]]`属性が付加された
