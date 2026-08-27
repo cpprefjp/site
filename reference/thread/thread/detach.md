@@ -87,3 +87,5 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 参照
+- [LWG Issue 963. Various threading bugs #13](https://cplusplus.github.io/LWG/issue963)
+    - C++11で、エラー条件の文言が整理され、[`invalid_argument`](/reference/system_error/errc.md)の条件が「デタッチ可能なスレッドでない場合」から「[`joinable()`](joinable.md)でない場合」へ改められた

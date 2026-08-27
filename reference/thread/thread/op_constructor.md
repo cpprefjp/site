@@ -111,6 +111,8 @@ int main()
 
 
 ## 参照
+- [LWG Issue 929. Thread constructor](https://cplusplus.github.io/LWG/issue929)
+    - C++11で、関数オブジェクトのみをとるコンストラクタと引数付きのコンストラクタが(2)の可変引数コンストラクタひとつに統合され、`explicit`が付加された。また、実引数を`DECAY_COPY`によって呼び出し元スレッド上でコピーすることが規定された
 - [LWG Issue 2097. `packaged_task` constructors should be constrained](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2097)
 - [LWG Issue 3039. Unnecessary `decay` in `thread` and `packaged_task`](https://wg21.cmeerw.net/lwg/issue3039)
 - [LWG Issue 3476. `thread` and `jthread` constructors require that the parameters be move-constructible](https://cplusplus.github.io/LWG/issue3476)

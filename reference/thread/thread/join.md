@@ -78,3 +78,5 @@ int main()
 
 
 ## 参照
+- [LWG Issue 1033. `thread::join()` effects?](https://cplusplus.github.io/LWG/issue1033)
+    - C++11で、スレッドの完了までブロックするという効果が明記され、事後条件が「スレッドが完了していること」と[`get_id()`](get_id.md)` == `[`id()`](/reference/thread/thread/id.md)であることへ整理された

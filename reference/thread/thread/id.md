@@ -110,3 +110,5 @@ main=824a30
 - [LWG Issue 783. `thread::id` reuse](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#783)
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [LWG Issue 1277. `std::thread::id` should be trivially copyable](https://cplusplus.github.io/LWG/issue1277)
+    - C++11で、この型がトリビアルコピー可能であることが規定された。アトミック操作の対象にできるようにするため

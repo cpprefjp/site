@@ -54,3 +54,5 @@ concurrency=4
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 ## 参照
+- [LWG Issue 1089. Unify "Throws: Nothing." specifications](https://cplusplus.github.io/LWG/issue1089)
+    - C++11で、この関数が例外を送出しないことが明記された
