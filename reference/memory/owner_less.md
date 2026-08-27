@@ -183,3 +183,5 @@ false
 - [N2637 Revisiting `std::shared_ptr` comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2637.pdf)
 - [P0074R0 Making `std::owner_less` more flexible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0074r0.html)
 - [P0005R4 Adopt `not_fn` from Library Fundamentals 2 for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0005r4.html)
+- [LWG Issue 949. `owner_less`](https://cplusplus.github.io/LWG/issue949)
+    - C++11で、関数呼び出し演算子の戻り値が`x.before(y)`から`x.owner_before(y)`へ修正された。`before`というメンバ関数は存在せず、意図していたのは所有権ベースの比較だったため
