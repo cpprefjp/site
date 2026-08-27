@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-reverse_iterator& operator-=(difference_type n);           // C++98
-constexpr reverse_iterator& operator-=(difference_type n); // C++17
+reverse_iterator& operator-=(difference_type n);           // (1) C++98
+constexpr reverse_iterator& operator-=(difference_type n); // (1) C++17
 ```
 
 ## 概要

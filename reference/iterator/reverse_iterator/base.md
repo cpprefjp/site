@@ -5,8 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-Iterator base() const;           // C++98
-constexpr Iterator base() const; // C++17
+Iterator base() const;           // (1) C++98
+constexpr Iterator base() const; // (1) C++17
 ```
 
 ## 概要

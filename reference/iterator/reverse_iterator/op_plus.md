@@ -8,12 +8,12 @@ namespace std {
   template <class Iterator>
   reverse_iterator<Iterator> operator+(
     typename reverse_iterator<Iterator>::difference_type n,
-    const reverse_iterator<Iterator>& x);                   // C++98
+    const reverse_iterator<Iterator>& x); // (1) C++98
 
   template <class Iterator>
   constexpr reverse_iterator<Iterator> operator+(
     typename reverse_iterator<Iterator>::difference_type n,
-    const reverse_iterator<Iterator>& x);                   // C++17
+    const reverse_iterator<Iterator>& x); // (1) C++17
 }
 ```
 

@@ -5,9 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-pointer operator->() const;           // C++98
-constexpr pointer operator->() const; // C++17
-constexpr pointer operator->() const  // C++20
+pointer operator->() const;           // (1) C++98
+constexpr pointer operator->() const; // (1) C++17
+constexpr pointer operator->() const  // (1) C++20
   requires (is_pointer_v<Iterator> ||
             requires (const Iterator i) { i.operator->(); });
 ```
