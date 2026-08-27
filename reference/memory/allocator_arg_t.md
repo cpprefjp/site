@@ -38,5 +38,9 @@ namespace std {
 
 
 ## 参照
+- [LWG Issue 1073. Declaration of `allocator_arg` should be `constexpr`](https://cplusplus.github.io/LWG/issue1073)
+    - C++11で、`allocator_arg`の宣言が`const`から`constexpr`へ改められた
+- [LWG Issue 1403. Inconsistent definitions for `allocator_arg`](https://cplusplus.github.io/LWG/issue1403)
+    - C++11で、ヘッダの概要とクラスの規定とで`allocator_arg`の宣言が食い違っていた問題が解消され、どちらも`constexpr`に統一された
 - [LWG Issue 2510. Tag types should not be `DefaultConstructible`](https://cplusplus.github.io/LWG/issue2510)
     - C++17で、`{}`による暗黙構築を防ぐため、明示的なデフォルトコンストラクタ（`explicit allocator_arg_t() = default;`）が追加された
