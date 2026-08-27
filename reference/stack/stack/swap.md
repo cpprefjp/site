@@ -96,3 +96,5 @@ void swap(stack& s) noexcept(noexcept(swap(c, s.c)))
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 1198. Container adaptor `swap`: member or non-member?](https://cplusplus.github.io/LWG/issue1198)
+    - C++11で、メンバ`swap()`の効果が、基となるコンテナのメンバ`swap()`の呼び出しから、非修飾の`swap()`呼び出し (ADLによる探索を含む) へ改められた
