@@ -87,3 +87,5 @@ false
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [LWG Issue 1335. Insufficient requirements for `tuple::operator<`()](https://cplusplus.github.io/LWG/issue1335)
+    - C++11で、要件に`get<i>(u) < get<i>(t)`も有効な式であることが追加された。辞書式比較の実装では両方向の比較が必要なため

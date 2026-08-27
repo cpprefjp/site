@@ -99,3 +99,5 @@ World
 ## 参照
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [P2165R4 Compatibility between `tuple`, `pair` and *tuple-like* objects](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2165r4.pdf)
+- [LWG Issue 1385. `tuple_cat` should be a single variadic signature](https://cplusplus.github.io/LWG/issue1385)
+    - C++11で、2つの`tuple`を連結する複数のオーバーロードが、任意個の`tuple`を受け取る単一の可変引数テンプレートへ統合された

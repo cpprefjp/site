@@ -70,3 +70,7 @@ int main()
 
 ## 参照
 - [LWG2275 - Why is forward_as_tuple not constexpr?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2275)
+- [LWG Issue 1384. Function `pack_arguments` is poorly named](https://cplusplus.github.io/LWG/issue1384)
+    - C++11の策定時に、この関数の名前が`pack_arguments`から`forward_as_tuple`へ改められた
+- [LWG Issue 1386. `pack_arguments` overly complex](https://cplusplus.github.io/LWG/issue1386)
+    - C++11の策定時に、戻り値の型が引数の型ごとに導出する複雑な規定から、単純に`tuple<Types&&...>`とする形へ簡略化された
