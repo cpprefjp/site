@@ -7,7 +7,7 @@
 
 ```cpp
 protected:
-  void swap(basic_ostream& rhs);
+  void swap(basic_ostream& rhs); // (1) C++11
 ```
 * basic_ostream[link ../basic_ostream.md]
 
@@ -33,6 +33,6 @@ protected:
 - C++11
 
 
-## 参照
+## 関連項目
 - [`basic_ios`](../../ios/basic_ios.md)`::`[`move`](../../ios/basic_ios/move.md)
 - [`basic_ios`](../../ios/basic_ios.md)`::`[`swap`](../../ios/basic_ios/swap.md)

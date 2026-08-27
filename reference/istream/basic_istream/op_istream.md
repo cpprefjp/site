@@ -56,6 +56,8 @@ basic_istream<CharT, Traits>&
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない
 1. `num_get::get`を使用して入力のパース・数値への変換を行う。
     - `int`と`short` : `long`を実引数に取るものを使用する。結果が`int`と`short`それぞれの範囲外の値になった場合、ローカルエラー状態に`failbit`を設定する
+        - C++98 : 値は格納されない
+        - C++11 : 範囲を下回っていれば[`numeric_limits`](/reference/limits/numeric_limits.md)`::min()`、上回っていれば[`numeric_limits`](/reference/limits/numeric_limits.md)`::max()`を代入する
     - 拡張浮動小数点数型 :
         - 拡張浮動小数点数型の変換順位が`long double`より大きい場合、条件付きサポートとなる
         - そうでない場合、対応する標準浮動小数点数型`FP`を以下のように定義し、`FP`型の値として値を入力したあと、拡張浮動小数点数型にキャストして代入する
@@ -129,3 +131,5 @@ TBD
     - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で拡張浮動小数点数型の`istream`入力がサポートされた
+- [LWG Issue 696. `istream::operator>>`(int&) broken](https://cplusplus.github.io/LWG/issue696)
+    - C++11で、`int`と`short`の抽出において範囲外の値になった場合に`numeric_limits::min()`/`max()`を代入することが明記された。以前は値を代入せずに`failbit`を設定するだけだったため、[`num_get`](/reference/locale/num_get.md)側の「抽出に失敗した場合は`0`を代入する」という規定と矛盾していた

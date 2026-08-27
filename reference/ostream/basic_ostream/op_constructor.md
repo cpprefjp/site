@@ -6,12 +6,12 @@
 
 ```cpp
 public:
-  explicit basic_ostream(basic_streambuf<char_type, traits_type>* sb);  // (1)
+  explicit basic_ostream(basic_streambuf<char_type, traits_type>* sb);  // (1) C++98
 
 protected:
-  basic_ostream(const basic_ostream& rhs) = delete;                     // (2) C++11 から
+  basic_ostream(const basic_ostream& rhs) = delete;                     // (2) C++11
 
-  basic_ostream(basic_ostream&& rhs);                                   // (3) C++11 から
+  basic_ostream(basic_ostream&& rhs);                                   // (3) C++11
 ```
 * basic_ostream[link ../basic_ostream.md]
 * basic_streambuf[link ../../streambuf/basic_streambuf.md]
@@ -46,7 +46,7 @@ protected:
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-## 参照
+## 関連項目
 - [`basic_ostream`](../basic_ostream.md)`::`[`~basic_ostream`](op_destructor.md)
 - [`basic_ostream`](../basic_ostream.md)`::`[`operator=`](op_assign.md)
 - [`basic_ostream`](../basic_ostream.md)`::`[`swap`](swap.md)

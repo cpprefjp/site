@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-virtual ~basic_ostream();
+virtual ~basic_ostream(); // (1) C++98
 ```
 * basic_ostream[link ../basic_ostream.md]
 
@@ -20,7 +20,7 @@ virtual ~basic_ostream();
 
 ## バージョン
 ### 言語
-- C++11
+- C++98
 
 
 ### 処理系
@@ -30,7 +30,7 @@ virtual ~basic_ostream();
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-## 参照
+## 関連項目
 - [`basic_ostream`](../basic_ostream.md)`::`[`basic_ostream`](op_constructor.md)
 - [`basic_ostream`](../basic_ostream.md)`::`[`swap`](swap.md)
 - [`basic_ostream`](../basic_ostream.md)`::`[`operator=`](op_assign.md)

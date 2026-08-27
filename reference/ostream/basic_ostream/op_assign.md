@@ -7,9 +7,9 @@
 
 ```cpp
 protected:
-  basic_ostream& operator=(const basic_ostream& rhs) = delete;      // (1)
+  basic_ostream& operator=(const basic_ostream& rhs) = delete;      // (1) C++11
 
-  basic_ostream& operator=(basic_ostream&& rhs);                    // (2)
+  basic_ostream& operator=(basic_ostream&& rhs);                    // (2) C++11
 ```
 * basic_ostream[link ../basic_ostream.md]
 
@@ -47,7 +47,7 @@ protected:
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-## 参照
+## 関連項目
 - [`basic_ostream`](../basic_ostream.md)`::`[`basic_ostream`](op_constructor.md)
 - [`basic_ios`](../../ios/basic_ios.md)`::`[`basic_ios`](../../ios/basic_ios/op_constructor.md)
 - [`basic_ios`](../../ios/basic_ios.md)`::`[`operator=`](../../ios/basic_ios/op_assign.md)

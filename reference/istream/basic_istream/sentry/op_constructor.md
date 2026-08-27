@@ -23,3 +23,8 @@ explicit sentry(basic_istream& is, bool noskipws = false);
     - このとき`is.`[`rdbuf`](../../../ios/basic_ios/rdbuf.md)`()->`[`sbumpc`](../../../streambuf/basic_streambuf/sbumpc.md)`()`または`is.`[`rdbuf`](../../../ios/basic_ios/rdbuf.md)`()->`[`sgetc`](../../../streambuf/basic_streambuf/sgetc.md)`()`が`Traits::eof()`を返したら、`is.`[`setstate`](../../../ios/basic_ios/setstate.md)`(failbit | eofbit)`を呼び出す。
 
 ここまでの手順が完了したら、このオブジェクトの`operator bool`関数は`true`を、さもなくば`false`を返すようになる。
+
+
+## 参照
+- [LWG Issue 419. `istream` extractors not setting `failbit` if `eofbit` is already set](https://cplusplus.github.io/LWG/issue419)
+    - C++11で、`is.good()`が`false`の場合に`setstate(failbit)`を呼び出すことが規定された。それ以前は「`good()`が`true`なら入力の準備をする」としか書かれておらず、既に`eofbit`が立っているストリームから抽出しても`failbit`が立たないため、抽出の失敗を検知できなかった
