@@ -167,8 +167,10 @@ int main()
 
 
 ## 参照
+- [LWG Issue 1310. `forward_list` `splice_after` from lvalues](https://cplusplus.github.io/LWG/issue1310)
+    - C++11で、左辺値の`forward_list`を受け取るオーバーロードが追加された。右辺値参照版しかないと、名前を持つオブジェクトから移動する際に[`std::move`](/reference/utility/move.md)が必要だった
 - [LWG Issue 2045. `forward_list::merge` and `forward_list::splice_after` with unequal allocators](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2045)
 - [LWG Issue 2222. Inconsistency in description of `forward_list::splice_after` single-element overload](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2222)
 	- (3)と(4)のオーバーロードについて、有効性が継続される対象が、`*i`となっていたが、`*++i`の間違いであったため、C++14で修正された。
-- [LWG Issue 3017. `list` `splice` functions should use `addressof`](https://wg21.cmeerw.net/lwg/issue3017)
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 3017. `list` `splice` functions should use `addressof`](https://wg21.cmeerw.net/lwg/issue3017)

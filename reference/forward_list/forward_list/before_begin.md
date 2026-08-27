@@ -78,3 +78,5 @@ int main()
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 2042. Comparing `forward_list::before_begin()` to `forward_list::end()`](https://cplusplus.github.io/LWG/issue2042)
+    - C++11で、`before_begin() == end()`が`false`となることと、`cbefore_begin()`が`const`版の`before_begin()`と等価であることが規定された

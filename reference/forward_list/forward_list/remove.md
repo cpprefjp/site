@@ -72,3 +72,5 @@ int main()
 ## 参照
 - [P0646R1 Improving the Return Value of Erase-Like Algorithms I: list/forward list](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0646r1.pdf)
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 1207. Underspecified `std::list` operations?](https://cplusplus.github.io/LWG/issue1207)
+    - C++11で、削除された要素を指すイテレータと参照のみが無効になることが明記された
