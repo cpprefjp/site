@@ -169,3 +169,5 @@ int main()
     - C++26から`constexpr`がついた
 - [P3787R2 Adjoints to "Enabling list-initialization for algorithms": uninitialized_fill](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3787r2.html)
     - C++26で値型をイテレータから推論するよう拡張され、波カッコ初期化を直接渡せるようになった
+- [LWG Issue 866. Qualification of placement new-expressions](https://cplusplus.github.io/LWG/issue866)
+    - C++11で、`uninitialized_fill`が要素を構築する際に使用する配置`new`が`::new`と修飾された。修飾がないと、要素型がクラススコープの`operator new`をオーバーロードしている場合にそちらが選ばれてしまい、対応する`operator delete`が呼ばれず不整合を起こすため
