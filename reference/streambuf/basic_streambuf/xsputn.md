@@ -21,10 +21,17 @@ namespace std {
 出力列に複数文字を書き込む。
 
 ## 効果
-sからn文字を出力列に書き込む。書き込み可能領域が一杯になると、そこで書き込みを停止する。
+`s`から`n`文字を、[`sputc()`](sputc.md)を繰り返し呼び出したかのようにして出力列に書き込む。`n`文字を書き込むか、[`sputc()`](sputc.md)の呼び出しが[`Traits::eof()`](/reference/string/char_traits/eof.md)を返す状況になった時点で、書き込みを停止する。
+
 
 ## 戻り値
 書き込んだ文字数。
+
+
+## 備考
+- `pptr() == epptr()`となった時点でこの関数が[`overflow()`](overflow.md)を呼び出すか、それとも別の手段で同じ効果を実現するかは、未規定である。
+    - そのため、派生クラスで[`overflow()`](overflow.md)のみをオーバーライドしても、`xsputn()`経由の出力でそれが呼ばれるとは限らない。効率のために`xsputn()`自体をオーバーライドする処理系があるためである。
+
 
 ## 例
 ```cpp example
@@ -65,5 +72,10 @@ ABCAB
 ### 言語
 - C++98
 
-## 参照
+## 関連項目
 - [`sputn()`](sputn.md)
+
+
+## 参照
+- [LWG Issue 565. `xsputn` inefficient](https://cplusplus.github.io/LWG/issue565)
+    - C++11で、`pptr() == epptr()`となったときに[`overflow()`](overflow.md)を呼び出すかどうかが未規定であると明記された。デバイスへ直接書き出すなど、`sputc()`や`overflow()`を経由しない効率的な実装を許すためであり、それ以前も同様の実装が行われていた
