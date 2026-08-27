@@ -167,3 +167,5 @@ insert initializer_list : 1 2 3 4 5 6
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (5)の経緯となる提案文書
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 149. Insert should return iterator to first element inserted](https://cplusplus.github.io/LWG/issue149)
+    - C++11で、複数要素を挿入するオーバーロードの戻り値が`void`から`iterator`へ変更され、挿入された最初の要素を指すイテレータを返すようになった。挿入位置を指すイテレータは挿入によって無効化されうるため、`void`では挿入結果を参照する手段がなかった
