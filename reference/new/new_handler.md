@@ -5,7 +5,8 @@
 
 ```cpp
 namespace std {
-  using new_handler = void(*)();
+  typedef void (*new_handler)();   // C++98
+  using new_handler = void (*)();  // C++20
 }
 ```
 
@@ -16,9 +17,11 @@ namespace std {
 
 ハンドラの内部では、以下のいずれかを行う必要がある：
 
-- 確保済みの領域を解放して`return`する
+- 確保のために利用できる領域を増やして`return`する
 - [`bad_alloc`](bad_alloc.md)またはその派生の例外を送出する
-- `return`により処理を返すことなく、プログラムの実行を直ちに終了させる(`quick_exit()`、`exit()`、`abort()`などを使用する)
+- プログラムの実行を終了させる
+    - C++98 : [`abort()`](/reference/cstdlib/abort.md)もしくは[`exit()`](/reference/cstdlib/exit.md)を呼び出す
+    - C++11 : 呼び出し元へ戻ることなく、プログラムの実行を終了させる。[`abort()`](/reference/cstdlib/abort.md)や[`exit()`](/reference/cstdlib/exit.md)のほか、[`quick_exit()`](/reference/cstdlib/quick_exit.md)なども使用できる
 
 
 ## 例
@@ -58,3 +61,19 @@ int main()
 This application has requested the Runtime to terminate it in an unusual way.
 Please contact the application's support team for more information.
 ```
+
+
+## バージョン
+### 言語
+- C++98
+
+
+## 関連項目
+- [`set_new_handler`](set_new_handler.md)
+- [`get_new_handler`](get_new_handler.md)
+- [`bad_alloc`](bad_alloc.md)
+
+
+## 参照
+- [LWG Issue 994. `quick_exit` should terminate well-defined](https://cplusplus.github.io/LWG/issue994)
+    - C++11で、`new_handler`に要求される動作が「`abort()`もしくは`exit()`を呼び出す」から「呼び出し元へ戻らずにプログラムの実行を終了する」へ改められた。[`quick_exit()`](/reference/cstdlib/quick_exit.md)など他の終了手段も許容するため
