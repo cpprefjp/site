@@ -38,6 +38,8 @@ namespace std {
 
 このクラスはそのものにデフォルトの定義は存在せず、ユーザーが任意の型で特殊化する際の要件を定義する。`hash`クラステンプレートを特殊化する場合、後述するメンバ関数を持たせる必要がある。
 
+`<functional>`ヘッダおよび標準ライブラリが提供する`hash`の特殊化は、例外を送出しない。ユーザーが定義する特殊化には、例外を送出しないという要件はない。
+
 ### 基本型のハッシュサポート
 `<functional>`ヘッダでは、基本型に対する特殊化を提供する。
 `std::string`などC++標準ライブラリ定義の型に対する特殊化は、対象型を定義する各種ヘッダファイルにて提供される。
@@ -216,3 +218,5 @@ found : 3
 - [LWG 2817 - `std::hash` for `nullptr_t`](https://cplusplus.github.io/LWG/issue2817)
 - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
 - [P1690R1 Refinement Proposal for P0919 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1690r1.html)
+- [LWG Issue 1332. Let Hash objects throw!](https://cplusplus.github.io/LWG/issue1332)
+    - C++11で、ハッシュ関数が例外を送出してはならないという要件が削除され、標準が提供する特殊化についてのみ例外を送出しないことが規定された。利用者定義のハッシュ関数が例外を送出できるようにするため
