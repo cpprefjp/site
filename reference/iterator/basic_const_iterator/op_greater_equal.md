@@ -13,8 +13,8 @@ template<different-from<basic_const_iterator> I>
 constexpr bool operator>=(const I& y) const
   requires random_access_iterator<Iterator> && totally_ordered_with<Iterator, I>;   // (2)
 
-template<not-a-const-iterator I>
-friend constexpr bool operator>=(const I& x, const basic_const_iterator& y)
+template<not-a-const-iterator I, same_as<Iterator> J>
+friend constexpr bool operator>=(const I& x, const basic_const_iterator<J>& y)
   requires random_access_iterator<Iterator> && totally_ordered_with<Iterator, I>;   // (3) 非メンバ関数
 ```
 * totally_ordered_with[link /reference/concepts/totally_ordered.md]
@@ -107,3 +107,5 @@ true
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
 - [LWG Issue 3769. `basic_const_iterator::operator==` causes infinite constraint recursion](https://cplusplus.github.io/LWG/issue3769)
     - C++23で、左辺に`basic_const_iterator`をとる比較演算子・`operator-`のオーバーロードが非メンバのフレンド関数からメンバ関数へと変更された（フレンド関数だと`S`から`basic_const_iterator`への暗黙変換によって制約チェックが無限再帰する問題があったため）
+- [LWG Issue 4218. Constraint recursion in `basic_const_iterator`'s relational operators due to ADL + CWG 2369](https://cplusplus.github.io/LWG/issue4218)
+    - 非メンバ版の`friend`宣言に`same_as<Iterator> J`というテンプレートパラメータが追加され、右辺の型が`basic_const_iterator<J>`と書かれるようになった。ADLによって関連付けられた`basic_const_iterator`の`friend`が候補に入ることで、制約の検査が再帰し、コンパイルエラーとなっていたため。規格としてはC++29のワーキングドラフトへ適用されたが、実装不可能な規定の修正であるため、`basic_const_iterator`が追加されたC++23へ遡及して適用される

@@ -235,6 +235,8 @@ explicit(see below) constexpr
 
 以下 (15)-(28) は (1)-(14) のアロケータ指定版であり、アロケータを指定する事以外は (1)-(14) と等価である。
 
+アロケータ構築 (uses-allocator construction) の対象となるのは、参照型ではない要素のみである。
+
 - (15) : アロケータを指定してデフォルト構築する
 - (16) : アロケータを指定して可変テンプレートパラメータの型の値によってコピー構築する
 - (17) : アロケータを指定して可変テンプレートパラメータの型の値によってムーブ構築する
@@ -469,3 +471,5 @@ int main()
     - C++23で、空の`tuple<>`のデフォルトコンストラクタがトリビアルであることが規定された
 - [LWG Issue 4045. `tuple` can create dangling references from `tuple-like`](https://cplusplus.github.io/LWG/issue4045)
     - C++26で、[`tuple-like`](../tuple-like.md)なオブジェクトから構築するコンストラクタ(14)について、いずれかの要素がダングリング参照を作成する場合に削除定義されることが規定された（C++23での`tuple-like`コンストラクタ導入時に欠けていた保護の追加）
+- [LWG Issue 4267. Uses-allocator construction is meaningless for tuple of references](https://cplusplus.github.io/LWG/issue4267)
+    - アロケータ指定版の各コンストラクタにおいて、アロケータ構築の対象が参照型ではない要素に限られることが明記された。参照型の要素をアロケータ構築の対象とすることに意味がないため。規格としてはC++29のワーキングドラフトへ適用されたが、未規定だった点の明文化であるためC++11へ遡及して適用される

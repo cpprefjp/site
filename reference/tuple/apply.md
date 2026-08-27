@@ -145,3 +145,5 @@ hello
     - C++23から条件付きで`noexcept`例外指定が行われる。
 - [P1317R2 Remove return type deduction in `std::apply`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p1317r2.pdf)
     - C++26から戻り値型が`decltype(auto)`から`apply_result_t<F, Tuple>`に変更され、SFINAEフレンドリーになった。
+- [LWG Issue 4567. Feature test macro value for `apply_result`, `is_applicable`](https://cplusplus.github.io/LWG/issue4567)
+    - `__cpp_lib_apply`の値が整理され、[`<meta>`](/reference/meta.md)側の対応も含む場合は`202603L`となることが規定された。このIssueは規格としてはC++29のワーキングドラフトへ適用されたが、C++26で追加された機能に対する修正であるため、C++26へ遡及して適用される

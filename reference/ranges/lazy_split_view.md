@@ -42,6 +42,11 @@ namespace std::ranges {
 
 - (1): `V`が[`forward_range`](forward_range.md)のとき
 
+### 末尾の空Range
+
+入力Rangeがデリミタで終わっている場合、末尾に空のRangeが1つ得られる。たとえば`"a,b,"`を`','`で分割すると、`"a"`、`"b"`、`""`の3つの部分Rangeが得られる。
+
+
 ## テンプレートパラメータ制約
 
 説明専用コンセプト`tiny-range`を次のように定義する。
@@ -172,3 +177,5 @@ int main() {
 - [P2210R2 Superior String Splitting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2210r2.html)
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [LWG Issue 4249. The past end issue for `lazy_split_view`](https://cplusplus.github.io/LWG/issue4249)
+    - `V`が[`forward_range`](forward_range.md)ではない場合に、末尾の空Rangeが得られるよう修正された。入力Rangeがデリミタで終わっているかどうかを、[`forward_range`](forward_range.md)でない場合は先読みで判定できないため。規格としてはC++29のワーキングドラフトへ適用されたが、意図された動作にならない欠陥の修正であるため、`lazy_split_view`が追加されたC++20へ遡及して適用される

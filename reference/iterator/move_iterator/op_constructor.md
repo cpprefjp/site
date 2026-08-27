@@ -8,6 +8,8 @@
 ```cpp
 move_iterator();                                             // (1) C++11
 constexpr move_iterator();                                   // (1) C++17
+constexpr move_iterator()
+  requires default_initializable<Iterator> = default;        // (1) C++29
 
 explicit move_iterator(Iterator i);                          // (2) C++11
 constexpr explicit move_iterator(Iterator i);                // (2) C++17
@@ -25,6 +27,7 @@ constexpr move_iterator(move_iterator&&) noexcept = default; // (4) C++17
 `move_iterator`オブジェクトを構築する。
 
 - (1) : デフォルトコンストラクタ。内包する元となるイテレータを値初期化する。このイテレータに対する操作は、値初期化された`Iterator`型のイテレータに対して対応する操作が定義されている場合にのみ、定義された動作をする。
+    - C++29 : `Iterator`がデフォルト構築可能である場合にのみ使用でき、`= default`で定義される。内包するイテレータはメンバ初期化子`= Iterator()`によって値初期化される
 - (2) : 元となるイテレータ`i`をメンバ変数にムーブして保持する。
 - (3) : `u.base()`をメンバ変数に保持する。
 
@@ -91,3 +94,6 @@ int main()
 - [LWG Issue 1012. `reverse_iterator` default ctor should value initialize](https://cplusplus.github.io/LWG/issue1012)
     - C++11で、デフォルトコンストラクタの効果が、内包するイテレータのデフォルト初期化から値初期化へ改められた
 - [LWG Issue 3435. `three_way_comparable_with<reverse_iterator<int*>, reverse_iterator<const int*>>`](https://cplusplus.github.io/LWG/issue3435)
+- [LWG Issue 4125. `move_iterator`'s default constructor should be constrained](https://cplusplus.github.io/LWG/issue4125)
+    - C++29で、デフォルトコンストラクタが[`default_initializable`](/reference/concepts/default_initializable.md)`<Iterator>`で制約され、`= default`で定義されるようになった。`Iterator`がデフォルト構築できない場合でも`move_iterator`がデフォルト構築可能であるかのように見えていたため
+    - この変更によって[`default_initializable`](/reference/concepts/default_initializable.md)`<move_iterator<Iterator>>`の判定結果が変わりうるため、ほかのIssueと異なり、以前のバージョンへ遡及して適用されるとは限らない

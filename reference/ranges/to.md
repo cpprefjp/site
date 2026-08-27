@@ -137,13 +137,13 @@ constexpr bool reservable-container =
     { c.max_size() } -> same_as<decltype(n)>;  // コンテナのサイズ型を返すmax_sizeメンバ関数がある
   };
 
-// container-insertable: emplace_back/push_back/emplace/insertのいずれかが使えることを要求するコンセプト
+// container-insertable: emplace_back/push_back/emplace_hint/insertのいずれかが使えることを要求するコンセプト
 template<class Container, class Ref>
 constexpr bool container-insertable =
   requires(Container& c, Ref&& ref) {
     requires (requires { c.emplace_back(declval<Ref>()); } ||
               requires { c.push_back(declval<Ref>()); } ||
-              requires { c.emplace(c.end(), declval<Ref>()); } ||
+              requires { c.emplace_hint(c.end(), declval<Ref>()); } ||
               requires { c.insert(c.end(), declval<Ref>()); });
   };
 
@@ -244,3 +244,5 @@ int main() {
     - C++26で、再帰分岐において`r`を[`ranges::ref_view`](ref_view.md)で包むよう修正され、`r`がviewでない左辺値rangeの場合に不適格となる問題が解消された
 - [LWG Issue 4016. *container-insertable* checks do not match what *container-inserter* does](https://cplusplus.github.io/LWG/issue4016)
     - C++26で、説明専用コンセプト`container-insertable`の判定が`emplace_back`/`push_back`/`emplace`/`insert`の4つを試す形に修正され、実際の挿入処理と一致するようになった
+- [LWG Issue 4121. `ranges::to` constructs associative containers via `c.emplace(c.end(), *it)`](https://cplusplus.github.io/LWG/issue4121)
+    - 要素を追加できるかを判定する説明専用コンセプトで、`c.emplace(c.end(), ...)`が`c.emplace_hint(c.end(), ...)`へ改められた。連想コンテナの`emplace()`は挿入位置のヒントを受け取らないため、`c.end()`が要素の構築に使われてしまっていた。規格としてはC++29のワーキングドラフトへ適用されたが、誤った記述の修正であるため、`ranges::to`が追加されたC++23へ遡及して適用される

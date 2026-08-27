@@ -97,6 +97,12 @@ int main()
 
 
 ## 備考
+### Read-Modify-Write操作が読み取る値
+読み込みと書き込みを同時に行う操作 (Read-Modify-Write操作。[`fetch_add()`](/reference/atomic/atomic/fetch_add.md)や[`compare_exchange_weak()`](/reference/atomic/atomic/compare_exchange_weak.md)など) は、指定したメモリオーダーによらず、対象のアトミックオブジェクトの変更順序において、自身の副作用の直前にある副作用が書き込んだ値を読み取る。
+
+これにより、複数のスレッドが同じアトミックオブジェクトに対してRead-Modify-Write操作を行っても、それらが同じ値を読み取ることはない。
+
+### `consume`列挙値
 非推奨化された`consume`列挙値の挙動はacquire操作と似ているが、それより弱い順序付けでの読み込みを行うことを指示する。acquire操作は後続の全ての操作に対して順序付けを行うのに対し、consume操作は読み込まれた値に依存(ただし条件分岐による依存は除く)する操作のみに順序付けを保証する点が異なる。
 複雑なconsume操作を正しく実装するC++コンパイラは登場せず、より単純なacquire操作として扱われていた。C++20では仕様再検討に伴う一時的な利用回避が宣言され、最終的には役に立たないとの判断からC++26で非推奨となった。
 
@@ -125,3 +131,5 @@ int main()
 - [P0371R1 Temporarily discourage `memory_order_consume`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0371r1.html)
 - [P3475R2 Defang and deprecate memory_order::consume](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3475r2.pdf)
     - C++26で`memory_order::consume`列挙子を非推奨化。
+- [LWG Issue 4521. Improve [atomics.order] p10 to have a consistent way with [intro.races]](https://cplusplus.github.io/LWG/issue4521)
+    - Read-Modify-Write操作が読み取る値の規定が、「変更順序において書き込みより前に書かれた最後の値」から「Read-Modify-Write操作の副作用の直前の副作用による値」という表現へ改められた。メモリモデルのほかの箇所と用語を揃えるためであり、規格としてはC++29のワーキングドラフトへ適用されたが、文言の明確化であるためC++11へ遡及して適用される

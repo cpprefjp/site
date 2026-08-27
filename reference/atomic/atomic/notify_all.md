@@ -95,3 +95,5 @@ int main()
     - C++20での、`volatile`版への制約追加
 - [P3309R3 `constexpr atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html)
     - C++26で`constexpr`に対応した
+- [LWG Issue 3417. Missing `volatile` atomic deprecations](https://cplusplus.github.io/LWG/issue3417)
+    - `volatile`修飾されたオーバーロードが`is_always_lock_free`が`true`である場合にのみオーバーロード解決に参加することが規定された。この制約はほかの`volatile`版メンバ関数には当初からあったが、この関数には記載が漏れていた。規格としてはC++29のワーキングドラフトへ適用されたが、記載漏れの修正であるため、この関数が追加されたC++20へ遡及して適用される

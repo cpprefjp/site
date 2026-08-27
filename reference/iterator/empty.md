@@ -57,18 +57,24 @@ namespace std {
 ## 備考
 - [機能テストマクロ](../../lang/cpp17/feature_test_macros.md)は`__cpp_lib_nonmember_container_access`で値は`201411`
 - `<iterator>`ヘッダを読み込む以外では、以下のヘッダが読み込まれている場合に、この関数を使用できる：
-    - [`<array>`](../array.md)
-    - [`<deque>`](../deque.md)
-    - [`<forward_list>`](../forward_list.md)
-    - [`<list>`](../list.md)
-    - [`<map>`](../map.md)
-    - [`<regex>`](../regex.md)
-    - [`<set>`](../set.md)
-    - [`<string>`](../string.md)
-    - [`<string_view>`](../string_view.md) (C++20)
-    - [`<unordered_map>`](../unordered_map.md)
-    - [`<unordered_set>`](../unordered_set.md)
-    - [`<vector>`](../vector.md)
+    - [`<array>`](/reference/array.md)
+    - [`<deque>`](/reference/deque.md)
+    - [`<flat_map>`](/reference/flat_map.md) (C++26)
+    - [`<flat_set>`](/reference/flat_set.md) (C++26)
+    - [`<forward_list>`](/reference/forward_list.md)
+    - [`<hive>`](/reference/hive.md) (C++26)
+    - [`<inplace_vector>`](/reference/inplace_vector.md) (C++26)
+    - [`<list>`](/reference/list.md)
+    - [`<map>`](/reference/map.md)
+    - [`<regex>`](/reference/regex.md)
+    - [`<set>`](/reference/set.md)
+    - [`<simd>`](/reference/simd.md) (C++29)
+    - [`<span>`](/reference/span.md) (C++20)
+    - [`<string>`](/reference/string.md)
+    - [`<string_view>`](/reference/string_view.md) (C++20)
+    - [`<unordered_map>`](/reference/unordered_map.md)
+    - [`<unordered_set>`](/reference/unordered_set.md)
+    - [`<vector>`](/reference/vector.md)
 
 
 ## 例
@@ -124,3 +130,5 @@ false
 - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
     - C++26で`[[nodiscard]]`指定が削除された
 - [P3016R6 Resolve inconsistencies in `begin`/`end` for `valarray` and `braced-initializer-list`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3016r6.html)
+- [LWG Issue 4385. Including `<simd>` doesn't provide `std::begin/end`](https://cplusplus.github.io/LWG/issue4385)
+    - この関数テンプレートが利用可能になるヘッダの一覧に[`<simd>`](/reference/simd.md)が追加された。規格としてはC++29のワーキングドラフトへ適用されたが、[`<simd>`](/reference/simd.md)が追加されたC++26で記載が漏れていたものであるため、C++26へ遡及して適用される

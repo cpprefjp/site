@@ -27,7 +27,7 @@ Clock要件を満たすには、以下が必要である：
 | `C1::period`     | [`std::ratio`](/reference/ratio/ratio.md)の特殊化 | クロックの時間周期 (秒ベース) |
 | `C1::duration`   | [`chrono::duration`](duration.md)`<C1::rep, C1::period>` | クロックの`duation`型 |
 | `C1::time_point` | [`chrono::time_point`](time_point.md)`<C1>`もしくは[`chrono::time_point`](time_point.md)`<C2, C1::duration>` | クロックの`time_point`型。`C1`と`C2`は同じエポックを参照する |
-| `C1::is_steady`  | `const bool` | `t1 <= t2`が常に真であり (注：時間が戻らない)、時間間隔が常に一定である場合に`true`、そうでなければ`false` |
+| `C1::is_steady`  | `const bool` | `t1 <= t2`が常に真であり (注：時間が戻らない)、時間間隔が常に一定である場合に`true`、そうでなければ`false`。定数式で使用できることが要求される |
 | `C1::now()`      | `C1::time_point` | 現在の時間点を表す`time_point`オブジェクトを返す |
 
 ここで、以下のように定義する：
@@ -82,3 +82,8 @@ int main()
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
 - [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
+
+
+## 参照
+- [LWG Issue 4487. Is member `is_steady` of a Cpp17Clock type required to be usable in constant expressions?](https://cplusplus.github.io/LWG/issue4487)
+    - `C1::is_steady`が定数式で使用できることが要件に追加された。それ以前は`const bool`とだけ規定されており、利用者定義のクロックに対して同じ要求があるかが不明確だった。規格としてはC++29のワーキングドラフトへ適用されたが、未規定だった点の明文化であるため、Cpp17Clock要件が規定されたC++11へ遡及して適用される
