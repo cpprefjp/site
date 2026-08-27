@@ -21,7 +21,8 @@ class run-loop-sender;  // exposition only
 - `run-loop-sender`インスタンスは、関連付けられた[`run_loop`](../run_loop.md)インスタンスの生存期間(lifetime)終了まで有効。
 - 説明用の式`sndr`の型を`run-loop-sender`、`CS`が上記[`completion_signatures`](../completion_signatures.md)の特殊化であるとき[`receiver-of`](../receiver-of.md)`<decltype((rcvr)), CS>`が`true`となる式`rcvr`としたとき、
     - 式[`connect`](../connect.md)`(sndr, rcvr)`の型は[`run-loop-opstate`](run-loop-opstate.md)`<`[`decay_t`](/reference/type_traits/decay.md)`<decltype((rcvr))>>`であり、潜在的な例外送出(potentially-throwing)は式`(void(sndr), auto(rcvr))`に従う。
-    - 完了タグ`C`を[`set_value_t`](../set_value.md)または[`set_stopped_t`](../set_stopped.md)としたとき、式[`get_completion_scheduler`](../get_completion_scheduler.md)`<C>(`[`get_env`](../get_env.md)`(sndr))`の潜在的な例外送出は`sndr`に従う。式の型は[`run-loop-scheduler`](run-loop-scheduler.md)となり、そのインスタンスは同一`sndr`から取得された場合に等しくなる。
+    - 完了タグ`C`を[`set_value_t`](../set_value.md)または[`set_stopped_t`](../set_stopped.md)としたとき、式[`get_completion_scheduler`](../get_completion_scheduler.md)`<C>(`[`get_env`](../get_env.md)`(sndr))`の型は[`run-loop-scheduler`](run-loop-scheduler.md)となり、そのインスタンスは同一`sndr`から取得された場合に等しくなる。
+        - この式の潜在的な例外送出は`sndr`に従うと規定されていたが、[`get_env`](../get_env.md)と[`get_completion_scheduler`](../get_completion_scheduler.md)はいずれも例外を送出しないことが要求されるため、冗長な規定として削除された、この規定は冗長だった
 
 
 ## バージョン
@@ -40,3 +41,5 @@ class run-loop-sender;  // exposition only
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [P3941R4 Scheduler Affinity](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3941r4.html)
 - [P4159R0 Make `sender_in` and `receiver_of` exposition-only](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4159r0.html)
+- [LWG Issue 4471. Remove test for `get_env noexcept`-ness from `inline_scheduler`](https://cplusplus.github.io/LWG/issue4471)
+    - [`get_completion_scheduler`](../get_completion_scheduler.md)`<C>(`[`get_env`](../get_env.md)`(sndr))`が潜在的に例外送出するかどうかの規定が削除された。[`get_env`](../get_env.md)も[`get_completion_scheduler`](../get_completion_scheduler.md)も例外を送出しないことが要求されており、冗長だったため。規格としてはC++29のワーキングドラフトへ適用されたが、動作は変わらないため、`run_loop`が追加されたC++26へ遡及して適用される
