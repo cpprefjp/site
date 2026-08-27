@@ -11,10 +11,16 @@ namespace std {
   public:
     explicit sentry(basic_istream<CharT, Traits>& is, bool noskipws = false);
     ~sentry();
-    explicit operator bool() const;
 
-    sentry(const sentry&) = delete;
-    sentry& operator=(const sentry&) = delete;
+    operator bool() const;          // C++98
+    explicit operator bool() const; // C++11
+
+  private:
+    sentry(const sentry&);            // C++98 宣言のみ
+    sentry& operator=(const sentry&); // C++98 宣言のみ
+  public:
+    sentry(const sentry&) = delete;            // C++11
+    sentry& operator=(const sentry&) = delete; // C++11
   };
 }
 ```
@@ -36,6 +42,7 @@ namespace std {
 |-------------------------------------|----------------|----------------|
 | [`(constructor)`](sentry/op_constructor.md) | コンストラクタ |                |
 | [`(destructor)`](sentry/op_destructor.md) | デストラクタ   |                |
+| [`operator bool`](sentry/op_bool.md) | 前処理が正常に完了したかを判定する |                |
 
 ## 参照
 
