@@ -64,3 +64,5 @@ int main()
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 1039. Sequence container `back` function should also support `const_iterator`](https://cplusplus.github.io/LWG/issue1039)
+    - C++11で、要件表における`back()`の説明が`iterator`を使うものから`auto`を使うものへ改められた。`const`なコンテナでは`end()`が`const_iterator`を返すため、`iterator`と書くと`const`版の説明として成立しなかった
