@@ -66,3 +66,8 @@ system error!: Invalid argument
 - [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified]
+
+
+## 参照
+- [LWG Issue 1103. `system_error` constructor postcondition overly strict](https://cplusplus.github.io/LWG/issue1103)
+    - C++11で、コンストラクタの事後条件が「[`what()`](/reference/exception/exception/what.md)が`what_arg`と完全一致すること」から「`what()`の戻り値が`what_arg`を部分文字列として含むこと」へ緩和された。処理系は`what()`にエラーコードの説明を付加するため、完全一致は実装不可能だった

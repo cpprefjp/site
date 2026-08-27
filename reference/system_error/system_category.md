@@ -72,5 +72,9 @@ Invalid argument
 
 
 ## 参照
+- [LWG Issue 890. Improving `<system_error>` initialization](https://cplusplus.github.io/LWG/issue890)
+    - C++11で、標準ライブラリが返す`error_code`の`category()`について、記述が「`std::system_category`への参照」から「`std::system_category()`」へ改められた。`system_category`は関数であり、参照ではないため
+- [LWG Issue 1372. Adopt recommended practice for standard error categories](https://cplusplus.github.io/LWG/issue1372)
+    - C++11で、この関数の呼び出しがすべて同一のオブジェクトへの参照を返すことが規定された。返されたカテゴリを`operator==`で比較できるようにするため
 - [LWG Issue 3598. `system_category().default_error_condition(0)` is underspecified](https://cplusplus.github.io/LWG/issue3598)
     - C++23で、引数が`0`の場合に[`generic_category()`](generic_category.md)を使った[`error_condition`](error_condition.md)を返すことが明確化された

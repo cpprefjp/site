@@ -70,3 +70,5 @@ Invalid argument
 
 
 ## 参照
+- [LWG Issue 1372. Adopt recommended practice for standard error categories](https://cplusplus.github.io/LWG/issue1372)
+    - C++11で、この関数の呼び出しがすべて同一のオブジェクトへの参照を返すことが規定された。返されたカテゴリを`operator==`で比較できるようにするため
