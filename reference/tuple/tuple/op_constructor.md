@@ -222,7 +222,7 @@ explicit(see below) constexpr
 * tuple-like[link ../tuple-like.md]
 
 ## tupleオブジェクトの構築
-- (1) : デフォルトコンストラクタ（すべての要素を初期化して構築）
+- (1) : デフォルトコンストラクタ（すべての要素を値初期化して構築）
 - (2) : 可変テンプレートパラメータの型の値によるコピー構築
 - (3) : 可変テンプレートパラメータの型に変換可能な値によるムーブ構築
 - (4) : コピーコンストラクタ
@@ -442,11 +442,11 @@ int main()
 - [N3471 Constexpr Library Additions: utilities, v3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3471.html)
 - [N4387 Improving Pair and Tuple (Revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4387)
     - C++17での条件付き`explicit`の導入
+- [LWG Issue 886. `tuple` construction](https://cplusplus.github.io/LWG/issue886)
+    - C++11の策定時に、デフォルトコンストラクタ(1)の効果が、各要素のデフォルト初期化から値初期化へ改められた。組み込み型の要素が未初期化のままになることを避けるため
 - [LWG Issue 2312. `tuple`'s constructor constraints need to be phrased more precisely](https://cplusplus.github.io/LWG/issue2312)
     - C++17で、`tuple`の各コンストラクタが要素数の一致等の条件を満たす場合のみオーバーロード解決に参加するよう、制約がより厳密に規定された
     - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。処理系は当初からこの通りに振る舞っており、規格の文言が不正確だっただけであるため
-- [LWG Issue 2367. `pair` and `tuple` are not correctly implemented for `is_constructible` with no args](https://cplusplus.github.io/LWG/issue2367)
-    - C++17で、デフォルトコンストラクタ(1)が、いずれかの要素型がデフォルト構築可能でない場合はオーバーロード解決に参加しないよう制約化された
 - [P1032R1 Misc constexpr bits](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1032r1.html)
 - [P0892R2 `explicit(bool)`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html)
     - C++20での`explicit(bool)`構文への対応
@@ -454,13 +454,15 @@ int main()
     - [`tuple-like`](/reference/tuple/tuple-like.md)なオブジェクトからの構築
 - [P2255R2 A type trait to detect reference binding to temporary](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2255r2.html)
     - 参照型を要素に持つ場合にダングリング参照が容易に作成できていたのを不適格にする
-- [LWG Issue 2549. Tuple EXPLICIT constructor templates that take tuple parameters end up taking references to temporaries and will create dangling references](https://wg21.cmeerw.net/lwg/issue2549)
+- [LWG Issue 2367. `pair` and `tuple` are not correctly implemented for `is_constructible` with no args](https://cplusplus.github.io/LWG/issue2367)
+    - C++17で、デフォルトコンストラクタ(1)が、いずれかの要素型がデフォルト構築可能でない場合はオーバーロード解決に参加しないよう制約化された
 - [P2321R2 `zip`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html#tuple)
     - すべての要素が[プロキシ参照](/reference/iterator/indirectly_writable.md)の場合、[プロキシ参照](/reference/iterator/indirectly_writable.md)として使用できるようにする
-- [LWG Issue 2899. `is_(nothrow_)move_constructible` and `tuple`, `optional` and `unique_ptr`](https://cplusplus.github.io/LWG/issue2899)
-    - C++20で、ムーブコンストラクタ(5)が、いずれかの要素型がムーブ構築可能でない場合はオーバーロード解決に参加しないよう制約化された
+- [LWG Issue 2549. Tuple EXPLICIT constructor templates that take tuple parameters end up taking references to temporaries and will create dangling references](https://wg21.cmeerw.net/lwg/issue2549)
 - [LWG 3121 tuple constructor constraints for UTypes&&... overloads](https://cplusplus.github.io/LWG/issue3121)
     - C++23 での (3) のコンストラクタの制約の変更（`disambiguating-constraint`等）について
+- [LWG Issue 2899. `is_(nothrow_)move_constructible` and `tuple`, `optional` and `unique_ptr`](https://cplusplus.github.io/LWG/issue2899)
+    - C++20で、ムーブコンストラクタ(5)が、いずれかの要素型がムーブ構築可能でない場合はオーバーロード解決に参加しないよう制約化された
 - [LWG Issue 3158. `tuple(allocator_arg_t, const Alloc&)` should be conditionally `explicit`](https://cplusplus.github.io/LWG/issue3158)
     - C++20で、アロケータ拡張デフォルトコンストラクタ(15)が、非アロケータ版(1)と同じ条件で`explicit`となるよう修正された
 - [LWG Issue 3211. `std::tuple<>` should be trivially constructible](https://cplusplus.github.io/LWG/issue3211)
