@@ -114,5 +114,9 @@ shared_ptr managed object deleted.
 - [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 ## 参照
+- [LWG Issue 1231. `weak_ptr` comparisons incompletely resolved](https://cplusplus.github.io/LWG/issue1231)
+    - C++11で、`operator<`が削除され、このクラスに要求される要件から`LessThanComparable`が削除された
+- [LWG Issue 1256. `weak_ptr` comparison functions should be removed](https://cplusplus.github.io/LWG/issue1256)
+    - C++11で、`delete`定義されていた比較演算子のメンバ宣言が削除された。演算子を`delete`定義しなくても、比較演算子が定義されていなければ比較できないため
 - [LWG Issue 3001. `weak_ptr::element_type` needs `remove_extent_t`](https://cplusplus.github.io/LWG/issue3001)
     - C++20で、`shared_ptr`の配列対応に合わせて`element_type`が`remove_extent_t<T>`となるよう修正された。この修正は欠陥報告(DR)であり、C++17にも遡及して適用される
