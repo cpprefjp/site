@@ -5,7 +5,8 @@
 
 ```cpp
 namespace std {
-  new_handler set_new_handler(new_handler new_p) noexcept;
+  new_handler set_new_handler(new_handler new_p) throw();   // (1) C++98
+  new_handler set_new_handler(new_handler new_p) noexcept;  // (1) C++11
 }
 ```
 * new_handler[link new_handler.md]
