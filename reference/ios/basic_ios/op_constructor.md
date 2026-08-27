@@ -6,15 +6,15 @@
 
 ```cpp
 public:
-  explicit basic_ios(basic_streambuf<char_type, traits_type>* sb);      // (1)
+  explicit basic_ios(basic_streambuf<char_type, traits_type>* sb);      // (1) C++98
 
 protected:
-  basic_ios();                                                          // (2)
+  basic_ios();                                                          // (2) C++98
 
 private:
-  basic_ios(basic_ios&);                                                // (3) 宣言のみ、C++98 まで
+  basic_ios(basic_ios&);                                                // (3) C++98 宣言のみ
 public:
-  basic_ios(basic_ios&) = delete;                                       // (3) C++11 から
+  basic_ios(basic_ios&) = delete;                                       // (3) C++11
 ```
 
 

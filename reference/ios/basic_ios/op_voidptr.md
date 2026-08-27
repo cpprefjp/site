@@ -6,7 +6,7 @@
 * cpp11removed[meta cpp]
 
 ```cpp
-operator void*() const;
+operator void*() const; // (1) C++98
 ```
 
 ## 概要
@@ -28,7 +28,7 @@ operator void*() const;
 
 ## 実装例
 ```cpp
-explicit operator void*() const {
+operator void*() const {
   return fail() ? NULL : const_cast<basic_ios*>(this);
 }
 ```

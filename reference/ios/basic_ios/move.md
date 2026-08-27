@@ -7,9 +7,9 @@
 
 ```cpp
 protected:
-  void move(basic_ios& rhs);
+  void move(basic_ios& rhs);  // (1) C++11
 
-  void move(basic_ios&& rhs);
+  void move(basic_ios&& rhs); // (2) C++11
 ```
 * basic_ios[link ../basic_ios.md]
 
@@ -34,3 +34,5 @@ protected:
 
 ## 参照
 - [`basic_ios`](../basic_ios.md)`::`[`swap`](swap.md)
+- [LWG Issue 1104. `basic_ios::move` should accept lvalues](https://cplusplus.github.io/LWG/issue1104)
+    - C++11で、左辺値を受け取るオーバーロードが追加された。派生クラスのムーブコンストラクタから、基底クラスの部分オブジェクトを名前で渡せるようにするため

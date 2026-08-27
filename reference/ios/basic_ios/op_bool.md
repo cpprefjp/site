@@ -6,7 +6,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit operator bool() const;
+explicit operator bool() const; // (1) C++11
 ```
 
 ## 概要
@@ -54,3 +54,5 @@ libc++ では C++03 モードでも本関数が使用可能である。（ただ
     - `operator bool`（この関数）
     - [`operator void*`](op_voidptr.md)
     - [`operator!`](op_not.md)
+- [LWG Issue 1094. Replace "unspecified-bool-type" by "explicit operator `bool()` const" in I/O library](https://cplusplus.github.io/LWG/issue1094)
+    - C++11で、未規定のbool型への変換関数が`explicit operator bool()`へ置き換えられた
