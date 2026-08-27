@@ -183,9 +183,10 @@ using future-spawned-sender =  // exposition only
 namespace std::execution {
   template<class Alloc, scope_token Token, sender Sender, class Env>
   struct spawn-future-state                                                 // exposition only
-    : spawn-future-state-base<completion_signatures_of_t<future-spawned-sender<Sender, Env>>> {
+    : spawn-future-state-base<
+        completion_signatures_of_t<future-spawned-sender<Sender, Env>, env<>>> {
     using sigs-t =                                                          // exposition only
-      completion_signatures_of_t<future-spawned-sender<Sender, Env>>;
+      completion_signatures_of_t<future-spawned-sender<Sender, Env>, env<>>;
     using receiver-t =                                                      // exposition only
       spawn-future-receiver<sigs-t>;
     using op-t =                                                            // exposition only
@@ -232,6 +233,7 @@ namespace std::execution {
 * scope_token[link scope_token.md]
 * sender[link sender.md]
 * completion_signatures_of_t[link completion_signatures_of_t.md]
+* env[link env.md]
 * receiver[link receiver.md]
 * connect_result_t[link connect_result_t.md]
 * connect[link connect.md]
@@ -490,3 +492,5 @@ value=42
 - [P3914R0 Assorted NB comment resolutions for Kona 2025](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3914r0.html), US 228-348
 - [P3923R0 Additional NB comment resolutions for Kona 2025](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3923r0.html), US 227-346, 229-347
 - [LWG4540. `future-sender`s returned from `spawn_future` do not forward stop requests to spawned work](https://cplusplus.github.io/LWG/issue4540)
+- [LWG Issue 4568. `std::execution::spawn_future` is mishandling dependent senders](https://cplusplus.github.io/LWG/issue4568)
+    - 説明専用クラステンプレート`spawn-future-state`が[`completion_signatures_of_t`](completion_signatures_of_t.md)へ環境として[`env`](env.md)`<>`を渡すよう修正された。環境を渡さないと、依存センダー (dependent sender) に対して完了シグネチャを求められず不適格となっていたため。規格としてはC++29のワーキングドラフトへ適用されたが、実装不可能な規定の修正であるため、`spawn_future`が追加されたC++26へ遡及して適用される
