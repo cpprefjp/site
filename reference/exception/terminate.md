@@ -5,7 +5,8 @@
 
 ```cpp
 namespace std {
-  [[noreturn]] void terminate() noexcept;
+  void terminate();                        // (1) C++98
+  [[noreturn]] void terminate() noexcept;  // (1) C++11
 }
 ```
 
@@ -85,6 +86,8 @@ terminate called without an active exception
 	- [`set_terminate`](set_terminate.md)
 - `terminate`が呼び出される状況
 	- N3337 15.5.1 The `std::terminate()` function `[except.terminal]`
+- [LWG Issue 1066. Use `[[noreturn]]` attribute in the library](https://cplusplus.github.io/LWG/issue1066)
+    - C++11で、呼び出し元へ戻らない標準ライブラリ関数に`[[noreturn]]`属性が付加された
 - [LWG Issue 2111. Which unexpected/terminate handler is called from the exception handling runtime?](https://cplusplus.github.io/LWG/issue2111)
     - 例外がアクティブな状態でハンドラが変更された場合、どのハンドラが呼び出されるかは未規定と明確化された
     - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。もともと処理系（Itanium ABI等）の実際の挙動が分かれていた領域を未規定として追認したものであり、規定の変更によって処理系の挙動が変わるわけではないため
