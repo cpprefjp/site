@@ -102,7 +102,7 @@ namespace std {
 
 
 ## 計算量
-ちょうど`(last - first) - 1`回だけ`binary_op`を適用する
+ちょうど`max((last - first) - 1, 0)`回だけ2項演算を適用する
 
 
 ## 備考
@@ -163,3 +163,5 @@ int main()
 - [P0616R0 De-pessimize legacy `<numeric>` algorithms with `std::move`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0616r0.pdf)
 - [P1645R1 `constexpr` for `<numeric>` algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1645r1.html)
     - C++20で、並列バージョン以外の数値計算アルゴリズムが`constexpr`対応した
+- [LWG Issue 539. `partial_sum` and `adjacent_difference` should mention requirements](https://cplusplus.github.io/LWG/issue539)
+    - C++11で、アキュムレータを用いた効果の規定へ整理され、要件が明記された。あわせて計算量が`max((last - first) - 1, 0)`となり、空の範囲に対して負の回数とならないよう修正された（編集上の誤りの訂正であり、実際の挙動は変わらない）
