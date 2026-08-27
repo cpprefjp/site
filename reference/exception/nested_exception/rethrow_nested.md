@@ -82,3 +82,7 @@ int main()
 ## 参照
 - [P3842R2 A conservative fix for constexpr `uncaught_exceptions()` and `current_exception()`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3842r2.pdf)
     - C++26の策定中に`constexpr`が追加されたが、本提案文書により巻き戻された (C++29で再検討予定)
+- [LWG Issue 1136. Incomplete specification of `nested_exception::rethrow_nested()`](https://cplusplus.github.io/LWG/issue1136)
+    - C++11で、[`nested_ptr()`](nested_ptr.md)がヌルポインタを返す場合に[`std::terminate()`](/reference/exception/terminate.md)を呼び出すことが規定された
+- [LWG Issue 1216. LWG 1066 Incomplete?](https://cplusplus.github.io/LWG/issue1216)
+    - C++11で、この関数に`[[noreturn]]`属性が付加された

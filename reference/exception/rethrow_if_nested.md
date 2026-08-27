@@ -125,6 +125,8 @@ inner
 ## 参照
 - [P3842R2 A conservative fix for constexpr `uncaught_exceptions()` and `current_exception()`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3842r2.pdf)
     - C++26の策定中に`constexpr`が追加されたが、本提案文書により巻き戻された (C++29で再検討予定)
+- [LWG Issue 819. `rethrow_if_nested`](https://cplusplus.github.io/LWG/issue819)
+    - C++11で、効果が`e.rethrow_nested()`の直接呼び出しから、[`nested_exception`](nested_exception.md)への`dynamic_cast`を経由するものへ改められた。`E`が[`nested_exception`](nested_exception.md)を公開かつ非曖昧に継承している場合にのみ動作させるため
 - [LWG Issue 2484. `rethrow_if_nested()` is doubly unimplementable](https://cplusplus.github.io/LWG/issue2484)
     - 型`E`が多相的でない場合は何もしないこと、および`e`の静的型が[`nested_exception`](nested_exception.md)であるかそこからpublicかつ曖昧さなく派生している場合を対象とすることが規定された
     - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。 C++11時点の規定は「`e`の動的型が`nested_exception`から派生しているか」で判定するとしていたが、非多相なクラス型では動的型を判別する`dynamic_cast`自体が不適格となるため、規定どおりに実装することが不可能だった。したがって処理系は当初からこの修正後の挙動（非多相型では何もしない）を採るしかなく、これと異なる観測可能な挙動が出荷されていたわけではない

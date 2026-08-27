@@ -123,6 +123,10 @@ inner
 ## 参照
 - [P3842R2 A conservative fix for constexpr `uncaught_exceptions()` and `current_exception()`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3842r2.pdf)
     - C++26の策定中に`constexpr`が追加されたが、本提案文書により巻き戻された (C++29で再検討予定)
+- [LWG Issue 1066. Use `[[noreturn]]` attribute in the library](https://cplusplus.github.io/LWG/issue1066)
+    - C++11で、呼び出し元へ戻らない標準ライブラリ関数に`[[noreturn]]`属性が付加された
+- [LWG Issue 1370. `throw_with_nested` should not use perfect forwarding](https://cplusplus.github.io/LWG/issue1370)
+    - C++11で、要件と送出される例外の型の判定が`T`ではなく[`remove_reference`](/reference/type_traits/remove_reference.md)`<T>::type`に対して行われるよう改められた。完全転送のために`T`が参照型となりうるため
 - [LWG Issue 2483. `throw_with_nested()` should use `is_final`](https://cplusplus.github.io/LWG/issue2483)
     - ラップするかどうかの判定に[`is_final`](/reference/type_traits/is_final.md)による条件が追加され、`final`指定されたクラスも引数に取れるようになった
     - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。`final`指定されたクラスから派生した型を送出するという元の規定は実装不可能であり、処理系は当初から派生させずにそのまま送出していたため、これと異なる観測可能な挙動が出荷されていたわけではない

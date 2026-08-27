@@ -91,3 +91,8 @@ exception_ptr make_exception_ptr(E e) noexcept
 
 ## 関連項目
 - [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)
+
+
+## 参照
+- [LWG Issue 1130. `copy_exception` name misleading](https://cplusplus.github.io/LWG/issue1130)
+    - C++11で、関数名が`copy_exception`から`make_exception_ptr`へ改められた。既存の[`exception_ptr`](exception_ptr.md)をコピーする関数であるかのように読めたため
