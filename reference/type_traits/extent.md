@@ -23,6 +23,8 @@ namespace std {
 ## 効果
 - 型`T`が配列型であり、配列の次元数が`I`より大きい場合、`I`次元目の要素数をメンバ定数`value`として定義する。
 - 型`T`が配列型ではない、もしくは配列の次元数が`I`以下の場合、値`0`をメンバ定数`value`として定義する。
+- 型`T`が要素数不明の配列型`U[]`であり、`I`が`0`である場合、値`0`をメンバ定数`value`として定義する。
+- `I`の添字は0始まりである。
 
 
 ## 備考
@@ -59,3 +61,5 @@ int main() {}
 
 ## 参照
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
+- [LWG Issue 931. type trait `extent<T, I>`](https://cplusplus.github.io/LWG/issue931)
+    - C++11で、`I`が次元数と等しい場合も`0`となること、要素数不明の配列で`I`が`0`の場合も`0`となること、`I`の添字が0始まりであることが明記された
