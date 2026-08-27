@@ -315,7 +315,7 @@ variant<none-such, copy-fail, Es...>
     * reset()[link /reference/optional/optional/reset.md]
     * std::move[link /reference/utility/move.md]
 
-    ここで、`Sndrs`の要素`S`において[`completion_signatures_of_t`](completion_signatures_of_t.md)`<S, when-all-env<Env>>`が[`set_stopped_t`](set_stopped.md)`()`を含む`S`が存在するときに限って`sends-stopped`は`true`に等しい。
+    ここで、`Sndrs`の要素`S`において[`completion_signatures_of_t`](completion_signatures_of_t.md)`<S, when-all-env<`[`env_of_t`](env_of_t.md)`<Rcvr>>>`が[`set_stopped_t`](set_stopped.md)`()`を含む`S`が存在するときに限って`sends-stopped`は`true`に等しい。
 
 
 ## カスタマイゼーションポイント
@@ -489,3 +489,5 @@ error=-2
 - [LWG 4227. Missing `noexcept` operator in [exec.when.all]](https://cplusplus.github.io/LWG/issue4227)
 - [LWG 4438. Bad expression in [exec.when.all]](https://cplusplus.github.io/LWG/issue4438)
 - [P3826R5 Fix Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3826r5.html)
+- [LWG Issue 4579. `make-state<Rcvr>::state-type::complete` uses `Env` which is not in scope](https://cplusplus.github.io/LWG/issue4579)
+    - 説明専用メンバ関数`state-type::complete`における`sends-stopped`の定義が、スコープ内に存在しない`Env`ではなく[`env_of_t`](env_of_t.md)`<Rcvr>`を使うよう修正された。規格としてはC++29のワーキングドラフトへ適用されたが、記述上の誤りの修正であるため、この規定が追加されたC++26へ遡及して適用される
