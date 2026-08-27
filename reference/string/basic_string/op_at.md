@@ -62,6 +62,8 @@ e
 ```
 
 ## 参照
+- [LWG Issue 876. `basic_string` access operations should give stronger guarantees](https://cplusplus.github.io/LWG/issue876)
+    - C++11で、例外を送出しないことと計算量が定数時間であることが規定された
 - [LWG Issue 2475. Allow overwriting of `std::basic_string` terminator with `charT()` to allow cleaner interoperation with legacy APIs](https://cplusplus.github.io/LWG/issue2475)
     - C++17で、非const版(2)の`pos == size()`で返る参照に`charT()`を書き込むことが許可された（レガシーC APIとの相互運用のため）
     - この修正は欠陥報告(DR)であり、C++11以降に遡及して適用される。`charT()`以外の値を書き込んだ場合の未定義動作は維持されており、処理系はヌル終端文字を実際に保持しているため`charT()`の書き込みは当初から問題なく動作していた。要件の緩和であり、既存プログラムの意味は変わらないため

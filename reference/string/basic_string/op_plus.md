@@ -366,3 +366,5 @@ Hello, World!
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
 - [P2591R5 Concatenation of strings and string views](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2591r5.html)
     - C++26で`string_view`との連結が追加された
+- [LWG Issue 1138. Unusual return value for `operator+`](https://cplusplus.github.io/LWG/issue1138)
+    - C++11の策定時に、右辺値を受け取るオーバーロードの戻り値型から`&&`が取り除かれ、値を返すようになった。ダングリング参照を返しうるため

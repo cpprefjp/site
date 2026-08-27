@@ -50,3 +50,5 @@ o
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
 - [P3471R4 Standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3471r4.html)
 - [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)
+- [LWG Issue 1039. Sequence container `back` function should also support `const_iterator`](https://cplusplus.github.io/LWG/issue1039)
+    - C++11で、要件表における`back()`の説明が`iterator`を使うものから`auto`を使うものへ改められた。`const`なコンテナでは`end()`が`const_iterator`を返すため、`iterator`と書くと`const`版の説明として成立しなかった

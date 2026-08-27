@@ -52,3 +52,5 @@ h
 
 ## 参照
 - [P0980R1 Making `std::string` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf)
+- [LWG Issue 1192. `basic_string` missing definitions for cbegin / cend / crbegin / crend](https://cplusplus.github.io/LWG/issue1192)
+    - C++11で、これらのメンバ関数が追加された。ほかのコンテナには追加されていたが、`basic_string`には記載が漏れていた
