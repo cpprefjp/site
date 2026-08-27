@@ -143,3 +143,5 @@ int main()
     - 2012はコピーコンストラクタのdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 ## 参照
+- [LWG Issue 1045. Remove unnecessary preconditions from `unique_lock` constructor](https://cplusplus.github.io/LWG/issue1045)
+    - C++11で、(3)の`defer_lock_t`をとるコンストラクタから「非再帰的なミューテックスの場合、呼び出し元スレッドがミューテックスを所有していないこと」という事前条件が削除された。このコンストラクタはロック操作を行わないため、所有状態に対する制約は不要である
