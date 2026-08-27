@@ -124,3 +124,5 @@ int main()
 
 ## 参照
 - [P0784R7 More constexpr containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html)
+- [LWG Issue 1286. `allocator_traits::select_on_container_copy_construction` type-o](https://cplusplus.github.io/LWG/issue1286)
+    - C++11で、戻り値の記述にあった`rhs.select_on_container_copy_construction(a)`という誤記が、引数のない`rhs.select_on_container_copy_construction()`へ修正された
