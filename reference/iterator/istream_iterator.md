@@ -64,6 +64,8 @@ namespace std {
 ## 備考
 このクラスは、フリースタンディング処理系では使用できない。
 
+構築時および`++`のたびに、ストリームから型`T`の値を読み取って保持する。値の読み取りに失敗した場合 (ストリームの[`fail()`](/reference/ios/basic_ios/fail.md)が`true`を返す場合)、そのイテレータは終端イテレータと等値になる。
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -103,6 +105,8 @@ int main()
 - [`basic_istream_view`](/reference/ranges/basic_istream_view.md): ストリームからデータを読み込むRange
 
 ## 参照
+- [LWG Issue 788. Ambiguity in `[istream.iterator]`](https://cplusplus.github.io/LWG/issue788)
+    - C++11で、終端イテレータと等値になる条件が「ストリームの終端に達した場合」から「型`T`の値の読み取りに失敗した場合 ([`fail()`](/reference/ios/basic_ios/fail.md)が`true`を返す場合)」へ改められた。書式エラーで抽出に失敗した場合の扱いが曖昧だったため
 - [LWG Issue 2878. Missing `DefaultConstructible` requirement for `istream_iterator` default constructor](https://cplusplus.github.io/LWG/issue2878)
     - 型`T`が`DefaultConstructible`・`CopyConstructible`・`CopyAssignable`の要件を満たす必要があることが明記された
     - この修正は欠陥報告(DR)であり、C++98に遡及して適用される。メンバとして`T`のオブジェクトを保持する以上これらは実装上当初から必須だった要件であり、規定から抜け落ちていたものの明文化であるため
