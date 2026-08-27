@@ -94,3 +94,9 @@ int main()
 
 
 ## 参照
+- [LWG Issue 960. Various threading bugs #10](https://cplusplus.github.io/LWG/issue960)
+    - C++11で、ミューテックスのメンバ関数が報告するエラー条件について、報告する場合はこれらの条件に限られるという規定へ改められた。エラーを報告しない処理系も許容するため
+- [LWG Issue 967. Various threading bugs #17](https://cplusplus.github.io/LWG/issue967)
+    - C++11で、ミューテックスのエラー条件から[`not_enough_memory`](/reference/system_error/errc.md)が削除された。記憶域の確保失敗は[`bad_alloc`](/reference/new/bad_alloc.md)として報告されるため
+- [LWG Issue 1218. `mutex` destructor synchronization](https://cplusplus.github.io/LWG/issue1218)
+    - C++11で、アンロック直後にほかのスレッドがミューテックスを破棄する状況を処理系が正しく扱うことが要求される旨の注記が追加された

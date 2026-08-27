@@ -112,5 +112,7 @@ int main()
 ## 参照
 - [lock非メンバ関数の使いどころ - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120919/p1)
 - [Acquiring Multiple Locks Without Deadlock](https://www.justsoftwaresolutions.co.uk/threading/acquiring-multiple-locks-without-deadlock.html)
+- [LWG Issue 986. Generic `try_lock` contradiction](https://cplusplus.github.io/LWG/issue986)
+    - C++11で、いずれかの`try_lock()`が失敗した場合に、それ以降の`try_lock()`を呼び出さないことが明記された
 - [LWG Issue 3030. Who shall meet the requirements of `try_lock`?](https://cplusplus.github.io/LWG/issue3030)
     - C++20で、効果の記述で利用者要件を表す「shall」を誤用していた箇所が、動作の記述に修正された
