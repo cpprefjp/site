@@ -74,3 +74,8 @@ equal
 - [GCC](/implementation.md#gcc): 4.7.3 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 1316. `scoped_allocator_adaptor` `operator==` has no definition](https://cplusplus.github.io/LWG/issue1316)
+    - C++11で、この演算子の定義が追加された。宣言のみで意味が規定されていなかった
