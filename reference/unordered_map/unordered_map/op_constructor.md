@@ -350,3 +350,9 @@ libstdc++ には 4.8.2 現在、(6), (7), (8)の形式はない。
 - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
     - C++23でのアロケータ引数を`type_identity_t`で包む変更
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 676. Moving the unordered containers](https://cplusplus.github.io/LWG/issue676)
+    - C++11で、非順序連想コンテナにムーブコンストラクタ・ムーブ代入演算子と、`value_type`へ変換可能な型を転送で受け取る`insert`のオーバーロードが追加された。他のコンテナには追加されていたムーブ対応が漏れていたため
+- [LWG Issue 981. Unordered container requirements should add `initializer_list` support](https://cplusplus.github.io/LWG/issue981)
+    - C++11で、非順序連想コンテナの要件に[`initializer_list`](/reference/initializer_list/initializer_list.md)からの構築・代入・挿入が追加された。他のコンテナには追加されていたが、非順序連想コンテナでは漏れていたため
+- [LWG Issue 1427. `unordered_map` constructor accepting an allocator as a single parameter should be explicit](https://cplusplus.github.io/LWG/issue1427)
+    - C++11で、アロケータのみを受け取るコンストラクタに`explicit`が付加された。アロケータからコンテナへの意図しない暗黙変換を防ぐため

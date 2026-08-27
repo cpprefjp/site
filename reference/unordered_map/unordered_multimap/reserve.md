@@ -130,5 +130,7 @@ new load_factor: 0.363636
 | [`emplace_hint`](emplace_hint.md)       | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
 
 ## 参照
-- [LWG Issue 2156. Unordered containers' reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)
+- [LWG Issue 1189. Awkward interface for changing the number of buckets in an unordered associative container](https://cplusplus.github.io/LWG/issue1189)
+    - C++11で、要素数を指定してバケット数を確保する`reserve()`が追加された。`rehash()`はバケット数を指定するため、要素数から計算する必要があった
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 2156. Unordered containers' reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)

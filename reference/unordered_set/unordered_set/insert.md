@@ -319,3 +319,5 @@ inline void unordered_set<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 - [P2363R5: Extending associative containers with the remaining heterogeneous overloads](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
     - C++26で`template <class K>`のバージョンが追加された
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 676. Moving the unordered containers](https://cplusplus.github.io/LWG/issue676)
+    - C++11で、`value_type&&`を受け取るオーバーロードが追加された。他のコンテナには追加されていたムーブ対応が漏れていたため

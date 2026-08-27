@@ -316,10 +316,12 @@ inline void unordered_multimap<Key, Hash, Pred, Allocator>::insert(initializer_l
     - (8)の経緯となる提案文書
 - [LWG Issue 518. Are `insert` and `erase` stable for `unordered_multiset` and `unordered_multimap`?](https://wg21.cmeerw.net/lwg/issue518)
     - 安定性の保証が規定された経緯のレポート
+- [LWG Issue 676. Moving the unordered containers](https://cplusplus.github.io/LWG/issue676)
+    - C++11で、非順序連想コンテナにムーブコンストラクタ・ムーブ代入演算子と、`value_type`へ変換可能な型を転送で受け取る`insert`のオーバーロードが追加された。他のコンテナには追加されていたムーブ対応が漏れていたため
 - [LWG Issue 2005. `unordered_map::insert(T&&)` protection should apply to `map` too](https://wg21.cmeerw.net/lwg/issue2005)
-- [LWG Issue 2540. unordered_multimap::insert hint iterator](https://wg21.cmeerw.net/lwg/issue2540)
 - [LWG Issue 2156. Unordered containers' reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
     - (9), (10)経緯となる提案文書
 - [How useful is the hint passed to the std::unordered_... collections? - The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20241028-00/?p=110428)
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 2540. unordered_multimap::insert hint iterator](https://wg21.cmeerw.net/lwg/issue2540)

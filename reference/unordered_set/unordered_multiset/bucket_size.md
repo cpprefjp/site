@@ -95,3 +95,5 @@ bucket = 10, bucket_size = 0, keys = { }
 
 ## 参照
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 1519. `bucketsize()` const only for unordered set](https://cplusplus.github.io/LWG/issue1519)
+    - C++11で、この関数に`const`修飾が付加された。[`unordered_set`](/reference/unordered_set/unordered_set.md)の宣言には付いていたが、ほかの非順序連想コンテナでは記載が漏れていた

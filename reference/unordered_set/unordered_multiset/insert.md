@@ -257,3 +257,5 @@ inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(std::initiali
     - (5), (6)経緯となる提案文書
 - [How useful is the hint passed to the std::unordered_... collections? - The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20241028-00/?p=110428)
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 676. Moving the unordered containers](https://cplusplus.github.io/LWG/issue676)
+    - C++11で、`value_type&&`を受け取るオーバーロードが追加された。他のコンテナには追加されていたムーブ対応が漏れていたため
