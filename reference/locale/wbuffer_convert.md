@@ -67,3 +67,5 @@ Unicode以外のShift_JISやBig5といった文字コードの利用が急激に
 - [N2007 Proposed Library Additions for Code Conversion](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2007.html)
 - [P0618R0 Deprecating `<codecvt>`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0618r0.html)
 - [P2872R3 Remove `wstring_convert` From C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2872r3.pdf)
+- [LWG Issue 1252. `wbuffer_convert::state_type` inconsistency](https://cplusplus.github.io/LWG/issue1252)
+    - C++11で、`state_type`の定義が`Tr::state_type`から`Codecvt::state_type`へ修正された。変換状態は`codecvt`側の型であるため
