@@ -104,5 +104,7 @@ error!
 
 
 ## 参照
+- [LWG Issue 2008. Conflicting Error Conditions for `packaged_task::operator()`](https://cplusplus.github.io/LWG/issue2008)
+    - C++11で、`promise_already_satisfied`を送出する条件が「共有状態がすでに準備完了である」から「格納されたタスクがすでに実行された」へ改められた。前者では、タスクの実行完了前に共有状態が準備完了になる状況と条件が食い違っていた
 - [LWG Issue 2142. `packaged_task::operator()` synchronization too broad?](https://cplusplus.github.io/LWG/issue2142)
     - C++14で、この関数についての同期の規定が削除された。「`future`や`shared_future`のあらゆるメンバ関数の呼び出しと同期する」という規定は、タイムアウトで戻る[`wait_for()`](../future/wait_for.md)や[`wait_until()`](../future/wait_until.md)まで含んでしまい広すぎたため。共有状態そのものの規定で必要な同期は既に保証されている

@@ -130,3 +130,7 @@ int main()
 
 
 ## 参照
+- [LWG Issue 2000. Missing definition of `packaged_task` specialization of `uses_allocator`](https://cplusplus.github.io/LWG/issue2000)
+    - C++11で、[`uses_allocator`](/reference/memory/uses_allocator.md)の特殊化が[`true_type`](/reference/type_traits/true_type.md)から派生することが規定された。宣言のみで内容が規定されていなかった
+- [LWG Issue 2030. `packaged_task::result_type` should be removed](https://cplusplus.github.io/LWG/issue2030)
+    - C++11で、メンバ型`result_type`が削除された。関数オブジェクトとしての慣習に従ったものだったが、このクラスは直接呼び出して値を返すものではないため

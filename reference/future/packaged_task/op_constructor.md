@@ -116,14 +116,18 @@ int main()
 
 
 ## 参照
+- [LWG Issue 1514. `packaged_task` constructors need review](https://cplusplus.github.io/LWG/issue1514)
+    - C++11で、関数オブジェクトを右辺値参照で受け取る形へ改められ、関数ポインタ専用のオーバーロードが削除された。ムーブのみ可能な関数オブジェクトを渡せるようにするため
+- [LWG Issue 2027. Initialization of the stored task of a `packaged_task`](https://cplusplus.github.io/LWG/issue2027)
+    - C++11で、保持するタスクが`f`のコピーではなく[`std::forward`](/reference/utility/forward.md)`<F>(f)`で初期化されることが規定された
 - [LWG Issue 2067. `packaged_task` should have deleted copy c'tor with const parameter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2067)
 - [LWG Issue 2097. `packaged_task` constructors should be constrained](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2097)
+- [P3503R3 Make type-erased allocator use in `promise` and `packaged_task` consistent](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3503r3.html)
+    - C++26でアロケータを受け取るコンストラクタを再追加
 - [LWG Issue 2752. Throws: clauses of `async` and `packaged_task` are unimplementable](https://cplusplus.github.io/LWG/issue2752)
     - C++17で、アロケータを取る版において、アロケータの`allocate`から送出される例外も例外指定に加えられた（`f`のコピー／ムーブ構築や`bad_alloc`はC++14で既に規定済み）。なおアロケータを取る版自体はLWG 2976 (C++20)で削除された
 - [LWG Issue 2921. `packaged_task` and type-erased allocators](https://wg21.cmeerw.net/lwg/issue2921)
     - [`std::function`のコンストラクタ](/reference/functional/function/op_constructor.md)と同様の理由により、アロケータを受け取るコンストラクタを削除
-- [P3503R3 Make type-erased allocator use in `promise` and `packaged_task` consistent](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3503r3.html)
-    - C++26でアロケータを受け取るコンストラクタを再追加
 - [LWG Issue 3039. Unnecessary `decay` in `thread` and `packaged_task`](https://wg21.cmeerw.net/lwg/issue3039)
 - [LWG Issue 4154. The Mandates for `std::packaged_task`'s constructor from a callable entity should consider decaying](https://cplusplus.github.io/LWG/issue4154)
     - C++26で、適格要件が`is_invocable_r_v<R, F&, ArgTypes...>`から`is_invocable_r_v<R, decay_t<F>&, ArgTypes...>`に修正された（`F`をdecayした型で判定する）
