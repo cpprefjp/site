@@ -62,3 +62,5 @@ int main()
 
 ## 参照
 - [P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html)
+- [LWG Issue 1131. C++0x does not need `alignment_of`](https://cplusplus.github.io/LWG/issue1131)
+    - C++11で、要件が型の完全性などを個別に列挙するものから、`alignof(T)`が有効な式であることへ整理された

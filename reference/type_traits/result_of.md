@@ -162,5 +162,7 @@ Hello World
 - [N3655 TransformationTraits Redux, v2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf)
 - [P0604R0 Resolving GB 55, US 84, US 85, US 86](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0604r0.html)
 - [P0619R4 Reviewing deprecated facilities of C++17 for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html)
+- [LWG Issue 904. `result_of` argument types](https://cplusplus.github.io/LWG/issue904)
+    - C++11で、引数が左辺値として扱われる条件が「参照型の場合」から「左辺値参照型の場合」へ限定された。右辺値参照型の引数まで左辺値として扱われてしまっていたため
 - [LWG Issue 2940. `result_of` specification also needs a little cleanup](https://cplusplus.github.io/LWG/issue2940)
     - C++20で、非推奨annexへの移動時に失われていた「利用者による特殊化を禁止する（追加した場合は未定義動作）」規定が復元された。この修正は欠陥報告(DR)であり、C++17にも遡及して適用される
