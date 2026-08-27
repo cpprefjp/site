@@ -29,7 +29,17 @@ constexpr charT* data() noexcept;             // (2) C++20
 
 
 ## 計算量
-- (1), (2) : 定数時間
+- (1) :
+    - C++98まで : 規定なし
+    - C++11から : 定数時間
+- (2) : 定数時間
+
+
+## 例外
+- (1) :
+    - C++98まで : 規定なし
+    - C++11から : 投げない
+- (2) : 投げない
 
 
 ## 備考
@@ -83,6 +93,8 @@ Hello, world!
 
 
 ## 参照
+- [LWG Issue 876. `basic_string` access operations should give stronger guarantees](https://cplusplus.github.io/LWG/issue876)
+    - C++11で、例外を送出しないことと計算量が定数時間であることが規定された
 - [P0272R1 Give `std::string` a non-const `.data()` member function.](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0272r1.html)
 - [LWG Issue 2760. non-`const` `basic_string::data` should not invalidate iterators](https://cplusplus.github.io/LWG/issue2760)
     - C++17の策定中に、P0272R1で追加された非const版`data()`が、参照・ポインタ・イテレータを無効化しない関数の一覧に含まれていなかった記載漏れが修正された
