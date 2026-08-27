@@ -64,3 +64,5 @@ int main()
 
 
 ## 参照
+- [LWG Issue 1439. Return from `densities()` functions?](https://cplusplus.github.io/LWG/issue1439)
+    - C++11で、戻り値の型が[`vector`](/reference/vector/vector.md)`<double>`から[`vector`](/reference/vector/vector.md)`<result_type>`へ改められた

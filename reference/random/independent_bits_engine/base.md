@@ -49,3 +49,5 @@ int main()
 
 
 ## 参照
+- [LWG Issue 1438. No definition for `base()`](https://cplusplus.github.io/LWG/issue1438)
+    - C++11で、乱数エンジンアダプタの要件に`base()`の規定が追加された。各アダプタの宣言にはあったが、意味が規定されていなかった
