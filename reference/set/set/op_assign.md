@@ -90,3 +90,5 @@ Size of c2: 6
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
 - [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+- [LWG Issue 982. Wrong complexity for `initializer_list` assignment in Table 85](https://cplusplus.github.io/LWG/issue982)
+    - C++11で、[`initializer_list`](/reference/initializer_list/initializer_list.md)からの代入の計算量が、誤って「定数時間」とされていたのを`a = X(il)`と同じ計算量へ修正された
