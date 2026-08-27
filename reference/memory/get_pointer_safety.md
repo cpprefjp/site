@@ -19,9 +19,13 @@ namespace std {
 
 
 ## 戻り値
-[`pointer_safety`](/reference/memory/pointer_safety.md)型の列挙値のうち、いずれかが返却される。
+処理系が厳密なポインタ安全性を持つ場合、[`pointer_safety::strict`](/reference/memory/pointer_safety.md)を返す。
 
-返される値は処理系依存。
+処理系が緩やかなポインタ安全性を持つ場合、[`pointer_safety::relaxed`](/reference/memory/pointer_safety.md)と[`pointer_safety::preferred`](/reference/memory/pointer_safety.md)のどちらを返すかは処理系定義である。
+
+
+## 例外
+投げない
 
 
 ## バージョン
@@ -37,3 +41,5 @@ namespace std {
 
 ## 参照
 - [P2186R2 Removing Garbage Collection Support](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2186r2.html)
+- [LWG Issue 1098. definition of `get_pointer_safety()`](https://cplusplus.github.io/LWG/issue1098)
+    - C++11で、戻り値が処理系のポインタ安全性に基づいて規定され、例外を送出しないことが明記された
