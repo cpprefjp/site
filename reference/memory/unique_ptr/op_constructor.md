@@ -208,12 +208,16 @@ int main()
 - [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
 - [N4089 Safe conversions in `unique_ptr<T[]>`, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
 - [LWG Issue 2520 : N4089 broke initializing `unique_ptr<T[]>` from a nullptr](https://wg21.cmeerw.net/lwg/issue2520)
+- [LWG Issue 1303. `shared_ptr`, `unique_ptr`, and rvalue references v2](https://cplusplus.github.io/LWG/issue1303)
+    - C++11で、変換可能な型からのコピーコンストラクタ・コピー代入演算子の`delete`宣言が削除された。テンプレートのコンストラクタはコピーコンストラクタにならないため、宣言する必要がなかった
+- [LWG Issue 1402. `nullptr` constructors for smart pointers should be `constexpr`](https://cplusplus.github.io/LWG/issue1402)
+    - C++11で、[`nullptr`](/reference/cstddef/nullptr_t.md)からのコンストラクタに`constexpr`が付加された。デフォルトコンストラクタと同様に、静的初期化できるようにするため
 - [LWG Issue 2801. Default-constructibility of `unique_ptr`](https://wg21.cmeerw.net/lwg/issue2948)
 - [LWG Issue 2899. `is_(nothrow_)move_constructible` and `tuple`, `optional` and `unique_ptr`](https://cplusplus.github.io/LWG/issue2899)
     - C++20で、ムーブコンストラクタ(5)が、デリータ型`D`がムーブ構築可能でない場合はオーバーロード解決に参加しないよう制約化され、`is_move_constructible<unique_ptr<T, D>>`が正しく判定されるようになった
+- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)
 - [LWG Issue 2905. `is_constructible_v<unique_ptr<P, D>, P, D const &>` should be false when D is not copy constructible](https://wg21.cmeerw.net/lwg/issue2905)
 - [LWG Issue 2944. LWG 2905 accidentally removed requirement that construction of the deleter doesn't throw an exception](https://cplusplus.github.io/LWG/issue2944)
     - C++20で、LWG 2905の文言簡略化で失われた「デリータの構築が例外を送出しない」要件が復元された。この修正は欠陥報告(DR)であり、C++17にも遡及して適用される
-- [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)
 - [LWG Issue 3632. `unique_ptr` "_Mandates_: This constructor is not selected by class template argument deduction"](https://cplusplus.github.io/LWG/issue3632)
     - C++23で、クラステンプレート実引数推論(CTAD)による選択を防ぐ仕様が、Mandates指定から引数型を`type_identity_t<pointer>`とする方式へ書き換えられた（観測可能な振る舞いは変わらない）

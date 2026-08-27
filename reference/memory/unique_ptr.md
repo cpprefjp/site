@@ -153,5 +153,7 @@ hoge::~hoge()
     - `unique_ptr<void, Deleter>`を許可するために、インタフェースを改良した経緯
 - [LWG Issue 762. `std::unique_ptr` requires complete type?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#762)
 - [N4089 Safe conversions in `unique_ptr<T[]>`, revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4089.pdf)
+- [LWG Issue 978. Hashing smart pointers](https://cplusplus.github.io/LWG/issue978)
+    - C++11で、[`hash`](/reference/functional/hash.md)クラスの特殊化が追加された。非順序連想コンテナのキーとしてスマートポインタを使えるようにするため
 - [LWG Issue 4144. Disallow `unique_ptr<T&, D>`](https://cplusplus.github.io/LWG/issue4144)
     - C++26で、`T*`が有効な型とならない特殊化（`unique_ptr<T&, D>`など）の実体化が不適格であることが明確化された
