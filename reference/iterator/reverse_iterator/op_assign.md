@@ -3,26 +3,24 @@
 * std[meta namespace]
 * reverse_iterator[meta class]
 * function[meta id-type]
+* cpp11[meta cpp]
 
 ```cpp
-reverse_iterator& operator=(const reverse_iterator& u) = default;           // (1) C++98
-constexpr reverse_iterator& operator=(const reverse_iterator& u) = default; // (1) C++17
-
 template <class U>
-reverse_iterator& operator=(const reverse_iterator<U>& u);                  // (2) C++98
+reverse_iterator& operator=(const reverse_iterator<U>& u);           // (1) C++11
 template <class U>
-constexpr reverse_iterator& operator=(const reverse_iterator<U>& u);        // (2) C++17
+constexpr reverse_iterator& operator=(const reverse_iterator<U>& u); // (1) C++17
 ```
 
 ## 概要
-- (2) : `u.base()`をメンバ変数`current`に保持する。
+- (1) : `u.base()`をメンバ変数`current`に保持する。
 
 ## テンプレートパラメータ制約
 
 - C++17まで
-    - (2) : `U`が`Iterator`に変換可能であること
+    - (1) : `U`が`Iterator`に変換可能であること
 - C++20
-    - (2) : 次の両方を満たす
+    - (1) : 次の両方を満たす
         - `is_same_v<U, Iterator> == false`であること。
         - `const U&, Iterator`が[`convertible_to<Iterator>`](/reference/concepts/convertible_to.md)のモデルとなること。
         - `Iterator&, const U&`が[`assignable_from<Iterator&, const U&>`](/reference/concepts/assignable_from.md)のモデルとなること。
@@ -30,6 +28,11 @@ constexpr reverse_iterator& operator=(const reverse_iterator<U>& u);        // (
 
 ## 戻り値
 `*this`
+
+
+## 備考
+- C++98では、このクラスに`operator=`は宣言されていなかった。そのため、同じ型の`reverse_iterator`どうしの代入は暗黙に宣言されるコピー代入演算子によって行えたが、変換可能な別の型の`reverse_iterator`を代入することはできなかった。
+- (1)が追加されたあとも、同じ型どうしの代入は、暗黙に宣言されるコピー代入演算子によって行われる。
 
 
 ## 例
@@ -69,6 +72,13 @@ int main()
 1
 ```
 
+## バージョン
+### 言語
+- C++11
+
+
 ## 参照
+- [LWG Issue 280. Comparison of `reverse_iterator` to `const reverse_iterator`](https://cplusplus.github.io/LWG/issue280)
+    - C++11で、変換可能な`reverse_iterator`を代入できるよう、テンプレート版の代入演算子(1)が追加された。テンプレート版のコンストラクタは既にあったが、代入演算子は用意されていなかった
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
 - [LWG Issue 3435. `three_way_comparable_with<reverse_iterator<int*>, reverse_iterator<const int*>>`](https://cplusplus.github.io/LWG/issue3435)
