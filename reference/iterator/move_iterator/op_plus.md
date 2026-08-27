@@ -9,17 +9,17 @@ namespace std {
   template <class Iterator>
   move_iterator<Iterator> operator+(
     typename move_iterator<Iterator>::difference_type n,
-    const move_iterator<Iterator>& x);                   // C++11
+    const move_iterator<Iterator>& x); // (1) C++11
 
   template <class Iterator>
   constexpr move_iterator<Iterator> operator+(
     typename move_iterator<Iterator>::difference_type n,
-    const move_iterator<Iterator>& x);                   // C++17
+    const move_iterator<Iterator>& x); // (1) C++17
 
   template <class Iterator>
   constexpr move_iterator<Iterator> operator+(
     iter_difference_t<Iterator> n,
-    const move_iterator<Iterator>& x);                   // C++20
+    const move_iterator<Iterator>& x); // (1) C++20
 }
 ```
 

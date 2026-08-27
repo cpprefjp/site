@@ -6,11 +6,11 @@
 * cpp11[meta cpp]
 
 ```cpp
-move_iterator& operator--();             // C++11
-constexpr move_iterator& operator--();   // C++17
+move_iterator& operator--();             // (1) C++11
+constexpr move_iterator& operator--();   // (1) C++17
 
-move_iterator operator--(int);           // C++11
-constexpr move_iterator operator--(int); // C++17
+move_iterator operator--(int);           // (2) C++11
+constexpr move_iterator operator--(int); // (2) C++17
 ```
 
 ## 概要
