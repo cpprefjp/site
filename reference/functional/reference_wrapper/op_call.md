@@ -80,5 +80,7 @@ int main()
 ## 参照
 - [P0357R3 reference_wrapper for incomplete types](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0357r3.html)
     - テンプレートパラメータ`T`が完全型であるという要件が追加された経緯
+- [LWG Issue 2017. `std::reference_wrapper` makes incorrect usage of `std::result_of`](https://cplusplus.github.io/LWG/issue2017)
+    - C++11で、戻り値型の計算が[`result_of`](/reference/type_traits/result_of.md)`<T(ArgTypes...)>`から[`result_of`](/reference/type_traits/result_of.md)`<T&(ArgTypes&&...)>`へ修正された。参照を保持して呼び出す実際の形と一致していなかった
 - [LWG Issue 3764. `reference_wrapper::operator()` should propagate `noexcept`](https://cplusplus.github.io/LWG/issue3764)
     - C++23で、`operator()`に`noexcept(is_nothrow_invocable_v<T&, ArgTypes...>)`が付加され、被参照の呼び出し可能物の`noexcept`性が伝播するようになった
