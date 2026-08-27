@@ -55,3 +55,8 @@ first
 - [GCC](/implementation.md#gcc): 5.1.0 [mark verified], 5.2.0 [mark verified], 6.0.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [LWG Issue 900. Stream move-assignment](https://cplusplus.github.io/LWG/issue900)
+    - C++11で、ムーブ代入の効果が`swap(rhs)`から、基底クラスと各メンバを`rhs`の対応する基底・メンバからムーブ代入することへ改められた。`swap`では代入先が元々持っていた状態が`rhs`へ残ってしまうため
