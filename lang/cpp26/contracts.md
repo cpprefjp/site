@@ -406,6 +406,18 @@ void handle_contract_violation(const std::contracts::contract_violation& violati
 
 この関数を定義することで、デフォルトの契約違反ハンドラをオーバーライドできる。
 
+ただし、契約違反ハンドラを置き換えられるかどうかは処理系定義である。置き換えられない処理系でこの関数を宣言した場合、そのプログラムは不適格となる（診断不要）。置き換えられるかどうかは、[`<contracts>`](/reference/contracts.md)ヘッダで定義される機能テストマクロ[`__cpp_lib_replaceable_contract_violation_handler`](/reference/contracts/cpp_lib_replaceable_contract_violation_handler.md)によって判定できる。このマクロは、置き換えられる場合に`202603L`、置き換えられない場合に`0`となる。
+
+```cpp
+#include <contracts>
+
+#if __cpp_lib_replaceable_contract_violation_handler
+void handle_contract_violation(const std::contracts::contract_violation& violation) {
+  // ...
+}
+#endif
+```
+
 #### contract_violation情報
 `std::contracts::contract_violation`オブジェクトは、契約違反に関する以下の情報を提供する：
 
@@ -743,3 +755,5 @@ int main() {
 
 ## 参照
 - [P2900R14 `Contracts for C++`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf)
+- [P3886R0 Wording for AT1-057](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3886r0.pdf)
+    - C++26で、契約違反ハンドラを置き換えられるかを検出する機能テストマクロ`__cpp_lib_replaceable_contract_violation_handler`が追加された

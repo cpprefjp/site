@@ -143,6 +143,7 @@
 |`__cpp_lib_rcu`|`202306L`|RCU (Read Copy Update) のライブラリとして[`<rcu>`](/reference/rcu.md)を追加|[`<rcu>`](/reference/rcu.md)|
 |`__cpp_lib_reference_wrapper`|`202403L`|[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)に、比較演算子[`==`](/reference/functional/reference_wrapper/op_equal.md)と[`<=>`](/reference/functional/reference_wrapper/op_compare_3way.md)を追加|[`<functional>`](/reference/functional.md)|
 |`__cpp_lib_reflection`|`202506L`|[静的リフレクション](/lang/cpp26/reflection.md)のライブラリ機能|[`<meta>`](/reference/meta.md)|
+|[`__cpp_lib_replaceable_contract_violation_handler`](/reference/contracts/cpp_lib_replaceable_contract_violation_handler.md)|`202603L` or `0`|[契約違反ハンドラ](/lang/cpp26/contracts.md)を置き換えられるかを検出する（置き換えられる場合は`202603L`、置き換えられない場合は`0`）|[`<contracts>`](/reference/contracts.md)|
 |`__cpp_lib_saturation_arithmetic`|`202603L`|[`<numeric>`](/reference/numeric.md)に飽和演算 (Saturation Arithmetic) として[`std::saturating_add()`](/reference/numeric/saturating_add.md)などの関数を追加|[`<numeric>`](/reference/numeric.md)|
 |`__cpp_lib_senders`|`202506L`||[`<execution>`](/reference/execution.md)|
 |`__cpp_lib_simd`|`202603L`|データ並列ライブラリとして、[`<simd>`](/reference/simd.md)を追加|[`<simd>`](/reference/simd.md)|
@@ -206,6 +207,8 @@
     - C++26で、`__cpp_lib_format_uchar`が追加された
 - [P2836R1 `std::basic_const_iterator` should follow its underlying type's convertibility](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2836r1.html)
     - C++26で、`__cpp_lib_ranges_as_const`が`202311L`に更新された
+- [P3886R0 Wording for AT1-057](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3886r0.pdf)
+    - C++26で、`__cpp_lib_replaceable_contract_violation_handler`が追加された
 - [P3371R5 Fix C++26 BLAS rank updates consistency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3371r5.html)
     - C++26で`__cpp_lib_linalg`が`202511L`に更新された
 - [P4012R1 Value-preserving consteval broadcast to `simd::vec`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4012r1.pdf)

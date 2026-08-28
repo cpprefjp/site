@@ -39,7 +39,8 @@
 
 | マクロ名 | 値 | 説明 | 対応バージョン |
 |----------|-----|------|----------------|
-| `__cpp_lib_contracts` | ??? | `<contracts>`ヘッダが利用可能かを検出する | C++26 |
+| `__cpp_lib_contracts` | `202502L` | `<contracts>`ヘッダが利用可能かを検出する | C++26 |
+| [`__cpp_lib_replaceable_contract_violation_handler`](contracts/cpp_lib_replaceable_contract_violation_handler.md) | `202603L` or `0` | 契約違反ハンドラを置き換えられるかを検出する。置き換えられる場合は`202603L`、置き換えられない場合は`0`となる | C++26 |
 
 言語機能（`pre`、`post`、`contract_assert`構文）の検出には`__cpp_contracts`マクロを使用する。ライブラリと言語機能は異なるベンダーから提供される可能性があるため、別々のマクロが用意されている。
 
@@ -57,3 +58,5 @@
 
 ## 参照
 - [P2900R14 Contracts for C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf)
+- [P3886R0 Wording for AT1-057](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3886r0.pdf)
+    - C++26で、契約違反ハンドラを置き換えられるかを検出する機能テストマクロ`__cpp_lib_replaceable_contract_violation_handler`が追加された
