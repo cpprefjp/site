@@ -35,6 +35,8 @@ namespace std {
 
 C++26から、これらの特殊化はCV修飾された型に対しても行われるようになった。
 
+`atomic_ref<T>`は、CV修飾のみが異なる`atomic_ref<U>`から構築できる。たとえば`atomic_ref<int>`から`atomic_ref<const int>`へ変換することで、読み取り専用の`atomic_ref`として扱える。
+
 `T`が`const`修飾されている場合、参照先の値を変更するメンバ関数（[`store`](atomic_ref/store.md)、[`operator=`](atomic_ref/op_assign.md)、`fetch_*`／`store_*`系、複合代入演算子、[`operator++`](atomic_ref/op_increment.md)／[`operator--`](atomic_ref/op_decrement.md)など）は制約により無効化され、読み取り・待機系の操作（[`load`](atomic_ref/load.md)、[`wait`](atomic_ref/wait.md)など）のみが利用できる。
 
 
@@ -242,3 +244,5 @@ int main()
     - C++26で、`required_alignment`に関する誤解を招く注記（`complex<double>`の例など）が、「実装はすべての操作がロックフリーとなるよう`required_alignment`を`alignof(T)`より大きく定義できる」という趣旨の注記へ修正された
 - [LWG Issue 4450. `std::atomic_ref<T>::store` should be disabled for const `T`](https://cplusplus.github.io/LWG/issue4450)
     - C++26で、`T`が`const`修飾されている場合に`store`をはじめとする値を変更するメンバ関数が制約により無効化されることが規定された
+- [P3860R1 Proposed Resolution for NB Comment GB13-309 `atomic_ref<T>` is not convertible to `atomic_ref<const T>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3860r1.html)
+    - C++26で、CV修飾のみが異なる`atomic_ref`から構築する[変換コンストラクタ](atomic_ref/op_constructor.md)が追加された
