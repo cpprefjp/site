@@ -36,6 +36,7 @@ namespace std {
 | [`operator>`](basic_const_iterator/op_greater.md)        | 左辺が右辺より大きいかの判定を行う | C++23 |
 | [`operator>=`](basic_const_iterator/op_greater_equal.md) | 左辺が右辺以上かの判定を行う | C++23 |
 | [`operator<=>`](basic_const_iterator/op_compare_3way.md)           | 三方比較を行う | C++23 |
+| [`operator CI`](basic_const_iterator/op_ci.md)           | 定数イテレータ型への変換演算子 | C++26 |
 
 
 ## メンバ型
@@ -129,5 +130,7 @@ int main() {
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [P2836R1 `std::basic_const_iterator` should follow its underlying type's convertibility](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2836r1.html)
+    - C++26で、基底イテレータが変換できる定数イテレータ型への変換演算子が追加された。この修正は欠陥報告 (DR) であり、C++23へ遡及して適用される
 - [LWG Issue 4253. `basic_const_iterator` should provide `iterator_type`](https://cplusplus.github.io/LWG/issue4253)
     - C++26で、基底イテレータの型を取得できるよう公開メンバ型`iterator_type`（`= Iterator`）が追加された

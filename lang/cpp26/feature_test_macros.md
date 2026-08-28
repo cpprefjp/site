@@ -130,7 +130,7 @@
 |`__cpp_lib_polymorphic`|`202502L`|[`<memory>`](/reference/memory.md)に[`std::indirect`](/reference/memory/indirect.md)と[`std::polymorphic`](/reference/memory/polymorphic.md)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_print`|`202406L`|[`std::print()`](/reference/print/print.md)と[`std::println()`](/reference/print/println.md)にロックを取得せず高速に書き出す最適化を許可<br/>[`std::enable_nonlocking_formatter_optimization`](/reference/format/enable_nonlocking_formatter_optimization.md)を追加|[`<print>`](/reference/print.md), [`<ostream>`](/reference/ostream.md)|
 |`__cpp_lib_ranges`|`202406L`|[`std::indirectly_unary_invocable`](/reference/iterator/indirectly_unary_invocable.md)などのコンセプトの共通参照要件を削除|[`<algorithm>`](/reference/algorithm.md), [`<functional>`](/reference/functional.md), [`<iterator>`](/reference/iterator.md), [`<memory>`](/reference/memory.md), [`<ranges>`](/reference/ranges.md)|
-|`__cpp_lib_ranges_as_const`|`202311L`|[`std::basic_const_iterator`](/reference/iterator/basic_const_iterator.md)を元の要素へのキャストを可能にする|[`<ranges>`](/reference/ranges.md)|
+|`__cpp_lib_ranges_as_const`|`202311L`|[`std::basic_const_iterator`](/reference/iterator/basic_const_iterator.md)が、基底イテレータの変換先である定数イテレータ型へ暗黙変換できるようにする|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_cache_latest`|`202411L`|[`std::views::cache_latest`](/reference/ranges/cache_latest_view.md)を追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_concat`|`202403L`|[`std::views::concat`](/reference/ranges/concat_view.md)を追加|[`<ranges>`](/reference/ranges.md)|
 |`__cpp_lib_ranges_filter`|`202603L`|[`std::ranges::filter_view`](/reference/ranges/filter_view.md)に、入力Rangeに対する`const`版の[`begin()`](/reference/ranges/filter_view/begin.md)/[`end()`](/reference/ranges/filter_view/end.md)を追加|[`<ranges>`](/reference/ranges.md)|
@@ -204,6 +204,8 @@
     - C++26で、`__cpp_lib_stdbit_h`と`__cpp_lib_stdckdint_h`が追加された
 - [P2909R4 Fix formatting of code units as integers (Dude, where's my char?)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2909r4.html)
     - C++26で、`__cpp_lib_format_uchar`が追加された
+- [P2836R1 `std::basic_const_iterator` should follow its underlying type's convertibility](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2836r1.html)
+    - C++26で、`__cpp_lib_ranges_as_const`が`202311L`に更新された
 - [P3371R5 Fix C++26 BLAS rank updates consistency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3371r5.html)
     - C++26で`__cpp_lib_linalg`が`202511L`に更新された
 - [P4012R1 Value-preserving consteval broadcast to `simd::vec`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4012r1.pdf)
