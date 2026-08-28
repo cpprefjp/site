@@ -20,6 +20,9 @@ namespace std {
 
 ### 備考
 - `monostate`は、唯一の状態としてデフォルト構築状態をもつことを意味する
+- `monostate`とその比較演算子、[`hash`](monostate/hash.md)特殊化は、以下のヘッダが読み込まれている場合に使用できる：
+    - [`<variant>`](/reference/variant.md)
+    - [`<utility>`](/reference/utility.md) (C++26)
 - [Boost Variant Library](https://boost.org/libs/variant)では、これと等価な型が`blank`という名前で定義される
 
 
@@ -45,6 +48,13 @@ namespace std {
 | `constexpr bool operator<=(monostate, monostate) noexcept;` | 左辺が右辺以下かを判定する。`true`を返す (C++20から`<=>`により使用可能) | C++17 |
 | `constexpr bool operator>(monostate, monostate) noexcept;`  | 左辺が右辺より大きいかを判定する。`false`を返す (C++20から`<=>`により使用可能) | C++17 |
 | `constexpr bool operator>=(monostate, monostate) noexcept;` | 左辺が右辺以上かを判定する。`true`を返す (C++20から`<=>`により使用可能) | C++17 |
+
+
+## 特殊化
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`hash`](monostate/hash.md) | `monostate`のハッシュ値を計算する (class template) | C++17 |
 
 
 ## 例
@@ -81,9 +91,11 @@ empty
 ### 処理系
 - [Clang](/implementation.md#clang): 7.3 [mark verified]
 - [GCC](/implementation.md#gcc): 4.0 [mark verified]
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Visual C++](/implementation.md#visual_cpp): 2017 Update 7 [mark verified]
 
 
 ## 参照
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [P0472R3 Put `std::monostate` in `<utility>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0472r3.pdf)
+    - C++26で、`monostate`とその比較演算子、`hash`特殊化が[`<utility>`](/reference/utility.md)ヘッダでも使用できるようになった

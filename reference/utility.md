@@ -103,6 +103,13 @@
 | [`in_place_index`](utility/in_place_index_t.md)   | 指定位置にある要素型のコンストラクタ引数を直接受け取って構築するためのタグ値 (constant variable) | C++17 |
 
 
+## 空の状態
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`monostate`](variant/monostate.md) | 唯一の状態としてデフォルト構築状態のみを持つ型 (class) | C++26 |
+
+
 ## 定数のラッパー
 
 | 名前 | 説明 | 対応バージョン |
@@ -126,3 +133,5 @@
 - [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
 - [P1642R11 Freestanding Library: Easy `[utilities]`, `[ranges]`, and `[iterators]`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1642r11.html)
     - C++23で、このヘッダの全機能がフリースタンディング処理系で使用可能になった
+- [P0472R3 Put `std::monostate` in `<utility>`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p0472r3.pdf)
+    - C++26で、[`<variant>`](variant.md)ヘッダで定義される[`monostate`](variant/monostate.md)とその比較演算子、`hash`特殊化が、このヘッダでも使用できるようになった

@@ -465,7 +465,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 ### ユーティリティ
 - [`std::variant`](/reference/variant/variant.md)クラスに、メンバ関数版の[`visit()`](/reference/variant/variant/visit.md)を追加
-- `std::monostate`を[`<variant>`](/reference/variant.md)から[`<utility>`](/reference/utility.md)に移動
+- [`std::monostate`](/reference/variant/monostate.md)とその比較演算子、`hash`特殊化を、[`<variant>`](/reference/variant.md)ヘッダに加えて[`<utility>`](/reference/utility.md)ヘッダでも使用できるようにした
 - [`std::optional`](/reference/optional/optional.md)クラスに、0もしくは1要素のRangeとして扱えるようにするための拡張として、イテレータインタフェースを追加
     - `iterator`型
     - `const_iterator`型
