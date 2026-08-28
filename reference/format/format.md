@@ -140,7 +140,7 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 
 デフォルトは `c`。
 
-整数型のオプションも指定できる。その場合は、十分な大きさの符号なし整数型として扱われる。
+整数型のオプションも指定できる (`b`、`B`、`d`、`o`、`x`、`X`)。その場合、値は基底の型の符号なし版 (`char`であれば`unsigned char`) に変換されてから、整数型のオプションの規定にしたがって出力される。これにより、`char`が符号付きであるか否かが処理系定義であっても、出力は処理系によらず一定となる。
 
 #### `bool`型の場合
 
@@ -748,6 +748,8 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
 - [P2418R2 Add support for `std::generator`-like types to `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html)
 - [P2510R3 Formatting pointers](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2510r3.pdf)
     - C++26から、ポインタ値を大文字で出力する`P`オプションが追加された
+- [P2909R4 Fix formatting of code units as integers (Dude, where's my char?)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2909r4.html)
+    - C++26で、文字型を整数として出力する場合に、値を基底の型の符号なし版へ変換してから出力するよう規定された。この修正は欠陥報告 (DR) であり、C++20へ遡及して適用される。元の規定では`char`の符号の有無が処理系定義であるために出力も処理系定義となっており、移植性のある動作が存在しなかったため
 - [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
     - C++26から非ロケール版が`constexpr`に対応した
 - [LWG Issue 3612. Inconsistent pointer alignment in `std::format`](https://cplusplus.github.io/LWG/issue3612)

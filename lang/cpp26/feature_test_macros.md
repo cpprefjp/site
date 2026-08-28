@@ -202,6 +202,8 @@
     - `__cpp_lib_apply`の値が整理され、[P1317R2](https://wg21.link/P1317R2)に対応した場合は`202506L`、[P3795R2](https://wg21.link/P3795R2)による[`<meta>`](/reference/meta.md)側の対応も行った場合は`202603L`となった。このIssueは規格としてはC++29のワーキングドラフトへ適用されたが、いずれもC++26で追加された機能に対する修正であるため、C++26へ遡及して適用される
 - [LWG Issue 4550. Need new feature test macros for `<stdckdint.h>` and `<stdbit.h>`](https://cplusplus.github.io/LWG/issue4550)
     - C++26で、`__cpp_lib_stdbit_h`と`__cpp_lib_stdckdint_h`が追加された
+- [P2909R4 Fix formatting of code units as integers (Dude, where's my char?)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2909r4.html)
+    - C++26で、`__cpp_lib_format_uchar`が追加された
 - [P3371R5 Fix C++26 BLAS rank updates consistency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3371r5.html)
     - C++26で`__cpp_lib_linalg`が`202511L`に更新された
 - [P4012R1 Value-preserving consteval broadcast to `simd::vec`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4012r1.pdf)

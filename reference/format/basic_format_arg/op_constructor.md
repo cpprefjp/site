@@ -66,7 +66,6 @@ namespace std {
 
 - (2): `TD`を`remove_const<T>`として、以下の順に`value`を初期化する。
     - `TD`が`bool`なら、`v`で初期化
-    - `TD`が`char`かつ`char_type`が`wchar_t`なら、`value`を`static_cast<wchar_t>(v)`で初期化
     - `TD`が`char`かつ`char_type`が`wchar_t`なら、`value`を`static_cast<wchar_t>(static_cast<unsigned char>(v))`で初期化
     - `TD`が符号つき整数型かつ`sizeof(TD) <= sizeof(int)`なら、`value`を`static_cast<int>(v)`で初期化
     - `TD`が符号なし整数型かつ`sizeof(TD) <= sizeof(unsigned int)`なら、`value`を`static_cast<unsigned int>(v)`で初期化
@@ -93,6 +92,8 @@ namespace std {
 - [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
 - [LWG Issue 3631. `basic_format_arg(T&&)` should use `remove_cvref_t<T>` throughout](https://cplusplus.github.io/LWG/issue3631)
     - C++23で、コンストラクタが検査する型プロパティをcvref除去後の型で判定するよう整理された（最終的にコンストラクタは左辺値参照`T&`をとり、`TD = remove_const_t<T>`で判定する形になった）
+- [P2909R4 Fix formatting of code units as integers (Dude, where's my char?)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2909r4.html)
+    - C++26で、`char`を`wchar_t`として保持する場合に`unsigned char`を経由して変換するよう規定された。この修正は欠陥報告 (DR) であり、C++20へ遡及して適用される。元の規定では`char`の符号の有無が処理系定義であるために変換結果も処理系定義となっており、移植性のある動作が存在しなかったため
 - [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
     - C++26から`constexpr`に対応した
 - [LWG Issue 3246. What are the constraints on the template parameter of `basic_format_arg`?](https://cplusplus.github.io/LWG/issue3246)
