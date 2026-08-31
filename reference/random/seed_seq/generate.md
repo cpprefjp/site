@@ -18,7 +18,7 @@ void generate(RandomAccessIterator begin, RandomAccessIterator end);
 
 ## 戻り値
 以下のアルゴリズムで、シード列の値を分布させる。  
-このアルゴリズムは、メルセンヌ・ツイスター法を考案した松本眞氏と西村拓士氏によるシーケンス初期化を、斎藤睦夫氏が改善したものである( 参照：『[An Application of Finite Field: Design and Implementation of 128-bit Instruction-Based Fast Pseudorandom Number Generator](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT/M062821.pdf)』 )。
+このアルゴリズムは、メルセンヌ・ツイスター法を考案した松本眞氏と西村拓士氏によるシーケンス初期化を、斎藤睦夫氏が改善したものである( 参照：『[An Application of Finite Field: Design and Implementation of 128-bit Instruction-Based Fast Pseudorandom Number Generator](https://www.math.sci.hiroshima-u.ac.jp/m-mat/MT/SFMT/M062821.pdf)』 )。
 
 - `begin == end`(すなわち生成対象のシード列が空であるなら)何もしない。そうでなければ、
 - 出力範囲の各要素を、値`0x8b8b8b8b`で埋める。

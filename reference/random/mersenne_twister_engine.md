@@ -176,7 +176,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
-- [Mersenne Twister Home Page](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/mt.html)
+- [Mersenne Twister Home Page](https://www.math.sci.hiroshima-u.ac.jp/m-mat/MT/mt.html)
 - [メルセンヌ・ツイスタ - Wikipedia](https://ja.wikipedia.org/wiki/メルセンヌ・ツイスタ)
 - GCC(libstdc++) 4.8以降では、`<ext/random>`ヘッダに、SSE最適化されたメルセンヌ・ツイスターである`simd_fast_mersenne_twister_engine`クラスが実装されている
 - [LWG Issue 1437. Mersenne twister meaningless for word sizes less than two](https://cplusplus.github.io/LWG/issue1437)
