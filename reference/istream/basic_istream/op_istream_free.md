@@ -9,9 +9,9 @@ namespace std {
   template<class CharT, class Traits>
   basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT& c);        // (1) C++98
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char& c); // (2) C++98
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char& c); // (2) C++98、C++29から非推奨
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char& c);   // (3) C++98
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char& c);   // (3) C++98、C++29から非推奨
 
   // 文字列
   template<class CharT, class Traits>
@@ -19,13 +19,13 @@ namespace std {
   template<class CharT, class Traits, std::size_t N>
   basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT (&s)[N]);        // (4) C++20
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char* c);      // (5) C++98
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char* c);      // (5) C++98、C++29から非推奨
   template<class Traits, std::size_t N>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char (&s)[N]); // (5) C++20
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char (&s)[N]); // (5) C++20、C++29から非推奨
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char* c);        // (6) C++98
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char* c);        // (6) C++98、C++29から非推奨
   template<class Traits, std::size_t N>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char (&s)[N]);   // (6) C++20
+  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char (&s)[N]);   // (6) C++20、C++29から非推奨
 
   // 右辺値参照ストリームからの入力
   template<class CharT, class Traits, class T>
@@ -102,6 +102,12 @@ namespace std {
 `is`
 
 
+## 非推奨・削除の詳細
+- (2), (3), (5), (6) :
+    - C++29では、`unsigned char`・`signed char`を文字として扱うオーバーロードが非推奨となった。
+    - これらの型は文字型ではなく整数型であり ([`std::int8_t`](/reference/cstdint/int8_t.md)・[`std::uint8_t`](/reference/cstdint/uint8_t.md)の別名でもある)、文字として入出力されるのは意図しない動作であることが多いため。[`std::format()`](/reference/format/format.md)ではこれらの型を整数として扱っている。
+
+
 ## 例（文字列）
 ```cpp example
 #include <iostream>
@@ -150,3 +156,5 @@ TBD
     - C++17で、右辺値ストリーム版`operator>>`が`is >> x`が妥当な場合のみオーバーロード解決に参加するよう制約化され、SFINAEでのストリーム可否判定が正しく機能するようになった
 - [P1264R2 Revising the wording of stream input operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1264r2.pdf)
     - C++23でローカルエラー状態の概念が導入され、入力関数のエラー処理セマンティクスが明確化された
+- [P3154R3 Deprecating signed character types in iostreams](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3154r3.html)
+    - C++29で、`unsigned char`・`signed char`を文字として扱うオーバーロード (2), (3), (5), (6) が非推奨となった

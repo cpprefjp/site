@@ -13,9 +13,9 @@ namespace std {
   template<class Traits>
   basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, char c);                       // (3)
   template<class Traits>
-  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, unsigned char c);              // (4)
+  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, unsigned char c);              // (4) C++29から非推奨
   template<class Traits>
-  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, signed char c);                // (5)
+  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, signed char c);                // (5) C++29から非推奨
   // The following deleted overloads prevent formatting character values as numeric values.
   template<class traits>
   basic_ostream<char, traits>& operator<<(basic_ostream<char, traits>&, wchar_t) = delete;                // (6) C++20から
@@ -40,9 +40,9 @@ namespace std {
   template<class Traits>
   basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, const char* s);                // (15)
   template<class Traits>
-  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, const unsigned char* s);       // (16)
+  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, const unsigned char* s);       // (16) C++29から非推奨
   template<class Traits>
-  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, const signed char* s);         // (17)
+  basic_ostream<char, Traits>& operator<<(basic_ostream<char, Traits>& os, const signed char* s);         // (17) C++29から非推奨
   // The following deleted overloads prevent formatting strings as pointer values.
   template<class traits>
     basic_ostream<char, traits>& operator<<(basic_ostream<char, traits>&, const wchar_t*) = delete;       // (18) C++20から
@@ -114,6 +114,17 @@ namespace std {
 
 `os`
 
+
+## 非推奨・削除の詳細
+- (4), (5), (16), (17) :
+    - C++29では、`unsigned char`・`signed char`を文字として扱うオーバーロードが非推奨となった。
+    - これらの型は文字型ではなく整数型であり ([`std::int8_t`](/reference/cstdint/int8_t.md)・[`std::uint8_t`](/reference/cstdint/uint8_t.md)の別名でもある)、文字として出力されるのは意図しない動作であることが多いため。[`std::format()`](/reference/format/format.md)ではこれらの型を整数として扱っている。
+    - これらの型の値を整数として出力するには、`int`へ変換すればよい：
+        ```cpp
+        std::cout << static_cast<int>(c) << std::endl;
+        ```
+
+
 ## 備考
 
 - (25) の形式は C++11 から追加され、C++17 で式`os << x`が適格な場合のみオーバーロード解決に参加するよう制約化された。  
@@ -153,7 +164,7 @@ cpprefjp++
 cpprefjp++
 ```
 
-### (3)-(5), (15)-(17) の例
+### (3), (15) の例
 ```cpp example
 #include <iostream>
 #include <iomanip>
@@ -163,12 +174,8 @@ int main()
   std::cout << std::left << std::setfill('+');
 
   std::cout << std::setw(10) << 'C' << std::endl;
-  std::cout << std::setw(10) << static_cast<signed char>('C') << std::endl;
-  std::cout << std::setw(10) << static_cast<unsigned char>('C') << std::endl;
 
   std::cout << std::setw(10) << "cpprefjp" << std::endl;
-  std::cout << std::setw(10) << reinterpret_cast<const signed char*>("cpprefjp") << std::endl;
-  std::cout << std::setw(10) << reinterpret_cast<const unsigned char*>("cpprefjp") << std::endl;
 }
 ```
 * std::left[link ../../ios/left.md]
@@ -178,10 +185,6 @@ int main()
 ### 出力
 ```
 C+++++++++
-C+++++++++
-C+++++++++
-cpprefjp++
-cpprefjp++
 cpprefjp++
 ```
 
@@ -297,3 +300,5 @@ int main()
 [P1423R3: char8_t backward compatibility remediation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1423r3.html)
 - [LWG Issue 2534. Constrain rvalue stream operators](https://cplusplus.github.io/LWG/issue2534)
     - C++17で、右辺値ストリーム版`operator<<`が`os << x`が妥当な場合のみオーバーロード解決に参加するよう制約化され、SFINAEでのストリーム可否判定が正しく機能するようになった
+- [P3154R3 Deprecating signed character types in iostreams](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3154r3.html)
+    - C++29で、`unsigned char`・`signed char`を文字として扱うオーバーロード (4), (5), (16), (17) が非推奨となった
