@@ -194,6 +194,8 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 
 ポインタは`void*`のみサポートする。それ以外のポインタは、`void*`にキャストしなければ出力できない。
 
+C++26までは、[`uintptr_t`](/reference/cstdint/uintptr_t.md)が定義されていない処理系での出力は処理系定義だった。C++29では`uintptr_t`が必ず定義されるため、この規定は削除された。
+
 #### アライメントの詳細
 
 指定した幅が必要な幅より小さい場合や、幅を省略している場合はアライメントは無効となる。
@@ -764,3 +766,5 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
     - C++26で、`L`オプション指定時にロケール依存の置換で使用されるファセットが`numpunct`（`grouping`/`thousands_sep`/`decimal_point`/`truename`/`falsename`）であることが明確化された
 - [LWG Issue 4522. Clarify that `std::format` transcodes for `std::wformat_strings`](https://cplusplus.github.io/LWG/issue4522)
     - C++26で、`charT`が`wchar_t`のとき`to_chars`の出力をワイドリテラルエンコーディングへ変換することが明確化された
+- [P3248R5 Require `[u]intptr_t`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3248r5.html)
+    - C++29で、[`uintptr_t`](/reference/cstdint/uintptr_t.md)が必ず定義されるようになったことにともない、ポインタの出力が処理系定義となる場合の規定が削除された

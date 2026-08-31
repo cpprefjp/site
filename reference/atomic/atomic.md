@@ -117,6 +117,10 @@ namespace std {
 | `atomic_intptr_t`  | [`intptr_t`](/reference/cstdint/intptr_t.md)   | C++11 |
 | `atomic_uintptr_t` | [`uintptr_t`](/reference/cstdint/uintptr_t.md) | C++11 |
 
+`atomic_intN_t`と`atomic_uintN_t`は、対応する[`intN_t`](/reference/cstdint/int32_t.md)・[`uintN_t`](/reference/cstdint/uint32_t.md)が定義されている場合にのみ定義される。
+
+`atomic_intptr_t`と`atomic_uintptr_t`についても、C++26までは同様に[`intptr_t`](/reference/cstdint/intptr_t.md)・[`uintptr_t`](/reference/cstdint/uintptr_t.md)が定義されている場合にのみ定義されていたが、C++29ではこれらの型が必ず定義されるようになったため、これらの別名も必ず定義される。
+
 
 ## メンバ関数
 ### 共通メンバ関数
@@ -355,3 +359,5 @@ int main()
     - C++23で拡張浮動小数点数型もテンプレート引数として指定することが許可された
 - [P3323R1 cv-qualified types in `atomic` and `atomic_ref`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html)
     - C++26でCV修飾されたテンプレートパラメータが明確に禁止された
+- [P3248R5 Require `[u]intptr_t`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3248r5.html)
+    - C++29で、[`intptr_t`](/reference/cstdint/intptr_t.md)・[`uintptr_t`](/reference/cstdint/uintptr_t.md)が必ず定義されるようになったことにともない、`atomic_intptr_t`と`atomic_uintptr_t`も必ず定義されるようになった

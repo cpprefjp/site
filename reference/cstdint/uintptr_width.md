@@ -8,11 +8,17 @@
 ```
 
 ## 概要
-[`uintptr_t`](uintptr_t.md)型の幅 (値ビット数) を表す(実装するかどうかは処理系定義)。`#if`などのプリプロセッサディレクティブで使用できる。
+[`uintptr_t`](uintptr_t.md)型の幅 (値ビット数) を表す。`#if`などのプリプロセッサディレクティブで使用できる。
 
 幅 (width) とは、その型が値の表現に使用するビット数であり、符号付き整数型では符号ビットを含む。パディングビットを含むストレージサイズ (`sizeof` × [`CHAR_BIT`](/reference/climits/char_bit.md)) とは異なる場合がある。
 
 C23で`<stdint.h>`に追加されたマクロであり、C++26で`<cstdint>`に取り込まれた。
+
+
+## 備考
+- このマクロの定義有無
+    - C++26 : このマクロを定義するかどうかは処理系定義である ([`uintptr_t`](uintptr_t.md)が定義される場合にのみ定義される)
+    - C++29 : このマクロは必ず定義される
 
 
 ## 例
@@ -46,3 +52,5 @@ int main()
 ## 参照
 - [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf)
     - C++26がC23を参照するようになり、このマクロが`<cstdint>`に追加された
+- [P3248R5 Require `[u]intptr_t`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3248r5.html)
+    - C++29で、[`uintptr_t`](uintptr_t.md)が必ず定義されるようになったことにともない、このマクロも必ず定義されるようになった。C++26では、定義するかどうかは処理系定義だった

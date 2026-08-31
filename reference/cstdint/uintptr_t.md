@@ -14,7 +14,11 @@ namespace std {
 ## 概要
 ポインタサイズの符号なし整数型。
 
-この型を実装するかどうかは処理系定義。
+
+## 備考
+- この型の定義有無
+    - C++11 : この型を実装するかどうかは処理系定義である
+    - C++29 : この型は必ず定義される
 
 
 この型は、以下の動作が保証される：
@@ -37,3 +41,8 @@ namespace std {
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 	- 2005, 2008では、`<stdlib.h>`にグローバル名前空間で定義されている。
+
+
+## 参照
+- [P3248R5 Require `[u]intptr_t`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3248r5.html)
+    - C++29で、この型が必ず定義されるようになった。C++26までは、実装するかどうかは処理系定義だった

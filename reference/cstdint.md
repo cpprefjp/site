@@ -24,7 +24,7 @@
 | [`int_least32_t`](cstdint/int_least32_t.md) | 少なくとも32ビット幅を持つ、最小の符号付き整数 | C++11 |
 | [`int_least64_t`](cstdint/int_least64_t.md) | 少なくとも64ビット幅を持つ、最小の符号付き整数 | C++11 |
 | [`intmax_t`](cstdint/intmax_t.md)           | 最も大きい符号付き整数型 | C++11 |
-| [`intptr_t`](cstdint/intptr_t.md)           | ポインタサイズの符号付き整数型(実装するかどうかは処理系定義) | C++11 |
+| [`intptr_t`](cstdint/intptr_t.md)           | ポインタサイズの符号付き整数型<br/>・C++11 : 実装するかどうかは処理系定義<br/>・C++29 : 必ず定義される | C++11 |
 
 ## 符号なし整数型
 
@@ -43,7 +43,7 @@
 | [`uint_least32_t`](cstdint/uint_least32_t.md) | 少なくとも32ビット幅を持つ、最小の符号なし整数 | C++11 |
 | [`uint_least64_t`](cstdint/uint_least64_t.md) | 少なくとも64ビット幅を持つ、最小の符号なし整数 | C++11 |
 | [`uintmax_t`](cstdint/uintmax_t.md)           | 最も大きい符号なし整数型 | C++11 |
-| [`uintptr_t`](cstdint/uintptr_t.md)           | ポインタサイズの符号なし整数型(実装するかどうかは処理系定義) | C++11 |
+| [`uintptr_t`](cstdint/uintptr_t.md)           | ポインタサイズの符号なし整数型<br/>・C++11 : 実装するかどうかは処理系定義<br/>・C++29 : 必ず定義される | C++11 |
 
 
 以下のマクロは、整数型の限界値を表す。
@@ -77,8 +77,8 @@
 | [`INT_LEAST64_MAX`](cstdint/int_least64_max.md) | `int_least64_t`の最大値 | C++11 |
 | [`INTMAX_MIN`](cstdint/intmax_min.md)           | `intmax_t`の最小値 | C++11 |
 | [`INTMAX_MAX`](cstdint/intmax_max.md)           | `intmax_t`の最大値 | C++11 |
-| [`INTPTR_MIN`](cstdint/intptr_min.md)           | `intptr_t`の最小値(実装するかどうかは処理系定義) | C++11 |
-| [`INTPTR_MAX`](cstdint/intptr_max.md)           | `intptr_t`の最大値(実装するかどうかは処理系定義) | C++11 |
+| [`INTPTR_MIN`](cstdint/intptr_min.md)           | `intptr_t`の最小値<br/>・C++11 : 定義するかどうかは処理系定義<br/>・C++29 : 必ず定義される | C++11 |
+| [`INTPTR_MAX`](cstdint/intptr_max.md)           | `intptr_t`の最大値<br/>・C++11 : 定義するかどうかは処理系定義<br/>・C++29 : 必ず定義される | C++11 |
 | [`PTRDIFF_MIN`](cstdint/ptrdiff_min.md)         | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)の最小値 | C++11 |
 | [`PTRDIFF_MAX`](cstdint/ptrdiff_max.md)         | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)の最大値 | C++11 |
 | [`SIG_ATOMIC_MIN`](cstdint/sig_atomic_min.md)   | `sig_atomic_t`の最小値 | C++11 |
@@ -106,7 +106,7 @@
 | [`UINT_LEAST32_MAX`](cstdint/uint_least32_max.md) | `uint_least32_t`の最大値 | C++11 |
 | [`UINT_LEAST64_MAX`](cstdint/uint_least64_max.md) | `uint_least64_t`の最大値 | C++11 |
 | [`UINTMAX_MAX`](cstdint/uintmax_max.md)           | `uintmax_t`の最大値 | C++11 |
-| [`UINTPTR_MAX`](cstdint/uintptr_max.md)           | `uintptr_t`の最大値(実装するかどうかは処理系定義) | C++11 |
+| [`UINTPTR_MAX`](cstdint/uintptr_max.md)           | `uintptr_t`の最大値<br/>・C++11 : 定義するかどうかは処理系定義<br/>・C++29 : 必ず定義される | C++11 |
 | [`SIZE_MAX`](cstdint/size_max.md)                 | [`size_t`](/reference/cstddef/size_t.md)の最大値 | C++11 |
 
 
@@ -142,8 +142,8 @@
 | [`UINT_LEAST64_WIDTH`](cstdint/uint_least64_width.md) | `uint_least64_t`の幅 | C++26 |
 | [`INTMAX_WIDTH`](cstdint/intmax_width.md)             | `intmax_t`の幅 | C++26 |
 | [`UINTMAX_WIDTH`](cstdint/uintmax_width.md)           | `uintmax_t`の幅 | C++26 |
-| [`INTPTR_WIDTH`](cstdint/intptr_width.md)             | `intptr_t`の幅(実装するかどうかは処理系定義) | C++26 |
-| [`UINTPTR_WIDTH`](cstdint/uintptr_width.md)           | `uintptr_t`の幅(実装するかどうかは処理系定義) | C++26 |
+| [`INTPTR_WIDTH`](cstdint/intptr_width.md)             | `intptr_t`の幅<br/>・C++26 : 定義するかどうかは処理系定義<br/>・C++29 : 必ず定義される | C++26 |
+| [`UINTPTR_WIDTH`](cstdint/uintptr_width.md)           | `uintptr_t`の幅<br/>・C++26 : 定義するかどうかは処理系定義<br/>・C++29 : 必ず定義される | C++26 |
 | [`PTRDIFF_WIDTH`](cstdint/ptrdiff_width.md)           | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)の幅 | C++26 |
 | [`SIZE_WIDTH`](cstdint/size_width.md)                 | [`size_t`](/reference/cstddef/size_t.md)の幅 | C++26 |
 | [`SIG_ATOMIC_WIDTH`](cstdint/sig_atomic_width.md)     | `sig_atomic_t`の幅 | C++26 |
@@ -210,3 +210,5 @@ C99 の 7.18.3 `<stdint.h>` についての脚注で、同ヘッダを C++ で�
 - [N1835 `<stdint.h>` for C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1835.pdf)
 - [P3348R4 C++26 should refer to C23 not C17](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3348r4.pdf)
     - C++26がC23を参照するようになり、各整数型の幅を表すマクロと`__STDC_VERSION_STDINT_H__`が追加された
+- [P3248R5 Require `[u]intptr_t`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3248r5.html)
+    - C++29で、[`intptr_t`](cstdint/intptr_t.md)・[`uintptr_t`](cstdint/uintptr_t.md)と、それらに関連するマクロが必ず定義されるようになった。C++26までは、実装するかどうかは処理系定義だった
