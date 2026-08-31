@@ -83,6 +83,12 @@ chronoライブラリではこれに加え、たとえばデフォルトでは�
 - 便宜上のリテラルキャスト`STATICALLY-WIDEN`を導入する。`STATICALLY-WIDEN<charT>("...")`は、`charT`が`char`である場合は`"..."`、`charT`が`wchar_t`である場合は`L"..."`を意味する。
 - [`hh_mm_ss`](hh_mm_ss.md)オブジェクトの[`is_negative()`](hh_mm_ss/is_negative.md)が`true`である場合、出力される文字列の先頭に`STATICALLY-WIDEN<charT>("-")`が挿入される
 
+
+## 備考
+- 文字列リテラルエンコーディングがUnicodeエンコーディング形式であり、かつロケールが処理系定義のロケール集合に含まれる場合、ロケールに依存する各置換は、置換文字列を文字列リテラルエンコーディングに変換したかのように行われる
+    - これにより、たとえばリテラルエンコーディングがUTF-8で、ロケールがそれとは異なるエンコーディング (CP1251など) を使用する場合でも、出力全体が同じエンコーディングとなり、文字化けが発生しない
+
+
 ## 例外
 - 指定されたフォーマットフラグに必要な情報が含まれていない場合、[`format_error`](/reference/format/format_error.md)例外が送出される (例として、[`duration`](duration.md)には曜日をフォーマットするために必要な情報が含まれていない)
     - ただし、フラグが時刻に関するもの (`%H`, `%I`, `%p`など) である場合、`duration`の特殊化は深夜0時からの経過した時刻として解釈する
@@ -149,5 +155,9 @@ int main()
     - この提案文書はC++20の策定後に採択されたが、実装が追いついていない時期の採択だったために、C++20の仕様として扱われる
 - [LWG Issue 3831. Two-digit formatting of negative `year` is ambiguous](https://cplusplus.github.io/LWG/issue3831)
     - C++26で、`%y`が年の符号によらず年のうしろ2桁を表すことが明確化された。たとえば`std::format("{:%C %y}", -1976y)`は`"-20 76"`となる
+- [LWG Issue 3565. Handling of encodings in localized formatting of chrono types is underspecified](https://cplusplus.github.io/LWG/issue3565)
+    - C++23で、ロケールのエンコーディングと文字列リテラルエンコーディングが異なる場合の動作が規定されていなかった問題が、P2419R2によって解決された
+- [P2419R2 Clarify handling of encodings in localized formatting of chrono types](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2419r2.html)
+    - C++23で、文字列リテラルエンコーディングがUnicodeエンコーディング形式である場合に、ロケールに依存する置換が文字列リテラルエンコーディングへ変換されることが規定された
 - [LWG Issue 3842. Unclear wording for precision in `chrono-format-spec`](https://cplusplus.github.io/LWG/issue3842)
     - C++23で、`precision`（精度）が`rep`を浮動小数点型とする`duration`の特殊化に対してのみ有効であることが明確化された
