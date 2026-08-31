@@ -117,6 +117,22 @@ std::visit([](const auto& x) {
 
 
 
+## テンプレートパラメータ制約
+- 全ての`vars...`の型が、[`variant`](variant.md)の特殊化であるか、`variant`の特殊化をpublic継承した型であり、その基底クラスとなる`variant`が一意に定まること
+    - 以下のように基底クラスとなる`variant`が一意に定まらない型は、この関数に渡せない
+        ```cpp
+        // 異なるvariantを2つ継承しており、どちらの基底クラスとして扱うかが決まらない
+        struct A : std::variant<int, double>, std::variant<char> {};
+
+        // 同じvariantが2つの経路で基底クラスとして現れる
+        struct B1 : std::variant<int, double> {};
+        struct B2 : std::variant<int, double> {};
+        struct B : B1, B2 {};
+        ```
+    - private継承・protected継承した型も、外部から基底クラスの`variant`へ変換できないため渡せない
+    - この制約はC++23で規定された。C++20までは`vars...`の型に対する制約が規定されておらず、`variant`以外の型を渡したときの動作は処理系によって異なっていた
+
+
 ## 適格要件
 - 全ての`vars...`に代入された[`size_t`](/reference/cstddef/size_t.md)型インデックスのパックを`m`とする
 - (1) : 全ての`m`の組み合わせについて、式[`INVOKE`](/reference/concepts/Invoke.md)`(`[`std::forward`](/reference/utility/forward.md)`<Visitor>(vis),` [`get`](variant/get.md)`<m>(`[`std::forward`](/reference/utility/forward.md)`<Variants>(vars))...)`が適格であること
@@ -140,10 +156,12 @@ std::visit([](const auto& x) {
 
 
 ## 備考
+- C++23から、[`variant`](variant.md)の特殊化そのものだけでなく、`variant`の特殊化をpublic継承した型も渡せるようになった。渡された引数は基底クラスの`variant`へ変換されてから処理されるため、派生した型に対して[`variant_size`](variant_size.md)や[`variant_alternative`](variant_alternative.md)を特殊化する必要はない
 - この関数は、[Boost Variant Library](https://boost.org/libs/variant)では[`apply_visitor()`](https://www.boost.org/doc/libs/release/doc/html/boost/apply_visitor.html)という名前で定義される
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <variant>
@@ -177,10 +195,38 @@ int main()
 ```
 * std::visit[color ff0000]
 
-### 出力
+#### 出力
 ```
 4
 HelloHello
+```
+
+### `variant`を継承した型を渡す (C++23)
+```cpp example
+#include <iostream>
+#include <variant>
+#include <string>
+
+// variantを継承した型
+struct Value : std::variant<int, std::string> {
+  using variant::variant;
+};
+
+int main()
+{
+  Value v = 42;
+  std::visit([](const auto& x) { std::cout << x << std::endl; }, v);
+
+  v = std::string{"Hello"};
+  std::visit([](const auto& x) { std::cout << x << std::endl; }, v);
+}
+```
+* std::visit[color ff0000]
+
+#### 出力
+```
+42
+Hello
 ```
 
 ## バージョン
@@ -199,3 +245,7 @@ HelloHello
 ## 参照
 - [P0655R1 `visit<R>`: Explicit Return Type for `visit`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0655r1.pdf)
 - [LWG Issue 2970. Return type of `std::visit` misspecified](https://wg21.cmeerw.net/lwg/issue2970)
+- [LWG Issue 3052. `visit` is underconstrained](https://cplusplus.github.io/LWG/issue3052)
+    - C++23で、`vars...`の型に対する制約が規定されていなかった問題が、P2162R2によって解決された
+- [P2162R2 Inheriting from `std::variant`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2162r2.html)
+    - C++23で、`variant`の特殊化をpublic継承した型も渡せるようになった

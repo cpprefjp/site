@@ -143,6 +143,7 @@ std::visit([](auto& x) {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <variant>
@@ -172,9 +173,44 @@ int main()
 * std::holds_alternative[link holds_alternative.md]
 * std::get[link variant/get.md]
 
-### 出力
+#### 出力
 ```
 3
+Hello
+```
+
+### `variant`を継承して操作を追加する (C++23)
+```cpp example
+#include <iostream>
+#include <variant>
+#include <string>
+
+// variantを継承し、独自の操作を追加する
+struct Value : std::variant<int, std::string> {
+  using variant::variant;
+
+  bool is_string() const
+  {
+    return std::holds_alternative<std::string>(*this);
+  }
+};
+
+int main()
+{
+  Value v = std::string("Hello");
+
+  std::cout << std::boolalpha << v.is_string() << std::endl;
+
+  // C++23から、継承した型もstd::visit()に渡せる
+  std::visit([](const auto& x) { std::cout << x << std::endl; }, v);
+}
+```
+* std::holds_alternative[link holds_alternative.md]
+* std::visit[link visit.md]
+
+#### 出力
+```
+true
 Hello
 ```
 
@@ -211,6 +247,8 @@ Hello
 - [P0110R0 Implementing the strong guarantee for `variant<>` assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0110r0.html)
 - [P0308R0 Valueless Variants Considered Harmful](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0308r0.html)
 - [P0510R0 Disallowing references, incomplete types, arrays, and empty variants](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0510r0.html)
+- [P2162R2 Inheriting from `std::variant`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2162r2.html)
+    - C++23で、`variant`をpublic継承した型も[`std::visit()`](visit.md)に渡せるようになった
 - [LWG Issue 2901. `variant`s cannot properly support allocators](https://cplusplus.github.io/LWG/issue2901)
     - C++17の策定中に、アロケータ対応のコンストラクタと`uses_allocator`の特殊化が削除された（公開されたC++17にはこれらは存在しない）。`variant`は後続の値の代入で構築時のアロケータが失われるため、適切なアロケータ対応ができないという理由による
 - [LWG Issue 3196. `std::optional<T>` is ill-formed is `T` is an array](https://wg21.cmeerw.net/lwg/issue3196)

@@ -96,12 +96,17 @@
 |`__cpp_lib_to_underlying`|`202102L`|[`std::to_underlying()`](/reference/utility/to_underlying.md)の追加|[`<utility>`](/reference/utility.md)|
 |`__cpp_lib_tuple_like`|`202207L`|[`tuple-like`](/reference/tuple/tuple-like.md)コンセプトの追加|[`<map>`](/reference/map.md)<br/>[`<tuple>`](/reference/tuple.md)<br/>[`<unordered_map>`](/reference/unordered_map.md)<br/>[`<utility>`](/reference/utility.md)|
 |`__cpp_lib_unreachable`|`202202L`|[`std::unreachable()`](/reference/utility/unreachable.md)の追加|[`<utility>`](/reference/utility.md)|
+|`__cpp_lib_variant`|`202106L`|`202102L` : [`std::variant`](/reference/variant/variant.md)から派生した型を[`std::visit()`](/reference/variant/visit.md)に渡せるようにする<br/>`202106L` : [`std::variant`](/reference/variant/variant.md)の一部のメンバ関数を`constexpr`にする|[`<variant>`](/reference/variant.md)|
 |`__cpp_lib_print`|`202403L`|[`<print>`](/reference/print.md)の追加|[`<ostream>`](/reference/ostream.md)<br/>[`<print>`](/reference/print.md)|
 
 
 ## 参照
 
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
+- [P2162R2 Inheriting from `std::variant`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2162r2.html)
+    - C++23で、`__cpp_lib_variant`が`202102L`に更新された
+- [P2231R1 Missing `constexpr` in `std::optional` and `std::variant`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html)
+    - C++23で、`__cpp_lib_variant`が`202106L`に更新された
 - [LWG Issue 3621. Remove feature-test macro `__cpp_lib_monadic_optional`](https://cplusplus.github.io/LWG/issue3621)
     - C++23で、重複していた`__cpp_lib_monadic_optional`が削除され、代わりに`__cpp_lib_optional`が`202106L`から`202110L`に更新された（`optional`のモナド操作を表す）
 - [LWG Issue 3750. Too many papers bump `__cpp_lib_format`](https://cplusplus.github.io/LWG/issue3750)
