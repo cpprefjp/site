@@ -48,7 +48,8 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|-------|
-| [`strided_slice`](mdspan/strided_slice.md) | 指定次元のストライド指定要素取り出しを指示する集成体クラステンプレート (class template) | C++26 |
+| [`extent_slice`](mdspan/extent_slice.md) | 指定次元から、取り出す要素数とストライド幅を指定した要素取り出しを指示する集成体クラステンプレート (class template) | C++26 |
+| [`range_slice`](mdspan/range_slice.md) | 指定次元から、取り出し元の半開区間とストライド幅を指定した要素取り出しを指示する集成体クラステンプレート (class template) | C++26 |
 | [`full_extent_t`](mdspan/full_extent_t.md) | 指定次元の全要素取り出しを指示するタグ型 (class) | C++26 |
 | [`full_extent`](mdspan/full_extent_t.md) | 指定次元の全要素取り出しを指示するタグ値 (variable) | C++26 |
 | [`submdspan_mapping_result`](mdspan/submdspan_mapping_result.md) | 多次元配列部分ビューのレイアウトマッピング情報 (class template) | C++26 |

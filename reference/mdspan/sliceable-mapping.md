@@ -31,7 +31,7 @@ concept sliceable-mapping = see below;
     - 型`IT`
     - [`full_extent_t`](full_extent_t.md)
     - [`constant_wrapper`](/reference/utility/constant_wrapper.md)の特殊化
-    - [`strided_slice`](strided_slice.md)の特殊化
+    - [`extent_slice`](extent_slice.md)の特殊化
 
 下記を満たすとき、型`M`はスライス可能レイアウトマッピング(sliceable layout mapping)要件を満たす。
 
@@ -71,3 +71,5 @@ concept sliceable-mapping = see below;
 
 ## 参照
 - [P3663R3 Future-proof `submdspan_mapping`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3663r3.html)
+- [P3982R2 Split `strided_slice` into `extent_slice` and `range_slice` for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3982r2.html)
+    - C++26のリリース前に、`strided_slice`が[`extent_slice`](extent_slice.md)へ改名された。レイアウトマッピングが直接受け取るスライス型は[`extent_slice`](extent_slice.md)のみであり、[`range_slice`](range_slice.md)は正規化を経て[`extent_slice`](extent_slice.md)として渡される

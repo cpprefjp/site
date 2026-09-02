@@ -157,7 +157,7 @@
 |`__cpp_lib_sstream_from_string_view`|`202306L`|[`std::basic_stringstream`](/reference/sstream/basic_stringstream.md)などが[`std::basic_string_view`](/reference/string_view/basic_string_view.md)から構築可能に|[`<sstream>`](/reference/sstream.md)|
 |`__cpp_lib_string_subview`|`202506L`|[`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)に`subview()`を追加|[`<string>`](/reference/string.md), [`<string_view>`](/reference/string_view.md)|
 |`__cpp_lib_string_view`|`202403L`|[`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を連結させる`operator+`を追加|[`<string>`](/reference/string.md), [`<string_view>`](/reference/string_view.md)|
-|`__cpp_lib_submdspan`|`202411L`|[`std::mdspan`](/reference/mdspan/mdspan.md)から部分ビューを取り出す[`std::submdspan()`](/reference/mdspan/submdspan.md)を追加|[`<mdspan>`](/reference/mdspan.md)|
+|`__cpp_lib_submdspan`|`202603L`|[`std::mdspan`](/reference/mdspan/mdspan.md)から部分ビューを取り出す[`std::submdspan()`](/reference/mdspan/submdspan.md)を追加 (`202411L`)。`strided_slice`を[`std::extent_slice`](/reference/mdspan/extent_slice.md)へ改名し、[`std::range_slice`](/reference/mdspan/range_slice.md)を追加 (`202603L`)|[`<mdspan>`](/reference/mdspan.md)|
 |`__cpp_lib_task`|`202506L`||[`<execution>`](/reference/execution.md)|
 |`__cpp_lib_text_encoding`|`202306L`|文字列エンコーディングを識別するライブラリ[`<text_encoding>`](/reference/text_encoding.md)を追加|[`<text_encoding>`](/reference/text_encoding.md)|
 |`__cpp_lib_to_chars`|`202306L`|[`std::to_chars_result`](/reference/charconv/to_chars_result.md)と[`std::from_chars_result`](/reference/charconv/from_chars_result.md)に`operator bool`を追加|[`<charconv>`](/reference/charconv.md)|
@@ -213,6 +213,8 @@
     - C++26で`__cpp_lib_linalg`が`202511L`に更新された
 - [P4012R1 Value-preserving consteval broadcast to `simd::vec`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4012r1.pdf)
     - C++26のsimd整合修正により`__cpp_lib_simd`が`202603L`に更新された
+- [P3982R2 Split `strided_slice` into `extent_slice` and `range_slice` for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3982r2.html)
+    - C++26で、`__cpp_lib_submdspan`が`202603L`に更新された
 - [P4206R0 Revert string support in `std::constant_wrapper`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4206r0.html)
     - [`std::constant_wrapper`](/reference/utility/constant_wrapper.md)の文字列リテラルサポートが取り消されたことにより、`__cpp_lib_constant_wrapper`が`202603L`から`202606L`に更新された。規格としてはC++29のワーキングドラフトへ適用されたが、C++26で追加された機能に対する欠陥報告 (DR) であるため、C++26へ遡及して適用される
 - [P2198R7 Freestanding Feature-Test Macros and Implementation-Defined Extensions](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2198r7.html)

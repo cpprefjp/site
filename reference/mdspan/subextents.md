@@ -46,15 +46,14 @@ auto [...slices] = canonical_slices(src, raw_slices...);
 
 - [`SubExtents::rank()`](extents/rank.md)が[`MAP_RANK`](canonical_slices.md)`(slices, Extents::rank())`に等しく、かつ
 - `slices...[k]`の型が[縮約スライス型(collapsing slice type)](canonical_slices.md)ではない`Extents`の各次元インデクス`k`に対して、説明用の`S_k`を`slices...[k]`の型としたとき、[`SubExtents::static_extent`](extents/static_extent.md)`(`[`MAP_RANK`](canonical_slices.md)`(slices, k))`が下記と等しいこと。
-    - 型`S_k`が[`full_extent_t`](full_extent_t.md)のとき、[`SubExtents::static_extent`](extents/static_extent.md)`(k)`、そうでなければ、
-    - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化かつメンバ型`S_k::extent_type`が[`constant_wrapper`](/reference/utility/constant_wrapper.md)`<IndexType(0)>`のとき、値`0`、そうでなければ
-    - 型`S_k`が[`strided_slice`](strided_slice.md)の特殊化かつメンバ型`extent_type`および`stride_type`がいずれも[`constant_wrapper`](/reference/utility/constant_wrapper.md)の特殊化であるとき、`1 + ((S_k::extent_type::value - 1) / S_k::stride_type::value)`
+    - 型`S_k`が[`full_extent_t`](full_extent_t.md)のとき、[`Extents::static_extent`](extents/static_extent.md)`(k)`、そうでなければ、
+    - 型`S_k`が[`extent_slice`](extent_slice.md)の特殊化かつメンバ型`S_k::extent_type`が[`constant_wrapper`](/reference/utility/constant_wrapper.md)の特殊化であるとき、`S_k::extent_type::value`
     - そうでなければ、[`dynamic_extent`](/reference/span/dynamic_extent.md)
 
 以下を満たす`SubExtents`型の値`ext`を返す。
 
 - `slices...[k]`の型が[縮約スライス型(collapsing slice type)](canonical_slices.md)ではない`extents<IndexType, Extents...>`の各次元インデクス`k`について、説明用の`s_k`を`slices...[k]`としたとき、[`ext.extent`](extents/extent.md)`(`[`MAP_RANK`](canonical_slices.md)`(slices, k))`が下記に等しいこと。
-    - `s_k`の型が[`strided_slice`](strided_slice.md)の特殊化であるとき、`s_k.extent == 0 ? 0 : 1 + (s_k.extent - 1) / s_k.stride`
+    - `s_k`の型が[`extent_slice`](extent_slice.md)の特殊化であるとき、`s_k.extent`
     - そうでなければ、`src`のk番目の要素に対して`submdspan`スライス範囲である半開区間`[L, U)`に対して、`U - L`
 
 
@@ -82,11 +81,10 @@ int main()
   auto ext2 = std::subextents(exts, std::pair{Int<2>, Int<8>});
   static_assert(std::same_as<decltype(ext2), std::extents<size_t, 6>>);
 
-  auto ext3 = std::subextents(exts, std::strided_slice{0, Int<0>, 1});
-  static_assert(std::same_as<decltype(ext3), std::dextents<size_t, 1>>);
-  assert(ext3.extent(0) == 0);
+  auto ext3 = std::subextents(exts, std::extent_slice{0, Int<0>, 1});
+  static_assert(std::same_as<decltype(ext3), std::extents<size_t, 0>>);
 
-  auto ext4 = std::subextents(exts, std::strided_slice{0, Int<10>, Int<3>});
+  auto ext4 = std::subextents(exts, std::extent_slice{0, Int<4>, 3});
   static_assert(std::same_as<decltype(ext4), std::extents<size_t, 4>>);
 
   auto ext5 = std::subextents(exts, std::pair{2, 8});
@@ -96,7 +94,7 @@ int main()
 ```
 * std::subextents[color ff0000]
 * std::full_extent[link full_extent_t.md]
-* std::strided_slice[link strided_slice.md]
+* std::extent_slice[link extent_slice.md]
 * std::integral_constant[link /reference/type_traits/integral_constant.md]
 
 ### 出力
@@ -110,7 +108,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 17 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
@@ -118,7 +116,8 @@ int main()
 ## 関連項目
 - [`submdspan`](submdspan.md)
 - [`full_extent`](full_extent_t.md)
-- [`strided_slice`](strided_slice.md)
+- [`extent_slice`](extent_slice.md)
+- [`range_slice`](range_slice.md)
 
 
 ## 参照
@@ -126,3 +125,5 @@ int main()
 - [P3663R3 Future-proof `submdspan_mapping`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3663r3.html)
 - [LWG Issue 4491. Rename `submdspan_extents` and `submdspan_canonicalize_slices`](https://cplusplus.github.io/LWG/issue4491)
     - この関数はC++26のリリース前に`submdspan_extents`から`subextents`へ改名された
+- [P3982R2 Split `strided_slice` into `extent_slice` and `range_slice` for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3982r2.html)
+    - C++26のリリース前に、[`extent_slice`](extent_slice.md)の`extent`メンバ変数が取り出す要素数を表すようになったことで、戻り値の要素数がストライド幅による除算なしで求まるようになった

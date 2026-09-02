@@ -41,7 +41,7 @@ friend constexpr auto submdspan_mapping(
 - 値`sub_ext` : 式[`subextents`](../../subextents.md)`(extents(), slices...)`の結果
 - 型`SubExtents` : `decltype(sub_ext)`
 - 値`sub_strides` : `slices...[k]`の型が縮約スライス型(collapsing slice type)ではない`extents()`の各次元インデクス`k`において`sub_strides[MAP_RANK(slices, k)]`が下記を満たす、[`array`](/reference/array/array.md)`<SubExtents::index_type,` [`SubExtents::rank()`](../../extents/rank.md)`>`型の配列値
-    - 説明用の`s`を`slices...[k]`としたとき、`s`の型が[`strided_slice`](../../strided_slice.md)の特殊化かつ`s.stride < s.extent`の場合、[`stride(k)`](stride.md) `* s.stride`
+    - 説明用の`s`を`slices...[k]`としたとき、`s`の型が[`extent_slice`](../../extent_slice.md)の特殊化かつ`s.extent > 1`の場合、[`stride(k)`](stride.md) `* s.stride`
     - そうでなければ、[`stride(k)`](stride.md)
 - パック`ls` : `extents()`の次元`r`に対して、`r`番目の要素が`slices...[r]`の`submdspan`スライス範囲の下限に等しい`index_type`型の値パック
 - 値`offset` : `extents()`における任意の次元インデクス`k`に対して`ls...[k]`が`extents().extent(k)`と等しいとき、`required_span_size()`に等しい`size_t`型の値。そうでなければ、[`operator()`](op_call.md)に等しい`size_t`型の値。
@@ -70,3 +70,5 @@ friend constexpr auto submdspan_mapping(
 ## 参照
 - [P2630R4 Submdspan](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html)
 - [P3663R3 Future-proof `submdspan_mapping`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3663r3.html)
+- [P3982R2 Split `strided_slice` into `extent_slice` and `range_slice` for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3982r2.html)
+    - C++26のリリース前に、`strided_slice`が[`extent_slice`](../../extent_slice.md)へ改名され、`extent`メンバ変数が取り出す要素数を表すようになったことにともない、ストライド幅の算出条件が`s.stride < s.extent`から`s.extent > 1`へ変更された

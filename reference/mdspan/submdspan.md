@@ -26,12 +26,13 @@ namespace std {
 多次元配列ビュー[`mdspan`](mdspan.md)と各次元からの要素取り出し（スライス）方式を指定して、メモリブロックに対する新しい多次元配列ビュー[`mdspan`](mdspan.md)を取得する。
 
 ### スライス指定
-各次元からの要素取り出し方式は、下記の4種類をサポートする。
+各次元からの要素取り出し方式は、下記の5種類をサポートする。
 スライス指定子リスト`slices...`にインデクス値指定が含まれる場合、戻り値の次元数(rank)は元の多次元配列ビューに対してインデクス値指定した次元数だけ削減される。
 
 - インデクス値指定 : 整数値。指定次元に対する多次元インデクス値を固定する。
 - インデクス範囲指定 : [インデクス・ペア互換型](index-pair-like.md)の値。開始位置(begin)と終了位置(end)で表現される半開区間から要素群を取り出す。
-- ストライド・スライス指定 : [`std::strided_slice`](strided_slice.md)の値。オフセット(offset)と要素数(extent)とストライド幅(stride)で指定される要素群を取り出す。
+- 要素数スライス指定 : [`std::extent_slice`](extent_slice.md)の値。取り出し開始位置(offset)と取り出す要素数(extent)とストライド幅(stride)で指定される要素群を取り出す。
+- 区間スライス指定 : [`std::range_slice`](range_slice.md)の値。取り出し元の半開区間(first, last)とストライド幅(stride)で指定される要素群を取り出す。
 - 全要素指定 : [`std::full_extent`](full_extent_t.md)。指定次元の全要素を取り出す。
 
 ### カスタマイゼーションポイント
@@ -132,16 +133,16 @@ int main()
   auto submat = std::submdspan(mat, std::pair{1,3}, std::pair{1,4});
   print_mat("submat", submat);
 
-  // ストライド・スライス指定
+  // 要素数スライス指定
   auto strided = std::submdspan(mat,
-    std::strided_slice{.offset=1, .extent=3, .stride=2}, 
-    std::strided_slice{.offset=0, .extent=5, .stride=2});
+    std::extent_slice{.offset=1, .extent=2, .stride=2}, 
+    std::extent_slice{.offset=0, .extent=3, .stride=2});
   print_mat("strided", strided);
 }
 ```
 * std::submdspan[color ff0000]
 * std::full_extent[link full_extent_t.md]
-* std::strided_slice[link strided_slice.md]
+* std::extent_slice[link extent_slice.md]
 * std::print[link /reference/print/print.md]
 * std::ranges::iota[link /reference/numeric/ranges_iota.md]
 
@@ -188,22 +189,22 @@ int main()
 
   // 動的要素数 2x3 の2次元配列部分ビューを取り出し
   auto submat_dyn = std::submdspan(mat,
-    std::pair{1, 3},
-    std::strided_slice{.offset=0, .extent=5, .stride=2});
+    std::extent_slice{.offset=1, .extent=2, .stride=2},
+    std::pair{1, 4});
   static_assert(std::same_as<decltype(submat_dyn)::extents_type, std::dextents<size_t, 2>>);
   std::println("submat_dyn {}x{}", submat_dyn.extent(0), submat_dyn.extent(1));
 
   // 静的要素数 2x3 の2次元配列部分ビューを取り出し
   auto submat_2x3 = std::submdspan(mat,
-    std::pair{Int<1>, Int<3>},
-    std::strided_slice{.offset=0, .extent=Int<5>, .stride=Int<2>});
-  // (strided_slice::offset は戻り値型に影響を与えない)
+    std::extent_slice{.offset=1, .extent=Int<2>, .stride=Int<2>},
+    std::pair{Int<1>, Int<4>});
+  // (extent_slice::offset は戻り値型に影響を与えない)
   static_assert(std::same_as<decltype(submat_2x3)::extents_type, std::extents<size_t, 2, 3>>);
   std::println("submat_2x3 {}x{}", submat_2x3.extent(0), submat_2x3.extent(1));
 }
 ```
 * std::submdspan[color ff0000]
-* std::strided_slice[link strided_slice.md]
+* std::extent_slice[link extent_slice.md]
 * std::integral_constant[link /reference/type_traits/integral_constant.md]
 * std::ranges::iota[link /reference/numeric/ranges_iota.md]
 
@@ -242,7 +243,7 @@ int main()
   auto col1 = std::submdspan(mat, std::full_extent, 1);
   // 2 4 6
   auto row02 = std::submdspan(mat,
-    std::strided_slice{.offset=0, .extent=3, .stride=2},
+    std::extent_slice{.offset=0, .extent=2, .stride=2},
     std::full_extent);
   // 1 2
   // 5 6
@@ -252,7 +253,7 @@ int main()
 ```
 * std::submdspan[color ff0000]
 * std::full_extent[link full_extent_t.md]
-* std::strided_slice[link strided_slice.md]
+* std::extent_slice[link extent_slice.md]
 * std::layout_right[link layout_right.md]
 * std::layout_stride[link layout_stride.md]
 
@@ -267,7 +268,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 17 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
@@ -275,7 +276,8 @@ int main()
 ## 関連項目
 - [`mdspan`](mdspan.md)
 - [`full_extent`](full_extent_t.md)
-- [`strided_slice`](strided_slice.md)
+- [`extent_slice`](extent_slice.md)
+- [`range_slice`](range_slice.md)
 
 
 ## 参照
@@ -283,3 +285,5 @@ int main()
 - [P3663R3 Future-proof `submdspan_mapping`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3663r3.html)
 - [LWG Issue 4060. `submdspan` preconditions do not forbid creating invalid pointer](https://cplusplus.github.io/LWG/issue4060)
     - C++26で、スライスが次元の境界に達する場合に`offset`を`required_span_size()`とすることで境界外ポインタの生成を防ぐことが明確化され（各`submdspan_mapping`に反映済み）、あわせて`submdspan`の効果の説明変数名が`sub_map_result`に変更された
+- [P3982R2 Split `strided_slice` into `extent_slice` and `range_slice` for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3982r2.html)
+    - C++26のリリース前に、ストライド・スライス指定に用いる`strided_slice`が[`extent_slice`](extent_slice.md)へ改名されて`extent`メンバ変数が取り出す要素数を表すようになり、取り出し元の半開区間で指定する[`range_slice`](range_slice.md)が追加された
