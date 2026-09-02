@@ -174,8 +174,12 @@ string s3 = format("{} {1}",  "a", "b"); // コンパイルエラー
 | e, E       | 指数表記する              | `to_chars(first, last, value, chars_format::scientific, precision)` (精度が指定されたとき)<br/>`to_chars(first, last, value, chars_format::scientific, 6)` (それ以外) |
 | a, A       | 16進数で指数表記する      | `to_chars(first, last, value, chars_format::hex, precision)` (精度が指定されたとき)<br/>`to_chars(first, last, value, chars_format::hex)` (それ以外)                  |
 | g, G       | 値に応じて指数表記を使う  | `to_chars(first, last, value, chars_format::general, precision)` (精度が指定されたとき)<br/>`to_chars(first, last, value, chars_format::general, 6)` (それ以外)       |
+| (指定なし) | 値に応じて指数表記を使う  | `to_chars(first, last, value, chars_format::general, precision)` (精度が指定されたとき)<br/>`to_chars(first, last, value)` (それ以外)                                 |
 
-デフォルトは `g`。
+型指定を省略した場合、精度も指定されていなければ`g`とは異なり、精度・フォーマット指定なしの[`to_chars`](/reference/charconv/to_chars.md)と同じ表現になる。この既定表現で指数表記を使うかどうかの判定は、以下のように変更された。
+
+- C++20 : 出力文字列が最も短くなるほうを選択する。`std::format("{}", 100000.0)`は`"1e+05"`となる
+- C++29 : 値の範囲によって選択する。`std::format("{}", 100000.0)`は`"100000"`となる
 
 大文字のオプションを指定すると数値中のアルファベットが大文字になる。
 
@@ -768,3 +772,5 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
     - C++26で、`charT`が`wchar_t`のとき`to_chars`の出力をワイドリテラルエンコーディングへ変換することが明確化された
 - [P3248R5 Require `[u]intptr_t`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3248r5.html)
     - C++29で、[`uintptr_t`](/reference/cstdint/uintptr_t.md)が必ず定義されるようになったことにともない、ポインタの出力が処理系定義となる場合の規定が削除された
+- [P3505R4 Fix the default floating-point representation in `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3505r4.html)
+    - C++29で、浮動小数点数の型指定と精度をどちらも省略した場合の既定表現が、値の範囲によって固定小数表記と指数表記を選択するよう変更された。他言語の実装と揃えるためである
