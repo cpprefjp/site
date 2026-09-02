@@ -47,6 +47,15 @@ static_assert(result == 55);                 // resultが定数式でなくて�
 クラステンプレート`constant_wrapper`の2つめのテンプレートパラメータは無名であり、引数依存の名前探索 (ADL) を補助するために存在する。これによって、包んでいる値が引数として適合するオーバーロードを、`constant_wrapper`自身が適合しない場合でも発見できるようになる。
 
 
+## 適格要件
+- 2つめのテンプレートパラメータ`T`が、メンバ型`value_type`と同じ型ではない場合、プログラムは不適格となる。
+    ```cpp
+    std::constant_wrapper<42, int>   x; // OK
+    std::constant_wrapper<42, float> y; // コンパイルエラー！value_typeはint
+    ```
+    * std::constant_wrapper[link constant_wrapper.md]
+
+
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
@@ -89,9 +98,11 @@ static_assert(result == 55);                 // resultが定数式でなくて�
 
 | 名前 | 説明 | 設定される値・型 | 対応バージョン |
 |------|------|------------------|----------------|
-| `value` | 保持する定数値への参照 | テンプレート引数`X`への参照（`static constexpr decltype(auto) value = (X);`）。型は`const value_type&` | C++26 |
+| `value` | 保持する定数値 | テンプレート引数`X`（`static constexpr decltype(auto) value = (X);`） | C++26 |
 
-たとえば`std::cw<42>`の場合、`value`の値は`42`、その型は`const int&`となる。`value`はテンプレートパラメータオブジェクトへの参照であるため、ダングリングしない。
+`value`の型は`decltype(auto)`によって決まるため、`X`がクラス型の場合はテンプレートパラメータオブジェクトへの参照 (`const value_type&`) となり、`X`がスカラー型の場合は値そのもの (`const value_type`) となる。
+
+たとえば`std::cw<42>`の場合、`value`の値は`42`、その型は`const int`となる。参照となる場合の参照先はテンプレートパラメータオブジェクトであるため、ダングリングしない。
 
 
 ## 非メンバ（*Hidden friends*）関数
@@ -145,6 +156,7 @@ namespace std {
 - `operator()`と`operator[]`は静的メンバ関数であり、保持する値`value`をアンラップして呼び出す。引数がすべて`constexpr-param`のモデルであり、その結果をふたたび`constant_wrapper`で包める場合は、包んだ`constant_wrapper`を返す。そうでない場合は、アンラップした結果をそのまま返す。
     - この「保持する値そのものになる。ただし包んだままにできるなら包んだままにする」という規則は、すべての演算子に共通する。たとえば、`std::cw<1> + 1`は`int`の`2`に、`std::cw<1> + std::cw<1>`は`constant_wrapper<2>`になる。
 - `operator,`（カンマ演算子）は`delete`定義されている。
+- `std::cw<"foo">`のように文字列リテラルを直接包むことはできない。文字列リテラルへのポインタは定数テンプレート引数として渡せないためである。文字列を定数として扱いたい場合は、固定長の文字列クラスをユーザー側で定義して`constant_wrapper`のテンプレート引数に渡す。
 
 
 ## 例
@@ -176,6 +188,32 @@ int main()
 #### 出力
 ```
 55
+```
+
+### 包んだ値をテンプレート引数として受け取る
+```cpp example
+#include <utility>
+#include <iostream>
+
+// constant_wrapperが包んでいる値を、そのままテンプレート引数として推論できる
+template <int I>
+void f(std::constant_wrapper<I>)
+{
+  std::cout << I << std::endl;
+}
+
+int main()
+{
+  f(std::cw<5>);
+  // f(std::cw<5u>); // コンパイルエラー！ intではないため推論に失敗する
+}
+```
+* std::cw[color ff0000]
+* std::constant_wrapper[color ff0000]
+
+#### 出力
+```
+5
 ```
 
 ### 演算結果を型として保持する
@@ -240,7 +278,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 23 [mark verified]
-- [GCC](/implementation.md#gcc): 16.1 [mark verified]
+- [GCC](/implementation.md#gcc): 17 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2026 Update 2 [mark noimpl]
 
 
@@ -255,4 +293,4 @@ int main()
 - [P3978R3 `constant_wrapper` should unwrap on call and subscript](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3978r3.pdf)
     - `operator()`と`operator[]`を静的メンバ関数とし、`INVOKE`を用いて値をアンラップして呼び出すよう変更された。あわせて`constant_wrapper`と`cw`の定義が[`<type_traits>`](/reference/type_traits.md)から[`<utility>`](/reference/utility.md)へ移動した
 - [P4206R0 Revert string support in `std::constant_wrapper`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4206r0.html)
-    - 文字列リテラルのサポートを削除し、テンプレートパラメータを説明用の`cw-fixed-value`から`auto`に戻した。これにともない`value_type`は`decltype(X)`、`value`は`X`自身を参照するよう簡略化された。仕様としてはC++29に導入されるが、C++26に対する欠陥報告 (DR) である
+    - 文字列リテラルのサポートを削除し、テンプレートパラメータを説明用の`cw-fixed-value`から`auto`に戻した。これにともない`value_type`は`decltype(X)`、`value`は`(X)`から`decltype(auto)`で決まる型（スカラー型では参照ではなく値）へと簡略化され、2つめのテンプレートパラメータが`value_type`と異なる場合を不適格とする規定が追加された。あわせて機能テストマクロ`__cpp_lib_constant_wrapper`が`202606L`に更新された。仕様としてはC++29に導入されるが、C++26に対する欠陥報告 (DR) である
