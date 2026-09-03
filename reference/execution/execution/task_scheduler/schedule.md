@@ -166,6 +166,7 @@ static constexpr auto transform_sender(BulkSndr&& bulk_sndr, const Env& env)
 - [`execution::schedule`](../schedule.md)
 - [`execition::bulk_chunked`](../bulk_chunked.md)
 - [`execition::bulk_unchunked`](../bulk_unchunked.md)
+- [C++23 `auto(x)`による一時オブジェクトへの変換](/lang/cpp23/auto_cast.md)
 
 
 ## 参照

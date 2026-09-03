@@ -108,6 +108,7 @@ int main() {
 ## 関連項目
 - [`adjacent_transform_view`](adjacent_transform_view.md): `adjacent_view` と同じように要素を取得して関数を適用する
 - [`slide_view`](slide_view.md): `adjacent_view` と同じように要素を取得するが、個数を実行時に指定する。内側は[`tuple`](/reference/tuple/tuple.md)ではなく[`view`](view.md)となる
+- [C++23 `auto(x)`による一時オブジェクトへの変換](/lang/cpp23/auto_cast.md)
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)

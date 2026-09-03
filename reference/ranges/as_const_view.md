@@ -101,6 +101,10 @@ int main() {
 - [GCC](/implementation.md#gcc): 13.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2022 Update 6 [mark verified]
 
+## 関連項目
+- [C++23 `auto(x)`による一時オブジェクトへの変換](/lang/cpp23/auto_cast.md)
+
+
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)

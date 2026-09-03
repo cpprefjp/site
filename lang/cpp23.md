@@ -13,6 +13,7 @@ C++23とは、2023年中に改訂され、ISO/IEC 14882:2024で標準規格化�
 |----------|------|
 | [(符号付き)`size_t`リテラルのためのサフィックス](cpp23/literal_suffix_for_signed_size_t.md) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする |
 | [暗黙的なムーブを簡略化](cpp23/simpler_implicit_move.md) | 参照を返す関数の`return`文で暗黙的にムーブされない問題を修正 |
+| [`auto(x)`による一時オブジェクトへの変換](cpp23/auto_cast.md) | `auto(x)`/`auto{x}`で、式の値をコピーした一時オブジェクトを得る |
 
 これらに加えて、ライブラリ機能として拡張浮動小数点数型が定義された。[`<stdfloat>`](/reference/stdfloat.md)を参照。
 

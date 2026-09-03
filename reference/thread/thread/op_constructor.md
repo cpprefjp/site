@@ -24,16 +24,16 @@ thread(thread&&) noexcept;              // (4)
 
 
 ## 要件
-- (2) : [`INVOKE`](/reference/concepts/Invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`が有効な式でなければならない。
+- (2) : [`INVOKE`](/reference/concepts/Invoke.md)`(auto(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), auto(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`が有効な式でなければならない。
     - C++20まで : これに加えて、型`F`および`Args`に含まれるすべての型`Ti`がムーブコンストラクト可能な型でなければならなかった。C++23では、`is_constructible`要件が既に目的を満たすため、この要件は削除された。
 
 
 ## 効果
-- (2) : 新しいスレッドを生成し、[`INVOKE`](/reference/concepts/Invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`を実行する。ただし`DECAY_COPY`は同コンストラクタを呼び出したスレッド上にて評価される。また`f`のコピーの戻り値は無視される。
-    - `DECAY_COPY(x)`は `template <class T> typename std::decay<T>::type decay_copy(T&& v) { return` [`std::forward`](/reference/utility/forward.md)`<T>(v); }` と定義される。おおよそ、`x`が配列型なら先頭要素へのポインタ、`x`が関数型ならその関数ポインタ、`x`がコピーコンストラクト可能な型なら`x`からコピーされたオブジェクト、`x`がムーブコンストラクト可能な型なら`x`からムーブされたオブジェクトとなる。
+- (2) : 新しいスレッドを生成し、[`INVOKE`](/reference/concepts/Invoke.md)`(auto(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), auto(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`を実行する。ただし`auto`によって生成される値は、同コンストラクタを呼び出したスレッド上で実体化される。また`f`のコピーの戻り値は無視される。
+    - [`auto(x)`](/lang/cpp23/auto_cast.md)は、`x`をコピーしたprvalueを生成する。おおよそ、`x`が配列型なら先頭要素へのポインタ、`x`が関数型ならその関数ポインタ、`x`がコピーコンストラクト可能な型なら`x`からコピーされたオブジェクト、`x`がムーブコンストラクト可能な型なら`x`からムーブされたオブジェクトとなる。
 
     - [`INVOKE`](/reference/concepts/Invoke.md)`(f, arg...)`は`f`が関数オブジェクトならば `f(arg...)` 形式の関数呼び出しとなる。詳細は[*INVOKE*](/reference/concepts/Invoke.md)の定義参照。
-    もし[`INVOKE`](/reference/concepts/Invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`呼び出しからcatchされない例外が送出された場合、[`std::terminate()`](/reference/exception/terminate.md)が呼び出されてプログラムは異常終了する。
+    もし[`INVOKE`](/reference/concepts/Invoke.md)`(auto(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), auto(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`呼び出しからcatchされない例外が送出された場合、[`std::terminate()`](/reference/exception/terminate.md)が呼び出されてプログラムは異常終了する。
 
 
 ## 同期操作
@@ -110,6 +110,10 @@ int main()
     - 2012はコピーコンストラクタのdeleteに対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 
 
+## 関連項目
+- [C++23 `auto(x)`による一時オブジェクトへの変換](/lang/cpp23/auto_cast.md)
+
+
 ## 参照
 - [LWG Issue 929. Thread constructor](https://cplusplus.github.io/LWG/issue929)
     - C++11で、関数オブジェクトのみをとるコンストラクタと引数付きのコンストラクタが(2)の可変引数コンストラクタひとつに統合され、`explicit`が付加された。また、実引数を`DECAY_COPY`によって呼び出し元スレッド上でコピーすることが規定された
@@ -117,3 +121,5 @@ int main()
 - [LWG Issue 3039. Unnecessary `decay` in `thread` and `packaged_task`](https://wg21.cmeerw.net/lwg/issue3039)
 - [LWG Issue 3476. `thread` and `jthread` constructors require that the parameters be move-constructible](https://cplusplus.github.io/LWG/issue3476)
     - C++23で、`is_constructible`要件が既に目的を満たすため、冗長だったムーブ構築可能（`is_move_constructible`）の要件が削除された
+- [P0849R8 `auto(x)`: decay-copy in the language](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0849r8.html)
+    - C++23で、実引数のコピーを表す規定が、説明専用の`DECAY_COPY`から言語機能の[`auto(x)`](/lang/cpp23/auto_cast.md)へ置き換えられた。規定の書き換えであり、動作は変わらない

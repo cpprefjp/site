@@ -51,12 +51,22 @@ return std::forward<T>(v);
 3. `v`が`rvalue`の場合は、ムーブした`v`
 4. それ以外の場合、コピーした`v`
 
+## 備考
+C++23では、標準ライブラリ規定における`decay-copy`の使用箇所の多くが、言語機能の[`auto(x)`](/lang/cpp23/auto_cast.md)へ置き換えられた。[`std::ranges::begin`](/reference/ranges/begin.md)などのRangeアクセス関数オブジェクトや、[`std::thread`](/reference/thread/thread.md)・[`std::jthread`](/reference/thread/jthread.md)のコンストラクタがこれにあたる。[`views::all`](/reference/ranges/all.md)・[`views::take`](/reference/ranges/take_view.md)・[`views::drop`](/reference/ranges/drop_view.md)や[`<execution>`](/reference/execution.md)の規定では、引き続き`decay-copy`が使われている。
+
+
 ## バージョン
 ### 言語
 - C++20
+
+## 関連項目
+- [C++23 `auto(x)`による一時オブジェクトへの変換](/lang/cpp23/auto_cast.md)
+
 
 ## 参照
 - [N4861 16.4.2.1 Exposition-only functions](https://timsong-cpp.github.io/cppwp/n4861/expos.only.func)
 - [N3255 C++ Decay Copy](http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2011/n3255.html) 実際の関数として提案しているが、採用には至っていない。
 - [LWG Issue 3724. decay-copy should be constrained](https://cplusplus.github.io/LWG/issue3724)
     - C++23で、`decay-copy`に`convertible_to<T, decay_t<T>>`制約が追加され、変換できない型に対してSFINAEフレンドリー（ill-formed）になった
+- [P0849R8 `auto(x)`: decay-copy in the language](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0849r8.html)
+    - C++23で、標準ライブラリ規定における`decay-copy`の使用箇所の多くが、言語機能の[`auto(x)`](/lang/cpp23/auto_cast.md)へ置き換えられた

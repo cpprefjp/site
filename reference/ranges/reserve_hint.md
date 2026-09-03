@@ -85,6 +85,7 @@ int main()
 ## 関連項目
 - [`std::ranges::size`](size.md)
 - [`std::ranges::approximately_sized_range`](approximately_sized_range.md)
+- [C++23 `auto(x)`による一時オブジェクトへの変換](/lang/cpp23/auto_cast.md)
 
 
 ## 参照

@@ -44,26 +44,18 @@ jthread(jthread&&) noexcept;             // (4) C++20
     - メンバ変数として保持している[`std::stop_source`](/reference/stop_token/stop_source.md)型オブジェクトを初期化する
     - 以下の式が有効であればそれで新たなスレッドを生成して実行し、
         ```cpp
-        invoke(decay-copy(std::forward<F>(f)), get_stop_token(), decay-copy(std::forward<Args>(args))...)
+        invoke(auto(std::forward<F>(f)), get_stop_token(), auto(std::forward<Args>(args))...)
         ```
         * invoke[link /reference/functional/invoke.md]
-        * decay-copy[link /reference/exposition-only/decay-copy.md]
         * get_stop_token()[link get_stop_token.md]
 
     - そうでなければ以下の式でスレッドを生成して実行する
         ```cpp
-        invoke(decay-copy(std::forward<F>(f)), decay-copy(std::forward<Args>(args))...)
+        invoke(auto(std::forward<F>(f)), auto(std::forward<Args>(args))...)
         ```
         * invoke[link /reference/functional/invoke.md]
-        * decay-copy[link /reference/exposition-only/decay-copy.md]
 
     - この呼び出しでの戻り値は無視される。この関数呼び出しが例外を送出する場合、呼び出し元スレッドで[`std::terminate`](/reference/exception/terminate.md)が呼び出される
-
-
-## 同期操作
-- (2) : コンストラクタ呼び出しの完了は、`f`のコピーの呼び出し開始**に対して同期する**
-    新しいスレッドを生成し、[`INVOKE`](/reference/concepts/Invoke.md)`(DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(`[`std::forward`](/reference/utility/forward.md)`<Args>(args))...)`を実行する。ただし`DECAY_COPY`は同コンストラクタを呼び出したスレッド上にて評価される。また`f`のコピーの戻り値は無視される。
-    - `DECAY_COPY(x)`は `template <class T> typename std::decay<T>::type decay_copy(T&& v) { return` [`std::forward`](/reference/utility/forward.md)`<T>(v); }` と定義される。おおよそ、`x`が配列型なら先頭要素へのポインタ、`x`が関数型ならその関数ポインタ、`x`がコピーコンストラクト可能な型なら`x`からコピーされたオブジェクト、`x`がムーブコンストラクト可能な型なら`x`からムーブされたオブジェクトとなる。
 
 
 ## 同期操作
@@ -163,6 +155,12 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [C++23 `auto(x)`による一時オブジェクトへの変換](/lang/cpp23/auto_cast.md)
+
+
 ## 参照
 - [LWG Issue 3476. `thread` and `jthread` constructors require that the parameters be move-constructible](https://cplusplus.github.io/LWG/issue3476)
     - C++23で、`is_constructible`要件が既に目的を満たすため、冗長だったムーブ構築可能（`is_move_constructible`）の要件が削除された
+- [P0849R8 `auto(x)`: decay-copy in the language](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0849r8.html)
+    - C++23で、実引数のコピーを表す規定が、説明専用の`decay-copy`から言語機能の[`auto(x)`](/lang/cpp23/auto_cast.md)へ置き換えられた

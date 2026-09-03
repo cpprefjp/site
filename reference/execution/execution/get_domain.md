@@ -49,6 +49,7 @@ const修飾[クエリ可能オブジェクト](../queryable.md)`cenv`に対し�
 ## 関連項目
 - [`execution::default_domain`](default_domain.md)
 - [`execution::get_completion_domain`](get_completion_domain.md)
+- [C++23 `auto(x)`による一時オブジェクトへの変換](/lang/cpp23/auto_cast.md)
 
 
 ## 参照

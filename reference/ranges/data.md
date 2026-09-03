@@ -20,7 +20,7 @@ Rangeの要素が格納されたメモリ領域へのポインタを取得する
 
 1. `E`がrvalueかつ[`enable_borrowed_range`](enable_borrowed_range.md)`<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>>`が`false`であれば、呼び出しは不適格。
 2. `T`が配列型かつ[`remove_all_extents_t`](/reference/type_traits/remove_all_extents.md)`<T>`が不完全型であれば、呼び出しは不適格(診断不要)。
-3. [`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.data())`が有効な式でその型がオブジェクトへのポインタであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.data())`と等しい。
+3. `auto(t.data())`が有効な式でその型がオブジェクトへのポインタであれば、`auto(t.data())`と等しい。
 4. [`ranges::begin`](begin.md)`(t)`が有効な式で、その型が[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)のモデルであれば、[`to_address`](/reference/memory/to_address.md)`(`[`ranges::begin`](begin.md)`(E))`と等しい。
 
 どれにも当てはまらないとき、呼び出しは不適格。
@@ -74,7 +74,10 @@ array size:1 at 0x5596494f02b0
 
 ## 関連項目
 - [`std::data`](/reference/iterator/data.md)
+- [C++23 `auto(x)`による一時オブジェクトへの変換](/lang/cpp23/auto_cast.md)
 
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
+- [P0849R8 `auto(x)`: decay-copy in the language](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0849r8.html)
+    - C++23で、コピーを表す説明専用の`decay-copy`が、言語機能の[`auto(x)`](/lang/cpp23/auto_cast.md)へ置き換えられた

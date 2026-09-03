@@ -126,6 +126,7 @@ int main()
 - [`execution::set_value`](set_value.md)
 - [`execution::set_error`](set_error.md)
 - [`execution::set_stopped`](set_stopped.md)
+- [C++23 `auto(x)`による一時オブジェクトへの変換](/lang/cpp23/auto_cast.md)
 
 
 ## 参照

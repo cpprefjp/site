@@ -246,6 +246,7 @@
 | P0330R8: [(符号付き)`size_t`リテラルのためのサフィックス](/lang/cpp23/literal_suffix_for_signed_size_t.md) | `42z`/`42Z`とすることで`size_t`に対応する符号付き整数型のリテラルとする | 11 | 13 | 2022.2 | 2022 Update 13 |
 | P2290R3: [エスケープシーケンスの区切り](/lang/cpp23/delimited_escape_sequences.md) | エスケープシーケンスの範囲を明確にする構文を追加する | 13 | 15 | 2023.2 | 2026 |
 | P2266R3: [暗黙的なムーブを簡略化](/lang/cpp23/simpler_implicit_move.md) | 参照を返す関数の`return`文で暗黙的にムーブされない問題を修正 | 13 | 13 | 2022.2 | 2026 |
+| P0849R8: [`auto(x)`による一時オブジェクトへの変換](/lang/cpp23/auto_cast.md) | `auto(x)`/`auto{x}`で、式の値をコピーした一時オブジェクトを得る | 12 | 15 | 2022.2 | 2026 |
 | P1787R6: [スコープと名前探索の仕様整理](/lang/cpp23/declarations_and_where_to_find_them.md) | 複雑で不完全になっているスコープと名前探索の仕様を整理し、一部の問題を解決する | No | - | - | Yes |
 | P2615R1: [無意味なexport宣言を禁止する](/lang/cpp23/meaningful_exports.md) | いくつかの不必要な宣言に対するモジュールexportを禁止する | 15 | 17 | - | 2026 |
 | P2360R0: [初期化文での型の別名宣言を許可](/lang/cpp23/extend_init_statement_to_allow_alias_declaration.md) | `for (using T = int; T e : v) {}`を許可 | 12 | 14 | 2022.2 | 2026 |

@@ -138,6 +138,7 @@ int main() {
 ## 関連項目
 - [`elements_view`](elements_view.md) zipの逆(タプルから要素を取り出す)
 - [`zip_transform_view`](zip_transform_view.md) zipして関数を適用する
+- [C++23 `auto(x)`による一時オブジェクトへの変換](/lang/cpp23/auto_cast.md)
 
 ## 参照
 - [N4950 26 Ranges library](https://timsong-cpp.github.io/cppwp/n4950/ranges)
