@@ -9,8 +9,8 @@
 iterator end() noexcept;           // (1) C++23
 constexpr iterator end() noexcept; // (1) C++26
 
-const_iterator end() const noexcept;           // (1) C++23
-constexpr const_iterator end() const noexcept; // (1) C++26
+const_iterator end() const noexcept;           // (2) C++23
+constexpr const_iterator end() const noexcept; // (2) C++26
 ```
 
 ## 概要
