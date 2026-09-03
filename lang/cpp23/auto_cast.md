@@ -19,6 +19,7 @@ void f(std::vector<int>& v)
   g(auto(v.front()));
 }
 ```
+* v.front[link /reference/vector/vector/front.md]
 
 コピーを作るだけであれば`auto a = v.front();`のように変数宣言でもよいが、この場合はコピーであることが宣言の副次的な性質にすぎず、得られる`a`も左辺値である。`auto(...)`は「値をコピーする」という操作を式として直接表現でき、その結果は関数へ値渡しした場合と同じprvalue (一時オブジェクト) となる。
 
@@ -110,6 +111,9 @@ int main()
   std::cout << std::endl;
 }
 ```
+* v.front[link /reference/vector/vector/front.md]
+* std::remove[link /reference/algorithm/remove.md]
+* v.erase[link /reference/vector/vector/erase.md]
 
 ### 出力
 ```
@@ -128,6 +132,7 @@ constexpr std::decay_t<T> decay_copy(T&& v)
   return std::forward<T>(v);
 }
 ```
+* std::is_nothrow_convertible_v[link /reference/type_traits/is_nothrow_convertible.md]
 
 この方法には、以下の問題もあった。
 
