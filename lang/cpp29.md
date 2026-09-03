@@ -98,7 +98,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 
 ### コンテナ
 - [`std::map`](/reference/map/map.md) / [`std::unordered_map`](/reference/unordered_map/unordered_map.md) / [`std::flat_map`](/reference/flat_map/flat_map.md)クラスに、[`std::optional`](/reference/optional/optional.md)`<要素への参照>`を返す検索メンバ関数`lookup()`を追加
-- [`std::ranges::view_interface`](/reference/ranges/view_interface.md)クラスに、境界チェック付きでランダムアクセスをするメンバ関数[`at()`](/reference/ranges/view_interface/at.md.nolink)を追加
+- [`std::ranges::view_interface`](/reference/ranges/view_interface.md)クラスに、境界チェック付きでランダムアクセスをするメンバ関数[`at()`](/reference/ranges/view_interface/at.md)を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)クラス向けのアルゴリズムとして[`std::copy()`](/reference/mdspan/copy.md.nolink)と[`std::fill()`](/reference/mdspan/fill.md.nolink)を追加
 
 ### メモリ
