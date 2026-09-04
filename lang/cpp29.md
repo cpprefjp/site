@@ -12,9 +12,6 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [浮動小数点演算のオーバーフローと無限大・NaNの扱いを明確化](/lang/cpp29/clarify_the_behavior_of_floating-point_overflow.md) | 無限大を表現できる浮動小数点型では、オーバーフローは未定義動作ではなく無限大を生成すると規定する。オーバーフローやNaNを新たに生成する演算は定数式にならず、無限大・NaNの伝播は定数式として扱える |
-| [非決定的なポインタの由来](/lang/cpp29/nondeterministic_pointer_provenance.md.nolink) | ポインタの由来を非決定的として扱うメモリモデルを整備する |
-| [無効なポインタ操作の扱いを整理](/lang/cpp29/invalid_pointer_operations.md.nolink) | 解放済みなど無効なポインタに対する操作の扱いを整理・規定する |
-| [ポインタの生存期間終了によるzap問題の解決案](/lang/cpp29/pointer_lifetime-end_zap_proposed_solutions.md.nolink) | 生存期間終了時にポインタ値が無効化される「zap」問題への解決策 |
 
 ### 文字列
 
@@ -58,6 +55,14 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [`consteval`時のみの値](/lang/cpp29/consteval-only_values.md.nolink) | `consteval`文脈でのみ存在・利用できる値の扱いを規定する |
+
+### 並行・並列処理
+
+| 言語機能 | 説明 |
+|----------|------|
+| [整数からポインタへの変換とポインタの由来の扱いを規定](/lang/cpp29/nondeterministic_pointer_provenance.md) | 整数からポインタへの変換では、その整数へ変換できるポインタ値のうち、プログラムの動作が定義される値が選択されると規定する |
+| [無効なポインタ操作の扱いを整理](/lang/cpp29/invalid_pointer_operations.md.nolink) | 解放済みなど無効なポインタに対する操作の扱いを整理・規定する |
+| [ポインタの生存期間終了によるzap問題の解決案](/lang/cpp29/pointer_lifetime-end_zap_proposed_solutions.md.nolink) | 生存期間終了時にポインタ値が無効化される「zap」問題への解決策 |
 
 ### プリプロセッサ
 
