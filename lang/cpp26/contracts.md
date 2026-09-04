@@ -143,7 +143,9 @@ int f(int x) pre(x > 0) { // OK: 定義でも同じ契約を指定
 ```
 
 #### 仮想関数
-仮想関数に事前条件または事後条件の指定子を付けることは不適格（ill-formed）である。仮想関数への`pre`と`post`のサポートは、将来の拡張として提案される予定である。
+仮想関数に事前条件または事後条件の指定子を付けることは不適格（ill-formed）である。
+
+- C++29 : [仮想関数への事前条件・事後条件の指定が許可された](/lang/cpp29/contracts_for_virtual_functions.md)
 
 ```cpp
 struct Base {
@@ -751,6 +753,7 @@ int main() {
 - [`std::contracts::assertion_kind`](/reference/contracts/assertion_kind.md)
 - [`std::contracts::evaluation_semantic`](/reference/contracts/evaluation_semantic.md)
 - [`std::contracts::detection_mode`](/reference/contracts/detection_mode.md)
+- [C++29 仮想関数への事前条件・事後条件の指定を許可](/lang/cpp29/contracts_for_virtual_functions.md)
 
 
 ## 参照
