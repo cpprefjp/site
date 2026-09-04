@@ -370,7 +370,7 @@
 | P3847R1: [ラムダの字句順序](/lang/cpp29/lexical_order_for_lambdas.md.nolink) | ラムダ式の字句上の順序を明確化する | | | | |
 | P2243R0: [テンプレートに対する言語リンケージ](/lang/cpp29/language_linkage_for_templates.md.nolink) | テンプレートに`extern "C"`等の言語リンケージを適用する規則を整備する | | | | |
 | P3424R2: [例外を送出する例外指定をもつ解放関数を不適格とする](/lang/cpp29/deallocation_functions_with_throwing_exception_specification_are_ill_formed.md.nolink) | `throw`する可能性がある例外指定を持つ`operator delete`を不適格にする | | | | |
-| P3822R2: [複合要件における条件付き`noexcept`指定](/lang/cpp29/conditional_noexcept_specifiers_in_compound_requirements.md.nolink) | コンセプトの複合要件`{ 式 } noexcept`で条件付き`noexcept`を書けるようにする | | | | |
+| P3822R2: [requires式の複合要件で条件付き`noexcept`指定を許可](/lang/cpp29/conditional_noexcept_specifiers_in_compound_requirements.md) | requires式の複合要件で、`{ 式 } noexcept(定数式)`形式の条件付き`noexcept`指定を書けるようにする | 17 | | | |
 | P3097R3: [契約を仮想関数に対応させる](/lang/cpp29/contracts_for_virtual_functions.md.nolink) | 仮想関数に契約を適用できるようにする | | | | |
 | P4101R1: [`consteval`時のみの値](/lang/cpp29/consteval-only_values.md.nolink) | `consteval`文脈でのみ存在・利用できる値の扱いを規定する | | | | |
 | P2414R12: [ポインタの生存期間終了によるzap問題の解決案](/lang/cpp29/pointer_lifetime-end_zap_proposed_solutions.md.nolink) | 生存期間終了時にポインタ値が無効化される「zap」問題への解決策 | | | | |

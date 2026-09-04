@@ -15,6 +15,7 @@
 
 | マクロ名 | 値 | 機能 |
 |----------|----|------|
+|`__cpp_concepts`|`202606L`|[requires式の複合要件で条件付き`noexcept`指定を許可](conditional_noexcept_specifiers_in_compound_requirements.md)|
 |`__cpp_pack_indexing`|`202606L`|[テンプレートテンプレートパラメータのパックへのインデックスアクセスを許可](pack_indexing_for_template_names.md)|
 
 
@@ -34,6 +35,8 @@
 ## 参照
 
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
+- [P3822R2 Conditional noexcept specifiers in compound requirements](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3822r2.html)
+    - C++29で`__cpp_concepts`が`202606L`に更新された
 - [P3670R4 Pack Indexing for Template Names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3670r4.pdf)
     - C++29で`__cpp_pack_indexing`が`202606L`に更新された
 - [P3428R4 Hazard Pointer Batches](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3428r4.pdf)
