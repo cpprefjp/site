@@ -52,6 +52,7 @@ int main()
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 `char16_t`と`char32_t`](/lang/cpp11/char16_32.md)
+- [C++29 名前付きユニバーサルキャラクタ名で使用できる別名を拡張](/lang/cpp29/more_named_universal_character_escapes.md)
 
 ## 参照
 - [P2071R2 Named universal character escapes](https://www.open-std.org/JTC1/SC22/WG21/docs/papers/2022/p2071r2.html)

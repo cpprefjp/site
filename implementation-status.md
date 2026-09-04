@@ -366,7 +366,7 @@
 | P3347R6: [無効なポインタ値の読み書き・コピーを定義された動作とする](/lang/cpp29/invalid_pointer_operations.md) | 無効なポインタ値の使用のうち、間接参照は未定義動作、比較などは処理系定義のままとし、読み込み・書き込み・コピーなどそれ以外の操作を定義された動作とする | | | | |
 | P3658R1: [新しいUnicode勧告に従った識別子の調整](/lang/cpp29/adjust_identifier_following_new_Unicode_recommendations.md.nolink) | 識別子に使える文字を最新のUnicode勧告に合わせて調整する | | | | |
 | P3950R1: [`return_value`と`return_void`は排他的ではない](/lang/cpp29/return_value_and_return_void_are_not_mutually_exclusive.md.nolink) | コルーチンの`promise`型が`return_value`と`return_void`の両方を持つことを許容する | | | | |
-| P3733R1: [名前付きユニバーサル文字エスケープを追加](/lang/cpp29/more_named_universal_character_escapes.md.nolink) | `\N{...}`で使える名前付き文字エスケープを拡張する | | | | |
+| P3733R1: [名前付きユニバーサルキャラクタ名で使用できる別名を拡張](/lang/cpp29/more_named_universal_character_escapes.md) | `\N{…}`に指定できる文字名の別名の分類制限を撤廃し、`\N{NBSP}`のような略称 (abbreviation) なども使用できるようにする | 17 | 23 | | |
 | P3847R1: [ラムダの字句順序](/lang/cpp29/lexical_order_for_lambdas.md.nolink) | ラムダ式の字句上の順序を明確化する | | | | |
 | P2243R0: [テンプレートに対する言語リンケージ](/lang/cpp29/language_linkage_for_templates.md.nolink) | テンプレートに`extern "C"`等の言語リンケージを適用する規則を整備する | | | | |
 | P3424R2: [例外を送出する例外指定をもつ解放関数を不適格とする](/lang/cpp29/deallocation_functions_with_throwing_exception_specification_are_ill_formed.md.nolink) | `throw`する可能性がある例外指定を持つ`operator delete`を不適格にする | | | | |

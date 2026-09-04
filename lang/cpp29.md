@@ -17,7 +17,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [名前付きユニバーサル文字エスケープを追加](/lang/cpp29/more_named_universal_character_escapes.md.nolink) | `\N{...}`で使える名前付き文字エスケープを拡張する |
+| [名前付きユニバーサルキャラクタ名で使用できる別名を拡張](/lang/cpp29/more_named_universal_character_escapes.md) | `\N{…}`に指定できる文字名の別名の分類制限を撤廃し、`\N{NBSP}`のような略称 (abbreviation) なども使用できるようにする |
 
 ### 制御構文
 

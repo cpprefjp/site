@@ -17,6 +17,7 @@
 |----------|----|------|
 |`__cpp_concepts`|`202606L`|[requires式の複合要件で条件付き`noexcept`指定を許可](conditional_noexcept_specifiers_in_compound_requirements.md)|
 |`__cpp_contracts`|`202606L`|[仮想関数への事前条件・事後条件の指定を許可](contracts_for_virtual_functions.md)|
+|`__cpp_named_character_escapes`|`202606L`|[名前付きユニバーサルキャラクタ名で使用できる別名を拡張](more_named_universal_character_escapes.md)|
 |`__cpp_pack_indexing`|`202606L`|[テンプレートテンプレートパラメータのパックへのインデックスアクセスを許可](pack_indexing_for_template_names.md)|
 
 
@@ -36,6 +37,8 @@
 ## 参照
 
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
+- [P3733R1 More named universal character escapes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3733r1.html)
+    - C++29で`__cpp_named_character_escapes`が`202606L`に更新された
 - [P3097R3 Contracts for C++: Virtual functions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3097r3.pdf)
     - C++29で`__cpp_contracts`が`202606L`に更新された
 - [P3822R2 Conditional noexcept specifiers in compound requirements](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3822r2.html)
