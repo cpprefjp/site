@@ -95,6 +95,7 @@ int main()
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++20 暗黙的なオブジェクト生成](/lang/cpp20/implicit_creation_of_objects_for_low-level_object_manipulation.md)
 - [C++29 アトミック操作とvolatileアクセスでの無効なポインタ値の扱いを規定](/lang/cpp29/pointer_lifetime-end_zap_proposed_solutions.md)
+- [C++29 無効なポインタ値の読み書き・コピーを定義された動作とする](/lang/cpp29/invalid_pointer_operations.md)
 - [`std::uintptr_t`](/reference/cstdint/uintptr_t.md)
 - [`std::bit_cast()`](/reference/bit/bit_cast.md)
 

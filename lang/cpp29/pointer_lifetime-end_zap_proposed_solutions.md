@@ -119,6 +119,7 @@ LIFO pushをはじめとするロックフリーアルゴリズムは、C言語�
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++29 整数からポインタへの変換とポインタの由来の扱いを規定](/lang/cpp29/nondeterministic_pointer_provenance.md)
+- [C++29 無効なポインタ値の読み書き・コピーを定義された動作とする](/lang/cpp29/invalid_pointer_operations.md)
 - [`std::atomic`](/reference/atomic/atomic.md)
 - [`std::atomic_ref`](/reference/atomic/atomic_ref.md)
 - [`std::uintptr_t`](/reference/cstdint/uintptr_t.md)

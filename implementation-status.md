@@ -363,7 +363,7 @@
 | P3899R3: [浮動小数点演算のオーバーフローと無限大・NaNの扱いを明確化](/lang/cpp29/clarify_the_behavior_of_floating-point_overflow.md) | 無限大を表現できる浮動小数点型では、オーバーフローは未定義動作ではなく無限大を生成すると規定する。オーバーフローやNaNを新たに生成する演算は定数式にならず、無限大・NaNの伝播は定数式として扱える | 15 (partial) | | | |
 | P3668R4: [後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md) | 後置`++`／`--`を`= default`で定義（前置版から自動生成）できるようにする | | | | |
 | P2434R5: [整数からポインタへの変換とポインタの由来の扱いを規定](/lang/cpp29/nondeterministic_pointer_provenance.md) | 整数からポインタへの変換では、その整数へ変換できるポインタ値のうち、プログラムの動作が定義される値が選択されると規定する | | | | |
-| P3347R6: [無効なポインタ操作の扱いを整理](/lang/cpp29/invalid_pointer_operations.md.nolink) | 解放済みなど無効なポインタに対する操作の扱いを整理・規定する | | | | |
+| P3347R6: [無効なポインタ値の読み書き・コピーを定義された動作とする](/lang/cpp29/invalid_pointer_operations.md) | 無効なポインタ値の使用のうち、間接参照は未定義動作、比較などは処理系定義のままとし、読み込み・書き込み・コピーなどそれ以外の操作を定義された動作とする | | | | |
 | P3658R1: [新しいUnicode勧告に従った識別子の調整](/lang/cpp29/adjust_identifier_following_new_Unicode_recommendations.md.nolink) | 識別子に使える文字を最新のUnicode勧告に合わせて調整する | | | | |
 | P3950R1: [`return_value`と`return_void`は排他的ではない](/lang/cpp29/return_value_and_return_void_are_not_mutually_exclusive.md.nolink) | コルーチンの`promise`型が`return_value`と`return_void`の両方を持つことを許容する | | | | |
 | P3733R1: [名前付きユニバーサル文字エスケープを追加](/lang/cpp29/more_named_universal_character_escapes.md.nolink) | `\N{...}`で使える名前付き文字エスケープを拡張する | | | | |
