@@ -388,6 +388,7 @@ void f(const T1& t1, const T2& t2, const T3& t3);
 - [C++11 可変引数マクロ](variadic_macros.md)
 - [C++17 畳み込み式](/lang/cpp17/folding_expressions.md)
 - [C++26 パラメータパックへのインデックスアクセスを許可](/lang/cpp26/pack_indexing.md)
+- [C++29 テンプレートテンプレートパラメータのパックへのインデックスアクセスを許可](/lang/cpp29/pack_indexing_for_template_names.md)
 - [C++26 可変引数テンプレートで`friend`宣言をできるようにする](/lang/cpp26/variadic_friends.md)
 - [C++26 可変引数テンプレートの半順序を再検討する](/lang/cpp26/reconsider_partial_ordering_of_variadic_templates.md)
 

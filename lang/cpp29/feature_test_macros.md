@@ -11,6 +11,13 @@
 
 ## 概要
 
+### 言語
+
+| マクロ名 | 値 | 機能 |
+|----------|----|------|
+|`__cpp_pack_indexing`|`202606L`|[テンプレートテンプレートパラメータのパックへのインデックスアクセスを許可](pack_indexing_for_template_names.md)|
+
+
 ### ライブラリ
 
 ライブラリの機能テストマクロは全て[`<version>`](/reference/version.md)でも提供される。
@@ -27,6 +34,8 @@
 ## 参照
 
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
+- [P3670R4 Pack Indexing for Template Names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3670r4.pdf)
+    - C++29で`__cpp_pack_indexing`が`202606L`に更新された
 - [P3428R4 Hazard Pointer Batches](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3428r4.pdf)
     - C++29で`__cpp_lib_hazard_pointer`が`202606L`に更新された
 - [P3319R6 Add an iota object for simd (and more)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3319r6.pdf)

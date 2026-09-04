@@ -374,7 +374,7 @@
 | P3097R3: [契約を仮想関数に対応させる](/lang/cpp29/contracts_for_virtual_functions.md.nolink) | 仮想関数に契約を適用できるようにする | | | | |
 | P4101R1: [`consteval`時のみの値](/lang/cpp29/consteval-only_values.md.nolink) | `consteval`文脈でのみ存在・利用できる値の扱いを規定する | | | | |
 | P2414R12: [ポインタの生存期間終了によるzap問題の解決案](/lang/cpp29/pointer_lifetime-end_zap_proposed_solutions.md.nolink) | 生存期間終了時にポインタ値が無効化される「zap」問題への解決策 | | | | |
-| P3670R4: [テンプレート名に対するパック添字アクセス](/lang/cpp29/pack_indexing_for_template_names.md.nolink) | テンプレート名のパックに`T...[N]`形式の添字アクセスを可能にする | | 24 | | |
+| P3670R4: [テンプレートテンプレートパラメータのパックへのインデックスアクセスを許可](/lang/cpp29/pack_indexing_for_template_names.md) | テンプレートテンプレートパラメータのパックに`TT...[N]`形式でインデックスアクセスできるようにする | | 24 | | |
 | P3540R3: [`#embed`のオフセット引数](/lang/cpp29/embed_offset_parameter.md.nolink) | `#embed`にオフセット指定を追加し、埋め込むデータの開始位置を設定できるようにする | | | | |
 
 

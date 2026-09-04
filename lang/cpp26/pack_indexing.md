@@ -62,6 +62,7 @@ C
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 可変引数テンプレート](/lang/cpp11/variadic_templates.md)
+- [C++29 テンプレートテンプレートパラメータのパックへのインデックスアクセスを許可](/lang/cpp29/pack_indexing_for_template_names.md)
 
 
 ## 参照
