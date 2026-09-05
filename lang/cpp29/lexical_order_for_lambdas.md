@@ -17,6 +17,8 @@ auto x = std::make_unique<int>();
 [value = *x,
  lifetime = std::move(x)] {};
 ```
+* std::make_unique[link /reference/memory/make_unique.md]
+* std::move[link /reference/utility/move.md]
 
 `value`より先に`lifetime`が初期化される実装では、`*x`の読み取りの前に`x`からのムーブが行われてしまう。破棄の順序も同様に未規定だった。
 
@@ -51,6 +53,7 @@ int main()
 }
 ```
 * v.size()[link /reference/vector/vector/size.md]
+* std::move[link /reference/utility/move.md]
 
 ### 出力
 ```

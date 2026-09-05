@@ -33,6 +33,7 @@ p ^= q;
 
 *(int*)8675309 = 3;  // 未定義動作: 取得したことのないアドレスの推測
 ```
+* std::uintptr_t[link /reference/cstdint/uintptr_t.md]
 
 この規則は、[`std::memcpy()`](/reference/cstring/memcpy.md)や[`std::bit_cast()`](/reference/bit/bit_cast.md)などのビットコピーによってポインタの値表現を復元した場合にも同様に適用される。
 

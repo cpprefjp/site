@@ -55,6 +55,8 @@ int main()
   delete p;
 }
 ```
+* std::malloc[link /reference/cstdlib/malloc.md]
+* std::free[link /reference/cstdlib/free.md]
 
 ### 出力
 ```
