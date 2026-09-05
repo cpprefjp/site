@@ -113,6 +113,11 @@ struct A a = {.x = 1, 2};      // Cでは有効、C++20では無効
 ```
 * P0329R4[link http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf]
 
+## <a id="relative-page" href="#relative-page">関連項目</a>
+- [C++17 基底クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする](/lang/cpp17/extension_to_aggregate_initialization.md)
+- [C++29 基底クラスのメンバ変数に対する指示付き初期化を許可](/lang/cpp29/designated-initializers_for_base_classes.md)
+
+
 ## 参照
 
 * [P0329R4 Designated initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0329r4.pdf)

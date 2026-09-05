@@ -127,9 +127,10 @@ int main()
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 
-1. [C++14 / 宣言時のメンバ初期化を持つ型の集成体初期化を許可](../cpp14/member_initializers_and_aggregates.md)
+- [C++14 / 宣言時のメンバ初期化を持つ型の集成体初期化を許可](../cpp14/member_initializers_and_aggregates.md)
+- [C++29 基底クラスのメンバ変数に対する指示付き初期化を許可](/lang/cpp29/designated-initializers_for_base_classes.md)
 
 
 ## 参照
 
-1. [P0017R1 Extension to aggregate initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0017r1.html)
+- [P0017R1 Extension to aggregate initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0017r1.html)
