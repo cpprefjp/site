@@ -101,6 +101,10 @@ typedef void_alloc::rebind<int>::other int_alloc;
 前述した例での`::type`や、アロケータの例での`other`は冗長であり、必要とされることが多いこの機能には言語サポートが求められた。こういった経緯から、パラメータ化した型の別名付けが、言語機能としてサポートされることとなった。
 
 
+## <a id="relative-page" href="#relative-page">関連項目</a>
+- [C++29 extern "C"の中でのテンプレートの宣言を許可](/lang/cpp29/language_linkage_for_templates.md)
+
+
 ## 参照
 - [N1406 Proposed Addition to C++: Typedef Templates](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1406.pdf)
 - [N1449 Proposal to add template aliases to C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1449.pdf)

@@ -369,7 +369,7 @@
 | P3950R1: [`return_value`と`return_void`は排他的ではない](/lang/cpp29/return_value_and_return_void_are_not_mutually_exclusive.md.nolink) | コルーチンの`promise`型が`return_value`と`return_void`の両方を持つことを許容する | | | | |
 | P3733R1: [名前付きユニバーサルキャラクタ名で使用できる別名を拡張](/lang/cpp29/more_named_universal_character_escapes.md) | `\N{…}`に指定できる文字名の別名の分類制限を撤廃し、`\N{NBSP}`のような略称 (abbreviation) なども使用できるようにする | 17 | 23 | | |
 | P3847R1: [ラムダ式のキャプチャが書かれた順に初期化されることを保証](/lang/cpp29/lexical_order_for_lambdas.md) | 明示的なキャプチャに対応するクロージャ型のメンバ変数が、キャプチャを書いた順に宣言・初期化され、逆順に破棄されることを保証する | Yes | Yes | | Yes |
-| P2243R0: [テンプレートに対する言語リンケージ](/lang/cpp29/language_linkage_for_templates.md.nolink) | テンプレートに`extern "C"`等の言語リンケージを適用する規則を整備する | | | | |
+| P2243R0: [extern "C"の中でのテンプレートの宣言を許可](/lang/cpp29/language_linkage_for_templates.md) | テンプレートがC言語リンケージを持つことを禁止する規定を削除し、`extern "C"`の中でテンプレートを宣言できるようにする。C言語リンケージの関数ポインタ型を、テンプレートパラメータに依存する形で書けるようになる | | | | |
 | P3424R2: [例外を送出しうる例外指定をもつ解放関数を不適格とする](/lang/cpp29/deallocation_functions_with_throwing_exception_specification_are_ill_formed.md) | `operator delete`などの解放関数に、`noexcept(false)`のような例外を送出しうる例外指定を付けることを不適格とする。解放関数からの例外送出による未定義動作へ到達する経路を、宣言の時点で排除する | 17 | | | |
 | P3822R2: [requires式の複合要件で条件付き`noexcept`指定を許可](/lang/cpp29/conditional_noexcept_specifiers_in_compound_requirements.md) | requires式の複合要件で、`{ 式 } noexcept(定数式)`形式の条件付き`noexcept`指定を書けるようにする | 17 | | | |
 | P3097R3: [仮想関数への事前条件・事後条件の指定を許可](/lang/cpp29/contracts_for_virtual_functions.md) | C++26で不適格とされていた、仮想関数への事前条件`pre`・事後条件`post`の指定を許可する。仮想関数呼び出しでは、静的に選択された関数と実際に呼び出される関数の両方のアサーションが評価される | | | | |

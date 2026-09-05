@@ -46,7 +46,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [テンプレートに対する言語リンケージ](/lang/cpp29/language_linkage_for_templates.md.nolink) | テンプレートに`extern "C"`等の言語リンケージを適用する規則を整備する |
+| [extern "C"の中でのテンプレートの宣言を許可](/lang/cpp29/language_linkage_for_templates.md) | テンプレートがC言語リンケージを持つことを禁止する規定を削除し、`extern "C"`の中でテンプレートを宣言できるようにする。C言語リンケージの関数ポインタ型を、テンプレートパラメータに依存する形で書けるようになる |
 | [requires式の複合要件で条件付き`noexcept`指定を許可](/lang/cpp29/conditional_noexcept_specifiers_in_compound_requirements.md) | requires式の複合要件で、`{ 式 } noexcept(定数式)`形式の条件付き`noexcept`指定を書けるようにする |
 | [テンプレートテンプレートパラメータのパックへのインデックスアクセスを許可](/lang/cpp29/pack_indexing_for_template_names.md) | テンプレートテンプレートパラメータのパックに`TT...[N]`形式でインデックスアクセスできるようにする |
 
