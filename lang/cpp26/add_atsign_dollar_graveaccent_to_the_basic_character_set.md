@@ -25,5 +25,10 @@ int main()
 }
 ```
 
+## <a id="relative-page" href="#relative-page">関連項目</a>
+- [C++23 汎用的なソースコードのエンコーディングとしてUTF-8をサポート](/lang/cpp23/support_for_utf8_as_a_portable_source_file_encoding.md)
+- [C++29 数学互換記法の文字を識別子として許可](/lang/cpp29/adjust_identifier_following_new_Unicode_recommendations.md)
+
+
 ## 参照
 - [P2558R2 Add @, $, and ` to the basic character set](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2558r2.html)

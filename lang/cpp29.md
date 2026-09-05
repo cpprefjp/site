@@ -80,7 +80,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [新しいUnicode勧告に従った識別子の調整](/lang/cpp29/adjust_identifier_following_new_Unicode_recommendations.md.nolink) | 識別子に使える文字を最新のUnicode勧告に合わせて調整する |
+| [数学互換記法の文字を識別子として許可](/lang/cpp29/adjust_identifier_following_new_Unicode_recommendations.md) | Unicodeの新しい勧告に従い、`∇f`や`x²`のような数学記法の文字（ID_Compat_Math_Start／Continueプロパティを持つ文字）を識別子に使用できるようにする |
 
 
 
