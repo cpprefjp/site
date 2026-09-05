@@ -358,7 +358,7 @@
 
 | 言語機能 | 説明 | [GCC][gcc] | [Clang][clang] | [ICX][icx] | [MSVC][msvc] |
 |----------|------|------------|----------------|------------|--------------|
-| P3596R3: [未定義動作とIFNDRの付録を整理](/lang/cpp29/undefined_behavior_and_ifndr_annexes.md.nolink) | 規格中のUBとIFNDR（診断不要の不適格）を付録として一覧化・整理する | | | | |
+| P3596R3: [未定義動作とIFNDRの一覧を規格の付録に追加](/lang/cpp29/undefined_behavior_and_ifndr_annexes.md) | コア言語で明示的に規定されているすべての未定義動作と、診断不要で不適格 (IFNDR) となるすべての規則を、安定した名前・説明・コード例付きで列挙する参考情報の付録を追加する | - | - | - | - |
 | P2287R6: [基底クラスのメンバ変数に対する指示付き初期化を許可](/lang/cpp29/designated-initializers_for_base_classes.md) | `B{.a=1, .b=2}`のように、集成体の指示付き初期化で基底クラスのメンバ変数を直接指定できるようにする。基底クラス部分を初期化する指示なし初期化子との混在も許可する | 17 | | | |
 | P2953R5: [default定義できる代入演算子のシグネチャを制限](/lang/cpp29/adding_restrictions_to_defaulted_assignment_operator_functions.md) | `A& operator=(const A&) && = default`のような右辺値修飾やCV修飾された代入演算子のdefault定義を不適格とする。これらの代入演算子を自分で定義することは引き続きできる | 17 | | | |
 | P3899R3: [浮動小数点演算のオーバーフローと無限大・NaNの扱いを明確化](/lang/cpp29/clarify_the_behavior_of_floating-point_overflow.md) | 無限大を表現できる浮動小数点型では、オーバーフローは未定義動作ではなく無限大を生成すると規定する。オーバーフローやNaNを新たに生成する演算は定数式にならず、無限大・NaNの伝播は定数式として扱える | 15 (partial) | | | |
