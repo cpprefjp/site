@@ -39,7 +39,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 |----------|------|
 | [基底クラスのメンバ変数に対する指示付き初期化を許可](/lang/cpp29/designated-initializers_for_base_classes.md) | `B{.a=1, .b=2}`のように、集成体の指示付き初期化で基底クラスのメンバ変数を直接指定できるようにする。基底クラス部分を初期化する指示なし初期化子との混在も許可する |
 | [後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md) | 後置`++`／`--`を`= default`で定義（前置版から自動生成）できるようにする |
-| [default定義された代入演算子関数へ制約を追加](/lang/cpp29/adding_restrictions_to_defaulted_assignment_operator_functions.md.nolink) | `= default`で定義された代入演算子関数に制約を追加できるようにする |
+| [default定義できる代入演算子のシグネチャを制限](/lang/cpp29/adding_restrictions_to_defaulted_assignment_operator_functions.md) | `A& operator=(const A&) && = default`のような右辺値修飾やCV修飾された代入演算子のdefault定義を不適格とする。これらの代入演算子を自分で定義することは引き続きできる |
 | [仮想関数への事前条件・事後条件の指定を許可](/lang/cpp29/contracts_for_virtual_functions.md) | C++26で不適格とされていた、仮想関数への事前条件`pre`・事後条件`post`の指定を許可する。仮想関数呼び出しでは、静的に選択された関数と実際に呼び出される関数の両方のアサーションが評価される |
 
 ### テンプレート

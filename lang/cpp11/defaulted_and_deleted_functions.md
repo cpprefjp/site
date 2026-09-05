@@ -125,7 +125,8 @@ int main()
 
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
-- [関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md)
+- [C++26 関数宣言を削除する理由を指定できるようにする](/lang/cpp26/delete_reason.md)
+- [C++29 default定義できる代入演算子のシグネチャを制限](/lang/cpp29/adding_restrictions_to_defaulted_assignment_operator_functions.md)
 
 
 ## 参照
