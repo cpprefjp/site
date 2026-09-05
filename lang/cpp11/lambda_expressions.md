@@ -541,6 +541,7 @@ for_each(array, array + 4, <&>(double d) ( sum += factor * d ));
 - [C++23 ラムダ式で()を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md)
 - [C++23 ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md)
 - [C++23 `this`ポインタをもつ必要のない演算子を`static`として宣言できるようにする](/lang/cpp23/static_operator.md)
+- [C++29 ラムダ式のキャプチャが書かれた順に初期化されることを保証](/lang/cpp29/lexical_order_for_lambdas.md)
 
 
 ## 参照

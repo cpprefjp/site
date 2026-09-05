@@ -148,6 +148,7 @@ int main()
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 ラムダ式](/lang/cpp11/lambda_expressions.md)
 - [C++14 ジェネリックラムダ](generic_lambdas.md)
+- [C++29 ラムダ式のキャプチャが書かれた順に初期化されることを保証](/lang/cpp29/lexical_order_for_lambdas.md)
 
 
 ## 参照
