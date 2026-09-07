@@ -72,7 +72,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | [コンセプトと変数テンプレートをテンプレート引数として渡せるようにする](/lang/cpp26/concept_and_variable-template_template-parameters.md) | テンプレートテンプレートパラメータとして、クラステンプレートやエイリアステンプレートに加え、コンセプトと変数テンプレートも渡せるようにする |
 | [可変引数テンプレートの半順序を再検討する](/lang/cpp26/reconsider_partial_ordering_of_variadic_templates.md) | 可変引数テンプレートの部分特殊化の半順序ルールを再検討して、より一貫したルールにする |
 | [テンプレートテンプレートパラメータに対するクラステンプレートパラメータ引数推論](/lang/cpp26/class_template_argument_deduction_for_type_template_template_parameters.md) | テンプレートテンプレートパラメータからクラステンプレート引数を推論できるようにクラステンプレートのテンプレート引数推論を拡張する |
-| [「immediate context」の定義を明確化](/lang/cpp26/define_immediate_context.md.nolink) | SFINAEにおける「immediate context」の用語を厳密に定義し、置換失敗の範囲を明確にする |
+| [SFINAEが適用される「直接文脈」を定義](/lang/cpp26/define_immediate_context.md) | テンプレートの置換失敗がエラーにならない範囲を「直接文脈」として正式に定義し、デフォルト引数・`noexcept`指定・契約指定子の中での置換失敗がコンパイルエラーとなることを明確化する |
 
 
 ### 定数式

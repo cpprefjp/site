@@ -339,7 +339,7 @@
 | P3865R3: [テンプレートテンプレートパラメータに対するクラステンプレートパラメータ引数推論](/lang/cpp26/class_template_argument_deduction_for_type_template_template_parameters.md) | テンプレートテンプレートパラメータからクラステンプレート引数を推論できるようにクラステンプレートのテンプレート引数推論を拡張する | | | | |
 | P3726R2: [共用体メンバの生存期間規則の調整](/lang/cpp26/adjustments_to_union_lifetime_rules.md) | 共用体の先頭メンバの生存期間を暗黙に開始する規則を撤回して`std::start_lifetime()`による明示的な開始へ変更し、生存期間外の要素を含む配列メンバを定数式で許可する | | | | |
 | P4143R0: [定数評価の開始・終了タイミングを明確化](/lang/cpp26/constant_evaluation_when.md.nolink) | 定数評価がどのタイミングで開始・終了するかを明確化し、constexprコンテキストの規則を整える | | | | |
-| P4149R1: [「immediate context」の定義を明確化](/lang/cpp26/define_immediate_context.md.nolink) | SFINAEにおける「immediate context」の用語を厳密に定義し、置換失敗の範囲を明確にする | | | | |
+| P4149R1: [SFINAEが適用される「直接文脈」を定義](/lang/cpp26/define_immediate_context.md) | テンプレートの置換失敗がエラーにならない範囲を「直接文脈」として正式に定義し、デフォルト引数・`noexcept`指定・契約指定子の中での置換失敗がコンパイルエラーとなることを明確化する | | | | |
 | P3769R1: [配置newの解放処理を明確化](/lang/cpp26/clarifying_placement_new_deallocation.md) | 配置`new`で確保したメモリの解放処理の取り扱いに関するルールを明確化する | | | | |
 
 

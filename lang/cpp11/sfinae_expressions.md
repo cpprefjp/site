@@ -280,6 +280,7 @@ int main()
 - [`<type_traits>`](/reference/type_traits.md)
 - [`declval`](/reference/utility/declval.md)
 - [`enable_if`](/reference/type_traits/enable_if.md)
+- [C++26 SFINAEが適用される「直接文脈」を定義](/lang/cpp26/define_immediate_context.md)
 
 
 ## 参照
