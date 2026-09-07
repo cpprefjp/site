@@ -52,6 +52,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `hash` | `error_code`での特殊化 | C++11 |
+| [`formatter`](error_code/formatter.md) | [`std::formatter`](/reference/format/formatter.md)クラスの特殊化 | C++29 |
 
 
 ## 例
@@ -102,3 +103,5 @@ Invalid argument
 
 
 ## 参照
+- [P3395R6 Fix encoding issues and add a `formatter` for `std::error_code`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3395r6.html)
+    - C++29で、[`std::format()`](/reference/format/format.md)用の[`formatter`](error_code/formatter.md)特殊化が追加された

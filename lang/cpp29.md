@@ -111,7 +111,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 
 ### エラーハンドリング
 - [`std::expected`](/reference/expected/expected.md)クラスに、エラー値を保持しているかを判定するメンバ関数[`has_error()`](/reference/expected/expected/has_error.md)を追加
-- [`std::error_code`](/reference/system_error/error_code.md)クラスのオブジェクトを文字列化する際の、カテゴリ名のエンコーディングの問題を修正し、[`std::format()`](/reference/format/format.md)用の`formatter`特殊化を追加
+- [`std::error_code`](/reference/system_error/error_code.md)クラスを[`std::format()`](/reference/format/format.md)で出力できるよう、[`formatter`特殊化](/reference/system_error/error_code/formatter.md)を追加。あわせて、カテゴリ名とエラーメッセージのエンコーディングが未規定だった問題を修正
 
 ### 並行・並列
 - [`std::thread`](/reference/thread/thread.md)クラスと[`std::jthread`](/reference/thread/jthread.md)クラスに、スレッド名とスタックサイズを設定する機能を追加

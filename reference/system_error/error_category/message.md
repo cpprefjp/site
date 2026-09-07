@@ -17,6 +17,9 @@ virtual string message(int ev) const = 0;
 ## 戻り値
 エラーコードを説明するメッセージを返す
 
+- C++11 : 文字列のエンコーディングは未規定（実装によってCロケールのエンコーディングだったり、Windowsのコードページ (ACP) だったりと移植可能に扱えなかった）
+- C++29 : 文字列は、実行文字集合のマルチバイト文字列であると規定された
+
 
 ## 例
 ```cpp example
@@ -54,3 +57,7 @@ Not a directory
 
 
 ## 参照
+- [P3395R6 Fix encoding issues and add a `formatter` for `std::error_code`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3395r6.html)
+    - C++29で、返される文字列のエンコーディングが規定された
+- [LWG Issue 4156. `error_category` messages have unspecified encoding](https://cplusplus.github.io/LWG/issue4156)
+    - エンコーディングが未規定であることを指摘したissue。P3395R6で解決された
