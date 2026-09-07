@@ -54,7 +54,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [`consteval`時のみの値](/lang/cpp29/consteval-only_values.md.nolink) | `consteval`文脈でのみ存在・利用できる値の扱いを規定する |
+| [consteval-only型の規則をconsteval-only値の規則へ置き換え](/lang/cpp29/consteval-only_values.md) | リフレクションが実行時へ漏れることを防ぐ規則を、型ベースから値ベースへ変更する |
 
 ### 並行・並列処理
 

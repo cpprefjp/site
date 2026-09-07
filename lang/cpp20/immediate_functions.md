@@ -113,6 +113,7 @@ C++11で導入された`constexpr`指定子によって、関数を定数式評�
 * [C++23 `constexpr`関数内で`consteval`関数を呼び出せない問題を軽減](/lang/cpp23/consteval_needs_to_propagate_up.md)
 * [C++26 静的リフレクション](/lang/cpp26/reflection.md)
     * `consteval { ... }`ブロック構文が導入され、コンパイル時に副作用のあるコードを実行できるようになる
+* [C++29 consteval-only型の規則をconsteval-only値の規則へ置き換え](/lang/cpp29/consteval-only_values.md)
 
 ## 参照
 

@@ -373,7 +373,7 @@
 | P3424R2: [例外を送出しうる例外指定をもつ解放関数を不適格とする](/lang/cpp29/deallocation_functions_with_throwing_exception_specification_are_ill_formed.md) | `operator delete`などの解放関数に、`noexcept(false)`のような例外を送出しうる例外指定を付けることを不適格とする。解放関数からの例外送出による未定義動作へ到達する経路を、宣言の時点で排除する | 17 | | | |
 | P3822R2: [requires式の複合要件で条件付き`noexcept`指定を許可](/lang/cpp29/conditional_noexcept_specifiers_in_compound_requirements.md) | requires式の複合要件で、`{ 式 } noexcept(定数式)`形式の条件付き`noexcept`指定を書けるようにする | 17 | | | |
 | P3097R3: [仮想関数への事前条件・事後条件の指定を許可](/lang/cpp29/contracts_for_virtual_functions.md) | C++26で不適格とされていた、仮想関数への事前条件`pre`・事後条件`post`の指定を許可する。仮想関数呼び出しでは、静的に選択された関数と実際に呼び出される関数の両方のアサーションが評価される | | | | |
-| P4101R1: [`consteval`時のみの値](/lang/cpp29/consteval-only_values.md.nolink) | `consteval`文脈でのみ存在・利用できる値の扱いを規定する | | | | |
+| P4101R1: [consteval-only型の規則をconsteval-only値の規則へ置き換え](/lang/cpp29/consteval-only_values.md) | リフレクションが実行時へ漏れることを防ぐ規則を、型ベースから値ベースへ変更する | | | | |
 | P2414R12: [アトミック操作とvolatileアクセスでの無効なポインタ値の扱いを規定](/lang/cpp29/pointer_lifetime-end_zap_proposed_solutions.md) | アトミックポインタの操作やvolatileアクセスの結果が無効なポインタ値となる場合、整数への往復変換を経た有効なポインタ値になると規定する。解放と並行してポインタを扱うロックフリーアルゴリズムを定義された動作にする | | | | |
 | P3670R4: [テンプレートテンプレートパラメータのパックへのインデックスアクセスを許可](/lang/cpp29/pack_indexing_for_template_names.md) | テンプレートテンプレートパラメータのパックに`TT...[N]`形式でインデックスアクセスできるようにする | | 24 | | |
 | P3540R3: [`#embed`に`offset`パラメータを追加](/lang/cpp29/embed_offset_parameter.md) | `#embed`のパラメータとして、リソースの先頭から指定した要素数を読み飛ばす`offset`を追加する | 17 | | | |

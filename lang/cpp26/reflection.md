@@ -183,6 +183,7 @@ consteval void example() {
 - `==`と`!=`をサポートするが、順序比較（`<`, `>`, `<=>`）はサポートしない
 - 構造的型 (structural type) であり、定数テンプレートパラメータとして使用できる
 - consteval-only型であり、実行時には存在できない
+    - C++29 : consteval-only型の規則は、[consteval-only値にもとづく規則へ置き換えられた](/lang/cpp29/consteval-only_values.md)。ヌルリフレクションのみを保持する`info`オブジェクトは実行時にも存在できる
 
 ```cpp
 // 定数テンプレートパラメータとして使用する例
@@ -502,6 +503,7 @@ hash(o1) == hash(o3): false
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`<meta>`ヘッダ](/reference/meta.md)
 - [C++26 コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md)
+- [C++29 consteval-only型の規則をconsteval-only値の規則へ置き換え](/lang/cpp29/consteval-only_values.md)
 - [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)
 
 
