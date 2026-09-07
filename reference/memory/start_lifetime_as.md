@@ -72,13 +72,14 @@ int main() {
 - C++23
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Clang](/implementation.md#clang): 23 [mark noimpl]
+- [GCC](/implementation.md#gcc): 16.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2026 Update 6 [mark verified]
 
 
 ## 関連項目
 - [`std::start_lifetime_as_array`](/reference/memory/start_lifetime_as_array.md)
+- [`std::start_lifetime`](/reference/memory/start_lifetime.md)
 
 
 ## 参照

@@ -75,10 +75,14 @@ int main()
 - C++23
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [Visual C++](/implementation.md#visual_cpp): ??
+- [Clang](/implementation.md#clang): 20 [mark verified]
+- [GCC](/implementation.md#gcc): 16.1 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2026 Update 6 [mark verified]
+
+
+## 関連項目
+- [`std::start_lifetime_as()`](/reference/memory/start_lifetime_as.md)
 
 
 ## 参照
-- [P2674R0 A trait for implicit lifetime types](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2674r0.pdf)
+- [P2674R1 A trait for implicit lifetime types](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2674r1.pdf)

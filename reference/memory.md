@@ -142,6 +142,7 @@
 | [`align`](memory/align.md)                   | アライメント調整された領域を得る(function)      | C++11 |
 | [`assume_aligned`](memory/assume_aligned.md) | コンパイラへアライメントのヒントを与える(function template) | C++20 |
 | [`is_sufficiently_aligned`](memory/is_sufficiently_aligned.md) | ポインタのアライメントを判定する(function template) | C++26 |
+| [`start_lifetime`](memory/start_lifetime.md) | 参照先のオブジェクトの生存期間を明示的に開始する(function template) | C++26 |
 | [`start_lifetime_as`](memory/start_lifetime_as.md) | オブジェクトの生存期間を開始することを明示する(function template) | C++23 |
 | [`start_lifetime_as_array`](memory/start_lifetime_as_array.md) | 配列オブジェクトの生存期間を開始することを明示する(function template) | C++23 |
 

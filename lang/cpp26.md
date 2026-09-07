@@ -50,7 +50,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [共用体の特殊メンバ関数のトリビアル化](/lang/cpp26/trivial_unions.md) | 非トリビアルな型をメンバにもつ共用体のデフォルトコンストラクタとデストラクタをトリビアルにし、未初期化ストレージとして使用可能にする |
-| [共用体の生存期間ルールの調整](/lang/cpp26/adjustments_to_union_lifetime_rules.md.nolink) | `union`メンバの活性化や生存期間に関する規則を整理して`constexpr`評価などの一貫性を改善する |
+| [共用体メンバの生存期間規則の調整](/lang/cpp26/adjustments_to_union_lifetime_rules.md) | 共用体の先頭メンバの生存期間を暗黙に開始する規則を撤回して`std::start_lifetime()`による明示的な開始へ変更し、生存期間外の要素を含む配列メンバを定数式で許可する |
 | [配置newの解放処理を明確化](/lang/cpp26/clarifying_placement_new_deallocation.md) | 配置`new`で確保したメモリの解放処理の取り扱いに関するルールを明確化する |
 
 

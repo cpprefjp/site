@@ -22,7 +22,10 @@ struct FixedVector {
 
   // C++23まで: unionのコンストラクタ/デストラクタが削除されるためコンパイルエラー
   // C++26: OK。unionのコンストラクタ/デストラクタはトリビアル
-  constexpr FixedVector() = default;
+  constexpr FixedVector() {
+    // 配列storage自体の生存期間を明示的に開始する（要素の生存期間は開始されない）
+    std::start_lifetime(storage);
+  }
 
   constexpr ~FixedVector() {
     std::destroy(storage, storage + size);
@@ -36,6 +39,7 @@ struct FixedVector {
 ```
 * std::construct_at[link /reference/memory/construct_at.md]
 * std::destroy[link /reference/memory/destroy.md]
+* std::start_lifetime[link /reference/memory/start_lifetime.md]
 
 
 ## 仕様
@@ -45,7 +49,9 @@ struct FixedVector {
 
 - デフォルトメンバ初期化子をもつメンバがない
 
-トリビアルなデフォルトコンストラクタは、いかなる初期化も実行しない。ただし、共用体の最初の選択肢 (variant member) が暗黙的寿命型 (implicit-lifetime type) の場合は、そのオブジェクトの寿命が開始され、アクティブメンバとなる。
+トリビアルなデフォルトコンストラクタは、いかなる初期化も実行せず、どのメンバの寿命も開始しない。メンバの寿命は[`std::start_lifetime()`](/reference/memory/start_lifetime.md)などで明示的に開始する。
+
+- 本提案の当初の仕様では「共用体の最初の選択肢 (variant member) が暗黙的寿命型 (implicit-lifetime type) の場合、トリビアルなデフォルトコンストラクタがそのメンバの寿命を暗黙に開始する」とされていたが、この規則はABI破壊などの問題があったため、[P3726R2で撤回された](/lang/cpp26/adjustments_to_union_lifetime_rules.md)
 
 ```cpp
 // トリビアルデフォルトコンストラクタ、トリビアルデストラクタ
@@ -57,7 +63,7 @@ union U1 { std::string s; };
 union U2 { std::string s = "hello"; };
 
 // トリビアルデフォルトコンストラクタ、トリビアルデストラクタ
-// s (配列は暗黙的寿命型) の寿命が開始され、アクティブメンバとなる
+// sの寿命は開始されない（P3726R2により、配列でも暗黙開始はされない）
 union U3 { std::string s[10]; };
 ```
 
@@ -81,11 +87,12 @@ union U6 { std::string s; int n = 0; };
 
 ```cpp example
 #include <cassert>
-#include <memory> // std::construct_at()
+#include <memory> // std::construct_at(), std::start_lifetime()
 
 constexpr int f() {
   union { int s[4]; };
-  // sは暗黙的寿命型の配列なので、寿命が開始されアクティブメンバとなる
+  // 配列s自体の寿命を明示的に開始し、アクティブメンバにする
+  std::start_lifetime(s);
   std::construct_at(&s[0], 1);
   std::construct_at(&s[1], 2);
   std::construct_at(&s[2], 3);
@@ -97,6 +104,7 @@ int main() {
 }
 ```
 * std::construct_at[link /reference/memory/construct_at.md]
+* std::start_lifetime[link /reference/memory/start_lifetime.md]
 
 ### 既存コードへの影響
 - これまで削除されていたコンストラクタ/デストラクタがトリビアルになるケースがあるため、以前はコンパイルエラーだったコードがコンパイル可能になる
@@ -125,7 +133,11 @@ int main() {
 - [C++26 `constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md)
 - [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)
 - [`std::inplace_vector`](/reference/inplace_vector/inplace_vector.md)
+- [C++26 共用体メンバの生存期間規則の調整](/lang/cpp26/adjustments_to_union_lifetime_rules.md)
+- [`std::start_lifetime()`](/reference/memory/start_lifetime.md)
 
 
 ## 参照
 - [P3074R7 trivial unions (was std::uninitialized)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3074r7.html)
+- [P3726R2 Adjustments to Union Lifetime Rules](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3726r2.html)
+    - 先頭メンバの寿命の暗黙開始を撤回し、[`std::start_lifetime()`](/reference/memory/start_lifetime.md)による明示的な開始へ変更した

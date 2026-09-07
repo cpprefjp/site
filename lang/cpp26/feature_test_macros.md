@@ -29,7 +29,7 @@
 |`__cpp_structured_bindings`|`202411L`|[構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md)<br/>[構造化束縛でパックを導入できるようにする](/lang/cpp26/structured_bindings_can_introduce_a_pack.md)|
 |`__cpp_template_parameters`|`202502L`|[コンセプトと変数テンプレートをテンプレート引数として渡せるようにする](/lang/cpp26/concept_and_variable-template_template-parameters.md)|
 |`__cpp_trivial_relocatability`|`202502L`|トリビアルな再配置|
-|`__cpp_trivial_union`|`202502L`|[共用体の特殊メンバ関数のトリビアル化](/lang/cpp26/trivial_unions.md)|
+|`__cpp_trivial_union`|`202603L`|[共用体の特殊メンバ関数のトリビアル化](/lang/cpp26/trivial_unions.md) (`202502L`)。[共用体メンバの生存期間規則の調整](/lang/cpp26/adjustments_to_union_lifetime_rules.md) (`202603L`)|
 |`__cpp_variadic_friend`|`202403L`|[可変引数テンプレートで`friend`宣言をできるようにする](/lang/cpp26/variadic_friends.md)|
 
 
@@ -152,6 +152,7 @@
 |`__cpp_lib_smart_ptr_owner_equality`|`202306L`|[`<memory>`](/reference/memory.md)に[`std::owner_hash`](/reference/memory/owner_hash.md)と[`std::owner_equal`](/reference/memory/owner_equal.md)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_span`|`202311L`|[`std::mdspan`](/reference/mdspan/mdspan.md)に[`at()`](/reference/mdspan/mdspan/at.md)メンバ関数を追加|[`<span>`](/reference/span.md)|
 |`__cpp_lib_span_initializer_list`|`202311L`|[`std::span`](/reference/span/span.md)に[`std::initializer_list`](/reference/initializer_list/initializer_list.md)をとるコンストラクタを追加|[`<span>`](/reference/span.md)|
+|`__cpp_lib_start_lifetime`|`202603L`|[`<memory>`](/reference/memory.md)に、オブジェクトの生存期間を明示的に開始する[`std::start_lifetime()`](/reference/memory/start_lifetime.md)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_stdbit_h`|`202603L`|[`<stdbit.h>`](/reference/stdbit.h.md)ヘッダがC++から使用可能であることを示す|[`<stdbit.h>`](/reference/stdbit.h.md)|
 |`__cpp_lib_stdckdint_h`|`202603L`|[`<stdckdint.h>`](/reference/stdckdint.h.md)ヘッダがC++から使用可能であることを示す|[`<stdckdint.h>`](/reference/stdckdint.h.md)|
 |`__cpp_lib_sstream_from_string_view`|`202306L`|[`std::basic_stringstream`](/reference/sstream/basic_stringstream.md)などが[`std::basic_string_view`](/reference/string_view/basic_string_view.md)から構築可能に|[`<sstream>`](/reference/sstream.md)|
@@ -215,6 +216,8 @@
     - C++26のsimd整合修正により`__cpp_lib_simd`が`202603L`に更新された
 - [P3982R2 Split `strided_slice` into `extent_slice` and `range_slice` for C++26](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3982r2.html)
     - C++26で、`__cpp_lib_submdspan`が`202603L`に更新された
+- [P3726R2 Adjustments to Union Lifetime Rules](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3726r2.html)
+    - C++26の共用体生存期間規則の調整により、`__cpp_trivial_union`が`202603L`に更新され、`__cpp_lib_start_lifetime`が追加された
 - [P4206R0 Revert string support in `std::constant_wrapper`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4206r0.html)
     - [`std::constant_wrapper`](/reference/utility/constant_wrapper.md)の文字列リテラルサポートが取り消されたことにより、`__cpp_lib_constant_wrapper`が`202603L`から`202606L`に更新された。規格としてはC++29のワーキングドラフトへ適用されたが、C++26で追加された機能に対する欠陥報告 (DR) であるため、C++26へ遡及して適用される
 - [P2198R7 Freestanding Feature-Test Macros and Implementation-Defined Extensions](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2198r7.html)
