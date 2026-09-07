@@ -348,7 +348,7 @@
 - GCC: [C++26 Support in GCC](https://gcc.gnu.org/projects/cxx-status.html#cxx26)
 - Clang:
     - [C++2c implementation status](https://clang.llvm.org/cxx_status.html#cxx26)
-    - [libc++ Format Status](https://libcxx.llvm.org/Status/Format.html)
+    - [libc++ C++26 Status](https://libcxx.llvm.org/Status/Cxx26.html)
 - Visual C++ (MSVC):
     - [Microsoft C/C++ language conformance by Visual Studio version](https://learn.microsoft.com/en-us/cpp/overview/visual-cpp-language-conformance?view=msvc-170)
     - [C++ Conformance improvements, behavior changes, and bug fixes in Visual Studio 2022](https://learn.microsoft.com/en-us/cpp/overview/cpp-conformance-improvements?view=msvc-170)

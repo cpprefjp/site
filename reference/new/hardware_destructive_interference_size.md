@@ -123,7 +123,7 @@ hardware_destructive_interference_size : 64
 - [N4523 `constexpr std::thread::hardware_{true,false}_sharing_size`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4523.html)
 - [P0154R0 `constexpr std::hardware_{constructive,destructive}_interference_size`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0154r0.html)
 - [P0154R1 `constexpr std::hardware_{constructive,destructive}_interference_size`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0154r1.html)
-- [今さら聞けないマルチプロセッサの基礎教えます　――キャッシュの共有，割り込みの共有，OSによる制御 - ページ11 キャッシュの利用にも注意が必要](http://www.kumikomi.net/archives/2005/02/02multi.php?page=11)
+- [今さら聞けないマルチプロセッサの基礎教えます　――キャッシュの共有，割り込みの共有，OSによる制御 - ページ11 キャッシュの利用にも注意が必要](https://web.archive.org/web/20260307123141/http://www.kumikomi.net/archives/2005/02/02multi.php?page=11)
 - [false sharingの整理 - yoskhdia’s diary](http://yoskhdia.hatenablog.com/entry/2016/06/03/191329)
 - [Understanding `std::hardware_destructive_interference_size` and `std::hardware_constructive_interference_size` - Stack Overflow](https://stackoverflow.com/questions/39680206/understanding-stdhardware-destructive-interference-size-and-stdhardware-cons)
     - 設計についての作者JF Bastien氏からのコメントがある
