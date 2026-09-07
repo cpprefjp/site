@@ -23,7 +23,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [`return_value`と`return_void`は排他的ではない](/lang/cpp29/return_value_and_return_void_are_not_mutually_exclusive.md.nolink) | コルーチンの`promise`型が`return_value`と`return_void`の両方を持つことを許容する |
+| [コルーチンのpromise型で`return_value`と`return_void`の両方の宣言を許可](/lang/cpp29/return_value_and_return_void_are_not_mutually_exclusive.md) | 1つのコルーチン内に、値をともなう`co_return`文とともなわない`co_return`文を混在させられるようにする |
 
 
 ### 関数

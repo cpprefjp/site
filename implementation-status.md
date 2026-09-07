@@ -366,7 +366,7 @@
 | P2434R5: [整数からポインタへの変換とポインタの由来の扱いを規定](/lang/cpp29/nondeterministic_pointer_provenance.md) | 整数からポインタへの変換では、その整数へ変換できるポインタ値のうち、プログラムの動作が定義される値が選択されると規定する | | | | |
 | P3347R6: [無効なポインタ値の読み書き・コピーを定義された動作とする](/lang/cpp29/invalid_pointer_operations.md) | 無効なポインタ値の使用のうち、間接参照は未定義動作、比較などは処理系定義のままとし、読み込み・書き込み・コピーなどそれ以外の操作を定義された動作とする | | | | |
 | P3658R1: [数学互換記法の文字を識別子として許可](/lang/cpp29/adjust_identifier_following_new_Unicode_recommendations.md) | Unicodeの新しい勧告に従い、`∇f`や`x²`のような数学記法の文字（ID_Compat_Math_Start／Continueプロパティを持つ文字）を識別子に使用できるようにする | 17 | 16 | | |
-| P3950R1: [`return_value`と`return_void`は排他的ではない](/lang/cpp29/return_value_and_return_void_are_not_mutually_exclusive.md.nolink) | コルーチンの`promise`型が`return_value`と`return_void`の両方を持つことを許容する | | | | |
+| P3950R1: [コルーチンのpromise型で`return_value`と`return_void`の両方の宣言を許可](/lang/cpp29/return_value_and_return_void_are_not_mutually_exclusive.md) | 1つのコルーチン内に、値をともなう`co_return`文とともなわない`co_return`文を混在させられるようにする | | | | |
 | P3733R1: [名前付きユニバーサルキャラクタ名で使用できる別名を拡張](/lang/cpp29/more_named_universal_character_escapes.md) | `\N{…}`に指定できる文字名の別名の分類制限を撤廃し、`\N{NBSP}`のような略称 (abbreviation) なども使用できるようにする | 17 | 23 | | |
 | P3847R1: [ラムダ式のキャプチャが書かれた順に初期化されることを保証](/lang/cpp29/lexical_order_for_lambdas.md) | 明示的なキャプチャに対応するクロージャ型のメンバ変数が、キャプチャを書いた順に宣言・初期化され、逆順に破棄されることを保証する | Yes | Yes | | Yes |
 | P2243R0: [extern "C"の中でのテンプレートの宣言を許可](/lang/cpp29/language_linkage_for_templates.md) | テンプレートがC言語リンケージを持つことを禁止する規定を削除し、`extern "C"`の中でテンプレートを宣言できるようにする。C言語リンケージの関数ポインタ型を、テンプレートパラメータに依存する形で書けるようになる | | | | |

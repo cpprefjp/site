@@ -196,6 +196,8 @@ final-suspend :
 
 Promise型のスコープにおいて、非修飾な`return_void`および`return_value`の探索が行われる。両方が見つかった場合、プログラムは不適格となる。
 
+- C++29 : この制限は削除され、[両方を宣言できるようになった](/lang/cpp29/return_value_and_return_void_are_not_mutually_exclusive.md)
+
 コルーチン呼び出しのglvalue結果またはprvalue結果オブジェクトを初期化するために、式 <code>_promise_</code>`.get_return_object()`が使われる。
 `get_return_object`呼び出しは高々1回であり、`initial_suspend`呼び出しよりも前に順序付けられる。
 
@@ -622,6 +624,7 @@ C++20コルーチンに関するキーワードは、いずれも接頭辞`co_`�
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - C++20 [`<coroutine>`](/reference/coroutine.md)
 - C++23 [`<generator>`](/reference/generator.md)
+- [C++29 コルーチンのpromise型で`return_value`と`return_void`の両方の宣言を許可](/lang/cpp29/return_value_and_return_void_are_not_mutually_exclusive.md)
 
 
 ## 参照
