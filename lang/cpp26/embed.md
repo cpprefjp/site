@@ -78,5 +78,9 @@ int main() {
 `suffix(0xFF)`で末尾`0xFF`を追加し、`if_empty(0x00)`で空の場合は`0x00`を格納することになる。
 
 
+## <a id="relative-page" href="#relative-page">関連項目</a>
+- [C++29 `#embed`に`offset`パラメータを追加](/lang/cpp29/embed_offset_parameter.md)
+
+
 ## 参照
 - [P1967R14 #embed - a scannable, tooling-friendly binary resource inclusion mechanism](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p1967r14.html)

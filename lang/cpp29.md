@@ -68,7 +68,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [`#embed`のオフセット引数](/lang/cpp29/embed_offset_parameter.md.nolink) | `#embed`にオフセット指定を追加し、埋め込むデータの開始位置を設定できるようにする |
+| [`#embed`に`offset`パラメータを追加](/lang/cpp29/embed_offset_parameter.md) | `#embed`のパラメータとして、リソースの先頭から指定した要素数を読み飛ばす`offset`を追加する |
 
 ### 未定義動作
 

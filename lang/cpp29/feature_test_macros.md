@@ -20,6 +20,7 @@
 |`__cpp_designated_initializers`|`202606L`|[基底クラスのメンバ変数に対する指示付き初期化を許可](designated-initializers_for_base_classes.md)|
 |`__cpp_named_character_escapes`|`202606L`|[名前付きユニバーサルキャラクタ名で使用できる別名を拡張](more_named_universal_character_escapes.md)|
 |`__cpp_pack_indexing`|`202606L`|[テンプレートテンプレートパラメータのパックへのインデックスアクセスを許可](pack_indexing_for_template_names.md)|
+|`__cpp_pp_embed`|`202606L`|[`#embed`に`offset`パラメータを追加](embed_offset_parameter.md)|
 
 
 ### ライブラリ
@@ -38,6 +39,8 @@
 ## 参照
 
 - [SD-FeatureTest: Feature-Test Macros and Policies - isocpp](https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations)
+- [P3540R3 `#embed` offset parameter](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3540r3.html)
+    - C++29で`__cpp_pp_embed`が`202606L`に更新された
 - [P2287R6 Designated-initializers for Base Classes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p2287r6.html)
     - C++29で`__cpp_designated_initializers`が`202606L`に更新された
 - [P3733R1 More named universal character escapes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3733r1.html)

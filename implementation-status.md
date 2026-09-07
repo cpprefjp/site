@@ -376,7 +376,7 @@
 | P4101R1: [`consteval`時のみの値](/lang/cpp29/consteval-only_values.md.nolink) | `consteval`文脈でのみ存在・利用できる値の扱いを規定する | | | | |
 | P2414R12: [アトミック操作とvolatileアクセスでの無効なポインタ値の扱いを規定](/lang/cpp29/pointer_lifetime-end_zap_proposed_solutions.md) | アトミックポインタの操作やvolatileアクセスの結果が無効なポインタ値となる場合、整数への往復変換を経た有効なポインタ値になると規定する。解放と並行してポインタを扱うロックフリーアルゴリズムを定義された動作にする | | | | |
 | P3670R4: [テンプレートテンプレートパラメータのパックへのインデックスアクセスを許可](/lang/cpp29/pack_indexing_for_template_names.md) | テンプレートテンプレートパラメータのパックに`TT...[N]`形式でインデックスアクセスできるようにする | | 24 | | |
-| P3540R3: [`#embed`のオフセット引数](/lang/cpp29/embed_offset_parameter.md.nolink) | `#embed`にオフセット指定を追加し、埋め込むデータの開始位置を設定できるようにする | | | | |
+| P3540R3: [`#embed`に`offset`パラメータを追加](/lang/cpp29/embed_offset_parameter.md) | `#embed`のパラメータとして、リソースの先頭から指定した要素数を読み飛ばす`offset`を追加する | 17 | | | |
 
 
 [gcc]: ./implementation.md#gcc
