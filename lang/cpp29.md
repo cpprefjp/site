@@ -110,6 +110,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 - [`<memory>`](/reference/memory.md)ヘッダに、ポインタのタグ付けを行う[`std::pointer_tag_pair`](/reference/memory/pointer_tag_pair.md.nolink)クラスとその関連機能を追加
 
 ### エラーハンドリング
+- [`std::expected`](/reference/expected/expected.md)クラスに、エラー値を保持しているかを判定するメンバ関数[`has_error()`](/reference/expected/expected/has_error.md)を追加
 - [`std::error_code`](/reference/system_error/error_code.md)クラスのオブジェクトを文字列化する際の、カテゴリ名のエンコーディングの問題を修正し、[`std::format()`](/reference/format/format.md)用の`formatter`特殊化を追加
 
 ### 並行・並列

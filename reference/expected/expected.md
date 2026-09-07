@@ -58,6 +58,7 @@ namespace std {
 | [`operator*`](expected/op_deref.md) | 正常値への間接参照 | C++23 |
 | [`operator bool`](expected/op_bool.md) | 正常値を保持しているかを判定する | C++23 |
 | [`has_value`](expected/has_value.md) | 正常値を保持しているかを判定する | C++23 |
+| [`has_error`](expected/has_error.md) | エラー値を保持しているかを判定する | C++29 |
 | [`value`](expected/value.md) | 正常値を取得する | C++23 |
 | [`error`](expected/error.md) | エラー値を取得する | C++23 |
 | [`value_or`](expected/value_or.md) | 正常値もしくは指定された値を取得する | C++23 |
@@ -103,6 +104,7 @@ namespace std {
 | [`operator*`](expected.void/op_deref.md) | 正常値への間接参照 | C++23 |
 | [`operator bool`](expected.void/op_bool.md) | 正常値を保持しているかを判定する | C++23 |
 | [`has_value`](expected.void/has_value.md) | 正常値を保持しているかを判定する | C++23 |
+| [`has_error`](expected.void/has_error.md) | エラー値を保持しているかを判定する | C++29 |
 | [`value`](expected.void/value.md) | 正常値を取得する | C++23 |
 | [`error`](expected.void/error.md) | エラー値を取得する | C++23 |
 | [`error_or`](expected.void/error_or.md) | エラー値もしくは指定された値を取得する | C++23 |
@@ -214,3 +216,5 @@ int main()
 - [P2505R5 Monadic Functions for `std::expected`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2505r5.html)
 - [LWG Issue 3703. Missing requirements for `expected<T, E>` requires `is_void<T>`](https://cplusplus.github.io/LWG/issue3703)
     - C++23で、`expected<void, E>`部分特殊化にも型`E`に対する適格要件が明記された
+- [P3798R1 The `unexpected` in `std::expected`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3798r1.html)
+    - C++29で、エラー値を保持しているかを判定する[`has_error()`](expected/has_error.md)メンバ関数が追加された
