@@ -52,8 +52,6 @@ int main()
 ```
 * std::thread::stack_size_hint[color ff0000]
 
-このコードはC++29の規則のもとでは適格だが、2026年9月時点でスレッド属性を実装した処理系はない。
-
 ### 出力
 ```
 work

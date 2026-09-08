@@ -142,8 +142,6 @@ int main()
 * std::thread::stack_size_hint[link stack_size_hint.md]
 * t.native_handle()[link native_handle.md]
 
-このコードはC++29の規則のもとでは適格だが、2026年9月時点でスレッド属性を実装した処理系はない。
-
 #### 出力例
 ```
 Worker

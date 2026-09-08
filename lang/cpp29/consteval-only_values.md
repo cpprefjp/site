@@ -77,8 +77,6 @@ int main() {
 }
 ```
 
-このコードはconsteval-only値の規則のもとでは適格だが、2026年9月時点でこの規則を実装した処理系はない（GCC trunkの`-freflection`はconsteval-only型の規則を実装しており、このコードを受け付けない）。
-
 ### 出力
 ```
 true

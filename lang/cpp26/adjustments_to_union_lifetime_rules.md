@@ -91,8 +91,6 @@ int main() {}
 * std::start_lifetime[link /reference/memory/start_lifetime.md]
 * std::construct_at[link /reference/memory/construct_at.md]
 
-このコードはC++26の最終的な規則のもとでは適格だが、2026年9月時点でこの調整を実装した処理系はない（GCC trunkはP3074R7時点の規則を実装しており、`__cpp_trivial_union`は`202502L`、`std::start_lifetime()`は未実装である）。
-
 ### 出力
 ```
 ```

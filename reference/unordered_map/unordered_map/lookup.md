@@ -75,8 +75,6 @@ int main()
 * value_or[link /reference/optional/optional/value_or.md]
 * m.at[link at.md]
 
-このコードはC++29の規則のもとでは適格だが、2026年9月時点で本関数を実装した処理系はない。
-
 ### 出力
 ```
 3

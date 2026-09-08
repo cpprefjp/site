@@ -62,8 +62,6 @@ int main() {}
 * std::start_lifetime[color ff0000]
 * std::construct_at[link construct_at.md]
 
-このコードはC++26の規則のもとでは適格だが、2026年9月時点で本関数を実装した処理系はない。
-
 ### 出力
 ```
 ```

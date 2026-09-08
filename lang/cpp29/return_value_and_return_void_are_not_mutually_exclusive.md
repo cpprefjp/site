@@ -68,8 +68,6 @@ int main() {
 ```
 * std::suspend_never[link /reference/coroutine/suspend_never.md]
 
-このコードはC++29の規則のもとでは適格だが、2026年9月時点でこの変更を実装した処理系はない（GCC・Clang・MSVCのいずれも「promise型が`return_value`と`return_void`の両方を宣言している」というエラーになる）。
-
 ### 出力
 ```
 value: 42

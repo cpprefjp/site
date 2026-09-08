@@ -75,8 +75,6 @@ int main()
 * std::copy[color ff0000]
 * std::layout_left[link layout_left.md]
 
-このコードはC++29の規則のもとでは適格だが、2026年9月時点で本関数を実装した処理系はない。
-
 ### 出力
 ```
 1 4 2 5 3 6 
