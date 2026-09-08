@@ -13,7 +13,7 @@ namespace std {
 `fpos`は、ファイル上の位置を表現するクラスである。
 概念的には、stateTによる変換状態と整数によるオフセットでファイル上の位置を表現するクラスである。
 
-多くの場合、stateTとしては`std::mbstate_t`が使用される。とくに、`<iosfwd>`ヘッダでは、以下の別名型が定義されている。
+多くの場合、stateTとしては[`std::mbstate_t`](/reference/cwchar/mbstate_t.md)が使用される。とくに、`<iosfwd>`ヘッダでは、以下の別名型が定義されている。
 
 ```cpp
 template<class state> class fpos;
@@ -24,7 +24,7 @@ using u16streampos = fpos<char_traits<char16_t>::state_type>;
 using u32streampos = fpos<char_traits<char32_t>::state_type>;
 ```
 
-`char`、`wchar_t`、`char8_t`、`char16_t`、`char32_t`型について`char_traits<charT>::state_type`は`std::mbstate_t`の別名である。
+`char`、`wchar_t`、`char8_t`、`char16_t`、`char32_t`型について`char_traits<charT>::state_type`は[`std::mbstate_t`](/reference/cwchar/mbstate_t.md)の別名である。
 
 ## メンバ関数
 ### 構築・破棄

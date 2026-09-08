@@ -8,9 +8,9 @@
 ```
 
 ## 概要
-`wint_t` の最小値。
+[`wint_t`](/reference/cwchar/wint_t.md) の最小値。
 
-`wint_t`が符号付き整数型として定義される場合、このマクロの値は-32768以下となる。そうでない場合、このマクロの値は0となる。
+[`wint_t`](/reference/cwchar/wint_t.md)が符号付き整数型として定義される場合、このマクロの値は-32768以下となる。そうでない場合、このマクロの値は0となる。
 
 
 ## 例
@@ -25,6 +25,7 @@ int main()
 }
 ```
 * WINT_MIN[color ff0000]
+* std::wint_t[link /reference/cwchar/wint_t.md]
 
 ### 出力例
 ```

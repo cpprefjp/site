@@ -55,8 +55,8 @@ int main()
 }
 ```
 * std::codecvt_utf8[link /reference/codecvt/codecvt_utf8.md]
-* std::mbstate_t[link /reference/cwchar/mbstate_t.md.nolink]
-* std::mbsinit[link /reference/cwchar/mbsinit.md.nolink]
+* std::mbsinit[link /reference/cwchar/mbsinit.md]
+* std::mbstate_t[link /reference/cwchar/mbstate_t.md]
 
 ### 出力
 ```

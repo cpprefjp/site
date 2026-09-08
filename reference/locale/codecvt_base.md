@@ -59,6 +59,7 @@ int main()
 * cv.in[link codecvt/in.md]
 * std::use_facet[link use_facet.md]
 * std::locale::classic()[link locale/classic.md]
+* std::mbstate_t[link /reference/cwchar/mbstate_t.md]
 
 ### 出力
 ```

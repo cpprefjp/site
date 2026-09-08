@@ -49,7 +49,7 @@ static constexpr T min() noexcept; // C++11
 | [`ptrdiff_t`](/reference/cstddef/ptrdiff_t.md)         | [`PTRDIFF_MIN`](/reference/cstdint/ptrdiff_min.md) |
 | `sig_atomic_t`                                         | [`SIG_ATOMIC_MIN`](/reference/cstdint/sig_atomic_min.md) |
 | `wchar_t`                                              | [`WCHAR_MIN`](/reference/cstdint/wchar_min.md) |
-| `wint_t`                                               | [`WINT_MIN`](/reference/cstdint/wint_min.md) |
+| [`wint_t`](/reference/cwchar/wint_t.md)                                               | [`WINT_MIN`](/reference/cstdint/wint_min.md) |
 | `float`                                                | [`FLT_MIN`](/reference/cfloat/flt_min.md) |
 | `double`                                               | [`DBL_MIN`](/reference/cfloat/dbl_min.md) |
 | `long double`                                          | [`LDBL_MIN`](/reference/cfloat/ldbl_min.md) |

@@ -53,6 +53,7 @@ int main()
 }
 ```
 * std::mbrtoc8[color ff0000]
+* std::mbstate_t[link /reference/cwchar/mbstate_t.md]
 
 ### 出力例
 ```

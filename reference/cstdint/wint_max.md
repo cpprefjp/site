@@ -8,9 +8,9 @@
 ```
 
 ## 概要
-`wint_t` の最大値。
+[`wint_t`](/reference/cwchar/wint_t.md) の最大値。
 
-`wint_t`が符号付き整数型として定義される場合、このマクロの値は32767以上となる。そうでない場合、このマクロの値は65535以上となる。
+[`wint_t`](/reference/cwchar/wint_t.md)が符号付き整数型として定義される場合、このマクロの値は32767以上となる。そうでない場合、このマクロの値は65535以上となる。
 
 
 ## 例
@@ -25,6 +25,7 @@ int main()
 }
 ```
 * WINT_MAX[color ff0000]
+* std::wint_t[link /reference/cwchar/wint_t.md]
 
 ### 出力例
 ```

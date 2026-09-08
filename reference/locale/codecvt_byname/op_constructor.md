@@ -67,6 +67,7 @@ int main()
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::codecvt[link /reference/locale/codecvt.md]
 * fa.always_noconv()[link /reference/locale/codecvt/always_noconv.md]
+* std::mbstate_t[link /reference/cwchar/mbstate_t.md]
 
 ### 出力
 ```

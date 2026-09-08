@@ -51,6 +51,7 @@ int main()
 * std::codecvt[link /reference/locale/codecvt.md]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale::classic()[link /reference/locale/locale/classic.md]
+* std::mbstate_t[link /reference/cwchar/mbstate_t.md]
 
 ### 出力
 ```

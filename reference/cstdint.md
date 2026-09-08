@@ -85,8 +85,8 @@
 | [`SIG_ATOMIC_MAX`](cstdint/sig_atomic_max.md)   | `sig_atomic_t`の最大値 | C++11 |
 | [`WCHAR_MIN`](cstdint/wchar_min.md)             | `wchar_t`の最小値 | C++11 |
 | [`WCHAR_MAX`](cstdint/wchar_max.md)             | `wchar_t`の最大値 | C++11 |
-| [`WINT_MIN`](cstdint/wint_min.md)               | `wint_t`の最小値 | C++11 |
-| [`WINT_MAX`](cstdint/wint_max.md)               | `wint_t`の最大値 | C++11 |
+| [`WINT_MIN`](cstdint/wint_min.md)               | [`wint_t`](/reference/cwchar/wint_t.md)の最小値 | C++11 |
+| [`WINT_MAX`](cstdint/wint_max.md)               | [`wint_t`](/reference/cwchar/wint_t.md)の最大値 | C++11 |
 
 
 ## 符号なし整数型用の限界値マクロ
@@ -148,7 +148,7 @@
 | [`SIZE_WIDTH`](cstdint/size_width.md)                 | [`size_t`](/reference/cstddef/size_t.md)の幅 | C++26 |
 | [`SIG_ATOMIC_WIDTH`](cstdint/sig_atomic_width.md)     | `sig_atomic_t`の幅 | C++26 |
 | [`WCHAR_WIDTH`](cstdint/wchar_width.md)               | `wchar_t`の幅 | C++26 |
-| [`WINT_WIDTH`](cstdint/wint_width.md)                 | `wint_t`の幅 | C++26 |
+| [`WINT_WIDTH`](cstdint/wint_width.md)                 | [`wint_t`](/reference/cwchar/wint_t.md)の幅 | C++26 |
 
 
 ## バージョン情報マクロ

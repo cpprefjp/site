@@ -214,8 +214,6 @@ long stol(const std::wstring& str, std::size_t* idx = nullptr, long base = 10) {
 }
 ```
 * str.c_str()[link basic_string/c_str.md]
-* std::invalid_argument[link /reference/stdexcept.md]
-* std::out_of_range[link /reference/stdexcept.md]
 * errno[link /reference/cerrno/errno.md]
 * ERANGE[link /reference/cerrno.md]
 
@@ -233,7 +231,7 @@ long stol(const std::wstring& str, std::size_t* idx = nullptr, long base = 10) {
 ## 関連リンク
 ### C標準ライブラリに由来する関数
 - [`atol`](/reference/cstdlib/atoi_atol_atoll.md): `stol`は[`atol`](/reference/cstdlib/atoi_atol_atoll.md)を`std::string`および`std::wstring`に対応させたものと見なせる。
-- `strtol`, `wcstol`: `stol`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wstring`に対応させたものと見なせる。
+- [`strtol`](/reference/cstdlib/strtol.md), [`wcstol`](/reference/cwchar/wcstol.md): `stol`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wstring`に対応させたものと見なせる。
 
 ### ファミリー
 - [`stoi`](stoi.md): 戻り値の型が`int`となったもの。

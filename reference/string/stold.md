@@ -155,8 +155,6 @@ long double stold(const std::wstring& str, std::size_t* idx = nullptr) {
 }
 ```
 * str.c_str()[link basic_string/c_str.md]
-* std::invalid_argument[link /reference/stdexcept.md]
-* std::out_of_range[link /reference/stdexcept.md]
 * errno[link /reference/cerrno/errno.md]
 * ERANGE[link /reference/cerrno.md]
 
@@ -175,8 +173,8 @@ long double stold(const std::wstring& str, std::size_t* idx = nullptr) {
 
 ## 関連リンク
 ### C標準ライブラリに由来する関数
-- `atof`: `stold`は`atof`を`std::string`および`std::wstring`に対応させ、戻り値の型を`long double`に変更したものと見なせる。
-- `strtold`, `wcstold`: `stold`は`strtold`および`wcstold`をそれぞれ`std::string`と`std::wstring`に対応させたものと見なせる。
+- [`atof`](/reference/cstdlib/atof.md): `stold`は`atof`を`std::string`および`std::wstring`に対応させ、戻り値の型を`long double`に変更したものと見なせる。
+- [`strtold`](/reference/cstdlib/strtold.md), [`wcstold`](/reference/cwchar/wcstold.md): `stold`は`strtold`および`wcstold`をそれぞれ`std::string`と`std::wstring`に対応させたものと見なせる。
 
 ### ファミリー
 - [`stoi`](stoi.md): 戻り値の型が`int`となったもの。

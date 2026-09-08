@@ -87,7 +87,7 @@
 |`__cpp_lib_freestanding_charconv`|`202306L`||[`<charconv>`](/reference/charconv.md)|
 |`__cpp_lib_freestanding_cstdlib`|`202306L`||[`<cstdlib>`](/reference/cstdlib.md), [`<cmath>`](/reference/cmath.md)|
 |`__cpp_lib_freestanding_cstring`|`202311L`||[`<cstring>`](/reference/cstring.md)|
-|`__cpp_lib_freestanding_cwchar`|`202306L`||[`<cwchar>`](/reference/cwchar.md.nolink)|
+|`__cpp_lib_freestanding_cwchar`|`202306L`||[`<cwchar>`](/reference/cwchar.md)|
 |`__cpp_lib_freestanding_errc`|`202306L`||[`<cerrno>`](/reference/cerrno.md), [`<system_error>`](/reference/system_error.md)|
 |`__cpp_lib_freestanding_execution`|`202502L`||[`<execution>`](/reference/execution.md)|
 |`__cpp_lib_freestanding_expected`|`202311L`||[`<expected>`](/reference/expected.md)|

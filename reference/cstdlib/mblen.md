@@ -50,7 +50,7 @@ mbtowc((wchar_t *)0, str, n);
 関数 `mblen` は `std::mbstate_t` に等価な静的記憶域の内部状態を保持し、前回の `mblen` 関数呼び出しの続きとして処理を行う。
 従って、この関数はスレッドセーフではない。
 また、この関数を用いる処理の途中で、この関数を用いる別の処理を行うこともできない。
-安全に処理するためには、この関数の代わりに `std::mbstate_t` を受け取る [`std::mbrlen`](../cwchar/mbrlen.md.nolink) (`<cwchar>`) を使い、呼び出し元でデコード状態の記録場所 `std::mbstate_t` を用意する必要がある。
+安全に処理するためには、この関数の代わりに `std::mbstate_t` を受け取る [`std::mbrlen`](../cwchar/mbrlen.md) (`<cwchar>`) を使い、呼び出し元でデコード状態の記録場所 `std::mbstate_t` を用意する必要がある。
 
 他の標準ライブラリ関数はあたかも`mblen`を呼び出さないように振る舞う。
 つまり、明示的に `mblen` を呼び出さない限り、その内部状態を変更しない。
@@ -122,6 +122,7 @@ int main() {
   std::cout << "文字数: " << count_chars_mblen(str) << "\n";
 }
 ```
+* std::mbstate_t[link /reference/cwchar/mbstate_t.md]
 
 注意: この例は飽くまで `std::mblen` を用いて文字数を数える関数の例であるが、実用上は `std::mbrlen` を用いた実装にするのが安全である。
 上の関数 `count_chars_mblen` はスレッドセーフでない他、呼び出し元でも `std::mblen` を使っている場合にその振る舞いを破壊する可能性がある。
@@ -134,7 +135,7 @@ int main() {
 
 ## 関連項目
 
-- [`mbrlen`](../cwchar/mbrlen.md.nolink): `std::mbstate_t` を受け取るスレッドセーフなバージョン
+- [`mbrlen`](../cwchar/mbrlen.md): `std::mbstate_t` を受け取るスレッドセーフなバージョン
 - [WG14 N1373: Wording improvements for mblen, mbtowc, and c16rtomb](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1373.htm)
     - C11 以降内部状態が最初に初期化されることになった。「表現の改善」としてこの破壊的な変更が実施されたように見える。
     - [musl のメーリングリスト - 2019-12-26](https://www.openwall.com/lists/musl/2019/12/26/7) にて Florian Weimer が以下のように指摘している:
