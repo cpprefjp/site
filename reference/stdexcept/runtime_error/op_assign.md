@@ -3,7 +3,6 @@
 * std[meta namespace]
 * runtime_error[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 runtime_error& operator=(const runtime_error&) noexcept;           // (1) C++98

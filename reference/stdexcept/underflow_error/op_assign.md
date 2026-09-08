@@ -3,7 +3,6 @@
 * std[meta namespace]
 * underflow_error[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 underflow_error& operator=(const underflow_error&) noexcept;           // (1) C++98

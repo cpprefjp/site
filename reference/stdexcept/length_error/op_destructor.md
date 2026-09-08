@@ -3,7 +3,6 @@
 * std[meta namespace]
 * length_error[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 virtual ~length_error();           // (1) C++98

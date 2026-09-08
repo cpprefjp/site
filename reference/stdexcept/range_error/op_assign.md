@@ -3,7 +3,6 @@
 * std[meta namespace]
 * range_error[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 range_error& operator=(const range_error&) noexcept;           // (1) C++98

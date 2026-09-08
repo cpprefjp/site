@@ -3,7 +3,6 @@
 * std[meta namespace]
 * out_of_range[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 out_of_range& operator=(const out_of_range&) noexcept;           // (1) C++98

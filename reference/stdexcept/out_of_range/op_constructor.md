@@ -3,7 +3,6 @@
 * std[meta namespace]
 * out_of_range[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 explicit out_of_range(const string& what_arg);           // (1) C++98

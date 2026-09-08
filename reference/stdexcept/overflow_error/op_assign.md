@@ -3,7 +3,6 @@
 * std[meta namespace]
 * overflow_error[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 overflow_error& operator=(const overflow_error&) noexcept;           // (1) C++98

@@ -3,7 +3,6 @@
 * std[meta namespace]
 * invalid_argument[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 virtual ~invalid_argument();           // (1) C++98

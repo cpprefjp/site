@@ -3,7 +3,6 @@
 * std[meta namespace]
 * range_error[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 explicit range_error(const string& what_arg);           // (1) C++98

@@ -3,7 +3,6 @@
 * std[meta namespace]
 * overflow_error[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 explicit overflow_error(const string& what_arg);           // (1) C++98

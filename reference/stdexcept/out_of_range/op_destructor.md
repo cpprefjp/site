@@ -3,7 +3,6 @@
 * std[meta namespace]
 * out_of_range[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 virtual ~out_of_range();           // (1) C++98

@@ -3,7 +3,6 @@
 * std[meta namespace]
 * invalid_argument[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 invalid_argument& operator=(const invalid_argument&) noexcept;           // (1) C++98

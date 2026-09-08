@@ -3,7 +3,6 @@
 * std[meta namespace]
 * logic_error[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 logic_error& operator=(const logic_error&) noexcept;           // (1) C++98

@@ -3,7 +3,6 @@
 * std[meta namespace]
 * range_error[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 virtual ~range_error();           // (1) C++98

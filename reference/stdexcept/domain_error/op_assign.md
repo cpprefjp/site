@@ -3,7 +3,6 @@
 * std[meta namespace]
 * domain_error[meta class]
 * function[meta id-type]
-* cpp98[meta cpp]
 
 ```cpp
 domain_error& operator=(const domain_error&) noexcept;           // (1) C++98
