@@ -69,11 +69,11 @@ Stage 2で蓄積した文字列（フィールド）を、[`<cstdlib>`](/referen
 
 | オーバーロード | 対象の型 | 変換規則 |
 |----------------|----------|----------|
-| (2), (3)           | 符号付き整数型 | [`std::strtoll`](/reference/cstdlib/strtoll.md.nolink) |
-| (4), (5), (6), (7) | 符号なし整数型 | [`std::strtoull`](/reference/cstdlib/strtoull.md.nolink) |
-| (8)                | `float`        | [`std::strtof`](/reference/cstdlib/strtof.md.nolink) |
-| (9)                | `double`       | [`std::strtod`](/reference/cstdlib/strtod.md.nolink) |
-| (10)               | `long double`  | [`std::strtold`](/reference/cstdlib/strtold.md.nolink) |
+| (2), (3)           | 符号付き整数型 | [`std::strtoll`](/reference/cstdlib/strtoll.md) |
+| (4), (5), (6), (7) | 符号なし整数型 | [`std::strtoull`](/reference/cstdlib/strtoull.md) |
+| (8)                | `float`        | [`std::strtof`](/reference/cstdlib/strtof.md) |
+| (9)                | `double`       | [`std::strtod`](/reference/cstdlib/strtod.md) |
+| (10)               | `long double`  | [`std::strtold`](/reference/cstdlib/strtold.md) |
 | (11)               | `void*`        | 規定されていない |
 
 格納される値は以下のいずれかであり、いずれの場合も結果は`val`へ格納される。

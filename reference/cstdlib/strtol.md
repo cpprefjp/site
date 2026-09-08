@@ -82,9 +82,9 @@ int main() {
 ```
 
 ## 関連項目
-- [`strtoll`](strtoll.md.nolink): 文字列を、基数を指定して`long long`型に変換する
-- [`strtoul`](strtoul.md.nolink): 文字列を、基数を指定して`unsigned long`型に変換する
-- [`strtoull`](strtoull.md.nolink): 文字列を、基数を指定して`unsigned long long`型に変換する
+- [`strtoll`](strtoll.md): 文字列を、基数を指定して`long long`型に変換する
+- [`strtoul`](strtoul.md): 文字列を、基数を指定して`unsigned long`型に変換する
+- [`strtoull`](strtoull.md): 文字列を、基数を指定して`unsigned long long`型に変換する
 - [`std::stol`](/reference/string/stol.md): 文字列から`long`型への変換
 - [`<charconv>` ヘッダ](/reference/charconv.md): 高速な文字列 ⇔ 数値変換
 

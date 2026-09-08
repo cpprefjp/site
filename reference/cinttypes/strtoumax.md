@@ -27,7 +27,7 @@ namespace std {
 
 として変換する。
 
-この関数は、[`std::strtoul()`](/reference/cstdlib/strtoul.md.nolink)の変換先の型を[`uintmax_t`](/reference/cstdint/uintmax_t.md)にしたものである。
+この関数は、[`std::strtoul()`](/reference/cstdlib/strtoul.md)の変換先の型を[`uintmax_t`](/reference/cstdint/uintmax_t.md)にしたものである。
 
 
 ## 戻り値

@@ -19,12 +19,12 @@
 | [`atoll`](cstdlib/atoi_atol_atoll.md) | 文字列を`long long`型に変換する (function) | C++11 |
 | [`atof`](cstdlib/atof.md) | 文字列を`double`型に変換する (function) | |
 | [`strtol`](cstdlib/strtol.md)   | 文字列を、基数を指定して`long`型に変換する (function) | |
-| `strtoll`  | 文字列を、基数を指定して`long long`型に変換する (function) | C++11 |
-| `strtoul`  | 文字列を、基数を指定して`unsigned long`型に変換する (function) | |
-| `strtoull` | 文字列を、基数を指定して`unsigned long long`型に変換する (function) | C++11 |
-| `strtof`   | 文字列を、`float`型に変換する (function) | |
-| `strtod`   | 文字列を、`double`型に変換する (function) | |
-| `strtold`  | 文字列を、`long double`型に変換する (function) | C++11 |
+| [`strtoll`](cstdlib/strtoll.md)  | 文字列を、基数を指定して`long long`型に変換する (function) | C++11 |
+| [`strtoul`](cstdlib/strtoul.md)  | 文字列を、基数を指定して`unsigned long`型に変換する (function) | |
+| [`strtoull`](cstdlib/strtoull.md) | 文字列を、基数を指定して`unsigned long long`型に変換する (function) | C++11 |
+| [`strtof`](cstdlib/strtof.md)   | 文字列を、`float`型に変換する (function) | C++11 |
+| [`strtod`](cstdlib/strtod.md)   | 文字列を、`double`型に変換する (function) | |
+| [`strtold`](cstdlib/strtold.md)  | 文字列を、`long double`型に変換する (function) | C++11 |
 | [`strfromf`](cstdlib/strfromf.md) | `float`型を文字列に変換する (function) | C++26 |
 | [`strfromd`](cstdlib/strfromd.md) | `double`型を文字列に変換する (function) | C++26 |
 | [`strfroml`](cstdlib/strfroml.md) | `long double`型を文字列に変換する (function) | C++26 |
