@@ -19,10 +19,10 @@
 ## 型の別名
 | 名前            | 説明           | 対応バージョン |
 |-----------------|----------------|----------------|
-| `syncbuf` | `basic_syncbuf<char>` | C++20 |
-| `wsyncbuf` | `basic_syncbuf<wchar_t>` | C++20 |
-| `osyncstream` | `basic_osyncstream<char>` | C++20 |
-| `wosyncstream` | `basic_osyncstream<wchar_t>` | C++20 |
+| `syncbuf` | [`basic_syncbuf`](syncstream/basic_syncbuf.md)`<char>` | C++20 |
+| `wsyncbuf` | [`basic_syncbuf`](syncstream/basic_syncbuf.md)`<wchar_t>` | C++20 |
+| `osyncstream` | [`basic_osyncstream`](syncstream/basic_osyncstream.md)`<char>` | C++20 |
+| `wosyncstream` | [`basic_osyncstream`](syncstream/basic_osyncstream.md)`<wchar_t>` | C++20 |
 
 
 ## バージョン
