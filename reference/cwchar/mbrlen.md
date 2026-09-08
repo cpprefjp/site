@@ -57,6 +57,7 @@ int main()
 * std::mbstate_t[link mbstate_t.md]
 * std::setlocale[link /reference/clocale/setlocale.md]
 * std::size_t[link /reference/cstddef/size_t.md]
+* LC_ALL[link /reference/clocale/lc_all.md]
 
 ### 出力例
 ```

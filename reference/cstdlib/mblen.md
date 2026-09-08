@@ -14,7 +14,7 @@ namespace std {
 
 先頭以外の文字に関するバイト数は計算されない。
 
-この関数は現在のロケールカテゴリー `LC_CTYPE` に依存してマルチバイト文字を解釈する。
+この関数は現在のロケールカテゴリー [`LC_CTYPE`](/reference/clocale/lc_ctype.md) に依存してマルチバイト文字を解釈する。
 
 `n`は解析に使用する最大バイト数を指定する。
 
@@ -76,6 +76,8 @@ int main() {
   return 0;
 }
 ```
+* LC_ALL[link /reference/clocale/lc_all.md]
+* std::setlocale[link /reference/clocale/setlocale.md]
 
 #### 出力例
 ```
@@ -123,6 +125,8 @@ int main() {
 }
 ```
 * std::mbstate_t[link /reference/cwchar/mbstate_t.md]
+* LC_ALL[link /reference/clocale/lc_all.md]
+* std::setlocale[link /reference/clocale/setlocale.md]
 
 注意: この例は飽くまで `std::mblen` を用いて文字数を数える関数の例であるが、実用上は `std::mbrlen` を用いた実装にするのが安全である。
 上の関数 `count_chars_mblen` はスレッドセーフでない他、呼び出し元でも `std::mblen` を使っている場合にその振る舞いを破壊する可能性がある。

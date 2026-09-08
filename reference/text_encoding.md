@@ -46,7 +46,7 @@ C++プログラムにおけるテキストエンコーディングは、大き�
 
 | プラットフォーム | 決定方法 |
 |----------------|---------|
-| Linux / macOS | POSIXロケール（空文字列`""`）に関連付けられたエンコーディング。環境変数`LC_CTYPE`、`LC_ALL`、`LANG`から決定される。近年のLinux / macOSでは多くの場合UTF-8 |
+| Linux / macOS | POSIXロケール（空文字列`""`）に関連付けられたエンコーディング。環境変数[`LC_CTYPE`](/reference/clocale/lc_ctype.md)、[`LC_ALL`](/reference/clocale/lc_all.md)、`LANG`から決定される。近年のLinux / macOSでは多くの場合UTF-8 |
 | Windows | `GetACP()`が返すアクティブコードページ。日本語環境ではCP932（Shift_JIS系） |
 
 注意として、Windowsではコンソールのコードページ（`GetConsoleCP()`/`GetConsoleOutputCP()`で取得）が環境エンコーディングと異なる場合がある。`<text_encoding>`の環境エンコーディングはコンソールのコードページではなく、プロセスのアクティブコードページを返す。

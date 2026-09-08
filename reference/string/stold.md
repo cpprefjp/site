@@ -41,7 +41,7 @@ namespace std {
 この関数は、[`setlocale()`](/reference/clocale/setlocale.md)関数により挙動が変化する。
 
 - `strtold()`関数での文字列先頭の空白を読み飛ばす処理に、`<cctype>`の`isspace()`関数が使用される。
-- 小数点記号は`LC_NUMERIC`で指定されたものが使用される。
+- 小数点記号は[`LC_NUMERIC`](/reference/clocale/lc_numeric.md)で指定されたものが使用される。
 
 
 ## 例

@@ -47,7 +47,7 @@ POSIX実装では、空文字列`""`で表されるPOSIXロケールに関連付
 ### 各プラットフォームでの決定方法
 
 #### Linux
-環境変数`LC_CTYPE`、`LC_ALL`、`LANG`（この優先順位で）から決定される。近年のディストリビューションでは多くの場合UTF-8である。
+環境変数[`LC_CTYPE`](/reference/clocale/lc_ctype.md)、[`LC_ALL`](/reference/clocale/lc_all.md)、`LANG`（この優先順位で）から決定される。近年のディストリビューションでは多くの場合UTF-8である。
 
 推奨実装として`/proc/self/environ`を解析することで、プログラム起動後の`setenv()`の影響を受けない初期の環境変数を取得できる。
 

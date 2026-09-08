@@ -18,7 +18,7 @@ namespace std {
 
 
 ## 備考
-- 文字コードの値で比較する[`wcscmp()`](wcscmp.md)と異なり、`LC_COLLATE`カテゴリのロケールに従って比較する
+- 文字コードの値で比較する[`wcscmp()`](wcscmp.md)と異なり、[`LC_COLLATE`](/reference/clocale/lc_collate.md)カテゴリのロケールに従って比較する
 
 
 ## 例

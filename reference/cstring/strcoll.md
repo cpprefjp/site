@@ -14,7 +14,7 @@ namespace std {
 
 
 ## 効果
-現在のロケールの`LC_COLLATE`カテゴリに従って、`s1`が指す文字列と`s2`が指す文字列を比較する。
+現在のロケールの[`LC_COLLATE`](/reference/clocale/lc_collate.md)カテゴリに従って、`s1`が指す文字列と`s2`が指す文字列を比較する。
 
 
 ## 戻り値

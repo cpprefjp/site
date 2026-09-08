@@ -47,6 +47,8 @@ int main()
 ```
 * std::wcsrtombs[color ff0000]
 * std::wcout[link /reference/iostream/wcout.md]
+* LC_ALL[link /reference/clocale/lc_all.md]
+* std::setlocale[link /reference/clocale/setlocale.md]
 
 ### 出力例
 ```

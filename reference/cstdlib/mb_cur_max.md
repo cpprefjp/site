@@ -35,6 +35,8 @@ int main() {
   }
 }
 ```
+* LC_CTYPE[link /reference/clocale/lc_ctype.md]
+* std::setlocale[link /reference/clocale/setlocale.md]
 
 ### 出力例
 ```
