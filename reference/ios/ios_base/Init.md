@@ -47,8 +47,8 @@ namespace std {
 - [`clog`](../../iostream/clog.md)
 - [`wcin`](../../iostream/wcin.md)
 - [`wcout`](../../iostream/wcout.md)
-- [`wcerr`](../../iostream/wcerr.md.nolink)
-- [`wclog`](../../iostream/wclog.md.nolink)
+- [`wcerr`](../../iostream/wcerr.md)
+- [`wclog`](../../iostream/wclog.md)
 
 
 ## 参照

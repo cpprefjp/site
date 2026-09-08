@@ -6,18 +6,16 @@
 ```cpp
 namespace std {
   extern ostream clog;
-  extern wostream wclog;
 }
 ```
 * ostream[link ../ostream/basic_ostream.md]
-* wostream[link ../ostream/basic_ostream.md]
 
 ## 概要
-`clog`も`wclog`も、標準エラー出力に対する出力ストリームオブジェクトである。
+`clog`は、標準エラー出力に対する出力ストリームオブジェクトである。ワイド文字版として[`wclog`](wclog.md)がある。
 
 すなわち、[`std::basic_streambuf`](../streambuf/basic_streambuf.md)から派生していて`<cstdio>`の`stderr`オブジェクトに結びつけられているストリームバッファに出力する。
 
-`clog`は`character log`を意味する。また`wclog`は`wide character log`を意味する。<sup><a id="cite_ref-1" href="#cite-1">[1]</a></sup>
+`clog`は`character log`を意味する。<sup><a id="cite_ref-1" href="#cite-1">[1]</a></sup>
 
 ## 例
 ```cpp example
@@ -66,6 +64,7 @@ int main(int argc, char** argv)
 
 1. **<a id="cite-1" href="#cite_ref-1">^</a>** <cite>[Stroustrup: C++ Style and Technique FAQ](http://www.stroustrup.com/bs_faq2.html#cout)</cite>(2018-08-21 17:01 JST 閲覧)
 
-## 参照
+## 関連項目
 
 - [`cerr`](cerr.md)
+- [`wclog`](wclog.md)

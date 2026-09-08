@@ -19,7 +19,7 @@ namespace std {
 実引数のstrオブジェクト。
 
 ## 備考
-[`std::cerr`](../iostream/cerr.md)と[`std::wcerr`](../iostream/wcerr.md.nolink)オブジェクトは、
+[`std::cerr`](../iostream/cerr.md)と[`std::wcerr`](../iostream/wcerr.md)オブジェクトは、
 初期状態として`std::ios_base::unitbuf`が設定されている。
 
 ## 例

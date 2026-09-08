@@ -111,8 +111,8 @@ namespace std {
     - [`cout`](../iostream/cout.md)
     - [`wcout`](../iostream/wcout.md)
     - [`clog`](../iostream/clog.md)
-    - [`wclog`](../iostream/wclog.md.nolink)
+    - [`wclog`](../iostream/wclog.md)
     - [`cerr`](../iostream/cerr.md)
-    - [`wcerr`](../iostream/wcerr.md.nolink)
+    - [`wcerr`](../iostream/wcerr.md)
 - [LWG Issue 911. I/O streams and move/swap semantic](https://cplusplus.github.io/LWG/issue911)
     - C++11で、ムーブコンストラクタ・ムーブ代入演算子・`swap`が`protected`となり、非メンバ関数の`swap`が削除された。派生クラスのみが使用でき、基底クラスのオブジェクトを直接ムーブ・交換できないようにするため

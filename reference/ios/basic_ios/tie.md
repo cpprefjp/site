@@ -41,7 +41,7 @@ basic_ostream<CharT, Traits>* tie(basic_ostream<CharT, Traits>* tiestr);    // (
     - [`cin`](../../iostream/cin.md)`.tie() == &`[`cout`](../../iostream/cout.md)
     - [`wcin`](../../iostream/wcin.md)`.tie() == &`[`wcout`](../../iostream/wcout.md)
     - [`cerr`](../../iostream/cerr.md)`.tie() == &`[`cout`](../../iostream/cout.md)（C++11 から）
-    - [`wcerr`](../../iostream/wcerr.md.nolink)`.tie() == &`[`wcout`](../../iostream/wcout.md)（C++11 から）
+    - [`wcerr`](../../iostream/wcerr.md)`.tie() == &`[`wcout`](../../iostream/wcout.md)（C++11 から）
 
 
 ## 例
@@ -103,7 +103,7 @@ new
 - [`cerr`](../../iostream/cerr.md)
 - [`wcin`](../../iostream/wcin.md)
 - [`wcout`](../../iostream/wcout.md)
-- [`wcerr`](../../iostream/wcerr.md.nolink)
+- [`wcerr`](../../iostream/wcerr.md)
 - [`basic_istream`](../../istream/basic_istream.md)`::`[`sentry`](../../istream/basic_istream/sentry.md)`::`[`sentry`](../../istream/basic_istream/sentry/op_constructor.md)
 - [`basic_ostream`](../../ostream/basic_ostream.md)`::`[`sentry`](../../ostream/basic_ostream/sentry.md)`::`[`sentry`](../../ostream/basic_ostream/sentry/op_constructor.md)
 

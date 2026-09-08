@@ -24,5 +24,5 @@
 | [`cerr`](iostream/cerr.md)   | マルチバイト文字による標準エラー出力（バッファリング無し） |                |
 | [`wcin`](iostream/wcin.md)    | ワイド文字による標準入力                                           |                |
 | [`wcout`](iostream/wcout.md)  | ワイド文字による標準出力                                   |                |
-| [`wclog`](iostream/clog.md)  | ワイド文字による標準エラー出力                             |                |
-| [`wcerr`](iostream/cerr.md)  | ワイド文字による標準エラー出力（バッファリング無し）       |                |
+| [`wclog`](iostream/wclog.md) | ワイド文字による標準エラー出力                             |                |
+| [`wcerr`](iostream/wcerr.md) | ワイド文字による標準エラー出力（バッファリング無し）       |                |
