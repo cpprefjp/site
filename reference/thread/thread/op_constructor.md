@@ -6,19 +6,28 @@
 * cpp11[meta cpp]
 
 ```cpp
-thread() noexcept;                      // (1)
+thread() noexcept;                      // (1) C++11
 
 template <class F, class ...Args>
-explicit thread(F&& f, Args&&... args); // (2)
+explicit thread(F&& f, Args&&... args); // (2) C++11
 
-thread(const thread&) = delete;         // (3)
-thread(thread&&) noexcept;              // (4)
+template <class ...Args>
+explicit thread(Args&&... args);        // (2) C++29
+
+thread(const thread&) = delete;         // (3) C++11
+thread(thread&&) noexcept;              // (4) C++11
 ```
 
 
 ## 概要
 - (1) : デフォルトコンストラクタ。新しいスレッドを生成せず、空の状態にする。
-- (2) : 新しいスレッドを生成し、そのスレッド上で引数`args...`を渡して、関数オブジェクト`f`を呼び出す。
+- (2) : 新しいスレッドを生成し、そのスレッド上で関数オブジェクトを呼び出す
+    - C++11 : 第1引数`f`が呼び出す関数オブジェクトであり、残りの引数`args...`が`f`へ渡す実引数となる
+    - C++29 : シグニチャがすべての引数を1つのパック`args...`で受け取る形へ変更され、関数オブジェクトより前に0個以上のスレッド属性（[`name_hint`](name_hint.md)・[`stack_size_hint`](stack_size_hint.md)など）も渡せるようになった。`args...`の先頭に連続するスレッド属性型の引数がスレッドの名前やスタックサイズなどの設定として使われ、最初に現れた非属性型の引数が呼び出す関数オブジェクト、それ以降がその関数オブジェクトへ渡す実引数として扱われる。同じ属性型を複数回渡した場合、プログラムは不適格となる
+
+        ```cpp
+        std::thread t{std::thread::name_hint("Worker"), f, 42};
+        ```
 - (3) : コピーコンストラクタ。コピー不可。
 - (4) : ムーブコンストラクタ。スレッドの所有権を移動する。
 
@@ -58,6 +67,7 @@ thread(thread&&) noexcept;              // (4)
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <memory>
 #include <thread>
@@ -93,8 +103,50 @@ int main()
 * std::make_shared[link /reference/memory/make_shared.md]
 * std::move[link /reference/utility/move.md]
 
-### 出力
+#### 出力
 ```
+```
+
+### スレッド属性を指定する (C++29)
+```cpp
+#include <thread>
+#include <iostream>
+#include <pthread.h> // POSIX環境
+
+void work(int n)
+{
+  // ...
+}
+
+int main()
+{
+  // スレッド名とスタックサイズのヒントを指定してスレッドを生成する。
+  // スレッド名はデバッガのスレッド一覧などに表示される
+  std::thread t{
+    std::thread::name_hint("Worker"),
+    std::thread::stack_size_hint(512 * 1024),
+    work,
+    42
+  };
+
+  // 標準ライブラリにスレッド名を取得するAPIはないが、
+  // ネイティブハンドルを通じてプラットフォームのAPIで取得できる
+  char name[16]{};
+  pthread_getname_np(t.native_handle(), name, sizeof(name));
+  std::cout << name << std::endl;
+
+  t.join();
+}
+```
+* std::thread::name_hint[link name_hint.md]
+* std::thread::stack_size_hint[link stack_size_hint.md]
+* t.native_handle()[link native_handle.md]
+
+このコードはC++29の規則のもとでは適格だが、2026年9月時点でスレッド属性を実装した処理系はない。
+
+#### 出力例
+```
+Worker
 ```
 
 ## バージョン
@@ -123,3 +175,5 @@ int main()
     - C++23で、`is_constructible`要件が既に目的を満たすため、冗長だったムーブ構築可能（`is_move_constructible`）の要件が削除された
 - [P0849R8 `auto(x)`: decay-copy in the language](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0849r8.html)
     - C++23で、実引数のコピーを表す規定が、説明専用の`DECAY_COPY`から言語機能の[`auto(x)`](/lang/cpp23/auto_cast.md)へ置き換えられた。規定の書き換えであり、動作は変わらない
+- [P2019R9 Thread attributes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p2019r9.pdf)
+    - C++29で、スレッド属性を先頭引数として渡せるようになった

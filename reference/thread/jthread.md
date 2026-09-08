@@ -48,6 +48,8 @@ namespace std {
 |------------------------|----------------------------------------------|-------|
 | [`id`](jthread/id.md) | スレッド識別子 (type-alias) | C++20 |
 | `native_handle_type`  | ネイティブハンドル型 (type-alias)［処理系定義］ | C++20 |
+| [`name_hint`](thread/name_hint.md) | スレッド名を設定するスレッド属性。`thread::name_hint`の別名 (type-alias) | C++29 |
+| [`stack_size_hint`](thread/stack_size_hint.md) | スレッドのスタックサイズを設定するスレッド属性。`thread::stack_size_hint`の別名 (type-alias) | C++29 |
 
 
 ## 非メンバ関数
@@ -162,6 +164,44 @@ int main()
 ```
 ```
 
+### 名前とスタックサイズを設定する - POSIX環境 (C++29)
+```cpp
+#include <thread>
+#include <iostream>
+#include <pthread.h> // POSIX環境
+
+void work(int n)
+{
+  // ...
+}
+
+int main()
+{
+  // スレッド名とスタックサイズのヒントを指定してスレッドを生成する。
+  // スレッド名はデバッガのスレッド一覧などに表示される
+  std::jthread t{
+    std::jthread::name_hint("Worker"),
+    std::jthread::stack_size_hint(512 * 1024),
+    work,
+    42
+  };
+
+  // 標準ライブラリにスレッド名を取得するAPIはないが、
+  // ネイティブハンドルを通じてプラットフォームのAPIで取得できる
+  char name[16]{};
+  pthread_getname_np(t.native_handle(), name, sizeof(name));
+  std::cout << name << std::endl;
+}
+```
+* std::jthread::name_hint[link thread/name_hint.md]
+* std::jthread::stack_size_hint[link thread/stack_size_hint.md]
+* t.native_handle()[link jthread/native_handle.md]
+
+#### 出力例
+```
+Worker
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -170,3 +210,8 @@ int main()
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 10.2.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P2019R9 Thread attributes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p2019r9.pdf)
+    - C++29で、スレッド名を設定する[`name_hint`](thread/name_hint.md)とスタックサイズを設定する[`stack_size_hint`](thread/stack_size_hint.md)のスレッド属性が追加された

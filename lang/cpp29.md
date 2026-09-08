@@ -114,7 +114,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 - [`std::error_code`](/reference/system_error/error_code.md)クラスを[`std::format()`](/reference/format/format.md)で出力できるよう、[`formatter`特殊化](/reference/system_error/error_code/formatter.md)を追加。あわせて、カテゴリ名とエラーメッセージのエンコーディングが未規定だった問題を修正
 
 ### 並行・並列
-- [`std::thread`](/reference/thread/thread.md)クラスと[`std::jthread`](/reference/thread/jthread.md)クラスに、スレッド名とスタックサイズを設定する機能を追加
+- [`std::thread`](/reference/thread/thread.md)クラスと[`std::jthread`](/reference/thread/jthread.md)クラスに、スレッド名を設定する[`name_hint`](/reference/thread/thread/name_hint.md)とスタックサイズを設定する[`stack_size_hint`](/reference/thread/thread/stack_size_hint.md)のスレッド属性を追加
 - SIMDデータ用に連番を生成する[`std::simd::iota`](/reference/simd/iota.md)変数テンプレートを追加
 - [`<bit>`](/reference/bit.md)ヘッダと同様に、[`<simd>`](/reference/simd.md)ヘッダにも、以下のビット操作関数を追加
     - ビット列の並びを反転する[`std::simd::bit_reverse()`](/reference/simd/bit_reverse.md)関数

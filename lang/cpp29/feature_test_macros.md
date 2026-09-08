@@ -37,6 +37,7 @@
 |`__cpp_lib_mdspan_copy`|`202606L`|[`<mdspan>`](/reference/mdspan.md)に、多次元配列ビューをコピーする[`std::copy()`](/reference/mdspan/copy.md)と値を代入する[`std::fill()`](/reference/mdspan/fill.md)を追加|[`<mdspan>`](/reference/mdspan.md)|
 |`__cpp_lib_simd`|`202606L`|[`<simd>`](/reference/simd.md)に、SIMDデータ用の連番を生成する[`std::simd::iota`](/reference/simd/iota.md)変数テンプレートなどを追加|[`<simd>`](/reference/simd.md)|
 |`__cpp_lib_simd_bitops`|`202607L`|[`<simd>`](/reference/simd.md)に、ビット列を操作する[`bit_reverse()`](/reference/simd/bit_reverse.md)・[`bit_repeat()`](/reference/simd/bit_repeat.md)・[`bit_compress()`](/reference/simd/bit_compress.md)・[`bit_expand()`](/reference/simd/bit_expand.md)関数と、未定義動作にならないシフト[`shl()`](/reference/simd/shl.md)・[`shr()`](/reference/simd/shr.md)関数を追加|[`<simd>`](/reference/simd.md)|
+|`__cpp_lib_thread_attributes`|`202606L`|[`std::thread`](/reference/thread/thread.md)と[`std::jthread`](/reference/thread/jthread.md)に、スレッド名を設定する[`name_hint`](/reference/thread/thread/name_hint.md)とスタックサイズを設定する[`stack_size_hint`](/reference/thread/thread/stack_size_hint.md)のスレッド属性を追加|[`<thread>`](/reference/thread.md)|
 |`__cpp_lib_to_chars`|`202606L`|[`std::to_chars()`](/reference/charconv/to_chars.md)の浮動小数点数に対する既定表現を、値の範囲によって固定小数表記と指数表記を選択するよう変更|[`<charconv>`](/reference/charconv.md)|
 |`__cpp_lib_view_interface`|`202606L`|[`std::ranges::view_interface`](/reference/ranges/view_interface.md)に、範囲チェックをともなって要素へアクセスする[`at()`](/reference/ranges/view_interface/at.md)メンバ関数を追加|[`<ranges>`](/reference/ranges.md)|
 
@@ -74,6 +75,8 @@
     - C++29で`__cpp_lib_simd_bitops`が追加された
 - [P3793R2 Better shifting](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3793r2.html)
     - C++29で`__cpp_lib_simd_bitops`が追加された
+- [P2019R9 Thread attributes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p2019r9.pdf)
+    - C++29で`__cpp_lib_thread_attributes`が追加された
 - [P3505R4 Fix the default floating-point representation in `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3505r4.html)
     - C++29で`__cpp_lib_to_chars`が`202606L`に更新された
 - [P3052R2 `view_interface::at()`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3052r2.html)
