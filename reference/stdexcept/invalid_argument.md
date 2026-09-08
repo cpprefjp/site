@@ -17,13 +17,12 @@ namespace std {
 
 ## メンバ関数
 
-
 | 名前 | 説明 | 対応バージョン |
-| --- | --- | --- |
-| [`(constructor)`](invalid_argument/op_constructor.md.nolink) | コンストラクタ | |
-| [`(destructor)`](invalid_argument/op_destructor.md.nolink) | デストラクタ | |
-| [`operator=`](invalid_argument/op_assign.md.nolink) | 代入演算子 | |
-| [`what`](exception/what.md.nolink) | エラー理由を取得する | |
+|------|------|----------------|
+| [`(constructor)`](invalid_argument/op_constructor.md) | コンストラクタ | |
+| [`(destructor)`](invalid_argument/op_destructor.md) | デストラクタ | |
+| [`operator=`](invalid_argument/op_assign.md) | 代入演算子 | |
+| [`what`](/reference/exception/exception/what.md) | エラー理由を取得する（[`std::exception`](/reference/exception/exception.md)から継承） | |
 
 # 例
 
