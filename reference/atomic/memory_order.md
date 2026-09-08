@@ -107,6 +107,32 @@ int main()
 複雑なconsume操作を正しく実装するC++コンパイラは登場せず、より単純なacquire操作として扱われていた。C++20では仕様再検討に伴う一時的な利用回避が宣言され、最終的には役に立たないとの判断からC++26で非推奨となった。
 
 
+### relaxed操作とout-of-thin-air（無から生じる）値
+`relaxed`は順序付けの効果を一切持たないが、それでも「out-of-thin-air値（無から生じる値）」は計算されるべきではない、と規格は推奨している。out-of-thin-air値とは、複数スレッドのアトミック操作が互いの結果に循環依存することで、プログラムのどこにも書かれていない値が理屈の上では「無から湧いて」しまう現象である。
+
+```cpp
+// x, yはatomic<int>で、初期値0とする
+
+// スレッド1:
+r1 = y.load(std::memory_order::relaxed);
+x.store(r1, std::memory_order::relaxed);
+
+// スレッド2:
+r2 = x.load(std::memory_order::relaxed);
+y.store(r2, std::memory_order::relaxed);
+```
+
+このプログラムでは、`relaxed`の順序付けの規則だけからは`r1 == r2 == 42`のような実行を排除できない。`y`への42の書き込みは`x`が42を格納する場合にのみ起こり、それは`y`が42を格納することに循環依存している。このような値の計算を実装は行うべきではない、という推奨である。
+
+C++29では、この推奨に加えて、通常の実装ではout-of-thin-air値がそもそも生じないことの根拠が注記として追加された。
+
+- 非volatileのアトミックアクセスをvolatile相当として扱う（ソースコードに書かれたとおりマシン命令へ変換する）実装は、未定義動作のないプログラムに対してout-of-thin-air値を生成しない
+- スレッド単位の解析のみで最適化を行う実装、すなわち同一オブジェクトへの非volatileアトミックアクセスの省略・マージや、異なるオブジェクトへのアトミックアクセスの並べ替えは（as-ifルールが許す範囲で）行うが、アトミックアクセスの発明はしない実装も、同様にout-of-thin-air値を生成しない
+- 物理マシンは投機実行を注意深く管理しており、ハードウェアのレベルでもout-of-thin-air値は生成されない
+
+現実のコンパイラとハードウェアはこれらの条件を満たしているため、実装がout-of-thin-air値の回避のために特別な対策をとる必要はなく、ユーザーコードの変更も不要である。
+
+
 ## バージョン
 ### 言語
 - C++11
@@ -133,3 +159,5 @@ int main()
     - C++26で`memory_order::consume`列挙子を非推奨化。
 - [LWG Issue 4521. Improve [atomics.order] p10 to have a consistent way with [intro.races]](https://cplusplus.github.io/LWG/issue4521)
     - Read-Modify-Write操作が読み取る値の規定が、「変更順序において書き込みより前に書かれた最後の値」から「Read-Modify-Write操作の副作用の直前の副作用による値」という表現へ改められた。メモリモデルのほかの箇所と用語を揃えるためであり、規格としてはC++29のワーキングドラフトへ適用されたが、文言の明確化であるためC++11へ遡及して適用される
+- [P3692R4 How to Avoid OOTA Without Really Trying](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3692r4.pdf)
+    - C++29で、通常の実装ではout-of-thin-air値が生じないことの根拠が注記として追加された
