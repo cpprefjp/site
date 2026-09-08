@@ -66,3 +66,4 @@ abc
 ## 関連項目
 - [`wcsrtombs`](wcsrtombs.md): 逆方向の変換
 - [`mbrtowc`](mbrtowc.md): 1文字ずつ変換する
+- [`std::mbstowcs()`](/reference/cstdlib/mbstowcs.md): 変換状態を引数で受け取らない、内部状態に依存するバージョン

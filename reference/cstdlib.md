@@ -104,7 +104,7 @@
 |------|------|----------------|
 | [`MB_CUR_MAX`](cstdlib/mb_cur_max.md) | 現在のロケールにおけるマルチバイト文字の最大バイト数を表す整数値マクロ (macro)|
 | [`mblen`](cstdlib/mblen.md) | マルチバイト文字の長さを取得する (function) | |
-| `mbtowc` | マルチバイト文字を、ワイド文字に変換する (function) | |
-| `wctomb` | ワイド文字を、マルチバイト文字に変換する (function) | |
-| `mbstowcs` | マルチバイト文字列を、ワイド文字列に変換する (function) | |
-| `wcstombs` | ワイド文字列を、マルチバイト文字列に変換する (function) | |
+| [`mbtowc`](cstdlib/mbtowc.md) | マルチバイト文字を、ワイド文字に変換する (function) | |
+| [`wctomb`](cstdlib/wctomb.md) | ワイド文字を、マルチバイト文字に変換する (function) | |
+| [`mbstowcs`](cstdlib/mbstowcs.md) | マルチバイト文字列を、ワイド文字列に変換する (function) | |
+| [`wcstombs`](cstdlib/wcstombs.md) | ワイド文字列を、マルチバイト文字列に変換する (function) | |

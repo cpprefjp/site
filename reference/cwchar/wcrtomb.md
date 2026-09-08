@@ -67,3 +67,4 @@ int main()
 - [`mbrtowc`](mbrtowc.md): 逆方向の変換
 - [`wcsrtombs`](wcsrtombs.md): 文字列全体を変換する
 - [`MB_CUR_MAX`](/reference/cstdlib/mb_cur_max.md)
+- [`std::wctomb()`](/reference/cstdlib/wctomb.md): 変換状態を引数で受け取らない、内部状態に依存するバージョン

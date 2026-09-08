@@ -74,3 +74,4 @@ int main()
 - [`wcrtomb`](wcrtomb.md): 逆方向の変換
 - [`mbsrtowcs`](mbsrtowcs.md): 文字列全体を変換する
 - [`mbstate_t`](mbstate_t.md)
+- [`std::mbtowc()`](/reference/cstdlib/mbtowc.md): 変換状態を引数で受け取らない、内部状態に依存するバージョン

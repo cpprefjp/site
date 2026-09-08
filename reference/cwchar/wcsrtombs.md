@@ -64,3 +64,4 @@ int main()
 ## 関連項目
 - [`mbsrtowcs`](mbsrtowcs.md): 逆方向の変換
 - [`wcrtomb`](wcrtomb.md): 1文字ずつ変換する
+- [`std::wcstombs()`](/reference/cstdlib/wcstombs.md): 変換状態を引数で受け取らない、内部状態に依存するバージョン

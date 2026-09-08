@@ -33,7 +33,7 @@ namespace std {
 mbtowc((wchar_t *)0, (const char *)0, 0);
 mbtowc((wchar_t *)0, str, n);
 ```
-* mbtowc[link mbtowc.md.nolink]
+* mbtowc[link mbtowc.md]
 
 つまり、関数 `mblen` はあたかも内部状態がないかのように振る舞い、
 現在のエンコーディングの初期状態を用いて `str` の先頭にある文字のバイト数を計算する。
@@ -45,7 +45,7 @@ mbtowc((wchar_t *)0, str, n);
 ```cpp
 mbtowc((wchar_t *)0, str, n);
 ```
-* mbtowc[link mbtowc.md.nolink]
+* mbtowc[link mbtowc.md]
 
 関数 `mblen` は `std::mbstate_t` に等価な静的記憶域の内部状態を保持し、前回の `mblen` 関数呼び出しの続きとして処理を行う。
 従って、この関数はスレッドセーフではない。
