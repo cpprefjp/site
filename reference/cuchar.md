@@ -10,7 +10,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`size_t`](/reference/cstddef/size_t.md) | 符号なし整数型 | C++11 |
-| `mbstate_t` | マルチバイト文字とワイド文字の変換状態を保持する型 | C++11 |
+| [`mbstate_t`](/reference/cwchar/mbstate_t.md) | マルチバイト文字とワイド文字の変換状態を保持する型 | C++11 |
 
 
 ## 変換関数
@@ -19,17 +19,17 @@
 |------|------|----------------|
 | [`mbrtoc8`](cuchar/mbrtoc8.md)  | マルチバイト文字を、UTF-8文字 (`char8_t`) に変換する | C++26 |
 | [`c8rtomb`](cuchar/c8rtomb.md)  | UTF-8文字 (`char8_t`) を、マルチバイト文字に変換する | C++26 |
-| `mbrtoc16` | マルチバイト文字を、UTF-16文字 (`char16_t`) に変換する | C++11 |
-| `c16rtomb` | UTF-16文字 (`char16_t`) を、マルチバイト文字に変換する | C++11 |
-| `mbrtoc32` | マルチバイト文字を、UTF-32文字 (`char32_t`) に変換する | C++11 |
-| `c32rtomb` | UTF-32文字 (`char32_t`) を、マルチバイト文字に変換する | C++11 |
+| [`mbrtoc16`](cuchar/mbrtoc16.md) | マルチバイト文字を、UTF-16文字 (`char16_t`) に変換する | C++11 |
+| [`c16rtomb`](cuchar/c16rtomb.md) | UTF-16文字 (`char16_t`) を、マルチバイト文字に変換する | C++11 |
+| [`mbrtoc32`](cuchar/mbrtoc32.md) | マルチバイト文字を、UTF-32文字 (`char32_t`) に変換する | C++11 |
+| [`c32rtomb`](cuchar/c32rtomb.md) | UTF-32文字 (`char32_t`) を、マルチバイト文字に変換する | C++11 |
 
 
 ## バージョン情報マクロ
 
 | マクロ | 説明 | 対応バージョン |
 |--------|------|----------------|
-| `__STDC_VERSION_UCHAR_H__` | `<cuchar>`が提供するC標準ライブラリ機能のバージョン (`202311L`) | C++26 |
+| [`__STDC_VERSION_UCHAR_H__`](cuchar/stdc_version_uchar_h.md) | `<cuchar>`が提供するC標準ライブラリ機能のバージョン (`202311L`) | C++26 |
 
 
 ## バージョン
@@ -39,6 +39,7 @@
 
 ## 関連項目
 - [`<cstdlib>`](cstdlib.md)
+- [`<cwchar>`](cwchar.md)
 
 
 ## 参照
