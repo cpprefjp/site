@@ -12,6 +12,10 @@ constexpr move_iterator& operator++();   // (1) C++17
 move_iterator operator++(int);           // (2) C++11
 constexpr move_iterator operator++(int); // (2) C++17
 constexpr auto operator++(int);          // (2) C++20
+constexpr void operator++(int);          // (2) C++29
+
+move_iterator operator++(int)
+  requires forward_iterator<Iterator> = default; // (3) C++29
 ```
 
 ## 概要
@@ -37,6 +41,9 @@ return *this;
         * base[link base.md]
 
     - それ以外の場合 : `++base()`と等価
+
+## 備考
+- (2), (3) : C++29で、`Iterator`が[`forward_iterator`](/reference/iterator/forward_iterator.md)のモデルとなる場合の後置インクリメントが、[後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md)を使用した`= default`定義のオーバーロード(3)として分離された。そうでない場合の(2)は`void`を返す。オーバーロードの構成が整理されただけで、どちらの場合も動作は変わらない
 
 ## 例
 ```cpp example
@@ -80,3 +87,5 @@ int main()
 ## 参照
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P3785R1 Library Wording Changes for Defaulted Postfix Increment and Decrement Operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3785r1.html)
+    - C++29で、後置演算子の規定が`= default`定義へ書き換えられた

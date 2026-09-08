@@ -6,10 +6,14 @@
 * cpp23[meta cpp]
 
 ```cpp
-constexpr basic_const_iterator& operator++();   // (1)
+constexpr basic_const_iterator& operator++();   // (1) C++23
 
-constexpr void operator++(int);                 // (2)
-constexpr basic_const_iterator operator++(int) requires forward_iterator<Iterator>; // (3)
+constexpr void operator++(int);                 // (2) C++23
+
+constexpr basic_const_iterator operator++(int)
+  requires forward_iterator<Iterator>;          // (3) C++23
+basic_const_iterator operator++(int)
+  requires forward_iterator<Iterator> = default; // (3) C++29
 ```
 
 ## 概要
@@ -37,6 +41,9 @@ constexpr basic_const_iterator operator++(int) requires forward_iterator<Iterato
     ++*this;
     return tmp;
     ```
+
+## 備考
+- (3) : C++29で、[後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md)を使用した`= default`定義へ規定が変更された。動作は変わらない
 
 ## 例
 ```cpp example
@@ -79,3 +86,5 @@ int main() {
 ## 参照
 
 - [P2278R4 `cbegin` should always return a constant iterator](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html)
+- [P3785R1 Library Wording Changes for Defaulted Postfix Increment and Decrement Operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3785r1.html)
+    - C++29で、後置演算子の規定が`= default`定義へ書き換えられた

@@ -6,7 +6,9 @@
 
 ```cpp
 istream_iterator<T, CharT, Traits, Distance>& operator++();   // (1) C++98
+
 istream_iterator<T, CharT, Traits, Distance> operator++(int); // (2) C++98
+istream_iterator operator++(int) = default;                   // (2) C++29
 ```
 
 ## 概要
@@ -30,6 +32,9 @@ istream_iterator<T, CharT, Traits, Distance> operator++(int); // (2) C++98
 
 ※`in_stream`は、メンバ変数として保持している入力ストリームオブジェクトへのポインタ
 
+
+## 備考
+- (2) : C++29で、[後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md)を使用した`= default`定義へ規定が変更された。動作は変わらない
 
 ## 例
 ```cpp example
@@ -66,3 +71,5 @@ int main()
 ## 参照
 - [LWG Issue 838. Can an end-of-stream iterator become a non-end-of-stream one?](https://cplusplus.github.io/LWG/issue838)
     - C++11で、終端イテレータに対してこの演算子を呼び出したときの動作は未定義であることが明記された。終端イテレータが再び非終端イテレータに戻ることはない
+- [P3785R1 Library Wording Changes for Defaulted Postfix Increment and Decrement Operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3785r1.html)
+    - C++29で、後置演算子の規定が`= default`定義へ書き換えられた

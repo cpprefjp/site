@@ -13,6 +13,8 @@ constexpr decltype(auto) operator++(int);   // (2) C++23
 
 constexpr counted_iterator operator++(int)
   requires forward_iterator<I>;             // (3) C++20
+counted_iterator operator++(int)
+  requires forward_iterator<I> = default;   // (3) C++29
 ```
 
 ## 概要
@@ -53,6 +55,9 @@ constexpr counted_iterator operator++(int)
     ++*this;  // (1)に委譲
     return tmp;
     ```
+
+## 備考
+- (3) : C++29で、[後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md)を使用した`= default`定義へ規定が変更された。動作は変わらない
 
 ## 例
 ```cpp example
@@ -102,3 +107,5 @@ int main() {
     - C++23で、後置インクリメント(2)に`constexpr`が追加された
 - [P3697R1 Minor additions to C++26 standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3697r1.html)
 - [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)
+- [P3785R1 Library Wording Changes for Defaulted Postfix Increment and Decrement Operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3785r1.html)
+    - C++29で、後置演算子の規定が`= default`定義へ書き換えられた

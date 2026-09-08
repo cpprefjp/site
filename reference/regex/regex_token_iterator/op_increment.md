@@ -6,9 +6,10 @@
 * cpp11[meta cpp]
 
 ```cpp
-regex_token_iterator& operator++();   // (1) 前置形式
+regex_token_iterator& operator++();             // (1) 前置形式 C++11
 
-regex_token_iterator operator++(int); // (2) 後置形式
+regex_token_iterator operator++(int);           // (2) 後置形式 C++11
+regex_token_iterator operator++(int) = default; // (2) 後置形式 C++29
 ```
 
 ## 概要
@@ -45,6 +46,7 @@ regex_token_iterator operator++(int); // (2) 後置形式
 ## 備考
 - 「現在のマッチ」とは、もし `subs[N]` が `-1` の場合には `(*position).`[`prefix`](../match_results/prefix.md)`()`、そうでなければ `(*position).[subs[N]]` の事を指す。
 - メンバ変数 `position`、`N`、`subs`、`result` はあくまでも説明用のプライベートメンバ変数であるため、注意すること。
+- (2) : C++29で、[後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md)を使用した`= default`定義へ規定が変更された。動作は変わらない
 
 
 ## 例
@@ -120,3 +122,8 @@ Clang & libc++ と GCC & libstdc++ の 4.9.1 までのバージョンには、�
 | [`operator*`](op_deref.md)                 | 間接参照       | C++11          |
 | [`operator->`](op_arrow.md)                | メンバアクセス | C++11          |
 | [`operator==`](op_equal.md)                | 等値比較       | C++11          |
+
+
+## 参照
+- [P3785R1 Library Wording Changes for Defaulted Postfix Increment and Decrement Operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3785r1.html)
+    - C++29で、後置演算子の規定が`= default`定義へ書き換えられた

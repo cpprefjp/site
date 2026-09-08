@@ -6,8 +6,12 @@
 * cpp20[meta cpp]
 
 ```cpp
-common_iterator& operator++();    // (1)
-decltype(auto) operator++(int);   // (2)
+common_iterator& operator++();    // (1) C++20
+
+decltype(auto) operator++(int);   // (2) C++20
+
+common_iterator operator++(int)
+  requires forward_iterator<I> = default; // (3) C++29
 ```
 
 ## 概要
@@ -36,6 +40,9 @@ decltype(auto) operator++(int);   // (2)
       ```
 
     - それ以外の場合 : `return get<I>(v_)++;`
+
+## 備考
+- (2), (3) : C++29で、`I`が[`forward_iterator`](/reference/iterator/forward_iterator.md)のモデルとなる場合の後置インクリメントが、[後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md)を使用した`= default`定義のオーバーロード(3)として分離された。どちらの場合も動作は変わらない
 
 ## 例
 ```cpp example
@@ -86,3 +93,5 @@ int main() {
 - [P0896R4 The One Ranges Proposal (was Merging the Ranges TS)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P3697R1 Minor additions to C++26 standard library hardening](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3697r1.html)
 - [P3878R1 Standard library hardening should not use the 'observe' semantic](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3878r1.html)
+- [P3785R1 Library Wording Changes for Defaulted Postfix Increment and Decrement Operations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3785r1.html)
+    - C++29で、後置演算子の規定が`= default`定義へ書き換えられた
