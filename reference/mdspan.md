@@ -58,6 +58,14 @@
 | [`submdspan`](mdspan/submdspan.md) | 多次元配列部分ビューを取得する (function template) | C++26 |
 
 
+## 多次元配列アルゴリズム
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`copy`](mdspan/copy.md) | 多次元配列ビューの全要素を別の多次元配列ビューへコピーする (function template) | C++29 |
+| [`fill`](mdspan/fill.md) | 多次元配列ビューの全要素に値を代入する (function template) | C++29 |
+
+
 ## バージョン
 ### 言語
 - C++23
@@ -78,3 +86,5 @@
     - C++26で、`<span>`で定義される[`dynamic_extent`](span/dynamic_extent.md)が`<mdspan>`のインクルードによっても利用可能になった
 - [P2833R2 Freestanding Library: inout expected `span`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2833r2.html)
     - C++26で、このヘッダが（例外を送出するメンバなど一部を除いて）フリースタンディング処理系に対応した
+- [P3242R4 Copy and fill for `mdspan`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3242r4.html)
+    - C++29で、多次元配列ビューに対する[`copy()`](mdspan/copy.md)と[`fill()`](mdspan/fill.md)が追加された
