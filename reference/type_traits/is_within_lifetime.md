@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  template<class T>
+  template<class U=void, class T>
   consteval bool is_within_lifetime(const T* p) noexcept; // (1) C++26
 }
 ```
@@ -36,8 +36,12 @@ struct OptBool {
 この関数を使用することで、コンパイル時に指定メンバがアクティブかを判定することができる。
 
 
+## 適格要件
+`static_cast<const volatile U*>(p)`が適格であること。
+
+
 ## 戻り値
-`p`が有効期間内にあるオブジェクトへのポインタであれば`true`、そうでなければ`false`を返す。
+`p`が有効期間内にあるオブジェクトへのポインタかつ`static_cast<const volatile U*>(p)`が定数部分式であれば`true`、そうでなければ`false`を返す。
 
 
 ## 備考
@@ -92,3 +96,4 @@ int main() {
 
 ## 参照
 - [P2641R4 Checking if a `union` alternative is active](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2641r4.html)
+- [P3450R1 Extend `std::is_within_lifetime`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3450r1.html)
