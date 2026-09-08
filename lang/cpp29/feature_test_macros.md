@@ -33,6 +33,7 @@
 |----------|----|------|--------|
 |`__cpp_lib_expected`|`202606L`|[`std::expected`](/reference/expected/expected.md)に、エラー値を保持しているかを判定する[`has_error()`](/reference/expected/expected/has_error.md)メンバ関数を追加|[`<expected>`](/reference/expected.md)|
 |`__cpp_lib_hazard_pointer`|`202606L`|[`<hazard_pointer>`](/reference/hazard_pointer.md)に、複数のハザードポインタをまとめて構築・破棄する[`std::make_hazard_pointer_batch()`](/reference/hazard_pointer/make_hazard_pointer_batch.md)関数と[`std::clear_hazard_pointer_batch()`](/reference/hazard_pointer/clear_hazard_pointer_batch.md)関数を追加|[`<hazard_pointer>`](/reference/hazard_pointer.md)|
+|`__cpp_lib_map_lookup`|`202606L`|[`std::map`](/reference/map/map.md)・[`std::unordered_map`](/reference/unordered_map/unordered_map.md)・[`std::flat_map`](/reference/flat_map/flat_map.md)に、指定したキーを持つ要素を`optional`として取得する`lookup()`メンバ関数を追加|[`<map>`](/reference/map.md), [`<unordered_map>`](/reference/unordered_map.md), [`<flat_map>`](/reference/flat_map.md)|
 |`__cpp_lib_simd`|`202606L`|[`<simd>`](/reference/simd.md)に、SIMDデータ用の連番を生成する[`std::simd::iota`](/reference/simd/iota.md)変数テンプレートなどを追加|[`<simd>`](/reference/simd.md)|
 |`__cpp_lib_simd_bitops`|`202607L`|[`<simd>`](/reference/simd.md)に、ビット列を操作する[`bit_reverse()`](/reference/simd/bit_reverse.md)・[`bit_repeat()`](/reference/simd/bit_repeat.md)・[`bit_compress()`](/reference/simd/bit_compress.md)・[`bit_expand()`](/reference/simd/bit_expand.md)関数と、未定義動作にならないシフト[`shl()`](/reference/simd/shl.md)・[`shr()`](/reference/simd/shr.md)関数を追加|[`<simd>`](/reference/simd.md)|
 |`__cpp_lib_to_chars`|`202606L`|[`std::to_chars()`](/reference/charconv/to_chars.md)の浮動小数点数に対する既定表現を、値の範囲によって固定小数表記と指数表記を選択するよう変更|[`<charconv>`](/reference/charconv.md)|
@@ -62,6 +63,8 @@
     - C++29で`__cpp_lib_expected`が`202606L`に更新された
 - [P3428R4 Hazard Pointer Batches](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3428r4.pdf)
     - C++29で`__cpp_lib_hazard_pointer`が`202606L`に更新された
+- [P3091R6 Better Lookups for `map`, `unordered_map`, and `flat_map`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3091r6.html)
+    - C++29で`__cpp_lib_map_lookup`が追加された
 - [P3319R6 Add an iota object for simd (and more)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3319r6.pdf)
     - C++29で`__cpp_lib_simd`が`202606L`に更新された
 - [P3772R2 std::simd overloads for bit permutations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3772r2.html)

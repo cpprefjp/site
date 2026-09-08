@@ -119,6 +119,7 @@ namespace std {
 |---------------------------------------|--------------------------------------------|-------|
 | [`operator[]`](flat_map/op_at.md)        | 指定したキーを持つ要素を取得する           | C++23 |
 | [`at`](flat_map/at.md)                   | 指定したキーを持つ要素を取得する           | C++23 |
+| [`lookup`](flat_map/lookup.md)           | 指定したキーを持つ要素を`optional`として取得する | C++29 |
 | [`count`](flat_map/count.md)             | 指定したキーにマッチする要素の数を取得する | C++23 |
 | [`find`](flat_map/find.md)               | 指定したキーで要素を探す                   | C++23 |
 | [`contains`](flat_map/contains.md)       | 指定したキーの要素が含まれているかを判定する | C++23 |
@@ -373,3 +374,5 @@ int main()
     - C++23で、コンテナ要件が「シーケンスコンテナ要件を満たし、`iterator`がランダムアクセスイテレータ要件を満たし、`size`／`max_size`が例外を投げない型」という形に整理された
 - [P3567R2 flat_meow Fixes](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3567r2.html)
     - C++26で`swap`の条件付き`noexcept`、`insert_range`のソート済みオーバーロード追加などの修正が行われた
+- [P3091R6 Better Lookups for `map`, `unordered_map`, and `flat_map`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3091r6.html)
+    - C++29で、指定したキーを持つ要素を`optional`として取得する[`lookup()`](flat_map/lookup.md)メンバ関数が追加された

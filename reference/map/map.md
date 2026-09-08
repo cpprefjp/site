@@ -106,6 +106,7 @@ namespace std {
 |---------------------------------------|--------------------------------------------|-------|
 | [`operator[]`](map/op_at.md)        | 指定したキーを持つ要素を取得する           | |
 | [`at`](map/at.md)                   | 指定したキーを持つ要素を取得する           | C++11 |
+| [`lookup`](map/lookup.md)           | 指定したキーを持つ要素を`optional`として取得する | C++29 |
 | [`count`](map/count.md)             | 指定したキーにマッチする要素の数を取得する | |
 | [`find`](map/find.md)               | 指定したキーで要素を探す                   | |
 | [`contains`](map/contains.md)       | 指定したキーの要素が含まれているかを判定する | C++20 |
@@ -419,3 +420,5 @@ int main() {
 
 ## 参照
 - [N2669 Thread-Safety in the Standard Library (Rev 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm)
+- [P3091R6 Better Lookups for `map`, `unordered_map`, and `flat_map`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3091r6.html)
+    - C++29で、指定したキーを持つ要素を`optional`として取得する[`lookup()`](map/lookup.md)メンバ関数が追加された

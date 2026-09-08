@@ -129,6 +129,7 @@ namespace std {
 | [`equal_range`](unordered_map/equal_range.md) | 指定したキーの範囲を取得   | C++11 |
 | [`operator[]`](unordered_map/op_at.md)        | 要素の値へのアクセス       | C++11 |
 | [`at`](unordered_map/at.md)                   | 要素の値へのアクセス       | C++11 |
+| [`lookup`](unordered_map/lookup.md)           | 指定したキーを持つ要素を`optional`として取得する | C++29 |
 
 
 ### バケットインタフェース
@@ -281,3 +282,5 @@ int main()
 ## 参照
 - [Unordered associative containers do not use allocator_traits to define member types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2050) （上記の `pointer`、`const_pointer`、`reference`、`const_reference` の問題に対する修正案）
 - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
+- [P3091R6 Better Lookups for `map`, `unordered_map`, and `flat_map`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3091r6.html)
+    - C++29で、指定したキーを持つ要素を`optional`として取得する[`lookup()`](unordered_map/lookup.md)メンバ関数が追加された
