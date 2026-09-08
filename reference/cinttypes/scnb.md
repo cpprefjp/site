@@ -38,7 +38,7 @@ int main()
 }
 ```
 * SCNb16[color ff0000]
-* std::sscanf[link /reference/cstdio/sscanf.md.nolink]
+* std::sscanf[link /reference/cstdio/sscanf.md]
 * std::printf[link /reference/cstdio/printf.md]
 
 ### 出力

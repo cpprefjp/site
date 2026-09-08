@@ -29,7 +29,7 @@ protected:
 
 - [`is_open()`](is_open.md)`== false`である場合、もしくは`off != 0 && width <= 0`である場合、位置指定操作は失敗する
 - そうでない場合、`way != `[`ios_base::cur`](/reference/ios/ios_base/type-seekdir.md)もしくは`off != 0`であり、かつ直前の操作が出力であった場合は、出力シーケンスを更新し、シフト状態を戻すシーケンス（unshift sequence）を書き込む
-- 続いて新しい位置へ移動する。`width > 0`の場合は[`std::fseek`](/reference/cstdio/fseek.md.nolink)`(file, width * off, whence)`を、そうでない場合は[`std::fseek`](/reference/cstdio/fseek.md.nolink)`(file, 0, whence)`を呼び出す
+- 続いて新しい位置へ移動する。`width > 0`の場合は[`std::fseek`](/reference/cstdio/fseek.md)`(file, width * off, whence)`を、そうでない場合は[`std::fseek`](/reference/cstdio/fseek.md)`(file, 0, whence)`を呼び出す
 
 `whence`の値は、`way`の値に応じて以下のように決まる。
 

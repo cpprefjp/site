@@ -8,7 +8,7 @@
 * unspecified[italic]
 
 ## 概要
-[`setbuf()`](/reference/cstdio/setbuf.md.nolink)関数で使われる標準入出力のバッファサイズを表すマクロ。
+[`setbuf()`](/reference/cstdio/setbuf.md)関数で使われる標準入出力のバッファサイズを表すマクロ。
 
 このマクロは、標準入出力関数で使用されるデフォルトのバッファサイズを定義する。値は実装依存であり、256バイト以上であることは保証されているが、一般的には512バイトや1024バイトなどの値が使用される。
 
@@ -36,7 +36,7 @@ int main() {
 * BUFSIZ[color ff0000]
 * std::printf[link /reference/cstdio/printf.md]
 * std::fopen[link /reference/cstdio/fopen.md]
-* std::setbuf[link /reference/cstdio/setbuf.md.nolink]
+* std::setbuf[link /reference/cstdio/setbuf.md]
 * std::fprintf[link /reference/cstdio/fprintf.md]
 * std::fclose[link /reference/cstdio/fclose.md]
 

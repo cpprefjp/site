@@ -34,7 +34,7 @@ int main()
 }
 ```
 * _PRINTF_NAN_LEN_MAX[color ff0000]
-* std::snprintf[link /reference/cstdio/snprintf.md.nolink]
+* std::snprintf[link /reference/cstdio/snprintf.md]
 * NAN[link /reference/cmath/nan.md]
 
 ### 出力例

@@ -67,7 +67,7 @@ buf2[n] = 0;
 sscanf(buf2, "%Lf", &units);
 ```
 * find[link /reference/algorithm/find.md]
-* sscanf[link /reference/cstdio/sscanf.md.nolink]
+* sscanf[link /reference/cstdio/sscanf.md]
 
 ここで`n`は`buf1`へ格納された文字数、`buf2`は文字バッファであり、`src`と`atoms`は以下のように定義される。
 
@@ -78,7 +78,7 @@ ct.widen(src, src + sizeof(src) - 1, atoms);
 ```
 * ct.widen[link /reference/locale/ctype/widen.md]
 
-すなわち、ロケール依存の数字文字`atoms`から、対応する基本文字集合の数字`src`へ読み替えたうえで、[`std::sscanf`](/reference/cstdio/sscanf.md.nolink)によって数値化される。この読み替えは[`ctype::narrow`](/reference/locale/ctype/narrow.md)とは意味論が異なる。
+すなわち、ロケール依存の数字文字`atoms`から、対応する基本文字集合の数字`src`へ読み替えたうえで、[`std::sscanf`](/reference/cstdio/sscanf.md)によって数値化される。この読み替えは[`ctype::narrow`](/reference/locale/ctype/narrow.md)とは意味論が異なる。
 
 
 ## 戻り値

@@ -22,7 +22,7 @@ C23で`<stdlib.h>`に追加された関数であり、C++26で`<cstdlib>`に取�
 
 
 ## 効果
-[`std::snprintf`](/reference/cstdio/snprintf.md.nolink)`(s, n, format, fp)`と等価である。
+[`std::snprintf`](/reference/cstdio/snprintf.md)`(s, n, format, fp)`と等価である。
 
 
 ## 戻り値
