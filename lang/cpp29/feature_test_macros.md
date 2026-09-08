@@ -35,6 +35,7 @@
 |`__cpp_lib_hazard_pointer`|`202606L`|[`<hazard_pointer>`](/reference/hazard_pointer.md)に、複数のハザードポインタをまとめて構築・破棄する[`std::make_hazard_pointer_batch()`](/reference/hazard_pointer/make_hazard_pointer_batch.md)関数と[`std::clear_hazard_pointer_batch()`](/reference/hazard_pointer/clear_hazard_pointer_batch.md)関数を追加|[`<hazard_pointer>`](/reference/hazard_pointer.md)|
 |`__cpp_lib_map_lookup`|`202606L`|[`std::map`](/reference/map/map.md)・[`std::unordered_map`](/reference/unordered_map/unordered_map.md)・[`std::flat_map`](/reference/flat_map/flat_map.md)に、指定したキーを持つ要素を`optional`として取得する`lookup()`メンバ関数を追加|[`<map>`](/reference/map.md), [`<unordered_map>`](/reference/unordered_map.md), [`<flat_map>`](/reference/flat_map.md)|
 |`__cpp_lib_mdspan_copy`|`202606L`|[`<mdspan>`](/reference/mdspan.md)に、多次元配列ビューをコピーする[`std::copy()`](/reference/mdspan/copy.md)と値を代入する[`std::fill()`](/reference/mdspan/fill.md)を追加|[`<mdspan>`](/reference/mdspan.md)|
+|`__cpp_lib_pointer_tag_pair`|`202606L`|[`<memory>`](/reference/memory.md)に、ポインタの下位ビットへタグ値を格納する[`std::pointer_tag_pair`](/reference/memory/pointer_tag_pair.md)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_simd`|`202606L`|[`<simd>`](/reference/simd.md)に、SIMDデータ用の連番を生成する[`std::simd::iota`](/reference/simd/iota.md)変数テンプレートなどを追加|[`<simd>`](/reference/simd.md)|
 |`__cpp_lib_simd_bitops`|`202607L`|[`<simd>`](/reference/simd.md)に、ビット列を操作する[`bit_reverse()`](/reference/simd/bit_reverse.md)・[`bit_repeat()`](/reference/simd/bit_repeat.md)・[`bit_compress()`](/reference/simd/bit_compress.md)・[`bit_expand()`](/reference/simd/bit_expand.md)関数と、未定義動作にならないシフト[`shl()`](/reference/simd/shl.md)・[`shr()`](/reference/simd/shr.md)関数を追加|[`<simd>`](/reference/simd.md)|
 |`__cpp_lib_thread_attributes`|`202606L`|[`std::thread`](/reference/thread/thread.md)と[`std::jthread`](/reference/thread/jthread.md)に、スレッド名を設定する[`name_hint`](/reference/thread/thread/name_hint.md)とスタックサイズを設定する[`stack_size_hint`](/reference/thread/thread/stack_size_hint.md)のスレッド属性を追加|[`<thread>`](/reference/thread.md)|
@@ -69,6 +70,8 @@
     - C++29で`__cpp_lib_map_lookup`が追加された
 - [P3242R4 Copy and fill for `mdspan`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3242r4.html)
     - C++29で`__cpp_lib_mdspan_copy`が追加された
+- [P3125R6 constexpr pointer tagging](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3125r6.html)
+    - C++29で`__cpp_lib_pointer_tag_pair`が追加された
 - [P3319R6 Add an iota object for simd (and more)](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3319r6.pdf)
     - C++29で`__cpp_lib_simd`が`202606L`に更新された
 - [P3772R2 std::simd overloads for bit permutations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3772r2.html)

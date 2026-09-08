@@ -107,7 +107,7 @@ C++29とは、2029年中に改訂される予定の、C++バージョンの通�
 - [`std::mdspan`](/reference/mdspan/mdspan.md)クラス向けのアルゴリズムとして[`std::copy()`](/reference/mdspan/copy.md)と[`std::fill()`](/reference/mdspan/fill.md)を追加
 
 ### メモリ
-- [`<memory>`](/reference/memory.md)ヘッダに、ポインタのタグ付けを行う[`std::pointer_tag_pair`](/reference/memory/pointer_tag_pair.md.nolink)クラスとその関連機能を追加
+- [`<memory>`](/reference/memory.md)ヘッダに、ポインタのタグ付けを行う[`std::pointer_tag_pair`](/reference/memory/pointer_tag_pair.md)クラスとその関連機能を追加
 
 ### エラーハンドリング
 - [`std::expected`](/reference/expected/expected.md)クラスに、エラー値を保持しているかを判定するメンバ関数[`has_error()`](/reference/expected/expected/has_error.md)を追加

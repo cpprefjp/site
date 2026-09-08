@@ -147,6 +147,16 @@
 | [`start_lifetime_as_array`](memory/start_lifetime_as_array.md) | 配列オブジェクトの生存期間を開始することを明示する(function template) | C++23 |
 
 
+## ポインタのタグ付け
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`pointer_tag_pair`](memory/pointer_tag_pair.md) | ポインタの下位ビットへタグ値を格納する、ポインタとタグのペア(class template) | C++29 |
+| [`max_pointer_bits_available`](memory/max_pointer_bits_available.md) | ポインタのタグ付けに使用できるビット数の上限(variable) | C++29 |
+| [`pointer_bits_available`](memory/pointer_bits_available.md) | 指定したアライメントでタグ付けに使用できるビット数を取得する(function) | C++29 |
+| [`tagging-compatible-pointee`](memory/tagging-compatible-pointee.md) | ポインタがタグ付けと互換であることを表す説明専用コンセプト (concept) | C++29 |
+
+
 ## ガベージコレクション支援（C++23で削除）
 
 | 名前 | 説明 | 対応バージョン |
@@ -171,3 +181,5 @@
     - C++23で、`start_lifetime_as`・`start_lifetime_as_array`がフリースタンディング処理系で使用可能であることが追加で規定された
 - [P2976R1 Freestanding Library: algorithm, numeric, and random](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2976r1.html)
     - C++26で、未初期化メモリアルゴリズムの実行ポリシー版がフリースタンディング処理系で削除されるなど、`<memory>`のフリースタンディング対応が進められた
+- [P3125R6 constexpr pointer tagging](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3125r6.html)
+    - C++29で、ポインタのタグ付けを行う[`pointer_tag_pair`](memory/pointer_tag_pair.md)とその関連機能が追加された
