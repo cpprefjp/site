@@ -17,7 +17,7 @@ constexpr auto forward_like(U&& x) noexcept -> see below; // (1) C++26
 ## 概要
 第一テンプレート引数の`const`性と参照修飾を用いて関数テンプレートの引数を転送する。
 
-この関数は主に、クラスオブジェクトの`const`性と参照修飾を用いてメンバ変数を転送する目的で使用される。
+この関数は主に、クラスオブジェクトの`const`性と参照修飾を用いてメンバ変数を転送する目的で使用される。とくに、C++23で導入された[明示的オブジェクトパラメータ](/lang/cpp23/deducing_this.md)とともに使用することを想定しており、`self.member`のように直接メンバへアクセスできない場合（スマートポインタの参照先を返す場合など）に、自身のオブジェクトの`const`性と値カテゴリを対象へ適用できる。
 
 ## 適格要件
 テンプレート引数`T`が参照可能型 (referenceable type) であること。（`void`など参照を作れない型に対して`forward_like<void>(x)`のように使用すると、プログラムは不適格となる。）
@@ -132,6 +132,11 @@ template <class T, class U>
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2022 17.4 [mark verified]
+
+
+## 関連項目
+- [`std::forward()`](forward.md)
+- [C++23 メンバ関数の第1パラメータとして`*this`を宣言できるようにする](/lang/cpp23/deducing_this.md)
 
 
 ## 参照

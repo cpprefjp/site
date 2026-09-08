@@ -280,7 +280,7 @@ C++20の比較演算子のように、`a++`に対して`[&a]{ auto copy {a}; ++a
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++20 `<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md)
-- [C++23 自身のオブジェクトを明示的にパラメータとして指定する](/lang/cpp23/deducing_this.md.nolink)
+- [C++23 メンバ関数の第1パラメータとして`*this`を宣言できるようにする](/lang/cpp23/deducing_this.md)
 - [`std::move_iterator::operator++`](/reference/iterator/move_iterator/op_increment.md)
 
 

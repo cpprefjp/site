@@ -36,7 +36,7 @@ namespace std::execution {
 * receiver[link receiver.md]
 * basic-operation[link basic-operation.md]
 * std::move[link /reference/utility/move.md]
-* this Self[link /lang/cpp23/deducing_this.md.nolink]
+* this Self[link /lang/cpp23/deducing_this.md]
 
 ## 概要
 `basic-sender`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。

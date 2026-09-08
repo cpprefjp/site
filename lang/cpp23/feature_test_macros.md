@@ -17,7 +17,7 @@
 |----------|----|------|
 |`__cpp_auto_cast`|`202110L`|`auto(x)`および`auto{x}`によるキャスト|
 |`__cpp_constexpr`|`202211L`|[constexpr関数内でのstatic constexpr変数を許可](permitting_static_constexpr_variables_in_constexpr_functions.md)|
-|`__cpp_explicit_this_parameter`|`202110L`|自身のオブジェクトを明示的にパラメータとして指定する|
+|`__cpp_explicit_this_parameter`|`202110L`|[メンバ関数の第1パラメータとして`*this`を宣言できるようにする](deducing_this.md)|
 |`__cpp_if_consteval`|`202106L`|[if consteval](if_consteval.md)|
 |`__cpp_implicit_move`|`202207L`|[暗黙的なムーブを簡略化](simpler_implicit_move.md)|
 |`__cpp_multidimensional_subscript`|`202211L`|[添字演算子の多次元サポート](multidimensional_subscript_operator.md)|

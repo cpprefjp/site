@@ -77,7 +77,7 @@ int main()
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [C++11 関数のdefault／delete宣言](/lang/cpp11/defaulted_and_deleted_functions.md)
-- [C++23 自身のオブジェクトを明示的にパラメータとして指定する](/lang/cpp23/deducing_this.md.nolink)
+- [C++23 メンバ関数の第1パラメータとして`*this`を宣言できるようにする](/lang/cpp23/deducing_this.md)
 
 
 ## 参照
