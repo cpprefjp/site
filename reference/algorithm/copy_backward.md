@@ -91,7 +91,6 @@ BidirectionalIterator2 copy_backward(BidirectionalIterator1 first,
 ### 処理系
 - [Clang](/implementation.md#clang): 14.0.6 [mark verified]
 - [GCC](/implementation.md#gcc): 9.5.0 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

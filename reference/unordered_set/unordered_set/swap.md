@@ -102,7 +102,6 @@ us2 after : 9 7 5 3 1
 ### 処理系
 - [Clang](/implementation.md#clang): 3.1 [mark verified]
 - [GCC](/implementation.md#gcc): 4.7.2 [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 ## 関連項目

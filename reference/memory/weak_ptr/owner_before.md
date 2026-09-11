@@ -71,7 +71,6 @@ false
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7 [mark verified]
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 

@@ -51,7 +51,6 @@ first
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified], 3.4 [mark verified], 3.5.0 [mark verified], 3.6.0 [mark verified], 3.7.0 [mark verified], 3.8.0 [mark verified]
 - [GCC](/implementation.md#gcc): 5.1.0 [mark verified], 5.2.0 [mark verified], 6.0.0 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

@@ -38,7 +38,6 @@
 ### 処理系
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 (ここには、そのモジュールが存在する言語のバージョンと、確認がとれたコンパイラとそのバージョンを記述します。)  

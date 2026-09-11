@@ -25,7 +25,6 @@ constexpr index_type operator()(Index0 ind0, Index1 ind1) const;
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

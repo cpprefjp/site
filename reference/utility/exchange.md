@@ -199,7 +199,6 @@ Hello 0x7ffc560ca4cc
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.9.0 [mark verified]
 - [Clang](/implementation.md#clang): 3.4 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2015 [mark verified]
 
 ## 関連項目

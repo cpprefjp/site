@@ -40,5 +40,4 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 3.2 [mark verified]
 - [GCC](/implementation.md#gcc): 4.4 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??

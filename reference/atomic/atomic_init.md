@@ -88,7 +88,6 @@ int main()
 
 - [Clang](/implementation.md#clang): 3.3 [mark verified]
 - [GCC](/implementation.md#gcc): 
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified]
 
 

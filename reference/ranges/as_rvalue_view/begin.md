@@ -61,5 +61,4 @@ three
 ### 処理系
 - [Clang](/implementation.md#clang): 17 [mark verified]
 - [GCC](/implementation.md#gcc): 13 [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2022 Update 4 [mark verified]

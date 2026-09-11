@@ -189,7 +189,6 @@ Out vformat_to(Out out, std::string_view fmt, std::basic_format_args<Context> ar
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照

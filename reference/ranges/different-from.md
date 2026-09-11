@@ -25,5 +25,4 @@ N4885 までは`not-same-as`という名称だったが、実際には[`same_as`
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??

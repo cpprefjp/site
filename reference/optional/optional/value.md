@@ -79,7 +79,6 @@ p2 exception : bad optional access
 ### 処理系
 - [Clang](/implementation.md#clang): 4.0.1 [mark verified]
 - [GCC](/implementation.md#gcc): 7.2 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

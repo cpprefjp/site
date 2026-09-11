@@ -141,7 +141,6 @@ void tong() {
 ### 処理系
 - [Clang](/implementation.md#clang): 6.0.0 [mark verified]
 - [GCC](/implementation.md#gcc): 7.1.0 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 7 [mark verified]
 
 

@@ -57,7 +57,6 @@ Senderと[Receiver](receiver.md)との[接続(connect)](connect.md)時のカス�
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

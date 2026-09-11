@@ -29,7 +29,6 @@ constexpr index_type required_span_size() const noexcept;
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

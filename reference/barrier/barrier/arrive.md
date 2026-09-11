@@ -115,7 +115,6 @@ main: phase-2
 ### 処理系
 - [Clang](/implementation.md#clang): 11.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

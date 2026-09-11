@@ -65,7 +65,6 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 15.0 [mark verified]
 - [GCC](/implementation.md#gcc): 12.1 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

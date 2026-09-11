@@ -69,7 +69,6 @@ eq("1st", "1st") = true
 ### 処理系
 - [Clang](/implementation.md#clang): 3.1 [mark verified]
 - [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 ## 関連項目

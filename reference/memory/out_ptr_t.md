@@ -47,7 +47,6 @@ C++標準スマートポインタ[`std::shared_ptr`](shared_ptr.md)や[`std::uni
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

@@ -96,7 +96,6 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 3.3 [mark verified]
 - [GCC](/implementation.md#gcc): 5.0 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified]
 
 

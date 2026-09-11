@@ -81,7 +81,6 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 3.2 [mark verified]
 - [GCC](/implementation.md#gcc): 4.3.0 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 	- 2005, 2008では、`<stdlib.h>`にグローバル名前空間で定義されている。
 

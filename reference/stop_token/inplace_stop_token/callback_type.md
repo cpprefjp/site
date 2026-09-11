@@ -22,7 +22,6 @@ using callback_type = inplace_stop_callback<CallbackFn>;
 ### 処理系
 - [GCC](/implementation.md#gcc): ??
 - [Clang](/implementation.md#clang): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

@@ -139,7 +139,6 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 9 [mark verified]
 - [GCC](/implementation.md#gcc): 9.1 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2019 update5 [mark verified]
 
 ## 関連項目

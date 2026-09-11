@@ -40,7 +40,6 @@ out_ptr_t(const out_ptr_t&) = delete;   // (2) C++23
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

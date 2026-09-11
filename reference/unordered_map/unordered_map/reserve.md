@@ -108,7 +108,6 @@ new load_factor: 0.363636
 ### 処理系
 - [Clang](/implementation.md#clang): 3.2 [mark verified]
 - [GCC](/implementation.md#gcc): 4.5.4 [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 ### 備考

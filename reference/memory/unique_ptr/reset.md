@@ -76,7 +76,6 @@ p doesn't have resource
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7 [mark verified]
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
     - 2012までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。
 

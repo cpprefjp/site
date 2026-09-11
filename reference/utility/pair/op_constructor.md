@@ -276,7 +276,6 @@ p8 : (X(1 2 3),Y(4 5))
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- C++98で規定されていたものは、2010より前のバージョンから実装されている。
 	- 2010までは、(11) `std::piecewise_construct`版が実装されていない。

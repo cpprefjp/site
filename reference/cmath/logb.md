@@ -96,7 +96,6 @@ logb(1e-309) = -1027
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [GCC](/implementation.md#gcc): 4.3.6 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照

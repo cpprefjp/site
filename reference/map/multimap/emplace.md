@@ -109,7 +109,6 @@ CCC : (1, 2)
 ### 処理系
 - [Clang](/implementation.md#clang): 3.2 3.3 [mark verified]
 - [GCC](/implementation.md#gcc): 4.8.5 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]
 
 

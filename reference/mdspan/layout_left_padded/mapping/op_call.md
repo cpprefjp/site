@@ -43,7 +43,6 @@ return ((static_cast<index_type>(std::move(idxs)) * stride(P_rank)) + ... + 0);
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

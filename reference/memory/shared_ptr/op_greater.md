@@ -70,7 +70,6 @@ false
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.3.6 (`nullptr`バージョン以外) [mark verified], 4.7.4 [mark verified]
 - [Clang](/implementation.md#clang): 3.0 (`nullptr`バージョン以外) [mark verified], 3.3 [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 	- 2012までは`nullptr`バージョンがない。
 

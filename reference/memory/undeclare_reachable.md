@@ -69,7 +69,6 @@ int main()
 ### 処理系
 - [GCC](/implementation.md#gcc): ?
 - [Clang](/implementation.md#clang): 3.4 (relaxed実装) [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 (relaxed実装) [mark verified]
 
 

@@ -166,7 +166,6 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 4.0 (5以外) [mark verified]
 - [GCC](/implementation.md#gcc): 7.1 (5以外) [mark verified], 10.1 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照

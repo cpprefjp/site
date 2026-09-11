@@ -259,7 +259,6 @@ after  b: i=0, d=0
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [GCC](/implementation.md#gcc): 4.3.4 [mark verified], 4.4.4 [mark verified], 4.5.2 [mark verified], 4.6.1 [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2008 [mark verified], 2010 [mark verified]
 
 

@@ -130,7 +130,6 @@ remquo(6, 2) = quotient:3 remainder:0
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [GCC](/implementation.md#gcc): 4.3 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

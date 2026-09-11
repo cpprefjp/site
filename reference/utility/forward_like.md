@@ -130,7 +130,6 @@ template <class T, class U>
 ### 処理系
 - [Clang](/implementation.md#clang): 16.0.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2022 17.4 [mark verified]
 
 

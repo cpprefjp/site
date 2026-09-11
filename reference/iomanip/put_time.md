@@ -91,7 +91,6 @@ Thu Dec 25 15:12:30 2014
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [GCC](/implementation.md#gcc): 5.0 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

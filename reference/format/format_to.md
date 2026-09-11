@@ -173,7 +173,6 @@ wstring format_to(Out out, const locale& loc, wformat_string<Args...> fmt, const
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照

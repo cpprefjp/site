@@ -185,7 +185,6 @@ int main()
 ### 処理系
 - [GCC](/implementation.md#gcc): 7.2 [mark verified]
 - [Clang](/implementation.md#clang): 4.0.1 [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

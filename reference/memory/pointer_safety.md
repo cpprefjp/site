@@ -42,7 +42,6 @@ namespace std {
 ### 環境
 - [Clang](/implementation.md#clang): ?
 - [GCC](/implementation.md#gcc): ?
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 ## 参照

@@ -78,7 +78,6 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [GCC](/implementation.md#gcc): 4.7.2(パラメータを渡さないバージョンのみ) [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ### 備考

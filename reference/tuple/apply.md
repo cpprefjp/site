@@ -117,7 +117,6 @@ hello
 ### 処理系
 - [Clang](/implementation.md#clang): 3.9.1 [mark verified]
 - [GCC](/implementation.md#gcc): 7.1.0 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

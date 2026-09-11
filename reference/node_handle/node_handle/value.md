@@ -53,7 +53,6 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 7.0.0 [mark verified]
 - [GCC](/implementation.md#gcc): 7.1.0 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2017 Update 5 [mark verified]
 
 

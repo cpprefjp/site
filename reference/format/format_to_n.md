@@ -221,7 +221,6 @@ format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const loc
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照

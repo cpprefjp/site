@@ -44,7 +44,6 @@ const修飾[クエリ可能オブジェクト](../queryable.md)`cenv`に対し�
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

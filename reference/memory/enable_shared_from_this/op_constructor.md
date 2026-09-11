@@ -31,7 +31,6 @@ enable_shared_from_this(const enable_shared_from_this&) noexcept; // (2) C++26
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.3.6 [mark verified]
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 ## 参照

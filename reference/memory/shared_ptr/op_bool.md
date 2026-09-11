@@ -54,7 +54,6 @@ p has resource
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.4.7 [mark verified]
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 	- 2012までは、コンパイラが`explicit operator bool`に対応していないため、不透明な型へのポインタ型への変換演算子関数として実装されている。
 

@@ -50,7 +50,6 @@ C++23 以降では[`array`](/reference/array/array.md)、[`pair`](/reference/uti
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

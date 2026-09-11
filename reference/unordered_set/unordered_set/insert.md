@@ -256,7 +256,6 @@ insert initializer_list : 7 8 6 5 4 3 2 1 0
 ### 処理系
 - [Clang](/implementation.md#clang): 3.1 [mark verified]
 - [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 ## 実装例

@@ -131,7 +131,6 @@ ellint_3(0.5, 1, 0.5 pi) = (domain_error)
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 7.1.0 [mark verified]
-- [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

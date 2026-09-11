@@ -144,7 +144,6 @@ position = 13, length = 3, str = '999'
 ### 処理系
 - [Clang](/implementation.md#clang): 3.0 [mark verified], 3.1 [mark verified], 3.2 [mark verified], 3.3 [mark verified], 3.4 [mark verified], 3.5 [mark verified], 3.6 [mark verified]
 - [GCC](/implementation.md#gcc): 4.9.0 [mark verified], 4.9.1 [mark verified], 5.0.0 [mark verified]
-- [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 ただし、Clang と GCC の 4.9.1 までのバージョンには、長さ 0 の文字列にマッチした時の挙動に問題があるため、注意が必要。
