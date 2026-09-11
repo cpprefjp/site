@@ -122,14 +122,14 @@ shared_ptr(shared_ptr<Y>&& r,
 - (4) : 生ポインタの所有権、リソースを破棄する際に使用する関数オブジェクト、アロケータを受け取る。
 - (5) : リソースを破棄する際に使用する関数オブジェクトを受け取り、ヌルポインタを所有する`shared_ptr`オブジェクトを構築する。
 - (6) : リソースを破棄する際に使用する関数オブジェクトと、アロケータを受け取り、ヌルポインタを所有する`shared_ptr`オブジェクトを構築する。
-- (7) : 他の`shared_ptr`オブジェクトとリソースを共有し、保持するポインタを個別に指定する。
+- (7) : 他の`shared_ptr`オブジェクトとリソースを共有し、保持するポインタを個別に指定する（エイリアシングコンストラクタ）。
 - (8), (9) : 他の`shared_ptr`オブジェクトと、リソースを共有する。
 - (10), (11) : 他の`shared_ptr`オブジェクトから、リソースの所有権を移動する。
 - (12) : [`weak_ptr`](/reference/memory/weak_ptr.md)オブジェクトが参照するリソースから、所有権を共有する`shared_ptr`オブジェクトを構築する。
 - (13) : `auto_ptr`オブジェクトから、リソースの所有権を移動する。
 - (14) : [`unique_ptr`](/reference/memory/unique_ptr.md)オブジェクトから、リソースの所有権を移動する。
 - (15) : (1)と同じく、所有権を持たない、空の`shared_ptr`オブジェクトを構築する。
-- (16) : 他の`shared_ptr`オブジェクトからリソースの所有権を移動し、保持するポインタを個別に指定する。
+- (16) : 他の`shared_ptr`オブジェクトからリソースの所有権を移動し、保持するポインタを個別に指定する（エイリアシングコンストラクタ）。
 
 
 ## 要件
@@ -197,10 +197,16 @@ shared_ptr(shared_ptr<Y>&& r,
 
 
 ## 備考
-アロケータは、参照カウンタのメモリ確保に使用される。
+- アロケータは、参照カウンタのメモリ確保に使用される。
+- (7), (16) : これらはエイリアシングコンストラクタ (aliasing constructor) と呼ばれる。所有権は`r`と共有（(16)は`r`から移動）したまま、保持するポインタだけを`p`に差し替えた`shared_ptr`オブジェクトを構築する
+    - あるオブジェクトのメンバ変数や基底クラス部分オブジェクト、コンテナの要素を指す`shared_ptr`オブジェクトを作りつつ、それらを含むオブジェクト全体の寿命を延ばす用途で使用する
+    - リソースの破棄は`r`が持つ削除子によって行われる。`p`が指すオブジェクトが破棄されるわけではない
+    - `p`は、`r`が所有するオブジェクトと関係のないポインタであってもよい。ただし、`r`の所有権グループが破棄されるまで`p`が妥当であり続けない場合、ダングリングポインタとなる
+    - `r`が空である場合は、`r`と同じく所有権をもたないが、`p`を保持する`shared_ptr`オブジェクトが構築される（[`use_count()`](use_count.md) `== 0`かつ[`get()`](get.md) `!= nullptr`となる）
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <cassert>
 #include <memory>
@@ -316,7 +322,58 @@ int main()
 * std::weak_ptr[link /reference/memory/weak_ptr.md]
 * lock()[link /reference/memory/weak_ptr/lock.md]
 
-### 出力
+#### 出力
+```
+```
+
+### エイリアシングコンストラクタで所有権を共有する
+エイリアシングコンストラクタ(7), (16)は、所有権はもとの`shared_ptr`オブジェクトと共有したまま、保持するポインタだけを別のものに差し替える。これによって、オブジェクトのメンバ変数を指す`shared_ptr`オブジェクトを作りつつ、そのメンバ変数を含むオブジェクト全体の寿命を、メンバ変数を参照している間だけ延ばせる。
+
+```cpp example
+#include <cassert>
+#include <memory>
+#include <string>
+#include <utility>
+
+struct Person {
+  std::string name;
+  int age;
+};
+
+int main()
+{
+  std::shared_ptr<std::string> name;
+  {
+    std::shared_ptr<Person> person(new Person{"Alice", 25});
+
+    // (7)
+    // personと所有権を共有しつつ、メンバ変数nameを指すshared_ptrオブジェクトを構築する
+    name = std::shared_ptr<std::string>(person, &person->name);
+    assert(name.use_count() == 2);
+    assert(*name == "Alice");
+  }
+
+  // personは破棄されたが、nameが所有権をもっているため、
+  // Personオブジェクト全体がまだ破棄されていない
+  assert(name.use_count() == 1);
+  assert(*name == "Alice");
+
+  // (16)
+  // 所有権を移動しつつ、メンバ変数ageを指すshared_ptrオブジェクトを構築する。
+  // 所有権の移動はコンストラクタの中で行われるため、
+  // 実引数&person->ageの評価は移動の影響を受けない
+  std::shared_ptr<Person> person(new Person{"Bob", 30});
+  std::shared_ptr<int> age(std::move(person), &person->age);
+  assert(person.use_count() == 0);
+  assert(person.get() == nullptr);
+  assert(*age == 30);
+}
+```
+* use_count()[link use_count.md]
+* get()[link get.md]
+* std::move[link /reference/utility/move.md]
+
+#### 出力
 ```
 ```
 
