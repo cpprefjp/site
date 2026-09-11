@@ -31,9 +31,28 @@ class A
 
 * `[[no_unique_address]]`属性の付いた同じ型または同じ型のサブオブジェクトを持つ非静的メンバ変数が複数ある場合、それらに共通するサブオブジェクトは互いに異なるアドレスに配置される。
 
-* `[[no_unique_address]]`属性を指定しても、実際に空オブジェクトでない場合は効果がない。
+* 潜在的に重なるサブオブジェクトは、ほかのサブオブジェクトの末尾のパディングに配置される可能性もある。そのため、空でない型のメンバに指定した場合でも、クラス全体のサイズが小さくなることがある。
+
+* `[[no_unique_address]]`属性は最適化を許可するものであり、実際にサブオブジェクトが重なるかどうかは処理系のABIに依存する。
+
+
+## 用途
+`[[no_unique_address]]`属性には、おもに以下の用途がある。
+
+- 状態を持たないクラスのオブジェクトをメンバとして保持する
+    - アロケータ、削除子、比較関数、ハッシュ関数、関数オブジェクトなど、空になりやすい型を、継承を使わずにサイズ0で保持できる
+    - テンプレート引数によって空になったりならなかったりする型でも、特殊化を用意することなく、どちらの場合でも最適なレイアウトが得られる
+- 継承できない型のオブジェクトを保持する
+    - `final`が指定されたクラスや`union`は基底クラスにできないため、EBOを適用できない。`[[no_unique_address]]`属性であれば適用できる
+- 型の異なる複数の空のメンバをまとめる
+    - 型が異なる空のメンバは、すべて同じアドレスに配置できる
+- メンバ型の末尾のパディングを再利用する
+    - [`std::optional`](/reference/optional/optional.md)のように値とフラグ (タグ) を併せて保持する型で、値の型が持つ末尾のパディングにフラグを収められる場合がある
+- 標準ライブラリでも、[`std::ranges::in_out_result`](/reference/algorithm/ranges_in_out_result.md)などのRangeアルゴリズムの戻り値型や、[`std::ranges::elements_of`](/reference/ranges/elements_of.md)のメンバに指定されている
+
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 
@@ -57,24 +76,182 @@ bool is_same_addr(void* x, void* y){
 
 int main()
 {
-  std::cout << sizeof(A) << '\n';
-  std::cout << sizeof(B) << '\n';
+  std::cout << sizeof(A) << std::endl;
+  std::cout << sizeof(B) << std::endl;
   A a;
   B b;
   std::cout << std::boolalpha;
-  std::cout << is_same_addr(&a.e, &a.c) << '\n';
-  std::cout << is_same_addr(&b.e, &b.c) << '\n';
+  std::cout << is_same_addr(&a.e, &a.c) << std::endl;
+  std::cout << is_same_addr(&b.e, &b.c) << std::endl;
   return 0;
 }
 ```
 
-### 出力例
+#### 出力例
 ```
 2
 1
 false
 true
 ```
+
+### 状態を持たないクラスのオブジェクトをメンバとして保持する
+アロケータや削除子のような、状態を持たない (空になりやすい) 型を、継承を使わずにメンバとして保持できる。
+
+```cpp example
+#include <iostream>
+#include <memory>
+
+template <class T, class Deleter = std::default_delete<T>>
+class my_unique_ptr {
+  T* ptr_;
+  [[no_unique_address]] Deleter deleter_;
+
+public:
+  explicit my_unique_ptr(T* ptr) : ptr_(ptr), deleter_() {}
+  ~my_unique_ptr() { deleter_(ptr_); }
+};
+
+int main()
+{
+  std::cout << std::boolalpha;
+
+  // 削除子が空であるため、ポインタひとつ分のサイズに収まる
+  std::cout << (sizeof(my_unique_ptr<int>) == sizeof(int*)) << std::endl;
+}
+```
+* std::default_delete[link /reference/memory/default_delete.md]
+
+#### 出力例
+```
+true
+```
+
+テンプレート引数によって空になったりならなかったりする型でも、特殊化を用意することなく、どちらの場合でも最適なレイアウトが得られる。
+
+```cpp example
+#include <iostream>
+#include <memory>
+
+// 状態を持つ簡易的なアロケータ
+template <class T>
+class arena_allocator {
+  std::byte* buffer_;
+
+public:
+  using value_type = T;
+
+  explicit arena_allocator(std::byte* buffer) : buffer_(buffer) {}
+
+  T* allocate(std::size_t) { return reinterpret_cast<T*>(buffer_); }
+  void deallocate(T*, std::size_t) {}
+};
+
+template <class T, class Allocator = std::allocator<T>>
+class my_vector {
+  T* ptr_ = nullptr;
+  [[no_unique_address]] Allocator alloc_;
+
+public:
+  explicit my_vector(const Allocator& alloc = Allocator()) : alloc_(alloc) {}
+};
+
+int main()
+{
+  // std::allocatorは状態を持たないため、ポインタひとつ分のサイズに収まる
+  std::cout << sizeof(my_vector<int>) << std::endl;
+
+  // 状態を持つアロケータの場合は、そのぶんのサイズが必要になる
+  std::cout << sizeof(my_vector<int, arena_allocator<int>>) << std::endl;
+}
+```
+* std::byte[link /reference/cstddef/byte.md]
+
+#### 出力例
+```
+8
+16
+```
+
+### 継承できない型のオブジェクトを保持する
+`final`が指定されたクラスは基底クラスにできないため、EBOを適用できない。`[[no_unique_address]]`属性であれば適用できる。
+
+```cpp example
+#include <iostream>
+
+class Empty final {}; // finalなので、継承によるEBOは適用できない
+
+struct A {
+  Empty e;
+  char c;
+};
+
+struct B {
+  [[no_unique_address]] Empty e;
+  char c;
+};
+
+int main()
+{
+  std::cout << sizeof(A) << std::endl;
+  std::cout << sizeof(B) << std::endl;
+}
+```
+
+#### 出力例
+```
+2
+1
+```
+
+### 末尾のパディングを再利用する
+メンバの型が末尾にパディングを持つ場合、そのパディングに後続のメンバを配置できる。値とフラグを併せて保持する[`optional`](/reference/optional/optional.md)のような型で、フラグのぶんだけサイズが大きくなることを避けられる。
+
+```cpp example
+#include <iostream>
+
+struct Data {
+  int id;
+  char kind;
+
+  // ユーザー定義のデストラクタにより、トリビアルにコピー可能ではなくなる
+  ~Data() {}
+};
+
+struct A {
+  Data data;
+  bool has_value;
+};
+
+struct B {
+  [[no_unique_address]] Data data;
+  bool has_value;
+};
+
+int main()
+{
+  std::cout << sizeof(Data) << std::endl;
+  std::cout << sizeof(A) << std::endl;
+
+  // has_valueがDataの末尾のパディングに配置され、Dataと同じサイズになる
+  std::cout << sizeof(B) << std::endl;
+}
+```
+
+#### 出力例
+```
+8
+12
+8
+```
+
+
+## 備考
+- `[[no_unique_address]]`属性は最適化を許可するものであり、実際にサブオブジェクトが重なるかどうかは処理系のABIに依存する。
+- Itanium C++ ABIを採用するGCCとClangでは、メンバ型の末尾のパディングの再利用は、その型がトリビアルにコピー可能でない場合に行われる。
+- Visual C++は、既存のABIとの互換性を維持するために、標準の`[[no_unique_address]]`属性を無視する。同等の効果を得るには、独自の`[[msvc::no_unique_address]]`属性を使用する。
+- `[[no_unique_address]]`属性を指定したメンバは潜在的に重なるサブオブジェクトであるため、トリビアルにコピー可能な型であっても、そのメンバのバイト列を[`memcpy()`](/reference/cstring/memcpy.md)関数などでコピーして復元することは、規格上保証されない。末尾のパディングにほかのメンバが配置されている場合、そのメンバを破壊してしまう。
+
 
 ## この機能が必要になった背景・経緯
 
@@ -97,8 +274,8 @@ class A
 
 int main()
 {
-  std::cout << sizeof(Empty) << '\n'; // 1
-  std::cout << sizeof(A) << '\n';     // 2
+  std::cout << sizeof(Empty) << std::endl; // 1
+  std::cout << sizeof(A) << std::endl;     // 2
   return 0;
 }
 ```
@@ -117,7 +294,7 @@ class B: Empty
 
 int main()
 {
-  std::cout << sizeof(B) << '\n'; // 1
+  std::cout << sizeof(B) << std::endl; // 1
   return 0;
 }
 ```
@@ -133,3 +310,5 @@ int main()
 
 ## 参照
 - [P0840R2 Language support for empty objects](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0840r2.html)
+- [Microsoft-specific attributes - Microsoft Learn](https://learn.microsoft.com/en-us/cpp/cpp/attributes?view=msvc-170)
+    - Visual C++独自の`[[msvc::no_unique_address]]`属性について
