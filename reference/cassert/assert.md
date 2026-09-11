@@ -42,6 +42,11 @@
 - マクロ`NDEBUG`は、標準C++の言語およびライブラリでは定義しない。開発環境やユーザーが定義することとなる。`NDEBUG`を定義せず`assert`を有効にした設定を「デバッグビルド」、`NDEBUG`を定義して`assert`を無効にした設定を「リリースビルド」などとして複数のビルド設定を持つ開発環境がある。
 - マクロ`NDEBUG`の定義の状態を変えて`<cassert>`をインクルードしなおすことで翻訳単位中で有効・無効を切り替えることも可能である。
 - 実行環境や入力によって起こりえるエラーに対するエラー処理としてこのマクロを使用すると無効化された場合に意図しない動作となることがあるので、別な手段として、例外、`bool`型の返却値などを検討すること。
+- C++26 : `__VA_ARGS__`が適格な代入式に展開されない場合、プログラムは不適格となる。カンマ演算子を使った式は代入式ではないため、`static_assert`のように条件とメッセージをカンマで並べて書くことはできない。メッセージを併記したい場合は、`&&`で連結する。
+    ```cpp
+    assert(i < v.size(), "index is out of range"); // コンパイルエラー
+    assert(i < v.size() && "index is out of range"); // OK
+    ```
 - C++26 : 引数の式を未評価オペランドとして扱ったときに不適格となる場合、プログラムは不適格となる（診断不要）。たとえば`co_await`や`co_yield`は未評価オペランド内で使用できないため、`assert`の引数に書くことはできない。
 
 
@@ -94,21 +99,28 @@ int main()
 ```
 
 ### カンマを含む条件式をassertマクロで使用する (C++26)
+C++26では`assert`が可変引数マクロとなったため、テンプレート実引数の区切りや波カッコ初期化に含まれるカンマを、そのまま条件式に書ける。
+
 ```cpp example
 #include <cassert>
+#include <vector>
 #include <type_traits>
 
 template <class T>
-void f()
+void f(const std::vector<T>& v)
 {
-  assert(std::is_same_v<int, T>);   // C++26 : OK
-  assert((std::is_same_v<int, T>)); // C++23までは、カンマを含む式は全体を丸カッコで囲む必要がある
+  // C++26 : カンマを含む式をそのまま書ける
+  assert(v == std::vector<T>{1, 2, 3});
+  assert(std::is_same_v<int, T>);
+
+  // C++23まで : 式全体を丸カッコで囲む必要がある
+  assert((v == std::vector<T>{1, 2, 3}));
+  assert((std::is_same_v<int, T>));
 }
 
 int main()
 {
-  f<int>();
-  f<double>();
+  f(std::vector<int>{1, 2, 3});
 }
 ```
 
