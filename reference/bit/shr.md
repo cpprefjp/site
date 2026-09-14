@@ -64,7 +64,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 22 [mark noimpl]
-- [GCC](/implementation.md#gcc): 16.1 [mark noimpl]
+- [GCC](/implementation.md#gcc): 17 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2026 Update 2 [mark noimpl]
 
 
@@ -74,5 +74,5 @@ int main()
 
 
 ## 参照
-- [P3793R1 Better shifting](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3793r1.html)
+- [P3793R2 Better shifting](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3793r2.html)
     - C++29で追加された

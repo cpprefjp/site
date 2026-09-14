@@ -31,6 +31,7 @@
 
 | マクロ名 | 値 | 機能 | ヘッダ |
 |----------|----|------|--------|
+|`__cpp_lib_bitops`|`202606L`|[`<bit>`](/reference/bit.md)に、シフト量が負であってもビット幅以上であっても未定義動作にならないシフト[`std::shl()`](/reference/bit/shl.md)・[`std::shr()`](/reference/bit/shr.md)関数を追加|[`<bit>`](/reference/bit.md)|
 |`__cpp_lib_expected`|`202606L`|[`std::expected`](/reference/expected/expected.md)に、エラー値を保持しているかを判定する[`has_error()`](/reference/expected/expected/has_error.md)メンバ関数を追加|[`<expected>`](/reference/expected.md)|
 |`__cpp_lib_hazard_pointer`|`202606L`|[`<hazard_pointer>`](/reference/hazard_pointer.md)に、複数のハザードポインタをまとめて構築・破棄する[`std::make_hazard_pointer_batch()`](/reference/hazard_pointer/make_hazard_pointer_batch.md)関数と[`std::clear_hazard_pointer_batch()`](/reference/hazard_pointer/clear_hazard_pointer_batch.md)関数を追加|[`<hazard_pointer>`](/reference/hazard_pointer.md)|
 |`__cpp_lib_map_lookup`|`202606L`|[`std::map`](/reference/map/map.md)・[`std::unordered_map`](/reference/unordered_map/unordered_map.md)・[`std::flat_map`](/reference/flat_map/flat_map.md)に、指定したキーを持つ要素を`optional`として取得する`lookup()`メンバ関数を追加|[`<map>`](/reference/map.md), [`<unordered_map>`](/reference/unordered_map.md), [`<flat_map>`](/reference/flat_map.md)|
@@ -77,6 +78,7 @@
 - [P3772R2 std::simd overloads for bit permutations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3772r2.html)
     - C++29で`__cpp_lib_simd_bitops`が追加された
 - [P3793R2 Better shifting](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3793r2.html)
+    - C++29で`__cpp_lib_bitops`が`202606L`に更新された
     - C++29で`__cpp_lib_simd_bitops`が追加された
 - [P2019R9 Thread attributes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p2019r9.pdf)
     - C++29で`__cpp_lib_thread_attributes`が追加された

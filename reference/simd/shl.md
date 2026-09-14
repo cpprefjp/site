@@ -91,5 +91,5 @@ int main()
 
 
 ## 参照
-- [P3793R1 Better shifting](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3793r1.html)
+- [P3793R2 Better shifting](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3793r2.html)
     - C++29で`<bit>`ヘッダにスカラー版、`<simd>`ヘッダに`std::simd`版の`shl`が追加された
