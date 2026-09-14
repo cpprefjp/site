@@ -20,7 +20,7 @@ namespace std::meta {
     exception& operator=(const exception&) = default;
     exception& operator=(exception&&) = default;
 
-    consteval const char* what() const noexcept override;
+    constexpr const char* what() const noexcept override;
     consteval std::u8string_view u8what() const noexcept;
     consteval info from() const noexcept;
     consteval std::source_location where() const noexcept;
@@ -63,4 +63,6 @@ namespace std::meta {
 
 ## 参照
 - [P3560R2 Error Handling in Reflection](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3560r2.html)
+    - C++26で、リフレクションのメタ関数がエラーを報告するための例外クラスとして追加された
 - [LWG Issue 4513. `meta::exception::what()` should be `consteval`](https://cplusplus.github.io/LWG/issue4513)
+    - `what()`を`consteval`にすることが提案されたが、その前提となっていたCWG 3117の許可が[P4101R1](/lang/cpp29/consteval-only_values.md)によって取り消されたため、`what()`は`constexpr`のままとなった
