@@ -324,7 +324,7 @@
 | P2865R6: [非推奨だった組み込み配列の比較を削除](/lang/cpp26/remove_deprecated_array_comparisons.md) | C++20で非推奨となっていた配列比較を削除 | 15 | 20 | | |
 | P1061R10: [構造化束縛でパックを導入できるようにする](/lang/cpp26/structured_bindings_can_introduce_a_pack.md) | タプルを分解する際に複数の変数をパックとして宣言できるようにする。`auto [a, ...xs] = f();` | 16 | | | |
 | P3176R0: [先行するカンマのない省略記号を非推奨化](/lang/cpp26/the_oxford_variadic_comma.md) | `void f(int, ...);`はOK。`void f(int...);`は非推奨 | 15 | 20 | | |
-| P3074R7: [共用体の特殊メンバ関数のトリビアル化](/lang/cpp26/trivial_unions.md) | 非トリビアルな型をメンバにもつ共用体のデフォルトコンストラクタとデストラクタをトリビアルにし、未初期化ストレージとして使用可能にする | | | | |
+| P3074R7: [共用体の特殊メンバ関数のトリビアル化](/lang/cpp26/trivial_unions.md) | 非トリビアルな型をメンバにもつ共用体のデフォルトコンストラクタとデストラクタをトリビアルにし、未初期化ストレージとして使用可能にする | 17 | | | |
 | P2900R14: [契約プログラミングをサポートする](/lang/cpp26/contracts.md) | 関数の事前条件、事後条件、不変条件を記述できるようにする | 16 | | | |
 | P2841R7: [コンセプトと変数テンプレートをテンプレート引数として渡せるようにする](/lang/cpp26/concept_and_variable-template_template-parameters.md) | テンプレートテンプレートパラメータとして、クラステンプレートやエイリアステンプレートに加え、コンセプトと変数テンプレートも渡せるようにする | | | | |
 | P1967R14: [ファイルを読み込む`#embed`命令を追加](/lang/cpp26/embed.md) | バイナリファイルをインクルードするメカニズム。`#include`とちがって読み出しサイズなどの柔軟な指定ができる | 15 | | | |
@@ -337,7 +337,7 @@
 | P4136R2: [`#line`ディレクティブの制約を現実の実装に合わせて緩和する](/lang/cpp26/line_is_not_in_line_with_existing_implementation.md) | `#line 0`や`#line 2147483648`のような行番号指定を不適格としていたが、条件付きサポートとして許可する | | Yes | | |
 | P4004R1: [可変引数テンプレートの半順序を再検討する](/lang/cpp26/reconsider_partial_ordering_of_variadic_templates.md) | 可変引数テンプレートの部分特殊化の半順序ルールを再検討して、より一貫したルールにする | | | | |
 | P3865R3: [テンプレートテンプレートパラメータに対するクラステンプレートパラメータ引数推論](/lang/cpp26/class_template_argument_deduction_for_type_template_template_parameters.md) | テンプレートテンプレートパラメータからクラステンプレート引数を推論できるようにクラステンプレートのテンプレート引数推論を拡張する | | | | |
-| P3726R2: [共用体メンバの生存期間規則の調整](/lang/cpp26/adjustments_to_union_lifetime_rules.md) | 共用体の先頭メンバの生存期間を暗黙に開始する規則を撤回して`std::start_lifetime()`による明示的な開始へ変更し、生存期間外の要素を含む配列メンバを定数式で許可する | | | | |
+| P3726R2: [共用体メンバの生存期間規則の調整](/lang/cpp26/adjustments_to_union_lifetime_rules.md) | 共用体の先頭メンバの生存期間を暗黙に開始する規則を撤回して`std::start_lifetime()`による明示的な開始へ変更し、生存期間外の要素を含む配列メンバを定数式で許可する | 17 | | | |
 | P4143R0: [定数評価の開始・終了タイミングを明確化](/lang/cpp26/constant_evaluation_when.md.nolink) | 定数評価がどのタイミングで開始・終了するかを明確化し、constexprコンテキストの規則を整える | | | | |
 | P4149R1: [SFINAEが適用される「直接文脈」を定義](/lang/cpp26/define_immediate_context.md) | テンプレートの置換失敗がエラーにならない範囲を「直接文脈」として正式に定義し、デフォルト引数・`noexcept`指定・契約指定子の中での置換失敗がコンパイルエラーとなることを明確化する | | | | |
 | P3769R1: [配置newの解放処理を明確化](/lang/cpp26/clarifying_placement_new_deallocation.md) | 配置`new`で確保したメモリの解放処理の取り扱いに関するルールを明確化する | | | | |
