@@ -111,7 +111,12 @@ zoned_time(string_view name,
 
 ## 備考
 - [`local_time`](/reference/chrono/local_time.md)型のローカル時間を受け取るコンストラクタでは、[`sys_time`](/reference/chrono/sys_time.md)型のシステム時間への変換が行われ、システム時間としてメンバ変数に保持される
-- (9), (10) : ローカル時間からシステム時間への変換があいまいになる場合、早い時間側の候補に変換される
+- (9), (10) : [`choose`](/reference/chrono/choose.md)を指定しないため、変換に失敗する場合は[`to_sys()`](/reference/chrono/time_zone/to_sys.md)から例外が送出される
+    - ローカル時間からシステム時間への変換があいまいになる場合、[`ambiguous_local_time`](/reference/chrono/ambiguous_local_time.md)例外を送出する
+    - 指定されたローカル時間が存在しない場合、[`nonexistent_local_time`](/reference/chrono/nonexistent_local_time.md)例外を送出する
+- (11), (12) : [`choose`](/reference/chrono/choose.md)を指定するため、あいまいなローカル時間・存在しないローカル時間が指定されてもこれらの例外は送出されない
+    - あいまいなローカル時間の場合、`c`で指定した側の候補に変換される
+    - 存在しないローカル時間の場合、`c`の値にかかわらず、変換結果は同じ時間点となる
 
 
 ### 例
