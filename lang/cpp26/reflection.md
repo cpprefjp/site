@@ -499,6 +499,123 @@ hash(o1) == hash(o2): true
 hash(o1) == hash(o3): false
 ```
 
+### アノテーションで指定した値の範囲を検証する
+アノテーションでメンバ変数に制約を付加しておくことで、メンバごとに検証コードを書くことなく、任意のクラスに対して働く汎用の検証関数を実装できる。
+
+以下の例では、整数用の`IntRange`と浮動小数点数用の`FloatRange`を定義し、それらが付加されたメンバ変数だけを検証して、範囲外であれば[`std::out_of_range`](/reference/stdexcept.md)例外を送出する。アノテーションが付いていないメンバ変数は検証の対象にならない。
+
+```cpp example
+#include <meta>
+#include <cstdio>
+#include <format>
+#include <print>
+#include <stdexcept>
+#include <string_view>
+
+// 値の範囲を表すアノテーションクラス
+struct IntRange {
+  int min_value;
+  int max_value;
+};
+
+struct FloatRange {
+  double min_value;
+  double max_value;
+};
+
+struct Config {
+  [[=IntRange{1, 65535}]] int port;
+  [[=IntRange{1, 300}]] int timeout_seconds;
+  [[=FloatRange{0.0, 1.0}]] double sampling_rate;
+  int retry_count;  // アノテーションがないメンバ変数は検証しない
+};
+
+// IntRangeとFloatRangeのどちらにも使える検証処理
+template <class R, class T>
+void check_range(std::string_view name, T value, R range) {
+  if (value < range.min_value || range.max_value < value) {
+    throw std::out_of_range{
+      std::format("{}: {}は{}以上{}以下でなければならない",
+                  name,
+                  value,
+                  range.min_value,
+                  range.max_value)};
+  }
+}
+
+// 範囲のアノテーションが付加されたメンバ変数の値を検証する
+template <class T>
+void validate(const T& obj) {
+  template for (constexpr auto m :
+      std::define_static_array(std::meta::nonstatic_data_members_of(^^T,
+          std::meta::access_context::unchecked()))) {
+    static constexpr auto int_annotations = std::define_static_array(
+      std::meta::annotations_of_with_type(m, ^^IntRange));
+    static constexpr auto float_annotations = std::define_static_array(
+      std::meta::annotations_of_with_type(m, ^^FloatRange));
+
+    // アノテーションは値のリフレクションではないため、
+    // constant_of()で値を取り出してからスプライスする
+    if constexpr (int_annotations.size() > 0) {
+      check_range(std::meta::identifier_of(m), obj.[:m:],
+                  [:std::meta::constant_of(int_annotations[0]):]);
+    }
+    else if constexpr (float_annotations.size() > 0) {
+      check_range(std::meta::identifier_of(m), obj.[:m:],
+                  [:std::meta::constant_of(float_annotations[0]):]);
+    }
+  }
+}
+
+int main() {
+  // すべて範囲内なので、例外は送出されない
+  validate(Config{
+    .port = 8080,
+    .timeout_seconds = 30,
+    .sampling_rate = 0.5,
+    .retry_count = 3
+  });
+
+  try {
+    // portが範囲外
+    validate(Config{
+      .port = 0,
+      .timeout_seconds = 30,
+      .sampling_rate = 0.5,
+      .retry_count = 3
+    });
+  } catch (const std::out_of_range& e) {
+    std::println(stderr, "{}", e.what());
+  }
+
+  try {
+    // sampling_rateが範囲外
+    validate(Config{
+      .port = 8080,
+      .timeout_seconds = 30,
+      .sampling_rate = 1.5,
+      .retry_count = 3
+    });
+  } catch (const std::out_of_range& e) {
+    std::println(stderr, "{}", e.what());
+  }
+}
+```
+* std::meta::nonstatic_data_members_of[link /reference/meta/nonstatic_data_members_of.md]
+* std::meta::access_context::unchecked[link /reference/meta/access_context/unchecked.md]
+* std::meta::annotations_of_with_type[link /reference/meta/annotations_of_with_type.md]
+* std::meta::constant_of[link /reference/meta/constant_of.md]
+* std::meta::identifier_of[link /reference/meta/identifier_of.md]
+* std::format[link /reference/format/format.md]
+* std::out_of_range[link /reference/stdexcept.md]
+* stderr[link /reference/cstdio/stderr.md]
+
+#### 出力
+```
+port: 0は1以上65535以下でなければならない
+sampling_rate: 1.5は0以上1以下でなければならない
+```
+
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`<meta>`ヘッダ](/reference/meta.md)
