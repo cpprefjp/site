@@ -1,4 +1,4 @@
-# atomic_store_and_explicit
+# atomic_store_xor_explicit
 * atomic[meta header]
 * std[meta namespace]
 * function template[meta id-type]
@@ -8,14 +8,14 @@
 namespace std {
   template <class T>
   void
-    atomic_store_and_explicit(
+    atomic_store_xor_explicit(
       volatile atomic<T>* object,
       typename atomic<T>::difference_type operand,
       memory_order order) noexcept;                // (1) C++26
 
   template <class T>
   constexpr void
-    atomic_store_and_explicit(
+    atomic_store_xor_explicit(
       atomic<T>* object,
       typename atomic<T>::difference_type operand,
       memory_order order) noexcept;                // (2) C++26
@@ -25,9 +25,9 @@ namespace std {
 * memory_order[link memory_order.md]
 
 ## 概要
-値を読み込まずにアトミックにANDを行う。
+値を読み込まずにアトミックにXORを行う。
 
-この関数は、[`atomic_fetch_and_explicit()`](atomic_fetch_and_explicit.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+この関数は、[`atomic_fetch_xor_explicit()`](atomic_fetch_xor_explicit.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
 
 
 ## テンプレートパラメータ制約
@@ -44,7 +44,7 @@ namespace std {
 
 
 ## 効果
-`order`で指定されたメモリオーダーにしたがって、現在の値に`operand`をANDした値でアトミックに置き換える
+`order`で指定されたメモリオーダーにしたがって、現在の値に`operand`をXORした値でアトミックに置き換える
 
 
 ## 戻り値
@@ -68,18 +68,18 @@ int main()
 {
   std::atomic<int> x(0b1001);
 
-  std::atomic_store_and_explicit(&x, 0b0101, std::memory_order_seq_cst);
+  std::atomic_store_xor_explicit(&x, 0b0101, std::memory_order_seq_cst);
 
   std::println("0b{:04b}", x.load());
 }
 ```
-* std::atomic_store_and_explicit[color ff0000]
+* std::atomic_store_xor_explicit[color ff0000]
 * x.load()[link /reference/atomic/atomic/load.md]
 
 
 ### 出力
 ```
-0b0001
+0b1100
 ```
 
 ## バージョン
