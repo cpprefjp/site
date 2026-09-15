@@ -744,6 +744,111 @@ Hello wg21
 ```
 
 
+### JSONにシリアライズする
+リフレクションでメンバ変数を走査すれば、クラスごとにシリアライズ関数を書かなくてもJSONへ変換できる。さらにアノテーションを併用することで、JSON上の表現だけをクラスの定義から制御できる。
+
+以下の例では、キー名を変更する`Rename`と、シリアライズの対象から外す`Skip`を定義する。どちらもC++のコード上での使い方には影響せず、JSONへの変換方法だけを指定する。
+
+```cpp example
+#include <meta>
+#include <concepts>
+#include <format>
+#include <print>
+#include <string>
+#include <string_view>
+
+// JSONのキー名を変更するアノテーション
+struct Rename {
+  const char* name;
+};
+
+// シリアライズの対象から外すアノテーション
+struct Skip {};
+
+struct Address {
+  std::string city;
+  int postal_code;
+};
+
+struct Person {
+  [[=Rename{std::define_static_string("first name")}]] std::string first;
+  [[=Rename{std::define_static_string("last name")}]] std::string last;
+  int age;
+  Address address;                    // ネストしたクラスも再帰的に変換される
+  [[=Skip{}]] std::string password;   // シリアライズしない
+};
+
+template <class T>
+std::string to_json(const T& value) {
+  if constexpr (std::integral<T> || std::floating_point<T>) {
+    return std::format("{}", value);
+  }
+  else if constexpr (std::convertible_to<T, std::string_view>) {
+    return std::format("\"{}\"", value);
+  }
+  else {
+    std::string result = "{";
+    bool is_first = true;
+
+    template for (constexpr auto m :
+        std::define_static_array(std::meta::nonstatic_data_members_of(^^T,
+            std::meta::access_context::unchecked()))) {
+      static constexpr auto skips = std::define_static_array(
+        std::meta::annotations_of_with_type(m, ^^Skip));
+
+      if constexpr (skips.size() == 0) {
+        static constexpr auto renames = std::define_static_array(
+          std::meta::annotations_of_with_type(m, ^^Rename));
+
+        // Renameアノテーションがあればその名前を、なければメンバ変数名をキーにする
+        constexpr std::string_view key = [] {
+          if constexpr (renames.size() > 0) {
+            return std::string_view{[:std::meta::constant_of(renames[0]):].name};
+          }
+          else {
+            return std::meta::identifier_of(m);
+          }
+        }();
+
+        if (!is_first) {
+          result += ',';
+        }
+        is_first = false;
+        result += std::format("\"{}\":{}", key, to_json(value.[:m:]));
+      }
+    }
+    return result + '}';
+  }
+}
+
+int main() {
+  Person person{
+    .first = "Taro",
+    .last = "Yamada",
+    .age = 30,
+    .address = {.city = "Tokyo", .postal_code = 1000001},
+    .password = "secret"
+  };
+
+  std::println("{}", to_json(person));
+}
+```
+* std::meta::nonstatic_data_members_of[link /reference/meta/nonstatic_data_members_of.md]
+* std::meta::access_context::unchecked[link /reference/meta/access_context/unchecked.md]
+* std::meta::annotations_of_with_type[link /reference/meta/annotations_of_with_type.md]
+* std::meta::constant_of[link /reference/meta/constant_of.md]
+* std::meta::identifier_of[link /reference/meta/identifier_of.md]
+* std::format[link /reference/format/format.md]
+* std::integral[link /reference/concepts/integral.md]
+* std::floating_point[link /reference/concepts/floating_point.md]
+* std::convertible_to[link /reference/concepts/convertible_to.md]
+
+#### 出力
+```
+{"first name":"Taro","last name":"Yamada","age":30,"address":{"city":"Tokyo","postal_code":1000001}}
+```
+
+
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`<meta>`ヘッダ](/reference/meta.md)
 - [C++26 コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md)
