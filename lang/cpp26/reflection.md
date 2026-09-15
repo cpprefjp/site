@@ -617,6 +617,133 @@ sampling_rate: 1.5は0以上1以下でなければならない
 ```
 
 
+### アノテーションからコマンドラインオプションを解析する
+アノテーションはメンバ変数の検証だけでなく、宣言からコードを生成する用途にも使える。以下の例では、Rustの[clap](https://docs.rs/clap/)のように、コマンドラインオプションの短縮名と説明をアノテーションでメンバ変数に付加し、そこからヘルプメッセージの生成と引数の解析の両方を行う。
+
+オプションを追加したいときは`Args`にメンバ変数とアノテーションを足すだけでよく、ヘルプメッセージと解析処理のどちらにも手を入れる必要がない。
+
+```cpp example
+#include <meta>
+#include <format>
+#include <print>
+#include <stdexcept>
+#include <string>
+#include <string_view>
+
+// オプションの短縮名を表すアノテーション
+struct Short {
+  char name;
+};
+
+// オプションの説明を表すアノテーション
+struct Help {
+  const char* text;
+};
+
+struct Args {
+  [[=Short{'n'}, =Help{std::define_static_string("挨拶する相手の名前")}]]
+  std::string name;
+
+  [[=Short{'c'}, =Help{std::define_static_string("挨拶を繰り返す回数")}]]
+  int count = 1;
+};
+
+void assign(std::string& member, std::string_view value) {
+  member = value;
+}
+
+void assign(int& member, std::string_view value) {
+  member = std::stoi(std::string{value});
+}
+
+// アノテーションからヘルプメッセージを生成する
+template <class T>
+void print_help() {
+  std::println("オプション:");
+  template for (constexpr auto m :
+      std::define_static_array(std::meta::nonstatic_data_members_of(^^T,
+          std::meta::access_context::unchecked()))) {
+    static constexpr auto shorts = std::define_static_array(
+      std::meta::annotations_of_with_type(m, ^^Short));
+    static constexpr auto helps = std::define_static_array(
+      std::meta::annotations_of_with_type(m, ^^Help));
+
+    std::println("  -{}, --{:<8} {}",
+                 [:std::meta::constant_of(shorts[0]):].name,
+                 std::meta::identifier_of(m),
+                 [:std::meta::constant_of(helps[0]):].text);
+  }
+}
+
+// アノテーションをもとにコマンドライン引数を解析する
+template <class T>
+T parse(int argc, const char* const* argv) {
+  T args{};
+  for (int i = 1; i < argc; ++i) {
+    std::string_view arg = argv[i];
+    bool matched = false;
+
+    template for (constexpr auto m :
+        std::define_static_array(std::meta::nonstatic_data_members_of(^^T,
+            std::meta::access_context::unchecked()))) {
+      static constexpr auto shorts = std::define_static_array(
+        std::meta::annotations_of_with_type(m, ^^Short));
+      constexpr std::string_view long_name = std::meta::identifier_of(m);
+      constexpr char short_name = [:std::meta::constant_of(shorts[0]):].name;
+
+      bool is_long = arg.starts_with("--") && arg.substr(2) == long_name;
+      bool is_short = arg.size() == 2 && arg[0] == '-' && arg[1] == short_name;
+
+      if (is_long || is_short) {
+        if (++i == argc) {
+          throw std::invalid_argument{std::format("{}: 値が指定されていない", arg)};
+        }
+        assign(args.[:m:], argv[i]);
+        matched = true;
+        break;
+      }
+    }
+
+    if (!matched) {
+      throw std::invalid_argument{std::format("{}: 不明なオプション", arg)};
+    }
+  }
+  return args;
+}
+
+int main() {
+  print_help<Args>();
+
+  // コマンドライン引数を模したデータ
+  const char* argv[] = {"greet", "--name", "wg21", "-c", "3"};
+  Args args = parse<Args>(5, argv);
+
+  for (int i = 0; i < args.count; ++i) {
+    std::println("Hello {}", args.name);
+  }
+}
+```
+* std::meta::nonstatic_data_members_of[link /reference/meta/nonstatic_data_members_of.md]
+* std::meta::access_context::unchecked[link /reference/meta/access_context/unchecked.md]
+* std::meta::annotations_of_with_type[link /reference/meta/annotations_of_with_type.md]
+* std::meta::constant_of[link /reference/meta/constant_of.md]
+* std::meta::identifier_of[link /reference/meta/identifier_of.md]
+* std::format[link /reference/format/format.md]
+* std::stoi[link /reference/string/stoi.md]
+* std::invalid_argument[link /reference/stdexcept.md]
+* starts_with[link /reference/string_view/basic_string_view/starts_with.md]
+
+#### 出力
+```
+オプション:
+  -n, --name     挨拶する相手の名前
+  -c, --count    挨拶を繰り返す回数
+Hello wg21
+Hello wg21
+Hello wg21
+```
+
+
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 - [`<meta>`ヘッダ](/reference/meta.md)
 - [C++26 コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md)
