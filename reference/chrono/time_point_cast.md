@@ -77,7 +77,7 @@ int main()
 |------|------|
 | [`floor`](time_point/floor.md) | 負の無限大方向への丸め |
 | [`ceil`](time_point/ceil.md)   | 正の無限大方向への丸め |
-| [`round`](time_point/round.md) | 偶数方向への丸め |
+| [`round`](time_point/round.md) | 最近接への丸め (中間値は偶数側) |
 
 
 ## 参照

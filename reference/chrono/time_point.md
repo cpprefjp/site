@@ -69,7 +69,7 @@ namespace chrono {
 | [`time_point_cast`](time_point_cast.md) | ゼロ方向への丸め | C++11 |
 | [`floor`](time_point/floor.md)          | 負の無限大方向への丸め | C++17 |
 | [`ceil`](time_point/ceil.md)            | 正の無限大方向への丸め | C++17 |
-| [`round`](time_point/round.md)          | 偶数方向への丸め       | C++17 |
+| [`round`](time_point/round.md)          | 最近接への丸め (中間値は偶数側) | C++17 |
 
 ### 算術演算
 

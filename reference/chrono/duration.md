@@ -101,7 +101,7 @@ namespace chrono {
 | [`duration_cast`](duration_cast.md) | ゼロ方向への丸め       | C++11 |
 | [`floor`](duration/floor.md)        | 負の無限大方向への丸め | C++17 |
 | [`ceil`](duration/ceil.md)          | 正の無限大方向への丸め | C++17 |
-| [`round`](duration/round.md)        | 偶数方向への丸め       | C++17 |
+| [`round`](duration/round.md)        | 最近接への丸め (中間値は偶数側) | C++17 |
 
 
 ### その他数学関数

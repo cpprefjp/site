@@ -68,7 +68,7 @@ int main()
 |------|------|
 | [`time_point_cast`](/reference/chrono/time_point_cast.md) | ゼロ方向への丸め |
 | [`floor`](floor.md)                                       | 負の無限大方向への丸め |
-| [`round`](round.md)                                       | 偶数方向への丸め |
+| [`round`](round.md)                                       | 最近接への丸め (中間値は偶数側) |
 
 
 ## 参照
