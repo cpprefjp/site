@@ -1,0 +1,507 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::locale - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,locale,std,class
+">
+        <meta name="title" content="std::locale - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::locale - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::locale - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/locale/locale.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`locale`は、地域化のデータを表現するクラスである。`locale`はファセットの集合を保持しており、`has_facet()`と`use_facet()`の関数テンプレートで`locale`が保持しているファセットを調査・取得できる。ファセットは[`facet`](locale/facet.md)の派生クラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::locale - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/locale/locale.html" />
+        <meta name="twitter:description" content="`locale`は、地域化のデータを表現するクラスである。`locale`はファセットの集合を保持しており、`has_facet()`と`use_facet()`の関数テンプレートで`locale`が保持しているファセットを調査・取得できる。ファセットは[`facet`](locale/facet.md)の派生クラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="manifest" href="../../manifest.json?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;locale&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e8d391771bded1b672effd877915e9819b3b2c48&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;locale&gt;\n\nint main()\n{\n  // \u73fe\u5728\u306e\u74b0\u5883\u306e\u30ed\u30b1\u30fc\u30eb\u3092\u53d6\u5f97\u3059\u308b\n  std::locale loc(\&#34;\&#34;);\n\n  // \u30ed\u30b1\u30fc\u30eb\u306b\u57fa\u3044\u3066\u6587\u5b57\u3092\u5927\u6587\u5b57\u5316\u3059\u308b\n  std::cout &lt;&lt; std::toupper(&#39;a&#39;, loc) &lt;&lt; std::endl;\n\n  // \u30ed\u30b1\u30fc\u30eb\u306b\u57fa\u3044\u3066\u6570\u5024\u3092\u51fa\u529b\u3059\u308b\n  std::cout.imbue(loc);\n  std::cout &lt;&lt; 1234567 &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;129009405fb9e3c6f2cf7d0eb3f7ac73c8e32400&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;locale&gt;\n\nint main()\n{\n  // \&#34;C\&#34;\u30ed\u30b1\u30fc\u30eb\u3092\u53d6\u5f97\u3059\u308b\n  std::locale loc = std::locale::classic();\n  std::cout.imbue(loc);\n\n  // \u6841\u533a\u5207\u308a\u306f\u884c\u308f\u308c\u306a\u3044\n  std::cout &lt;&lt; 1234567 &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;a93ef19188fd5e0ceb4ae9038f7c82914484e24b&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;locale&gt;\n\nint main()\n{\n  // \u65e5\u672c\u8a9e\u30ed\u30b1\u30fc\u30eb\u3092\u540d\u524d\u3067\u6307\u5b9a\u3059\u308b\n  std::locale loc(\&#34;ja_JP.UTF-8\&#34;);\n  std::cout.imbue(loc);\n\n  // \u30ed\u30b1\u30fc\u30eb\u306b\u57fa\u3044\u3066\u6570\u5024\u304c\u6841\u533a\u5207\u308a\u3055\u308c\u308b\n  std::cout &lt;&lt; 1234567 &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;714bb23c247daabd19bad7dba687212a69f85810&#34;, &#34;source&#34;: &#34;#include &lt;ctime&gt;\n#include &lt;iomanip&gt;\n#include &lt;iostream&gt;\n#include &lt;locale&gt;\n\nint main()\n{\n  // \u65e5\u672c\u8a9e\u30ed\u30b1\u30fc\u30eb\u3092\u8a2d\u5b9a\u3059\u308b\n  std::locale loc(\&#34;ja_JP.UTF-8\&#34;);\n  std::cout.imbue(loc);\n\n  // 2025\u5e748\u670819\u65e5 (\u706b) 12:34:56\n  std::tm tm{};\n  tm.tm_year = 2025 - 1900;\n  tm.tm_mon = 8 - 1;\n  tm.tm_mday = 19;\n  tm.tm_hour = 12;\n  tm.tm_min = 34;\n  tm.tm_sec = 56;\n  tm.tm_wday = 2;\n\n  // \u30ed\u30b1\u30fc\u30eb\u306b\u57fa\u3044\u3066\u65e5\u6642\u3092\u51fa\u529b\u3059\u308b\uff08%a \u306f\u30ed\u30b1\u30fc\u30eb\u306b\u5fdc\u3058\u305f\u66dc\u65e5\u540d\uff09\n  std::cout &lt;&lt; std::put_time(&amp;tm, \&#34;%Y\u5e74%m\u6708%d\u65e5 (%a) %H\u6642%M\u5206%S\u79d2\&#34;) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;locale&#34;, &#34;locale&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/locale.html" itemprop="url">
+              
+                <span itemprop="name">locale</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">locale</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-08-25T12:11:17+09:00">
+        2026年08月25日 12時11分17秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/locale/locale.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/locale/locale.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class</div><div class="header">&lt;locale&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">locale</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">locale</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>locale</code>は、地域化のデータを表現するクラスである。<code>locale</code>はファセットの集合を保持しており、<code>has_facet()</code>と<code>use_facet()</code>の関数テンプレートで<code>locale</code>が保持しているファセットを調査・取得できる。ファセットは<code><a href="locale/facet.html">facet</a></code>の派生クラスである。</p>
+<h3>メンバ関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="locale/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+</tr>
+<tr>
+<td><code>(destructor)</code></td>
+<td>デストラクタ</td>
+</tr>
+<tr>
+<td><code><a href="locale/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+</tr>
+<tr>
+<td><code><a href="locale/combine.html">combine</a></code></td>
+<td>合成</td>
+</tr>
+<tr>
+<td><code><a href="locale/name.html">name</a></code></td>
+<td>名前の取得</td>
+</tr>
+<tr>
+<td><code><a href="locale/encoding.html">encoding</a></code></td>
+<td>エンコーディングの取得 (C++26)</td>
+</tr>
+<tr>
+<td><code><a href="locale/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+</tr>
+<tr>
+<td><code><a href="locale/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較</td>
+</tr>
+<tr>
+<td><code><a href="locale/op_call.html">operator()</a></code></td>
+<td>照合オブジェクトを使用した文字列比較</td>
+</tr>
+</tbody>
+</table>
+<h3>静的メンバ関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="locale/global.html">global</a></code></td>
+<td>グローバルロケールの設定</td>
+</tr>
+<tr>
+<td><code><a href="locale/classic.html">classic</a></code></td>
+<td>Cロケールを表すオブジェクトの取得</td>
+</tr>
+</tbody>
+</table>
+<h3>メンバ型</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>category</code></td>
+<td>ビットマスク型 <code>int</code>。 <code>locale</code>が保持するファセットを識別する用途。</td>
+</tr>
+<tr>
+<td><code><a href="locale/id.html">id</a></code></td>
+<td><code>facet</code>の識別用のクラス</td>
+</tr>
+<tr>
+<td><code><a href="locale/facet.html">facet</a></code></td>
+<td>ファセットの基底クラス</td>
+</tr>
+</tbody>
+</table>
+<h3>メンバ定数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>static const category none = 0;</code></td>
+<td>ファセットなし</td>
+</tr>
+<tr>
+<td><code>static const category collate = 0x10;</code></td>
+<td>照合ファセット</td>
+</tr>
+<tr>
+<td><code>static const category ctype = 0x20;</code></td>
+<td>文字分類ファセット</td>
+</tr>
+<tr>
+<td><code>static const category monetary = 0x40;</code></td>
+<td>金額ファセット</td>
+</tr>
+<tr>
+<td><code>static const category numeric = 0x80;</code></td>
+<td>数値ファセット</td>
+</tr>
+<tr>
+<td><code>static const category time = 0x100;</code></td>
+<td>日時ファセット</td>
+</tr>
+<tr>
+<td><code>static const category messages = 0x200;</code></td>
+<td>メッセージファセット</td>
+</tr>
+<tr>
+<td><code>static const category all =   collate</code><br /> <code>                            | ctype</code><br /> <code>                            | monetary</code><br /> <code>                            | numeric</code><br /> <code>                            | time</code><br /> <code>                            | messages;</code></td>
+<td>全てのファセット</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="e8d391771bded1b672effd877915e9819b3b2c48"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../locale.html">&lt;locale&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// 現在の環境のロケールを取得する</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::locale</span></span><span class="w"> </span><span class="n">loc</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// ロケールに基いて文字を大文字化する</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="toupper.html">std::toupper</a></span><span class="p">(</span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="n">loc</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// ロケールに基いて数値を出力する</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../ios/ios_base/imbue.html">imbue</a></span><span class="p">(</span><span class="n">loc</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234567</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>A
+1,234,567
+</code></pre></p>
+<h3>Cロケールを使う</h3>
+<p>処理系標準のロケール（Cロケール）は、<code><a href="locale/classic.html">classic()</a></code>で取得できる。このロケールでは、数値の桁区切りなどの地域化は行われない。</p>
+<p><div class="yata" id="129009405fb9e3c6f2cf7d0eb3f7ac73c8e32400"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../locale.html">&lt;locale&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// "C"ロケールを取得する</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::locale</span></span><span class="w"> </span><span class="n">loc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::locale</span></span><span class="o">::</span><span class="n"><a href="locale/classic.html">classic()</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../ios/ios_base/imbue.html">imbue</a></span><span class="p">(</span><span class="n">loc</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// 桁区切りは行われない</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234567</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1234567
+</code></pre></p>
+<h3>ロケール名を指定する</h3>
+<p>ロケール名を文字列で指定して、特定の地域のロケールを構築できる。以下は日本語ロケールを指定する例である。</p>
+<p><div class="yata" id="a93ef19188fd5e0ceb4ae9038f7c82914484e24b"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../locale.html">&lt;locale&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// 日本語ロケールを名前で指定する</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::locale</span></span><span class="w"> </span><span class="n">loc</span><span class="p">(</span><span class="s">"ja_JP.UTF-8"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../ios/ios_base/imbue.html">imbue</a></span><span class="p">(</span><span class="n">loc</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// ロケールに基いて数値が桁区切りされる</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1234567</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>指定できるロケール名は処理系や環境に依存する。</p>
+<h4>出力例</h4>
+<p><pre><code>1,234,567
+</code></pre></p>
+<h3>日時を出力する</h3>
+<p>ストリームにロケールを設定すると、<code><a href="../iomanip/put_time.html">std::put_time</a></code>による日時の出力もそのロケールに従う。</p>
+<p><div class="yata" id="714bb23c247daabd19bad7dba687212a69f85810"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../ctime.html">&lt;ctime&gt;</a></span>
+<span class="cp">#include <a href="../iomanip.html">&lt;iomanip&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../locale.html">&lt;locale&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// 日本語ロケールを設定する</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::locale</span></span><span class="w"> </span><span class="n">loc</span><span class="p">(</span><span class="s">"ja_JP.UTF-8"</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n"><a href="../ios/ios_base/imbue.html">imbue</a></span><span class="p">(</span><span class="n">loc</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// 2025年8月19日 (火) 12:34:56</span>
+<span class="w">  </span><span class="n"><a href="../ctime/tm.html">std::tm</a></span><span class="w"> </span><span class="n">tm</span><span class="p">{};</span>
+<span class="w">  </span><span class="n">tm</span><span class="p">.</span><span class="n">tm_year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2025</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1900</span><span class="p">;</span>
+<span class="w">  </span><span class="n">tm</span><span class="p">.</span><span class="n">tm_mon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">tm</span><span class="p">.</span><span class="n">tm_mday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">19</span><span class="p">;</span>
+<span class="w">  </span><span class="n">tm</span><span class="p">.</span><span class="n">tm_hour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+<span class="w">  </span><span class="n">tm</span><span class="p">.</span><span class="n">tm_min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span>
+<span class="w">  </span><span class="n">tm</span><span class="p">.</span><span class="n">tm_sec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">56</span><span class="p">;</span>
+<span class="w">  </span><span class="n">tm</span><span class="p">.</span><span class="n">tm_wday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// ロケールに基いて日時を出力する（%a はロケールに応じた曜日名）</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../iomanip/put_time.html">std::put_time</a></span><span class="p">(</span><span class="o">&amp;</span><span class="n">tm</span><span class="p">,</span><span class="w"> </span><span class="s">"%Y年%m月%d日 (%a) %H時%M分%S秒"</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>2025年08月19日 (火) 12時34分56秒
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++98</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="use_facet.html">use_facet</a></code></li>
+<li><code><a href="has_facet.html">has_facet</a></code></li>
+<li><code><a href="locale/facet.html">locale::facet</a></code></li>
+</ul>
+<h2>参照</h2></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,451 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::num_get::do_get - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,locale,std,num_get,function
+">
+        <meta name="title" content="std::num_get::do_get - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::num_get::do_get - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::num_get::do_get - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/locale/num_get/do_get.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="入力イテレータ範囲`[in, end)`から文字列を読み取り、`val`の型に応じた数値・真偽値・ポインタへ変換する。[`get()`](get.md)から呼び出される、実際の解析を行う仮想関数である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::num_get::do_get - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/locale/num_get/do_get.html" />
+        <meta name="twitter:description" content="入力イテレータ範囲`[in, end)`から文字列を読み取り、`val`の型に応じた数値・真偽値・ポインタへ変換する。[`get()`](get.md)から呼び出される、実際の解析を行う仮想関数である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="manifest" href="../../../manifest.json?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;locale&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;num_get&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;locale&#34;, &#34;num_get&#34;, &#34;do_get&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/locale.html" itemprop="url">
+              
+                <span itemprop="name">locale</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/locale/num_get.html" itemprop="url">
+              
+                <span itemprop="name">num_get</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">do_get</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-09-08T16:20:36+09:00">
+        2026年09月08日 16時20分36秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/locale/num_get/do_get.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/locale/num_get/do_get.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;locale&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class num_get">num_get::</span><span class="token">do_get</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">protected</span><span class="o">:</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="n">do_get</span><span class="p">(</span><span class="n">iter_type</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                           </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">iostate</span><span class="o">&amp;</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">               </span><span class="c1">// (1) C++98</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="nf">do_get</span><span class="p">(</span><span class="n">iter_type</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                           </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">iostate</span><span class="o">&amp;</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="o">&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">               </span><span class="c1">// (2) C++98</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="nf">do_get</span><span class="p">(</span><span class="n">iter_type</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                           </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">iostate</span><span class="o">&amp;</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">          </span><span class="c1">// (3) C++11</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="nf">do_get</span><span class="p">(</span><span class="n">iter_type</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                           </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">iostate</span><span class="o">&amp;</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="o">&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">     </span><span class="c1">// (4) C++98</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="nf">do_get</span><span class="p">(</span><span class="n">iter_type</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                           </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">iostate</span><span class="o">&amp;</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">       </span><span class="c1">// (5) C++98</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="nf">do_get</span><span class="p">(</span><span class="n">iter_type</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                           </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">iostate</span><span class="o">&amp;</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="o">&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">      </span><span class="c1">// (6) C++98</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="nf">do_get</span><span class="p">(</span><span class="n">iter_type</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                           </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">iostate</span><span class="o">&amp;</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// (7) C++11</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="nf">do_get</span><span class="p">(</span><span class="n">iter_type</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                           </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">iostate</span><span class="o">&amp;</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">              </span><span class="c1">// (8) C++98</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="nf">do_get</span><span class="p">(</span><span class="n">iter_type</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                           </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">iostate</span><span class="o">&amp;</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">             </span><span class="c1">// (9) C++98</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="nf">do_get</span><span class="p">(</span><span class="n">iter_type</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                           </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">iostate</span><span class="o">&amp;</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="o">&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">        </span><span class="c1">// (10) C++98</span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="nf">do_get</span><span class="p">(</span><span class="n">iter_type</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">iter_type</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span>
+<span class="w">                           </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">iostate</span><span class="o">&amp;</span><span class="w"> </span><span class="n">err</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">              </span><span class="c1">// (11) C++98</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>入力<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[in, end)</code>から文字列を読み取り、<code>val</code>の型に応じた数値・真偽値・ポインタへ変換する。<code><a href="get.html">get()</a></code>から呼び出される、実際の解析を行う仮想関数である。</p>
+<ul>
+<li>(1) : <code>bool</code>へ変換する</li>
+<li>(2), (3) : 符号付き整数型 (<code>long</code>, <code>long long</code>) へ変換する</li>
+<li>(4), (5), (6), (7) : 符号なし整数型 (<code>unsigned short</code>, <code>unsigned int</code>, <code>unsigned long</code>, <code>unsigned long long</code>) へ変換する</li>
+<li>(8), (9), (10) : 浮動小数点数型 (<code>float</code>, <code>double</code>, <code>long double</code>) へ変換する</li>
+<li>(11) : ポインタ (<code>void*</code>) へ変換する</li>
+</ul>
+<h2>効果</h2>
+<p>(2)〜(11)は、入力を数値へ変換する。変換は以下の3段階（Stage 1〜3）で行われる。(1)の<code>bool</code>版は、これらとは別に後述の規則で処理される。</p>
+<h3>Stage 1 : 変換指定の決定</h3>
+<p><code>str.<a href="../../ios/ios_base/flags.html">flags()</a></code>から<code>basefield</code>・<code>uppercase</code>・<code>boolalpha</code>を取り出し、変換指定（および必要な長さ修飾子）を決定する。</p>
+<ul>
+<li>
+<p>(2), (3), (4), (5), (6), (7) : 以下の表の条件を上から順に評価し、最初に真となった行の変換指定を使用する</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>状態</th>
+<th><code>stdio</code>の変換指定に相当</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>basefield ==<a href="../../ios/ios_base/type-fmtflags.html">std::ios_base::oct</a></code></td>
+<td><code>%o</code></td>
+</tr>
+<tr>
+<td><code>basefield ==<a href="../../ios/ios_base/type-fmtflags.html">std::ios_base::hex</a></code></td>
+<td><code>%X</code></td>
+</tr>
+<tr>
+<td><code>basefield == 0</code></td>
+<td><code>%i</code></td>
+</tr>
+<tr>
+<td>符号付き整数型</td>
+<td><code>%d</code></td>
+</tr>
+<tr>
+<td>符号なし整数型</td>
+<td><code>%u</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>(8), (9), (10) : <code>%g</code></p>
+</li>
+<li>(11) : <code>%p</code></li>
+</ul>
+<h3>Stage 2 : 文字の抽出</h3>
+<p><code>[in, end)</code>から、変換指定に合致する文字を順次抽出する。<code>str.<a href="../../ios/ios_base/getloc.html">getloc()</a></code>から取得した<code><a href="../numpunct.html">numpunct</a></code>ファセットにより、<code><a href="../numpunct/grouping.html">numpunct::grouping()</a></code>が空でない場合は桁区切り文字（<code><a href="../numpunct/thousands_sep.html">numpunct::thousands_sep()</a></code>）を取り除き、小数点文字（<code><a href="../numpunct/decimal_point.html">numpunct::decimal_point()</a></code>）は<code>'.'</code>に置き換える。</p>
+<h3>Stage 3 : 数値への変換と格納</h3>
+<p>Stage 2で蓄積した文字列（フィールド）を、<code><a href="../../cstdlib.html">&lt;cstdlib&gt;</a></code>で宣言される以下の関数の規則に従って数値へ変換する。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></th>
+<th>対象の型</th>
+<th>変換規則</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(2), (3)</td>
+<td>符号付き整数型</td>
+<td><code><a href="../../cstdlib/strtoll.html">std::strtoll</a></code></td>
+</tr>
+<tr>
+<td>(4), (5), (6), (7)</td>
+<td>符号なし整数型</td>
+<td><code><a href="../../cstdlib/strtoull.html">std::strtoull</a></code></td>
+</tr>
+<tr>
+<td>(8)</td>
+<td><code>float</code></td>
+<td><code><a href="../../cstdlib/strtof.html">std::strtof</a></code></td>
+</tr>
+<tr>
+<td>(9)</td>
+<td><code>double</code></td>
+<td><code><a href="../../cstdlib/strtod.html">std::strtod</a></code></td>
+</tr>
+<tr>
+<td>(10)</td>
+<td><code>long double</code></td>
+<td><code><a href="../../cstdlib/strtold.html">std::strtold</a></code></td>
+</tr>
+<tr>
+<td>(11)</td>
+<td><code>void*</code></td>
+<td>規定されていない</td>
+</tr>
+</tbody>
+</table>
+<p>格納される値は以下のいずれかであり、いずれの場合も結果は<code>val</code>へ格納される。</p>
+<ul>
+<li>(2)〜(11) : 変換関数がフィールド全体を変換しなかった場合<ul>
+<li>C++98 : 値は格納されない</li>
+<li>C++11 : <code>0</code></li>
+</ul>
+</li>
+<li>(2), (3) : <code>val</code>に表現できないほど大きな正（負）の値を表す場合、表現可能な最大（最小）の値</li>
+<li>(4), (5), (6), (7) : <code>val</code>に表現できない値を表す場合、表現可能な最大の値</li>
+<li>(2)〜(11) : それ以外の場合、変換された値</li>
+</ul>
+<p>変換関数がフィールド全体を変換しなかった場合、または表現可能な範囲外の値を表す場合、<code>err</code>に<code><a href="../../ios/ios_base/type-iostate.html">std::ios_base::failbit</a></code>が設定される。</p>
+<h3>桁区切りの検査</h3>
+<p>(2)〜(10)では、取り除いた桁区切り文字の位置が<code><a href="../numpunct/grouping.html">numpunct::grouping()</a></code>と整合しているかが検査される。整合していない場合、<code>err</code>に<code><a href="../../ios/ios_base/type-iostate.html">std::ios_base::failbit</a></code>が設定される。</p>
+<h3>入力終端の扱い</h3>
+<p>いずれの場合も、Stage 2の処理が<code>in == end</code>の判定によって終了した場合は、<code>err |=<a href="../../ios/ios_base/type-iostate.html">std::ios_base::eofbit</a></code>が行われる。</p>
+<h3>(1) <code>bool</code>版の処理</h3>
+<ul>
+<li><code>(str.<a href="../../ios/ios_base/flags.html">flags()</a>&amp;<a href="../../ios/ios_base/type-fmtflags.html">std::ios_base::boolalpha</a>) == 0</code>の場合 : <code>long</code>と同様に入力を読み取り、格納しようとする値が<code>0</code>なら<code>false</code>、<code>1</code>なら<code>true</code>を格納する。それ以外の場合は<code>true</code>を格納し、<code>err</code>に<code><a href="../../ios/ios_base/type-iostate.html">std::ios_base::failbit</a></code>を設定する</li>
+<li>そうでない場合 : <code><a href="../numpunct/truename.html">numpunct::truename()</a></code>と<code><a href="../numpunct/falsename.html">numpunct::falsename()</a></code>を対象列として、一意に定まるまで文字を照合する。一意にマッチした場合は対応する値を<code>val</code>へ格納する。そうでない場合は<code>false</code>を格納し、<code>err</code>に<code><a href="../../ios/ios_base/type-iostate.html">std::ios_base::failbit</a></code>を設定する</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<ul>
+<li>(1) : 照合に使用しなかった最初の文字を指すイテレータ</li>
+<li>(2)〜(11) : Stage 2で抽出を終えた位置、すなわち変換に使用しなかった最初の文字を指すイテレータ<ul>
+<li>規格が明示的に<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を規定しているのは(1)のみだが、これらの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>も同様のイテレータを返す</li>
+</ul>
+</li>
+</ul>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++98</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="get.html">num_get::get</a></code></li>
+<li><code><a href="../numpunct.html">numpunct</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://cplusplus.github.io/LWG/issue696" target="_blank">LWG Issue 696. <code>istream::operator&gt;&gt;</code>(int&amp;) broken</a><ul>
+<li>C++11で、変換に失敗した場合に値を変更しないという記述が削除され、抽出に失敗した場合は<code>0</code>が代入されるという規定に一本化された。整数の抽出をより広い型で行ってから範囲検査する規定と矛盾していたため</li>
+</ul>
+</li>
+<li><a href="https://cplusplus.github.io/LWG/issue1169" target="_blank">LWG Issue 1169. <code>num_get</code> not fully compatible with <code>strto*</code></a><ul>
+<li>C++17で、<code>float</code>に<code>std::strtof</code>、<code>long double</code>に<code>std::strtold</code>を使用することが明示され（<code>std::strtoll</code>/<code>std::strtoull</code>/<code>std::strtod</code>は変更なし）、符号なし整数型で表現できない値に対しては（正負によらず）常に表現可能な最大の値を格納する形に整理された。これによりC標準ライブラリと整合するようになった</li>
+</ul>
+</li>
+<li><a href="https://cplusplus.github.io/LWG/issue2041" target="_blank">LWG Issue 2041. Stage 2 accumulate incompatibilty</a><ul>
+<li>C++11で、Stage 2において、変換指定に対して許容される文字であるかの検査を行ってから蓄積することが明記された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

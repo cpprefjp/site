@@ -1,0 +1,657 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::pointer_tag_pair - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,memory,std,class template,cpp29
+">
+        <meta name="title" content="std::pointer_tag_pair - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::pointer_tag_pair - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::pointer_tag_pair - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/memory/pointer_tag_pair.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`pointer_tag_pair`は、ポインタ値と小さなタグ値のペアを、ポインタ1個分のサイズで保持するクラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::pointer_tag_pair - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/memory/pointer_tag_pair.html" />
+        <meta name="twitter:description" content="`pointer_tag_pair`は、ポインタ値と小さなタグ値のペアを、ポインタ1個分のサイズで保持するクラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="manifest" href="../../manifest.json?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;memory&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp29&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;memory&#34;, &#34;pointer_tag_pair&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/memory.html" itemprop="url">
+              
+                <span itemprop="name">memory</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">pointer_tag_pair</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-09-08T15:10:34+09:00">
+        2026年09月08日 15時10分34秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/memory/pointer_tag_pair.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/memory/pointer_tag_pair.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">pointer_tag_pair</span><span class="cpp cpp29" title="C++29で追加">(C++29)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Ptr</span><span class="p">,</span>
+<span class="w">            </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">BitsRequested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><i>bits-available</i></span><span class="o">&lt;</span><span class="n"><i>element-of</i></span><span class="o">&lt;</span><span class="n">Ptr</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+<span class="w">            </span><span class="k">class</span><span class="w"> </span><span class="nc">TagT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">pointer_tag_pair</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>pointer_tag_pair</code>は、ポインタ値と小さなタグ値のペアを、ポインタ1個分のサイズで保持するクラスである。</p>
+<p>型のアライメントによって常に0になることがわかっているポインタの下位ビットへタグ値を詰め込む「ポインタタギング (pointer tagging)」というよく知られたテクニックを、移植可能かつ<code>constexpr</code>で使用できる形で提供する。任意の特殊化<code>PT</code>について、<code>sizeof(PT) == sizeof(Ptr)</code>かつ<code>alignof(PT) == alignof(Ptr)</code>であることが保証され、トリビアルコピー可能である。</p>
+<p>主な用途には以下がある。</p>
+<ul>
+<li>ポインタへの情報の印付け（アロケータでの由来の記録、小さな参照カウントなど）</li>
+<li>指す先の多態性の表現（木構造で「次のノードが内部ノードか葉か」をタグで区別するなど）</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 1ビットのタグで、所有権の有無を印付けする例</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ownership</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">reference</span><span class="p">,</span><span class="w"> </span><span class="n">owning</span><span class="w"> </span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">pointer_tag_pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ownership</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">{</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="n">ownership</span><span class="o">::</span><span class="n">owning</span><span class="p">};</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">));</span>
+</code></pre></div>
+</p>
+<p>これまでこのテクニックは<code>reinterpret_cast</code>とビット演算でしか実装できず、意図がコードに現れず安全でもなかった。本クラスは、タグが収まらない場合をコンパイル時・<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>で検出でき、定数評価でも使用できる。</p>
+<h2>テンプレートパラメータ</h2>
+<ul>
+<li><code>Ptr</code> : 保持するポインタの型（オブジェクトポインタ型であること。関数ポインタは不可）</li>
+<li><code>BitsRequested</code> : タグに要求するビット数。デフォルトは、指す先の型のアライメントから利用できるビット数（説明専用の<code>bits-available</code>。<code><a href="pointer_bits_available.html">pointer_bits_available</a>(alignof(T))</code>で定義される）</li>
+<li><code>TagT</code> : タグ値の型（符号なし整数型、または基底型が符号なし整数型の列挙型であること）</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li><code>Ptr</code>は<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>されていないオブジェクトポインタ型であること（関数ポインタではないこと）</li>
+<li><code>TagT</code>は<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>されておらず、符号なし整数型、または基底型が符号なし整数型の列挙型であること。<code>sizeof(TagT) &lt;= sizeof(void*)</code>であること</li>
+<li><code>BitsRequested &lt;= <a href="max_pointer_bits_available.html">max_pointer_bits_available</a></code>であること</li>
+</ul>
+<h2>説明専用エンティティ</h2>
+<p>本クラスと関連機能の規定では、以下の説明専用のエンティティを使用する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 型Tのアライメントからタグ付けに使用できるビット数</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n"><i>bits-available</i></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="pointer_bits_available.html">pointer_bits_available</a></span><span class="p">(</span><span class="k">alignof</span><span class="p">(</span><span class="n">T</span><span class="p">));</span><span class="w"> </span><span class="c1">// 説明専用</span>
+
+<span class="w">  </span><span class="c1">// ポインタ型Uの指す先の型</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n"><i>element-of</i></span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="pointer_traits.html">pointer_traits</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;::</span><span class="n">element_type</span><span class="p">;</span><span class="w"> </span><span class="c1">// 説明専用</span>
+
+<span class="w">  </span><span class="c1">// タグ値vの表現に必要なビット数。</span>
+<span class="w">  </span><span class="c1">// vが列挙型なら<a href="../bit/bit_width.html">bit_width</a>(<a href="../utility/to_underlying.html">to_underlying</a>(v))、そうでなければ<a href="../bit/bit_width.html">bit_width</a>(v)</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n"><i>tag-bit-width</i></span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span><span class="w"> </span><span class="c1">// 説明専用</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>また、コンストラクタなどの制約には説明専用コンセプト<code><a href="tagging-compatible-pointee.html">tagging-compatible-pointee</a></code>を使用する。</p>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="pointer_tag_pair/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++29</td>
+</tr>
+</tbody>
+</table>
+<h3>静的メンバ関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="pointer_tag_pair/from_overaligned.html">from_overaligned</a></code></td>
+<td>過剰アライメントされたポインタから構築する</td>
+<td>C++29</td>
+</tr>
+<tr>
+<td><code><a href="pointer_tag_pair/from_tagged.html">from_tagged</a></code></td>
+<td>タグ付きポインタ値から復元する</td>
+<td>C++29</td>
+</tr>
+</tbody>
+</table>
+<h3>値の取得</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="pointer_tag_pair/pointer.html">pointer</a></code></td>
+<td>ポインタ値を取得する</td>
+<td>C++29</td>
+</tr>
+<tr>
+<td><code><a href="pointer_tag_pair/tag.html">tag</a></code></td>
+<td>タグ値を取得する</td>
+<td>C++29</td>
+</tr>
+<tr>
+<td><code><a href="pointer_tag_pair/tagged_pointer.html">tagged_pointer</a></code></td>
+<td>タグを埋め込んだままのポインタ値を取得する</td>
+<td>C++29</td>
+</tr>
+</tbody>
+</table>
+<h3>入れ替え</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="pointer_tag_pair/swap.html">swap</a></code></td>
+<td>他の<code>pointer_tag_pair</code>オブジェクトと値を入れ替える</td>
+<td>C++29</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ（<em>Hidden friends</em>）関数</h2>
+<h3>比較演算子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="pointer_tag_pair/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較を行う</td>
+<td>C++29</td>
+</tr>
+<tr>
+<td><code><a href="pointer_tag_pair/op_equal.html">operator==</a></code></td>
+<td>等値比較を行う</td>
+<td>C++29</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="pointer_tag_pair/get.html">get</a></code></td>
+<td>ポインタ値またはタグ値を取得する</td>
+<td>C++29</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pointer_type</code></td>
+<td>ポインタの型<code>Ptr</code></td>
+<td>C++29</td>
+</tr>
+<tr>
+<td><code>element_type</code></td>
+<td>指す先の型。<code><a href="pointer_traits.html">pointer_traits</a>&lt;Ptr&gt;::element_type</code></td>
+<td>C++29</td>
+</tr>
+<tr>
+<td><code>tagged_pointer_type</code></td>
+<td>タグを埋め込んだままのポインタの型。<code>Ptr</code>の<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>を維持した<code>void*</code></td>
+<td>C++29</td>
+</tr>
+<tr>
+<td><code>tag_type</code></td>
+<td>タグの型<code>TagT</code></td>
+<td>C++29</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ定数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>static constexpr unsigned int bits_requested</code></td>
+<td>タグに要求したビット数<code>BitsRequested</code></td>
+<td>C++29</td>
+</tr>
+</tbody>
+</table>
+<h2>その他</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tuple_size</code></td>
+<td><code>pointer_tag_pair</code>での特殊化（要素数2）</td>
+<td>C++29</td>
+</tr>
+<tr>
+<td><code>tuple_element</code></td>
+<td><code>pointer_tag_pair</code>での特殊化（0番目が<code>pointer_type</code>、1番目が<code>tag_type</code>）</td>
+<td>C++29</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// intのアライメントは通常4なので、下位2ビットをタグに使える</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::pointer_tag_pair</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">{</span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mb">0b10u</span><span class="p">};</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">));</span>
+
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n"><a href="pointer_tag_pair/pointer.html">p.pointer()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="pointer_tag_pair/tag.html">p.tag()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h4>出力</h4>
+<p><pre><code>42
+2
+</code></pre></p>
+<h3>タグが下位ビットに埋め込まれていることを確認する</h3>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../cstdint.html">&lt;cstdint&gt;</a></span>
+<span class="cp">#include <a href="../bit.html">&lt;bit&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::pointer_tag_pair</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">{</span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mb">0b10u</span><span class="p">};</span>
+
+<span class="w">  </span><span class="c1">// タグを埋め込んだままの生のポインタ値を整数として観察する。</span>
+<span class="w">  </span><span class="c1">// 埋め込みの表現は未規定だが、多くの実装ではアライメントによって</span>
+<span class="w">  </span><span class="c1">// 常に0になる下位ビットへ格納される</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">tagged</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../bit/bit_cast.html">std::bit_cast</a></span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uintptr_t.html">std::uintptr_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="pointer_tag_pair/tagged_pointer.html">p.tagged_pointer()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../bit/bit_cast.html">std::bit_cast</a></span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uintptr_t.html">std::uintptr_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">tagged</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mb">0b11u</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w">         </span><span class="c1">// 下位2ビット : タグの値</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">((</span><span class="n">tagged</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">~</span><span class="n"><a href="../cstdint/uintptr_t.html">std::uintptr_t</a></span><span class="p">{</span><span class="mb">0b11u</span><span class="p">})</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">addr</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span><span class="w"> </span><span class="c1">// 残り : 元のアドレス</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h4>出力例</h4>
+<p><pre><code>2
+1
+</code></pre></p>
+<h3>所有しているかどうかを印付けするスマートポインタ</h3>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+
+<span class="c1">// 「所有するポインタ」と「参照するだけのポインタ」の両方になれる型。</span>
+<span class="c1">// フラグを別メンバに持つ実装と違い、サイズはポインタ1個分で済む</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">maybe_owning_ptr</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ownership</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">reference</span><span class="p">,</span><span class="w"> </span><span class="n">owning</span><span class="w"> </span><span class="p">};</span>
+
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::pointer_tag_pair</span></span><span class="o">&lt;</span><span class="n">T</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ownership</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ptr_</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">maybe_owning_ptr</span><span class="p">(</span><span class="n">T</span><span class="o">*&amp;&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ptr_</span><span class="p">{</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">ownership</span><span class="o">::</span><span class="n">owning</span><span class="p">}</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">maybe_owning_ptr</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ptr_</span><span class="p">{</span><span class="o">&amp;</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">ownership</span><span class="o">::</span><span class="n">reference</span><span class="p">}</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">ptr_</span><span class="p">.</span><span class="n">pointer</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">  </span><span class="o">~</span><span class="n">maybe_owning_ptr</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ptr_</span><span class="p">.</span><span class="n">tag</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ownership</span><span class="o">::</span><span class="n">owning</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">delete</span><span class="w"> </span><span class="n">ptr_</span><span class="p">.</span><span class="n">pointer</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">maybe_owning_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">));</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">maybe_owning_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ref</span><span class="p">{</span><span class="n">local</span><span class="p">};</span><span class="w">          </span><span class="c1">// 参照するだけ。deleteされない</span>
+<span class="w">  </span><span class="n">maybe_owning_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">own</span><span class="p">{</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)};</span><span class="w">     </span><span class="c1">// 所有する。デストラクタでdeleteされる</span>
+
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">ref</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">own</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h4>出力</h4>
+<p><pre><code>12
+</code></pre></p>
+<h3>木構造で内部ノードと葉を区別する</h3>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+
+<span class="c1">// 二分木のノードへのポインタの下位1ビットに「葉かどうか」を埋め込む。</span>
+<span class="c1">// ノード側に種別のメンバを持つ必要がなく、葉には子配列も不要になる</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Leaf</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Inner</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">node_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::pointer_tag_pair</span></span><span class="o">&lt;</span><span class="kt">void</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">// タグ : 葉ならtrue</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Inner</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">node_ptr</span><span class="w"> </span><span class="n">children</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">node_ptr</span><span class="w"> </span><span class="n">node</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="pointer_tag_pair/tag.html">node.tag()</a></span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Leaf</span><span class="o">*&gt;</span><span class="p">(</span><span class="n"><a href="pointer_tag_pair/pointer.html">node.pointer()</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">inner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Inner</span><span class="o">*&gt;</span><span class="p">(</span><span class="n"><a href="pointer_tag_pair/pointer.html">node.pointer()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">inner</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">inner</span><span class="o">-&gt;</span><span class="n">children</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">Leaf</span><span class="w"> </span><span class="n">a</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="n">b</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span><span class="w"> </span><span class="n">c</span><span class="p">{</span><span class="mi">3</span><span class="p">};</span>
+<span class="w">  </span><span class="n">Inner</span><span class="w"> </span><span class="n">left</span><span class="p">{{</span><span class="n">node_ptr</span><span class="p">{</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">},</span><span class="w"> </span><span class="n">node_ptr</span><span class="p">{</span><span class="o">&amp;</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">}}};</span>
+<span class="w">  </span><span class="n">Inner</span><span class="w"> </span><span class="n">root</span><span class="p">{{</span><span class="n">node_ptr</span><span class="p">{</span><span class="o">&amp;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">},</span><span class="w"> </span><span class="n">node_ptr</span><span class="p">{</span><span class="o">&amp;</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">}}};</span>
+
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">node_ptr</span><span class="p">{</span><span class="o">&amp;</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">})</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h4>出力</h4>
+<p><pre><code>6
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++29</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="max_pointer_bits_available.html">max_pointer_bits_available</a></code></li>
+<li><code><a href="pointer_bits_available.html">pointer_bits_available</a></code></li>
+<li><code><a href="is_sufficiently_aligned.html">is_sufficiently_aligned</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3125r6.html" target="_blank">P3125R6 constexpr pointer tagging</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

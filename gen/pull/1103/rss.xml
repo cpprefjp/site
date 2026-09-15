@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-09-15T06:55:22.360715</updated>
+  <id>dc0b4117-8d52-429a-a321-8068b1f34b3e</id>
+
+  
+    <entry>
+      <title>暗黙のラムダキャプチャを簡略化 [P0588R1] -- chore: fix typo</title>
+      <link href="https://cpprefjp.github.io/lang/cpp20/simplifying_implicit_lambda_capture.html"/>
+      <id>ff5506cc25b7cba9afeec8e068093e3f41715951:lang/cpp20/simplifying_implicit_lambda_capture.md</id>
+      <updated>2023-01-11T01:07:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp20/simplifying_implicit_lambda_capture.md b/lang/cpp20/simplifying_implicit_lambda_capture.md
+index 1f4ab34e9..6d93d39cc 100644
+--- a/lang/cpp20/simplifying_implicit_lambda_capture.md
++++ b/lang/cpp20/simplifying_implicit_lambda_capture.md
+@@ -43,7 +43,7 @@ void f(int n) {
+   struct A {
+     void f() { n = 2; }         // error: nが使われようとしているのは関数定義スコープの中なので、odr-usableではない
+   };
+-  void g(int = n);              // error: nが使われ用としているのはlambda式以外の関数引数スコープの中なので、odr-usableではない
++  void g(int = n);              // error: nが使われようとしているのはlambda式以外の関数引数スコープの中なので、odr-usableではない
+   [=](int k = n) {};            // error: n is not odr-usable due to being
+                                 // outside the block scope of the lambda-expression
+   [&amp;amp;] { [n]{ return n; }; };    // OK
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yumetodo</name>
+        <email>yume-wikijp@live.jp</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>暗黙のラムダキャプチャを簡略化 [P0588R1] -- feat: P0588R1で追加されたodr-usableについて記述</title>
+      <link href="https://cpprefjp.github.io/lang/cpp20/simplifying_implicit_lambda_capture.html"/>
+      <id>2260ae27ab96d23341fab27cc3f0bea1f9d156e4:lang/cpp20/simplifying_implicit_lambda_capture.md</id>
+      <updated>2023-01-11T00:44:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp20/simplifying_implicit_lambda_capture.md b/lang/cpp20/simplifying_implicit_lambda_capture.md
+index 8fbce21ed..1f4ab34e9 100644
+--- a/lang/cpp20/simplifying_implicit_lambda_capture.md
++++ b/lang/cpp20/simplifying_implicit_lambda_capture.md
+@@ -29,12 +29,31 @@ void f() {
+ }
+ ```
+ 
+-構造化束縛で導入された名前はラムダ式でキャプチャできない、と明記された。しかしその後、「[構造化束縛を拡張して通常の変数宣言のように使用できるようにする](extending_structured_bindings_to_be_more_like_variable_declarations.md)」の仕様でそれが可能となったため、この仕様変更は打ち消された。
++本提案では一旦、構造化束縛で導入された名前はラムダ式でキャプチャできない、と明記された。その後、「[構造化束縛を拡張して通常の変数宣言のように使用できるようにする](extending_structured_bindings_to_be_more_like_variable_declarations.md)」の仕様でそれが可能となったため、この部分は打ち消された。
+ 
++## 仕様
++
++odr-usable(=ある名前の定義がその場所で見つかるか)という用語を導入して、lamda式でキャプチャできるものの増加に対して、規格文面の整理が行われた。
++
++ローカル変数のように、ローカルでodr-usedされる時に、その場所ではodr-usableでないとき、そのプログラムは適格ではない。
++
++```cpp
++void f(int n) {
++  [] { n = 1; };                // error: nが使われようとしているのはlambda式の中なので、odr-usableではない
++  struct A {
++    void f() { n = 2; }         // error: nが使われようとしているのは関数定義スコープの中なので、odr-usableではない
++  };
++  void g(int = n);              // error: nが使われ用としているのはlambda式以外の関数引数スコープの中なので、odr-usableではない
++  [=](int k = n) {};            // error: n is not odr-usable due to being
++                                // outside the block scope of the lambda-expression
++  [&amp;amp;] { [n]{ return n; }; };    // OK
++}
++```
+ 
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
+ - [C++17 構造化束縛](/lang/cpp17/structured_bindings.md)
+ - [C++20 構造化束縛を拡張して通常の変数宣言のように使用できるようにする](extending_structured_bindings_to_be_more_like_variable_declarations.md)
++- [C++20 構造化束縛した変数の参照キャプチャを許可](reference_capture_of_structured_bindings.md)
+ 
+ ## 参照
+ - [P0588R1 Simplifying implicit lambda capture](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0588r1.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yumetodo</name>
+        <email>yume-wikijp@live.jp</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>静的リフレクション [P2996R13] -- C++26静的リフレクション : JSONにシリアライズする例を追加</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
+      <id>866071a29d207aee88a6f27f4c6eed8b46bda022:lang/cpp26/reflection.md</id>
+      <updated>2026-09-15T15:32:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
+index 5d1ac0fec..e9ad33faa 100644
+--- a/lang/cpp26/reflection.md
++++ b/lang/cpp26/reflection.md
+@@ -744,6 +744,111 @@ Hello wg21
+ ```
+ 
+ 
++### JSONにシリアライズする
++リフレクションでメンバ変数を走査すれば、クラスごとにシリアライズ関数を書かなくてもJSONへ変換できる。さらにアノテーションを併用することで、JSON上の表現だけをクラスの定義から制御できる。
++
++以下の例では、キー名を変更する`Rename`と、シリアライズの対象から外す`Skip`を定義する。どちらもC++のコード上での使い方には影響せず、JSONへの変換方法だけを指定する。
++
++```cpp example
++#include &amp;lt;meta&amp;gt;
++#include &amp;lt;concepts&amp;gt;
++#include &amp;lt;format&amp;gt;
++#include &amp;lt;print&amp;gt;
++#include &amp;lt;string&amp;gt;
++#include &amp;lt;string_view&amp;gt;
++
++// JSONのキー名を変更するアノテーション
++struct Rename {
++  const char* name;
++};
++
++// シリアライズの対象から外すアノテーション
++struct Skip {};
++
++struct Address {
++  std::string city;
++  int postal_code;
++};
++
++struct Person {
++  [[=Rename{std::define_static_string(&amp;#34;first name&amp;#34;)}]] std::string first;
++  [[=Rename{std::define_static_string(&amp;#34;last name&amp;#34;)}]] std::string last;
++  int age;
++  Address address;                    // ネストしたクラスも再帰的に変換される
++  [[=Skip{}]] std::string password;   // シリアライズしない
++};
++
++template &amp;lt;class T&amp;gt;
++std::string to_json(const T&amp;amp; value) {
++  if constexpr (std::integral&amp;lt;T&amp;gt; || std::floating_point&amp;lt;T&amp;gt;) {
++    return std::format(&amp;#34;{}&amp;#34;, value);
++  }
++  else if constexpr (std::convertible_to&amp;lt;T, std::string_view&amp;gt;) {
++    return std::format(&amp;#34;\&amp;#34;{}\&amp;#34;&amp;#34;, value);
++  }
++  else {
++    std::string result = &amp;#34;{&amp;#34;;
++    bool is_first = true;
++
++    template for (constexpr auto m :
++        std::define_static_array(std::meta::nonstatic_data_members_of(^^T,
++            std::meta::access_context::unchecked()))) {
++      static constexpr auto skips = std::define_static_array(
++        std::meta::annotations_of_with_type(m, ^^Skip));
++
++      if constexpr (skips.size() == 0) {
++        static constexpr auto renames = std::define_static_array(
++          std::meta::annotations_of_with_type(m, ^^Rename));
++
++        // Renameアノテーションがあればその名前を、なければメンバ変数名をキーにする
++        constexpr std::string_view key = [] {
++          if constexpr (renames.size() &amp;gt; 0) {
++            return std::string_view{[:std::meta::constant_of(renames[0]):].name};
++          }
++          else {
++            return std::meta::identifier_of(m);
++          }
++        }();
++
++        if (!is_first) {
++          result += &amp;#39;,&amp;#39;;
++        }
++        is_first = false;
++        result += std::format(&amp;#34;\&amp;#34;{}\&amp;#34;:{}&amp;#34;, key, to_json(value.[:m:]));
++      }
++    }
++    return result + &amp;#39;}&amp;#39;;
++  }
++}
++
++int main() {
++  Person person{
++    .first = &amp;#34;Taro&amp;#34;,
++    .last = &amp;#34;Yamada&amp;#34;,
++    .age = 30,
++    .address = {.city = &amp;#34;Tokyo&amp;#34;, .postal_code = 1000001},
++    .password = &amp;#34;secret&amp;#34;
++  };
++
++  std::println(&amp;#34;{}&amp;#34;, to_json(person));
++}
++```
++* std::meta::nonstatic_data_members_of[link /reference/meta/nonstatic_data_members_of.md]
++* std::meta::access_context::unchecked[link /reference/meta/access_context/unchecked.md]
++* std::meta::annotations_of_with_type[link /reference/meta/annotations_of_with_type.md]
++* std::meta::constant_of[link /reference/meta/constant_of.md]
++* std::meta::identifier_of[link /reference/meta/identifier_of.md]
++* std::format[link /reference/format/format.md]
++* std::integral[link /reference/concepts/integral.md]
++* std::floating_point[link /reference/concepts/floating_point.md]
++* std::convertible_to[link /reference/concepts/convertible_to.md]
++
++#### 出力
++```
++{&amp;#34;first name&amp;#34;:&amp;#34;Taro&amp;#34;,&amp;#34;last name&amp;#34;:&amp;#34;Yamada&amp;#34;,&amp;#34;age&amp;#34;:30,&amp;#34;address&amp;#34;:{&amp;#34;city&amp;#34;:&amp;#34;Tokyo&amp;#34;,&amp;#34;postal_code&amp;#34;:1000001}}
++```
++
++
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
+ - [`&amp;lt;meta&amp;gt;`ヘッダ](/reference/meta.md)
+ - [C++26 コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>静的リフレクション [P2996R13] -- C++26静的リフレクション : コマンドラインオプションを解析する例を追加</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/reflection.html"/>
+      <id>5254c5fe3d6ed3ed835b88b098796dc8642b7775:lang/cpp26/reflection.md</id>
+      <updated>2026-09-15T15:28:04+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/reflection.md b/lang/cpp26/reflection.md
+index 139cadca4..5d1ac0fec 100644
+--- a/lang/cpp26/reflection.md
++++ b/lang/cpp26/reflection.md
+@@ -617,6 +617,133 @@ sampling_rate: 1.5は0以上1以下でなければならない
+ ```
+ 
+ 
++### アノテーションからコマンドラインオプションを解析する
++アノテーションはメンバ変数の検証だけでなく、宣言からコードを生成する用途にも使える。以下の例では、Rustの[clap](https://docs.rs/clap/)のように、コマンドラインオプションの短縮名と説明をアノテーションでメンバ変数に付加し、そこからヘルプメッセージの生成と引数の解析の両方を行う。
++
++オプションを追加したいときは`Args`にメンバ変数とアノテーションを足すだけでよく、ヘルプメッセージと解析処理のどちらにも手を入れる必要がない。
++
++```cpp example
++#include &amp;lt;meta&amp;gt;
++#include &amp;lt;format&amp;gt;
++#include &amp;lt;print&amp;gt;
++#include &amp;lt;stdexcept&amp;gt;
++#include &amp;lt;string&amp;gt;
++#include &amp;lt;string_view&amp;gt;
++
++// オプションの短縮名を表すアノテーション
++struct Short {
++  char name;
++};
++
++// オプションの説明を表すアノテーション
++struct Help {
++  const char* text;
++};
++
++struct Args {
++  [[=Short{&amp;#39;n&amp;#39;}, =Help{std::define_static_string(&amp;#34;挨拶する相手の名前&amp;#34;)}]]
++  std::string name;
++
++  [[=Short{&amp;#39;c&amp;#39;}, =Help{std::define_static_string(&amp;#34;挨拶を繰り返す回数&amp;#34;)}]]
++  int count = 1;
++};
++
++void assign(std::string&amp;amp; member, std::string_view value) {
++  member = value;
++}
++
++void assign(int&amp;amp; member, std::string_view value) {
++  member = std::stoi(std::string{value});
++}
++
++// アノテーションからヘルプメッセージを生成する
++template &amp;lt;class T&amp;gt;
++void print_help() {
++  std::println(&amp;#34;オプション:&amp;#34;);
++  template for (constexpr auto m :
++      std::define_static_array(std::meta::nonstatic_data_members_of(^^T,
++          std::meta::access_context::unchecked()))) {
++    static constexpr auto shorts = std::define_static_array(
++      std::meta::annotations_of_with_type(m, ^^Short));
++    static constexpr auto helps = std::define_static_array(
++      std::meta::annotations_of_with_type(m, ^^Help));
++
++    std::println(&amp;#34;  -{}, --{:&amp;lt;8} {}&amp;#34;,
++                 [:std::meta::constant_of(shorts[0]):].name,
++                 std::meta::identifier_of(m),
++                 [:std::meta::constant_of(helps[0]):].text);
++  }
++}
++
++// アノテーションをもとにコマンドライン引数を解析する
++template &amp;lt;class T&amp;gt;
++T parse(int argc, const char* const* argv) {
++  T args{};
++  for (int i = 1; i &amp;lt; argc; ++i) {
++    std::string_view arg = argv[i];
++    bool matched = false;
++
++    template for (constexpr auto m :
++        std::define_static_array(std::meta::nonstatic_data_members_of(^^T,
++            std::meta::access_context::unchecked()))) {
++      static constexpr auto shorts = std::define_static_array(
++        std::meta::annotations_of_with_type(m, ^^Short));
++      constexpr std::string_view long_name = std::meta::identifier_of(m);
++      constexpr char short_name = [:std::meta::constant_of(shorts[0]):].name;
++
++      bool is_long = arg.starts_with(&amp;#34;--&amp;#34;) &amp;amp;&amp;amp; arg.substr(2) == long_name;
++      bool is_short = arg.size() == 2 &amp;amp;&amp;amp; arg[0] == &amp;#39;-&amp;#39; &amp;amp;&amp;amp; arg[1] == short_name;
++
++      if (is_long || is_short) {
++        if (++i == argc) {
++          throw std::invalid_argument{std::format(&amp;#34;{}: 値が指定されていない&amp;#34;, arg)};
++        }
++        assign(args.[:m:], argv[i]);
++        matched = true;
++        break;
++      }
++    }
++
++    if (!matched) {
++      throw std::invalid_argument{std::format(&amp;#34;{}: 不明なオプション&amp;#34;, arg)};
++    }
++  }
++  return args;
++}
++
++int main() {
++  print_help&amp;lt;Args&amp;gt;();
++
++  // コマンドライン引数を模したデータ
++  const char* argv[] = {&amp;#34;greet&amp;#34;, &amp;#34;--name&amp;#34;, &amp;#34;wg21&amp;#34;, &amp;#34;-c&amp;#34;, &amp;#34;3&amp;#34;};
++  Args args = parse&amp;lt;Args&amp;gt;(5, argv);
++
++  for (int i = 0; i &amp;lt; args.count; ++i) {
++    std::println(&amp;#34;Hello {}&amp;#34;, args.name);
++  }
++}
++```
++* std::meta::nonstatic_data_members_of[link /reference/meta/nonstatic_data_members_of.md]
++* std::meta::access_context::unchecked[link /reference/meta/access_context/unchecked.md]
++* std::meta::annotations_of_with_type[link /reference/meta/annotations_of_with_type.md]
++* std::meta::constant_of[link /reference/meta/constant_of.md]
++* std::meta::identifier_of[link /reference/meta/identifier_of.md]
++* std::format[link /reference/format/format.md]
++* std::stoi[link /reference/string/stoi.md]
++* std::invalid_argument[link /reference/stdexcept.md]
++* starts_with[link /reference/string_view/basic_string_view/starts_with.md]
++
++#### 出力
++```
++オプション:
++  -n, --name     挨拶する相手の名前
++  -c, --count    挨拶を繰り返す回数
++Hello wg21
++Hello wg21
++Hello wg21
++```
++
++
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
+ - [`&amp;lt;meta&amp;gt;`ヘッダ](/reference/meta.md)
+ - [C++26 コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
