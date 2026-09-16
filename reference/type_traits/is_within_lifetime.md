@@ -90,9 +90,9 @@ int main() {
 - C++26
 
 ### 処理系
-- [Clang](/implementation.md#clang): 20 [mark noimpl]
-- [GCC](/implementation.md#gcc): 14 [mark noimpl]
-- [Visual C++](/implementation.md#visual_cpp): 2022 Update 10 [mark noimpl]
+- [Clang](/implementation.md#clang): 23 [mark noimpl]
+- [GCC](/implementation.md#gcc): 17 [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2026 Update 6 [mark noimpl]
 
 ## 参照
 - [P2641R4 Checking if a `union` alternative is active](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2641r4.html)
