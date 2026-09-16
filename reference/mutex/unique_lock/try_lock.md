@@ -99,6 +99,3 @@ terminate called after throwing an instance of 'std::system_error'
 - [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
     - 2012, 2013は、例外の節で説明している`system_error`を投げる処理が実装されていない。
-
-
-## 参照

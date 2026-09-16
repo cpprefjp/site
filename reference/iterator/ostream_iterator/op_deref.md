@@ -27,5 +27,3 @@ ostream_iterator& operator*();
 ### 出力
 ```
 ```
-
-## 参照

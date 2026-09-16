@@ -55,6 +55,3 @@ generic
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified]
-
-
-## 参照

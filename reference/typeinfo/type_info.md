@@ -91,5 +91,3 @@ polyderived is: struct PolyDerived
  *ppolybase is: struct PolyDerived
 same type? true
 ```
-
-## 参照

@@ -26,5 +26,3 @@ ostreambuf_iterator& operator++(int); // (2) C++98
 ### 出力
 ```
 ```
-
-## 参照

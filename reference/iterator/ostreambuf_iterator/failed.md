@@ -24,5 +24,3 @@ bool failed() const noexcept;   // (1) C++11
 ### 出力
 ```
 ```
-
-## 参照

@@ -53,6 +53,3 @@ thread_id=538af0
 - [Clang](/implementation.md#clang):
 - [GCC](/implementation.md#gcc): 4.6.3 [mark verified], 4.7.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
-
-
-## 参照

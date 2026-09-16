@@ -186,6 +186,3 @@ int main()
 - [`use_facet`](use_facet.md)
 - [`has_facet`](has_facet.md)
 - [`locale::facet`](locale/facet.md)
-
-
-## 参照

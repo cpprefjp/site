@@ -75,5 +75,3 @@ int main()
 equal
 equal
 ```
-
-## 参照

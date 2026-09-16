@@ -26,6 +26,3 @@
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [GCC](/implementation.md#gcc): 4.3.6 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
-
-
-## 参照

@@ -62,6 +62,3 @@ message : Broken promise
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
-
-
-## 参照

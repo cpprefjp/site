@@ -61,5 +61,3 @@ template<class charT> charT toupper(charT c, const locale& loc)
   return std::use_facet<std::ctype<charT>>(loc).toupper(c);
 }
 ```
-
-## 参照

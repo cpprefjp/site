@@ -54,5 +54,3 @@ int main()
 1: Polymorphic*
 std::bad_typeid
 ```
-
-## 参照

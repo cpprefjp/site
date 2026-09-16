@@ -28,5 +28,3 @@ ostreambuf_iterator& operator=(CharT c);
 ### 出力
 ```
 ```
-
-## 参照

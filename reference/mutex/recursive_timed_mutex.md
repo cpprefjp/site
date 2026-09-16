@@ -128,5 +128,3 @@ count == 2
 - [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
     - 2012, 2013は、(2)での実引数の受け渡しにムーブを使用しない問題がある。上記の例でも、`std::unique_ptr<int>`の実引数でコンパイルエラーになる。
-
-## 参照

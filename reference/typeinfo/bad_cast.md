@@ -49,5 +49,3 @@ int main ()
 ```
 std::bad_cast
 ```
-
-## 参照

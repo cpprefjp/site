@@ -136,5 +136,3 @@ namespace std {
 | [`epptr`](basic_streambuf/epptr.md) | 出力部分列の終端へのポインタを返す (protected)。 | |
 | [`pbump`](basic_streambuf/pbump.md) | 出力部分列の現在位置を指定した量だけ進める (protected)。 | |
 | [`setp`](basic_streambuf/setp.md) | 出力部分列の各ポインタを設定する (protected)。 | |
-
-## 参照

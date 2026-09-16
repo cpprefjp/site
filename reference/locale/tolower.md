@@ -62,5 +62,3 @@ template<class charT> charT tolower(charT c, const locale& loc)
   return std::use_facet<std::ctype<charT>>(loc).tolower(c);
 }
 ```
-
-## 参照

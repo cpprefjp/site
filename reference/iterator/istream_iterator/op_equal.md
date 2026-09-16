@@ -72,5 +72,3 @@ it1 == it2 : true
 it1 == last : false
 it1 == last : true
 ```
-
-## 参照

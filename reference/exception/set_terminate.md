@@ -54,5 +54,3 @@ my terminate handler
 This application has requested the Runtime to terminate it in an unusual way.
 Please contact the application's support team for more information.
 ```
-
-## 参照

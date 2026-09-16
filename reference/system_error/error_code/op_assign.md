@@ -84,6 +84,3 @@ generic
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 
-
-
-## 参照

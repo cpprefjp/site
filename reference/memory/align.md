@@ -62,6 +62,3 @@ int main()
 - [GCC](/implementation.md#gcc): 5.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified]
     - 2012はマニュアル（MSDNライブラリ）に記載がないものの、実装されている。
-
-
-## 参照

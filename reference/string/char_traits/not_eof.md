@@ -57,5 +57,3 @@ int main()
 true
 true
 ```
-
-## 参照
