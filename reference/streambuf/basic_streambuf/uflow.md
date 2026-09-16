@@ -20,12 +20,12 @@ namespace std {
 入力部分列の領域を消費し切った際の処理。
 
 ## 効果
-デフォルトの動作は[`overflow()`](overflow.md)を呼ぶ。
+デフォルトの動作は[`underflow()`](underflow.md)を呼ぶ。
 
-- [`overflow()`](overflow.md)の戻り値が[`Traits::eof()`](../../string/char_traits/eof.md)であれば、[`Traits::eof()`](../../string/char_traits/eof.md)を返すのみ。
-- [`overflow()`](overflow.md)の戻り値が[`Traits::eof()`](../../string/char_traits/eof.md)でなければ、[`Traits::to_int_type`](../../string/char_traits/to_int_type.md)`(*`[`gptr()`](gptr.md)`)`を返しつつ、[`gptr()`](gptr.md)を一つ進める。
+- [`underflow()`](underflow.md)の戻り値が[`Traits::eof()`](../../string/char_traits/eof.md)であれば、[`Traits::eof()`](../../string/char_traits/eof.md)を返すのみ。
+- [`underflow()`](underflow.md)の戻り値が[`Traits::eof()`](../../string/char_traits/eof.md)でなければ、[`Traits::to_int_type`](../../string/char_traits/to_int_type.md)`(*`[`gptr()`](gptr.md)`)`を返しつつ、[`gptr()`](gptr.md)を一つ進める。
 
-なお、[`overflow()`](overflow.md)はデフォルト動作では、常に[`Traits::eof()`](../../string/char_traits/eof.md)を返す。
+なお、[`underflow()`](underflow.md)はデフォルト動作では、常に[`Traits::eof()`](../../string/char_traits/eof.md)を返す。
 
 ## 備考
 入力部分列の領域を消費し切った状態で[`sbumpc()`](sbumpc.md)を呼ぶと、`uflow()`が呼ばれる。
