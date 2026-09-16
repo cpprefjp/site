@@ -24,8 +24,8 @@ namespace std::chrono {
 このクラスの情報は、[`local_time`](local_time.md)から[`sys_time`](sys_time.md)に変換する際に使用される。
 
 - [`local_time`](local_time.md)から[`sys_time`](sys_time.md)への変換が一意に決まる場合、`result == unique`となり、`first`が正しい[`sys_info`](sys_info.md)で埋められ、`second`はゼロ初期化される
-    - 存在しないローカル時間が生じる場合、`result == nonexistent`となり、`first`は直前のローカル時間の終端値の値で埋められ、`second`は直後のローカル時間の開始値で埋められる
-    - あいまいなローカル時間が生じる場合、`result == ambiguous`となり、`first`は直後のローカル時間の終端値で埋められ、`second`は直前のローカル時間の開始値で埋められる
+- 存在しないローカル時間が生じる場合、`result == nonexistent`となり、`first`はそのローカル時間の直前に終了する[`sys_info`](sys_info.md)で、`second`はそのローカル時間の直後に開始する[`sys_info`](sys_info.md)で埋められる
+- あいまいなローカル時間が生じる場合、`result == ambiguous`となり、`first`はそのローカル時間の直後に終了する[`sys_info`](sys_info.md)で、`second`はそのローカル時間の直前に開始する[`sys_info`](sys_info.md)で埋められる
 
 ## 備考
 - `nonexistent`および`ambiguous`は、サマータイムを採用しているタイムゾーンで生じる可能性がある
