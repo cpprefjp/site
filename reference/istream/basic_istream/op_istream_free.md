@@ -9,9 +9,9 @@ namespace std {
   template<class CharT, class Traits>
   basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT& c);        // (1) C++98
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char& c); // (2) C++98、C++29から非推奨
+  basic_istream<char, Traits>& operator>>(basic_istream<char, Traits>& is, unsigned char& c);  // (2) C++98、C++29から非推奨
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char& c);   // (3) C++98、C++29から非推奨
+  basic_istream<char, Traits>& operator>>(basic_istream<char, Traits>& is, signed char& c);    // (3) C++98、C++29から非推奨
 
   // 文字列
   template<class CharT, class Traits>
@@ -19,13 +19,13 @@ namespace std {
   template<class CharT, class Traits, std::size_t N>
   basic_istream<CharT, Traits>& operator>>(basic_istream<CharT, Traits>& is, CharT (&s)[N]);        // (4) C++20
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char* c);      // (5) C++98、C++29から非推奨
+  basic_istream<char, Traits>& operator>>(basic_istream<char, Traits>& is, unsigned char* c);       // (5) C++98、C++29から非推奨
   template<class Traits, std::size_t N>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, unsigned char (&s)[N]); // (5) C++20、C++29から非推奨
+  basic_istream<char, Traits>& operator>>(basic_istream<char, Traits>& is, unsigned char (&s)[N]);  // (5) C++20、C++29から非推奨
   template<class Traits>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char* c);        // (6) C++98、C++29から非推奨
+  basic_istream<char, Traits>& operator>>(basic_istream<char, Traits>& is, signed char* c);         // (6) C++98、C++29から非推奨
   template<class Traits, std::size_t N>
-  basic_istream<char, Traits>& operator>>(basic_istream<CharT, Traits>& is, signed char (&s)[N]);   // (6) C++20、C++29から非推奨
+  basic_istream<char, Traits>& operator>>(basic_istream<char, Traits>& is, signed char (&s)[N]);    // (6) C++20、C++29から非推奨
 
   // 右辺値参照ストリームからの入力
   template<class CharT, class Traits, class T>
