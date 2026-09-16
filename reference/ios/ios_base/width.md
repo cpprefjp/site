@@ -5,7 +5,7 @@
 * ios_base[meta class]
 
 ```cpp
-streamsize width(); const                       // (1)
+streamsize width() const;                       // (1)
 streamsize width(streamsize wide);              // (2)
 ```
 * streamsize[link ../type-streamsize.md]
