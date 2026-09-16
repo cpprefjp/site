@@ -232,7 +232,7 @@ int main()
 - [`std::atomic`](atomic.md)
 
 
-### 参照
+## 参照
 - [P0019R8 Atomic Ref](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0019r8.html)
 - [P1467R9 Extended floating-point types and standard names](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html)
     - C++23で拡張浮動小数点数型もテンプレート引数として指定することが許可された

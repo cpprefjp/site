@@ -55,5 +55,5 @@ int main()
 - [GCC](/implementation.md#gcc): 4.5.1 [mark verified], 4.6.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
-### 参照
+## 参照
 - [P0548R1 : common_type and duration](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0548r1.pdf)

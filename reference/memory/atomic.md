@@ -123,7 +123,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
-### 参照
+## 参照
 - [P0718R2 Revising `atomic_shared_ptr` for C++20](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0718r2.html)
 - [cplusplus/draft #2824 - add forward declaration of `atomic` class for `atomic<shared_ptr<T>>` (P0718R2)](https://github.com/cplusplus/draft/pull/2824)
 - [P1644R0 Add wait/notify to `atomic<shared_ptr<T>>`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1644r0.html)
