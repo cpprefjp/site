@@ -33,11 +33,11 @@ constexpr
       const Compare& comp = Compare(),
       const Allocator& alloc = Allocator()); // (4) C++26
 
-template <class InputIterato>
+template <class InputIterator>
 set(InputIterator first,
     InputIterator last,
     const Allocator& a);   // (5) C++14
-template <class InputIterato>
+template <class InputIterator>
 constexpr
   set(InputIterator first,
       InputIterator last,
