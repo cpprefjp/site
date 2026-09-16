@@ -136,7 +136,7 @@ int main()
 
   std::vector<std::complex<double>> A_vec(N*M);
   std::vector<double> x_vec(M);
-  std::array<double, N> y_vec, z_vec;
+  std::array<std::complex<double>, N> y_vec, z_vec;
 
   std::mdspan<
     std::complex<double>,
