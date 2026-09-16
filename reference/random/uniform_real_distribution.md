@@ -12,8 +12,8 @@ namespace std {
 ```
 
 ## 概要
-`uniform_real_distribution`は、指定された範囲の値が等確率で発生するよう離散分布するクラスである。 
-このクラスは、離散一様分布(Discrete Uniform Distribution)の実数に特化したバージョンである。整数が必要な場合は、[`uniform_int_distribution`](uniform_int_distribution.md)クラスを使用する。
+`uniform_real_distribution`は、指定された範囲の値が等確率で発生するよう連続分布するクラスである。 
+このクラスは、連続一様分布(Continuous Uniform Distribution)を表すクラスである。整数が必要な場合は、[`uniform_int_distribution`](uniform_int_distribution.md)クラスを使用する。
 
 テンプレートパラメータは、以下を意味する：
 
