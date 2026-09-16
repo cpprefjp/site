@@ -43,11 +43,11 @@ constexpr
            InputIterator last,
            const Allocator& a); // (5) C++26
 
-multiset(const set& x);           // (6) C++98
-constexpr multiset(const set& x); // (6) C++26
+multiset(const multiset& x);           // (6) C++98
+constexpr multiset(const multiset& x); // (6) C++26
 
-multiset(set&& y);           // (7) C++11
-constexpr multiset(set&& y); // (7) C++26
+multiset(multiset&& y);           // (7) C++11
+constexpr multiset(multiset&& y); // (7) C++26
 
 multiset(const multiset& x,
          const Allocator& alloc);                    // (8) C++11
