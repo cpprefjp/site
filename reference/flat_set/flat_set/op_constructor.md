@@ -55,11 +55,11 @@ constexpr
            const key_compare& comp = key_compare()); // (7) C++26
 
 template<class Allocator>
-flat_set(const container_type cont&,
+flat_set(const container_type& cont,
          const Allocator& a);   // (8) C++23
 template<class Allocator>
 constexpr
-  flat_set(const container_type cont&,
+  flat_set(const container_type& cont,
            const Allocator& a); // (8) C++26
 
 template<class Allocator>
