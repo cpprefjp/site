@@ -90,25 +90,25 @@ int main() {
 ```cpp
 string vformat(string_view fmt, format_args args) {
   string str;
-  vformat_to(back_inserter(str), fmt.str, args);
+  vformat_to(back_inserter(str), fmt, args);
   return str;
 }
 
-string vformat(wstring_view fmt, wformat_args args) {
+wstring vformat(wstring_view fmt, wformat_args args) {
   wstring str;
-  vformat_to(back_inserter(str), fmt.str, args);
+  vformat_to(back_inserter(str), fmt, args);
   return str;
 }
 
 string vformat(const locale& loc, string_view fmt, format_args args) {
   string str;
-  vformat_to(loc, back_inserter(str), fmt.str, args);
+  vformat_to(back_inserter(str), loc, fmt, args);
   return str;
 }
 
-string vformat(const locale& loc, wstring_view fmt, wformat_args args) {
+wstring vformat(const locale& loc, wstring_view fmt, wformat_args args) {
   wstring str;
-  vformat_to(loc, back_inserter(str), fmt.str, args);
+  vformat_to(back_inserter(str), loc, fmt, args);
   return str;
 }
 ```
