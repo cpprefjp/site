@@ -148,6 +148,7 @@ namespace std::linalg {
 
 ```cpp example
 #include <array>
+#include <execution>
 #include <iostream>
 #include <linalg>
 #include <mdspan>

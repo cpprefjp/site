@@ -72,6 +72,7 @@ $O(\verb|A.extent(0)| \times \verb|A.extent(1)| \times \verb|C.extent(0)|)$
 
 ```cpp example
 #include <array>
+#include <execution>
 #include <iostream>
 #include <linalg>
 #include <mdspan>

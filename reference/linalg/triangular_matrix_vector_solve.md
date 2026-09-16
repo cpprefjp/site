@@ -178,6 +178,7 @@ $O(\verb|A.extent(1)|\times \verb|x.extent(0)|)$
 
 ```cpp example
 #include <array>
+#include <execution>
 #include <functional>
 #include <iostream>
 #include <linalg>

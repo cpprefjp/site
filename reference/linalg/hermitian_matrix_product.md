@@ -168,6 +168,7 @@ $O(\verb|A.extent(0)| \times \verb|A.extent(1)| \times \verb|B.extent(1)|)$
 ```cpp example
 #include <array>
 #include <complex>
+#include <execution>
 #include <iostream>
 #include <linalg>
 #include <mdspan>

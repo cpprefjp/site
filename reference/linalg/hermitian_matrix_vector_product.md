@@ -115,6 +115,7 @@ $O(\verb|A.extent(0)|\times \verb|x.extent(0)|)$
 ```cpp example
 #include <array>
 #include <complex>
+#include <execution>
 #include <iostream>
 #include <linalg>
 #include <mdspan>

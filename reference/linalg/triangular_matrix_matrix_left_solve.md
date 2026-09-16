@@ -179,6 +179,7 @@ namespace std::linalg {
 
 ```cpp example
 #include <array>
+#include <execution>
 #include <functional>
 #include <iostream>
 #include <linalg>
