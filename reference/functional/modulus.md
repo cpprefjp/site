@@ -26,7 +26,7 @@ namespace std {
   template <>
   struct modulus<void> {
     template <class T, class U> constexpr auto operator()(T&& t, U&& u) const
-      -> decltype(std::forward<T>(t) / std::forward<U>(u));
+      -> decltype(std::forward<T>(t) % std::forward<U>(u));
     using is_transparent = unspecified;
   };
 
@@ -39,7 +39,7 @@ namespace std {
   template <>
   struct modulus<void> {
     template <class T, class U> constexpr auto operator()(T&& t, U&& u) const
-      -> decltype(std::forward<T>(t) / std::forward<U>(u));
+      -> decltype(std::forward<T>(t) % std::forward<U>(u));
     using is_transparent = unspecified;
   };
 }
