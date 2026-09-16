@@ -40,6 +40,7 @@ RCUドメインのアンロック完了を待機する。
 ```cpp example
 #include <atomic>
 #include <mutex>
+#include <print>
 #include <thread>
 #include <rcu>
 

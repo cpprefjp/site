@@ -49,6 +49,7 @@ RCU機構により保護されるオブジェクト回収をスケジュール�
 ```cpp example
 #include <atomic>
 #include <mutex>
+#include <print>
 #include <thread>
 #include <rcu>
 

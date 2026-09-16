@@ -38,6 +38,7 @@ RCU機構の保護対象とする型の基底クラス。
 ```cpp example
 #include <atomic>
 #include <mutex>
+#include <print>
 #include <thread>
 #include <rcu>
 
