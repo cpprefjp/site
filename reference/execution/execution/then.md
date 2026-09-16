@@ -118,7 +118,7 @@ int main()
   }
 
   { // パイプライン記法
-    ex::sender auto sndr = ex::just('C', 2);
+    ex::sender auto sndr = ex::just('C', 2)
       | ex::then([](char ch, int n) {
           return ch + std::string(n, '+');
         });
