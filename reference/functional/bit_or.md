@@ -27,7 +27,7 @@ namespace std {
   template <> // テンプレート引数が void（デフォルト）の場合の特殊化（operator() が関数テンプレート）
   struct bit_or<void> {
     template <typename T, typename U>
-    constexpr auto operator()(const T& t, const U& u) const
+    constexpr auto operator()(T&& t, U&& u) const
       -> decltype(forward<T>(t) | forward<U>(u));
     using is_transparent = unspecified;
   };
@@ -41,7 +41,7 @@ namespace std {
   template <> // テンプレート引数が void（デフォルト）の場合の特殊化（operator() が関数テンプレート）
   struct bit_or<void> {
     template <typename T, typename U>
-    constexpr auto operator()(const T& t, const U& u) const
+    constexpr auto operator()(T&& t, U&& u) const
       -> decltype(forward<T>(t) | forward<U>(u));
     using is_transparent = unspecified;
   };
