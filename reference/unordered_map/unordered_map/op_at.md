@@ -24,7 +24,7 @@ constexpr T& operator[](K&& k); // (3) C++26
 
 
 ## テンプレートパラメータ制約
-- (3) : `key_compare::is_transparent` が妥当な式であること
+- (3) : `Hash::is_transparent`および`Pred::is_transparent`が妥当な式であること
 
 
 ## 効果

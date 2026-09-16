@@ -88,7 +88,7 @@ constexpr iterator
 
 ## テンプレートパラメータ制約
 - (3), (6) :
-    - `key_compare::is_transparent` が妥当な式であること
+    - `Hash::is_transparent`および`Pred::is_transparent`が妥当な式であること
     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<K&&, const_iterator> == false`であること
     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<K&&, iterator> == false`であること
     - `value_type`が[`std::forward`](/reference/utility/forward.md)`<K>(x)`によって直接構築可能であること

@@ -21,7 +21,7 @@ constexpr size_type bucket(const K& k) const; // (2) C++26
 
 
 ## テンプレートパラメータ制約
-- (2) : `key_compare::is_transparent` が妥当な式であること
+- (2) : `Hash::is_transparent`および`Pred::is_transparent`が妥当な式であること
 
 
 ## 事前条件

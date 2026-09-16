@@ -27,7 +27,7 @@ constexpr const T& at(const K& x) const; // (4) C++26
 
 
 ## テンプレートパラメータ制約
-- (3), (4) : `key_compare::is_transparent` が妥当な式であること
+- (3), (4) : `Hash::is_transparent`および`Pred::is_transparent`が妥当な式であること
 
 
 ## 事前条件

@@ -72,7 +72,7 @@ constexpr iterator
 
 
 ## テンプレートパラメータ制約
-- (3), (6) : `key_compare::is_transparent` が妥当な式であること
+- (3), (6) : `Hash::is_transparent`および`Pred::is_transparent`が妥当な式であること
 
 
 ## 適格要件
