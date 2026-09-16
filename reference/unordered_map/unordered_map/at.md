@@ -49,8 +49,8 @@ constexpr const T& at(const K& x) const; // (4) C++26
 
 ## 備考
 - (3), (4) :
-    - `is_transparent`は、標準ライブラリの[`std::less`](/reference/functional/less.md)、[`std::greater`](/reference/functional/greater.md)といった関数オブジェクトの、`void`に対する特殊化で定義される。それ以外のテンプレートパラメータで`is_transparent`が定義されないのは、互換性のためである。
-    - これらのオーバーロードは、`map<string, int>`のようなコンテナに対し、検索操作で文字列リテラルを渡した際に、キー型の一時オブジェクトが生成されるコストを減らすためにある。
+    - `is_transparent`は、`Hash`と`Pred`の両方がメンバ型として持つ必要がある。`Pred`には`is_transparent`を定義する[`std::equal_to`](/reference/functional/equal_to.md)`<>`が使えるが、`Hash`には標準ライブラリに該当するものがないため、利用者が定義する必要がある。詳細は[`std::hash`](/reference/functional/hash.md)クラスのページを参照。
+    - これらのオーバーロードは、`unordered_map<string, int>`のようなコンテナに対し、検索操作で文字列リテラルを渡した際に、キー型の一時オブジェクトが生成されるコストを減らすためにある。
 
 
 ## 例
