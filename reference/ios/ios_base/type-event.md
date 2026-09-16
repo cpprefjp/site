@@ -95,7 +95,7 @@ event = erase_event, str = ss1, index = 0, getloc.name = C
 
 
 ## バージョン
-## 言語
+### 言語
 - C++98
 
 ### 処理系

@@ -24,7 +24,7 @@ using event_callback = void(*)(event ev, ios_base& str, int index);
 
 
 ## バージョン
-## 言語
+### 言語
 - C++98
 
 ### 処理系

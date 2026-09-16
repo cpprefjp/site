@@ -71,7 +71,7 @@ error message: No such file or directory
 
 
 ## バージョン
-## 言語
+### 言語
 - C++98
 
 ### 処理系
