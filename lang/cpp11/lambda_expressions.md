@@ -314,7 +314,7 @@ int main()
       return x;
     else
       return cx;
-  }; // 戻り値の型は、intとconst int&の共通の型であるint
+  }; // xもcxもdecayを適用するとintになるため、戻り値の型はint
 
   // コンパイルエラー： {1, 2}は式ではない(std::initializer_listには推論されない)
   // auto f5 = [] { return {1, 2}; };
