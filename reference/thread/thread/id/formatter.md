@@ -35,7 +35,7 @@ int main()
 * std::this_thread[link /reference/thread/this_thread.md]
 * get_id()[link /reference/thread/this_thread/get_id.md]
 
-### 出力
+### 出力例
 ```
 140474254677824
                140474254677824

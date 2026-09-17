@@ -126,7 +126,7 @@ int main()
 * std::ranlux24_base[color ff0000]
 * engine()[link subtract_with_carry_engine/op_call.md]
 
-### 出力
+### 出力例
 ```
 5880757
 13095533

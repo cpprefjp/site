@@ -96,7 +96,7 @@ int main()
 * chrono::zoned_time[link /reference/chrono/zoned_time.md]
 * std::format[link /reference/format/format.md]
 
-### 出力
+### 出力例
 ```
 2023-02-06 10:46:53 JST: Hello 42 World
 ```

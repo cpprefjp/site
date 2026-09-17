@@ -89,7 +89,7 @@ int main()
 * std::generate_canonical[color ff0000]
 * digits[link /reference/limits/numeric_limits/digits.md]
 
-### 出力
+### 出力例
 ```
 0.93695
 0.880826

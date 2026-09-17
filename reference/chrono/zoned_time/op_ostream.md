@@ -58,7 +58,7 @@ int main()
 * chrono::system_clock[link ../system_clock.md]
 * now()[link ../system_clock/now.md]
 
-### 出力
+### 出力例
 ```
 2019-12-20 10:05:05
 2019-12-20 10:05:05.330140 UTC

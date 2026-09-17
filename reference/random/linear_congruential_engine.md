@@ -128,7 +128,7 @@ int main()
 * std::minstd_rand[color ff0000]
 * engine()[link linear_congruential_engine/op_call.md]
 
-### 出力
+### 出力例
 ```
 822915164
 932862885
