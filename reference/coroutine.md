@@ -34,7 +34,7 @@
 |-----------------|----------------|----------------|
 | [`noop_coroutine_promise`](coroutine/noop_coroutine_handle.md)| 何もしないコルーチンPromise型(class)| C++20 |
 | [`noop_coroutine_handle`](coroutine/noop_coroutine_handle.md) | 何もしないコルーチンのハンドル(class) | C++20 |
-| [`noop_coroutine`](coroutine/noop_coroutine.md) | 何もしないコルーチンのハンドルを取得(function) | C++20
+| [`noop_coroutine`](coroutine/noop_coroutine.md) | 何もしないコルーチンのハンドルを取得(function) | C++20 |
 
 
 ## トリビアルAwaitable型

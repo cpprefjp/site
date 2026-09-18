@@ -117,7 +117,7 @@
 | [commit cpprefjp/site, 2d01c56] | cpprefjp/addref:1, cpprefjp/fixs:1, cpprefjp/link:2 | `<cstdlib>` : `abs`を追加 |
 | [commit cpprefjp/site, 72d23cc] | cpprefjp/addref:4, cpprefjp/link:1 | `<cstdlib>` : `div`を追加 |
 | [commit cpprefjp/site, afa0dc5, dcbf835, b137272, f39c3c3, 85010fb, b986d8c, 24071c4, 828ff58] | cpprefjp/addref:6, cpprefjp/link:3, cpprefjp/fixl:4, cpprefjp/fixm:2 | `<stdfloat>` |
-| [commit cpprefjp/site, 3607e5a] | cpprefjp/fixl:1, cpprefjp/link:4 | `numeric_limits::is_iec559` : C++23対応 |a
+| [commit cpprefjp/site, 3607e5a] | cpprefjp/fixl:1, cpprefjp/link:4 | `numeric_limits::is_iec559` : C++23対応 |
 | [commit cpprefjp/site, f5a4bdc] | cpprefjp/fixl:9 | `complex` : C++23の拡張浮動小数点数型に対応 |
 | [commit cpprefjp/site, d00a2e8] | cpprefjp/fixs:1 | 不要なコード修飾を削除 |
 | [commit cpprefjp/site, bd6e8a6] | tool/addm:1 | buildジョブを最新以外キャンセルするよう修正 |
@@ -136,7 +136,7 @@
 | [commit cpprefjp/site, 058df35, 4f1dfeb, 8916ccb] | tool/addm:2, cpprefjp/typo:4, cpprefjp/link:1 | NGワードのチェックCIを追加 |
 | [commit cpprefjp/site, 8a3b779] | tool/improves:1, cpprefjp/typo:1 | 移譲->委譲 を追加 |
 | [commit cpprefjp/site, b7b6270] | cpprefjp/fixs:1 | `map::operator[ ]` : オーバーロードに言語バージョンの書き忘れ |
-| [commit cpprefjp/site, 1702da3] | cpprefjp/fixm:4 | (multi)set|mapのfind : 透過的な検索の仕様をひな形に合わせた |
+| [commit cpprefjp/site, 1702da3] | cpprefjp/fixm:4 | (multi)set&#x7C;mapのfind : 透過的な検索の仕様をひな形に合わせた |
 | [commit cpprefjp/site, 131af88, 555a222] | cpprefjp/fixm:1 | vaporoid様のスポンサーロゴを追加 |
 | [commit cpprefjp/site, a6f4987, db4695b, e5f31cd, 76502a5, 0bbeedb] | cpprefjp/fixm:1 | 新たなスポンサーを追加 |
 | [commit cpprefjp/site, 8d47b62] | cpprefjp/fixm:1 | スポンサーを追加 |

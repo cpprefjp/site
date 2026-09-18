@@ -21,7 +21,7 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 | `__cpp_inline_variables`                     | `201606` | [インライン変数](inline_variables.md) |
 | `__cpp_aligned_new`                          | `201606` | [アライメント指定されたデータの動的メモリ確保](dynamic_memory_allocation_for_over-aligned_data.md) |
 | `__cpp_guaranteed_copy_elision`              | `201606` | [値のコピー省略を保証](guaranteed_copy_elision.md) |
-| `__cpp_noexcept_function_type`               | `201510` | [例外仕様を型システムの一部にする](exception_spec_be_part_of_the_type_system.md)
+| `__cpp_noexcept_function_type`               | `201510` | [例外仕様を型システムの一部にする](exception_spec_be_part_of_the_type_system.md) |
 | `__cpp_fold_expressions`                     | `201411` | [畳み込み式](folding_expressions.md) |
 | `__cpp_constexpr`                            | `201603` | [`constexpr`ラムダ](constexpr_lambda.md) |
 | `__cpp_if_constexpr`                         | `201606` | [`if constexpr`文](if_constexpr.md) |

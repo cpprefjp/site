@@ -84,8 +84,8 @@ namespace std {
 | [`insert_range`](set/insert_range.md) | Rangeの要素を挿入する            | C++23 |
 | [`emplace`](set/emplace.md)           | 要素を直接構築する               | C++11 |
 | [`emplace_hint`](set/emplace_hint.md) | ヒントを使って要素を直接構築する | C++11 |
-| [`erase`](set/erase.md)               | 要素を削除する                   |
-| [`swap`](set/swap.md)                 | コンテンツを交換する             |
+| [`erase`](set/erase.md)               | 要素を削除する                   | |
+| [`swap`](set/swap.md)                 | コンテンツを交換する             | |
 | [`extract`](set/extract.md)           | ノードハンドルを取得する         | C++17 |
 | [`merge`](set/merge.md)               | 他のオブジェクトの要素をマージする | C++17 |
 

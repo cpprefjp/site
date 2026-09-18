@@ -93,7 +93,7 @@ namespace std {
 | [`insert_range`](multimap/insert_range.md) | Rangeの要素を挿入する           | C++23 |
 | [`emplace`](multimap/emplace.md)           | 要素を直接構築する               | C++11 |
 | [`emplace_hint`](multimap/emplace_hint.md) | ヒントを使って要素を直接構築する | C++11 |
-| [`erase`](multimap/erase.md)               | 要素を削除する |                 | |
+| [`erase`](multimap/erase.md)               | 要素を削除する                   | |
 | [`swap`](multimap/swap.md)                 | コンテンツを交換する             | |
 | [`extract`](multimap/extract.md)           | ノードハンドルを取得する         | C++17 |
 | [`merge`](multimap/merge.md)                    | 他のオブジェクトの要素をマージする | C++17 |

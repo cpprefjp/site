@@ -93,9 +93,9 @@ namespace std {
 | [`in_avail`](basic_streambuf/in_avail.md) | 現在の入力列の読み取り可能な文字数を返す。 | |
 | [`snextc`](basic_streambuf/snextc.md) | 入力列の1文字を捨てて、次の文字を読み取る。 | |
 | [`sbumpc`](basic_streambuf/sbumpc.md) | 入力列の現在位置の文字を読み取り、現在位置を1文字進める。 | |
-| [`uflow`](basic_streambuf/uflow.md) | 入力部分列の領域を消費し切った際の処理 (protected virtual)。 |
+| [`uflow`](basic_streambuf/uflow.md) | 入力部分列の領域を消費し切った際の処理 (protected virtual)。 | |
 | [`sgetc`](basic_streambuf/sgetc.md) | 入力列の現在位置の文字を読み取る。 | |
-| [`underflow`](basic_streambuf/underflow.md) | 入力部分列の領域を消費し切った際の処理 (protected virtual)。 |
+| [`underflow`](basic_streambuf/underflow.md) | 入力部分列の領域を消費し切った際の処理 (protected virtual)。 | |
 | [`sgetn`](basic_streambuf/sgetn.md) | 入力列から複数文字を読み取る。 | |
 | [`xsgetn`](basic_streambuf/xsgetn.md) | 入力列から複数文字を読み取る (protected virtual)。 | |
 | [`showmanyc`](basic_streambuf/showmanyc.md) | ブロックせずに読み取れると期待される文字数を得る (protected virtual)。 | |
@@ -123,7 +123,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`sputc`](basic_streambuf/sputc.md) | 出力列に1文字書き込む。 | |
-| [`overflow`](basic_streambuf/overflow.md) | 出力部分列の領域を消費し切った際の処理 (protected virtual)。 |
+| [`overflow`](basic_streambuf/overflow.md) | 出力部分列の領域を消費し切った際の処理 (protected virtual)。 | |
 | [`sputn`](basic_streambuf/sputn.md) | 出力列に複数文字を書き込む。 | |
 | [`xsputn`](basic_streambuf/xsputn.md) | 出力列に複数文字を書き込む (protected virtual)。 | |
 

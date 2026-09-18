@@ -156,8 +156,8 @@ concept C =
 | [`INVOKE`](concepts/Invoke.md)                             | |
 | [`LessThanComparable`](concepts/LessThanComparable.md)     | 小なり比較可能 |
 | [`ValueSwappable`](concepts/ValueSwappable.md)             | 間接参照して入れ替え可能 |
-| [`CopyAssignable`](concepts/CopyAssignable.md.nolink)      | コピー代入可能 | C++20 |
-| [`MoveAssignable`](concepts/MoveAssignable.md.nolink)      | ムーブ代入可能 | C++20 |
+| [`CopyAssignable`](concepts/CopyAssignable.md.nolink)      | コピー代入可能 |
+| [`MoveAssignable`](concepts/MoveAssignable.md.nolink)      | ムーブ代入可能 |
 
 ## 関連項目
 

@@ -27,7 +27,7 @@ namespace std {
 | [`clear`](error_code/clear.md)                  | エラー情報をクリアする | C++11 |
 | [`value`](error_code/value.md)                  | エラー値を取得する | C++11 |
 | [`category`](error_code/category.md)            | エラーカテゴリを取得する | C++11 |
-| [`default_error_condition`](error_code/default_error_condition.md) | `error_code`に対応する`error_condition`を取得する | | C++11 |
+| [`default_error_condition`](error_code/default_error_condition.md) | `error_code`に対応する`error_condition`を取得する | C++11 |
 | [`message`](error_code/message.md) | エラーメッセージを取得する | C++11 |
 | [`explicit operator bool`](error_code/op_bool.md) | エラーかどうかを判定する | C++11 |
 
