@@ -55,19 +55,16 @@ int main()
 #include <iostream>
 
 void f(int(&&)[]){ std::cout << "unknown bound\n"; }
-void f(int(&&)[0]){ std::cout << "bound 0\n"; }
 void f(int(&&)[2]){ std::cout << "bound 2\n"; }
 void f(int(&&)[4]){ std::cout << "bound 4\n"; }
 
 void g(int(&&)[]){ std::cout << "unknown bound\n"; }
-void g(double(&&)[0]){ std::cout << "bound 0\n"; }
 void g(double(&&)[1]){ std::cout << "bound 1\n"; }
 void g(double(&&)[2]){ std::cout << "bound 2\n"; }
 
 int main()
 {
   std::cout << "f:\n";
-  f({});
   f({0});
   f({0, 0});
   f({0, 0, 0});
@@ -84,7 +81,6 @@ int main()
 ### 出力
 ```
 f:
-bound 0
 unknown bound
 bound 2
 unknown bound
