@@ -355,7 +355,7 @@ que5 : 5 4 3 2 1
 ```
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 9.0.1 [mark verified]
 - [GCC](/implementation.md#gcc): 4.7.0(アロケータ付き初期化以外は使用可能) [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 

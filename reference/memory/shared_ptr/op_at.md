@@ -63,7 +63,7 @@ int main()
 
 ### 処理系
 - [GCC](/implementation.md#gcc): 7.2 [mark verified]
-- [Clang](/implementation.md#clang):
+- [Clang](/implementation.md#clang): 11.1.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

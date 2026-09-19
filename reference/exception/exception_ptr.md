@@ -93,7 +93,7 @@ error!
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 9.0.1 [mark verified]
 - [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 	- 2010では、`bool`への暗黙の変換、`!=`での比較が実装されていない。上記コード例の1.と3.そして`error`の箇所にある`if`はコンパイルエラーになる。

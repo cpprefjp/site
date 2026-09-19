@@ -113,7 +113,7 @@ T min(std::initializer_list<T> t, Compare comp)
 
 
 ## initializer_listバージョンの使用可能状況
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 9.0.1 [mark verified]
 - [GCC](/implementation.md#gcc): 4.7.0(initializer_listバージョンが使用可能) [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified]
 

@@ -93,7 +93,7 @@ C言語から引き継いだ定義済みマクロ`__LINE__`、`__FILE__`や[事�
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 16.0.6 [mark verified]
 - [GCC](/implementation.md#gcc): 11.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 

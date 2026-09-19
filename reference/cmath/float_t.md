@@ -37,7 +37,7 @@ int main() {
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang):
+- [Clang](/implementation.md#clang): 9.0.1 [mark verified]
 - [GCC](/implementation.md#gcc):
 - [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified], 2017 [mark verified], 2019 [mark verified], 2022 [mark verified]
 	- 2013, 2015では、常に`float`の別名。

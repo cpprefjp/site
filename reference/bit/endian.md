@@ -66,7 +66,7 @@ int main()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang):
+- [Clang](/implementation.md#clang): 9.0.1 [mark verified]
 - [GCC](/implementation.md#gcc):
 - [Visual C++](/implementation.md#visual_cpp): ??
 

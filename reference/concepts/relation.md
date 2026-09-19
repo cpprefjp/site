@@ -93,7 +93,7 @@ not_relation_s1s2 is not relation between S1 and S2
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 13.0.1 [mark verified]
 - [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark verified]
 

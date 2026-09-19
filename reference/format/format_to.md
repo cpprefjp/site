@@ -171,7 +171,7 @@ wstring format_to(Out out, const locale& loc, wformat_string<Args...> fmt, const
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 17.0.6 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

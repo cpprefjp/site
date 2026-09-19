@@ -67,6 +67,6 @@ generic
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 9.0.1 [mark verified]
 - [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified]

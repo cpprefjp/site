@@ -219,7 +219,7 @@ format_to_n_result<Out> format_to_n(Out out, iter_difference_t<Out> n, const loc
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 17.0.6 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 

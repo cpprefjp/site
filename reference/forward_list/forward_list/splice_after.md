@@ -160,7 +160,7 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 9.0.1 [mark verified]
 - [GCC](/implementation.md#gcc): 4.7.0(右辺値参照バージョンのみ実装されている) [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 

@@ -53,7 +53,7 @@ filesystem error: can't copy file. source file isn't found: No such file or dire
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang):
+- [Clang](/implementation.md#clang): 9.0.1 [mark verified]
 - [GCC](/implementation.md#gcc): 8.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):
 

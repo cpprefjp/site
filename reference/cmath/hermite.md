@@ -98,7 +98,7 @@ hermite(3, 1) = -4
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 19.1.6 [mark verified]
 - [GCC](/implementation.md#gcc): 7.1.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 

@@ -108,7 +108,7 @@ address : 0x1c38150
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 16.0.6 [mark verified]
 - [GCC](/implementation.md#gcc): 9.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 update 9 [mark verified]
 

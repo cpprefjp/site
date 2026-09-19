@@ -103,7 +103,7 @@ new load_factor: 0.363636
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 9.0.1 [mark verified]
 - [Clang](/implementation.md#clang): 3.1 [mark verified]
 - [GCC](/implementation.md#gcc): 4.4.7 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified]

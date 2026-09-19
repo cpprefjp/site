@@ -274,7 +274,7 @@ p8 : (X(1 2 3),Y(4 5))
 - C++11 : ムーブ構築とpiecewise構築
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 9.0.1 [mark verified]
 - [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- C++98で規定されていたものは、2010より前のバージョンから実装されている。

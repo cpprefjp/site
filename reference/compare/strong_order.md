@@ -166,7 +166,7 @@ true
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 14.0.6 [mark verified]
 - [GCC](/implementation.md#gcc): 10.1(浮動小数点数の比較が未実装) [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 

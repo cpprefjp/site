@@ -80,5 +80,5 @@ int main()
 
 ### 処理系
 - [GCC](/implementation.md#gcc): ??
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 20.1.7 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??

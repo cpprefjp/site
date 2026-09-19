@@ -58,7 +58,7 @@ source_location()
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 16.0.6 [mark verified]
 - [GCC](/implementation.md#gcc): 12.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 

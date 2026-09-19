@@ -351,7 +351,7 @@ true
 - C++17
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 16.0.6 [mark verified]
 - [GCC](/implementation.md#gcc): 9.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2017 update 6 [mark verified]
     - 2017, 2019共に(1)以外のオーバーロードを提供していないが、[`pair`](/reference/utility/pair.md) の各要素に対する [uses-allocator 構築](/reference/memory/uses_allocator.md)をサポートしている。（ただし、C++20 モードでもネストした [`pair`](/reference/utility/pair.md) はサポートされていない）

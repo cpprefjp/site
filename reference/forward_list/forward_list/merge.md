@@ -98,7 +98,7 @@ int main()
 - C++11
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 9.0.1 [mark verified]
 - [GCC](/implementation.md#gcc): 4.7.0(&&バージョンのみ実装されている) [mark verified]
 - [Visual C++](/implementation.md#visual_cpp):  [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 	- 2010は、`&`バージョン(1)と(3)のみ実装されている。

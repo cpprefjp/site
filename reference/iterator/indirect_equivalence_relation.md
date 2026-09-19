@@ -95,7 +95,7 @@ std::istream_iterator<int> is not indirect_equivalence_relation void(const int&,
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 13.0.1 [mark verified]
 - [GCC](/implementation.md#gcc): 10.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 6 [mark verified]
 

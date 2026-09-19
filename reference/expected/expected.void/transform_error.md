@@ -88,7 +88,7 @@ int main()
 - C++23
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
+- [Clang](/implementation.md#clang): 17.0.6 [mark verified]
 - [GCC](/implementation.md#gcc): 13.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
