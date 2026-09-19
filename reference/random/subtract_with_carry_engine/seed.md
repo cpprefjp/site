@@ -38,6 +38,7 @@ void seed(Sseq& q);     // (2)
 #include <iostream>
 #include <random>
 #include <array>
+#include <cstdint>
 
 int main()
 {

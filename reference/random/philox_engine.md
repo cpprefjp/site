@@ -206,6 +206,7 @@ int main()
 
 ### 多次元の乱数を生成する例
 ```cpp example
+#include <cstdint>
 #include <print>
 #include <random>
 

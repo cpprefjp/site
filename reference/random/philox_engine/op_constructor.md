@@ -50,6 +50,7 @@ philox_engine(philox_engine&& e) = default;      // (5) C++26
 #include <iostream>
 #include <random>
 #include <array>
+#include <cstdint>
 
 int main()
 {

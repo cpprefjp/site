@@ -38,6 +38,7 @@ mersenne_twister_engine(mersenne_twister_engine&& e) = default;      // (5)
 #include <iostream>
 #include <random>
 #include <array>
+#include <cstdint>
 
 int main()
 {

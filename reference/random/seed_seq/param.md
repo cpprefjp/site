@@ -40,6 +40,7 @@ copy(v.begin(), v.end(), dest);
 #include <vector>
 #include <iterator>
 #include <limits>
+#include <cstdint>
 
 int main()
 {

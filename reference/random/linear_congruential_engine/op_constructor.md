@@ -37,6 +37,7 @@ linear_congruential_engine(linear_congruential_engine&& e) = default;      // (5
 #include <iostream>
 #include <random>
 #include <array>
+#include <cstdint>
 
 int main()
 {

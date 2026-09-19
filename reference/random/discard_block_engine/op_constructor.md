@@ -32,6 +32,7 @@ discard_block_engine(discard_block_engine&& e) = default;      // (7)
 #include <random>
 #include <array>
 #include <utility>
+#include <cstdint>
 
 int main()
 {

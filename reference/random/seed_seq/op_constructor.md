@@ -62,6 +62,7 @@ seed_seq(const seed_seq&) = delete;               // (4)
 #include <vector>
 #include <iterator>
 #include <limits>
+#include <cstdint>
 
 int main()
 {

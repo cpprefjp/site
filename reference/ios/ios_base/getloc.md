@@ -5,7 +5,7 @@
 * ios_base[meta class]
 
 ```cpp
-locale getloc();
+locale getloc() const;
 ```
 * locale[link ../../locale/locale.md]
 

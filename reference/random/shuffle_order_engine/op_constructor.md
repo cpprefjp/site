@@ -32,6 +32,7 @@ shuffle_order_engine(shuffle_order_engine&& e) = default;      // (7)
 #include <random>
 #include <array>
 #include <utility>
+#include <cstdint>
 
 int main()
 {

@@ -23,6 +23,7 @@ static constexpr result_type min() { return 0; }
 
 ## 例
 ```cpp example
+#include <cstdint>
 #include <iostream>
 #include <random>
 

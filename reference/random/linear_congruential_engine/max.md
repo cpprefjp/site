@@ -23,6 +23,7 @@ static constexpr result_type max() { return m - 1u; }
 
 ## 例
 ```cpp example
+#include <cstdint>
 #include <iostream>
 #include <random>
 

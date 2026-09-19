@@ -58,6 +58,7 @@ namespace std {
 #include <algorithm>
 #include <functional>
 #include <random>
+#include <cstdint>
 
 int main()
 {

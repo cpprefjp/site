@@ -35,6 +35,7 @@ template<class Sseq> void seed(Sseq& q);     // (2) C++26
 #include <iostream>
 #include <random>
 #include <array>
+#include <cstdint>
 
 int main()
 {

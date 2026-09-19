@@ -65,6 +65,7 @@ for (uint32_t time_step = 0; time_step < time_steps_num; ++time_step) {
 
 ## 例
 ```cpp example
+#include <cstdint>
 #include <print>
 #include <random>
 
