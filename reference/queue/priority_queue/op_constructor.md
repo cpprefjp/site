@@ -91,12 +91,12 @@ constexpr
                  const Alloc& alloc); // (11) C++26
 
 template <class Alloc>
-priority_queue(const Compare x&,
+priority_queue(const Compare& x,
                Container&& other,
                const Alloc& alloc); // (12) C++11
 template <class Alloc>
 constexpr
-  priority_queue(const Compare x&,
+  priority_queue(const Compare& x,
                  Container&& other,
                  const Alloc& alloc); // (12) C++26
 
@@ -226,10 +226,6 @@ constexpr
 - (3) :
     1. メンバ変数`comp`を`x`でコピー構築する。
     2. メンバ変数`c`を`other`でコピー構築する。
-    3. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
-- (4) :
-    1. メンバ変数`comp`を`x`でコピー構築する。
-    2. メンバ変数`c`を`other`でムーブ構築する。
     3. [`make_heap`](/reference/algorithm/make_heap.md)`(c.begin(), c.end(), comp)`を呼び出す。
 - (5):
     1. メンバ変数`comp`を`x`でコピー構築する。
