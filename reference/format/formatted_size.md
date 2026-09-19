@@ -114,31 +114,31 @@ public:
   }
 };
 
-template<class Out, class... Args>
-size_t formatted_size(format_string<Args...> fmt, const Args&... args) {
+template<class... Args>
+size_t formatted_size(format_string<Args...> fmt, Args&&... args) {
   Counter<char> counter;
   format_to(back_inserter(counter), fmt, forward<Args>(args)...);
   return counter.size();
 }
 
-template<class Out, class... Args>
-size_t formatted_size(wformat_string<Args...> fmt, const Args&... args) {
+template<class... Args>
+size_t formatted_size(wformat_string<Args...> fmt, Args&&... args) {
   Counter<wchar_t> counter;
   format_to(back_inserter(counter), fmt, forward<Args>(args)...);
   return counter.size();
 }
 
-template<class Out, class... Args>
-size_t formatted_size(const locale& loc, format_string<Args...> fmt, const Args&... args) {
+template<class... Args>
+size_t formatted_size(const locale& loc, format_string<Args...> fmt, Args&&... args) {
   Counter<char> counter;
-  format_to(loc, back_inserter(counter), fmt, forward<Args>(args)...);
+  format_to(back_inserter(counter), loc, fmt, forward<Args>(args)...);
   return counter.size();
 }
 
-template<class Out, class... Args>
-size_t formatted_size(const locale& loc, wformat_string<Args...> fmt, const Args&... args) {
+template<class... Args>
+size_t formatted_size(const locale& loc, wformat_string<Args...> fmt, Args&&... args) {
   Counter<wchar_t> counter;
-  format_to(loc, back_inserter(counter), fmt, forward<Args>(args)...);
+  format_to(back_inserter(counter), loc, fmt, forward<Args>(args)...);
   return counter.size();
 }
 ```
