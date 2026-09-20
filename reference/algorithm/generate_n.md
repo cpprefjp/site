@@ -102,7 +102,7 @@ generate_n(OutputIterator first, Size n, Generator gen) {
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0.1 [mark verified]
-- [GCC](/implementation.md#gcc):
+- [GCC](/implementation.md#gcc): 9.1.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2005 [mark verified], 2008 [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
     - C++11への対応（戻り値の変更）は2012から。
 

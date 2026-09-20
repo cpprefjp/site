@@ -178,7 +178,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc):
+- [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 

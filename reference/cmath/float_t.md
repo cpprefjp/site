@@ -38,7 +38,7 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0.1 [mark verified]
-- [GCC](/implementation.md#gcc):
+- [GCC](/implementation.md#gcc): 9.1.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2013 [mark verified], 2015 [mark verified], 2017 [mark verified], 2019 [mark verified], 2022 [mark verified]
 	- 2013, 2015では、常に`float`の別名。
 	- 2017以降で、ターゲットのCPUアーキテクチャが`x86`以外である場合、`float`の別名。

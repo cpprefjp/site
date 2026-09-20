@@ -163,7 +163,8 @@ fill_n(OutputIterator first, Size n, const T& value) {
 
 ### 処理系
 - [Clang](/implementation.md#clang):
-- [GCC](/implementation.md#gcc): 
+- [GCC](/implementation.md#gcc): 9.1.0 [mark verified]
+	- 2つめの例（波カッコ初期化子リストによる呼び出し、C++26）は15.1.0から。
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- C++11への対応（戻り値の変更）は2012から。
 

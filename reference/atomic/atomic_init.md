@@ -87,7 +87,7 @@ int main()
 ### 処理系
 
 - [Clang](/implementation.md#clang): 3.3 [mark verified]
-- [GCC](/implementation.md#gcc): 
+- [GCC](/implementation.md#gcc): 9.1.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified]
 
 
