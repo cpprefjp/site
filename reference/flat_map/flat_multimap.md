@@ -237,6 +237,7 @@ int main()
 ```cpp example
 #include <deque>
 #include <flat_map>
+#include <functional>
 #include <iostream>
 
 int main()
