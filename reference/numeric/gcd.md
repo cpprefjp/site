@@ -55,7 +55,7 @@ int main() {
 ```
 ```
 
-### 負の最大公約数が生成される状況の例
+### 事前条件に違反する例
 ```cpp example
 #include <iostream>
 #include <numeric>
@@ -63,16 +63,15 @@ int main() {
 #include <limits>
 
 int main() {
-  // 符号付き整数の場合、戻り値が負になることがある。
-  // mとnの絶対値をとって符号なし整数として最大公約数を求めるが、
-  // 戻り値型は符号付き整数型であるため、変換時に符号付き整数の正の値として
-  // 表現できないと負の値になる
+  // 符号付き整数型の最小値は、その絶対値を同じ型で表現できない。
+  // したがって以下の呼び出しは事前条件に違反しており、動作は未定義である
+  // (ある処理系では、符号付き整数型への変換によって負の値が返される)
   using T = std::int32_t;
   constexpr auto m = std::numeric_limits<T>::min();
-  const auto gs = std::gcd<T, T>(m, m);  // |m| が int32_t で表せないと m < 0 になる
+  const auto gs = std::gcd<T, T>(m, m);  // 未定義動作。|m| は int32_t で表現できない
   std::cout << "gcd<int32_t, int32_t>(" << m << ", " << m << ")   " << gs << std::endl;
 
-  // 符号なし整数にすれば戻り値は常に正になる
+  // 符号なし整数型であれば |m| を表現できるため、事前条件を満たす
   using U = std::uint32_t;
   const auto gu = std::gcd<U, U>(m, m);
   std::cout << "gcd<uint32_t, uint32_t>(" << m << ", " << m << ") " << gu << std::endl;
@@ -86,6 +85,8 @@ int main() {
 gcd<int32_t, int32_t>(-2147483648, -2147483648)   -2147483648
 gcd<uint32_t, uint32_t>(-2147483648, -2147483648) 2147483648
 ```
+
+1行目は未定義動作の結果であり、この値が得られることは保証されない。
 
 ### 3つ以上の値に対する最大公約数を求める
 ```cpp example
