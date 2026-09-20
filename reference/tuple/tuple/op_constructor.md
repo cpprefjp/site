@@ -392,6 +392,7 @@ explicit(see below) constexpr
 #include <tuple>
 #include <string>
 #include <utility>
+#include <memory>
 
 int main()
 {
