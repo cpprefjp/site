@@ -27,42 +27,34 @@ bool operator<=(const type_index& rhs) const noexcept;
 ```cpp example
 #include <iostream>
 #include <typeindex>
-#include <set>
-#include <string>
-#include <algorithm>
-#include <functional>
-
-std::string get_typename(const std::type_index& t)
-{
-  if (t == typeid(int))    return "int";
-  if (t == typeid(double)) return "double";
-  if (t == typeid(char))   return "char";
-  return "bad type!!!";
-}
+#include <typeinfo>
 
 int main()
 {
-  std::set<std::type_index, std::less_equal<std::type_index>> s;
+  std::type_index a = typeid(int);
+  std::type_index b = typeid(double);
 
-  s.insert(typeid(int));
-  s.insert(typeid(double));
-  s.insert(typeid(char));
+  std::cout << std::boolalpha;
 
-  std::for_each(s.begin(), s.end(), [](const std::type_index& t) {
-    std::cout << get_typename(t) << std::endl;
-  });
+  // 同じ型を表すtype_index同士は等価なので、<=はtrueになる
+  std::cout << (a <= a) << std::endl;
+
+  // 異なる型を表すtype_index間の照合順序は処理系定義であるため、
+  // どちらが前になるかは処理系によって異なる
+  const std::type_index& lo = (a < b) ? a : b;
+  const std::type_index& hi = (a < b) ? b : a;
+
+  std::cout << (lo <= hi) << std::endl;
+  std::cout << (hi <= lo) << std::endl;
 }
 ```
-* std::less_equal<std::type_index>[color ff0000]
-* s.insert[link /reference/set/set/insert.md]
-* s.begin()[link /reference/set/set/begin.md]
-* s.end()[link /reference/set/set/end.md]
+* <=[color ff0000]
 
 ### 出力例
 ```
-char
-double
-int
+true
+true
+false
 ```
 
 ## バージョン
