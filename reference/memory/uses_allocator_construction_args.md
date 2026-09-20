@@ -275,14 +275,13 @@ std::ostream& operator<<(std::ostream& os, const std::tuple<Ts...>& t)
 
 int main()
 {
-  auto a0 = std::uses_allocator_construction_args<MyContainer0>(MyAlloc{}, 0);
-  std::cout << a0 << '\n';
-  auto a1 = std::uses_allocator_construction_args<MyContainer1>(MyAlloc{}, 1);
-  std::cout << a1 << '\n';
-  auto a2 = std::uses_allocator_construction_args<MyContainer2>(MyAlloc{}, 2);
-  std::cout << a2 << '\n';
-  auto a3 = std::uses_allocator_construction_args<std::pair<MyContainer1, MyContainer2>>(MyAlloc{}, 3, 4);
-  std::cout << a3 << '\n';
+  // 戻り値のtupleは引数への参照を保持するため、
+  // 変数に束縛して後から使うとダングリング参照になる。
+  // ここでは同じ完全式の中で使用する
+  std::cout << std::uses_allocator_construction_args<MyContainer0>(MyAlloc{}, 0) << '\n';
+  std::cout << std::uses_allocator_construction_args<MyContainer1>(MyAlloc{}, 1) << '\n';
+  std::cout << std::uses_allocator_construction_args<MyContainer2>(MyAlloc{}, 2) << '\n';
+  std::cout << std::uses_allocator_construction_args<std::pair<MyContainer1, MyContainer2>>(MyAlloc{}, 3, 4) << '\n';
 }
 ```
 * uses_allocator_construction_args[color ff0000]
