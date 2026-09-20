@@ -50,7 +50,8 @@ int main()
 {
   int *ptr = new(std::align_val_t{32}) int;
   assert( std::is_sufficiently_aligned<32>(ptr) );
-  delete ptr;
+  // アライメント指定で確保したため、対応する解放関数を明示的に呼び出す
+  ::operator delete(ptr, std::align_val_t{32});
 }
 ```
 * std::is_sufficiently_aligned[color ff0000]
