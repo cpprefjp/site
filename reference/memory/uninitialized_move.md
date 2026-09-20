@@ -67,7 +67,8 @@ for (; first != last; ++result, ++first)
 
 int main()
 {
-  const std::vector<int> v = {1, 2, 3};
+  // ムーブ元となるため、constにはしない
+  std::vector<int> v = {1, 2, 3};
 
   std::allocator<int> alloc;
 
