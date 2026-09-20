@@ -73,8 +73,9 @@ int main()
   // 文字列として取得
   std::cout << "Written: " << sb.span().data() << std::endl;
 
-  char buf2[256] = "World";
-  std::span<char> span2{buf2};
+  char buf2[] = "World";
+  // 終端ヌル文字まで読み取ってしまわないよう、文字列の範囲だけを渡す
+  std::span<char> span2{buf2, sizeof(buf2) - 1};
 
   // 新しい文字列を設定
   sb.span(span2);
