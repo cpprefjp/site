@@ -20,15 +20,22 @@ explicit regex_error(regex_constants::error_type ecode);
 
 int main()
 {
-  // 開き丸カッコに対応した閉じ丸カッコがない、というエラーコードの例外を送出
-  throw std::regex_error(std::regex_constants::error_paren);
+  try {
+    // 開き丸カッコに対応した閉じ丸カッコがない、というエラーコードの例外を送出
+    throw std::regex_error(std::regex_constants::error_paren);
+  }
+  catch (const std::regex_error& e) {
+    // コンストラクタで設定したエラーコードが取得できる
+    std::regex_constants::error_type code = e.code();
+  }
 }
 ```
 * std::regex_constants::error_paren[link /reference/regex/regex_constants/error_type.md]
+* std::regex_constants::error_type[link /reference/regex/regex_constants/error_type.md]
+* e.code()[link code.md]
 
 ### 出力
 ```
-Segmentation fault
 ```
 
 
