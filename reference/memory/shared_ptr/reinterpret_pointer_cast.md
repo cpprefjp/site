@@ -50,14 +50,17 @@ namespace std {
 
 int main()
 {
-  // 互換性のある配列間の変換を行う
-  std::shared_ptr<std::int8_t[]> p(new std::int8_t[4]{1, 1, 1, 1});
-  std::shared_ptr<std::int32_t[]> q = std::reinterpret_pointer_cast<std::int32_t[]>(p);
+  std::shared_ptr<std::int32_t[]> p(new std::int32_t[1]{0x01010101});
 
-  std::int32_t r = q[0];
+  // オブジェクト表現をunsigned charとして参照する。
+  // unsigned charを介したアクセスはどのオブジェクトに対しても許容される
+  std::shared_ptr<unsigned char[]> q = std::reinterpret_pointer_cast<unsigned char[]>(p);
 
-  std::int32_t x = (1 << 8) | (1 << 16) | (1 << 24) | 1;
-  assert(r == x);
+  // 変換元と所有権を共有する
+  assert(q.get() == reinterpret_cast<unsigned char*>(p.get()));
+  assert(p.use_count() == 2);
+
+  assert(q[0] == 1);
 }
 ```
 * std::reinterpret_pointer_cast[color ff0000]
