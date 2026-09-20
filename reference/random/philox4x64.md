@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  using philox4x64 = philox_engine<uint_fast64_t, 64, 4, 10, 0xD2E7470EE14C6C93, 0x9E3779B97F4A7C15, 0xCA5A826395121157, 0xBB67AE8584CAA73B>;
+  using philox4x64 = philox_engine<uint_fast64_t, 64, 4, 10, 0xCA5A826395121157, 0x9E3779B97F4A7C15, 0xD2E7470EE14C6C93, 0xBB67AE8584CAA73B>;
 }
 ```
 * philox_engine[link philox_engine.md]
@@ -82,3 +82,7 @@ int main()
 - [Clang](/implementation.md#clang): 23 [mark verified]
 - [GCC](/implementation.md#gcc): 16.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2026 Update 2 [mark noimpl]
+
+## 参照
+- [LWG Issue 4134. Issue with Philox algorithm specification](https://cplusplus.github.io/LWG/issue4134)
+    - C++26で、定数の並びが参照実装に合わせて変更された（$ M_{0} $ と $ M_{1} $ が入れ替わった）。詳細は[`philox_engine`](philox_engine.md)を参照
