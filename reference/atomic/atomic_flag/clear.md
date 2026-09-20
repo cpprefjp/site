@@ -24,7 +24,7 @@ constexpr void
 フラグをクリアする
 
 
-## 要件
+## 事前条件
 `order`が以下のメモリオーダーではないこと：
 
 - [`memory_order_consume`](/reference/atomic/memory_order.md) (C++26で非推奨)

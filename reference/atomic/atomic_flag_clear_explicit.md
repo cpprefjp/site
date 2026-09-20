@@ -28,7 +28,7 @@ namespace std {
 アトミックにフラグをクリアする
 
 
-## 要件
+## 事前条件
 `order`が以下のメモリオーダーではないこと：
 
 - [`memory_order_consume`](memory_order.md) (C++26で非推奨)
