@@ -43,14 +43,12 @@ int main() {
 
   auto cit2 = cit - 3;
 
-  std::cout << *cit << '\n';
   std::cout << *cit2 << '\n';
 }
 ```
 
 ### 出力
 ```
-0
 3
 ```
 
