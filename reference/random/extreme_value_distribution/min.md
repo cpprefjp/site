@@ -34,8 +34,15 @@ int main()
 
 ### 出力例
 ```
--1.79769e+308
+-inf
 ```
+
+### 備考
+libc++(Clang)の実装では、`-`[`numeric_limits`](/reference/limits/numeric_limits.md)`::`[`infinity()`](/reference/limits/numeric_limits/infinity.md)を返す。
+
+libstdc++(GCC)の実装では、[`numeric_limits`](/reference/limits/numeric_limits.md)`::`[`lowest()`](/reference/limits/numeric_limits/lowest.md)を返す。
+
+いずれもこの分布が下限を持たないことを表しているが、得られる値は処理系によって異なる。
 
 ## バージョン
 ### 言語
