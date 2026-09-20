@@ -90,6 +90,7 @@ Philox法は、以下のような特徴を持つ：
 
 ### 適格要件
 - `sizeof...(consts) == n`が`true`であること
+- `n == 2 || n == 4`が`true`であること
 - `0 < r`が`true`であること
 - `0 < w && w <=` [`numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md)が`true`であること
 
