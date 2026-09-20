@@ -116,17 +116,17 @@ assoc_legendre(1, 0, -1) = -1
 assoc_legendre(1, 0, 0) = 0
 assoc_legendre(1, 0, 1) = 1
 
-assoc_legendre(1, 1, -1) = -0
-assoc_legendre(1, 1, 0) = -1
-assoc_legendre(1, 1, 1) = -0
+assoc_legendre(1, 1, -1) = 0
+assoc_legendre(1, 1, 0) = 1
+assoc_legendre(1, 1, 1) = 0
 
 assoc_legendre(2, 0, -1) = 1
 assoc_legendre(2, 0, 0) = -0.5
 assoc_legendre(2, 0, 1) = 1
 
-assoc_legendre(2, 1, -1) = 0
-assoc_legendre(2, 1, 0) = -0
-assoc_legendre(2, 1, 1) = -0
+assoc_legendre(2, 1, -1) = -0
+assoc_legendre(2, 1, 0) = 0
+assoc_legendre(2, 1, 1) = 0
 
 assoc_legendre(2, 2, -1) = 0
 assoc_legendre(2, 2, 0) = 3
