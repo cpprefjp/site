@@ -68,7 +68,7 @@ std::int64_t is not unsigned_integral
 char is not unsigned_integral
 int* is not unsigned_integral
 int& is not unsigned_integral
-std::integral_constant<int, 1> is not unsigned_integral
+std::integral_constant<unsigned int, 1> is not unsigned_integral
 ```
 
 ## バージョン
