@@ -161,7 +161,8 @@ int main()
   alignas( SSE_ALIGNMENT ) f32x4 packs[ N ];
 #endif
 
-  std::fill( &packs[ 0 ].data[ 0 ], &packs[ N ].data[ 0 ], 1.0f );
+  for ( auto n = 0; n < N; ++n )
+    std::fill( packs[ n ].data, packs[ n ].data + SSE_SINGLE_PACKING, 1.0f );
 
   for ( auto n = 0; n < N; ++n )
   {
@@ -181,7 +182,11 @@ int main()
     _mm_store_ps( pack.data, xmm );
   }
 
-  std::cout << std::accumulate( &packs[ 0 ].data[ 0 ], &packs[ N ].data[ 0 ], 0.0f );
+  auto sum = 0.0f;
+  for ( auto n = 0; n < N; ++n )
+    sum = std::accumulate( packs[ n ].data, packs[ n ].data + SSE_SINGLE_PACKING, sum );
+
+  std::cout << sum;
 }
 ```
 * std::assume_aligned[color ff0000]
