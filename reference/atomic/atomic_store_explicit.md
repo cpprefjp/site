@@ -52,6 +52,13 @@ namespace std {
     - C++20 : `atomic<T>::is_always_lock_free`が`true`であること
 
 
+## 事前条件
+- `order`は、以下のいずれかであること
+    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
+    - [`memory_order_release`](/reference/atomic/memory_order.md)
+    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
+
+
 ## 効果
 指定されたメモリオーダーにしたがって、`object`が指す値を`desired`でアトミックに置き換える。
 
