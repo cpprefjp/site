@@ -34,11 +34,6 @@ int main()
   std::int_fast16_t max_value = INT_FAST16_MAX;
   std::cout << "型を通したときの値: " << max_value << std::endl;
   
-  // オーバーフローの確認
-  std::int_fast16_t value = INT_FAST16_MAX;
-  std::cout << "INT_FAST16_MAX: " << value << std::endl;
-  std::cout << "INT_FAST16_MAX + 1: " << value + 1 << std::endl;
-  
   return 0;
 }
 ```
@@ -49,11 +44,9 @@ INT_FAST16_MAX: 32767
 numeric_limits<int_fast16_t>::max(): 32767
 INT_FAST16_MAX == numeric_limits<int_fast16_t>::max(): true
 型を通したときの値: 32767
-INT_FAST16_MAX: 32767
-INT_FAST16_MAX + 1: -32768
 ```
 
-この出力例は処理系によって異なる場合がある。特に、`int_fast16_t`の実際の型が処理系によって異なる可能性があるため、最大値やオーバーフロー動作も異なることがある。
+この出力例は処理系によって異なる場合がある。特に、`int_fast16_t`の実際の型が処理系によって異なる可能性があるため、最大値も異なることがある。
 
 ## バージョン
 ### 言語

@@ -34,11 +34,6 @@ int main()
   std::int_fast8_t min_value = INT_FAST8_MIN;
   std::cout << "型を通したときの値: " << static_cast<int>(min_value) << std::endl;
   
-  // アンダーフローの確認
-  std::int_fast8_t value = INT_FAST8_MIN;
-  std::cout << "INT_FAST8_MIN: " << static_cast<int>(value) << std::endl;
-  std::cout << "INT_FAST8_MIN - 1: " << static_cast<int>(value - 1) << std::endl;
-  
   return 0;
 }
 ```
@@ -49,11 +44,9 @@ INT_FAST8_MIN: -128
 numeric_limits<int_fast8_t>::min(): -128
 INT_FAST8_MIN == numeric_limits<int_fast8_t>::min(): true
 型を通したときの値: -128
-INT_FAST8_MIN: -128
-INT_FAST8_MIN - 1: 127
 ```
 
-この出力例は処理系によって異なる場合がある。特に、`int_fast8_t`の実際の型が処理系によって異なる可能性があるため、最小値やアンダーフロー動作も異なることがある。
+この出力例は処理系によって異なる場合がある。特に、`int_fast8_t`の実際の型が処理系によって異なる可能性があるため、最小値も異なることがある。
 
 ## バージョン
 ### 言語

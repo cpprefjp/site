@@ -34,11 +34,6 @@ int main()
   std::int_fast64_t max_value = INT_FAST64_MAX;
   std::cout << "型を通したときの値: " << max_value << std::endl;
   
-  // オーバーフローの確認
-  std::int_fast64_t value = INT_FAST64_MAX;
-  std::cout << "INT_FAST64_MAX: " << value << std::endl;
-  std::cout << "INT_FAST64_MAX + 1: " << value + 1 << std::endl;
-  
   return 0;
 }
 ```
@@ -49,11 +44,9 @@ INT_FAST64_MAX: 9223372036854775807
 numeric_limits<int_fast64_t>::max(): 9223372036854775807
 INT_FAST64_MAX == numeric_limits<int_fast64_t>::max(): true
 型を通したときの値: 9223372036854775807
-INT_FAST64_MAX: 9223372036854775807
-INT_FAST64_MAX + 1: -9223372036854775808
 ```
 
-この出力例は処理系によって異なる場合がある。特に、`int_fast64_t`の実際の型が処理系によって異なる可能性があるため、最大値やオーバーフロー動作も異なることがある。
+この出力例は処理系によって異なる場合がある。特に、`int_fast64_t`の実際の型が処理系によって異なる可能性があるため、最大値も異なることがある。
 
 ## バージョン
 ### 言語

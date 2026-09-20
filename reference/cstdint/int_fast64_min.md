@@ -34,11 +34,6 @@ int main()
   std::int_fast64_t min_value = INT_FAST64_MIN;
   std::cout << "型を通したときの値: " << min_value << std::endl;
   
-  // アンダーフローの確認
-  std::int_fast64_t value = INT_FAST64_MIN;
-  std::cout << "INT_FAST64_MIN: " << value << std::endl;
-  std::cout << "INT_FAST64_MIN - 1: " << value - 1 << std::endl;
-  
   return 0;
 }
 ```
@@ -49,11 +44,9 @@ INT_FAST64_MIN: -9223372036854775808
 numeric_limits<int_fast64_t>::min(): -9223372036854775808
 INT_FAST64_MIN == numeric_limits<int_fast64_t>::min(): true
 型を通したときの値: -9223372036854775808
-INT_FAST64_MIN: -9223372036854775808
-INT_FAST64_MIN - 1: 9223372036854775807
 ```
 
-この出力例は処理系によって異なる場合がある。特に、`int_fast64_t`の実際の型が処理系によって異なる可能性があるため、最小値やアンダーフロー動作も異なることがある。
+この出力例は処理系によって異なる場合がある。特に、`int_fast64_t`の実際の型が処理系によって異なる可能性があるため、最小値も異なることがある。
 
 ## バージョン
 ### 言語

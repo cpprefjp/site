@@ -34,11 +34,6 @@ int main()
   std::int_fast32_t min_value = INT_FAST32_MIN;
   std::cout << "型を通したときの値: " << min_value << std::endl;
   
-  // アンダーフローの確認
-  std::int_fast32_t value = INT_FAST32_MIN;
-  std::cout << "INT_FAST32_MIN: " << value << std::endl;
-  std::cout << "INT_FAST32_MIN - 1: " << value - 1 << std::endl;
-  
   return 0;
 }
 ```
@@ -49,11 +44,9 @@ INT_FAST32_MIN: -2147483648
 numeric_limits<int_fast32_t>::min(): -2147483648
 INT_FAST32_MIN == numeric_limits<int_fast32_t>::min(): true
 型を通したときの値: -2147483648
-INT_FAST32_MIN: -2147483648
-INT_FAST32_MIN - 1: 2147483647
 ```
 
-この出力例は処理系によって異なる場合がある。特に、`int_fast32_t`の実際の型が処理系によって異なる可能性があるため、最小値やアンダーフロー動作も異なることがある。
+この出力例は処理系によって異なる場合がある。特に、`int_fast32_t`の実際の型が処理系によって異なる可能性があるため、最小値も異なることがある。
 
 ## バージョン
 ### 言語
