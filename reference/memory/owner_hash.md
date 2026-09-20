@@ -66,7 +66,7 @@ int main()
   us.insert(p3); // owner_hashでは、p2とp3が同じリソースを
                  // 指していると見なされるので、p3は挿入されない
 
-  std::println("{}", s.size());
+  std::println("{}", us.size());
 }
 ```
 * std::owner_hash[color ff0000]
