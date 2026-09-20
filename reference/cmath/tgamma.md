@@ -117,7 +117,7 @@ tgamma(-∞)  = nan
 tgamma(-1)  = nan
 tgamma(0)   = inf
 tgamma(0.5) = 1.772454
-tgamma(2)   = 1.000000
+tgamma(1)   = 1.000000
 tgamma(+∞)  = inf
 ```
 
