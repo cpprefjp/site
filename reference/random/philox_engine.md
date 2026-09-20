@@ -270,6 +270,8 @@ int main()
     - C++にPhilox乱数生成器が最初に提案された文書
 - [Parallel Random Numbers: As Easy as 1, 2, 3](https://www.thesalmons.org/john/random123/papers/random123sc11.pdf)
     - 2011年に発表されたこの論文でPhilox乱数生成器が考案された
+- [P2075R6 Philox as an extension of the C++ RNG engines](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2075r6.pdf)
+    - C++26で、`philox_engine`クラステンプレートと、そのパラメータ設定済み別名である[`philox4x32`](philox4x32.md)・[`philox4x64`](philox4x64.md)が追加された
 - [P4037R1 Supporting `signed char` and `unsigned char` in random number generation](https://open-std.org/jtc1/sc22/wg21/docs/papers/2026/p4037r1.html)
     - `UIntType`テンプレートパラメータの要件が明文化された（拡張符号なし整数型および処理系定義のサブセットを許容）。この仕様はC++26から導入されたが、仕様の欠陥を修正したものであるためコンパイラは早期に対応している場合がある
 - [LWG Issue 4134. Issue with Philox algorithm specification](https://cplusplus.github.io/LWG/issue4134)

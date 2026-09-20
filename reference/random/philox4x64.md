@@ -84,5 +84,7 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2026 Update 2 [mark noimpl]
 
 ## 参照
+- [P2075R6 Philox as an extension of the C++ RNG engines](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2075r6.pdf)
+    - C++26で、[`philox_engine`](philox_engine.md)クラステンプレートとともに追加された
 - [LWG Issue 4134. Issue with Philox algorithm specification](https://cplusplus.github.io/LWG/issue4134)
     - C++26で、定数の並びが参照実装に合わせて変更された（$ M_{0} $ と $ M_{1} $ が入れ替わった）。詳細は[`philox_engine`](philox_engine.md)を参照
