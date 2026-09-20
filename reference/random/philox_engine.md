@@ -62,8 +62,8 @@ Philox法は、以下のような特徴を持つ：
     | n=4  | 2   | 1   | 0   | 3   |
 
     - 2. シーケンス $V$ の要素には以下の計算が適用される：
-        $$ X'_{2 \cdot k} = mulhi(V_{2 \cdot k},\ M_{n/2-1-k},\ w)\ xor\ key_k^q\ xor\ V_{2 \cdot k + 1} $$
-        $$ X'_{2 \cdot k + 1} = mullo(V_{2 \cdot k},\ M_{n/2-1-k},\ w) $$
+        $$ X'_{2 \cdot k} = mulhi(V_{2 \cdot k},\ M_{k},\ w)\ xor\ key_k^q\ xor\ V_{2 \cdot k + 1} $$
+        $$ X'_{2 \cdot k + 1} = mullo(V_{2 \cdot k},\ M_{k},\ w) $$
 
         - ここで以下のように定義する：
             - `mullo(a, b, w)`関数は、`a`と`b`を掛けた剰余の下半分を返す： $ a \cdot b\ mod \ 2^{w} $
@@ -71,7 +71,7 @@ Philox法は、以下のような特徴を持つ：
             - `q`は0, …, r - 1のラウンドのインデックスである
             - $ key_k^q $ はラウンド`q`の`k`番目のラウンドキーであり、 $ key_k^q = \left( K_{k}\ +\ q \cdot C_{k} \right)\ mod\ 2^{w} $
             - $ K_{k} $ はシードで一度生成されたキーであり、[`seed()`](philox_engine/seed.md)関数が呼ばれない限り固定である
-            - $ M_{k} $ は`multipliers`である（上式のとおり、`k`番目の語には $ M_{n/2-1-k} $ を用いる）
+            - $ M_{k} $ は`multipliers[k]`である
             - $ C_{k} $ は`round_consts`である
 
 - 一回のラウンド関数が`r`回適用されたあと、Philoxはシーケンス`Y=X'`を返す
