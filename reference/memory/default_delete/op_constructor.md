@@ -55,7 +55,8 @@ constexpr default_delete(const default_delete<U[]>& other) noexcept; // (4) C++2
 ```cpp example
 #include <memory>
 
-struct Base {};
+// 基底クラスのポインタを介してdeleteするため、デストラクタは仮想にする
+struct Base { virtual ~Base() = default; };
 struct Derived : Base {};
 
 int main()
