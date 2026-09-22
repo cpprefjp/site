@@ -40,7 +40,7 @@ namespace std {
 
 - (2) :
     ```cpp
-    return compare_three_way()(a.get(), static_cast<typename shared_ptr<T>::element_type*>(nullptr));
+    return compare_three_way()(x.get(), static_cast<typename shared_ptr<T>::element_type*>(nullptr));
     ```
     * compare_three_way[link /reference/compare/compare_three_way.md]
     * get()[link get.md]
