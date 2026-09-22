@@ -5,10 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-virtual const char* what() const;                     // (1) C++98
-virtual const char* what() const noexcept;            // (1) C++11
-const char* what() const noexcept override;           // (1) C++17
-constexpr const char* what() const noexcept override; // (1) C++26
+virtual const char* what() const;                    // (1) C++98
+virtual const char* what() const noexcept;           // (1) C++11
+constexpr virtual const char* what() const noexcept; // (1) C++26
 ```
 
 ## 概要
