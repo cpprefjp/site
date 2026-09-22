@@ -97,7 +97,7 @@ int main()
 
   // 要素を破棄
   for (std::size_t i = 0; i < size; ++i) {
-    alloc.destroy(p + i);
+    std::destroy_at(p + i);
   }
 
   // メモリ解放
@@ -106,7 +106,7 @@ int main()
 ```
 * std::uninitialized_fill[color ff0000]
 * alloc.allocate[link allocator/allocate.md]
-* alloc.destroy[link allocator/destroy.md]
+* std::destroy_at[link destroy_at.md]
 * alloc.deallocate[link allocator/deallocate.md]
 
 #### 出力
