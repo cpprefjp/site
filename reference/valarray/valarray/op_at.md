@@ -272,7 +272,7 @@ int main()
 ```
 
 ### 備考
-- GCC 4.8.2時点のlibstdc++において、(8)と(10)のオーバーロードにおいて、一時オブジェクトのマスク配列を渡すと、ダングリング参照が発生する問題がある([#Bug 63314](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63314), [mask_array behavior in libstdc++](http://stackoverflow.com/questions/25918764/mask-array-behavior-in-libstdc))
+- libstdc++において、(6)のオーバーロードに一時オブジェクトの[`gslice`](/reference/valarray/gslice.md)を渡した場合、および(8)と(10)のオーバーロードに一時オブジェクトのマスク配列を渡した場合に、ダングリング参照が発生する問題がある([Bug 62119](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=62119), [Bug 63314](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63314), [mask_array behavior in libstdc++](http://stackoverflow.com/questions/25918764/mask-array-behavior-in-libstdc))。GCC 4.8.2で報告され、GCC 13.3時点でも未修正である
 
 
 ## 参照

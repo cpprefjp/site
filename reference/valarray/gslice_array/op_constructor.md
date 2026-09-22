@@ -70,7 +70,7 @@ int main()
 
 
 ### 備考
-- GCC 4.9.0時点のlibstdc++は、(2)のオーバーロードにおいて、ダングリング参照の問題が発生する実装のバグがある([Bug 62119](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=62119))
+- libstdc++には、(2)のオーバーロードにおいてダングリング参照が発生する実装のバグがある([Bug 62119](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=62119))。GCC 4.9.0で報告され、GCC 13.3時点でも未修正である。上記の例もこのバグの影響を受け、実行すると異常終了する
 
 
 ## 参照
