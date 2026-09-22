@@ -141,7 +141,8 @@ int main()
     std::vector vec = {'H', 'e', 'l', 'l', 'o', '\0', '!'};
     // 参照するのは入力範囲先頭からそのサイズ（`std::ranges::size()`）分
     std::string_view sv{vec};
-    std::cout << "(7) : " << sv << std::endl;
+    // 終端ヌル文字で止まらないため、sizeは7になる
+    std::cout << "(7) : size = " << sv.size() << std::endl;
 
     // explicitのため、このような初期化や暗黙変換は無効
     //std::string_view sv = {vec};
@@ -149,6 +150,7 @@ int main()
 }
 ```
 * s.begin()[link /reference/string/basic_string/begin.md]
+* sv.size()[link size.md]
 
 ### 出力
 ```
@@ -156,7 +158,7 @@ int main()
 (3) : Hello World
 (5) : Hello
 (6) : Hello
-(7) : Hello!
+(7) : size = 7
 ```
 
 ## バージョン
