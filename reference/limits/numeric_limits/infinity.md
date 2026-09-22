@@ -50,8 +50,8 @@ int main()
 
 ### 出力例
 ```
-float : 1.#INF
-double : 1.#INF
+float : inf
+double : inf
 ```
 
 ## 参照
