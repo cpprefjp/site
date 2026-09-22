@@ -30,15 +30,24 @@ constexpr remove_cv_t<T> value_or(U&& u) const;        // (3) C++26
 
 
 ## 要件
-- (1), (2) : [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> == true`であること
+- (1) : [`is_copy_constructible_v`](/reference/type_traits/is_copy_constructible.md)`<T> == true`であること
+- (2) : [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<T> == true`であること
 - (1), (2) : [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U&&, T> == true`であること
 
 
 ## 効果
-- (1), (2) : 以下の式と等価の効果を持つ：
+- (1) : 以下の式と等価の効果を持つ：
 
     ```cpp
     return has_value() ? value() : static_cast<T>(std::forward<U>(v));
+    ```
+    * has_value()[link has_value.md]
+    * value()[link value.md]
+
+- (2) : 以下の式と等価の効果を持つ：
+
+    ```cpp
+    return has_value() ? std::move(value()) : static_cast<T>(std::forward<U>(v));
     ```
     * has_value()[link has_value.md]
     * value()[link value.md]
