@@ -50,9 +50,9 @@ int main()
 * epsilon()[color ff0000]
 * std::abs[link /reference/cmath/abs.md]
 
-### 出力
+### 出力例
 ```
-2.22045e-016
+2.22045e-16
 equal
 ```
 

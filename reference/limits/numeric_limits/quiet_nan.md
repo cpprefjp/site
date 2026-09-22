@@ -46,10 +46,10 @@ int main()
 ```
 * quiet_NaN()[color ff0000]
 
-### 出力
+### 出力例
 ```
-float : 1.#QNAN
-double : 1.#QNAN
+float : nan
+double : nan
 ```
 
 ## 参照
