@@ -11,7 +11,7 @@ constexpr virtual ~bad_optional_access(); // (1) C++26
 ```
 
 ## 概要
-`bad_array_new_length`オブジェクトを破棄する。
+`bad_optional_access`オブジェクトを破棄する。
 
 
 ## 例外
