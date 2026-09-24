@@ -2,7 +2,7 @@
 * syncstream[meta header]
 * function[meta id-type]
 * std[meta namespace]
-* basic_syncbuf[meta class]
+* basic_osyncstream[meta class]
 * cpp20[meta cpp]
 
 

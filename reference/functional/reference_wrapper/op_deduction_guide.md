@@ -1,7 +1,7 @@
 # 推論補助
 * functional[meta header]
 * std[meta namespace]
-* functional[meta class]
+* reference_wrapper[meta class]
 * cpp17[meta cpp]
 
 ```cpp
