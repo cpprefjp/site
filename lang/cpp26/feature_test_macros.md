@@ -116,7 +116,7 @@
 |`__cpp_lib_is_sufficiently_aligned`|`202411L`|[`<mdspan>`](/reference/mdspan.md)に、要素アクセスにアライメント保証を与える[`std::aligned_accessor`](/reference/mdspan/aligned_accessor.md)を追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_is_structural`|`202603L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_structural`](/reference/type_traits/is_structural.md)を追加|[`<type_traits>`](/reference/type_traits.md), [`<meta>`](/reference/meta.md)|
 |`__cpp_lib_is_virtual_base_of`|`202406L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_virtual_base_of`](/reference/type_traits/is_virtual_base_of.md)を追加|[`<type_traits>`](/reference/type_traits.md)|
-|`__cpp_lib_is_within_lifetime`|`202306L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_within_lifetime()`](/reference/type_traits/is_within_lifetime.md)を追加|[`<type_traits>`](/reference/type_traits.md)|
+|`__cpp_lib_is_within_lifetime`|`202603L`|[`<type_traits>`](/reference/type_traits.md)に[`std::is_within_lifetime()`](/reference/type_traits/is_within_lifetime.md)を追加 (`202306L`)。テンプレートパラメータ`U`を追加し、ポインタのキャスト可能性も判定するよう拡張 (`202603L`)|[`<type_traits>`](/reference/type_traits.md)|
 |`__cpp_lib_linalg`|`202511L`|線形代数ライブラリとして[`<linalg>`](/reference/linalg.md)を追加|[`<linalg>`](/reference/linalg.md)|
 |`__cpp_lib_mdspan`|`202406L`|[`std::mdspan`](/reference/mdspan/mdspan.md)に対する[`std::dextents`](/reference/mdspan/extents.md)指定の冗長さを解決する[`std::dims`](/reference/mdspan/extents.md)を追加|[`<mdspan>`](/reference/mdspan.md)|
 |`__cpp_lib_not_fn`|`202306L`|[`std::not_fn()`](/reference/functional/not_fn.md)に、非型テンプレート引数として関数を指定するオーバーロードを追加|[`<functional>`](/reference/functional.md)|
@@ -222,3 +222,5 @@
     - [`std::constant_wrapper`](/reference/utility/constant_wrapper.md)の文字列リテラルサポートが取り消されたことにより、`__cpp_lib_constant_wrapper`が`202603L`から`202606L`に更新された。規格としてはC++29のワーキングドラフトへ適用されたが、C++26で追加された機能に対する欠陥報告 (DR) であるため、C++26へ遡及して適用される
 - [P2198R7 Freestanding Feature-Test Macros and Implementation-Defined Extensions](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2198r7.html)
     - フリースタンディング処理系向けの機能テストマクロ（`__cpp_lib_freestanding_*`）と、実装定義拡張の扱いが規定された
+- [P3450R1 Extend `std::is_within_lifetime`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3450r1.html)
+    - C++26で`__cpp_lib_is_within_lifetime`が`202603L`に更新された
