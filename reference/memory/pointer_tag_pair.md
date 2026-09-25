@@ -76,6 +76,21 @@ namespace std {
 
 また、コンストラクタなどの制約には説明専用コンセプト[`tagging-compatible-pointee`](tagging-compatible-pointee.md)を使用する。
 
+## 備考
+### 応用事例
+ポインタタギングは広く使われている手法である。代表的な応用例を以下に挙げる。
+
+- LLVMは`PointerIntPair`と`PointerUnion`として同種のクラスを提供している。本クラスと同じく、指す先のアライメントから使えるビット数を求め、下位ビットへ小さな整数値や型の判別情報を格納する
+    - [The PointerIntPair class - LLVM Programmer's Manual](https://llvm.org/docs/ProgrammersManual.html#the-pointerintpair-class)
+- CPythonのガベージコレクタは、収集対象のオブジェクトをつなぐ双方向リストのポインタにフラグを埋め込む。`_gc_prev`の下位2ビットに「収集中か」と「ファイナライズ済みか」を格納し、収集の最中は`_gc_next`の最下位ビットに「到達不能と暫定判定されたか」を格納する。オブジェクト1個あたりの追加メモリを増やさずにフラグを持たせるための最適化である
+    - [Garbage collector design - CPython Internals Docs](https://github.com/python/cpython/blob/main/InternalDocs/garbage_collector.md)
+- [`std::atomic`](/reference/atomic/atomic.md)`<`[`std::shared_ptr`](shared_ptr.md)`<T>>`のlibstdc++とMSVCの実装は、制御ブロックへのポインタの最下位ビットをスピンロックのフラグに使用する。指す先のオブジェクトへのポインタではなく制御ブロックへのポインタを選ぶのは、制御ブロックの確保をライブラリ側が行うためアライメントを保証できるからである
+    - [Inside STL: The atomic shared_ptr - The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20241219-00/?p=110663)
+- レイトレーシングのpbrtは、形状やマテリアルなど多数の型を仮想関数なしで扱うために`TaggedPointer`を使う。こちらは下位ビットではなく上位7ビット (ビット57以上) に型の番号を格納し、128種類までの型を判別して、型に応じた処理を呼び分ける
+    - [B.4.4 Tagged Pointers - Physically Based Rendering](https://pbr-book.org/4ed/Utilities/Containers_and_Memory_Management)
+
+pbrtのように上位ビットを使う方法は、アドレス空間が64ビット全体を使わないことに依存するため、対象とする環境を限定する。上位ビットを無視するハードウェア機構としては、IntelのLAM (linear address masking)、AMDのUAI (upper address ignore)、ARMのTBI (top byte ignore) などがある。
+
 
 ## メンバ関数
 ### 構築・破棄
