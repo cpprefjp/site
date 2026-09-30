@@ -1,0 +1,980 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>未定義動作とIFNDRの一覧を規格の付録に追加 [P3596R3] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp29
+">
+        <meta name="title" content="未定義動作とIFNDRの一覧を規格の付録に追加 [P3596R3] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="未定義動作とIFNDRの一覧を規格の付録に追加 [P3596R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="未定義動作とIFNDRの一覧を規格の付録に追加 [P3596R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp29/undefined_behavior_and_ifndr_annexes.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="未定義動作の規定や、不適格だが診断が要求されない (ill-formed, no diagnostic required、IFNDR) 規則は、規格の本文全体に散在しており、その全体像を把握することが難しかった。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="未定義動作とIFNDRの一覧を規格の付録に追加 [P3596R3] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp29/undefined_behavior_and_ifndr_annexes.html" />
+        <meta name="twitter:description" content="未定義動作の規定や、不適格だが診断が要求されない (ill-formed, no diagnostic required、IFNDR) 規則は、規格の本文全体に散在しており、その全体像を把握することが難しかった。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="manifest" href="../../manifest.json?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp29&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp29&#34;, &#34;undefined_behavior_and_ifndr_annexes&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp29.html" itemprop="url">
+              
+                <span itemprop="name">C++29</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">未定義動作とIFNDRの一覧を規格の付録に追加 [P3596R3]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-09-05T12:43:21+09:00">
+        2026年09月05日 12時43分21秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp29/undefined_behavior_and_ifndr_annexes.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp29/undefined_behavior_and_ifndr_annexes.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">未定義動作とIFNDRの一覧を規格の付録に追加 [P3596R3]</span><span class="cpp cpp29" title="C++29で追加">(C++29)</span></h1>
+<div itemprop="articleBody"><p>
+</p>
+<p>このページはC++29に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p>
+</p>
+<h2>概要</h2>
+<p><a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>の規定や、<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>だが診断が要求されない (ill-formed, no diagnostic required、<a class="cpprefjp-defined-word" data-desc="不適格だが診断が要求されない (ill-formed, no diagnostic required)。エラーにならずビルドが通ることがあり、その場合の動作は保証されない" href="../../implementation-compliance.html#dfn-no-diagnostic-required">IFNDR</a>) 規則は、規格の本文全体に散在しており、その全体像を把握することが難しかった。</p>
+<p>C++29では、これらをすべて列挙する2つの付録が規格に追加される。</p>
+<ul>
+<li>Core undefined behavior : コア言語の規定で「<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>」と明示されているすべてのケース（80項目）</li>
+<li>Ill-formed, no diagnostic required : 「診断は要求されない」とされているすべての規則（45項目）</li>
+</ul>
+<p>各項目は、次の要素で構成される。</p>
+<ul>
+<li>安定した名前（例: <code>expr.expr.eval</code>＝算術式の評価が<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>であるケース、<code>basic.compound.invalid.pointer</code>＝無効なポインタ値の間接参照）</li>
+<li>本文の規定への相互参照（本文の該当箇所から付録の項目へもリンクされる）</li>
+<li>状況の要約</li>
+<li>コード例</li>
+</ul>
+<p>この付録は参考情報 (informative) であり、規範ではない。付録の追加によって言語の動作が変わることはなく、プログラムの正しさの調査や、処理系・検査ツールの網羅性の確認などに利用できるリファレンスを提供するものである。</p>
+<p>また、各項目に与えられた安定した名前は、個々の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>の緩和・削減を検討する取り組み（P3100など）において、問題を特定する共通の語彙としても使われる。</p>
+<h2>仕様</h2>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>の付録が対象とするのは、コア言語の規定（字句規則からプリプロセッサまで）で「<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>」などの言い回しによって明示的に規定されている<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>である<ul>
+<li>規格が動作を定義していないことによる暗黙の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>は対象外である</li>
+<li>標準ライブラリの規定による<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>も対象外である</li>
+</ul>
+</li>
+<li><a class="cpprefjp-defined-word" data-desc="不適格だが診断が要求されない (ill-formed, no diagnostic required)。エラーにならずビルドが通ることがあり、その場合の動作は保証されない" href="../../implementation-compliance.html#dfn-no-diagnostic-required">IFNDR</a>の付録が対象とするのは、「診断は要求されない」などの言い回しによって明示的に規定されている規則である</li>
+<li>どちらの付録も、本文の章構成と対応する節に分けて項目を列挙する</li>
+</ul>
+<h3><a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>の一覧</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>分類</th>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基本</td>
+<td><code>intro.object.implicit.create</code></td>
+<td>暗黙的なオブジェクト生成で、プログラムの動作が定義されることになるオブジェクトの集合が存在しない</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>intro.object.implicit.pointer</code></td>
+<td>暗黙的なオブジェクト生成後に、適切なオブジェクトへのポインタを生成できない</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.align.object.alignment</code></td>
+<td>型のアライメント要求を満たさない記憶域にオブジェクトを生成する</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>lifetime.outside.pointer.delete</code></td>
+<td>生存期間外のオブジェクトへのポインタを、非トリビアルなデストラクタを持つクラス型に対するdelete式のオペランドに使用する</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>lifetime.outside.pointer.member</code></td>
+<td>生存期間外のオブジェクトへのポインタで、メンバ変数へアクセスするか非静的メンバ関数を呼び出す</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>lifetime.outside.pointer.virtual</code></td>
+<td>生存期間外のオブジェクトへのポインタを、仮想基底クラスへのポインタへ暗黙変換する</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>lifetime.outside.pointer.dynamic.cast</code></td>
+<td>生存期間外のオブジェクトへのポインタを<code>dynamic_cast</code>のオペランドに使用する</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>lifetime.outside.glvalue.access</code></td>
+<td>生存期間外のオブジェクトを参照するglvalueで、そのオブジェクトへアクセスする</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>lifetime.outside.glvalue.member</code></td>
+<td>生存期間外のオブジェクトを参照するglvalueで、非静的メンバ関数を呼び出す</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>lifetime.outside.glvalue.virtual</code></td>
+<td>生存期間外のオブジェクトを参照するglvalueを、仮想基底クラスへの参照に束縛する</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>lifetime.outside.glvalue.dynamic.cast</code></td>
+<td>生存期間外のオブジェクトを参照するglvalueを、<code>dynamic_cast</code>または<code>typeid</code>のオペランドに使用する</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>original.type.implicit.destructor</code></td>
+<td>記憶域を占めるオブジェクトの型が、その記憶域の元の型と異なる状態で、非トリビアルな暗黙のデストラクタ呼び出しが行われる</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>creating.within.const.complete.obj</code></td>
+<td><code>const</code>な完全オブジェクトが占める（または生存期間終了前に占めていた）記憶域に、新しいオブジェクトを生成する</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.indet.value</code></td>
+<td>評価の結果が不定値となる（エラー値の場合を除く）</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.stc.alloc.dealloc.constraint</code></td>
+<td>確保関数・解放関数の動作が、規定された意味論的制約を満たさない</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.stc.alloc.zero.dereference</code></td>
+<td>サイズ0で確保関数を呼び出して返されたポインタを間接参照する</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.compound.invalid.pointer</code></td>
+<td>解放済みの記憶域を参照するポインタ値を、間接参照するか解放関数へ渡す</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>intro.execution.unsequenced.modification</code></td>
+<td>同じメモリ位置への副作用が、同じメモリ位置への別の副作用や値の計算と順序付けられていない</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>intro.races.data</code></td>
+<td>データ競合（一方が非アトミックで、互いに前後して発生しない、並行する競合アクセス）</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>intro.progress.stops</code></td>
+<td>終了していない実行スレッドが、実行ステップを進めなくなる</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.start.main.exit.during.destruction</code></td>
+<td>静的・スレッド記憶域期間のオブジェクトの破棄中に<code>std::exit()</code>を呼び出す</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.start.term.use.after.destruction</code></td>
+<td>破棄済みの静的・スレッドローカルなブロックスコープオブジェクトを持つ関数を、静的・スレッド記憶域期間のオブジェクトの破棄中に呼び出す</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.expr.eval</code></td>
+<td>算術式の結果が数学的に定義されないか、その型で表現できない（符号付き整数のオーバーフローなど）</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.basic.lvalue.strict.aliasing.violation</code></td>
+<td>オブジェクトを、その動的な型と類似しない型のglvalueを通してアクセスする（strict aliasing違反）</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.basic.lvalue.union.initialization</code></td>
+<td>共用体のdefault定義されたコピー・ムーブ操作を、生存期間内の類似した型のオブジェクトではない引数で呼び出す</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.type.reference.lifetime</code></td>
+<td>同じオブジェクトを指すポインタの同等の使用が無効となる状況で、参照を評価する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>conv.lval.valid.representation</code></td>
+<td>値表現がその型として妥当ではないオブジェクトを、lvalueからrvalueへ変換する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>conv.double.out.of.range</code></td>
+<td>浮動小数点数の値を、その値を表現できない浮動小数点型へ変換する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>conv.fpint.float.not.represented</code></td>
+<td>浮動小数点数から整数型への変換で、値が変換先の型で表現できない</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>conv.fpint.int.not.represented</code></td>
+<td>整数型・スコープなし列挙型から浮動小数点型への変換で、値が変換先の型で表現できない</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>conv.ptr.virtual.base</code></td>
+<td>生存期間内の有効なオブジェクトを指していない派生クラスへのポインタを、仮想基底クラスへのポインタへ変換する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>conv.member.missing.member</code></td>
+<td>基底クラスのメンバへのポインタを、そのメンバを含むことができない派生クラスのメンバへのポインタへ変換する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.call.different.type</code></td>
+<td>関数を、その定義の関数型と呼び出し互換ではない関数型の式を通して呼び出す</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.ref.member.not.similar</code></td>
+<td>クラスメンバアクセス<code>E1.E2</code>で、<code>E1</code>が参照するオブジェクトの型が式<code>E1</code>の型と類似しない</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.dynamic.cast.pointer.lifetime</code></td>
+<td>異なる型のオブジェクトや生存期間外のオブジェクトを指す非ヌルポインタに対して、<code>dynamic_cast</code>を評価する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.dynamic.cast.glvalue.lifetime</code></td>
+<td>類似しない型のオブジェクトや生存期間外のオブジェクトを参照するglvalueに対して、<code>dynamic_cast</code>を評価する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.static.cast.base.class</code></td>
+<td>基底クラス型のglvalueを、実際のオブジェクトが属さない派生クラスへの参照へ<code>static_cast</code>する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.static.cast.enum.outside.range</code></td>
+<td>固定の基底型を持たない列挙型への変換で、元の値が列挙の値の範囲外である</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.static.cast.fp.outside.range</code></td>
+<td>浮動小数点数の明示的な変換で、値が変換先の型の範囲外である</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.static.cast.downcast.wrong.derived.type</code></td>
+<td>その位置に派生クラスのオブジェクトが存在しないのに、基底クラスへのポインタを派生クラスへのポインタへ<code>static_cast</code>する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.static.cast.does.not.contain.original.member</code></td>
+<td>元のメンバを含まないクラスのメンバへのポインタへ<code>static_cast</code>する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.unary.dereference</code></td>
+<td>オブジェクトも関数も指していないポインタを間接参照する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.new.non.allocating.null</code></td>
+<td>非確保形式（placement形式）の確保関数がヌルポインタを返す</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.delete.mismatch</code></td>
+<td>単一オブジェクトのnew式の結果を、配列版の<code>delete[]</code>で解放する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.delete.array.mismatch</code></td>
+<td>配列のnew式の結果を、単一オブジェクト版の<code>delete</code>で解放する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.delete.dynamic.type.differ</code></td>
+<td>delete式で、削除するオブジェクトの静的な型が動的な型と異なり、基底クラスかつ仮想デストラクタを持つという要件を満たさない</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.delete.dynamic.array.dynamic.type.differ</code></td>
+<td>配列のdelete式で、削除するオブジェクトの動的な型が静的な型と異なる</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.mptr.oper.not.contain.member</code></td>
+<td>メンバポインタ演算子<code>E1.*E2</code>で、<code>E1</code>の動的な型が<code>E2</code>が参照するメンバを含まない</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.mptr.oper.member.func.null</code></td>
+<td><code>.*</code>式の第2オペランドがヌルメンバポインタ値である</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.mul.div.by.zero</code></td>
+<td>0による除算・剰余</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.mul.representable.type.result</code></td>
+<td>除算・剰余で、商が結果の型で表現できない（<code>INT_MIN / -1</code>など）</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.add.out.of.bounds</code></td>
+<td>配列の範囲外を指すポインタを生成する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.add.sub.diff.pointers</code></td>
+<td>同じ配列に属さないポインタ同士を減算する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.add.not.similar</code></td>
+<td>ポインタの加減算で、ポインタが指す型と配列要素の型が類似しない</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.shift.neg.and.width</code></td>
+<td>負の量、または型のビット幅以上の量によるシフト</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.assign.overlap</code></td>
+<td>代入で、転送元と転送先の記憶域が重なる</td>
+</tr>
+<tr>
+<td>文</td>
+<td><code>stmt.return.flow.off</code></td>
+<td><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が<code>void</code>ではない関数（<code>main()</code>とコルーチンを除く）の末尾に到達する</td>
+</tr>
+<tr>
+<td>文</td>
+<td><code>stmt.return.coroutine.flow.off</code></td>
+<td><code>void</code>を返さないコルーチンの本体の末尾に到達する</td>
+</tr>
+<tr>
+<td>文</td>
+<td><code>stmt.dcl.local.static.init.recursive</code></td>
+<td>ブロックスコープの静的変数の初期化中に、その宣言へ再帰的に制御が入る</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.type.cv.modify.const.obj</code></td>
+<td><code>const</code>オブジェクトを生存期間中に変更する</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.type.cv.access.volatile</code></td>
+<td><code>volatile</code>修飾された型で定義されたオブジェクトへ、非<code>volatile</code>なglvalueを通してアクセスする</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.ref.incompatible.function</code></td>
+<td>関数への参照を、参照の型と呼び出し互換ではない関数で初期化する</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.ref.incompatible.type</code></td>
+<td>オブジェクトへの参照を、参照の型を通してアクセスできない値で初期化する</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.ref.uninitialized.reference</code></td>
+<td>初期化される前の参照を評価する</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.fct.def.coroutine.resume.not.suspended</code></td>
+<td>中断していないコルーチンの再開メンバ関数を呼び出す</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.fct.def.coroutine.destroy.not.suspended</code></td>
+<td>中断していないコルーチンの<code>destroy()</code>を呼び出す</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.attr.assume.false</code></td>
+<td><code>assume</code>属性の式が、その地点で<code>true</code>に評価されないことになる</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.attr.noreturn.eventually.returns</code></td>
+<td><code>noreturn</code>属性付きで宣言された関数が返る</td>
+</tr>
+<tr>
+<td>クラス</td>
+<td><code>class.dtor.no.longer.exists</code></td>
+<td>生存期間が終了したオブジェクトに対して、デストラクタを呼び出す</td>
+</tr>
+<tr>
+<td>クラス</td>
+<td><code>class.abstract.pure.virtual</code></td>
+<td>抽象クラスのコンストラクタ・デストラクタから、純粋仮想関数を呼び出す</td>
+</tr>
+<tr>
+<td>クラス</td>
+<td><code>class.base.init.mem.fun</code></td>
+<td>基底クラスのすべてのメンバ初期化子が完了する前に、メンバ関数を呼び出す</td>
+</tr>
+<tr>
+<td>クラス</td>
+<td><code>class.cdtor.before.ctor</code></td>
+<td>非トリビアルなコンストラクタの実行開始前に、オブジェクトのメンバや基底クラスを参照する</td>
+</tr>
+<tr>
+<td>クラス</td>
+<td><code>class.cdtor.after.dtor</code></td>
+<td>非トリビアルなデストラクタの実行完了後に、オブジェクトのメンバや基底クラスを参照する</td>
+</tr>
+<tr>
+<td>クラス</td>
+<td><code>class.cdtor.convert.pointer</code></td>
+<td>構築開始前・破棄完了後のオブジェクトへのポインタを、基底クラスへのポインタへ変換する</td>
+</tr>
+<tr>
+<td>クラス</td>
+<td><code>class.cdtor.form.pointer</code></td>
+<td>構築開始前・破棄完了後のオブジェクトの、直接の非静的メンバへのポインタを作る</td>
+</tr>
+<tr>
+<td>クラス</td>
+<td><code>class.cdtor.virtual.not.x</code></td>
+<td>構築・破棄中の仮想関数呼び出しで、呼び出し対象のオブジェクトが構築・破棄中のオブジェクトやその部分オブジェクトではない</td>
+</tr>
+<tr>
+<td>クラス</td>
+<td><code>class.cdtor.typeid</code></td>
+<td><code>typeid</code>のオペランドが構築・破棄中のオブジェクトを参照し、オペランドの静的な型がそのクラスやその基底クラスではない</td>
+</tr>
+<tr>
+<td>クラス</td>
+<td><code>class.cdtor.dynamic.cast</code></td>
+<td><code>dynamic_cast</code>のオペランドが構築・破棄中のオブジェクトを参照し、オペランドの静的な型がそのクラスやその基底クラスではない</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.inst.inf.recursion</code></td>
+<td>テンプレートのインスタンス化が無限に再帰する</td>
+</tr>
+<tr>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></td>
+<td><code>except.handle.handler.ctor.dtor</code></td>
+<td>コンストラクタ・デストラクタの関数tryブロックのハンドラで、そのオブジェクトのメンバや基底クラスを参照する</td>
+</tr>
+</tbody>
+</table>
+<h3><a class="cpprefjp-defined-word" data-desc="不適格だが診断が要求されない (ill-formed, no diagnostic required)。エラーにならずビルドが通ることがあり、その場合の動作は保証されない" href="../../implementation-compliance.html#dfn-no-diagnostic-required">IFNDR</a>の一覧</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>分類</th>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字句</td>
+<td><code>lex.name.reserved</code></td>
+<td>C++処理系のために予約された識別子を使用する</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.link.consistent.types</code></td>
+<td>互いに到達可能ではない、同じ実体の異なる種類での複数の宣言がある</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.def.odr.minimum.one.def</code></td>
+<td>破棄されない文からodr使用される関数・変数に定義がない</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.def.odr.injected.match</code></td>
+<td>ある翻訳単位でリフレクションの注入された宣言によって定義した実体が、別の翻訳単位の定義と要件を満たさない</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.def.odr.maximum.one.def</code></td>
+<td>非インライン・非テンプレートの関数・変数が、異なる翻訳単位で複数回定義される</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.def.odr.definition.matches</code></td>
+<td>異なる翻訳単位の定義同士が一致しない（ODR違反）</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.def.odr.unnamed.enum.same.type</code></td>
+<td>同じスコープに、先頭の列挙子名が同じでリンケージ用のtypedef名を持たない複数の無名列挙型の定義がある</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.contract.vastart.contract.predicate</code></td>
+<td>契約アサーションの<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>の中で<code>va_start</code>を使用する</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>basic.contract.handler.replacing.nonreplaceable</code></td>
+<td>契約違反ハンドラを置き換えられない処理系で、置き換え関数となりうる関数を宣言する</td>
+</tr>
+<tr>
+<td>基本</td>
+<td><code>class.member.lookup.name.refers.diff.decl</code></td>
+<td>クラス内で使用した名前が、クラスの完成したスコープで再評価すると異なる宣言を参照する</td>
+</tr>
+<tr>
+<td>式</td>
+<td><code>expr.prim.req.always.sub.fail</code></td>
+<td>requires式の要件へのテンプレート引数の置換が、常に置換失敗となる</td>
+</tr>
+<tr>
+<td>文</td>
+<td><code>stmt.ambig.bound.diff.parse</code></td>
+<td>構文解析中のテンプレートパラメータ内の名前が、試行的な構文解析時と異なって束縛される</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.constinit.specifier.not.reachable</code></td>
+<td><code>constinit</code>指定子の有無が、互いに到達可能ではない宣言間で一致しない</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.inline.missing.on.definition</code></td>
+<td>外部・モジュールリンケージを持つinline関数・変数で、定義域の終端から到達可能なinline宣言がない</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.fct.default.inline.same.defaults</code></td>
+<td>複数の翻訳単位で定義されるインライン関数のデフォルト引数の集合が、翻訳単位の終端で異なる</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.contract.func.mismatched.contract.specifiers</code></td>
+<td>互いに到達可能ではない関数の最初の宣言同士で、契約指定子が等価ではない</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.fct.def.replace.bad.replacement</code></td>
+<td>置き換え可能関数の宣言が、要求される形（非インライン・C++言語リンケージ・<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型など）を満たさない</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.link.mismatched.language.linkage</code></td>
+<td>互いに到達可能ではない宣言同士で、言語リンケージが一致しない</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.align.diff.translation.units</code></td>
+<td>実体のアライメント指定子が、翻訳単位間で異なる</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.attr.indet.mismatched.declarations</code></td>
+<td>関数の最初の宣言同士で、パラメータの<code>indeterminate</code>属性の使用が一致しない</td>
+</tr>
+<tr>
+<td>宣言</td>
+<td><code>dcl.attr.noreturn.trans.unit.mismatch</code></td>
+<td><code>noreturn</code>属性の有無が、翻訳単位間で一致しない</td>
+</tr>
+<tr>
+<td>モジュール</td>
+<td><code>module.unit.reserved.identifiers</code></td>
+<td>モジュール名に、<code>std</code>＋数字で始まる識別子や予約識別子を使用する</td>
+</tr>
+<tr>
+<td>モジュール</td>
+<td><code>module.unit.named.module.no.partition</code></td>
+<td>名前付きモジュールに、複数のプライマリモジュールインタフェース単位がある</td>
+</tr>
+<tr>
+<td>モジュール</td>
+<td><code>module.unit.unexported.module.partition</code></td>
+<td>モジュールインタフェース単位であるパーティションが、プライマリモジュールインタフェース単位からエクスポートされていない</td>
+</tr>
+<tr>
+<td>モジュール</td>
+<td><code>module.private.frag.other.module.units</code></td>
+<td>プライベートモジュールフラグメントを持つモジュールに、ほかのモジュール単位がある</td>
+</tr>
+<tr>
+<td>クラス</td>
+<td><code>class.base.init.delegate.itself</code></td>
+<td>コンストラクタが、直接または間接に自分自身へ委譲する</td>
+</tr>
+<tr>
+<td>クラス</td>
+<td><code>class.virtual.pure.or.defined</code></td>
+<td>純粋ではない仮想関数に定義がない</td>
+</tr>
+<tr>
+<td><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></td>
+<td><code>over.literal.reserved</code></td>
+<td>将来の標準化のために予約されたリテラルサフィックス識別子で、リテラル演算子を宣言する</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.pre.reach.def</code></td>
+<td>暗黙的にインスタンス化されるテンプレートの定義が、すべての定義域の終端から到達可能ではなく、明示的インスタンス化もされていない</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.arg.template.sat.constraints</code></td>
+<td>テンプレートテンプレートパラメータによるインスタンス化で、到達可能であれば選択されたはずの部分特殊化が到達可能ではない</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.constr.atomic.equiv.but.not.equiv</code></td>
+<td>プログラムの妥当性・意味が、機能的に等価だが等価ではない2つのアトミック制約に依存する</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.constr.atomic.sat.result.diff</code></td>
+<td>同一のアトミック制約とテンプレート引数に対する充足の結果が、プログラム中の異なる地点で異なる</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.constr.normal.invalid</code></td>
+<td>制約の正規化中の置換が、無効な型や式を生成する</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.spec.partial.general.partial.reachable</code></td>
+<td>インスタンス化で使用されたはずの部分特殊化が、テンプレートの特殊化の使用箇所から到達可能ではない</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.over.link.equiv.not.equiv</code></td>
+<td>プログラムの妥当性・意味が、機能的に等価だが等価ではない2つの構成要素に依存する</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.res.general.default.but.not.found</code></td>
+<td>インスタンス化地点から到達可能だが名前探索では見つからない宣言のデフォルト引数・デフォルトテンプレート引数を考慮すると、プログラムの妥当性・意味が変わる</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.point.diff.pt.diff.meaning</code></td>
+<td>2つの異なるインスタンス化地点が、ODRに従うとテンプレートの特殊化へ異なる意味を与える</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.dep.candidate.different.lookup.different</code></td>
+<td>全翻訳単位の関連名前空間の外部リンケージを持つ全関数宣言を考慮すると、依存呼び出しが<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>になるかより良い一致が見つかる</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.explicit.decl.implicit.inst</code></td>
+<td>明示的インスタンス化の宣言の対象であり暗黙的インスタンス化も起こる使い方をされている実体が、プログラム中のどこでも明示的インスタンス化の定義の対象になっていない</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.expl.spec.unreachable.declaration</code></td>
+<td>暗黙的インスタンス化が起こる箇所から、一致したはずの明示的特殊化が到達可能ではない</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.expl.spec.missing.definition</code></td>
+<td>明示的特殊化が宣言されているが、その定義が提供されていない</td>
+</tr>
+<tr>
+<td>テンプレート</td>
+<td><code>temp.deduct.general.diff.order</code></td>
+<td>同じ関数テンプレートの異なる宣言への置換で、テンプレートのインスタンス化が異なる順序で起こるか、起こらなくなる</td>
+</tr>
+<tr>
+<td>プリプロセッサ</td>
+<td><code>cpp.cond.defined.after.macro</code></td>
+<td>マクロの展開が<code>defined</code>という前処理トークンを生成する</td>
+</tr>
+<tr>
+<td>プリプロセッサ</td>
+<td><code>cpp.cond.defined.malformed</code></td>
+<td><code>defined</code>単項演算子を、規定された文法の形に一致しない形で使用する</td>
+</tr>
+<tr>
+<td>プリプロセッサ</td>
+<td><code>cpp.include.malformed.headername</code></td>
+<td><code>#include</code>指令の後のトークン列からヘッダ名を構成できない</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p>付録に列挙される<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>の例:</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/climits.html">&lt;climits&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// 未定義動作: 算術式の結果が表現可能な値の範囲にない</span>
+<span class="w">                  </span><span class="c1">// 付録では expr.expr.eval という名前で列挙される</span>
+
+<span class="w">  </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="o">*</span><span class="n">p</span><span class="p">;</span><span class="w">             </span><span class="c1">// 未定義動作: 無効なポインタ値の間接参照</span>
+<span class="w">                  </span><span class="c1">// 付録では basic.compound.invalid.pointer という名前で列挙される</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++のすべての<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>と<a class="cpprefjp-defined-word" data-desc="不適格だが診断が要求されない (ill-formed, no diagnostic required)。エラーにならずビルドが通ることがあり、その場合の動作は保証されない" href="../../implementation-compliance.html#dfn-no-diagnostic-required">IFNDR</a>を一覧化する作業は、以前から有用と認識されており、P1705R1による調査の試みや、その成果を規格自体の付録として正式化する提案（P2234R0・P3075R0）が行われてきた。この付録の文言は、C++ワーキングドラフトのブランチとして共同で開発され、C++29のドラフトへ取り込まれた。</p>
+<p><a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>の網羅的な一覧は、安全性への関心の高まりを受けて<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を分類し緩和策を検討するP3100のような提案の基礎資料にもなっており、規格自体が一覧を保守することで、こうした取り組みが参照できる安定した共通語彙が確立された。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp26/erroneous_behavior_for_uninitialized_reads.html">C++26 未初期化変数の読み取りをエラー性動作とする (<code>[[indeterminate]]</code>属性)</a></li>
+<li><a href="clarify_the_behavior_of_floating-point_overflow.html">C++29 浮動小数点演算のオーバーフローと無限大・NaNの扱いを明確化</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3596r3.pdf" target="_blank">P3596R3 Undefined Behavior and IFNDR Annexes</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1705r1.html" target="_blank">P1705R1 Enumerating Core Undefined Behavior</a><ul>
+<li>コア言語の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を列挙する初期の調査</li>
+</ul>
+</li>
+<li><a href="https://wg21.link/p3100" target="_blank">P3100R2 Undefined and erroneous behaviour is a contract violation</a><ul>
+<li><a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>・<a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>を契約違反として扱い緩和することを検討する提案</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

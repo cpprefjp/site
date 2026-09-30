@@ -1,0 +1,563 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>Cpp17Allocator - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,named requirement
+">
+        <meta name="title" content="Cpp17Allocator - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="Cpp17Allocator - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="Cpp17Allocator - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/requirements/Cpp17Allocator.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`Cpp17Allocator`は、記憶域の確保と解放を行うアロケータの要件である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Cpp17Allocator - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/requirements/Cpp17Allocator.html" />
+        <meta name="twitter:description" content="`Cpp17Allocator`は、記憶域の確保と解放を行うアロケータの要件である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="manifest" href="../manifest.json?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;id-type&#34;: [&#34;named requirement&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9f6014fedc134e223fff46c2c8a57dbd6326c1b3&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;new&gt;\n\n// \u6700\u5c0f\u9650\u306e\u30a2\u30ed\u30b1\u30fc\u30bf\u3002\u7701\u7565\u3057\u305f\u9805\u76ee\u306fstd::allocator_traits\u304c\u65e2\u5b9a\u306e\u5b9a\u7fa9\u3092\u4e0e\u3048\u308b\ntemplate &lt;class T&gt;\nstruct LoggingAllocator {\n  // \u8981\u7d20\u578b\u3002\u7701\u7565\u3067\u304d\u306a\u3044\n  using value_type = T;\n\n  LoggingAllocator() = default;\n\n  // \u30b3\u30f3\u30c6\u30ca\u304c\u5185\u90e8\u3067\u5225\u306e\u8981\u7d20\u578b\u306e\u30a2\u30ed\u30b1\u30fc\u30bf\u3092\u5fc5\u8981\u3068\u3059\u308b\u305f\u3081\u3001\u5909\u63db\u3067\u304d\u308b\u3088\u3046\u306b\u3059\u308b\n  template &lt;class U&gt;\n  LoggingAllocator(const LoggingAllocator&lt;U&gt;&amp;) {}\n\n  // n\u500b\u5206\u306e\u8a18\u61b6\u57df\u3092\u78ba\u4fdd\u3059\u308b\n  T* allocate(std::size_t n)\n  {\n    std::cout &lt;&lt; \&#34;allocate \&#34; &lt;&lt; n &lt;&lt; std::endl;\n    return static_cast&lt;T*&gt;(::operator new(n * sizeof(T)));\n  }\n\n  // allocate()\u3067\u78ba\u4fdd\u3057\u305f\u8a18\u61b6\u57df\u3092\u89e3\u653e\u3059\u308b\n  void deallocate(T* p, std::size_t n)\n  {\n    std::cout &lt;&lt; \&#34;deallocate \&#34; &lt;&lt; n &lt;&lt; std::endl;\n    ::operator delete(p);\n  }\n\n  // \u4e00\u65b9\u3067\u78ba\u4fdd\u3057\u305f\u8a18\u61b6\u57df\u3092\u4ed6\u65b9\u3067\u89e3\u653e\u3067\u304d\u308b\u5834\u5408\u306b\u7b49\u5024\u3068\u3059\u308b\n  template &lt;class U&gt;\n  bool operator==(const LoggingAllocator&lt;U&gt;&amp;) const\n  {\n    return true;\n  }\n};\n\nint main()\n{\n  std::vector&lt;int, LoggingAllocator&lt;int&gt;&gt; v;\n  v.reserve(2);\n  v.push_back(1);\n}\n&#34;}, {&#34;id&#34;: &#34;d031a340c08231c172f4e07570b35f93031d7529&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;list&gt;\n#include &lt;memory&gt;\n#include &lt;limits&gt;\n#include &lt;new&gt;\n#include &lt;type_traits&gt;\n#include &lt;utility&gt;\n\n// \u3059\u3079\u3066\u306e\u9805\u76ee\u3092\u660e\u793a\u7684\u306b\u5b9a\u7fa9\u3057\u305f\u30a2\u30ed\u30b1\u30fc\u30bf\ntemplate &lt;class T&gt;\nstruct FullAllocator {\n  using value_type = T;\n\n  // \u30dd\u30a4\u30f3\u30bf\u578b\u3002\u65e2\u5b9a\u3067\u306fvalue_type\u304b\u3089\u5c0e\u51fa\u3055\u308c\u308b\n  using pointer = T*;\n  using const_pointer = const T*;\n  using void_pointer = void*;\n  using const_void_pointer = const void*;\n\n  // \u30b5\u30a4\u30ba\u3068\u5dee\u5206\u306e\u578b\u3002\u65e2\u5b9a\u3067\u306f\u30dd\u30a4\u30f3\u30bf\u578b\u304b\u3089\u5c0e\u51fa\u3055\u308c\u308b\n  using size_type = std::size_t;\n  using difference_type = std::ptrdiff_t;\n\n  // \u30b3\u30f3\u30c6\u30ca\u306e\u30b3\u30d4\u30fc\u4ee3\u5165\u30fb\u30e0\u30fc\u30d6\u4ee3\u5165\u30fb\u4ea4\u63db\u3067\u30a2\u30ed\u30b1\u30fc\u30bf\u3092\u4f1d\u64ad\u3055\u305b\u308b\u304b\n  // \u65e2\u5b9a\u3067\u306f\u3044\u305a\u308c\u3082false_type\n  using propagate_on_container_copy_assignment = std::false_type;\n  using propagate_on_container_move_assignment = std::true_type;\n  using propagate_on_container_swap = std::false_type;\n\n  // \u540c\u3058\u578b\u306e\u30a2\u30ed\u30b1\u30fc\u30bf\u304c\u3064\u306d\u306b\u7b49\u5024\u3067\u3042\u308b\u304b\u3002\u65e2\u5b9a\u3067\u306fstd::is_empty&lt;X&gt;::type\n  using is_always_equal = std::true_type;\n\n  // \u5225\u306e\u8981\u7d20\u578b\u306b\u5bfe\u5fdc\u3059\u308b\u30a2\u30ed\u30b1\u30fc\u30bf\u578b\u3002\u65e2\u5b9a\u3067\u306f\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u5f15\u6570\u3092\u5dee\u3057\u66ff\u3048\u305f\u578b\n  template &lt;class U&gt;\n  struct rebind {\n    using other = FullAllocator&lt;U&gt;;\n  };\n\n  FullAllocator() = default;\n\n  template &lt;class U&gt;\n  FullAllocator(const FullAllocator&lt;U&gt;&amp;) {}\n\n  pointer allocate(size_type n)\n  {\n    return static_cast&lt;pointer&gt;(::operator new(n * sizeof(T)));\n  }\n\n  // \u30d2\u30f3\u30c8\u3092\u6307\u5b9a\u3057\u305f\u78ba\u4fdd\u3002\u65e2\u5b9a\u3067\u306fallocate(n)\u304c\u4f7f\u7528\u3055\u308c\u308b\n  pointer allocate(size_type n, const_void_pointer)\n  {\n    return allocate(n);\n  }\n\n  // \u8981\u6c42\u3057\u305f\u6570\u4ee5\u4e0a\u306e\u8a18\u61b6\u57df\u3092\u78ba\u4fdd\u3059\u308b\u3002\u65e2\u5b9a\u3067\u306fallocate(n)\u304c\u4f7f\u7528\u3055\u308c\u308b\n  std::allocation_result&lt;pointer, size_type&gt; allocate_at_least(size_type n)\n  {\n    return {allocate(n), n};\n  }\n\n  void deallocate(pointer p, size_type)\n  {\n    ::operator delete(p);\n  }\n\n  // \u78ba\u4fdd\u3067\u304d\u308b\u6700\u5927\u306e\u8981\u7d20\u6570\u3002\u65e2\u5b9a\u3067\u306f\u8981\u7d20\u578b\u306e\u30b5\u30a4\u30ba\u304b\u3089\u7b97\u51fa\u3055\u308c\u308b\n  size_type max_size() const\n  {\n    return std::numeric_limits&lt;size_type&gt;::max() / sizeof(T);\n  }\n\n  // \u8981\u7d20\u306e\u69cb\u7bc9\u3068\u7834\u68c4\u3002\u65e2\u5b9a\u3067\u306fstd::construct_at()\u3068std::destroy_at()\u304c\u4f7f\u7528\u3055\u308c\u308b\n  template &lt;class U, class... Args&gt;\n  void construct(U* p, Args&amp;&amp;... args)\n  {\n    std::construct_at(p, std::forward&lt;Args&gt;(args)...);\n  }\n\n  template &lt;class U&gt;\n  void destroy(U* p)\n  {\n    std::destroy_at(p);\n  }\n\n  // \u30b3\u30f3\u30c6\u30ca\u306e\u30b3\u30d4\u30fc\u69cb\u7bc9\u6642\u306b\u3001\u30b3\u30d4\u30fc\u5148\u304c\u4f7f\u7528\u3059\u308b\u30a2\u30ed\u30b1\u30fc\u30bf\u3002\u65e2\u5b9a\u3067\u306f*this\n  FullAllocator select_on_container_copy_construction() const\n  {\n    return *this;\n  }\n\n  template &lt;class U&gt;\n  bool operator==(const FullAllocator&lt;U&gt;&amp;) const\n  {\n    return true;\n  }\n};\n\nint main()\n{\n  // list\u306f\u30ce\u30fc\u30c9\u3092\u78ba\u4fdd\u3059\u308b\u305f\u3081\u3001rebind\u306b\u3088\u3063\u3066\u8981\u7d20\u578b\u3092\u5dee\u3057\u66ff\u3048\u305f\u30a2\u30ed\u30b1\u30fc\u30bf\u3092\u4f7f\u7528\u3059\u308b\n  std::list&lt;int, FullAllocator&lt;int&gt;&gt; ls = {1, 2, 3};\n\n  for (int x : ls) {\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;requirements&#34;, &#34;Cpp17Allocator&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../requirements.html" itemprop="url">
+              
+                <span itemprop="name">標準ライブラリ要件</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">Cpp17Allocator</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-09-30T18:24:32+09:00">
+        2026年09月30日 18時24分32秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/requirements/Cpp17Allocator.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/requirements/Cpp17Allocator.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">named requirement</div><h1 itemprop="name"><span class="token">Cpp17Allocator</span></h1>
+<div itemprop="articleBody"><h2>概要</h2>
+<p><code>Cpp17Allocator</code>は、記憶域の確保と解放を行うアロケータの要件である。</p>
+<p><code><a href="../reference/vector/vector.html">std::vector</a></code>などのコンテナ、<code><a href="../reference/string/basic_string.html">std::basic_string</a></code>、文字列ストリーム、<code><a href="../reference/regex/match_results.html">std::match_results</a></code>が、記憶域の確保方法を差し替えるためにこの要件を要求する。</p>
+<p>アロケータは<code><a href="../reference/memory/allocator_traits.html">std::allocator_traits</a></code>を介して使用される。要件のほとんどは省略でき、省略した項目は<code><a href="../reference/memory/allocator_traits.html">std::allocator_traits</a></code>が既定の定義を与える。そのため、自作のアロケータは少数の項目だけを定義すればよい。</p>
+<h2>要件</h2>
+<p>以下では、<code>T</code>を要素型、<code>X</code>を<code>T</code>に対するアロケータ型、<code>Y</code>を別の要素型<code>U</code>に対するアロケータ型、<code>a</code>・<code>a1</code>・<code>a2</code>を<code>X</code>の左辺値、<code>b</code>を<code>Y</code>の値、<code>p</code>を<code>a.allocate()</code>で得られたポインタ、<code>n</code>を要素数とする。</p>
+<h3>省略できない項目</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>X::value_type</code></td>
+<td>要素型。<code>T</code>と同じ型であること</td>
+</tr>
+<tr>
+<td><code>a.allocate(n)</code></td>
+<td><code>n</code>個の<code>T</code>を格納できる記憶域を確保し、その先頭を指すポインタを返す</td>
+</tr>
+<tr>
+<td><code>a.deallocate(p, n)</code></td>
+<td><code>a.allocate(n)</code>で確保した記憶域を解放する</td>
+</tr>
+<tr>
+<td><code>a1 == a2</code>、<code>a == b</code></td>
+<td>一方で確保した記憶域を他方で解放できるかを表す</td>
+</tr>
+</tbody>
+</table>
+<p>このほか、<code>X</code>が<code><span href="https://cpprefjp.github.io/requirements/Cpp17CopyConstructible.md.nolink">Cpp17CopyConstructible</span></code>要件を満たすこと、および<code>Y</code>から<code>X</code>を構築できることが要求される。コンテナは内部で要素型とは異なる型 (リストのノードなど) の記憶域を確保するため、要素型を差し替えたアロケータ型から変換できる必要がある。</p>
+<h3>省略できる項目</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>項目</th>
+<th>既定の定義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>X::pointer</code></td>
+<td><code>T*</code></td>
+</tr>
+<tr>
+<td><code>X::const_pointer</code></td>
+<td><code><a href="../reference/memory/pointer_traits.html">pointer_traits</a>&lt;pointer&gt;::rebind&lt;const T&gt;</code></td>
+</tr>
+<tr>
+<td><code>X::void_pointer</code></td>
+<td><code><a href="../reference/memory/pointer_traits.html">pointer_traits</a>&lt;pointer&gt;::rebind&lt;void&gt;</code></td>
+</tr>
+<tr>
+<td><code>X::const_void_pointer</code></td>
+<td><code><a href="../reference/memory/pointer_traits.html">pointer_traits</a>&lt;pointer&gt;::rebind&lt;const void&gt;</code></td>
+</tr>
+<tr>
+<td><code>X::size_type</code></td>
+<td><code><a href="../reference/type_traits/make_unsigned.html">make_unsigned_t</a>&lt;difference_type&gt;</code></td>
+</tr>
+<tr>
+<td><code>X::difference_type</code></td>
+<td><code><a href="../reference/memory/pointer_traits.html">pointer_traits</a>&lt;pointer&gt;::difference_type</code></td>
+</tr>
+<tr>
+<td><code>X::rebind&lt;U&gt;::other</code></td>
+<td>テンプレート引数を<code>U</code>に差し替えた型</td>
+</tr>
+<tr>
+<td><code>a.allocate(n, y)</code></td>
+<td><code>a.allocate(n)</code></td>
+</tr>
+<tr>
+<td><code>a.allocate_at_least(n)</code></td>
+<td><code>{a.allocate(n), n}</code> (C++23)</td>
+</tr>
+<tr>
+<td><code>a.max_size()</code></td>
+<td><code><a href="../reference/limits/numeric_limits.html">numeric_limits</a>&lt;size_type&gt;::<a href="../reference/limits/numeric_limits/max.html">max()</a>/ sizeof(value_type)</code></td>
+</tr>
+<tr>
+<td><code>a.construct(c, args...)</code></td>
+<td><code><a href="../reference/memory/construct_at.html">construct_at</a>(c,<a href="../reference/utility/forward.html">std::forward</a>&lt;Args&gt;(args)...)</code></td>
+</tr>
+<tr>
+<td><code>a.destroy(c)</code></td>
+<td><code><a href="../reference/memory/destroy_at.html">destroy_at</a>(c)</code></td>
+</tr>
+<tr>
+<td><code>a.select_on_container_copy_construction()</code></td>
+<td><code>a</code></td>
+</tr>
+<tr>
+<td><code>X::propagate_on_container_copy_assignment</code></td>
+<td><code><a href="../reference/type_traits/integral_constant.html">false_type</a></code></td>
+</tr>
+<tr>
+<td><code>X::propagate_on_container_move_assignment</code></td>
+<td><code><a href="../reference/type_traits/integral_constant.html">false_type</a></code></td>
+</tr>
+<tr>
+<td><code>X::propagate_on_container_swap</code></td>
+<td><code><a href="../reference/type_traits/integral_constant.html">false_type</a></code></td>
+</tr>
+<tr>
+<td><code>X::is_always_equal</code></td>
+<td><code><a href="../reference/type_traits/is_empty.html">is_empty</a>&lt;X&gt;::type</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>X::pointer</code>などのポインタ型には、<code><span href="https://cpprefjp.github.io/requirements/Cpp17NullablePointer.md.nolink">Cpp17NullablePointer</span></code>要件が要求される。<code>X::pointer</code>と<code>X::const_pointer</code>には、加えて<code><span href="https://cpprefjp.github.io/requirements/Cpp17RandomAccessIterator.md.nolink">Cpp17RandomAccessIterator</span></code>要件が要求される。</p>
+<h2>対応する標準コンセプト</h2>
+<p>規格は、この要件の最小限の部分を表す説明専用コンセプト<code>simple-allocator</code>を定義している。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Alloc</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">concept</span><span class="w"> </span><span class="nc">simple</span><span class="o">-</span><span class="n">allocator</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="k">requires</span><span class="p">(</span><span class="n">Alloc</span><span class="w"> </span><span class="n">alloc</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="o">*</span><span class="n">alloc</span><span class="p">.</span><span class="n">allocate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n"><a href="../reference/concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Alloc</span><span class="o">::</span><span class="n">value_type</span><span class="o">&amp;&gt;</span><span class="p">;</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n">alloc</span><span class="p">.</span><span class="n">deallocate</span><span class="p">(</span><span class="n">alloc</span><span class="p">.</span><span class="n">allocate</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">    </span><span class="n"><a href="../reference/concepts/copy_constructible.html">copy_constructible</a></span><span class="o">&lt;</span><span class="n">Alloc</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">    </span><span class="n"><a href="../reference/concepts/equality_comparable.html">equality_comparable</a></span><span class="o">&lt;</span><span class="n">Alloc</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>この要件との違いは以下である。</p>
+<ul>
+<li><code>simple-allocator</code>は、記憶域の確保・解放、コピー構築、等値比較だけを要求する。要素型を差し替えたアロケータ型からの変換や、省略できる項目の意味は表現しない</li>
+<li>コンテナが要求するのはこの要件であり、<code>simple-allocator</code>ではない。<code>simple-allocator</code>は<code><a href="../reference/execution/get_allocator.html">std::execution::get_allocator()</a></code>が返す型の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a>のように、アロケータであることだけを判定する箇所で使用される</li>
+<li><code>simple-allocator</code>はコンパイル時に検査できる</li>
+</ul>
+<p>この要件を満たす型は<code>simple-allocator</code>のモデルとなる。</p>
+<h2>例</h2>
+<h3>アロケータを実装する (最小要件を満たす実装)</h3>
+<p>省略できない項目だけを定義する。省略した項目は<code><a href="../reference/memory/allocator_traits.html">std::allocator_traits</a></code>が既定の定義を与える。</p>
+<p><div class="yata" id="9f6014fedc134e223fff46c2c8a57dbd6326c1b3"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../reference/vector.html">&lt;vector&gt;</a></span>
+<span class="cp">#include <a href="../reference/new.html">&lt;new&gt;</a></span>
+
+<span class="c1">// 最小限のアロケータ。省略した項目はstd::allocator_traitsが既定の定義を与える</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">LoggingAllocator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 要素型。省略できない</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">LoggingAllocator</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// コンテナが内部で別の要素型のアロケータを必要とするため、変換できるようにする</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">LoggingAllocator</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">LoggingAllocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="c1">// n個分の記憶域を確保する</span>
+<span class="w">  </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">allocate</span><span class="p">(</span><span class="n"><a href="../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"allocate "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span><span class="p">(</span><span class="n"><a href="../reference/new/op_new.html">::operator new</a></span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)));</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// allocate()で確保した記憶域を解放する</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">deallocate</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../reference/cstddef/size_t.html">std::size_t</a></span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"deallocate "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="n"><a href="../reference/new/op_delete.html">::operator delete</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// 一方で確保した記憶域を他方で解放できる場合に等値とする</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">LoggingAllocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">LoggingAllocator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../reference/vector/vector/reserve.html">v.reserve</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../reference/vector/vector/push_back.html">v.push_back</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>allocate 2
+deallocate 2
+</code></pre></p>
+<h3>アロケータを実装する (要件を完全に満たす実装)</h3>
+<p>省略できる項目もすべて明示的に定義すると、以下のようになる。各項目には既定の定義と同じ内容を書いているため、動作は最小要件を満たす実装と変わらない。</p>
+<p><div class="yata" id="d031a340c08231c172f4e07570b35f93031d7529"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../reference/list.html">&lt;list&gt;</a></span>
+<span class="cp">#include <a href="../reference/memory.html">&lt;memory&gt;</a></span>
+<span class="cp">#include <a href="../reference/limits.html">&lt;limits&gt;</a></span>
+<span class="cp">#include <a href="../reference/new.html">&lt;new&gt;</a></span>
+<span class="cp">#include <a href="../reference/type_traits.html">&lt;type_traits&gt;</a></span>
+<span class="cp">#include <a href="../reference/utility.html">&lt;utility&gt;</a></span>
+
+<span class="c1">// すべての項目を明示的に定義したアロケータ</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">FullAllocator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// ポインタ型。既定ではvalue_typeから導出される</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">*</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">const_pointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">*</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">void_pointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">const_void_pointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// サイズと差分の型。既定ではポインタ型から導出される</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../reference/cstddef/size_t.html">std::size_t</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">difference_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../reference/cstddef/ptrdiff_t.html">std::ptrdiff_t</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// コンテナのコピー代入・ムーブ代入・交換でアロケータを伝播させるか</span>
+<span class="w">  </span><span class="c1">// 既定ではいずれもfalse_type</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">propagate_on_container_copy_assignment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../reference/type_traits/false_type.html">std::false_type</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">propagate_on_container_move_assignment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../reference/type_traits/true_type.html">std::true_type</a></span><span class="p">;</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">propagate_on_container_swap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../reference/type_traits/false_type.html">std::false_type</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// 同じ型のアロケータがつねに等値であるか。既定ではstd::is_empty&lt;X&gt;::type</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">is_always_equal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../reference/type_traits/true_type.html">std::true_type</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// 別の要素型に対応するアロケータ型。既定ではテンプレート引数を差し替えた型</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">rebind</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FullAllocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="n">FullAllocator</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="n">FullAllocator</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FullAllocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="n">pointer</span><span class="w"> </span><span class="n">allocate</span><span class="p">(</span><span class="n">size_type</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">pointer</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../reference/new/op_new.html">::operator new</a></span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)));</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// ヒントを指定した確保。既定ではallocate(n)が使用される</span>
+<span class="w">  </span><span class="n">pointer</span><span class="w"> </span><span class="n">allocate</span><span class="p">(</span><span class="n">size_type</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">const_void_pointer</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">allocate</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// 要求した数以上の記憶域を確保する。既定ではallocate(n)が使用される</span>
+<span class="w">  </span><span class="n"><a href="../reference/memory/allocation_result.html">std::allocation_result</a></span><span class="o">&lt;</span><span class="n">pointer</span><span class="p">,</span><span class="w"> </span><span class="n">size_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">allocate_at_least</span><span class="p">(</span><span class="n">size_type</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">allocate</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="n">n</span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">deallocate</span><span class="p">(</span><span class="n">pointer</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">size_type</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../reference/new/op_delete.html">::operator delete</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// 確保できる最大の要素数。既定では要素型のサイズから算出される</span>
+<span class="w">  </span><span class="n">size_type</span><span class="w"> </span><span class="n">max_size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">size_type</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// 要素の構築と破棄。既定では<a href="../reference/memory/construct_at.html">std::construct_at</a>()と<a href="../reference/memory/destroy_at.html">std::destroy_at</a>()が使用される</span>
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">construct</span><span class="p">(</span><span class="n">U</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../reference/memory/construct_at.html">std::construct_at</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../reference/utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">destroy</span><span class="p">(</span><span class="n">U</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../reference/memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// コンテナのコピー構築時に、コピー先が使用するアロケータ。既定では*this</span>
+<span class="w">  </span><span class="n">FullAllocator</span><span class="w"> </span><span class="n">select_on_container_copy_construction</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FullAllocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// listはノードを確保するため、rebindによって要素型を差し替えたアロケータを使用する</span>
+<span class="w">  </span><span class="n"><a href="../reference/list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">FullAllocator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ls</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1
+2
+3
+</code></pre></p>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../requirements.html">標準ライブラリ要件</a></li>
+<li><code><a href="../reference/memory/allocator.html">std::allocator</a></code></li>
+<li><code><a href="../reference/memory/allocator_traits.html">std::allocator_traits</a></code></li>
+<li><code><a href="../reference/memory_resource/polymorphic_allocator.html">std::pmr::polymorphic_allocator</a></code></li>
+<li><code><span href="https://cpprefjp.github.io/requirements/Cpp17CopyConstructible.md.nolink">Cpp17CopyConstructible</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/requirements/Cpp17NullablePointer.md.nolink">Cpp17NullablePointer</span></code></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

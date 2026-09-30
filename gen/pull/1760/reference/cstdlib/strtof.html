@@ -1,0 +1,337 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::strtof - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cstdlib,std,function,cpp11
+">
+        <meta name="title" content="std::strtof - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::strtof - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::strtof - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/cstdlib/strtof.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="文字列`nptr`を`float`型の浮動小数点数に変換する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::strtof - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cstdlib/strtof.html" />
+        <meta name="twitter:description" content="文字列`nptr`を`float`型の浮動小数点数に変換する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="manifest" href="../../manifest.json?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;6ee5d3aab73df763cd5ddf50a5bd75218d15aa9a&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cstdlib&gt;\n\nint main()\n{\n  char* end = nullptr;\n\n  float a = std::strtof(\&#34;3.14abc\&#34;, &amp;end);\n  std::cout &lt;&lt; static_cast&lt;double&gt;(a) &lt;&lt; std::endl;\n\n  // \u5909\u63db\u304c\u7d42\u4e86\u3057\u305f\u4f4d\u7f6e\u4ee5\u964d\u306e\u6587\u5b57\u5217\n  std::cout &lt;&lt; end &lt;&lt; std::endl;\n\n  // 16\u9032\u6d6e\u52d5\u5c0f\u6570\u70b9\u6570\u3001\u7121\u9650\u5927\u3082\u89e3\u91c8\u3067\u304d\u308b\n  std::cout &lt;&lt; static_cast&lt;double&gt;(std::strtof(\&#34;0x1.8p3\&#34;, nullptr)) &lt;&lt; std::endl;\n  std::cout &lt;&lt; static_cast&lt;double&gt;(std::strtof(\&#34;INFINITY\&#34;, nullptr)) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;strtof&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/cstdlib.html" itemprop="url">
+              
+                <span itemprop="name">cstdlib</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">strtof</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-09-08T16:20:36+09:00">
+        2026年09月08日 16時20分36秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cstdlib/strtof.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cstdlib/strtof.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;cstdlib&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">strtof</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="nf">strtof</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">nptr</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">endptr</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>文字列<code>nptr</code>を<code>float</code>型の浮動小数点数に変換する。</p>
+<ul>
+<li><code>endptr</code>が非<code>nullptr</code>の場合、変換が終了した位置の文字へのポインタがそこに格納される</li>
+<li>先頭の空白は読み飛ばされ、その後の文字列が以下のいずれかの形式として解釈される<ul>
+<li>10進数の浮動小数点数（<code>1.5</code>、<code>-3.25e10</code>など）</li>
+<li><code>0x</code>／<code>0X</code>で始まる16進浮動小数点数（<code>0x1.8p3</code>など）</li>
+<li><code>INF</code>・<code>INFINITY</code>（大文字小文字を問わない）</li>
+<li><code>NAN</code>・<code>NAN(</code>文字列<code>)</code>（大文字小文字を問わない）</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<ul>
+<li>変換可能ならば変換後の数値を返す</li>
+<li>変換後の数値の絶対値が大きすぎて表現できない場合、<code>HUGE_VALF</code>（符号に応じて正または負）を返し、<code><a href="../cerrno/errno.html">errno</a></code>に<code>ERANGE</code>を設定する</li>
+<li>変換後の数値の絶対値が小さすぎて表現できない場合、大きさが<code>float</code>の最小の正規化数以下の値（<code>0</code>を含む）を返す。この場合に<code>errno</code>へ<code>ERANGE</code>が設定されるかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>である</li>
+<li>変換不可能ならば<code>0</code>を返す</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>小数点を表す文字は、現在のCロケールに依存する。ロケールに依存しない変換には、<code><a href="../charconv/from_chars.html">std::from_chars()</a></code>（C++17）を使用する</li>
+<li>変換できたかどうかは、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>ではなく<code>endptr</code>が<code>nptr</code>から進んだかどうかで判定する</li>
+<li><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する<code><a href="../string/stof.html">std::stof()</a></code>も使用できる</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="6ee5d3aab73df763cd5ddf50a5bd75218d15aa9a"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../cstdlib.html">&lt;cstdlib&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::strtof</span></span><span class="p">(</span><span class="s">"3.14abc"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">end</span><span class="p">);</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// 変換が終了した位置以降の文字列</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// 16進浮動小数点数、無限大も解釈できる</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::strtof</span></span><span class="p">(</span><span class="s">"0x1.8p3"</span><span class="p">,</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::strtof</span></span><span class="p">(</span><span class="s">"INFINITY"</span><span class="p">,</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>3.14
+abc
+12
+inf
+</code></pre></p>
+<h2>処理系</h2>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 3.4 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.7.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h3>備考</h3>
+<ul>
+<li>動作確認した範囲での最小バージョンを記載している。Clangは3.4（Compiler Explorerで利用できる最古のバージョン）、Visual C++は2019（同左）で動作を確認しており、それ以前のバージョンでも使用できる可能性がある</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="strtod.html">strtod</a></code></li>
+<li><code><a href="strtold.html">strtold</a></code></li>
+<li><code><a href="atof.html">atof</a></code></li>
+<li><code><a href="../string/stof.html">std::stof()</a></code></li>
+<li><code><a href="../charconv.html">&lt;charconv&gt;</a></code></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
