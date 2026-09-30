@@ -22,7 +22,7 @@ C++標準スマートポインタ[`std::shared_ptr`](shared_ptr.md)や[`std::uni
 
 
 ## テンプレートパラメータ制約
-`Pointer`はCpp17NullablePointer要件を満たすこと
+`Pointer`は[`Cpp17NullablePointer`](/requirements/Cpp17NullablePointer.md.nolink)要件を満たすこと
 
 
 ## 適格要件

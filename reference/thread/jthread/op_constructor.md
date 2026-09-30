@@ -36,7 +36,7 @@ jthread(jthread&&) noexcept;             // (4) C++20
 ## テンプレートパラメータ制約
 - (2) :
     - [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<F>`が`jthread`ではないこと
-    - [`decay_t`](/reference/type_traits/decay.md)`<F>`および[`decay_t`](/reference/type_traits/decay.md)`<Args>`の各型がCpp17MoveConstructible要件を満たすこと
+    - [`decay_t`](/reference/type_traits/decay.md)`<F>`および[`decay_t`](/reference/type_traits/decay.md)`<Args>`の各型が[`Cpp17MoveConstructible`](/requirements/Cpp17MoveConstructible.md.nolink)要件を満たすこと
 
 
 ## 適格要件

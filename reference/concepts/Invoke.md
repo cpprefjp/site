@@ -58,7 +58,7 @@ C++における関数呼び出しという性質を抽象化しまとめた、�
 2. *INVOKE*`<R>(f, t1, t2, ..., tN)` を次のように定義する。
 	- `R`が`void`かそのcv修飾の場合は、`static_cast<void>(`*INVOKE*`(f, t1, t2, ..., tN))`。
 	- それ以外の場合は、*INVOKE*`(f, t1, t2, ..., tN)` の実行結果の戻り値が型 `R` に暗黙的に変換されること。
-3. すべての *call-wrapper* は、*Cpp17MoveConstructible* かつ *Cpp17Destructible* でなければならない。
+3. すべての *call-wrapper* は、[`Cpp17MoveConstructible`](/requirements/Cpp17MoveConstructible.md.nolink) かつ [`Cpp17Destructible`](/requirements/Cpp17Destructible.md.nolink) でなければならない。
 
 ## 要件（C++23差分）
 C++20 における 2. について、次の文言を項目の最後に追加する。この変更は、`R`が参照かつ*INVOKE*の実行結果が`R`に束縛されることで寿命が延長される場合にダングリング参照が作成されてしまう事例を検出するための要件である。

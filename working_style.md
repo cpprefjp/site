@@ -138,6 +138,7 @@ C++11以降対応については対応バージョンを明記します。バー
 | requires                           | 要件                         |
 | returns                            | 戻り値                       |
 | reverse iterator                   | 逆イテレータ                 |
+| reversible container(s)            | 逆順可能コンテナ             |
 | rvalue reference                   | 右辺値参照                   |
 | sequence container(s)              | シーケンスコンテナ           |
 | signed                             | 符号付き                     |

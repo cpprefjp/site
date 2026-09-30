@@ -65,7 +65,7 @@ namespace std {
 
 型`F`がFormatter要件を満たすとは、次のことをいう。
 
-- `F`は`Cpp17DefaultConstructible`、`Cpp17CopyConstructible`、`Cpp17CopyAssignable`、`Cpp17Destructible`であること
+- `F`は[`Cpp17DefaultConstructible`](/requirements/Cpp17DefaultConstructible.md.nolink)、[`Cpp17CopyConstructible`](/requirements/Cpp17CopyConstructible.md.nolink)、[`Cpp17CopyAssignable`](/requirements/Cpp17CopyAssignable.md.nolink)、[`Cpp17Destructible`](/requirements/Cpp17Destructible.md.nolink)であること
 
 さらに、以下の条件を満たすこと
 
