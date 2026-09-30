@@ -1,0 +1,393 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>auto(x)による一時オブジェクトへの変換 [P0849R8] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp23
+">
+        <meta name="title" content="auto(x)による一時オブジェクトへの変換 [P0849R8] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="auto(x)による一時オブジェクトへの変換 [P0849R8] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="auto(x)による一時オブジェクトへの変換 [P0849R8] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp23/auto_cast.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++23では、`auto(expr)`および`auto{expr}`によって、式`expr`の値をコピーした一時オブジェクトを取得できる。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="auto(x)による一時オブジェクトへの変換 [P0849R8] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp23/auto_cast.html" />
+        <meta name="twitter:description" content="C++23では、`auto(expr)`および`auto{expr}`によって、式`expr`の値をコピーした一時オブジェクトを取得できる。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="manifest" href="../../manifest.json?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;06f8b4e50a305343e9aef3ef1aa6269cc724289d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;type_traits&gt;\n\nint main()\n{\n  int x = 1;\n  const int&amp; r = x;\n  int a[3] = {1, 2, 3};\n\n  // \u53c2\u7167\u3068const\u304c\u5916\u308c\u305f\u30b3\u30d4\u30fc\u304c\u3001prvalue\u3068\u3057\u3066\u5f97\u3089\u308c\u308b\n  static_assert(std::is_same_v&lt;decltype(auto(r)), int&gt;);\n\n  // \u914d\u5217\u306f\u30dd\u30a4\u30f3\u30bf\u3078\u5909\u63db\u3055\u308c\u308b\n  static_assert(std::is_same_v&lt;decltype(auto(a)), int*&gt;);\n\n  std::cout &lt;&lt; auto(x) &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;a893699ce963a6dbe8ecd7c3abfc29998fd546d0&#34;, &#34;source&#34;: &#34;#include &lt;algorithm&gt;\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\nint main()\n{\n  std::vector&lt;int&gt; v = {1, 2, 1, 3, 1};\n\n  // std::remove()\u306f\u3001\u6b8b\u3059\u8981\u7d20\u3092\u524d\u65b9\u306b\u8a70\u3081\u308b\u305f\u3081\u306b\u8981\u7d20\u3092\u4e0a\u66f8\u304d\u3057\u3066\u3044\u304f\u3002\n  // \u6bd4\u8f03\u5bfe\u8c61\u3068\u3057\u3066v.front()\u3092\u6e21\u3059\u3068\u3001\u30d1\u30e9\u30e1\u30fc\u30bf\u304c\u53c2\u7167\u3067\u3042\u308b\u305f\u3081\u306b\u5148\u982d\u8981\u7d20\u306e\n  // \u4e0a\u66f8\u304d\u304c\u6bd4\u8f03\u5bfe\u8c61\u306e\u5024\u306b\u3082\u6ce2\u53ca\u3057\u3001\u610f\u56f3\u3057\u306a\u3044\u7d50\u679c\u306b\u306a\u308b\u3002\n  // auto()\u3067\u30b3\u30d4\u30fc\u3092\u6e21\u3059\u3053\u3068\u3067\u3001\u6bd4\u8f03\u5bfe\u8c61\u306e\u5024\u3092\u56fa\u5b9a\u3067\u304d\u308b\n  v.erase(std::remove(v.begin(), v.end(), auto(v.front())), v.end());\n\n  for (int x : v) {\n    std::cout &lt;&lt; x;\n  }\n  std::cout &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp23&#34;, &#34;auto_cast&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp23.html" itemprop="url">
+              
+                <span itemprop="name">C++23</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">auto(x)による一時オブジェクトへの変換 [P0849R8]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-09-03T11:09:53+09:00">
+        2026年09月03日 11時09分53秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp23/auto_cast.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp23/auto_cast.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">auto(x)による一時オブジェクトへの変換 [P0849R8]</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p>
+</p>
+<p>このページはC++23に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p>
+</p>
+<h2>概要</h2>
+<p>C++23では、<code>auto(expr)</code>および<code>auto{expr}</code>によって、式<code>expr</code>の値をコピーした一時オブジェクトを取得できる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// <a href="../../reference/vector/vector/front.html">v.front</a>()のコピーを、一時オブジェクトとしてg()に渡す</span>
+<span class="w">  </span><span class="n">g</span><span class="p">(</span><span class="k">auto</span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector/front.html">v.front</a></span><span class="p">()));</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>コピーを作るだけであれば<code>auto a = v.front();</code>のように変数宣言でもよいが、この場合はコピーであることが宣言の副次的な性質にすぎず、得られる<code>a</code>も左辺値である。<code>auto(...)</code>は「値をコピーする」という操作を式として直接表現でき、その結果は関数へ値渡しした場合と同じprvalue (一時オブジェクト) となる。</p>
+<h2>仕様</h2>
+<p><code>auto(expr)</code>と<code>auto{expr}</code>は、関数記法による明示的型変換 (<code>T(expr)</code>、<code>T{expr}</code>) の<code>T</code>を<code>auto</code>にしたものである。この<code>auto</code>は、以下の宣言で変数<code>x</code>に推論される型で置き換えられる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n"><i>init</i></span><span class="p">;</span><span class="w">  </span><span class="c1">// <i>init</i>は初期化子 (expr) もしくは {expr}</span>
+</code></pre></div>
+</p>
+<p>結果の型は、<code>expr</code>の型から参照と<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>を外し、配列型は要素へのポインタ、関数型は関数へのポインタへ変換した型となる。結果の値カテゴリはprvalueである。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]{};</span>
+
+<span class="k">auto</span><span class="p">(</span><span class="n">r</span><span class="p">);</span><span class="w">  </span><span class="c1">// int型のprvalue</span>
+<span class="k">auto</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">  </span><span class="c1">// int*型のprvalue</span>
+<span class="k">auto</span><span class="p">{</span><span class="n">x</span><span class="p">};</span><span class="w">  </span><span class="c1">// int型のprvalue。auto(x)と同じ</span>
+</code></pre></div>
+</p>
+<ul>
+<li><code>auto()</code>のように初期化子が空の場合と、<code>auto{a, b}</code>のように要素が2つ以上ある場合は型を推論できないため、<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる</li>
+<li>文の先頭に書いた<code>auto(x);</code>は、キャストではなく変数宣言<code>auto x;</code>として解釈される。式として評価する場合は<code>(void)auto(x);</code>のように書く</li>
+<li><code>decltype(auto(expr))</code>は、多くの場合<code><a href="../../reference/type_traits/decay.html">std::decay_t</a>&lt;decltype(expr)&gt;</code>と同じ型になる。ただし<code><a href="../../reference/type_traits/decay.html">std::decay_t</a></code>は型を変換するだけであり、<code>expr</code>を実際にコピーできるかどうかは考慮しない。そのため、<code>expr</code>がムーブしかできない型の左辺値である場合、<code><a href="../../reference/type_traits/decay.html">std::decay_t</a></code>はその型になるのに対し、<code>auto(expr)</code>はコピーコンストラクタを呼び出せないため<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../../reference/memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="c1">// 型を変換するだけなので、unique_ptr&lt;char&gt;が得られる</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/type_traits/decay.html">std::decay_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+
+<span class="k">auto</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">auto</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w">            </span><span class="c1">// コンパイルエラー！ pはコピーできない</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">auto</span><span class="p">(</span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p</span><span class="p">));</span><span class="w"> </span><span class="c1">// OK。ムーブされる</span>
+</code></pre></div>
+</li>
+</ul>
+<p>この機能にともなって、標準ライブラリ規定でコピーを表していた説明専用の<code><a href="../../reference/exposition-only/decay-copy.html">decay-copy</a></code>関数も、<code><a href="../../reference/ranges/begin.html">std::ranges::begin</a></code>などの多くの箇所で<code>auto(...)</code>へ置き換えられた。</p>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="06f8b4e50a305343e9aef3ef1aa6269cc724289d"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+
+<span class="w">  </span><span class="c1">// 参照とconstが外れたコピーが、prvalueとして得られる</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">(</span><span class="n">r</span><span class="p">)),</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// 配列はポインタへ変換される</span>
+<span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">(</span><span class="n">a</span><span class="p">)),</span><span class="w"> </span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">auto</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>1
+</code></pre></p>
+<h3>比較対象をコピーして渡す</h3>
+<p><div class="yata" id="a893699ce963a6dbe8ecd7c3abfc29998fd546d0"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></span>
+<span class="cp">#include <a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../reference/vector.html">&lt;vector&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">};</span>
+
+<span class="w">  </span><span class="c1">// <a href="../../reference/algorithm/remove.html">std::remove</a>()は、残す要素を前方に詰めるために要素を上書きしていく。</span>
+<span class="w">  </span><span class="c1">// 比較対象として<a href="../../reference/vector/vector/front.html">v.front</a>()を渡すと、パラメータが参照であるために先頭要素の</span>
+<span class="w">  </span><span class="c1">// 上書きが比較対象の値にも波及し、意図しない結果になる。</span>
+<span class="w">  </span><span class="c1">// auto()でコピーを渡すことで、比較対象の値を固定できる</span>
+<span class="w">  </span><span class="n"><a href="../../reference/vector/vector/erase.html">v.erase</a></span><span class="p">(</span><span class="n"><a href="../../reference/algorithm/remove.html">std::remove</a></span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector/begin.html">v.begin()</a></span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector/end.html">v.end()</a></span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector/front.html">v.front</a></span><span class="p">())),</span><span class="w"> </span><span class="n"><a href="../../reference/vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>23
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>標準ライブラリの規定では、コピーを作ることを表すために説明専用の<code><a href="../../reference/exposition-only/decay-copy.html">decay-copy</a></code>関数が使われていた。しかし、これと同じことをユーザーコードで書こうとすると、テンプレート・完全転送・<code>noexcept</code>指定・型特性を組み合わせた以下のような定義が必要になる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/decay.html">std::decay_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">decay_copy</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<span class="w">  </span><span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_nothrow_convertible.html">std::is_nothrow_convertible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../reference/type_traits/decay.html">std::decay_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../reference/utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>この方法には、以下の問題もあった。</p>
+<ul>
+<li><code>decay_copy(expr)</code>は、<code>expr</code>がすでにprvalueであっても、常にコピーを作ってしまう</li>
+<li><code>decay_copy</code>はどのクラスの<code>friend</code>でもないため、コピーコンストラクタが<code>private</code>や<code>protected</code>であるクラスのメンバ関数からは呼び出せない。<code>auto(*this)</code>であれば呼び出せる</li>
+</ul>
+<p>コピーする型<code>T</code>を書けるのであれば<code>T(expr)</code>と書けばよいが、<code>T</code>を求めるのが難しい場合には<code>std::decay_t&lt;decltype(expr)&gt;(expr)</code>のように書く必要があり、意図が読み取りにくかった。</p>
+<p>また、変数宣言の<code>auto v(x);</code>とnew式の<code>new auto(x)</code>では<code>auto</code>を使えたのに対し、関数記法のキャストだけが対応していなかった。この機能によって、これらの記法の一貫性も改善された。</p>
+<h2>検討されたほかの選択肢</h2>
+<ul>
+<li><code>decltype(auto){x}</code> : 型を計算せずに<code>x</code>を転送できるが、EWGは専門家向けすぎるものであり、教える手間が増えるとして採用しなかった</li>
+<li><code>prvalue_cast</code>のような別の名前 : 「prvalue」という用語は一般のC++利用者にはなじみが薄く、また配列を配列のまま渡せると期待されうる。<code>auto</code>という綴りであれば、<code>auto v = x;</code>や<code>auto</code>パラメータへの引数渡しと同じように値がdecayされることが伝わる</li>
+<li><code>static_cast&lt;auto&gt;(x)</code> : <code>T(x)</code>がCスタイルキャストと区別されないことを理由に<code>auto(x)</code>を禁止するコーディング規約への対策として検討されたが、CTADの<code>static_cast&lt;ClassTemplate&gt;(x)</code>が禁止されていることとの兼ね合いがあるため、この提案では扱われていない。<code>auto(x)</code>が使えない場合は<code>auto{x}</code>が代替となる</li>
+</ul>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/auto.html">C++11 auto</a></li>
+<li><a href="../cpp11/decltype.html">C++11 decltype</a></li>
+<li><code><a href="../../reference/type_traits/decay.html">std::decay</a></code></li>
+<li><code><a href="../../reference/exposition-only/decay-copy.html">decay-copy</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0849r8.html" target="_blank">P0849R8 <code>auto(x)</code>: decay-copy in the language</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,509 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>C++29 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="C++29 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="C++29 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="C++29 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp29.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++29とは、2029年中に改訂される予定の、C++バージョンの通称である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="C++29 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp29.html" />
+        <meta name="twitter:description" content="C++29とは、2029年中に改訂される予定の、C++バージョンの通称である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="manifest" href="../manifest.json?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp29&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">C++29</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-09-08T15:10:34+09:00">
+        2026年09月08日 15時10分34秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp29.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp29.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">C++29</span></h1>
+<div itemprop="articleBody"><h2>概要</h2>
+<p>C++29とは、2029年中に改訂される予定の、C++バージョンの通称である。</p>
+<p>このバージョンは、策定中のためC++2dと呼ばれることがある。「(2020年代の4つ目のバージョンが) 202d年にリリースされる」という伏せ字として「d」が使われているが、3年周期に次のバージョンが策定されることが決まっているため、伏せ字になっている年数がずれることはない。</p>
+<h2>言語機能</h2>
+<h3>変数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp29/clarify_the_behavior_of_floating-point_overflow.html">浮動小数点演算のオーバーフローと無限大・NaNの扱いを明確化</a></td>
+<td>無限大を表現できる浮動小数点型では、オーバーフローは<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>ではなく無限大を生成すると規定する。オーバーフローやNaNを新たに生成する演算は定数式にならず、無限大・NaNの伝播は定数式として扱える</td>
+</tr>
+</tbody>
+</table>
+<h3>文字列</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp29/more_named_universal_character_escapes.html">名前付きユニバーサルキャラクタ名で使用できる別名を拡張</a></td>
+<td><code>\N{…}</code>に指定できる文字名の別名の分類制限を撤廃し、<code>\N{NBSP}</code>のような略称 (abbreviation) なども使用できるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>制御構文</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp29/return_value_and_return_void_are_not_mutually_exclusive.html">コルーチンのpromise型で<code>return_value</code>と<code>return_void</code>の両方の宣言を許可</a></td>
+<td>1つのコルーチン内に、値をともなう<code>co_return</code>文とともなわない<code>co_return</code>文を混在させられるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp29/lexical_order_for_lambdas.html">ラムダ式のキャプチャが書かれた順に初期化されることを保証</a></td>
+<td>明示的なキャプチャに対応するクロージャ型のメンバ変数が、キャプチャを書いた順に宣言・初期化され、逆順に破棄されることを保証する</td>
+</tr>
+<tr>
+<td><a href="cpp29/deallocation_functions_with_throwing_exception_specification_are_ill_formed.html">例外を送出しうる例外指定をもつ解放関数を不適格とする</a></td>
+<td><code>operator delete</code>などの解放関数に、<code>noexcept(false)</code>のような<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しうる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>指定を付けることを<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../implementation-compliance.html#dfn-ill-formed">不適格</a>とする。解放関数からの<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出による<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>へ到達する経路を、宣言の時点で排除する</td>
+</tr>
+</tbody>
+</table>
+<h3>クラス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp29/designated-initializers_for_base_classes.html">基底クラスのメンバ変数に対する指示付き初期化を許可</a></td>
+<td><code>B{.a=1, .b=2}</code>のように、集成体の指示付き初期化で基底クラスのメンバ変数を直接指定できるようにする。基底クラス部分を初期化する指示なし初期化子との混在も許可する</td>
+</tr>
+<tr>
+<td><a href="cpp29/defaulting_postfix_increment_and_decrement_operations.html">後置インクリメント・デクリメント演算のdefault定義</a></td>
+<td>後置<code>++</code>／<code>--</code>を<code>= default</code>で定義（前置版から自動生成）できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp29/adding_restrictions_to_defaulted_assignment_operator_functions.html">default定義できる代入演算子のシグネチャを制限</a></td>
+<td><code>A&amp; operator=(const A&amp;) &amp;&amp; = default</code>のような右辺値修飾や<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された代入演算子のdefault定義を<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../implementation-compliance.html#dfn-ill-formed">不適格</a>とする。これらの代入演算子を自分で定義することは引き続きできる</td>
+</tr>
+<tr>
+<td><a href="cpp29/contracts_for_virtual_functions.html">仮想関数への事前条件・事後条件の指定を許可</a></td>
+<td>C++26で<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../implementation-compliance.html#dfn-ill-formed">不適格</a>とされていた、仮想関数への<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a><code>pre</code>・<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a><code>post</code>の指定を許可する。仮想関数呼び出しでは、静的に選択された関数と実際に呼び出される関数の両方のアサーションが評価される</td>
+</tr>
+</tbody>
+</table>
+<h3>テンプレート</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp29/language_linkage_for_templates.html">extern "C"の中でのテンプレートの宣言を許可</a></td>
+<td>テンプレートがC言語リンケージを持つことを禁止する規定を削除し、<code>extern "C"</code>の中でテンプレートを宣言できるようにする。C言語リンケージの関数ポインタ型を、テンプレートパラメータに依存する形で書けるようになる</td>
+</tr>
+<tr>
+<td><a href="cpp29/conditional_noexcept_specifiers_in_compound_requirements.html">requires式の複合要件で条件付き<code>noexcept</code>指定を許可</a></td>
+<td>requires式の複合要件で、<code>{ 式 } noexcept(定数式)</code>形式の条件付き<code>noexcept</code>指定を書けるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp29/pack_indexing_for_template_names.html">テンプレートテンプレートパラメータのパックへのインデックスアクセスを許可</a></td>
+<td>テンプレートテンプレートパラメータのパックに<code>TT...[N]</code>形式でインデックスアクセスできるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>定数式</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp29/consteval-only_values.html">consteval-only型の規則をconsteval-only値の規則へ置き換え</a></td>
+<td>リフレクションが実行時へ漏れることを防ぐ規則を、型ベースから値ベースへ変更する</td>
+</tr>
+</tbody>
+</table>
+<h3>並行・並列処理</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp29/nondeterministic_pointer_provenance.html">整数からポインタへの変換とポインタの由来の扱いを規定</a></td>
+<td>整数からポインタへの変換では、その整数へ変換できるポインタ値のうち、プログラムの動作が定義される値が選択されると規定する</td>
+</tr>
+<tr>
+<td><a href="cpp29/invalid_pointer_operations.html">無効なポインタ値の読み書き・コピーを定義された動作とする</a></td>
+<td>無効なポインタ値の使用のうち、間接参照は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>、比較などは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>のままとし、読み込み・書き込み・コピーなどそれ以外の操作を定義された動作とする</td>
+</tr>
+<tr>
+<td><a href="cpp29/pointer_lifetime-end_zap_proposed_solutions.html">アトミック操作とvolatileアクセスでの無効なポインタ値の扱いを規定</a></td>
+<td>アトミックポインタの操作やvolatileアクセスの結果が無効なポインタ値となる場合、整数への往復変換を経た有効なポインタ値になると規定する。解放と並行してポインタを扱うロックフリーアルゴリズムを定義された動作にする</td>
+</tr>
+</tbody>
+</table>
+<h3>プリプロセッサ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp29/embed_offset_parameter.html"><code>#embed</code>に<code>offset</code>パラメータを追加</a></td>
+<td><code>#embed</code>のパラメータとして、リソースの先頭から指定した要素数を読み飛ばす<code>offset</code>を追加する</td>
+</tr>
+</tbody>
+</table>
+<h3><a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a></h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp29/undefined_behavior_and_ifndr_annexes.html">未定義動作とIFNDRの一覧を規格の付録に追加</a></td>
+<td>コア言語で明示的に規定されているすべての<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>と、<a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="../implementation-compliance.html#dfn-no-diagnostic-required">診断不要</a>で<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../implementation-compliance.html#dfn-ill-formed">不適格</a> (<a class="cpprefjp-defined-word" data-desc="不適格だが診断が要求されない (ill-formed, no diagnostic required)。エラーにならずビルドが通ることがあり、その場合の動作は保証されない" href="../implementation-compliance.html#dfn-no-diagnostic-required">IFNDR</a>) となるすべての規則を、安定した名前・説明・コード例付きで列挙する参考情報の付録を追加する</td>
+</tr>
+</tbody>
+</table>
+<h3>ソースコード</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp29/adjust_identifier_following_new_Unicode_recommendations.html">数学互換記法の文字を識別子として許可</a></td>
+<td>Unicodeの新しい勧告に従い、<code>∇f</code>や<code>x²</code>のような数学記法の文字（ID_Compat_Math_Start／Continueプロパティを持つ文字）を識別子に使用できるようにする</td>
+</tr>
+</tbody>
+</table>
+<h2>ライブラリ更新の概要</h2>
+<h3>整数</h3>
+<ul>
+<li>任意定義だった<code><a href="../reference/cstdint/intptr_t.html">std::intptr_t</a></code> / <code><a href="../reference/cstdint/uintptr_t.html">std::uintptr_t</a></code>型を必須定義とする</li>
+</ul>
+<h3>文字列</h3>
+<ul>
+<li><code><a href="../reference/format/format.html">std::format()</a></code>関数での浮動小数点数の規定の出力形式を修正<ul>
+<li>これまでの既定書式が最短文字数を基準としていたため、<code>100000.0</code>→<code>"1e+05"</code>なのに<code>120000.0</code>→<code>"120000"</code>と一貫していない出力になっていたのを修正</li>
+<li>また、大きな値で<code>1234567890123456774144</code>のような無意味な桁（garbage digits）がでる問題について、固定表記か指数表記かの切り替え基準を「値の大きさ（指数範囲 <code>[10⁻⁴, 10ⁿ)</code>）」に変更して修正した</li>
+</ul>
+</li>
+</ul>
+<h3>ビット操作</h3>
+<ul>
+<li><code><a href="../reference/bit.html">&lt;bit&gt;</a></code>に、以下のビット操作関数を追加<ul>
+<li>ビット列の並びを反転する<code><a href="../reference/bit/bit_reverse.html">std::bit_reverse()</a></code>関数</li>
+<li>指定した下位ビットパターンを繰り返す<code><a href="../reference/bit/bit_repeat.html">std::bit_repeat()</a></code>関数</li>
+<li>指定したマスクで立っている一のビットを下位に詰める<code><a href="../reference/bit/bit_compress.html">std::bit_compress()</a></code>関数</li>
+<li>下位ビットを指定したマスクが立っている位置へ展開する<code><a href="../reference/bit/bit_expand.html">std::bit_expand()</a></code>関数</li>
+<li><a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>にならないビットシフト<code><a href="../reference/bit/shl.html">std::shl()</a></code>関数と<code><a href="../reference/bit/shr.html">std::shr()</a></code>関数</li>
+</ul>
+</li>
+</ul>
+<h3>コンテナ</h3>
+<ul>
+<li><code><a href="../reference/map/map.html">std::map</a></code> / <code><a href="../reference/unordered_map/unordered_map.html">std::unordered_map</a></code> / <code><a href="../reference/flat_map/flat_map.html">std::flat_map</a></code>クラスに、<code><a href="../reference/optional/optional.html">std::optional</a>&lt;要素への参照&gt;</code>を返す検索メンバ関数<code><a href="../reference/map/map/lookup.html">lookup()</a></code>を追加</li>
+<li><code><a href="../reference/ranges/view_interface.html">std::ranges::view_interface</a></code>クラスに、境界チェック付きでランダムアクセスをするメンバ関数<code><a href="../reference/ranges/view_interface/at.html">at()</a></code>を追加</li>
+<li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>クラス向けのアルゴリズムとして<code><a href="../reference/mdspan/copy.html">std::copy()</a></code>と<code><a href="../reference/mdspan/fill.html">std::fill()</a></code>を追加</li>
+</ul>
+<h3>メモリ</h3>
+<ul>
+<li><code><a href="../reference/memory.html">&lt;memory&gt;</a></code>ヘッダに、ポインタのタグ付けを行う<code><a href="../reference/memory/pointer_tag_pair.html">std::pointer_tag_pair</a></code>クラスとその関連機能を追加</li>
+</ul>
+<h3>エラーハンドリング</h3>
+<ul>
+<li><code><a href="../reference/expected/expected.html">std::expected</a></code>クラスに、エラー値を保持しているかを判定するメンバ関数<code><a href="../reference/expected/expected/has_error.html">has_error()</a></code>を追加</li>
+<li><code><a href="../reference/system_error/error_code.html">std::error_code</a></code>クラスを<code><a href="../reference/format/format.html">std::format()</a></code>で出力できるよう、<a href="../reference/system_error/error_code/formatter.html"><code>formatter</code>特殊化</a>を追加。あわせて、カテゴリ名とエラーメッセージのエンコーディングが<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>だった問題を修正</li>
+</ul>
+<h3>並行・並列</h3>
+<ul>
+<li><code><a href="../reference/thread/thread.html">std::thread</a></code>クラスと<code><a href="../reference/thread/jthread.html">std::jthread</a></code>クラスに、スレッド名を設定する<code><a href="../reference/thread/thread/name_hint.html">name_hint</a></code>とスタックサイズを設定する<code><a href="../reference/thread/thread/stack_size_hint.html">stack_size_hint</a></code>のスレッド属性を追加</li>
+<li>SIMDデータ用に連番を生成する<code><a href="../reference/simd/iota.html">std::simd::iota</a></code>変数テンプレートを追加</li>
+<li><code><a href="../reference/bit.html">&lt;bit&gt;</a></code>ヘッダと同様に、<code><a href="../reference/simd.html">&lt;simd&gt;</a></code>ヘッダにも、以下のビット操作関数を追加<ul>
+<li>ビット列の並びを反転する<code><a href="../reference/simd/bit_reverse.html">std::simd::bit_reverse()</a></code>関数</li>
+<li>指定した下位ビットパターンを繰り返す<code><a href="../reference/simd/bit_repeat.html">std::simd::bit_repeat()</a></code>関数</li>
+<li>指定したマスクで立っている一のビットを下位に詰める<code><a href="../reference/simd/bit_compress.html">std::simd::bit_compress()</a></code>関数</li>
+<li>下位ビットを指定したマスクが立っている位置へ展開する<code><a href="../reference/simd/bit_expand.html">std::simd::bit_expand()</a></code>関数</li>
+<li><a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>にならないビットシフト<code><a href="../reference/simd/shl.html">std::simd::shl()</a></code>関数と<code><a href="../reference/simd/shr.html">std::simd::shr()</a></code>関数</li>
+</ul>
+</li>
+<li><code><a href="../reference/hazard_pointer.html">&lt;hazard_pointer&gt;</a></code>に、複数のハザードポインタをまとめて構築・破棄する<code><a href="../reference/hazard_pointer/make_hazard_pointer_batch.html">std::make_hazard_pointer_batch()</a></code>関数と<code><a href="../reference/hazard_pointer/clear_hazard_pointer_batch.html">std::clear_hazard_pointer_batch()</a></code>関数を追加</li>
+</ul>
+<h3>非推奨化</h3>
+<ul>
+<li><code><a href="../reference/iostream.html">&lt;iostream&gt;</a></code>において、<code>signed char</code> / <code>unsigned char</code>の入出力を非推奨化。<code><a href="../reference/cstdint/int8_t.html">std::int8_t</a></code> / <code><a href="../reference/cstdint/uint8_t.html">std::uint8_t</a></code>の別名として扱われるこれらの型の入出力で、整数型であることを期待して予期せぬ結果を招く可能性があった</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

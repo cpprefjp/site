@@ -1,0 +1,416 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::time_put::put - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,locale,std,time_put,function
+">
+        <meta name="title" content="std::time_put::put - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::time_put::put - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::time_put::put - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/locale/time_put/put.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="日時を書式化して、出力イテレータ`s`へ出力する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::time_put::put - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/locale/time_put/put.html" />
+        <meta name="twitter:description" content="日時を書式化して、出力イテレータ`s`へ出力する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<link rel="manifest" href="../../../manifest.json?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=f86c46a60db5ac737e5f16bddeeecab4f10ce6b8"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;locale&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;time_put&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c4d70917ea0b54b55ddbae703fe4096ee9d471a6&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;sstream&gt;\n#include &lt;locale&gt;\n#include &lt;iterator&gt;\n#include &lt;ctime&gt;\n\nint main()\n{\n  std::tm t{};\n  t.tm_year = 126; // 2026\u5e74\n  t.tm_mon = 7;    // 8\u6708\n  t.tm_mday = 25;\n  t.tm_hour = 13;\n\n  std::ostringstream oss;\n  const auto&amp; facet = std::use_facet&lt;std::time_put&lt;char&gt;&gt;(oss.getloc());\n\n  // (1) \u66f8\u5f0f\u6587\u5b57\u5217\u3092\u6307\u5b9a\u3059\u308b\n  const char pattern[] = \&#34;%Y-%m-%d\&#34;;\n  facet.put(std::ostreambuf_iterator&lt;char&gt;{oss}, oss, &#39; &#39;, &amp;t, pattern, pattern + 8);\n\n  oss &lt;&lt; &#39; &#39;;\n\n  // (2) \u5358\u4e00\u306e\u66f8\u5f0f\u6307\u5b9a\u5b50\u3092\u6307\u5b9a\u3059\u308b\n  facet.put(std::ostreambuf_iterator&lt;char&gt;{oss}, oss, &#39; &#39;, &amp;t, &#39;H&#39;);\n\n  std::cout &lt;&lt; oss.str() &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;e0b3a98dd91e4704fc93dfe8a5cded3fc3940255&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;sstream&gt;\n#include &lt;locale&gt;\n#include &lt;iterator&gt;\n#include &lt;ctime&gt;\n#include &lt;string&gt;\n#include &lt;stdexcept&gt;\n\n// \u66f8\u5f0f\u5316\u306e\u51e6\u7406\u81ea\u4f53\u306f\u30ed\u30b1\u30fc\u30eb\u306b\u4f9d\u5b58\u3057\u306a\u3044\nstd::string format_time(const std::locale&amp; loc, const std::tm&amp; t, const std::string&amp; pattern)\n{\n  std::ostringstream oss;\n  oss.imbue(loc);\n\n  const auto&amp; facet = std::use_facet&lt;std::time_put&lt;char&gt;&gt;(oss.getloc());\n  facet.put(std::ostreambuf_iterator&lt;char&gt;{oss}, oss, &#39; &#39;, &amp;t,\n            pattern.data(), pattern.data() + pattern.size());\n\n  return oss.str();\n}\n\nint main()\n{\n  std::tm t{};\n  t.tm_year = 126; // 2026\u5e74\n  t.tm_mon = 7;    // 8\u6708\n  t.tm_mday = 25;\n  t.tm_wday = 2;   // \u706b\u66dc\u65e5\n\n  for (const char* name : {\&#34;en_US.UTF-8\&#34;, \&#34;ja_JP.UTF-8\&#34;, \&#34;de_DE.UTF-8\&#34;}) {\n    try {\n      std::locale loc{name};\n\n      std::cout &lt;&lt; name &lt;&lt; std::endl;\n      std::cout &lt;&lt; \&#34;  %x : \&#34; &lt;&lt; format_time(loc, t, \&#34;%x\&#34;) &lt;&lt; std::endl;\n      std::cout &lt;&lt; \&#34;  %A : \&#34; &lt;&lt; format_time(loc, t, \&#34;%A\&#34;) &lt;&lt; std::endl;\n      std::cout &lt;&lt; \&#34;  %B : \&#34; &lt;&lt; format_time(loc, t, \&#34;%B\&#34;) &lt;&lt; std::endl;\n    }\n    catch (const std::runtime_error&amp;) {\n      // \u6307\u5b9a\u3057\u305f\u540d\u524d\u306e\u30ed\u30b1\u30fc\u30eb\u304c\u5229\u7528\u3067\u304d\u306a\u3044\u5834\u5408\n      std::cout &lt;&lt; name &lt;&lt; \&#34; : not available\&#34; &lt;&lt; std::endl;\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;locale&#34;, &#34;time_put&#34;, &#34;put&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/locale.html" itemprop="url">
+              
+                <span itemprop="name">locale</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/locale/time_put.html" itemprop="url">
+              
+                <span itemprop="name">time_put</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">put</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-08-25T11:46:21+09:00">
+        2026年08月25日 11時46分21秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/locale/time_put/put.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/locale/time_put/put.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;locale&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class time_put">time_put::</span><span class="token">put</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">iter_type</span><span class="w"> </span><span class="nf">put</span><span class="p">(</span><span class="n">iter_type</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">char_type</span><span class="w"> </span><span class="n">fill</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../ctime/tm.html">tm</a></span><span class="o">*</span><span class="w"> </span><span class="n">t</span><span class="p">,</span>
+<span class="w">              </span><span class="k">const</span><span class="w"> </span><span class="n">charT</span><span class="o">*</span><span class="w"> </span><span class="n">pattern</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">charT</span><span class="o">*</span><span class="w"> </span><span class="n">pat_end</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">      </span><span class="c1">// (1) C++98</span>
+<span class="n">iter_type</span><span class="w"> </span><span class="nf">put</span><span class="p">(</span><span class="n">iter_type</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">char_type</span><span class="w"> </span><span class="n">fill</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../ctime/tm.html">tm</a></span><span class="o">*</span><span class="w"> </span><span class="n">t</span><span class="p">,</span>
+<span class="w">              </span><span class="kt">char</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">modifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">                  </span><span class="c1">// (2) C++98</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>日時を書式化して、出力イテレータ<code>s</code>へ出力する。</p>
+<ul>
+<li>(1) : 範囲<code>[pattern, pat_end)</code>を書<a class="cpprefjp-defined-word" data-desc="expression statement。式(省略可能)の末尾にセミコロンをつけた文。式文の式は副作用を起こすために評価され、値は廃棄される。">式文</a>字列として、<code>*t</code>の内容を出力する</li>
+<li>(2) : 書式指定子<code>format</code>（と修飾子<code>modifier</code>）に従って<code>*t</code>の内容を出力する</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(1) : <code>pattern</code>から<code>pat_end</code>までの列をたどり、書式シーケンスの一部である文字を識別する<ul>
+<li>書式シーケンスに含まれない文字は、直ちに<code>s</code>へ書き込まれる</li>
+<li>書式シーケンスが識別されるたびに<code><a href="do_put.html">do_put</a></code>が呼び出される。したがって書式要素とその他の文字は、パターンに現れた順に出力へ交互に現れる</li>
+<li>書式シーケンスの識別は、<code>str.<a href="../../ios/ios_base/getloc.html">getloc()</a></code>から取得した<code><a href="../ctype.html">ctype</a>&lt;charT&gt;</code>への参照<code>ct</code>を用いて、各文字<code>c</code>を<code>ct.<a href="../ctype/narrow.html">narrow</a>(c, 0)</code>によって<code>char</code>へ変換して行われる</li>
+<li>各シーケンスの最初の文字は<code>'%'</code>であり、その後ろに省略可能な修飾子文字<code>mod</code>と、<code><a href="../../ctime/strftime.html">std::strftime</a></code>で定義される書式指定子文字<code>spec</code>が続く。修飾子文字がない場合、<code>mod</code>は<code>0</code>である</li>
+<li>識別された妥当な書式シーケンスごとに、<code><a href="do_put.html">do_put</a>(s, str, fill, t, spec, mod)</code>を呼び出す</li>
+</ul>
+</li>
+<li>(2) : <code><a href="do_put.html">do_put</a>(s, str, fill, t, format, modifier)</code>を呼び出す</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>生成した最後の文字の直後を指すイテレータ。</p>
+<h2>備考</h2>
+<p><code>fill</code>は、<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>の書式や派生クラスでの実装において使用できる。空白文字がこの引数の妥当な既定値である。</p>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="c4d70917ea0b54b55ddbae703fe4096ee9d471a6"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../sstream.html">&lt;sstream&gt;</a></span>
+<span class="cp">#include <a href="../../locale.html">&lt;locale&gt;</a></span>
+<span class="cp">#include <a href="../../iterator.html">&lt;iterator&gt;</a></span>
+<span class="cp">#include <a href="../../ctime.html">&lt;ctime&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../ctime/tm.html">std::tm</a></span><span class="w"> </span><span class="n">t</span><span class="p">{};</span>
+<span class="w">  </span><span class="n">t</span><span class="p">.</span><span class="n">tm_year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">126</span><span class="p">;</span><span class="w"> </span><span class="c1">// 2026年</span>
+<span class="w">  </span><span class="n">t</span><span class="p">.</span><span class="n">tm_mon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w">    </span><span class="c1">// 8月</span>
+<span class="w">  </span><span class="n">t</span><span class="p">.</span><span class="n">tm_mday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span>
+<span class="w">  </span><span class="n">t</span><span class="p">.</span><span class="n">tm_hour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span><span class="w"> </span><span class="n">oss</span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">facet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../use_facet.html">std::use_facet</a></span><span class="o">&lt;</span><span class="n"><a href="../time_put.html">std::time_put</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n"><a href="../../ios/ios_base/getloc.html">oss.getloc()</a></span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// (1) 書式文字列を指定する</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">pattern</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"%Y-%m-%d"</span><span class="p">;</span>
+<span class="w">  </span><span class="n">facet</span><span class="p">.</span><span class="n"><span style="color:#ff0000">put</span></span><span class="p">(</span><span class="n"><a href="../../iterator/ostreambuf_iterator.html">std::ostreambuf_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">{</span><span class="n">oss</span><span class="p">},</span><span class="w"> </span><span class="n">oss</span><span class="p">,</span><span class="w"> </span><span class="sc">' '</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">oss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">' '</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// (2) 単一の書式指定子を指定する</span>
+<span class="w">  </span><span class="n">facet</span><span class="p">.</span><span class="n"><span style="color:#ff0000">put</span></span><span class="p">(</span><span class="n"><a href="../../iterator/ostreambuf_iterator.html">std::ostreambuf_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">{</span><span class="n">oss</span><span class="p">},</span><span class="w"> </span><span class="n">oss</span><span class="p">,</span><span class="w"> </span><span class="sc">' '</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="sc">'H'</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../sstream/basic_ostringstream/str.html">oss.str()</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>2026-08-25 13
+</code></pre></p>
+<h3>ロケールによる違い</h3>
+<p><code>%x</code>（日付）・<code>%A</code>（曜日名）・<code>%B</code>（月名）のように、Cロケールに依存すると規定されている書式指定子は、ストリームのロケールによって生成される文字列が変わる。</p>
+<p><div class="yata" id="e0b3a98dd91e4704fc93dfe8a5cded3fc3940255"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../../sstream.html">&lt;sstream&gt;</a></span>
+<span class="cp">#include <a href="../../locale.html">&lt;locale&gt;</a></span>
+<span class="cp">#include <a href="../../iterator.html">&lt;iterator&gt;</a></span>
+<span class="cp">#include <a href="../../ctime.html">&lt;ctime&gt;</a></span>
+<span class="cp">#include <a href="../../string.html">&lt;string&gt;</a></span>
+<span class="cp">#include <a href="../../stdexcept.html">&lt;stdexcept&gt;</a></span>
+
+<span class="c1">// 書式化の処理自体はロケールに依存しない</span>
+<span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="nf">format_time</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../locale.html">std::locale</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">loc</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../ctime/tm.html">std::tm</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">pattern</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span><span class="w"> </span><span class="n">oss</span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../../ios/basic_ios/imbue.html">oss.imbue</a></span><span class="p">(</span><span class="n">loc</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">facet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../use_facet.html">std::use_facet</a></span><span class="o">&lt;</span><span class="n"><a href="../time_put.html">std::time_put</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n"><a href="../../ios/ios_base/getloc.html">oss.getloc()</a></span><span class="p">);</span>
+<span class="w">  </span><span class="n">facet</span><span class="p">.</span><span class="n"><span style="color:#ff0000">put</span></span><span class="p">(</span><span class="n"><a href="../../iterator/ostreambuf_iterator.html">std::ostreambuf_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">{</span><span class="n">oss</span><span class="p">},</span><span class="w"> </span><span class="n">oss</span><span class="p">,</span><span class="w"> </span><span class="sc">' '</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="p">,</span>
+<span class="w">            </span><span class="n">pattern</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">pattern</span><span class="p">.</span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pattern</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n"><a href="../../sstream/basic_ostringstream/str.html">oss.str()</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n"><a href="../../ctime/tm.html">std::tm</a></span><span class="w"> </span><span class="n">t</span><span class="p">{};</span>
+<span class="w">  </span><span class="n">t</span><span class="p">.</span><span class="n">tm_year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">126</span><span class="p">;</span><span class="w"> </span><span class="c1">// 2026年</span>
+<span class="w">  </span><span class="n">t</span><span class="p">.</span><span class="n">tm_mon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w">    </span><span class="c1">// 8月</span>
+<span class="w">  </span><span class="n">t</span><span class="p">.</span><span class="n">tm_mday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span>
+<span class="w">  </span><span class="n">t</span><span class="p">.</span><span class="n">tm_wday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">   </span><span class="c1">// 火曜日</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s">"en_US.UTF-8"</span><span class="p">,</span><span class="w"> </span><span class="s">"ja_JP.UTF-8"</span><span class="p">,</span><span class="w"> </span><span class="s">"de_DE.UTF-8"</span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n"><a href="../locale.html">std::locale</a></span><span class="w"> </span><span class="n">loc</span><span class="p">{</span><span class="n">name</span><span class="p">};</span>
+
+<span class="w">      </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">      </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  %x : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">format_time</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="s">"%x"</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">      </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  %A : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">format_time</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="s">"%A"</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">      </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  %B : "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">format_time</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="s">"%B"</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><a href="../../stdexcept.html">std::runtime_error</a></span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// 指定した名前のロケールが利用できない場合</span>
+<span class="w">      </span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" : not available"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>en_US.UTF-8
+  %x : 08/25/2026
+  %A : Tuesday
+  %B : August
+ja_JP.UTF-8
+  %x : 2026/08/25
+  %A : 火曜日
+  %B : 8月
+de_DE.UTF-8
+  %x : 25.08.2026
+  %A : Dienstag
+  %B : August
+</code></pre></p>
+<ul>
+<li><code>%x</code>が生成する日付の書式は、米国では月・日・年、日本では年・月・日、ドイツでは日・月・年の順となる。この順序は<code><a href="../time_get/date_order.html">std::time_get::date_order()</a></code>で取得できる</li>
+<li>Cロケールに依存すると規定されている書式指定子について生成される文字列は、<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>である</li>
+<li>妥当なロケール名は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>である。指定した名前のロケールが利用できない場合、<code><a href="../locale.html">std::locale</a></code>のコンストラクタは<code><a href="../../stdexcept.html">std::runtime_error</a></code>を送出し、上記の例では<code>not available</code>が出力される</li>
+</ul>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++98</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="do_put.html">time_put::do_put</a></code></li>
+<li><code><a href="../time_get.html">time_get</a></code></li>
+<li><code><a href="../../ctime/strftime.html">std::strftime</a></code></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
