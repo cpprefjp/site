@@ -51,6 +51,10 @@ namespace std {
 - 値の配列内のオフセット`off`の値は、キー配列内のオフセット`off`のキーに関連付けられた値である
 
 
+## 概念・前提知識
+- [コンテナとは](/guide/container.md)
+
+
 ## テンプレートパラメータ制約
 - `KeyContainer`と`MappedContainer`に指定するコンテナ型は、
     - シーケンスコンテナの要件を満たし、
