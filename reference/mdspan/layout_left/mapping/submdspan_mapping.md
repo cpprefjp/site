@@ -54,8 +54,8 @@ friend constexpr auto submdspan_mapping(
 説明専用の`submdspan-mapping-impl`関数テンプレートは下記の値を返す。
 
 - [`Extents::rank()`](../../extents/rank.md) `== 0`のとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{*this, 0}`
-- `SubExtents::rank() == 0`のとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_left::mapping`](../../layout_left.md)`(sub_ext), offset}`
-- 以下を満たすとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_left::mapping`](../../layout_left.md)`(sub_ext), offset}`
+- `SubExtents::rank() == 0`のとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_left::mapping`](../../layout_left/mapping.md)`(sub_ext), offset}`
+- 以下を満たすとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_left::mapping`](../../layout_left/mapping.md)`(sub_ext), offset}`
     - 半開区間`[0, SubExtents::rank()-1)`の値`k`に対して、`SliceSpecifiers...[k]`が[`full_extent_t`](../../full_extent_t.md)を表し、かつ
     - `SubExtents::rank()-1`に等しい値`k`に対して、`SliceSpecifiers...[k]`が単位ストライド幅スライス型である
 - 以下を満たすとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_left_padded<S_static>::mapping`](../../layout_left_padded/mapping.md)`(sub_ext, stride(u + 1)), offset}`
@@ -66,7 +66,7 @@ friend constexpr auto submdspan_mapping(
     - ここで定数`S_static`は
         - 半開区間`[0, u+1)`のいずれかの値`k`に対して`static_extent(k)`が[`dynamic_extent`](/reference/span/dynamic_extent.md)のとき、`dynamic_extent`
         - そうでなければ、半開区間`[0, u+1)`の全ての値`k`に対して`static_extent(k)`を乗算した値
-- [`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_stride::mapping`](../../layout_stride.md)`(sub_ext, sub_strides), offset}`
+- [`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_stride::mapping`](../../layout_stride/mapping.md)`(sub_ext, sub_strides), offset}`
 
 
 ## バージョン

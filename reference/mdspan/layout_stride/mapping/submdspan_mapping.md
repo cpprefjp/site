@@ -49,7 +49,7 @@ friend constexpr auto submdspan_mapping(
 説明専用の`submdspan-mapping-impl`関数テンプレートは下記の値を返す。
 
 - [`Extents::rank()`](../../extents/rank.md) `== 0`のとき、[`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{*this, 0}`
-- [`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_stride::mapping`](../../layout_stride.md)`(sub_ext, sub_strides), offset}`
+- [`submdspan_mapping_result`](../../submdspan_mapping_result.md)`{`[`layout_stride::mapping`](../../layout_stride/mapping.md)`(sub_ext, sub_strides), offset}`
 
 
 ## バージョン
