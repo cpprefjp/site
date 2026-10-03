@@ -38,9 +38,9 @@
 | `a.construct(c, args...)`                     | [`construct_at`](/reference/memory/construct_at.md)`(c, `[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`                |
 | `a.destroy(c)`                                | [`destroy_at`](/reference/memory/destroy_at.md)`(c)`                                               |
 | `a.select_on_container_copy_construction()`   | `a`                                                           |
-| `X::propagate_on_container_copy_assignment`   | [`false_type`](/reference/type_traits/integral_constant.md)                                                  |
-| `X::propagate_on_container_move_assignment`   | [`false_type`](/reference/type_traits/integral_constant.md)                                                  |
-| `X::propagate_on_container_swap`              | [`false_type`](/reference/type_traits/integral_constant.md)                                                  |
+| `X::propagate_on_container_copy_assignment`   | [`false_type`](/reference/type_traits/false_type.md)                                                  |
+| `X::propagate_on_container_move_assignment`   | [`false_type`](/reference/type_traits/false_type.md)                                                  |
+| `X::propagate_on_container_swap`              | [`false_type`](/reference/type_traits/false_type.md)                                                  |
 | `X::is_always_equal`                          | [`is_empty`](/reference/type_traits/is_empty.md)`<X>::type`                                           |
 
 `X::pointer`などのポインタ型には、[`Cpp17NullablePointer`](/requirements/Cpp17NullablePointer.md.nolink)要件が要求される。`X::pointer`と`X::const_pointer`には、加えて[`Cpp17RandomAccessIterator`](/requirements/Cpp17RandomAccessIterator.md.nolink)要件が要求される。
