@@ -48,7 +48,7 @@ int main()
 ```
 * std::mbstate_t[color ff0000]
 * std::mbsinit[link mbsinit.md]
-* std::mbrtowc[link /reference/cwchar.md]
+* std::mbrtowc[link /reference/cwchar/mbrtowc.md]
 * std::size_t[link /reference/cstddef/size_t.md]
 
 ### 出力
