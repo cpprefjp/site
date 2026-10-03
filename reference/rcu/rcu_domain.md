@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 RCU同期メカニズムで保護する共有データに対応付ける、RCUドメインを表現する。
 
-`rcu_domain`クラスは Cpp17Lockable 要件を満たし、共有データの読み取りをおこなうRCU保護区間を表現する。
+`rcu_domain`クラスは [`Cpp17Lockable`](/requirements/Cpp17Lockable.md.nolink) 要件を満たし、共有データの読み取りをおこなうRCU保護区間を表現する。
 RCU保護区間は[`lock`](rcu_domain/lock.md)呼び出しから[`unlock`](rcu_domain/unlock.md)呼び出しのまでの区間であり、RCUドメインに対して同一スレッド上でのRCU保護区間は入れ子になってもよい。
 
 

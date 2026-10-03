@@ -29,9 +29,9 @@ namespace std {
 
 - 型`T`および型`E`は、参照型、関数型、[`in_place_t`](/reference/utility/in_place_t.md)、[`unexpect_t`](unexpect_t.md)のいずれでもないこと。
 - 型`T`は[`unexpected`](unexpected.md)の特殊化ではないこと。
-- 型`T`が（CV修飾された）`void`型でなければ、型`T`はCpp17Destructible要件を満たすこと。
+- 型`T`が（CV修飾された）`void`型でなければ、型`T`は[`Cpp17Destructible`](/requirements/Cpp17Destructible.md.nolink)要件を満たすこと。
 - 型`E`は非オブジェクト型、配列型、`unexpected`の特殊化、CV修飾された型のいずれでもないこと。
-- 型`E`はCpp17Destructible要件を満たすこと。
+- 型`E`は[`Cpp17Destructible`](/requirements/Cpp17Destructible.md.nolink)要件を満たすこと。
 
 
 ## メンバ関数（プライマリテンプレート）

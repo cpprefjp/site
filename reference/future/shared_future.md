@@ -16,7 +16,7 @@ namespace std {
 
 
 ## 適格要件
-- C++23 : `R`が参照型でも`void`でもない場合、`R`はデストラクト可能 (`Cpp17Destructible`) なオブジェクト型であること。配列型・関数型は不適格である。
+- C++23 : `R`が参照型でも`void`でもない場合、`R`はデストラクト可能 ([`Cpp17Destructible`](/requirements/Cpp17Destructible.md.nolink)) なオブジェクト型であること。配列型・関数型は不適格である。
 
 
 ## メンバ関数
@@ -112,4 +112,4 @@ int main()
 
 ## 参照
 - [LWG Issue 3466. Specify the requirements for `promise`/`future`/`shared_future` consistently](https://cplusplus.github.io/LWG/issue3466)
-    - C++23で、テンプレート引数`R`がCpp17Destructible要件を満たすオブジェクト型でなければならないという要件が一貫して規定された（配列型・関数型は不適格）
+    - C++23で、テンプレート引数`R`が[`Cpp17Destructible`](/requirements/Cpp17Destructible.md.nolink)要件を満たすオブジェクト型でなければならないという要件が一貫して規定された（配列型・関数型は不適格）

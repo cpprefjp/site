@@ -16,7 +16,7 @@ namespace std {
 
 
 ## 事前条件
-`U`を [`decay_t`](/reference/type_traits/decay.md)`<T>` として、型`U`がコピー構築可能（*Cpp17CopyConstructible*）の要件を満たすこと。
+`U`を [`decay_t`](/reference/type_traits/decay.md)`<T>` として、型`U`がコピー構築可能（[`Cpp17CopyConstructible`](/requirements/Cpp17CopyConstructible.md.nolink)）の要件を満たすこと。
 
 
 ## 例外

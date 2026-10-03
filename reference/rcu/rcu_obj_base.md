@@ -21,7 +21,7 @@ RCU機構の保護対象とする型の基底クラス。
 ## 適格要件
 - `T`は不完全型でもよいが、特殊化された`rcu_obj_base`のメンバが参照されるまでに完全型とすること。
 - `D`は関数オブジェクト型であり、`D`型の値`d`と`T*`型の値`ptr`に対して式`d(ptr)`が有効であること。
-- `D`型は要件 Cpp17DefaultConstructible およ Cpp17MoveAssignable を満たすこと。
+- `D`型は要件 [`Cpp17DefaultConstructible`](/requirements/Cpp17DefaultConstructible.md.nolink) およ [`Cpp17MoveAssignable`](/requirements/Cpp17MoveAssignable.md.nolink) を満たすこと。
 
 
 ## メンバ関数
