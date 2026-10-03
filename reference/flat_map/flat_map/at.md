@@ -48,7 +48,7 @@ constexpr const mapped_type&
 
 
 ## 戻り値
-キー`x`に対応する値を返す。対応する要素が存在しないときは、[`out_of_range`](/reference/stdexcept.md)例外を投げる。
+キー`x`に対応する値を返す。対応する要素が存在しないときは、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を投げる。
 
 
 ## 計算量
@@ -89,7 +89,7 @@ int main()
 ```
 * c.at[color ff0000]
 * fm.insert[link insert.md]
-* std::out_of_range[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept/out_of_range.md]
 
 ### 出力
 ```

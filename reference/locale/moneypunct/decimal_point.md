@@ -41,7 +41,7 @@ int main()
 * std::moneypunct[link /reference/locale/moneypunct.md]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale[link /reference/locale/locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * mp.decimal_point()[link /reference/locale/moneypunct/decimal_point.md]
 
 ### 出力例
@@ -53,7 +53,7 @@ de_DE.UTF-8 : [,]
 
 - ドイツのロケールでは小数点にカンマが使われる
 - `"C"`ロケールにおける`moneypunct`の小数点の値は規格に規定がなく、印字できない文字が返る処理系もあるため、上記の例では扱っていない
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 ## バージョン

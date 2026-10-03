@@ -41,7 +41,7 @@ int main()
 * std::numpunct[link /reference/locale/numpunct.md]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale[link /reference/locale/locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * np.thousands_sep()[link /reference/locale/numpunct/thousands_sep.md]
 
 ### 出力例
@@ -54,7 +54,7 @@ de_DE.UTF-8 : [.]
 
 - ドイツのロケールでは桁区切りにピリオドが使われる
 - 桁区切りが実際に使用されるかどうかは[`grouping()`](grouping.md)が返す値による
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 ## バージョン

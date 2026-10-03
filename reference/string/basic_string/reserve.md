@@ -26,7 +26,7 @@ constexpr void reserve(size_type res_arg); // (2) C++20
 
 
 ## 例外
-`res_arg >` [`max_size()`](max_size.md) の場合、[`length_error`](/reference/stdexcept.md) 例外を投げる。  
+`res_arg >` [`max_size()`](max_size.md) の場合、[`length_error`](/reference/stdexcept/length_error.md) 例外を投げる。  
 `allocator_traits<Allocator>::allocate()` が、よりふさわしい例外を投げるかもしれない。
 
 

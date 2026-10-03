@@ -19,7 +19,7 @@ constexpr unsigned long long to_ullong() const; // (1) C++23
 
 
 ## 例外
-`unsigned long long`型に変換した結果としてオーバーフローした場合、[`overflow_error`](/reference/stdexcept.md)例外を送出する。
+`unsigned long long`型に変換した結果としてオーバーフローした場合、[`overflow_error`](/reference/stdexcept/overflow_error.md)例外を送出する。
 
 
 ## 例

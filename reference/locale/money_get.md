@@ -138,7 +138,7 @@ int main()
 * std::money_get[color ff0000]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale[link /reference/locale/locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * iss.imbue[link /reference/ios/basic_ios/imbue.md]
 * iss.getloc()[link /reference/ios/ios_base/getloc.md]
 * std::istreambuf_iterator[link /reference/iterator/istreambuf_iterator.md]
@@ -155,7 +155,7 @@ de_DE.UTF-8 : 105623
 
 - 米ドルの`$1,056.23`とドイツのユーロの`1.056,23 €`は、桁区切りと小数点の文字も通貨記号の位置も異なるが、いずれも最小単位（セント）での`105623`として解析される
 - 日本円の`￥105,623`は[`frac_digits()`](/reference/locale/moneypunct/frac_digits.md)が`0`であるため、`105623`がそのまま円単位の金額として解析される
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 

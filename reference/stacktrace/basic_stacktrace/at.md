@@ -18,7 +18,7 @@ const_reference at(size_type frame_no) const; // (1) C++23
 
 
 ## 例外
-`frame_no >=` [`size()`](size.md)である場合、[`std::out_of_range`](/reference/stdexcept.md)例外を送出する。
+`frame_no >=` [`size()`](size.md)である場合、[`std::out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。
 
 
 ## 例

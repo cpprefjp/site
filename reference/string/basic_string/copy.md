@@ -31,7 +31,7 @@ constexpr size_type
 
 
 ## 例外
-`pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+`pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。
 
 
 ## 例

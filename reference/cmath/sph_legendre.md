@@ -203,7 +203,7 @@ int main() {
 
 ### 備考
 #### GCC (libstdc++)
-GCC 7.1.0–8.0.0 では `l < m` の場合 ($Y_l^m = 0$) [`std::domain_error`](/reference/stdexcept.md) を送出する。
+GCC 7.1.0–8.0.0 では `l < m` の場合 ($Y_l^m = 0$) [`std::domain_error`](/reference/stdexcept/domain_error.md) を送出する。
 
 
 ## 関連項目

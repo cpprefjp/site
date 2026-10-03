@@ -172,7 +172,7 @@ int main()
 * std::time_base::dateorder[link /reference/locale/time_base.md]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale[link /reference/locale/locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * iss.imbue[link /reference/ios/basic_ios/imbue.md]
 * iss.getloc()[link /reference/ios/ios_base/getloc.md]
 * std::istreambuf_iterator[link /reference/iterator/istreambuf_iterator.md]
@@ -195,7 +195,7 @@ de_DE.UTF-8
 
 - 書かれ方が異なる3つの日付文字列が、いずれも同じ日付として解析される
 - 各ロケールにおける日付の要素の並び順は[`date_order()`](time_get/date_order.md)で取得できる
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 

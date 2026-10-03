@@ -28,7 +28,7 @@ return static_cast<Tp*>(memory_rsrc->allocate(n * sizeof(Tp), alignof(Tp)));
 確保した領域の先頭へのポインタ。
 
 ## 例外
-- [`SIZE_MAX`](/reference/cstdint/size_max.md) `/ sizeof(Tp) < n`である場合、[`std::length_error`](/reference/stdexcept.md)例外を送出する
+- [`SIZE_MAX`](/reference/cstdint/size_max.md) `/ sizeof(Tp) < n`である場合、[`std::length_error`](/reference/stdexcept/length_error.md)例外を送出する
 - 指定されたサイズの領域が確保できない場合は、任意の例外を送出する
 
 ## 例

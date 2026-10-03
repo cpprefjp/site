@@ -249,10 +249,10 @@ constexpr basic_string&
 
 
 ## 例外
-- (1) : `pos1 >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
-- (2) : `pos1 >` [`size()`](size.md)もしくは`pos2 > str.`[`size()`](size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
-- (3) : `pos1 >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。また、置き換え結果の文字列が`max_size()`を超えた場合、[`length_error`](/reference/stdexcept.md)例外を送出する。
-- (13) : `pos1 >` [`size()`](size.md)もしくは`pos2 > sv.`[`size()`](/reference/string_view/basic_string_view/size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+- (1) : `pos1 >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。
+- (2) : `pos1 >` [`size()`](size.md)もしくは`pos2 > str.`[`size()`](size.md)である場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。
+- (3) : `pos1 >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。また、置き換え結果の文字列が`max_size()`を超えた場合、[`length_error`](/reference/stdexcept/length_error.md)例外を送出する。
+- (13) : `pos1 >` [`size()`](size.md)もしくは`pos2 > sv.`[`size()`](/reference/string_view/basic_string_view/size.md)である場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。
 
 
 ## 例

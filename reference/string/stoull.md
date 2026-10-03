@@ -36,8 +36,8 @@ namespace std {
 
 
 ## 例外
-- 数値への変換が行われなかった場合、[`std::invalid_argument`](/reference/stdexcept.md)が送出される。
-- 以下の条件に合致した場合、[`std::out_of_range`](/reference/stdexcept.md)が送出される。
+- 数値への変換が行われなかった場合、[`std::invalid_argument`](/reference/stdexcept/invalid_argument.md)が送出される。
+- 以下の条件に合致した場合、[`std::out_of_range`](/reference/stdexcept/out_of_range.md)が送出される。
     - `std::strtoull()`関数が[`errno`](/reference/cerrno/errno.md)変数に[`ERANGE`](/reference/cerrno.md)を設定した場合 (C++14)
     - 結果が範囲外の値になった場合
 
@@ -219,8 +219,8 @@ unsigned long long stoull(const std::wstring& str, std::size_t* idx = nullptr, u
 }
 ```
 * str.c_str()[link basic_string/c_str.md]
-* std::invalid_argument[link /reference/stdexcept.md]
-* std::out_of_range[link /reference/stdexcept.md]
+* std::invalid_argument[link /reference/stdexcept/invalid_argument.md]
+* std::out_of_range[link /reference/stdexcept/out_of_range.md]
 * errno[link /reference/cerrno/errno.md]
 * ERANGE[link /reference/cerrno.md]
 

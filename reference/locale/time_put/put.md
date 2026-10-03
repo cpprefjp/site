@@ -136,7 +136,7 @@ int main()
 * std::time_put[link /reference/locale/time_put.md]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale[link /reference/locale/locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * oss.imbue[link /reference/ios/basic_ios/imbue.md]
 * oss.getloc()[link /reference/ios/ios_base/getloc.md]
 * std::ostreambuf_iterator[link /reference/iterator/ostreambuf_iterator.md]
@@ -161,7 +161,7 @@ de_DE.UTF-8
 
 - `%x`が生成する日付の書式は、米国では月・日・年、日本では年・月・日、ドイツでは日・月・年の順となる。この順序は[`std::time_get::date_order()`](/reference/locale/time_get/date_order.md)で取得できる
 - Cロケールに依存すると規定されている書式指定子について生成される文字列は、処理系定義である
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 ## バージョン

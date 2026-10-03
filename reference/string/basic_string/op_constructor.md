@@ -165,7 +165,7 @@ constexpr basic_string(from_range_t, R&& rg,
 
 
 ## 例外
-- (5), (6), (17), (18) : `pos > str.`[`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+- (5), (6), (17), (18) : `pos > str.`[`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。
 - (13) : `alloc == str.`[`get_allocator()`](get_allocator.md)の場合、例外を投げない。
 
 

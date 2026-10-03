@@ -40,7 +40,7 @@ byte_string to_bytes(const Elem* first,
 
 
 ## 例外
-変換に失敗し、コンストラクタで`byte_err`パラメータ(エラー時に返す文字列)が設定されていなかった場合、[`std::range_error`](/reference/stdexcept.md)例外を送出する。
+変換に失敗し、コンストラクタで`byte_err`パラメータ(エラー時に返す文字列)が設定されていなかった場合、[`std::range_error`](/reference/stdexcept/range_error.md)例外を送出する。
 
 
 ## 例

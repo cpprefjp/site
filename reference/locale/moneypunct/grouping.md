@@ -51,7 +51,7 @@ int main()
 * std::moneypunct[link /reference/locale/moneypunct.md]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale[link /reference/locale/locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * mp.grouping()[link /reference/locale/moneypunct/grouping.md]
 
 ### 出力例
@@ -63,7 +63,7 @@ de_DE.UTF-8 : 3
 ```
 
 - 戻り値の各要素は文字ではなく数値として解釈される。3桁ごとの区切りは`'3'`（文字）ではなく`3`（数値）である
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 ## バージョン

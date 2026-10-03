@@ -41,7 +41,7 @@ int main()
 * std::moneypunct[link /reference/locale/moneypunct.md]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale[link /reference/locale/locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * mp.positive_sign()[link /reference/locale/moneypunct/positive_sign.md]
 
 ### 出力例
@@ -54,7 +54,7 @@ de_DE.UTF-8 : []
 
 - 正の符号は通常空文字列である
 - 空文字列である場合、解析時に符号要素は省略可能となる
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 ## バージョン

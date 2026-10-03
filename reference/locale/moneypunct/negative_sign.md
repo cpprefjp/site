@@ -41,7 +41,7 @@ int main()
 * std::moneypunct[link /reference/locale/moneypunct.md]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale[link /reference/locale/locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * mp.negative_sign()[link /reference/locale/moneypunct/negative_sign.md]
 
 ### 出力例
@@ -54,7 +54,7 @@ de_DE.UTF-8 : [-]
 
 - `"()"`のように2文字以上の文字列を返すロケールもある。その場合、1文字目が符号の位置に置かれ、残りの文字は他のすべての書式要素の後ろに置かれる
 - `"C"`ロケールにおける値は規格に規定がないため、処理系によって異なる
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 ## バージョン

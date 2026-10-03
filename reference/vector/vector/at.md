@@ -25,7 +25,7 @@ constexpr const_reference at(size_type n) const; // (2) C++20
 
 
 ## 例外
-`n >=` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+`n >=` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。
 
 
 ## 備考
@@ -56,7 +56,7 @@ int main()
 }
 ```
 * at[color ff0000]
-* std::out_of_range[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept/out_of_range.md]
 
 ### 出力
 ```

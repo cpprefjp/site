@@ -26,7 +26,7 @@ constexpr const_reference at(size_type n) const; // (2) C++26
 この関数は、例外を送出しうるため、フリースタンディング処理系では削除される（フリースタンディング処理系では使用できない）。
 
 ## 例外
-`n >=` [`size()`](size.md)の場合、[`std::out_of_range`](/reference/stdexcept.md)例外を送出する。
+`n >=` [`size()`](size.md)の場合、[`std::out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。
 
 
 ## 計算量
@@ -55,7 +55,7 @@ int main()
 }
 ```
 * at[color ff0000]
-* std::out_of_range[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept/out_of_range.md]
 
 ### 出力
 ```

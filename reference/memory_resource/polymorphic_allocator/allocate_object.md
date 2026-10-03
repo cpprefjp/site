@@ -34,7 +34,7 @@ return static_cast<T*>(this->allocate_bytes(n*sizeof(T), alignof(T)));
 
 ## 例外
 
-[`SIZE_MAX`](/reference/cstdint/size_max.md) `/ sizeof(T) < n`である場合、[`std::length_error`](/reference/stdexcept.md)例外を送出する
+[`SIZE_MAX`](/reference/cstdint/size_max.md) `/ sizeof(T) < n`である場合、[`std::length_error`](/reference/stdexcept/length_error.md)例外を送出する
 
 ## 備考
 

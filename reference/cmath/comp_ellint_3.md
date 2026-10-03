@@ -115,8 +115,8 @@ comp_ellint_3(1, 1) = inf
 #### GCC (libstdc++)
 GCC 7.1.0–8.0.0 では
 
-* `|k| == 1` のときに [`std::domain_error`](/reference/stdexcept.md) を送出する
-* `nu > 1` のときに Cauchy の主値を計算せず [`std::domain_error`](/reference/stdexcept.md) を送出する
+* `|k| == 1` のときに [`std::domain_error`](/reference/stdexcept/domain_error.md) を送出する
+* `nu > 1` のときに Cauchy の主値を計算せず [`std::domain_error`](/reference/stdexcept/domain_error.md) を送出する
 
 
 ## 関連項目

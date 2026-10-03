@@ -132,10 +132,10 @@ constexpr basic_string&
 
 
 ## 例外
-- (3) : `pos > str.`[`size()`](size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する
-- (4) : `n >` [`max_size()`](max_size.md)である場合、[`length_error`](/reference/stdexcept.md)例外を送出する
-- (10) : `pos >` [`sv.size()`](/reference/string_view/basic_string_view/size.md)である場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する
-- (11) : `pos` が `s` の長さ (`traits_type::length(s)`) を超える場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する
+- (3) : `pos > str.`[`size()`](size.md)である場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する
+- (4) : `n >` [`max_size()`](max_size.md)である場合、[`length_error`](/reference/stdexcept/length_error.md)例外を送出する
+- (10) : `pos >` [`sv.size()`](/reference/string_view/basic_string_view/size.md)である場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する
+- (11) : `pos` が `s` の長さ (`traits_type::length(s)`) を超える場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する
 
 
 

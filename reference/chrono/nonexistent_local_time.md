@@ -9,7 +9,7 @@ namespace std::chrono {
   class nonexistent_local_time : public runtime_error;
 }
 ```
-* runtime_error[link /reference/stdexcept.md]
+* runtime_error[link /reference/stdexcept/runtime_error.md]
 
 ## 概要
 `nonexistent_local_time`は、ローカル時間からシステム時間 (UTCタイムゾーン) への変換において、[`choose`](choose.md)型の丸め方法を指定することなく、存在しないローカル時間を指定した場合に発生する例外の型である。

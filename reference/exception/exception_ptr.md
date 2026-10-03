@@ -76,7 +76,7 @@ int main()
 ```
 * std::exception_ptr[color ff0000]
 * std::current_exception()[link current_exception.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * std::rethrow_exception[link rethrow_exception.md]
 
 ### 出力

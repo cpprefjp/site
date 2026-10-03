@@ -61,7 +61,7 @@ int main()
 * std::time_base::ydm[link /reference/locale/time_base.md]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale[link /reference/locale/locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 
 ### 出力例
 ```
@@ -73,7 +73,7 @@ de_DE.UTF-8 : dmy
 
 - 米国では月・日・年、日本では年・月・日、ドイツでは日・月・年の順である。この順序は[`get_date()`](get_date.md)が解析する書式を決める
 - 日付書式が日・月・年以外の可変要素（週番号や曜日など）を含む場合は`no_order`が返る。`"C"`ロケールに対して何を返すかは処理系によって異なる
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 ## バージョン

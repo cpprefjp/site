@@ -20,7 +20,7 @@ locale combine(const locale& other) const; // (1) C++98
 
 
 ## 例外
-[`has_facet`](../has_facet.md)`<Facet>(other)`が`false`の場合、[`std::runtime_error`](/reference/stdexcept.md)例外を送出する。
+[`has_facet`](../has_facet.md)`<Facet>(other)`が`false`の場合、[`std::runtime_error`](/reference/stdexcept/runtime_error.md)例外を送出する。
 
 
 ## 備考

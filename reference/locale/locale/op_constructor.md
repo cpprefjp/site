@@ -52,9 +52,9 @@ locale(const locale& other, const locale& one, category cats);     // (8) C++98
 
 
 ## 例外
-- (3) : `std_name`が有効なロケール名でない場合、もしくはヌルポインタである場合、[`std::runtime_error`](/reference/stdexcept.md)を送出する。
+- (3) : `std_name`が有効なロケール名でない場合、もしくはヌルポインタである場合、[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出する。
 - (4) : (3)と同じ。
-- (5) : `std_name`が有効なロケール名でない場合、もしくはヌルポインタである場合、[`std::runtime_error`](/reference/stdexcept.md)を送出する。
+- (5) : `std_name`が有効なロケール名でない場合、もしくはヌルポインタである場合、[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出する。
 - (6) : (5)と同じ。
 
 

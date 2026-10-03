@@ -44,7 +44,7 @@ constexpr const T& at(const K& x) const; // (4) C++26
 
 
 ## 例外
-- 指定されたキーに対応する要素が存在しない場合、[`std::out_of_range`](/reference/stdexcept.md)例外を送出する
+- 指定されたキーに対応する要素が存在しない場合、[`std::out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する
 
 
 ## 備考
@@ -83,7 +83,7 @@ int main()
 ```
 * c.at[color ff0000]
 * m.insert[link insert.md]
-* std::out_of_range[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept/out_of_range.md]
 
 ### 出力
 ```

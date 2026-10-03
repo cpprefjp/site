@@ -124,7 +124,7 @@ static consteval void check-types();
     - `out_sndr`が[`set_error`](set_error.md)`(rcvr, eptr)`で完了するとき、エラー完了ハンドラが呼び出される前に非同期操作は`f`呼び出しのサブセットを呼び出す可能性があり、`eptr`は下記いずれかを指す[`exception_ptr`](/reference/exception/exception_ptr.md)となる。
         - `f`呼び出しから送出された例外、または
         - 処理系が要求リソースの確保に失敗したときは[`bad_alloc`](/reference/new/bad_alloc.md)例外、または
-        - [`runtime_error`](/reference/stdexcept.md)から派生された例外。
+        - [`runtime_error`](/reference/stdexcept/runtime_error.md)から派生された例外。
     - `out_sndr`が[`set_stopped`](set_stopped.md)`(rcvr)`で完了するとき、停止完了ハンドラが呼び出される前に非同期操作は`f`呼び出しのサブセットを呼び出す可能性がある。
 - `sndr`が[`set_value`](set_value.md)で完了しないとき、その完了操作は`recv`に転送される。
 - パラメータ`policy`は、アルゴリズムに対応した非同期操作の実行を並列化する方法、および`f`に適用する方法を規定する。並列アルゴリズム要素アクセス関数に対する権限と要件は`f`に適用される。

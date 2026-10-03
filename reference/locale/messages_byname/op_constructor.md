@@ -24,7 +24,7 @@ explicit messages_byname(const string& name, size_t refs = 0); // (2) C++98
 
 
 ## 例外
-`name`が妥当なロケール名でない場合、もしくはヌルポインタである場合、[`std::runtime_error`](/reference/stdexcept.md)を送出する。
+`name`が妥当なロケール名でない場合、もしくはヌルポインタである場合、[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出する。
 
 
 ## 備考
@@ -96,7 +96,7 @@ int main()
 
 - `messages_byname`を使うと、グローバルロケールを変更することなく、メッセージのカテゴリだけを特定の名前のロケールのものに固定できる
 - カタログ名からカタログへの対応付けは処理系定義である。GNU gettextを使用する処理系では、`open()`にドメイン名を渡すことで、ロケール名に対応するカタログが選択される
-- 妥当なロケール名は処理系定義である。指定した名前が妥当でない場合、コンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出する
+- 妥当なロケール名は処理系定義である。指定した名前が妥当でない場合、コンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出する
 
 
 ## バージョン

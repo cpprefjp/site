@@ -9,7 +9,7 @@ namespace std {
   class regex_error : public std::runtime_error;
 }
 ```
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 
 ## 概要
 `regex_error`クラスは、正規表現ライブラリ`<regex>`からのエラー報告として送出される、例外オブジェクトの型である。
@@ -21,7 +21,7 @@ namespace std {
 
 ## メンバ関数
 
-基底クラスである[`runtime_error`](/reference/stdexcept.md)も参照のこと。
+基底クラスである[`runtime_error`](/reference/stdexcept/runtime_error.md)も参照のこと。
 
 ### 構築・破棄
 
@@ -80,7 +80,7 @@ int main()
 ```
 * std::regex_error[color ff0000]
 * std::regex_constants::error_type[link /reference/regex/regex_constants/error_type.md]
-* std::invalid_argument[link /reference/stdexcept.md]
+* std::invalid_argument[link /reference/stdexcept/invalid_argument.md]
 * std::regex[link /reference/regex/basic_regex.md]
 * code()[link regex_error/code.md]
 

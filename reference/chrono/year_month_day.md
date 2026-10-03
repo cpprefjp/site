@@ -299,7 +299,7 @@ int main()
 * now()[link system_clock/now.md]
 * chrono::floor[link time_point/floor.md]
 * count()[link duration/count.md]
-* std::invalid_argument[link /reference/stdexcept.md]
+* std::invalid_argument[link /reference/stdexcept/invalid_argument.md]
 
 #### 出力例
 ```

@@ -32,7 +32,7 @@ constexpr void resize(size_type n);          // (2) C++20
 
 
 ## 例外
-`n >` [`max_size()`](max_size.md) の時、[`length_error`](/reference/stdexcept.md) 例外を投げる。
+`n >` [`max_size()`](max_size.md) の時、[`length_error`](/reference/stdexcept/length_error.md) 例外を投げる。
 
 
 ## 例

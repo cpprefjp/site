@@ -159,7 +159,7 @@ int main()
 * std::money_base::value[link money_base.md]
 * std::use_facet[link use_facet.md]
 * std::locale[link locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * mp.decimal_point()[link moneypunct/decimal_point.md]
 * mp.thousands_sep()[link moneypunct/thousands_sep.md]
 * mp.curr_symbol()[link moneypunct/curr_symbol.md]
@@ -192,7 +192,7 @@ de_DE.UTF-8
 - ドイツのロケールでは小数点と桁区切りの文字が米国と逆になっている
 - [`pos_format()`](moneypunct/pos_format.md)のパターンでは、米国と日本は`value`より前に`symbol`があるため通貨記号が値の前に置かれ、ドイツは`value`より後ろにあるため値の後ろに置かれる
 - ドイツの通貨記号`" €"`のように、記号自体が空白を含むことがある
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 ## バージョン

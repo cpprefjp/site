@@ -41,7 +41,7 @@ int main()
 * std::numpunct[link /reference/locale/numpunct.md]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale[link /reference/locale/locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * np.falsename()[link /reference/locale/numpunct/falsename.md]
 
 ### 出力例
@@ -54,7 +54,7 @@ de_DE.UTF-8 : [false]
 
 - この文字列は[`std::ios_base::boolalpha`](/reference/ios/ios_base/type-fmtflags.md)が設定されている場合の`bool`値の入出力で使用される
 - 主要な処理系では、いずれのロケールでも`false`を表す英語の名前が返る
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 ## バージョン

@@ -334,7 +334,7 @@ int main() {
 * std::destroy_n[link /reference/memory/destroy_n.md]
 * std::copy_constructible[link /reference/concepts/copy_constructible.md]
 * std::move_constructible[link /reference/concepts/move_constructible.md]
-* std::out_of_range[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept/out_of_range.md]
 * std::move[link /reference/utility/move.md]
 * std::for_each_n[link /reference/algorithm/for_each_n.md]
 

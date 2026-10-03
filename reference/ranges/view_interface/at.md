@@ -36,7 +36,7 @@ constexpr decltype(auto) at(range_difference_t<R> n) const; // (2) C++29
 
 
 ## 例外
-`n < 0`もしくは`n >=` [`ranges::distance`](/reference/iterator/ranges_distance.md)`(`[`derived`](derived.md)`())`である場合、[`std::out_of_range`](/reference/stdexcept.md)を送出する。
+`n < 0`もしくは`n >=` [`ranges::distance`](/reference/iterator/ranges_distance.md)`(`[`derived`](derived.md)`())`である場合、[`std::out_of_range`](/reference/stdexcept/out_of_range.md)を送出する。
 
 
 ## 備考

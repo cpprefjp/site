@@ -60,7 +60,7 @@ int main()
 * std::time_get[link /reference/locale/time_get.md]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale[link /reference/locale/locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * iss.imbue[link /reference/ios/basic_ios/imbue.md]
 * iss.getloc()[link /reference/ios/ios_base/getloc.md]
 * std::istreambuf_iterator[link /reference/iterator/istreambuf_iterator.md]
@@ -77,7 +77,7 @@ de_DE.UTF-8 : 13:05:30 -> 13:5:30
 ```
 
 - 時刻の書式は規格により`"%H:%M:%S"`と定められているため、いずれのロケールでも同じ結果となる
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 ## バージョン

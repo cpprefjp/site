@@ -502,7 +502,7 @@ hash(o1) == hash(o3): false
 ### アノテーションで指定した値の範囲を検証する
 アノテーションでメンバ変数に制約を付加しておくことで、メンバごとに検証コードを書くことなく、任意のクラスに対して働く汎用の検証関数を実装できる。
 
-以下の例では、整数用の`IntRange`と浮動小数点数用の`FloatRange`を定義し、それらが付加されたメンバ変数だけを検証して、範囲外であれば[`std::out_of_range`](/reference/stdexcept.md)例外を送出する。アノテーションが付いていないメンバ変数は検証の対象にならない。
+以下の例では、整数用の`IntRange`と浮動小数点数用の`FloatRange`を定義し、それらが付加されたメンバ変数だけを検証して、範囲外であれば[`std::out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。アノテーションが付いていないメンバ変数は検証の対象にならない。
 
 ```cpp example
 #include <meta>
@@ -607,7 +607,7 @@ int main() {
 * std::meta::constant_of[link /reference/meta/constant_of.md]
 * std::meta::identifier_of[link /reference/meta/identifier_of.md]
 * std::format[link /reference/format/format.md]
-* std::out_of_range[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept/out_of_range.md]
 * stderr[link /reference/cstdio/stderr.md]
 
 #### 出力
@@ -730,7 +730,7 @@ int main() {
 * std::meta::identifier_of[link /reference/meta/identifier_of.md]
 * std::format[link /reference/format/format.md]
 * std::stoi[link /reference/string/stoi.md]
-* std::invalid_argument[link /reference/stdexcept.md]
+* std::invalid_argument[link /reference/stdexcept/invalid_argument.md]
 * starts_with[link /reference/string_view/basic_string_view/starts_with.md]
 
 #### 出力

@@ -496,15 +496,15 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
         - [`std::bad_cast`](/reference/typeinfo/bad_cast.md)クラスの`what()`メンバ関数
         - [`std::bad_typeid`](/reference/typeinfo/bad_typeid.md)クラスの`what()`メンバ関数
     - [`<stdexcept>`](/reference/stdexcept.md)ヘッダの以下の機能
-        - [`std::domain_error`](/reference/stdexcept.md)
-        - [`std::invalid_argument`](/reference/stdexcept.md)
-        - [`std::length_error`](/reference/stdexcept.md)
-        - [`std::logic_error`](/reference/stdexcept.md)
-        - [`std::out_of_range`](/reference/stdexcept.md)
-        - [`std::runtime_error`](/reference/stdexcept.md)
-        - [`std::range_error`](/reference/stdexcept.md)
-        - [`std::overflow_error`](/reference/stdexcept.md)
-        - [`std::underflow_error`](/reference/stdexcept.md)
+        - [`std::domain_error`](/reference/stdexcept/domain_error.md)
+        - [`std::invalid_argument`](/reference/stdexcept/invalid_argument.md)
+        - [`std::length_error`](/reference/stdexcept/length_error.md)
+        - [`std::logic_error`](/reference/stdexcept/logic_error.md)
+        - [`std::out_of_range`](/reference/stdexcept/out_of_range.md)
+        - [`std::runtime_error`](/reference/stdexcept/runtime_error.md)
+        - [`std::range_error`](/reference/stdexcept/range_error.md)
+        - [`std::overflow_error`](/reference/stdexcept/overflow_error.md)
+        - [`std::underflow_error`](/reference/stdexcept/underflow_error.md)
     - [`<expected>`](/reference/expected.md)ヘッダの以下の機能
         - [`std::bad_expected_access`](/reference/expected/bad_expected_access.md)
     - [`<optional>`](/reference/optional.md)ヘッダの以下の機能

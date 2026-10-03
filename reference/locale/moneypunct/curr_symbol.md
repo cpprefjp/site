@@ -41,7 +41,7 @@ int main()
 * std::moneypunct[link /reference/locale/moneypunct.md]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale[link /reference/locale/locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * mp.curr_symbol()[link /reference/locale/moneypunct/curr_symbol.md]
 
 ### 出力例
@@ -54,7 +54,7 @@ de_DE.UTF-8 : [ €]
 
 - ドイツのロケールの`" €"`のように、通貨記号自体が空白を含むことがある
 - 記号を値の前後どちらに置くかは[`pos_format()`](pos_format.md)・[`neg_format()`](neg_format.md)のパターンで決まる
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 ## バージョン

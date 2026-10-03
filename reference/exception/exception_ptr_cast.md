@@ -70,7 +70,7 @@ int main()
 * std::exception_ptr_cast[color ff0000]
 * std::current_exception[link current_exception.md]
 * std::exception_ptr[link exception_ptr.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 
 ### 出力例
 ```

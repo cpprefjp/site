@@ -21,7 +21,7 @@ constexpr reference at(size_type pos);             // (2) C++20
 
 
 ## 例外
-`pos >=` [`size()`](size.md) の時、[`out_of_range`](/reference/stdexcept.md) 例外を投げる。
+`pos >=` [`size()`](size.md) の時、[`out_of_range`](/reference/stdexcept/out_of_range.md) 例外を投げる。
 
 
 ## 例
@@ -46,7 +46,7 @@ int main()
 }
 ```
 * at[color ff0000]
-* std::out_of_range[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept/out_of_range.md]
 
 ### 出力
 ```

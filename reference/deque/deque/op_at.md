@@ -17,7 +17,7 @@ constexpr const_reference operator[](size_type n) const; // (2) C++26
 
 この関数は、`deque`コンテナオブジェクト中の位置`n`にある要素への参照を返す。
 
-[`at()`](at.md)メンバ関数は範囲外アクセスの場合に [`out_of_range`](/reference/stdexcept.md) 例外を送出するが、この関数は範囲外アクセスの動作が未規定。
+[`at()`](at.md)メンバ関数は範囲外アクセスの場合に [`out_of_range`](/reference/stdexcept/out_of_range.md) 例外を送出するが、この関数は範囲外アクセスの動作が未規定。
 
 
 ## 戻り値

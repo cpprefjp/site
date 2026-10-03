@@ -31,7 +31,7 @@ return *(data() + i);
 この関数は、例外を送出しうるため、フリースタンディング処理系では削除される（フリースタンディング処理系では使用できない）。
 
 ## 例外
-`i >=` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+`i >=` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。
 
 
 ## 例

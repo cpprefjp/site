@@ -55,7 +55,7 @@ int main()
 * std::moneypunct[link /reference/locale/moneypunct.md]
 * std::use_facet[link /reference/locale/use_facet.md]
 * std::locale[link /reference/locale/locale.md]
-* std::runtime_error[link /reference/stdexcept.md]
+* std::runtime_error[link /reference/stdexcept/runtime_error.md]
 * mp.neg_format()[link /reference/locale/moneypunct/neg_format.md]
 * std::money_base::pattern[link /reference/locale/money_base.md]
 * std::money_base::none[link /reference/locale/money_base.md]
@@ -74,7 +74,7 @@ de_DE.UTF-8 : sign value none symbol
 
 - 米国と日本のロケールでは`symbol`が`value`より前にあるため、通貨記号は値の前に置かれる。ドイツのロケールでは`value`より後ろにあるため、値の後ろに置かれる
 - 規格が要求する特殊化は`{symbol, sign, none, value}`を返す
-- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept.md)を送出し、上記の例では`not available`が出力される
+- 妥当なロケール名は処理系定義である。指定した名前のロケールが利用できない場合、[`std::locale`](/reference/locale/locale.md)のコンストラクタは[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出し、上記の例では`not available`が出力される
 
 
 ## バージョン

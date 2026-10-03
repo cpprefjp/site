@@ -24,7 +24,7 @@ explicit ctype_byname(const string& name, size_t refs = 0); // (2) C++98
 
 
 ## 例外
-`name`が妥当なロケール名でない場合、もしくはヌルポインタである場合、[`std::runtime_error`](/reference/stdexcept.md)を送出する。
+`name`が妥当なロケール名でない場合、もしくはヌルポインタである場合、[`std::runtime_error`](/reference/stdexcept/runtime_error.md)を送出する。
 
 
 ## 備考

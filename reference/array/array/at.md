@@ -22,7 +22,7 @@ n番目の要素を参照する。
 
 
 ## 例外
-`n >= a.`[`size()`](size.md)だった場合には[`out_of_range`](/reference/stdexcept.md)例外を投げる。
+`n >= a.`[`size()`](size.md)だった場合には[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を投げる。
 
 
 ## 計算量
@@ -60,7 +60,7 @@ int main()
 }
 ```
 * at[color ff0000]
-* std::out_of_range[link /reference/stdexcept.md]
+* std::out_of_range[link /reference/stdexcept/out_of_range.md]
 
 
 ### 出力

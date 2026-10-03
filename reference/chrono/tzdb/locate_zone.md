@@ -24,7 +24,7 @@ namespace std::chrono {
 
 
 ## 例外
-該当する名前のタイムゾーンが見つからない場合、[`std::runtime_error`](/reference/stdexcept.md)例外を送出する
+該当する名前のタイムゾーンが見つからない場合、[`std::runtime_error`](/reference/stdexcept/runtime_error.md)例外を送出する
 
 
 ## 備考

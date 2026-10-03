@@ -145,10 +145,10 @@ constexpr basic_string&
 
 
 ## 例外
-- (1) : `pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
-- (2) : `pos1 >` [`size()`](size.md)もしくは`pos2 > str.`[`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
-- (3) : `pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。また、[`size()`](size.md) `+ n >` [`max_size()`](max_size.md)の場合には[`length_error`](/reference/stdexcept.md)例外を送出する。
-- (11) : `pos1 >` [`size()`](size.md)もしくは`pos2 > sv.`[`size()`](/reference/string_view/basic_string_view/size.md)の場合、[`out_of_range`](/reference/stdexcept.md)例外を送出する。
+- (1) : `pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。
+- (2) : `pos1 >` [`size()`](size.md)もしくは`pos2 > str.`[`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。
+- (3) : `pos >` [`size()`](size.md)の場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。また、[`size()`](size.md) `+ n >` [`max_size()`](max_size.md)の場合には[`length_error`](/reference/stdexcept/length_error.md)例外を送出する。
+- (11) : `pos1 >` [`size()`](size.md)もしくは`pos2 > sv.`[`size()`](/reference/string_view/basic_string_view/size.md)の場合、[`out_of_range`](/reference/stdexcept/out_of_range.md)例外を送出する。
 
 
 ## 例

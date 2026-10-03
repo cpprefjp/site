@@ -26,7 +26,7 @@ namespace std::chrono {
 
 
 ## 例外
-なんらかの理由により[`tzdb_list`](tzdb_list.md)が妥当な[`tzdb`](tzdb.md)オブジェクトをひとつも保持できない場合、[`runtime_error`](/reference/stdexcept.md)例外が送出される。
+なんらかの理由により[`tzdb_list`](tzdb_list.md)が妥当な[`tzdb`](tzdb.md)オブジェクトをひとつも保持できない場合、[`runtime_error`](/reference/stdexcept/runtime_error.md)例外が送出される。
 
 
 ## 備考
