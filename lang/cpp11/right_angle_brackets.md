@@ -16,7 +16,7 @@ C++98では、2つ以上連続する右山カッコが出現する場合には�
 vector<basic_string<char> >; // OK
 vector<basic_string<char>>;  // コンパイルエラー : >>は右シフト演算子と見なされる
 ```
-* vector[link /reference/vector.md]
+* vector[link /reference/vector/vector.md]
 * basic_string[link /reference/string/basic_string.md]
 
 C++11からは、`vector<basic_string<char>>`のように、2つ以上連続する右山カッコの間に、スペースを入力する必要がなくなった。
