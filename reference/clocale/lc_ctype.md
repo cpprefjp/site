@@ -10,7 +10,7 @@
 ## 概要
 文字の分類とマルチバイト文字の扱いに関するロケールカテゴリを指定するための定数。
 
-[`<cctype>`](/reference/cctype.md)の文字種別判定関数、[`<cwctype>`](/reference/cwchar.md)のワイド文字関数、および[`std::mbrtowc()`](/reference/cwchar/mbrtowc.md)などのマルチバイト文字変換関数の動作に影響する。
+[`<cctype>`](/reference/cctype.md)の文字種別判定関数、[`<cwctype>`](/reference/cwctype.md.nolink)のワイド文字の文字種別判定関数、および[`std::mbrtowc()`](/reference/cwchar/mbrtowc.md)などのマルチバイト文字変換関数の動作に影響する。
 
 [`setlocale()`](setlocale.md)関数の`category`引数として指定する。値は`int`型の処理系定義の定数式であり、各カテゴリのマクロは互いに異なる値をもつ。
 
