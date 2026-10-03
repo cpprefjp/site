@@ -63,7 +63,7 @@ d_ = std::forward<E>(u.get_deleter());
 
 
 ## 事後条件
-- (1), (2) : [`addressof`](/reference/memory/addressof.md)`(u) != this`である場合、`u.`[`get()`](get.md)` == nullptr`となる。そうでない（自己ムーブ代入の）場合、`u.`[`get()`](get.md)`は変更されない。
+- (1), (2) : [`addressof`](/reference/memory/addressof.md)`(u) != this`である場合、`u.`[`get()`](get.md)` == nullptr`となる。そうでない（自己ムーブ代入の）場合、`u.`[`get()`](get.md)は変更されない。
 
 
 ## 戻り値
