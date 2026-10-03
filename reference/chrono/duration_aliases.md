@@ -25,7 +25,7 @@ namespace chrono {
                                 ratio_divide<years::period, ratio<12>>>;              // (10) C++20
 }}
 ```
-* ratio[link /reference/ratio.md]
+* ratio[link /reference/ratio/ratio.md]
 * nano[link /reference/ratio/si_prefix.md]
 * micro[link /reference/ratio/si_prefix.md]
 * milli[link /reference/ratio/si_prefix.md]

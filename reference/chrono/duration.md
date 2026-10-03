@@ -11,7 +11,7 @@ namespace chrono {
   class duration;
 }}
 ```
-* ratio[link /reference/ratio.md]
+* ratio[link /reference/ratio/ratio.md]
 
 ## 概要
 `duration`は、2つの時間の間隔を表現するための型である。
