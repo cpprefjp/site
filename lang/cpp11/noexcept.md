@@ -148,7 +148,7 @@ int main()
   }
 }
 ```
-* std::stack[link /reference/stack.md]
+* std::stack[link /reference/stack/stack.md]
 * std::is_nothrow_default_constructible[link /reference/type_traits/is_nothrow_default_constructible.md]
 * std::is_nothrow_move_constructible[link /reference/type_traits/is_nothrow_move_constructible.md]
 * static_assert[link static_assert.md]
