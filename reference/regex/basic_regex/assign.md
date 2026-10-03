@@ -29,7 +29,7 @@ basic_regex& assign(initializer_list<charT> il,
 ```
 * basic_regex[link ../basic_regex.md]
 * regex_constants::ECMAScript[link ../regex_constants/syntax_option_type.md]
-* initializer_list[link ../../initializer_list.md]
+* initializer_list[link ../../initializer_list/initializer_list.md]
 * basic_string[link ../../string/basic_string.md]
 
 

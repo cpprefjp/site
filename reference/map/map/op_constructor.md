@@ -94,7 +94,7 @@ constexpr
       const Allocator& alloc);                      // (13) C++26
 ```
 * type_identity_t[link /reference/type_traits/type_identity.md]
-* initializer_list[link ../../initializer_list.md]
+* initializer_list[link ../../initializer_list/initializer_list.md]
 * from_range_t[link ../../ranges/from_range_t.md]
 
 ## 概要

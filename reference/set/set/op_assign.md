@@ -19,7 +19,7 @@ constexpr set& operator=(set&& x)
 set& operator=(initializer_list<value_type> init);           // (3) C++11
 constexpr set& operator=(initializer_list<value_type> init); // (3) C++26
 ```
-* initializer_list[link ../../initializer_list.md]
+* initializer_list[link ../../initializer_list/initializer_list.md]
 
 ## 概要
 - (1) : コピー代入

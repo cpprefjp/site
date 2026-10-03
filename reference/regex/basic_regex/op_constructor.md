@@ -30,7 +30,7 @@ basic_regex(initializer_list<charT> il,
 ```
 * regex_constants::ECMAScript[link ../regex_constants/syntax_option_type.md]
 * basic_string[link ../../string/basic_string.md]
-* initializer_list[link ../../initializer_list.md]
+* initializer_list[link ../../initializer_list/initializer_list.md]
 
 
 ## 概要

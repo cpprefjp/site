@@ -18,7 +18,7 @@ template <class ST, class SA>
 basic_regex& operator=(const basic_string<charT, ST, SA>& p);   // (5)
 ```
 * basic_regex[link ../basic_regex.md]
-* initializer_list[link ../../initializer_list.md]
+* initializer_list[link ../../initializer_list/initializer_list.md]
 * basic_string[link ../../string/basic_string.md]
 
 
