@@ -30,6 +30,10 @@ namespace std {
 - `Container`: 要素へのアクセス・保存に用いる内部実装のコンテナクラス
 
 
+## 概念・前提知識
+- [コンテナとは](/guide/container.md)
+
+
 ## 適格要件
 `T`が`Container::value_type`と同じ型であること。
 

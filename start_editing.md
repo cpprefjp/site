@@ -118,6 +118,7 @@ Markdown形式では、HTMLのタグも併用できますが、cpprefjpサイト
 - [名前付き要件の雛形](/start_editing/named_requirement_template_page.md)
 - [比較演算子の雛形](/start_editing/comparison_operator_template_page.md)
 - [CPOの雛形](/start_editing/cpo_template_page.md)
+- [ガイドの雛形](/start_editing/guide_template_page.md)
 
 また、リポジトリのトップディレクトリに`GLOBAL_QUALIFY_LIST.txt`というファイルがあります。サイト全体のコードブロックに対して適用したい識別子の修飾があれば、ここに列挙していきます。書き方は各雛形ページに書いてあるコードブロックの修飾と同じです。
 
@@ -229,6 +230,7 @@ Pull Requestのレビューが滞っていた場合、Pull Requestの提出者�
 - [名前付き要件の雛形](/start_editing/named_requirement_template_page.md)
 - [比較演算子の雛形](/start_editing/comparison_operator_template_page.md)
 - [CPOの雛形](/start_editing/cpo_template_page.md)
+- [ガイドの雛形](/start_editing/guide_template_page.md)
 
 
 ### サンプルコードを追加する (難易度★★★★)
