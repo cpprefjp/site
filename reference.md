@@ -247,7 +247,7 @@
 | `<ctgmath>`                          | ジェネリックな数学関数              | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
 | [`<ctime>`](/reference/ctime.md)     | 日付・時間                          |                |
 | [`<cuchar>`](/reference/cuchar.md)   | ユニコード文字型                    | C++11 (C11)    |
-| `<cwchar>`                           | ワイド文字型                        |                |
+| [`<cwchar>`](/reference/cwchar.md)   | ワイド文字型                        |                |
 | `<cwctype>`                          | ワイド文字の種別と判定              |                |
 
 ## <a id="exposition-only" href="#exposition-only">説明専用ライブラリ</a>
