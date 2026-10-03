@@ -1,0 +1,588 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>std::any - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,any,std,class,cpp17
+">
+        <meta name="title" content="std::any - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="std::any - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="std::any - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/any/any.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`any`クラスは、コピー可能なあらゆる型の値を保持できる記憶域型である。保持する値と型は動的に切り替えることができる。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="std::any - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/any/any.html" />
+        <meta name="twitter:description" content="`any`クラスは、コピー可能なあらゆる型の値を保持できる記憶域型である。保持する値と型は動的に切り替えることができる。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=807374ab51c48a5ce84749cf2ad281ba69eb3e58">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=807374ab51c48a5ce84749cf2ad281ba69eb3e58">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=807374ab51c48a5ce84749cf2ad281ba69eb3e58">
+<link rel="manifest" href="../../manifest.json?cachebust=807374ab51c48a5ce84749cf2ad281ba69eb3e58">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=807374ab51c48a5ce84749cf2ad281ba69eb3e58">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=807374ab51c48a5ce84749cf2ad281ba69eb3e58" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=807374ab51c48a5ce84749cf2ad281ba69eb3e58" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=807374ab51c48a5ce84749cf2ad281ba69eb3e58" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=807374ab51c48a5ce84749cf2ad281ba69eb3e58" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=807374ab51c48a5ce84749cf2ad281ba69eb3e58"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=807374ab51c48a5ce84749cf2ad281ba69eb3e58"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;any&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;a2e365f8e778c4495d6cd543278ee7c1eb467e30&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;any&gt;\n\nint main()\n{\n  // int\u578b\u306e\u5024\u3092\u4ee3\u5165\u3057\u3066\u53d6\u308a\u51fa\u3059\n  std::any x = 3;\n  int n = std::any_cast&lt;int&gt;(x);\n\n  std::cout &lt;&lt; n &lt;&lt; std::endl;\n\n  // \u6587\u5b57\u5217\u3092\u518d\u4ee3\u5165\u3057\u3066\u53d6\u308a\u51fa\u3059\n  x = \&#34;Hello\&#34;;\n  const char* s = std::any_cast&lt;const char*&gt;(x);\n\n  std::cout &lt;&lt; s &lt;&lt; std::endl;\n\n  // \u9593\u9055\u3063\u305f\u578b\u3067\u53d6\u308a\u51fa\u305d\u3046\u3068\u3059\u308b\u3068\u4f8b\u5916\u304c\u9001\u51fa\u3055\u308c\u308b\n  try {\n    std::any_cast&lt;double&gt;(x);\n  }\n  catch (std::bad_any_cast&amp; e) {\n    std::cout &lt;&lt; e.what() &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;1f1c1677840c5e6c3673928116ec617db2fd26cb&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;any&gt;\n#include &lt;functional&gt;\n#include &lt;map&gt;\n\nstruct Point {\n  int x;\n  int y;\n};\n\nenum class ButtonID {\n  ok,\n  cancel,\n};\n\n// \u30a4\u30d9\u30f3\u30c8\u306e\u7a2e\u985e\nenum class EventID {\n  mouse_click,\n  button_click,\n};\n\nint main()\n{\n  // \u30a4\u30d9\u30f3\u30c8\u306e\u7a2e\u985e\u3054\u3068\u306b\u5f15\u6570\u306e\u578b\u304c\u7570\u306a\u308b\u30cf\u30f3\u30c9\u30e9\u3092\u3001\u3072\u3068\u3064\u306e\u30de\u30c3\u30d7\u3067\u6271\u3046\n  std::map&lt;EventID, std::function&lt;void(const std::any&amp;)&gt;&gt; handlers;\n\n  // \u30de\u30a6\u30b9\u30af\u30ea\u30c3\u30af : \u4f4d\u7f6e\u304c\u6e21\u3055\u308c\u308b\n  handlers[EventID::mouse_click] = [](const std::any&amp; arg) {\n    const Point&amp; p = std::any_cast&lt;const Point&amp;&gt;(arg);\n    std::cout &lt;&lt; p.x &lt;&lt; \&#34;,\&#34; &lt;&lt; p.y &lt;&lt; std::endl;\n  };\n\n  // \u30dc\u30bf\u30f3\u30af\u30ea\u30c3\u30af : \u30dc\u30bf\u30f3\u306eID\u304c\u6e21\u3055\u308c\u308b\n  handlers[EventID::button_click] = [](const std::any&amp; arg) {\n    ButtonID id = std::any_cast&lt;ButtonID&gt;(arg);\n    std::cout &lt;&lt; static_cast&lt;int&gt;(id) &lt;&lt; std::endl;\n  };\n\n  // \u30a4\u30d9\u30f3\u30c8\u3092\u767a\u751f\u3055\u305b\u308b\n  handlers[EventID::mouse_click](Point{3, 4});\n  handlers[EventID::button_click](ButtonID::cancel);\n}\n&#34;}, {&#34;id&#34;: &#34;db599940686def0af9c69f8af3e9509ea6a85de7&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;any&gt;\n#include &lt;map&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // \u30ad\u30fc\u3054\u3068\u306b\u5024\u306e\u578b\u304c\u7570\u306a\u308b\u8a2d\u5b9a\u3092\u3001\u3072\u3068\u3064\u306e\u30de\u30c3\u30d7\u3067\u4fdd\u6301\u3059\u308b\n  std::map&lt;std::string, std::any&gt; config;\n  config[\&#34;host\&#34;] = std::string(\&#34;localhost\&#34;);\n  config[\&#34;port\&#34;] = 8080;\n  config[\&#34;debug\&#34;] = true;\n\n  std::cout &lt;&lt; std::any_cast&lt;std::string&gt;(config[\&#34;host\&#34;]) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::any_cast&lt;int&gt;(config[\&#34;port\&#34;]) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; std::any_cast&lt;bool&gt;(config[\&#34;debug\&#34;]) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;any&#34;, &#34;any&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/any.html" itemprop="url">
+              
+                <span itemprop="name">any</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">any</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時:
+      <time itemprop="datePublished" class="js-local-time"
+            datetime="2026-10-01T12:15:22+09:00">
+        2026年10月01日 12時15分22秒 (JST)
+      </time>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+    <script>
+    (function () {
+      // 最終更新日時を閲覧者のローカルタイムゾーンで表示し直す (issue #53 の正規化)。
+      // JS が無効な環境ではサーバ生成の JST 表記がそのまま残る。
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var els = document.querySelectorAll('time.js-local-time[datetime]');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var d = new Date(el.getAttribute('datetime'));
+        if (isNaN(d.getTime())) { continue; }
+        var tz = '';
+        try {
+          var parts = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' }).formatToParts(d);
+          for (var j = 0; j < parts.length; j++) {
+            if (parts[j].type === 'timeZoneName') { tz = parts[j].value; break; }
+          }
+        } catch (e) {}
+        el.textContent = d.getFullYear() + '年' + pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日 '
+          + pad(d.getHours()) + '時' + pad(d.getMinutes()) + '分' + pad(d.getSeconds()) + '秒'
+          + (tz ? ' (' + tz + ')' : '');
+      }
+    })();
+    </script>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/any/any.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/any/any.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class</div><div class="header">&lt;any&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">any</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">any</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>any</code>クラスは、コピー可能なあらゆる型の値を保持できる記憶域型である。保持する値と型は動的に切り替えることができる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">any</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// int型の値3で初期化</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span><span class="w"> </span><span class="c1">// <a href="../string/basic_string.html">std::string</a>型の値"Hello"を再代入</span>
+
+<span class="c1">// 値を取り出す</span>
+<span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="any_cast.html">std::any_cast</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p><code>any</code>クラスは、古くからあった<code>void*</code>をより便利にし、オブジェクトの寿命管理と実行時型情報の機能が付加された型であると言える。</p>
+<p>このクラスと同様のことは、たとえば<code><a href="../memory/shared_ptr.html">std::shared_ptr</a>&lt;void&gt;</code>でも行えるが、その場合はポインタの意味論で値を保持することになり、<code>any</code>の場合は値の意味論で値を保持することになる。また、<code><a href="../variant/variant.html">std::variant</a></code>クラスも似たようなことができるが、その違いは、<code>variant</code>が代入されうる型の候補が静的に既知であることに対し、<code>any</code>はその候補を実行時まで遅らせることができるということである。同じことを実現するためにどの設計を採用するかはプログラマに委ねられる。</p>
+<h2>要件</h2>
+<ul>
+<li>代入する型はコピー構築可能であること</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>実装は、小さなオブジェクトを保持するためには動的メモリ確保を回避するべきである。そのようなsmall-object optimizationは、代入される型<code>T</code>が<code><a href="../type_traits/is_nothrow_move_constructible.html">std::is_nothrow_move_constructible_v</a>&lt;T&gt; == true</code>の場合にのみ適用されること</li>
+</ul>
+<h3>応用事例</h3>
+<p><code>any</code>のような型消去された値は広く使われている。用途は、値の型を静的に決められない理由によって4つに分かれる。</p>
+<p>1つめは、キーごとに値の型が異なるマップを作る使い方である。マップの値型をひとつに固定できないため、値を型消去して保持する。</p>
+<ul>
+<li>オプションの設定値を名前から引く。オプションごとに値の型が異なるため、値型を固定できない<ul>
+<li>Boost.Program_optionsの<code><a href="https://www.boost.org/doc/libs/1_83_0/doc/html/boost/program_options/variable_value.html" target="_blank">variable_value</a></code>は、コマンドラインオプションの値を<code>boost::any</code>で保持し、<code>as&lt;T&gt;()</code>メンバ関数で取り出す</li>
+</ul>
+</li>
+<li>処理の段階をまたいで情報を引き継ぐ。前段が入れた値を後段が取り出すが、何を入れるかは枠組みの側が知りえない<ul>
+<li>WebアプリケーションフレームワークのDrogonは、リクエストごとのコンテキストを<code><a href="../map/map.html">std::map</a>&lt;<a href="../string/basic_string.html">std::string</a>, std::any&gt;</code>で保持する (<code><a href="https://github.com/drogonframework/drogon/blob/master/lib/inc/drogon/Attribute.h" target="_blank">drogon::Attributes</a></code>)。認証処理が入れたユーザー情報を、後続のハンドラが名前で取り出す</li>
+</ul>
+</li>
+<li>UIの部品が表示・編集する値を、部品の種類から独立して扱う<ul>
+<li>Qtの<code><a href="https://doc.qt.io/qt-6/qvariant.html" target="_blank">QVariant</a></code>は、プロパティシステムやモデル/ビューのデータ (<code>QAbstractItemModel::data()</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>) に使われる</li>
+</ul>
+</li>
+</ul>
+<p>2つめは、フレームワークとユーザーコードの境界で任意の値を預かる使い方である。C言語のAPIにあった<code>void*</code>のユーザーデータを、寿命管理と型の検査が付いたかたちで置き換える。</p>
+<ul>
+<li>イベントやコールバックに渡す引数の型が、通知の種類ごとに異なる。<code>list&lt;function&lt;void(any)&gt;&gt;</code>のようにハンドラをひとつのリストでまとめて扱うには、引数の型を型消去する。たとえばマウスクリックには位置情報 (xとy) が渡され、ボタンクリックにはボタンのIDが渡される、という状況である。イベントの種類ごとに別の変数 (<code>function&lt;void(Point)&gt;</code>と<code>function&lt;void(ButtonID)&gt;</code>) を用意するか、まとめて扱うかの設計選択になる<ul>
+<li>LLVMの新しいパスマネージャは、パスの実行前後に呼ばれるコールバックへ、処理対象のIRユニット (<code>Module</code>・<code>Function</code>・<code>Loop</code>など) へのポインタを<code>llvm::Any</code>に包んで渡す (<code><a href="https://llvm.org/doxygen/PassInstrumentation_8h_source.html" target="_blank">PassInstrumentationCallbacks</a></code>)。コールバックの宣言をIRユニットの型から独立させるためである。<code>std::any</code>へ置き換えるRFCも出ている (<a href="https://discourse.llvm.org/t/rfc-switching-from-llvm-any-to-std-any/67176" target="_blank">RFC: Switching from llvm::Any to std::any</a>)</li>
+</ul>
+</li>
+<li>ライブラリが、ユーザーが決めた型の状態を預かる。ライブラリ側の型にユーザーの型が現れないようにする<ul>
+<li>ゲーム向けのEnTTは、型をキーにして任意の値を保持するcontextを<code>entt::any</code>でもつ (<a href="https://skypjack.github.io/entt/md_docs_2md_2entity.html" target="_blank">Crash Course: entity component system</a>)。時間やカメラのようにシステム間で共有する状態を、ライブラリ側の型に現れないかたちで持たせる</li>
+</ul>
+</li>
+</ul>
+<p>3つめは、処理する対象によって結果の型が変わる処理の受け渡しである。</p>
+<ul>
+<li>異種のノードからなる木を走査する処理は、ノードの種類ごとに結果の型が異なる。走査の枠組みの側は結果の型を固定できない<ul>
+<li>ANTLRが生成するC++のパーサは、構文木を走査するvisitorの<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型に<code>std::any</code>を使う。バージョン4.10で、独自の<code>antlrcpp::Any</code>から置き換えられた (<a href="https://github.com/antlr/antlr4/pull/3395" target="_blank">[C++] Switch to std::any and deprecate antlrcpp::Any</a>)</li>
+</ul>
+</li>
+</ul>
+<p>4つめは、実行時に型情報をたどって値を読み書きする機能での、値の表現である。</p>
+<ul>
+<li>リフレクションでプロパティを読み書きする場合、どの型のプロパティを扱うかが実行時に決まるため、値の受け渡しに使う型を固定できない<ul>
+<li>リフレクションライブラリのRTTRは、プロパティの読み書きに<code><a href="https://www.rttr.org/doc/master/classrttr_1_1variant.html" target="_blank">rttr::variant</a></code>を使う</li>
+<li>EnTTの<code>entt::meta_any</code>も同様に、実行時に解決した型の値を保持する</li>
+</ul>
+</li>
+</ul>
+<p>いずれの事例でも、値の型の候補が静的に既知であれば<code><a href="../variant/variant.html">std::variant</a></code>のほうが適する。<code>any</code>を選ぶのは、候補を実行時まで決められない場合か、ライブラリ側が候補を知りえない場合である。</p>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="any/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="any/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>代入</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="any/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="any/emplace.html">emplace</a></code></td>
+<td>要素型のコンストラクタ引数から直接構築する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="any/swap.html">swap</a></code></td>
+<td>他の<code>any</code>オブジェクトとデータを入れ替える</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="any/reset.html">reset</a></code></td>
+<td>有効値を保持していない状態にする</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>値の観測</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="any/has_value.html">has_value</a></code></td>
+<td>有効な値を保持しているかを判定する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="any/type.html">type</a></code></td>
+<td>保持している値の型情報を取得する</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>ヘルパ関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="make_any.html">make_any</a></code></td>
+<td><code>any</code>オブジェクトを構築する</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>値の取り出し</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="any_cast.html">any_cast</a></code></td>
+<td>値を取り出す</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>値の入れ替え</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="any/swap_free.html">swap</a></code></td>
+<td>2つの<code>any</code>オブジェクトを入れ替える</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="a2e365f8e778c4495d6cd543278ee7c1eb467e30"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../any.html">&lt;any&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// int型の値を代入して取り出す</span>
+<span class="w">  </span><span class="n"><span style="color:#ff0000">std::any</span></span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="any_cast.html">std::any_cast</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// 文字列を再代入して取り出す</span>
+<span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello"</span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="any_cast.html">std::any_cast</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// 間違った型で取り出そうとすると例外が送出される</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="any_cast.html">std::any_cast</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n"><a href="bad_any_cast.html">std::bad_any_cast</a></span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>3
+Hello
+bad any_cast
+</code></pre></p>
+<h3>イベントハンドラのパラメータとして使用する</h3>
+<p><div class="yata" id="1f1c1677840c5e6c3673928116ec617db2fd26cb"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../any.html">&lt;any&gt;</a></span>
+<span class="cp">#include <a href="../functional.html">&lt;functional&gt;</a></span>
+<span class="cp">#include <a href="../map.html">&lt;map&gt;</a></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ButtonID</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">ok</span><span class="p">,</span>
+<span class="w">  </span><span class="n">cancel</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="c1">// イベントの種類</span>
+<span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">EventID</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">mouse_click</span><span class="p">,</span>
+<span class="w">  </span><span class="n">button_click</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// イベントの種類ごとに引数の型が異なるハンドラを、ひとつのマップで扱う</span>
+<span class="w">  </span><span class="n"><a href="../map/map.html">std::map</a></span><span class="o">&lt;</span><span class="n">EventID</span><span class="p">,</span><span class="w"> </span><span class="n"><a href="../functional/function.html">std::function</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::any</span></span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">handlers</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// マウスクリック : 位置が渡される</span>
+<span class="w">  </span><span class="n">handlers</span><span class="p">[</span><span class="n">EventID</span><span class="o">::</span><span class="n">mouse_click</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::any</span></span><span class="o">&amp;</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Point</span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="any_cast.html">std::any_cast</a></span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Point</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">","</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="c1">// ボタンクリック : ボタンのIDが渡される</span>
+<span class="w">  </span><span class="n">handlers</span><span class="p">[</span><span class="n">EventID</span><span class="o">::</span><span class="n">button_click</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::any</span></span><span class="o">&amp;</span><span class="w"> </span><span class="n">arg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ButtonID</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="any_cast.html">std::any_cast</a></span><span class="o">&lt;</span><span class="n">ButtonID</span><span class="o">&gt;</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
+<span class="w">    </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="c1">// イベントを発生させる</span>
+<span class="w">  </span><span class="n">handlers</span><span class="p">[</span><span class="n">EventID</span><span class="o">::</span><span class="n">mouse_click</span><span class="p">](</span><span class="n">Point</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">});</span>
+<span class="w">  </span><span class="n">handlers</span><span class="p">[</span><span class="n">EventID</span><span class="o">::</span><span class="n">button_click</span><span class="p">](</span><span class="n">ButtonID</span><span class="o">::</span><span class="n">cancel</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>3,4
+1
+</code></pre></p>
+<h3>キーごとに型が異なる値を保持する</h3>
+<p><div class="yata" id="db599940686def0af9c69f8af3e9509ea6a85de7"><div class="codehilite"><pre><span></span><code><span class="cp">#include <a href="../iostream.html">&lt;iostream&gt;</a></span>
+<span class="cp">#include <a href="../any.html">&lt;any&gt;</a></span>
+<span class="cp">#include <a href="../map.html">&lt;map&gt;</a></span>
+<span class="cp">#include <a href="../string.html">&lt;string&gt;</a></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// キーごとに値の型が異なる設定を、ひとつのマップで保持する</span>
+<span class="w">  </span><span class="n"><a href="../map/map.html">std::map</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">,</span><span class="w"> </span><span class="n"><span style="color:#ff0000">std::any</span></span><span class="o">&gt;</span><span class="w"> </span><span class="n">config</span><span class="p">;</span>
+<span class="w">  </span><span class="n">config</span><span class="p">[</span><span class="s">"host"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="s">"localhost"</span><span class="p">);</span>
+<span class="w">  </span><span class="n">config</span><span class="p">[</span><span class="s">"port"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8080</span><span class="p">;</span>
+<span class="w">  </span><span class="n">config</span><span class="p">[</span><span class="s">"debug"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="any_cast.html">std::any_cast</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s">"host"</span><span class="p">])</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="any_cast.html">std::any_cast</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s">"port"</span><span class="p">])</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="w">  </span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="any_cast.html">std::any_cast</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s">"debug"</span><span class="p">])</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>localhost
+8080
+true
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 4.0.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 7.3 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html" target="_blank">P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0032r0.pdf" target="_blank">P0032R0 Homogeneous interface for <code>variant</code>, <code>any</code> and <code>optional</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0032r1.pdf" target="_blank">P0032R1 Homogeneous interface for <code>variant</code>, <code>any</code> and <code>optional</code> (Revision 1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0032r2.pdf" target="_blank">P0032R2 Homogeneous interface for <code>variant</code>, <code>any</code> and <code>optional</code> (Revision 2)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0032r3.pdf" target="_blank">P0032R3 Homogeneous interface for <code>variant</code>, <code>any</code> and <code>optional</code> (Revision 3)</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
