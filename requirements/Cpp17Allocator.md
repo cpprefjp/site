@@ -34,8 +34,8 @@
 | `X::rebind<U>::other`                         | テンプレート引数を`U`に差し替えた型                           |
 | `a.allocate(n, y)`                            | `a.allocate(n)`                                               |
 | `a.allocate_at_least(n)`                      | `{a.allocate(n), n}` (C++23)                                  |
-| `a.max_size()`                                | [`numeric_limits`](/reference/limits/numeric_limits.md)`<size_type>::`[`max()`](/reference/limits/numeric_limits/max.md)` / sizeof(value_type)`        |
-| `a.construct(c, args...)`                     | [`construct_at`](/reference/memory/construct_at.md)`(c, `[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`                |
+| `a.max_size()`                                | [`numeric_limits`](/reference/limits/numeric_limits.md)`<size_type>::`[`max()`](/reference/limits/numeric_limits/max.md) `/ sizeof(value_type)`        |
+| `a.construct(c, args...)`                     | [`construct_at`](/reference/memory/construct_at.md)`(c,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`                |
 | `a.destroy(c)`                                | [`destroy_at`](/reference/memory/destroy_at.md)`(c)`                                               |
 | `a.select_on_container_copy_construction()`   | `a`                                                           |
 | `X::propagate_on_container_copy_assignment`   | [`false_type`](/reference/type_traits/false_type.md)                                                  |
