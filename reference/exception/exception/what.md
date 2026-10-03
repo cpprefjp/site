@@ -5,7 +5,7 @@
 * function[meta id-type]
 
 ```cpp
-virtual const char* what() const;                    // (1) C++98
+virtual const char* what() const throw();            // (1) C++98
 virtual const char* what() const noexcept;           // (1) C++11
 constexpr virtual const char* what() const noexcept; // (1) C++26
 ```
