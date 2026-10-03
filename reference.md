@@ -248,7 +248,7 @@
 | [`<ctime>`](/reference/ctime.md)     | 日付・時間                          |                |
 | [`<cuchar>`](/reference/cuchar.md)   | ユニコード文字型                    | C++11 (C11)    |
 | [`<cwchar>`](/reference/cwchar.md)   | ワイド文字型                        |                |
-| `<cwctype>`                          | ワイド文字の種別と判定              |                |
+| [`<cwctype>`](/reference/cwctype.md) | ワイド文字の種別と判定              |                |
 
 ## <a id="exposition-only" href="#exposition-only">説明専用ライブラリ</a>
 
