@@ -6,7 +6,10 @@
 ```cpp
 namespace std {
   template <class Facet>
-  bool has_facet(const locale& loc) noexcept;
+  bool has_facet(const locale& loc) throw();  // (1) C++98
+
+  template <class Facet>
+  bool has_facet(const locale& loc) noexcept; // (1) C++11
 }
 ```
 

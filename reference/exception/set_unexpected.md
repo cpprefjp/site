@@ -8,7 +8,9 @@
 ```cpp
 namespace std {
   using unexpected_handler = void(*)();
-  unexpected_handler set_unexpected (unexpected_handler f) throw();
+
+  unexpected_handler set_unexpected(unexpected_handler f) throw();  // (1) C++98
+  unexpected_handler set_unexpected(unexpected_handler f) noexcept; // (1) C++11
 }
 ```
 

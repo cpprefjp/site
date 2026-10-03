@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-const locale& operator=(const locale& other) noexcept; // (1) C++98
+const locale& operator=(const locale& other) throw();  // (1) C++98
+const locale& operator=(const locale& other) noexcept; // (1) C++11
 ```
 
 ## 概要

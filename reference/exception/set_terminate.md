@@ -6,7 +6,9 @@
 ```cpp
 namespace std {
   using terminate_handler = void(*)();
-  terminate_handler set_terminate(terminate_handler f) noexcept;
+
+  terminate_handler set_terminate(terminate_handler f) throw();  // (1) C++98
+  terminate_handler set_terminate(terminate_handler f) noexcept; // (1) C++11
 }
 ```
 
