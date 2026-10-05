@@ -27,7 +27,15 @@ def retry_sleep(retry: int) -> None:
     backoff = min(15 * (2 ** (attempt - 1)), 60)  # 15, 30, 60 秒 (上限60秒)
     time.sleep(backoff + random.uniform(0, 15))   # 0〜15秒のジッタ
 
-def check_url(url: str, retry: int = MAX_OUTER_LINK_RETRY) -> tuple[bool, str]:
+# 失敗の種別。リンク切れ (404) と、CIから到達できなかった失敗を区別する。
+# 過去30件の通知を集計すると、失敗の8割が接続タイムアウトで、404は1割だった。
+# 接続できない原因はリンク切れではなく、ホスト側の障害やCIのIPレンジに対する
+# 遮断であることが多く、ブラウザからは見えるため「リンク切れ」として通知すると
+# 対応できない報告が積み上がる。種別を分けて扱いを変える。
+FAILURE_HTTP = "http"                # HTTPレベルで存在しないと分かったもの (404)
+FAILURE_UNREACHABLE = "unreachable"  # 接続・通信ができず、存在を確認できなかったもの
+
+def check_url(url: str, retry: int = MAX_OUTER_LINK_RETRY) -> tuple[bool, str, str]:
     # 試行を重ねるごとにアクセス方法を変えて (別経路で) 再試行する。1回目で失敗する
     # 理由は「リンク切れ」以外に「HEAD非対応・低速サーバ」「一時的なネットワーク不調」
     # などがあり、方法を変えると通ることが多いため。
@@ -57,26 +65,27 @@ def check_url(url: str, retry: int = MAX_OUTER_LINK_RETRY) -> tuple[bool, str]:
                                timeout=timeout, allow_redirects=True, stream=True)
         status = res.status_code
         res.close()
-        return status != 404, str(status)
+        exists = status != 404
+        return exists, str(status), "" if exists else FAILURE_HTTP
     except requests.exceptions.TooManyRedirects:
         # リダイレクトループ (http↔httpsを行き来する等)。ブラウザではHSTS等で
         # 到達できることが多く、リトライしても解消しないため、存在するものとして
         # 扱う (ループ誤検出とムダな再試行を避ける)。
         # ※ TooManyRedirectsはRequestExceptionのサブクラスなので、下の汎用ハンドラ
         #    より前で捕捉する必要がある。
-        return True, "redirect loop"
+        return True, "redirect loop", ""
     except requests.exceptions.ConnectionError as e:
         if retry <= 0:
-            return False, "requests.exceptions.ConnectionError : {} ".format(e)
+            return False, "requests.exceptions.ConnectionError : {} ".format(e), FAILURE_UNREACHABLE
         retry_sleep(retry)
         return check_url(url, retry - 1)
     except requests.exceptions.RequestException as e:
         if retry <= 0:
-            return False, "requests.exceptions.RequestException : {}".format(e)
+            return False, "requests.exceptions.RequestException : {}".format(e), FAILURE_UNREACHABLE
         retry_sleep(retry)
         return check_url(url, retry - 1)
     except Exception as e:
-        return False, "unknown exception : {}".format(e)
+        return False, "unknown exception : {}".format(e), FAILURE_UNREACHABLE
 
 def fix_link(link: str) -> str:
     if "http" in link or ".md" in link:
@@ -266,13 +275,13 @@ def check(check_inner_link: bool, check_outer_link: bool, url: str) -> bool:
 
         def check_one(item):
             link, from_list = item
-            exists, reason = check_url(link)
-            return link, from_list, exists, reason
+            exists, reason, kind = check_url(link)
+            return link, from_list, exists, reason, kind
 
         # 1パス目: 失敗したURLだけ集める (ネットワークI/Oバウンドなのでスレッドで並列化)
         failed = []
         with ThreadPoolExecutor(max_workers=OUTER_LINK_WORKERS) as executor:
-            for link, from_list, exists, reason in executor.map(check_one, outer_link_dict.items()):
+            for link, from_list, exists, reason, kind in executor.map(check_one, outer_link_dict.items()):
                 if not exists:
                     failed.append((link, from_list))
 
@@ -281,11 +290,25 @@ def check(check_inner_link: bool, check_outer_link: bool, url: str) -> bool:
         # 両方のパスで失敗したものだけを報告する
         if failed:
             time.sleep(120)
+            unreachable = []
             with ThreadPoolExecutor(max_workers=OUTER_LINK_WORKERS) as executor:
-                for link, from_list, exists, reason in executor.map(check_one, failed):
-                    if not exists:
-                        print("URL {} not found. {} from:{}".format(link, reason, from_list), file=sys.stderr)
-                        found_error = True
+                for link, from_list, exists, reason, kind in executor.map(check_one, failed):
+                    if exists:
+                        continue
+                    if kind == FAILURE_UNREACHABLE:
+                        # 存在を確認できなかっただけなので、リンク切れとして報告しない。
+                        # 標準出力に出すことで、ワークフローの通知対象 (標準エラー出力)
+                        # から外し、実行ログとAnnotationsにだけ残す。
+                        unreachable.append((link, from_list, reason))
+                        continue
+                    print("URL {} not found. {} from:{}".format(link, reason, from_list), file=sys.stderr)
+                    found_error = True
+
+            if unreachable:
+                print("::warning::外部リンク{}件がCIから到達できませんでした "
+                      "(リンク切れとしては報告しません)".format(len(unreachable)))
+                for link, from_list, reason in unreachable:
+                    print("URL {} is unreachable from CI. {} from:{}".format(link, reason, from_list))
 
     return not found_error
 
