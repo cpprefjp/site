@@ -222,7 +222,7 @@
 | ヘッダ                               | 説明                                | 対応バージョン |
 |--------------------------------------|-------------------------------------|----------------|
 | [`<cassert>`](/reference/cassert.md) | アサート                            |                |
-| `<ccomplex>`                         | 複素数                              | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
+| [`<ccomplex>`](/reference/ccomplex.md) | 複素数                              | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
 | [`<cctype>`](/reference/cctype.md)   | 文字種別の判定と変換                |                |
 | [`<cerrno>`](/reference/cerrno.md)   | エラー番号                          |                |
 | [`<cfenv>`](/reference/cfenv.md)     | 浮動小数点環境へのアクセス          | C++11 (C99)    |
