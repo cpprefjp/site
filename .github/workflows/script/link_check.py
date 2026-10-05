@@ -34,13 +34,20 @@ def check_url(url: str, retry: int = MAX_OUTER_LINK_RETRY) -> tuple[bool, str]:
     #   method  : 試行ごとにHEADとGETを交互に切り替える (偶数回目=HEAD, 奇数回目=GET)。
     #             HEADに未対応・不安定なサーバはGETで、GETが重いだけのサーバはHEADで通る。
     #             (例: www.dre.vanderbilt.edu はHEADが失敗しGETは通るが応答が非常に遅い)。
-    #   timeout : 試行を重ねるごとに増やし、低速サーバに徐々に猶予を与える。
+    #   timeout : 接続と読み取りを分けて指定し、どちらも試行を重ねるごとに増やす。
+    #             接続側を短くするのは、TCP接続の確立に10秒以上かかって成功する
+    #             相手が実質ないため。CIから遮断されているホストに読み取り側の長い
+    #             タイムアウトを待つと、1URLあたり最大20分 (120+240+360+480秒) が
+    #             無駄になり、ジョブ全体が2〜3分から55分に伸びていた。
+    #             読み取り側は低速サーバに猶予を与えるため従来どおり長くとる。
     # IPv4固定はcheck()側でallowed_gai_familyにより行う (下記コメント参照)。
     attempt = MAX_OUTER_LINK_RETRY - retry  # 0, 1, 2, 3
     method = "HEAD" if attempt % 2 == 0 else "GET"
     # 2回目 (最初のGET) の時点で低速サーバを取りこぼさない余裕を持たせる。
     # 例: www.dre.vanderbilt.edu はGETに実測で最大120秒近くかかるため、2回目=240秒とする。
-    timeout = 120.0 * (attempt + 1)  # 120, 240, 360, 480 秒
+    connect_timeout = 10.0 + 5.0 * attempt   # 10, 15, 20, 25 秒
+    read_timeout = 120.0 * (attempt + 1)     # 120, 240, 360, 480 秒
+    timeout = (connect_timeout, read_timeout)
     try:
         headers = {'User-agent': 'Mozilla/5.0'}
         # stream=Trueで本文はダウンロードせず、最終的なステータスで判定する。
