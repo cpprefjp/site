@@ -228,23 +228,23 @@
 | [`<cfenv>`](/reference/cfenv.md)     | 浮動小数点環境へのアクセス          | C++11 (C99)    |
 | [`<cfloat>`](/reference/cfloat.md)   | 浮動小数点数の定数                  |                |
 | [`<cinttypes>`](/reference/cinttypes.md) | 固定精度整数のための書式指定マクロ  | C++11 (C99)    |
-| `<ciso646>`                          | `&&`に対する別名`and`のような、各種演算子に対するマクロを定義する。<br/> ただしC++ではこれらの別名はキーワードとして定義されるため、このヘッダでは何も定義されない。 | C++20で削除               |
+| [`<ciso646>`](/reference/ciso646.md) | `&&`に対する別名`and`のような、各種演算子に対するマクロを定義する。<br/> ただしC++ではこれらの別名はキーワードとして定義されるため、このヘッダでは何も定義されない。 | C++20で削除               |
 | [`<climits>`](/reference/climits.md) | 整数型の最小値、最大値を表すマクロ  |                |
 | [`<clocale>`](/reference/clocale.md) | ロケール                            |                |
 | [`<cmath>`](/reference/cmath.md)     | 数学関数                            |                |
 | [`<csetjmp>`](/reference/csetjmp.md) | ジャンプ処理                        |                |
 | [`<csignal>`](/reference/csignal.md) | シグナル                            |                |
-| `<cstdalign>`                        | アライメント操作のマクロ            | C++17で非推奨<br/> C++20で削除    |
+| [`<cstdalign>`](/reference/cstdalign.md) | アライメント操作のマクロ            | C++11 (C11)<br/> C++17で非推奨<br/> C++20で削除 |
 | [`<cstdarg>`](/reference/cstdarg.md) | 可変引数操作                        |                |
 | [`<stdbit.h>`](/reference/stdbit.h.md) | ビット操作                 | C++26 |
 | [`<stdckdint.h>`](/reference/stdckdint.h.md) | 検査付き整数演算            | C++26 |
-| `<cstdbool>`                         | 真理値型の定義                      | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
+| [`<cstdbool>`](/reference/cstdbool.md) | 真理値型の定義                      | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
 | [`<cstddef>`](/reference/cstddef.md) | 基本的な型、値、マクロの定義        |                |
 | [`<cstdint>`](/reference/cstdint.md) | 大きさが規定されている整数型        | C++11 (C99)    |
 | [`<cstdio>`](/reference/cstdio.md)   | 入出力                              |                |
 | [`<cstdlib>`](/reference/cstdlib.md) | ユーティリティ関数                  |                |
 | [`<cstring>`](/reference/cstring.md) | 文字列操作                          |                |
-| `<ctgmath>`                          | ジェネリックな数学関数              | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
+| [`<ctgmath>`](/reference/ctgmath.md) | ジェネリックな数学関数              | C++11 (C99)<br/> C++17で非推奨<br/> C++20で削除 |
 | [`<ctime>`](/reference/ctime.md)     | 日付・時間                          |                |
 | [`<cuchar>`](/reference/cuchar.md)   | ユニコード文字型                    | C++11 (C11)    |
 | [`<cwchar>`](/reference/cwchar.md)   | ワイド文字型                        |                |
