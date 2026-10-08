@@ -43,6 +43,11 @@
 ### 言語
 - C++26
 
+### 処理系
+- [Clang](/implementation.md#clang): 24 [mark verified]
+- [GCC](/implementation.md#gcc): 16.1 (`-lstdc++exp`オプション指定) [mark verified]
+- [Visual C++](/implementation.md#visual_cpp): 2026 Update 2 [mark noimpl]
+
 
 ## 参照
 - [P2546R5 Debugging Support](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2546r5.html)
