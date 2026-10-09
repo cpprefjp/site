@@ -86,4 +86,4 @@ int main()
 
 ## 参照
 - [LWG Issue 4487. Is member `is_steady` of a Cpp17Clock type required to be usable in constant expressions?](https://cplusplus.github.io/LWG/issue4487)
-    - `C1::is_steady`が定数式で使用できることが要件に追加された。それ以前は`const bool`とだけ規定されており、利用者定義のクロックに対して同じ要求があるかが不明確だった。規格としてはC++29のワーキングドラフトへ適用されたが、未規定だった点の明文化であるため、Cpp17Clock要件が規定されたC++11へ遡及して適用される
+    - `C1::is_steady`が定数式で使用できることが要件に追加された。それ以前は`const bool`とだけ規定されており、利用者定義のクロックに対して同じ要求があるかが不明確だった。規格としてはC++29のワーキングドラフトへ適用されたが、未規定だった点の明文化であるため、[`Cpp17Clock`](/requirements/Cpp17Clock.md.nolink)要件が規定されたC++11へ遡及して適用される

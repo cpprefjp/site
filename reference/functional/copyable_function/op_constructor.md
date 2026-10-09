@@ -59,8 +59,8 @@ explicit copyable_function(in_place_type_t<T>, initializer_list<U>, Args&&...); 
 
 
 ## 事前条件
-- (5) : `VT`型を`decay_t<F>`としたとき、`VT`がCpp17Destructible要件およびCpp17CopyConstructible要件を満たすこと。
-- (6), (7) : `VT`型を`decay_t<T>`としたとき、`VT`がCpp17Destructible要件およびCpp17CopyConstructible要件を満たすこと。
+- (5) : `VT`型を`decay_t<F>`としたとき、`VT`が[`Cpp17Destructible`](/requirements/Cpp17Destructible.md.nolink)要件および[`Cpp17CopyConstructible`](/requirements/Cpp17CopyConstructible.md.nolink)要件を満たすこと。
+- (6), (7) : `VT`型を`decay_t<T>`としたとき、`VT`が[`Cpp17Destructible`](/requirements/Cpp17Destructible.md.nolink)要件および[`Cpp17CopyConstructible`](/requirements/Cpp17CopyConstructible.md.nolink)要件を満たすこと。
 
 
 ## 効果

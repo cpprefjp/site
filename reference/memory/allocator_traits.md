@@ -205,6 +205,12 @@ int main() {
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified]
 
+## 関連項目
+- [`Cpp17Allocator`](/requirements/Cpp17Allocator.md)
+    - 自作のアロケータを実装する場合は、この要件を満たす必要がある
+    - 要件のうち省略した項目は、本クラスが既定の定義を与える
+
+
 ## 参照
 - [Allocators@C++11 - Cryolite](http://www.slideshare.net/Cryolite/allocator11final)
 - [A visitor’s guide to C++ allocators](https://htmlpreview.github.io/?https://github.com/google/cxx-std-draft/blob/allocator-paper/allocator_user_guide.html)
