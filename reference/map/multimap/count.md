@@ -33,6 +33,10 @@ log(size()) + count(x)
 * size()[link size.md]
 
 
+## 備考
+- 要素の有無を調べるだけであれば、この関数ではなく[`contains()`](contains.md)メンバ関数を使用する。この関数は等価なキーをもつ要素の個数に対して線形時間がかかるが、[`contains()`](contains.md)は対数時間である
+
+
 ## 例
 ```cpp example
 #include <iostream>

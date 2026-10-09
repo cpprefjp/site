@@ -50,6 +50,10 @@ constexpr size_type count(const K& k) const; // (2) C++26
 - 最悪： [`size`](size.md) について線形時間
 
 
+## 備考
+- 要素の有無を調べるだけであれば、この関数ではなく[`contains()`](contains.md)メンバ関数を使用する。この関数は等価なキーをもつ要素の個数に対して平均的に比例するが、[`contains()`](contains.md)は平均的に定数時間である
+
+
 ## 例
 ```cpp example
 #include <iostream>

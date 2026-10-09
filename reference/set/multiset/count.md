@@ -35,7 +35,7 @@ log(size()) + count(x)
 
 ## 備考
 - (2) : この関数がオーバーロード解決に参加する条件は、[`find()`](find.md)メンバ関数の備考欄を参照。
-- [`std::multiset`](/reference/set/multiset.md)クラスとの共通インタフェースを使用する必要がなければ、この関数の代わりに[`contains()`](contains.md)メンバ関数を使用することを推奨する
+- 要素の有無を調べるだけであれば、この関数ではなく[`contains()`](contains.md)メンバ関数を使用する。この関数は等価なキーをもつ要素の個数に対して線形時間がかかるが、[`contains()`](contains.md)は対数時間である
 
 
 ## 例
