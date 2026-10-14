@@ -372,10 +372,7 @@ int f()
 #### 評価セマンティクスの選択
 契約アサーションの個別の評価に対してどの評価セマンティクスが使用されるかを選択するメカニズムは実装定義である。コンパイル時オプション、実行時設定、またはその組み合わせで指定できる。
 
-GCCでの例：
-```bash
-g++ -std=c++26 -fcontracts -fcontract-semantic=observe main.cpp
-```
+処理系ごとの指定方法は、[コンパイルオプション](#compile-options)を参照。
 
 #### 契約述語のチェック
 チェックセマンティクス（`observe`、`enforce`、`quick-enforce`）では、述語が評価され、`bool`に文脈変換される。述語が`true`に評価されると、契約違反は識別されない。述語が`false`に評価されるか、述語の評価が例外で終了すると、契約違反が識別される。
@@ -564,6 +561,31 @@ void f(int x) pre(might_throw(x));  // 例外発生時は契約違反
 - **評価制御**: 契約の評価セマンティクスは実装定義の方法で選択されるが、`assert`は`NDEBUG`マクロの有無で制御される
 - **事後条件**: 契約プログラミングは事後条件を簡潔に記述できるが、`assert`マクロでは困難
 - **標準化**: 契約プログラミングはC++標準の一部であり、`assert`はCから継承されたマクロである
+
+## <a id="compile-options" href="#compile-options">コンパイルオプション</a>
+契約アサーションをどの評価セマンティクスで評価するかは実装定義であり、処理系が提供するコンパイルオプションで指定する。
+
+### GCC
+| オプション | 説明 |
+|------------|------|
+| `-fcontracts`                           | 契約プログラミング機能を有効にする。`-std=c++26`を指定した場合は暗黙に有効となる |
+| `-fcontract-evaluation-semantic=`       | 評価セマンティクスを`ignore`、`observe`、`enforce`、`quick_enforce`のいずれかに指定する。デフォルトは`enforce` |
+| `-fcontracts-client-check=`             | 呼び出し側でチェックするアサーションを`none`、`pre`、`all`のいずれかに指定する。デフォルトは`none` |
+| `-fcontracts-definition-check=`         | 定義側でのチェックを`on`、`off`のいずれかに指定する。デフォルトは`on` |
+| `-fcontract-checks-outlined`            | 事前条件・事後条件のチェックを関数本体に展開せず、別の関数として切り出して呼び出す |
+| `-fcontract-disable-optimized-checks`   | `-fcontract-checks-outlined`で切り出した関数に対する最適化を抑制する |
+| `-fcontracts-conservative-ipa`          | 翻訳単位ごとに評価セマンティクスが異なりうることを前提として、インライン関数に対する手続き間解析を抑制する。デフォルトで有効 |
+
+```bash
+# 契約アサーションをobserveセマンティクスで評価する
+g++ -std=c++26 -fcontracts -fcontract-evaluation-semantic=observe main.cpp
+```
+
+- 評価セマンティクスは、コンパイル時に翻訳単位ごとに決定される。契約アサーションごとに指定する方法や、実行時に切り替える方法は提供されていない
+    - 翻訳単位ごとに異なるセマンティクスを指定した場合、関数を定義した翻訳単位のセマンティクスが適用される
+- 契約違反ハンドラのデフォルトの実装は`libstdc++exp`ライブラリが提供する。このライブラリは、コマンドラインに`-fcontracts`を指定した場合に自動的にリンクされる。`-std=c++26`によって暗黙に有効化した場合はリンクされないため、`-lstdc++exp`オプションを指定する必要がある
+- GCC 15以前の`-fcontracts`は、C++26に採用されたP2900とは異なる仕様 (N4820、P1332、P1429) の実験的な実装であり、`-fcontract-build-level`や`-fcontract-role`などの別のオプションを提供していた
+
 
 ## 例
 
