@@ -108,7 +108,6 @@
 | [`レイアウトマッピング要件`](requirements/layout_mapping.md.nolink)                       | 多次元のインデックスを1次元の位置へ対応付ける   |
 | [`レイアウトマッピングポリシー要件`](requirements/layout_mapping_policy.md.nolink)         | 要素数からレイアウトマッピングを決定する        |
 | [`アクセサポリシー要件`](requirements/accessor_policy.md.nolink)                          | 位置から要素を参照する方法を提供する            |
-| [`スライス可能なレイアウトマッピング要件`](requirements/sliceable_layout_mapping.md.nolink) | 部分多次元配列を取り出せるレイアウトマッピングである |
 
 
 ## アルゴリズムの要件
@@ -152,7 +151,6 @@
 |-----------------------------|--------------------------------------------------|
 | [`数値型の要件`](requirements/numeric_type.md.nolink)                             | [`std::complex`](/reference/complex/complex.md)と[`std::valarray`](/reference/valarray/valarray.md)の要素型が満たす要件 |
 | [`シード列の要件`](requirements/seed_sequence.md.nolink)                          | 乱数エンジンの初期状態を生成する                     |
-| [`一様乱数ビット生成器の要件`](requirements/uniform_random_bit_generator.md.nolink) | 一様分布する符号なし整数値を生成する                 |
 | [`乱数エンジンの要件`](requirements/random_number_engine.md.nolink)               | 状態を持ち、擬似乱数列を生成する                     |
 | [`乱数エンジンアダプタの要件`](requirements/random_number_engine_adaptor.md.nolink) | ほかの乱数エンジンの出力を加工する                   |
 | [`乱数分布の要件`](requirements/random_number_distribution.md.nolink)             | 乱数ビット列を目的の確率分布に変換する               |
