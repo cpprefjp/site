@@ -36,7 +36,7 @@ namespace std::execution {
 
 `error_types`が[`completion_signatures`](completion_signatures.md)`<ErrorSigs...>`の特殊化ではない、もしくは`ErrorSigs`が[`set_error_t`](set_error.md)`(E)`が適格でない要素型`E`を含むとき、プログラムは不適格となる。
 
-`allocator_type`はCpp17Allocator要件を満たし、`start_scheduler_type`は[`scheduler`](scheduler.md)のモデルであり、`stop_source_type`は[`stoppable-source`](/reference/stop_token/stoppable-source.md)のモデルであること。
+`allocator_type`は[`Cpp17Allocator`](/requirements/Cpp17Allocator.md)要件を満たし、`start_scheduler_type`は[`scheduler`](scheduler.md)のモデルであり、`stop_source_type`は[`stoppable-source`](/reference/stop_token/stoppable-source.md)のモデルであること。
 
 `task`クラステンプレートは、下記の静的メンバ関数テンプレートを定義する。
 

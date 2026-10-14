@@ -23,8 +23,8 @@ namespace std {
 
 
 ## 事前条件
-- (1) : `T` は `Cpp17CopyConstructible` 要件を満たしていること。 
-- (2) : `T` は `Cpp17MoveConstructible` 要件を満たしていること。
+- (1) : `T` は [`Cpp17CopyConstructible`](/requirements/Cpp17CopyConstructible.md.nolink) 要件を満たしていること。 
+- (2) : `T` は [`Cpp17MoveConstructible`](/requirements/Cpp17MoveConstructible.md.nolink) 要件を満たしていること。
 
 
 ## 戻り値

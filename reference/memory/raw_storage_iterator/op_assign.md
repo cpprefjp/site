@@ -19,8 +19,8 @@ raw_storage_iterator& operator=(T&& element);      // (2) C++17
 
 
 ## テンプレートパラメータ制約
-- (1) : 型`T`がコピー構築可能（Cpp17CopyConstructible）であること
-- (2) : 型`T`がムーブ構築可能（Cpp17MoveConstructible）であること
+- (1) : 型`T`がコピー構築可能（[`Cpp17CopyConstructible`](/requirements/Cpp17CopyConstructible.md.nolink)）であること
+- (2) : 型`T`がムーブ構築可能（[`Cpp17MoveConstructible`](/requirements/Cpp17MoveConstructible.md.nolink)）であること
 
 
 ## 効果

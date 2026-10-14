@@ -19,7 +19,7 @@ constexpr void swap(variant& rhs) noexcept(see below);  // C++23
 
 
 ## 事前条件
-- `Types...`に含まれる全ての型`Ti`が、交換可能（Cpp17Swappable）の要件を満たすこと
+- `Types...`に含まれる全ての型`Ti`が、交換可能（[`Cpp17Swappable`](/requirements/Cpp17Swappable.md.nolink)）の要件を満たすこと
 
 
 ## 効果

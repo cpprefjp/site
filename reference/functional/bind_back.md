@@ -25,10 +25,10 @@ namespace std {
 [`decay_t`](/reference/type_traits/decay.md)`<F>`を適用した型を`FD`、[`decay_t`](/reference/type_traits/decay.md)`<Args>...`を適用した型パラメータパックを`BoundArgs`として
 
 - (1) : 
-    - `FD`がCpp17MoveConstructible要件を満たすこと
-    - `BoundArgs`のそれぞれの型`Ti`が[オブジェクト型](/reference/type_traits/is_object.md)である場合、Cpp17MoveConstructible要件を満たすこと
+    - `FD`が[`Cpp17MoveConstructible`](/requirements/Cpp17MoveConstructible.md.nolink)要件を満たすこと
+    - `BoundArgs`のそれぞれの型`Ti`が[オブジェクト型](/reference/type_traits/is_object.md)である場合、[`Cpp17MoveConstructible`](/requirements/Cpp17MoveConstructible.md.nolink)要件を満たすこと
 - (2) :
-    - `BoundArgs`のそれぞれの型`Ti`がCpp17MoveConstructible要件を満たすこと
+    - `BoundArgs`のそれぞれの型`Ti`が[`Cpp17MoveConstructible`](/requirements/Cpp17MoveConstructible.md.nolink)要件を満たすこと
 
 
 ## 適格要件

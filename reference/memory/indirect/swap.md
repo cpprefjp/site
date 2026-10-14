@@ -14,7 +14,7 @@ constexpr void swap(indirect& other) noexcept(see below);
 
 
 ## 事前条件
-[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::propagate_on_container_swap::value`が`true`の場合、`Allocator`はCpp17Swappable要件を満たすこと。そうでない場合、`get_allocator() == other.get_allocator()`が`true`であること。
+[`allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::propagate_on_container_swap::value`が`true`の場合、`Allocator`は[`Cpp17Swappable`](/requirements/Cpp17Swappable.md.nolink)要件を満たすこと。そうでない場合、`get_allocator() == other.get_allocator()`が`true`であること。
 
 
 ## 効果

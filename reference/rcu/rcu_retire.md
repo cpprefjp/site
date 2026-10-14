@@ -25,7 +25,7 @@ RCU機構により保護されるオブジェクト回収をスケジュール�
 
 
 ## 事前条件
-`D`はCpp17MoveCosntructible要件およびCpp17Destructible要件をみたすこと。
+`D`は[`Cpp17MoveConstructible`](/requirements/Cpp17MoveConstructible.md.nolink)要件および[`Cpp17Destructible`](/requirements/Cpp17Destructible.md.nolink)要件をみたすこと。
 
 
 ## 効果

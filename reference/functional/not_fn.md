@@ -22,7 +22,7 @@ namespace std {
 
 
 ## 事前条件
-- (1) : [`decay_t`](/reference/type_traits/decay.md)`<F>`を適用した型を`FD`として、`FD`がCpp17MoveConstructible要件を満たすこと
+- (1) : [`decay_t`](/reference/type_traits/decay.md)`<F>`を適用した型を`FD`として、`FD`が[`Cpp17MoveConstructible`](/requirements/Cpp17MoveConstructible.md.nolink)要件を満たすこと
 
 
 ## 適格要件

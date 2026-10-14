@@ -55,11 +55,11 @@ explicit move_only_function(in_place_type_t<T>, initializer_list<U>, Args&&...);
 
 ## 事前条件
 - (4) : `VT`型を`decay_t<F>`としたとき
-    - `VT`がCpp17Destructible要件を満たすこと。
-    - [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<VT>`が`true`の場合、`VT`がCpp17MoveConstructible要件を満たすこと。
+    - `VT`が[`Cpp17Destructible`](/requirements/Cpp17Destructible.md.nolink)要件を満たすこと。
+    - [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<VT>`が`true`の場合、`VT`が[`Cpp17MoveConstructible`](/requirements/Cpp17MoveConstructible.md.nolink)要件を満たすこと。
 - (5), (6) : `VT`型を`decay_t<T>`としたとき
-    - `VT`がCpp17Destructible要件を満たすこと。
-    - [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<VT>`が`true`の場合、`VT`がCpp17MoveConstructible要件を満たすこと。
+    - `VT`が[`Cpp17Destructible`](/requirements/Cpp17Destructible.md.nolink)要件を満たすこと。
+    - [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<VT>`が`true`の場合、`VT`が[`Cpp17MoveConstructible`](/requirements/Cpp17MoveConstructible.md.nolink)要件を満たすこと。
 
 
 ## 効果

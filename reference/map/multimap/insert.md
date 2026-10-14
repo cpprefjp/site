@@ -58,7 +58,7 @@ constexpr iterator insert(const_iterator hint, node_type&& nh); // (10) C++26
 - (1), (4) : `value_type` は、コンテナに対してコピー挿入可能でなければならない。
 - (2), (5) : `value_type` は、コンテナに対してムーブ挿入可能でなければならない。
 - (3), (6) : `P`から`value_type`が構築可能であること。
-- (7), (8) : イテレータ範囲`[first, last)`の各イテレータが、`*this` の要素を指さないこと。また `value_type` は `*first` から`multimap` コンテナへの`Cpp17EmplaceConstructible`であること。
+- (7), (8) : イテレータ範囲`[first, last)`の各イテレータが、`*this` の要素を指さないこと。また `value_type` は `*first` から`multimap` コンテナへの[`Cpp17EmplaceConstructible`](/requirements/Cpp17EmplaceConstructible.md.nolink)であること。
 - (9), (10) : `nh` は空である、または、`(*this).get_allocator() == nh.get_allocator()`である。
 
 ## 効果

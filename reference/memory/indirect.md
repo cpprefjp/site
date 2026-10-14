@@ -39,7 +39,7 @@ namespace std {
 
 
 ## テンプレートパラメータ制約
-- `Allocator`はCpp17Allocator要件を満たすこと
+- `Allocator`は[`Cpp17Allocator`](/requirements/Cpp17Allocator.md)要件を満たすこと
 - [`std::allocator_traits`](/reference/memory/allocator_traits.md)`<Allocator>::value_type`が`T`と同じ型であること
 
 

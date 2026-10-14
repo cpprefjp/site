@@ -111,7 +111,7 @@ C++コンパイラによっては、ジェネレータコルーチンに関す�
     - [`common_reference_with`](/reference/concepts/common_reference_with.md)`<reference&&, RRef&&>`
     - [`common_reference_with`](/reference/concepts/common_reference_with.md)`<RRef&&, const value&>`
 
-テンプレートパラメータ`Allocator`が`void`ではない場合、`Cpp17Allocator`の要件を満たすこと。
+テンプレートパラメータ`Allocator`が`void`ではない場合、[`Cpp17Allocator`](/requirements/Cpp17Allocator.md)の要件を満たすこと。
 
 
 ## メンバ関数

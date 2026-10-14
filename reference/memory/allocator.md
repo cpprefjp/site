@@ -135,6 +135,11 @@ int main(int argc, char** argv) {
     - [GCC](/implementation.md#gcc): 
     - [Visual C++](/implementation.md#visual_cpp): 2012, 2013
 
+## 関連項目
+- [`Cpp17Allocator`](/requirements/Cpp17Allocator.md)
+    - 自作のアロケータを実装する場合は、この要件を満たす必要がある
+
+
 ## 参照
 - [A visitor’s guide to C++ allocators](https://htmlpreview.github.io/?https://github.com/google/cxx-std-draft/blob/allocator-paper/allocator_user_guide.html)
 - [LWG #2103 - `std::allocator_traits<std::allocator<T>>::propagate_on_container_move_assignment`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2103)

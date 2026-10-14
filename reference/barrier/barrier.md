@@ -45,15 +45,15 @@ namespace std {
 完了ステップの終了は、完了ステップによりブロック解除される全ての関数呼び出しからの復帰**よりも確実に前に発生する**。
 テンプレートパラメータ`CompletionFunction`のデフォルト値以外の特殊化においては、完了ステップの進行中にバリアオブジェクトの[`wait()`](barrier/wait.md)を除くメンバ関数が呼び出されると、その動作は未定義となる。
 
-テンプレートパラメータ`CompletionFunction`のデフォルト値は、追加で Cpp17DefaultConstructible 要件を満たす未規定の型であり、式`completion()`は何の副作用も生じない。
+テンプレートパラメータ`CompletionFunction`のデフォルト値は、追加で [`Cpp17DefaultConstructible`](/requirements/Cpp17DefaultConstructible.md.nolink) 要件を満たす未規定の型であり、式`completion()`は何の副作用も生じない。
 つまりテンプレートパラメータを省略した`barrier<>`オブジェクトでは、各フェーズ完了時に追加的な処理を行わない。
 
-`barrier::arrival_token`は、Cpp17MoveConstructible 要件および Cpp17MoveAssignable 要件および Cpp17Destructible 要件を満たす未規定の型。
+`barrier::arrival_token`は、[`Cpp17MoveConstructible`](/requirements/Cpp17MoveConstructible.md.nolink) 要件および [`Cpp17MoveAssignable`](/requirements/Cpp17MoveAssignable.md.nolink) 要件および [`Cpp17Destructible`](/requirements/Cpp17Destructible.md.nolink) 要件を満たす未規定の型。
 つまり、コピー不可／ムーブのみ可能な型。
 
 
 ## 適格要件
-テンプレートパラメータ`CompletionFunction`は Cpp17MoveConstructible 要件および Cpp17Destructible 要件を満たしていること。
+テンプレートパラメータ`CompletionFunction`は [`Cpp17MoveConstructible`](/requirements/Cpp17MoveConstructible.md.nolink) 要件および [`Cpp17Destructible`](/requirements/Cpp17Destructible.md.nolink) 要件を満たしていること。
 [`is_nothrow_invocable_v`](/reference/type_traits/is_nothrow_invocable.md)`<CompletionFunction&> == true`
 
 
