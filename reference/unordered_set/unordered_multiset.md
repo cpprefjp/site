@@ -55,6 +55,10 @@ namespace std {
 テンプレートパラメータ `Allocator` は、Allocator requirements を満たさなければならない。
 
 
+## 概念・前提知識
+- [コンテナとは](/guide/container.md)
+
+
 ## メンバ関数
 ### 構築／コピー／破棄
 

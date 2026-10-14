@@ -57,6 +57,10 @@ std::inplace_vector<int, 3> iv = {1, 2, 3}; // OK: 明示的に型と容量を�
 ```
 
 
+## 概念・前提知識
+- [コンテナとは](/guide/container.md)
+
+
 ## メンバ関数
 ### 構築・破棄
 

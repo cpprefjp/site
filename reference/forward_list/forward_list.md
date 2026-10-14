@@ -39,6 +39,10 @@ namespace std {
 - `Allocator`: メモリ確保に使用されるアロケータの型。無指定の場合は標準の[`allocator`](/reference/memory/allocator.md)クラスが使用される。
 
 
+## 概念・前提知識
+- [コンテナとは](/guide/container.md)
+
+
 ## メンバ関数
 ### 構築／コピー／破棄
 

@@ -39,6 +39,10 @@ namespace std {
 - `Allocator` : ストレージの割り当てモデルを定義するために使用されるアロケータオブジェクトの型。デフォルトでは、値に依存しない単純なメモリ割り当てモデルを定義する、型 `T` の [`allocator`](/reference/memory/allocator.md) クラステンプレートが使われる。 
 
 
+## 概念・前提知識
+- [コンテナとは](/guide/container.md)
+
+
 ## メンバ関数
 ### 構築／コピー／破棄
 
