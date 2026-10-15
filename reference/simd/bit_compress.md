@@ -86,7 +86,7 @@ int main()
 
 
 ## 参照
-- [P3104R3 Bit permutations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3104r3.html)
+- [P3104R6 Bit permutations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3104r6.html)
     - C++29で`<bit>`ヘッダにスカラー版の`bit_compress`が追加された
-- [P3772R1 std::simd overloads for bit permutations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3772r1.html)
+- [P3772R2 std::simd overloads for bit permutations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3772r2.html)
     - C++29で`std::simd`版のオーバーロードが追加された

@@ -74,5 +74,5 @@ cccccccc
 
 
 ## 参照
-- [P3104R3 Bit permutations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3104r3.html)
+- [P3104R6 Bit permutations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2026/p3104r6.html)
     - C++29で追加された
