@@ -63,7 +63,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 22 [mark noimpl]
-- [GCC](/implementation.md#gcc): 16.1 [mark noimpl]
+- [GCC](/implementation.md#gcc): 17 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2026 Update 2 [mark noimpl]
 
 
