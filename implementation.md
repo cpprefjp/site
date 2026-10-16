@@ -149,6 +149,7 @@
 
 | 表記          | 製品名 [Visual Studio バージョン] <sup><a id="note_ref-t1-1" href="#note-t1-1">†1</a></sup> | VC++ バージョン <sup><a id="note_ref-t1-2" href="#note-t1-2">†2</a></sup> | `_MSC_VER` | `_MSC_FULL_VER` |
 |---------------|----------------------------------------|-----------------|------------|-----------------|
+| 2026 Update 12 | Visual Studio 2026 Version 18.12      | 14.52           | 1952       | 195237025       |
 | 2026 Update 6  | Visual Studio 2026 Version 18.6       | 14.51           | 1951       | 195136246       |
 | 2026 Update 2  | Visual Studio 2026 Version 18.2       | 14.50           | 1950       | 195035723       |
 | 2026           | Visual Studio 2026 Version 18.0       | 14.50           | 1950       | 195035717       |
@@ -292,7 +293,10 @@
 
 ### C++23の機能を有効にする
 
-- 2022 Update 14以降は`/std:c++23preview`オプションを使用する。それ以前は`/std:c++latest`オプションを使用する
+- 2026 Update 12以降は`/std:c++23`オプションを使用する
+- 2022 Update 14以降は`/std:c++23preview`オプションを使用する。2026 Update 12以降では`/std:c++23`の別名となり、非推奨となった
+- それ以前は`/std:c++latest`オプションを使用する
+- [MSVC Build Tools version 14.52 release candidate now available - C++ Team Blog](https://devblogs.microsoft.com/cppblog/msvc-build-tools-version-14-52-release-candidate-now-available/)
 
 
 ### 最新バージョンの言語機能を有効にする
