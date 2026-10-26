@@ -26,7 +26,7 @@
 ## チャットリスト
 以下は、C++の話題が盛んなチャットツールのリストである。
 
-- [CPP Lang (Slack)](https://cppalliance.org/slack/)
+- [CPP Lang (Slack)](https://cppalliance.org/community/)
     - 世界中のC ++のユーザーを同じ場所に集める目的で作られたSlackワークスペース。[The C++ Alliance](https://cppalliance.org/) が運営している。  
   `cmake`, `boost`, `feature_standard` などチャネルが多数存在する。
 - [MSVC STL (Discord) ](https://github.com/microsoft/STL/wiki/)
