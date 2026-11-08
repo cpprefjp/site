@@ -51,3 +51,7 @@ int main() {
 - [Clang](/implementation.md#clang): 12.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P1048R1 A proposal for a type trait to detect scoped enumerations](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1048r1.pdf)
