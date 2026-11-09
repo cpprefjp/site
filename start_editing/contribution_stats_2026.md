@@ -6,8 +6,7 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, 1ed3f7d] | ignore | k-satodaさんのアカウントミスを修正 |
-| [commit cpprefjp/site, 3214979] | ignore | zer0-starさんのアカウントミスを修正 |
+| [commit cpprefjp/site, 1ed3f7d, 3214979] | ignore | 2025年分の集計ファイルのアカウント名を修正 (集計作業のため対象外) |
 | [commit cpprefjp/site, 7b52ba3] | ignore | 2025年分の貢献ポイントを集計 (#1536) |
 | [commit cpprefjp/site, 0b61755, f73e9f6] | cpprefjp/fixm:1 | mblenのサンプルコード : ロケールを毎回設定すると重いので文字数計算の外にだした |
 | [commit boostjp/site, 6d64d73, c9cdda0] | boostjp/link:1, boostjp/releases:16, boostjp/releasem:18, boostjp/releasel:6 | Boost 1.90.0のリリースノート翻訳を追加 |
