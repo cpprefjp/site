@@ -973,7 +973,7 @@
 | [commit cpprefjp/site, a74f1c9] | cpprefjp/compiler:4 | bit : GCCで動作確認 |
 | [commit cpprefjp/site, 213f89d] | cpprefjp/fixm:1 | MSVC : 次のリリースで、C++23が正式機能となる |
 | [commit cpprefjp/site, 6c10528] | cpprefjp/link:1 | リンク切れを修正 (close #1785) |
-| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7, f9a5a6e, 61fb542, 5053419] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
+| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7, f9a5a6e, 61fb542, 5053419, 3d2f610] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
 
 
 ## [rotarymars](https://github.com/rotarymars)
@@ -1331,6 +1331,116 @@
 | [commit cpprefjp/site, fdc73ae] | cpprefjp/fixm:1 | cpp20/permit_conversions_to_arrays_of_unknown_bound: fix example |
 
 
+## [take-cheeze](https://github.com/take-cheeze)
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [commit cpprefjp/crsearch, 6c75e14] | tool/updatelib:1 | Bump js-yaml from 4.1.0 to 4.1.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 91a748e] | tool/updatelib:1 | Bump @babel/runtime from 7.20.1 to 7.28.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, a1eea16] | tool/updatelib:1 | Bump node-forge from 1.3.1 to 1.3.3 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 50ac980] | tool/updatelib:1 | Bump qs and express (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, aebce5a] | tool/updatelib:1 | Bump lodash from 4.17.21 to 4.17.23 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, a4ec0c1] | tool/updatelib:1 | Bump webpack from 5.97.1 to 5.105.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site_generator, 1715ba0] | ignore | More ownership |
+| [commit cpprefjp/site_generator, 4eee9e4] | tool/addl:1 | Add CI |
+| [commit cpprefjp/crsearch, 6775ba3] | tool/updatelib:1 | Bump follow-redirects from 1.15.9 to 1.16.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 7869a69] | tool/updatelib:1 | Bump serialize-javascript, terser-webpack-plugin and css-minimizer-webpack-plugin (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site_generator, 802af99] [commit cpprefjp/markdown_to_html, 802af99] | ignore | Fix error |
+| [commit cpprefjp/crsearch, 938837b] | tool/updatelib:1 | Bump fast-uri from 3.0.3 to 3.1.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site_generator, a3baa11] | ignore | More ownership |
+| [commit cpprefjp/site_generator, a9ca74e] | tool/updatelib:4, tool/updatelangs:1 | Updates for dependabot |
+| [commit cpprefjp/site_generator, addee97] [commit cpprefjp/markdown_to_html, addee97] | tool/updatelib:1 | Update for markdown 3.8 |
+| [commit cpprefjp/site_generator, aee9f0e] | ignore | Fix for tty |
+| [commit cpprefjp/crsearch, bbc1ccf] | tool/updatelib:1 | Bump qs and express (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site_generator, c0cf27c] | ignore | Fix |
+| [commit cpprefjp/site_generator, c1b9d74] | tool/improves:1 | Bump md2html |
+| [commit cpprefjp/site_generator, c72a50b] | tool/fixbug:1 | Fix ownership |
+| [commit cpprefjp/crsearch, e109557] | tool/updatelib:1 | Bump @babel/plugin-transform-modules-systemjs from 7.19.6 to 7.29.7 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, fd4888a] | tool/updatelib:1 | Bump lodash from 4.17.23 to 4.18.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site_generator, 0986195] | tool/updatelib:1 | Bump jinja2 from 3.1.4 to 3.1.6 in /docker (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 10302cf] | tool/updatelib:1 | Bump handlebars from 4.7.7 to 4.7.9 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 19fc0ab] | tool/updatelib:1 | Bump minimatch from 3.1.2 to 3.1.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 3953ca1] | tool/updatelib:1 | Bump webpack-dev-server from 5.2.0 to 5.2.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 51e66fa] | tool/updatelib:1 | Bump svgo from 3.3.2 to 3.3.3 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site_generator, bfb4188] | tool/improves:1 | Remove submodule |
+| [commit cpprefjp/crsearch, f3efde6] | tool/updatelib:1 | Bump picomatch from 2.3.1 to 2.3.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, f628934] | tool/updatelib:1 | Bump immutable from 4.1.0 to 4.3.8 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, e77f3a3] | tool/security:1 | Run npm audit fix |
+| [commit cpprefjp/crsearch, cb2b774] | tool/updatelib:1 | Bump shell-quote from 1.8.2 to 1.8.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, f6ffd5a] | tool/updatelib:1 | Bump shell-quote from 1.8.3 to 1.8.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 06ab0db] | tool/updatelib:1 | Bump js-yaml from 4.1.1 to 4.2.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 2b82385] | tool/updatelib:1 | Bump @babel/core from 7.20.2 to 7.29.6 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 301218d] | tool/updatelib:1 | Bump @babel/core from 7.28.5 to 7.29.6 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 3324a25] | tool/updatelib:1 | Bump launch-editor from 2.12.0 to 2.14.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 33e3fbc] | tool/updatelib:1 | Bump launch-editor from 2.9.1 to 2.14.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 356a5cc] | ignore | Add me to codeowner for review notification |
+| [commit cpprefjp/kunai, 39aa059] | tool/updatelangs:1 | Use node 24 in CI |
+| [commit cpprefjp/crsearch, 8531cef] | tool/updatelib:1 | Bump js-yaml from 4.1.1 to 4.2.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 9deca11] | ignore | Add me to codeowners |
+| [commit cpprefjp/kunai, a064089] | tool/updatelib:1 | Bump serialize-javascript and css-minimizer-webpack-plugin (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, b0efad8] | tool/addl:1 | Add CI for docker |
+| [commit cpprefjp/kunai, c6f17e7] | tool/updatelib:1 | Bump webpack-dev-server from 5.2.4 to 5.2.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, e56c8db] | ignore | Fix DOCKER_IT |
+| [commit cpprefjp/crsearch, 4437532] | tool/updatelib:1 | Bump webpack-dev-server from 5.2.4 to 5.2.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 9540c5f] | tool/updatelib:1 | Bump http-proxy-middleware from 2.0.9 to 2.0.10 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, b2e1cf3] | tool/updatelib:1 | Bump uuid and webpack-dev-server (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, af88627] | tool/updatelib:1 | Bump uuid and webpack-dev-server (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, ce7e6fb] | tool/updatelib:1 | Use simple-vars instead of precss |
+| [commit cpprefjp/kunai, 2679cc5] | tool/improves:1 | Remove archived postcss-sassy-mixins |
+| [commit cpprefjp/kunai, 34379b2] | tool/improves:1 | Remove postcss update blocker packages |
+| [commit cpprefjp/crsearch, 17d83f9] | tool/updatelib:1 | Bump svgo from 3.3.3 to 3.3.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 27638a5] | tool/updatelib:1 | Bump fast-uri from 3.1.2 to 3.1.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 2c3e92b] | tool/updatelib:1 | Bump immutable from 4.3.8 to 4.3.9 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 421b007] | tool/updatelib:1 | Bump shell-quote from 1.8.4 to 1.10.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 7c4bdaa] | tool/updatelib:1 | Bump fast-uri from 3.1.2 to 3.1.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 851c46c] | tool/updatelib:1 | Bump svgo from 4.0.1 to 4.0.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, ade94ba] | tool/updatelib:1 | Bump immutable from 5.1.6 to 5.1.9 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, c3fd436] | tool/updatelib:1 | Bump shell-quote from 1.8.4 to 1.10.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 565c0d1] | tool/updatelib:1 | Bump postcss from 8.5.15 to 8.5.25 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 8507d02] | tool/updatelib:1 | Bump postcss from 8.5.16 to 8.5.25 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 05a2254] | tool/updatelib:1 | Bump fast-uri from 3.1.4 to 3.1.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 5be3d48] | tool/updatelib:1 | Bump fast-uri from 3.1.4 to 3.1.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 0d414ec] | tool/updatelib:1 | Bump js-yaml from 4.2.0 to 4.3.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 46cbe19] | tool/updatelib:1 | Bump js-yaml from 4.2.0 to 4.3.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 7370057] | tool/updatelib:1 | Bump brace-expansion from 1.1.11 to 1.1.18 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, a54b0d7] | tool/updatelib:1 | Bump brace-expansion (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site, a242be8] | tool/addl:1 | Add Dependabot configuration for GitHub Actions |
+| [commit cpprefjp/kunai, 8f22a64] | tool/updatelib:1 | Bump postcss-selector-parser from 7.1.1 to 7.1.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 955c2ec] | tool/updatelib:1 | Bump browserslist from 4.28.1 to 4.28.8 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 193125b] | tool/updatelib:1 | Bump browserslist from 4.28.1 to 4.28.8 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 994bb33] | tool/updatelib:1 | Bump fast-uri from 3.1.5 to 3.1.7 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, d57cebc] | tool/updatelib:1 | Bump postcss-selector-parser (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, e7dded8] | tool/updatelib:1 | Bump fast-uri from 3.1.5 to 3.1.7 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 0729b73] | tool/updatelib:1 | Bump svgo from 4.0.2 to 4.1.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 24a5356] | tool/updatelib:1 | Bump js-yaml from 4.3.1 to 4.3.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 800264d] | tool/updatelib:1 | Bump svgo from 3.3.4 to 3.3.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, de31d3e] | tool/updatelib:1 | Bump js-yaml from 4.3.1 to 4.3.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 0a5f41d] | tool/updatelib:1 | Bump brace-expansion (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 5d92045] | tool/updatelib:1 | Bump webpack-dev-middleware from 8.0.3 to 8.3.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 76b312a] | tool/updatelib:1 | Bump webpack-dev-middleware from 8.0.3 to 8.3.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, ae87de2] | tool/updatelib:1 | Bump brace-expansion from 1.1.18 to 1.1.21 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 3ccd0e5] | tool/updatelib:1 | Bump compression from 1.8.1 to 1.8.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 5b5d03e] | tool/updatelib:1 | Bump postcss-selector-parser from 7.1.5 to 7.1.6 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 6ed5de8] | tool/updatelib:1 | Bump proxy-addr from 2.0.7 to 2.0.8 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 78c0c82] | tool/updatelib:1 | Bump source-map-js from 1.2.1 to 1.2.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 942d2f7] | tool/updatelib:1 | Bump handlebars from 4.7.9 to 4.7.10 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 98531b7] | tool/updatelib:1 | Bump shell-quote from 1.10.0 to 1.12.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 9f79c9c] | tool/updatelib:1 | Bump source-map-js from 1.2.1 to 1.2.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, ac0cd04] | tool/updatelib:1 | Bump compression from 1.8.1 to 1.8.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, c2a3311] | tool/updatelib:1 | Bump proxy-addr from 2.0.7 to 2.0.8 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, c4ac03a] | tool/updatelib:1 | Bump handlebars from 4.7.9 to 4.7.10 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, dd1c4b1] | tool/updatelib:1 | Bump shell-quote from 1.10.0 to 1.12.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, ff026d4] | tool/updatelib:1 | Bump postcss-selector-parser, postcss-calc, postcss-discard-comments, stylehacks, postcss-merge-rules, postcss-minify-selectors and postcss-unique-selectors (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 5f3e469] | tool/updatelib:1 | Bump launch-editor from 2.14.1 to 2.14.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 0caf894] | tool/updatelib:1 | Bump serialize-javascript from 7.0.5 to 7.1.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 3912bb4] | tool/updatelib:1 | Bump fast-uri from 3.1.7 to 3.1.9 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 8b45b7b] | tool/updatelib:1 | Bump launch-editor from 2.14.1 to 2.14.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, e7b58cd] | tool/updatelib:1 | Bump qs from 6.15.3 to 6.17.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 9644460] | tool/updatelib:1 | Bump fast-uri from 3.1.7 to 3.1.9 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 1110788] | tool/updatelib:1 | Bump qs from 6.15.3 to 6.17.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 1415153] | tool/updatelib:1 | Bump serialize-javascript from 7.0.5 to 7.1.4 (dependabotのPRを動作確認してマージ) |
+
+
 ## [Raclamusi](https://github.com/Raclamusi)
 
 | コミット | タグ | 説明 |
@@ -1414,10 +1524,10 @@
 | [commit cpprefjp/site, bb31d34] | cpprefjp/fixs:2 | indirect / polymorphic : Hidden friends 版 swap のページタイトルを修正 |
 | [commit cpprefjp/site, 9bb53df, dc5a451] | cpprefjp/fixs:1 | hive::unique : インラインコードの範囲を修正 (Co-author) |
 | [commit cpprefjp/site, dec5db0] | cpprefjp/link:1 | basic_vec/op_not : リンクミスを修正 (Co-author) |
-| [commit cpprefjp/site, 3a27311] | tool/improves:1 | build(deps): bump actions/setup-python from 5 to 7 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/site, 3cb6b60] | tool/improves:1 | build(deps): bump actions/cache from 3 to 6 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/site, 76d06b6] | tool/improves:1 | build(deps): bump actions/checkout from 4 to 7 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/site, 98c7b94] | tool/improves:1 | build(deps): bump actions/github-script from 7 to 9 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site, 3a27311] | tool/updatelib:1 | build(deps): bump actions/setup-python from 5 to 7 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site, 3cb6b60] | tool/updatelib:1 | build(deps): bump actions/cache from 3 to 6 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site, 76d06b6] | tool/updatelib:1 | build(deps): bump actions/checkout from 4 to 7 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site, 98c7b94] | tool/updatelib:1 | build(deps): bump actions/github-script from 7 to 9 (dependabotのPRを動作確認してマージ) |
 | [commit cpprefjp/site, 1a8ea72] | tool/improves:1 | workflows : コメントの内容を環境変数経由で渡す |
 | [commit cpprefjp/site, 4124197] | tool/improvem:1 | workflows : PRへのコメントをghコマンドで投稿する |
 | [commit cpprefjp/site, f375117] | tool/fixbug:1 | workflows : YAMLの書き方を修正 |
@@ -1426,116 +1536,6 @@
 | [commit cpprefjp/site, 6c650a5] | tool/fixbug:1 | workflows : PRへのプレビューリンク投稿機能を修正 |
 | [commit cpprefjp/site, 838f075, 9d80985] | cpprefjp/link:1, cpprefjp/fixm:1 | Cpp17Allocator : 空白が消えていたところを修正 (Co-author) |
 | [commit cpprefjp/site, b4dca2f] | cpprefjp/link:1 | コード修飾のリンクを修正 |
-
-
-## [take-cheeze](https://github.com/take-cheeze)
-
-| コミット | タグ | 説明 |
-|----------|------|------|
-| [commit cpprefjp/crsearch, 6c75e14] | tool/improves:1 | Bump js-yaml from 4.1.0 to 4.1.1 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 91a748e] | tool/improves:1 | Bump @babel/runtime from 7.20.1 to 7.28.4 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, a1eea16] | tool/improves:1 | Bump node-forge from 1.3.1 to 1.3.3 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 50ac980] | tool/improves:1 | Bump qs and express (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, aebce5a] | tool/improves:1 | Bump lodash from 4.17.21 to 4.17.23 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, a4ec0c1] | tool/improves:1 | Bump webpack from 5.97.1 to 5.105.0 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/site_generator, 1715ba0] | ignore | More ownership |
-| [commit cpprefjp/site_generator, 4eee9e4] | tool/adds:1 | Add CI |
-| [commit cpprefjp/crsearch, 6775ba3] | tool/improves:1 | Bump follow-redirects from 1.15.9 to 1.16.0 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 7869a69] | tool/improves:1 | Bump serialize-javascript, terser-webpack-plugin and css-minimizer-webpack-plugin (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/site_generator, 802af99] [commit cpprefjp/markdown_to_html, 802af99] | ignore | Fix error |
-| [commit cpprefjp/crsearch, 938837b] | tool/improves:1 | Bump fast-uri from 3.0.3 to 3.1.2 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/site_generator, a3baa11] | ignore | More ownership |
-| [commit cpprefjp/site_generator, a9ca74e] | tool/updatelib:4, tool/updatelangs:1 | Updates for dependabot |
-| [commit cpprefjp/site_generator, addee97] [commit cpprefjp/markdown_to_html, addee97] | tool/updatelib:1 | Update for markdown 3.8 |
-| [commit cpprefjp/site_generator, aee9f0e] | ignore | Fix for tty |
-| [commit cpprefjp/crsearch, bbc1ccf] | tool/improves:1 | Bump qs and express (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/site_generator, c0cf27c] | ignore | Fix |
-| [commit cpprefjp/site_generator, c1b9d74] | tool/improves:1 | Bump md2html |
-| [commit cpprefjp/site_generator, c72a50b] | tool/fixbug:1 | Fix ownership |
-| [commit cpprefjp/crsearch, e109557] | tool/improves:1 | Bump @babel/plugin-transform-modules-systemjs from 7.19.6 to 7.29.7 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, fd4888a] | tool/improves:1 | Bump lodash from 4.17.23 to 4.18.1 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/site_generator, 0986195] | tool/improves:1 | Bump jinja2 from 3.1.4 to 3.1.6 in /docker (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 10302cf] | tool/improves:1 | Bump handlebars from 4.7.7 to 4.7.9 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 19fc0ab] | tool/improves:1 | Bump minimatch from 3.1.2 to 3.1.5 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 3953ca1] | tool/improves:1 | Bump webpack-dev-server from 5.2.0 to 5.2.4 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 51e66fa] | tool/improves:1 | Bump svgo from 3.3.2 to 3.3.3 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/site_generator, bfb4188] | tool/improves:1 | Remove submodule |
-| [commit cpprefjp/crsearch, f3efde6] | tool/improves:1 | Bump picomatch from 2.3.1 to 2.3.2 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, f628934] | tool/improves:1 | Bump immutable from 4.1.0 to 4.3.8 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, e77f3a3] | tool/security:1 | Run npm audit fix |
-| [commit cpprefjp/crsearch, cb2b774] | tool/improves:1 | Bump shell-quote from 1.8.2 to 1.8.4 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, f6ffd5a] | tool/improves:1 | Bump shell-quote from 1.8.3 to 1.8.4 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 06ab0db] | tool/improves:1 | Bump js-yaml from 4.1.1 to 4.2.0 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 2b82385] | tool/improves:1 | Bump @babel/core from 7.20.2 to 7.29.6 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 301218d] | tool/improves:1 | Bump @babel/core from 7.28.5 to 7.29.6 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 3324a25] | tool/improves:1 | Bump launch-editor from 2.12.0 to 2.14.1 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 33e3fbc] | tool/improves:1 | Bump launch-editor from 2.9.1 to 2.14.1 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 356a5cc] | ignore | Add me to codeowner for review notification |
-| [commit cpprefjp/kunai, 39aa059] | tool/updatelangs:1 | Use node 24 in CI |
-| [commit cpprefjp/crsearch, 8531cef] | tool/improves:1 | Bump js-yaml from 4.1.1 to 4.2.0 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 9deca11] | ignore | Add me to codeowners |
-| [commit cpprefjp/kunai, a064089] | tool/improves:1 | Bump serialize-javascript and css-minimizer-webpack-plugin (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, b0efad8] | tool/adds:1 | Add CI for docker |
-| [commit cpprefjp/kunai, c6f17e7] | tool/improves:1 | Bump webpack-dev-server from 5.2.4 to 5.2.5 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, e56c8db] | tool/fixbug:1 | Fix DOCKER_IT |
-| [commit cpprefjp/crsearch, 4437532] | tool/improves:1 | Bump webpack-dev-server from 5.2.4 to 5.2.5 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 9540c5f] | tool/improves:1 | Bump http-proxy-middleware from 2.0.9 to 2.0.10 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, b2e1cf3] | tool/improves:1 | Bump uuid and webpack-dev-server (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, af88627] | tool/improves:1 | Bump uuid and webpack-dev-server (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, ce7e6fb] | tool/updatelib:1 | Use simple-vars instead of precss |
-| [commit cpprefjp/kunai, 2679cc5] | tool/improves:1 | Remove archived postcss-sassy-mixins |
-| [commit cpprefjp/kunai, 34379b2] | tool/improves:1 | Remove postcss update blocker packages |
-| [commit cpprefjp/crsearch, 17d83f9] | tool/improves:1 | Bump svgo from 3.3.3 to 3.3.4 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 27638a5] | tool/improves:1 | Bump fast-uri from 3.1.2 to 3.1.4 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 2c3e92b] | tool/improves:1 | Bump immutable from 4.3.8 to 4.3.9 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 421b007] | tool/improves:1 | Bump shell-quote from 1.8.4 to 1.10.0 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 7c4bdaa] | tool/improves:1 | Bump fast-uri from 3.1.2 to 3.1.4 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 851c46c] | tool/improves:1 | Bump svgo from 4.0.1 to 4.0.2 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, ade94ba] | tool/improves:1 | Bump immutable from 5.1.6 to 5.1.9 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, c3fd436] | tool/improves:1 | Bump shell-quote from 1.8.4 to 1.10.0 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 565c0d1] | tool/improves:1 | Bump postcss from 8.5.15 to 8.5.25 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 8507d02] | tool/improves:1 | Bump postcss from 8.5.16 to 8.5.25 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 05a2254] | tool/improves:1 | Bump fast-uri from 3.1.4 to 3.1.5 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 5be3d48] | tool/improves:1 | Bump fast-uri from 3.1.4 to 3.1.5 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 0d414ec] | tool/improves:1 | Bump js-yaml from 4.2.0 to 4.3.1 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 46cbe19] | tool/improves:1 | Bump js-yaml from 4.2.0 to 4.3.1 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 7370057] | tool/improves:1 | Bump brace-expansion from 1.1.11 to 1.1.18 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, a54b0d7] | tool/improves:1 | Bump brace-expansion (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/site, a242be8] | tool/adds:1 | Add Dependabot configuration for GitHub Actions |
-| [commit cpprefjp/kunai, 8f22a64] | tool/improves:1 | Bump postcss-selector-parser from 7.1.1 to 7.1.5 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 955c2ec] | tool/improves:1 | Bump browserslist from 4.28.1 to 4.28.8 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 193125b] | tool/improves:1 | Bump browserslist from 4.28.1 to 4.28.8 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 994bb33] | tool/improves:1 | Bump fast-uri from 3.1.5 to 3.1.7 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, d57cebc] | tool/improves:1 | Bump postcss-selector-parser (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, e7dded8] | tool/improves:1 | Bump fast-uri from 3.1.5 to 3.1.7 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 0729b73] | tool/improves:1 | Bump svgo from 4.0.2 to 4.1.0 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 24a5356] | tool/improves:1 | Bump js-yaml from 4.3.1 to 4.3.2 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 800264d] | tool/improves:1 | Bump svgo from 3.3.4 to 3.3.5 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, de31d3e] | tool/improves:1 | Bump js-yaml from 4.3.1 to 4.3.2 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 0a5f41d] | tool/improves:1 | Bump brace-expansion (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 5d92045] | tool/improves:1 | Bump webpack-dev-middleware from 8.0.3 to 8.3.0 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 76b312a] | tool/improves:1 | Bump webpack-dev-middleware from 8.0.3 to 8.3.0 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, ae87de2] | tool/improves:1 | Bump brace-expansion from 1.1.18 to 1.1.21 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 3ccd0e5] | tool/improves:1 | Bump compression from 1.8.1 to 1.8.2 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 5b5d03e] | tool/improves:1 | Bump postcss-selector-parser from 7.1.5 to 7.1.6 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 6ed5de8] | tool/improves:1 | Bump proxy-addr from 2.0.7 to 2.0.8 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 78c0c82] | tool/improves:1 | Bump source-map-js from 1.2.1 to 1.2.2 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 942d2f7] | tool/improves:1 | Bump handlebars from 4.7.9 to 4.7.10 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 98531b7] | tool/improves:1 | Bump shell-quote from 1.10.0 to 1.12.0 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 9f79c9c] | tool/improves:1 | Bump source-map-js from 1.2.1 to 1.2.2 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, ac0cd04] | tool/improves:1 | Bump compression from 1.8.1 to 1.8.2 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, c2a3311] | tool/improves:1 | Bump proxy-addr from 2.0.7 to 2.0.8 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, c4ac03a] | tool/improves:1 | Bump handlebars from 4.7.9 to 4.7.10 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, dd1c4b1] | tool/improves:1 | Bump shell-quote from 1.10.0 to 1.12.0 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, ff026d4] | tool/improves:1 | Bump postcss-selector-parser, postcss-calc, postcss-discard-comments, stylehacks, postcss-merge-rules, postcss-minify-selectors and postcss-unique-selectors (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 5f3e469] | tool/improves:1 | Bump launch-editor from 2.14.1 to 2.14.2 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 0caf894] | tool/improves:1 | Bump serialize-javascript from 7.0.5 to 7.1.4 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 3912bb4] | tool/improves:1 | Bump fast-uri from 3.1.7 to 3.1.9 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, 8b45b7b] | tool/improves:1 | Bump launch-editor from 2.14.1 to 2.14.2 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/crsearch, e7b58cd] | tool/improves:1 | Bump qs from 6.15.3 to 6.17.1 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 9644460] | tool/improves:1 | Bump fast-uri from 3.1.7 to 3.1.9 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 1110788] | tool/improves:1 | Bump qs from 6.15.3 to 6.17.1 (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, 1415153] | tool/improves:1 | Bump serialize-javascript from 7.0.5 to 7.1.4 (dependabotのPRを動作確認してマージ) |
 
 
 ## [akinomyoga](https://github.com/akinomyoga)
