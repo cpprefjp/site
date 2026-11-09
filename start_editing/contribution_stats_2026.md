@@ -96,7 +96,7 @@
 | [commit cpprefjp/site, 6348817] | cpprefjp/link:3, cpprefjp/compiler:2, cpprefjp/addlang:2 | C++26: 畳み込み式の制約と、コンセプト・変数テンプレートのテンプレートテンプレートパラメータ対応を追加 (#1307 #1447) |
 | [commit cpprefjp/site, 657e3a9] | cpprefjp/fixm:11, cpprefjp/fixl:1 | optional : C++26での参照への部分特殊化に対応 #1498 |
 | [commit cpprefjp/site, b2a6ab8, f665cae] | cpprefjp/link:1, cpprefjp/fixm:1 | コード修飾を追加 |
-| [commit cpprefjp/site, 32cd88c] | cpprefjp/link:8, cpprefjp/compiler:1, cpprefjp/fixm:3, cpprefjp/addref:247, cpprefjp/addlang:1, tool/improves:1 | C++26リフレクションに対応 #1493 |
+| [commit cpprefjp/site, 32cd88c, e610561] | cpprefjp/link:8, cpprefjp/compiler:1, cpprefjp/fixm:3, cpprefjp/addref:247, cpprefjp/addlang:1, tool/improves:1 | C++26リフレクションに対応 #1493 |
 | [commit cpprefjp/site, c7f3ae1] | cpprefjp/link:4, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++26: template for文を追加 (close #1494) |
 | [commit cpprefjp/site, c8f0f3f] | cpprefjp/link:10 | グローバル修飾 : std::make_tupleを登録 |
 | [commit cpprefjp/site, 4fdd9b5] | cpprefjp/fixs:1 | access_context::scope : タイトル修正 |
@@ -141,7 +141,6 @@
 | [commit cpprefjp/site, 2bc3273] | cpprefjp/fixl:1 | define_static_array : 条件に寄って静的な長さが返える仕様に対応 |
 | [commit cpprefjp/site, 65bcfa9] | cpprefjp/fixm:2, ignore:2 | meta / type_traits : is_consteval_onlyを削除 |
 | [commit cpprefjp/site, 69ef5b8, d166934, 19c2903] | cpprefjp/link:3, cpprefjp/fixm:2, cpprefjp/addref:2 | meta / type_traits : is_structuralを追加 |
-| [commit cpprefjp/site, e610561] | cpprefjp/compiler:249 | reflection : GCCのコンパイルオプションを記載 |
 | [commit cpprefjp/site, f5e76f9] | cpprefjp/link:1, cpprefjp/addref:6 | meta : 関数追加 |
 | [commit cpprefjp/site, ff9af99] | cpprefjp/fixl:1 | reflect_constant : パラメータ型のconst参照が外れた仕様修正に対応 |
 | [commit cpprefjp/site, 28212cc] | cpprefjp/link:1, cpprefjp/fixl:2, cpprefjp/addref:1 | compare : C++26対応としてtype_orderを追加 (close #1506) |
@@ -323,7 +322,7 @@
 | [commit cpprefjp/site, c423ecb] | cpprefjp/fixl:1 | from_chars : 2進数関係の仕様明確化 |
 | [commit cpprefjp/site, c5d6e44] | cpprefjp/fixl:4 | mdspanの各レイアウト : C++26 LWG Issue対応としてexplicit条件を変更 |
 | [commit cpprefjp/site, d952f20] | cpprefjp/fixm:1 | meta::alignment_of : ビットフィールドを渡すと例外送出になる |
-| [commit cpprefjp/site, dd80d9c] | cpprefjp/link:2, cpprefjp/fixl:1 | meta : いくつかの関数で例外の仕様が抜けていた |
+| [commit cpprefjp/site, dd80d9c] | cpprefjp/link:2, cpprefjp/fixm:1 | meta : いくつかの関数で例外の仕様が抜けていた |
 | [commit cpprefjp/site, f555280] | cpprefjp/fixm:1 | optional::value_or : 配列型ではないことのテンプレートパラメータ制約を追加 |
 | [commit cpprefjp/site, 00f3e30] | cpprefjp/link:1 | bit_ceil : LWG Issueを追加 |
 | [commit cpprefjp/site, 01c9ca6] | cpprefjp/fixm:1 | midpoint : CV修飾されたboolを除外 |
@@ -619,7 +618,7 @@
 | [commit cpprefjp/site, 009bde1] | cpprefjp/link:1 | regex_match : LWG Issueを追加 |
 | [commit cpprefjp/site, 0618d01] | cpprefjp/link:1, cpprefjp/addref:2 | basic_filebuf : seekposとsyncを追加 (C++17でDRがあった機能) |
 | [commit cpprefjp/site, 08e4a4b] | cpprefjp/fixm:1 | list::sort : ソート中に例外が送出された場合に要素順が未規定になることを記載 |
-| [commit cpprefjp/site, 0a028b3] | cpprefjp/fixl:1 | copy_file : LWG Issueを追加し、仕様コードの説明が間違っていたのを修正 |
+| [commit cpprefjp/site, 0a028b3] | cpprefjp/fixm:1 | copy_file : LWG Issueを追加し、仕様コードの説明が間違っていたのを修正 |
 | [commit cpprefjp/site, 0b216c3] | cpprefjp/fixm:1 | future::share : C++17でnoexceptが追加されvalidでなければ無効なshared_futureが返ることになった |
 | [commit cpprefjp/site, 12c7a45] | cpprefjp/link:1 | piecewise_construct_t : LWG Issueを追加 |
 | [commit cpprefjp/site, 168053f] | cpprefjp/link:1 | basic_stringのdata : 非const版が参照、ポインタ、イテレータを無効にしないことを記載 |
@@ -639,7 +638,7 @@
 | [commit cpprefjp/site, 51a0aec] | cpprefjp/fixm:2 | is_trivially_(assignable \| constructible) : declval呼び出しをトリビアルとみなるよう規定が見直された |
 | [commit cpprefjp/site, 5396186] | cpprefjp/link:1 | terminate : 例外処理中にset_terminateが呼ばれた場合の仕様を明確化。遡及適用 |
 | [commit cpprefjp/site, 548c305] | cpprefjp/fixm:3 | deque, string, vectorのshtink_to_fit : C++17で終端イテレータも無効になることが明確化された |
-| [commit cpprefjp/site, 5baf178] | cpprefjp/fixl:1 | basic_istream::seekg : C++17が仕様説明の編集上の誤り修正が遡及適用 |
+| [commit cpprefjp/site, 5baf178] | cpprefjp/fixm:1 | basic_istream::seekg : C++17が仕様説明の編集上の誤り修正が遡及適用 |
 | [commit cpprefjp/site, 5c23129] | cpprefjp/fixm:1 | raw_storage_iterator : C++17でムーブのオーバーロードと制約が追加された |
 | [commit cpprefjp/site, 61a836e] | cpprefjp/link:1 | pairのコンストラクタ : LWG Issueを追加 |
 | [commit cpprefjp/site, 61ba187] | cpprefjp/fixm:1 | variant_alternative : 要件を適格要件に変更 |
@@ -974,7 +973,7 @@
 | [commit cpprefjp/site, a74f1c9] | cpprefjp/compiler:4 | bit : GCCで動作確認 |
 | [commit cpprefjp/site, 213f89d] | cpprefjp/fixm:1 | MSVC : 次のリリースで、C++23が正式機能となる |
 | [commit cpprefjp/site, 6c10528] | cpprefjp/link:1 | リンク切れを修正 (close #1785) |
-| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7, f9a5a6e, 61fb542] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
+| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7, f9a5a6e, 61fb542, 5053419] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
 
 
 ## [rotarymars](https://github.com/rotarymars)
@@ -1068,7 +1067,7 @@
 | [commit cpprefjp/site, 86a5143] | cpprefjp/fixm:1 | cstdlib/system: WEXITSTATUSの説明がWIFEXITEDのものになっていた |
 | [commit cpprefjp/site, 87fcb1e] | cpprefjp/fixm:1 | implementation: VS 2022 Update 10の_MSC_VERは1940、C++20の節のオプションは/std:c++20 |
 | [commit cpprefjp/site, 921e702] | cpprefjp/typo:1 | fix typo: 最近接遇数 -> 最近接偶数 |
-| [commit cpprefjp/site, c0e65bc] | cpprefjp/fixl:1 | cpp23: C20という規格は存在しない (C23の誤り) |
+| [commit cpprefjp/site, c0e65bc] | cpprefjp/fixm:1 | cpp23: C20という規格は存在しない (C23の誤り) |
 | [commit cpprefjp/site, c7c466d] | cpprefjp/fixm:1 | any/op_constructor: in_placeではなくin_place_typeタグを使う |
 | [commit cpprefjp/site, cdf9865] | cpprefjp/fixm:1 | execution/dependent_sender: is-dependent-sender-helperは関数テンプレート |
 | [commit cpprefjp/site, d06088b] | cpprefjp/fixm:1 | cmath/lerp: 単調性の条件は3つのCMPの積が非負 |
@@ -1415,6 +1414,10 @@
 | [commit cpprefjp/site, bb31d34] | cpprefjp/fixs:2 | indirect / polymorphic : Hidden friends 版 swap のページタイトルを修正 |
 | [commit cpprefjp/site, 9bb53df, dc5a451] | cpprefjp/fixs:1 | hive::unique : インラインコードの範囲を修正 (Co-author) |
 | [commit cpprefjp/site, dec5db0] | cpprefjp/link:1 | basic_vec/op_not : リンクミスを修正 (Co-author) |
+| [commit cpprefjp/site, 3a27311] | tool/improves:1 | build(deps): bump actions/setup-python from 5 to 7 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site, 3cb6b60] | tool/improves:1 | build(deps): bump actions/cache from 3 to 6 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site, 76d06b6] | tool/improves:1 | build(deps): bump actions/checkout from 4 to 7 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site, 98c7b94] | tool/improves:1 | build(deps): bump actions/github-script from 7 to 9 (dependabotのPRを動作確認してマージ) |
 | [commit cpprefjp/site, 1a8ea72] | tool/improves:1 | workflows : コメントの内容を環境変数経由で渡す |
 | [commit cpprefjp/site, 4124197] | tool/improvem:1 | workflows : PRへのコメントをghコマンドで投稿する |
 | [commit cpprefjp/site, f375117] | tool/fixbug:1 | workflows : YAMLの書き方を修正 |
@@ -1423,6 +1426,116 @@
 | [commit cpprefjp/site, 6c650a5] | tool/fixbug:1 | workflows : PRへのプレビューリンク投稿機能を修正 |
 | [commit cpprefjp/site, 838f075, 9d80985] | cpprefjp/link:1, cpprefjp/fixm:1 | Cpp17Allocator : 空白が消えていたところを修正 (Co-author) |
 | [commit cpprefjp/site, b4dca2f] | cpprefjp/link:1 | コード修飾のリンクを修正 |
+
+
+## [take-cheeze](https://github.com/take-cheeze)
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [commit cpprefjp/crsearch, 6c75e14] | tool/improves:1 | Bump js-yaml from 4.1.0 to 4.1.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 91a748e] | tool/improves:1 | Bump @babel/runtime from 7.20.1 to 7.28.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, a1eea16] | tool/improves:1 | Bump node-forge from 1.3.1 to 1.3.3 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 50ac980] | tool/improves:1 | Bump qs and express (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, aebce5a] | tool/improves:1 | Bump lodash from 4.17.21 to 4.17.23 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, a4ec0c1] | tool/improves:1 | Bump webpack from 5.97.1 to 5.105.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site_generator, 1715ba0] | ignore | More ownership |
+| [commit cpprefjp/site_generator, 4eee9e4] | tool/adds:1 | Add CI |
+| [commit cpprefjp/crsearch, 6775ba3] | tool/improves:1 | Bump follow-redirects from 1.15.9 to 1.16.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 7869a69] | tool/improves:1 | Bump serialize-javascript, terser-webpack-plugin and css-minimizer-webpack-plugin (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site_generator, 802af99] [commit cpprefjp/markdown_to_html, 802af99] | ignore | Fix error |
+| [commit cpprefjp/crsearch, 938837b] | tool/improves:1 | Bump fast-uri from 3.0.3 to 3.1.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site_generator, a3baa11] | ignore | More ownership |
+| [commit cpprefjp/site_generator, a9ca74e] | tool/updatelib:4, tool/updatelangs:1 | Updates for dependabot |
+| [commit cpprefjp/site_generator, addee97] [commit cpprefjp/markdown_to_html, addee97] | tool/updatelib:1 | Update for markdown 3.8 |
+| [commit cpprefjp/site_generator, aee9f0e] | ignore | Fix for tty |
+| [commit cpprefjp/crsearch, bbc1ccf] | tool/improves:1 | Bump qs and express (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site_generator, c0cf27c] | ignore | Fix |
+| [commit cpprefjp/site_generator, c1b9d74] | tool/improves:1 | Bump md2html |
+| [commit cpprefjp/site_generator, c72a50b] | tool/fixbug:1 | Fix ownership |
+| [commit cpprefjp/crsearch, e109557] | tool/improves:1 | Bump @babel/plugin-transform-modules-systemjs from 7.19.6 to 7.29.7 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, fd4888a] | tool/improves:1 | Bump lodash from 4.17.23 to 4.18.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site_generator, 0986195] | tool/improves:1 | Bump jinja2 from 3.1.4 to 3.1.6 in /docker (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 10302cf] | tool/improves:1 | Bump handlebars from 4.7.7 to 4.7.9 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 19fc0ab] | tool/improves:1 | Bump minimatch from 3.1.2 to 3.1.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 3953ca1] | tool/improves:1 | Bump webpack-dev-server from 5.2.0 to 5.2.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 51e66fa] | tool/improves:1 | Bump svgo from 3.3.2 to 3.3.3 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site_generator, bfb4188] | tool/improves:1 | Remove submodule |
+| [commit cpprefjp/crsearch, f3efde6] | tool/improves:1 | Bump picomatch from 2.3.1 to 2.3.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, f628934] | tool/improves:1 | Bump immutable from 4.1.0 to 4.3.8 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, e77f3a3] | tool/security:1 | Run npm audit fix |
+| [commit cpprefjp/crsearch, cb2b774] | tool/improves:1 | Bump shell-quote from 1.8.2 to 1.8.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, f6ffd5a] | tool/improves:1 | Bump shell-quote from 1.8.3 to 1.8.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 06ab0db] | tool/improves:1 | Bump js-yaml from 4.1.1 to 4.2.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 2b82385] | tool/improves:1 | Bump @babel/core from 7.20.2 to 7.29.6 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 301218d] | tool/improves:1 | Bump @babel/core from 7.28.5 to 7.29.6 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 3324a25] | tool/improves:1 | Bump launch-editor from 2.12.0 to 2.14.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 33e3fbc] | tool/improves:1 | Bump launch-editor from 2.9.1 to 2.14.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 356a5cc] | ignore | Add me to codeowner for review notification |
+| [commit cpprefjp/kunai, 39aa059] | tool/updatelangs:1 | Use node 24 in CI |
+| [commit cpprefjp/crsearch, 8531cef] | tool/improves:1 | Bump js-yaml from 4.1.1 to 4.2.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 9deca11] | ignore | Add me to codeowners |
+| [commit cpprefjp/kunai, a064089] | tool/improves:1 | Bump serialize-javascript and css-minimizer-webpack-plugin (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, b0efad8] | tool/adds:1 | Add CI for docker |
+| [commit cpprefjp/kunai, c6f17e7] | tool/improves:1 | Bump webpack-dev-server from 5.2.4 to 5.2.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, e56c8db] | tool/fixbug:1 | Fix DOCKER_IT |
+| [commit cpprefjp/crsearch, 4437532] | tool/improves:1 | Bump webpack-dev-server from 5.2.4 to 5.2.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 9540c5f] | tool/improves:1 | Bump http-proxy-middleware from 2.0.9 to 2.0.10 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, b2e1cf3] | tool/improves:1 | Bump uuid and webpack-dev-server (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, af88627] | tool/improves:1 | Bump uuid and webpack-dev-server (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, ce7e6fb] | tool/updatelib:1 | Use simple-vars instead of precss |
+| [commit cpprefjp/kunai, 2679cc5] | tool/improves:1 | Remove archived postcss-sassy-mixins |
+| [commit cpprefjp/kunai, 34379b2] | tool/improves:1 | Remove postcss update blocker packages |
+| [commit cpprefjp/crsearch, 17d83f9] | tool/improves:1 | Bump svgo from 3.3.3 to 3.3.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 27638a5] | tool/improves:1 | Bump fast-uri from 3.1.2 to 3.1.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 2c3e92b] | tool/improves:1 | Bump immutable from 4.3.8 to 4.3.9 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 421b007] | tool/improves:1 | Bump shell-quote from 1.8.4 to 1.10.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 7c4bdaa] | tool/improves:1 | Bump fast-uri from 3.1.2 to 3.1.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 851c46c] | tool/improves:1 | Bump svgo from 4.0.1 to 4.0.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, ade94ba] | tool/improves:1 | Bump immutable from 5.1.6 to 5.1.9 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, c3fd436] | tool/improves:1 | Bump shell-quote from 1.8.4 to 1.10.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 565c0d1] | tool/improves:1 | Bump postcss from 8.5.15 to 8.5.25 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 8507d02] | tool/improves:1 | Bump postcss from 8.5.16 to 8.5.25 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 05a2254] | tool/improves:1 | Bump fast-uri from 3.1.4 to 3.1.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 5be3d48] | tool/improves:1 | Bump fast-uri from 3.1.4 to 3.1.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 0d414ec] | tool/improves:1 | Bump js-yaml from 4.2.0 to 4.3.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 46cbe19] | tool/improves:1 | Bump js-yaml from 4.2.0 to 4.3.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 7370057] | tool/improves:1 | Bump brace-expansion from 1.1.11 to 1.1.18 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, a54b0d7] | tool/improves:1 | Bump brace-expansion (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/site, a242be8] | tool/adds:1 | Add Dependabot configuration for GitHub Actions |
+| [commit cpprefjp/kunai, 8f22a64] | tool/improves:1 | Bump postcss-selector-parser from 7.1.1 to 7.1.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 955c2ec] | tool/improves:1 | Bump browserslist from 4.28.1 to 4.28.8 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 193125b] | tool/improves:1 | Bump browserslist from 4.28.1 to 4.28.8 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 994bb33] | tool/improves:1 | Bump fast-uri from 3.1.5 to 3.1.7 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, d57cebc] | tool/improves:1 | Bump postcss-selector-parser (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, e7dded8] | tool/improves:1 | Bump fast-uri from 3.1.5 to 3.1.7 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 0729b73] | tool/improves:1 | Bump svgo from 4.0.2 to 4.1.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 24a5356] | tool/improves:1 | Bump js-yaml from 4.3.1 to 4.3.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 800264d] | tool/improves:1 | Bump svgo from 3.3.4 to 3.3.5 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, de31d3e] | tool/improves:1 | Bump js-yaml from 4.3.1 to 4.3.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 0a5f41d] | tool/improves:1 | Bump brace-expansion (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 5d92045] | tool/improves:1 | Bump webpack-dev-middleware from 8.0.3 to 8.3.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 76b312a] | tool/improves:1 | Bump webpack-dev-middleware from 8.0.3 to 8.3.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, ae87de2] | tool/improves:1 | Bump brace-expansion from 1.1.18 to 1.1.21 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 3ccd0e5] | tool/improves:1 | Bump compression from 1.8.1 to 1.8.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 5b5d03e] | tool/improves:1 | Bump postcss-selector-parser from 7.1.5 to 7.1.6 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 6ed5de8] | tool/improves:1 | Bump proxy-addr from 2.0.7 to 2.0.8 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 78c0c82] | tool/improves:1 | Bump source-map-js from 1.2.1 to 1.2.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 942d2f7] | tool/improves:1 | Bump handlebars from 4.7.9 to 4.7.10 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 98531b7] | tool/improves:1 | Bump shell-quote from 1.10.0 to 1.12.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 9f79c9c] | tool/improves:1 | Bump source-map-js from 1.2.1 to 1.2.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, ac0cd04] | tool/improves:1 | Bump compression from 1.8.1 to 1.8.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, c2a3311] | tool/improves:1 | Bump proxy-addr from 2.0.7 to 2.0.8 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, c4ac03a] | tool/improves:1 | Bump handlebars from 4.7.9 to 4.7.10 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, dd1c4b1] | tool/improves:1 | Bump shell-quote from 1.10.0 to 1.12.0 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, ff026d4] | tool/improves:1 | Bump postcss-selector-parser, postcss-calc, postcss-discard-comments, stylehacks, postcss-merge-rules, postcss-minify-selectors and postcss-unique-selectors (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 5f3e469] | tool/improves:1 | Bump launch-editor from 2.14.1 to 2.14.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 0caf894] | tool/improves:1 | Bump serialize-javascript from 7.0.5 to 7.1.4 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 3912bb4] | tool/improves:1 | Bump fast-uri from 3.1.7 to 3.1.9 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, 8b45b7b] | tool/improves:1 | Bump launch-editor from 2.14.1 to 2.14.2 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/crsearch, e7b58cd] | tool/improves:1 | Bump qs from 6.15.3 to 6.17.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 9644460] | tool/improves:1 | Bump fast-uri from 3.1.7 to 3.1.9 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 1110788] | tool/improves:1 | Bump qs from 6.15.3 to 6.17.1 (dependabotのPRを動作確認してマージ) |
+| [commit cpprefjp/kunai, 1415153] | tool/improves:1 | Bump serialize-javascript from 7.0.5 to 7.1.4 (dependabotのPRを動作確認してマージ) |
 
 
 ## [akinomyoga](https://github.com/akinomyoga)
@@ -1478,33 +1591,6 @@
 | [commit cpprefjp/site, d5639ef] | cpprefjp/link:1 | ccomplexページへのリンクを追加 |
 | [commit cpprefjp/site_generator, da32019] | tool/improves:1 | ライセンスの日本語表記の変更 |
 | [commit cpprefjp/site, f326539] | cpprefjp/addref:1 | `ccomplex`ライブラリページを追加 |
-
-
-## [take-cheeze](https://github.com/take-cheeze)
-
-| コミット | タグ | 説明 |
-|----------|------|------|
-| [commit cpprefjp/site_generator, 1715ba0] | ignore | More ownership |
-| [commit cpprefjp/site_generator, 4eee9e4] | tool/adds:1 | Add CI |
-| [commit cpprefjp/site_generator, 802af99] [commit cpprefjp/markdown_to_html, 802af99] | ignore | Fix error |
-| [commit cpprefjp/site_generator, a3baa11] | ignore | More ownership |
-| [commit cpprefjp/site_generator, a9ca74e] | tool/updatelib:4, tool/updatelangs:1 | Updates for dependabot |
-| [commit cpprefjp/site_generator, addee97] [commit cpprefjp/markdown_to_html, addee97] | tool/updatelib:1 | Update for markdown 3.8 |
-| [commit cpprefjp/site_generator, aee9f0e] | ignore | Fix for tty |
-| [commit cpprefjp/site_generator, c0cf27c] | ignore | Fix |
-| [commit cpprefjp/site_generator, c1b9d74] | tool/improves:1 | Bump md2html |
-| [commit cpprefjp/site_generator, c72a50b] | tool/fixbug:1 | Fix ownership |
-| [commit cpprefjp/site_generator, bfb4188] | tool/improves:1 | Remove submodule |
-| [commit cpprefjp/kunai, e77f3a3] | tool/security:1 | Run npm audit fix |
-| [commit cpprefjp/kunai, 356a5cc] | ignore | Add me to codeowner for review notification |
-| [commit cpprefjp/kunai, 39aa059] | tool/updatelangs:1 | Use node 24 in CI |
-| [commit cpprefjp/crsearch, 9deca11] | ignore | Add me to codeowners |
-| [commit cpprefjp/kunai, b0efad8] | tool/adds:1 | Add CI for docker |
-| [commit cpprefjp/kunai, e56c8db] | tool/fixbug:1 | Fix DOCKER_IT |
-| [commit cpprefjp/crsearch, ce7e6fb] | tool/updatelib:1 | Use simple-vars instead of precss |
-| [commit cpprefjp/kunai, 2679cc5] | tool/improves:1 | Remove archived postcss-sassy-mixins |
-| [commit cpprefjp/kunai, 34379b2] | tool/improves:1 | Remove postcss update blocker packages |
-| [commit cpprefjp/site, a242be8] | tool/adds:1 | Add Dependabot configuration for GitHub Actions |
 
 
 ## [teruyamato0731](https://github.com/teruyamato0731)
@@ -1573,16 +1659,6 @@
 | [commit cpprefjp/site, 3627289] | cpprefjp/compiler:33 | コンパイラの実装状況 : C++23までの対応状況を更新 |
 
 
-## [pipapo-888](https://github.com/pipapo-888)
-
-| コミット | タグ | 説明 |
-|----------|------|------|
-| [commit cpprefjp/site, 0d45db6] | cpprefjp/fixl:1 | exception::what : C++98の宣言にthrow()を追加 |
-| [commit cpprefjp/site, 252ca93] | cpprefjp/fixl:1 | exception : 代入演算子のC++98の宣言にthrow()を追加 |
-| [commit cpprefjp/site, 6b1b7b1] | cpprefjp/fixl:1 | exception : コンストラクタのC++98の宣言にthrow()を追加 |
-| [commit cpprefjp/site, 7759d18] | cpprefjp/fixl:1 | exception : デストラクタのC++98の宣言にthrow()を追加 |
-
-
 ## [h-sao](https://github.com/h-sao)
 
 | コミット | タグ | 説明 |
@@ -1593,22 +1669,32 @@
 | [commit cpprefjp/site, dacd619, db312a9] | cpprefjp/link:1, cpprefjp/compiler:4 | Update implementation status for C++23 features (MSVC) |
 
 
-## [tetsurom](https://github.com/tetsurom)
-
-| コミット | タグ | 説明 |
-|----------|------|------|
-| [commit cpprefjp/site, 641ed17] | cpprefjp/fixl:1 | Update formattable.md |
-| [commit cpprefjp/site, 7884e2f] | ignore | Update formattable.md |
-| [commit cpprefjp/site, 2b9d9db] | cpprefjp/fixm:1 | Update handle.md |
-| [commit cpprefjp/site, 82fa1ac] | cpprefjp/fixl:1 | Update basic_format_arg/op_constructor.md |
-
-
 ## [yumetodo](https://github.com/yumetodo)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [commit cpprefjp/site, 51022b1, 68017b3] | cpprefjp/typo:1, cpprefjp/fixl:1 | feat: P0588R1で追加されたodr-usableについて記述 |
 | [commit cpprefjp/site, f1090f2, 39695e1, 828812e, 49d191b, 56695bc, ffb8d64, 3da7c5d] | cpprefjp/fixl:1 | if_constexpr : CWG2518適用を前提とした記述に修正 (#1260) |
+
+
+## [pipapo-888](https://github.com/pipapo-888)
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [commit cpprefjp/site, 0d45db6] | cpprefjp/fixm:1 | exception::what : C++98の宣言にthrow()を追加 |
+| [commit cpprefjp/site, 252ca93] | cpprefjp/fixm:1 | exception : 代入演算子のC++98の宣言にthrow()を追加 |
+| [commit cpprefjp/site, 6b1b7b1] | cpprefjp/fixm:1 | exception : コンストラクタのC++98の宣言にthrow()を追加 |
+| [commit cpprefjp/site, 7759d18] | cpprefjp/fixm:1 | exception : デストラクタのC++98の宣言にthrow()を追加 |
+
+
+## [tetsurom](https://github.com/tetsurom)
+
+| コミット | タグ | 説明 |
+|----------|------|------|
+| [commit cpprefjp/site, 641ed17] | cpprefjp/fixm:1 | Update formattable.md |
+| [commit cpprefjp/site, 7884e2f] | ignore | Update formattable.md |
+| [commit cpprefjp/site, 2b9d9db] | cpprefjp/fixm:1 | Update handle.md |
+| [commit cpprefjp/site, 82fa1ac] | cpprefjp/fixl:1 | Update basic_format_arg/op_constructor.md |
 
 
 ## [cycloawaodorin](https://github.com/cycloawaodorin)
@@ -1654,98 +1740,4 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [commit cpprefjp/site, 3313d3a] | cpprefjp/typo:1 | タイポ修正 |
-
-
-## [dependabot](https://github.com/apps/dependabot)
-自動更新のため、貢献ポイントの対象外とする。
-
-| コミット | タグ | 説明 |
-|----------|------|------|
-| [commit cpprefjp/crsearch, 6c75e14] | ignore | Bump js-yaml from 4.1.0 to 4.1.1 |
-| [commit cpprefjp/crsearch, 91a748e] | ignore | Bump @babel/runtime from 7.20.1 to 7.28.4 |
-| [commit cpprefjp/crsearch, a1eea16] | ignore | Bump node-forge from 1.3.1 to 1.3.3 |
-| [commit cpprefjp/crsearch, 50ac980] | ignore | Bump qs and express |
-| [commit cpprefjp/crsearch, aebce5a] | ignore | Bump lodash from 4.17.21 to 4.17.23 |
-| [commit cpprefjp/crsearch, a4ec0c1] | ignore | Bump webpack from 5.97.1 to 5.105.0 |
-| [commit cpprefjp/crsearch, 6775ba3] | ignore | Bump follow-redirects from 1.15.9 to 1.16.0 |
-| [commit cpprefjp/crsearch, 7869a69] | ignore | Bump serialize-javascript, terser-webpack-plugin and css-minimizer-webpack-plugin |
-| [commit cpprefjp/crsearch, 938837b] | ignore | Bump fast-uri from 3.0.3 to 3.1.2 |
-| [commit cpprefjp/crsearch, bbc1ccf] | ignore | Bump qs and express |
-| [commit cpprefjp/crsearch, e109557] | ignore | Bump @babel/plugin-transform-modules-systemjs from 7.19.6 to 7.29.7 |
-| [commit cpprefjp/crsearch, fd4888a] | ignore | Bump lodash from 4.17.23 to 4.18.1 |
-| [commit cpprefjp/site_generator, 0986195] | ignore | Bump jinja2 from 3.1.4 to 3.1.6 in /docker |
-| [commit cpprefjp/crsearch, 10302cf] | ignore | Bump handlebars from 4.7.7 to 4.7.9 |
-| [commit cpprefjp/crsearch, 19fc0ab] | ignore | Bump minimatch from 3.1.2 to 3.1.5 |
-| [commit cpprefjp/crsearch, 3953ca1] | ignore | Bump webpack-dev-server from 5.2.0 to 5.2.4 |
-| [commit cpprefjp/crsearch, 51e66fa] | ignore | Bump svgo from 3.3.2 to 3.3.3 |
-| [commit cpprefjp/crsearch, f3efde6] | ignore | Bump picomatch from 2.3.1 to 2.3.2 |
-| [commit cpprefjp/crsearch, f628934] | ignore | Bump immutable from 4.1.0 to 4.3.8 |
-| [commit cpprefjp/crsearch, cb2b774] | ignore | Bump shell-quote from 1.8.2 to 1.8.4 |
-| [commit cpprefjp/kunai, f6ffd5a] | ignore | Bump shell-quote from 1.8.3 to 1.8.4 |
-| [commit cpprefjp/kunai, 06ab0db] | ignore | Bump js-yaml from 4.1.1 to 4.2.0 |
-| [commit cpprefjp/crsearch, 2b82385] | ignore | Bump @babel/core from 7.20.2 to 7.29.6 |
-| [commit cpprefjp/kunai, 301218d] | ignore | Bump @babel/core from 7.28.5 to 7.29.6 |
-| [commit cpprefjp/kunai, 3324a25] | ignore | Bump launch-editor from 2.12.0 to 2.14.1 |
-| [commit cpprefjp/crsearch, 33e3fbc] | ignore | Bump launch-editor from 2.9.1 to 2.14.1 |
-| [commit cpprefjp/crsearch, 8531cef] | ignore | Bump js-yaml from 4.1.1 to 4.2.0 |
-| [commit cpprefjp/kunai, a064089] | ignore | Bump serialize-javascript and css-minimizer-webpack-plugin |
-| [commit cpprefjp/kunai, c6f17e7] | ignore | Bump webpack-dev-server from 5.2.4 to 5.2.5 |
-| [commit cpprefjp/crsearch, 4437532] | ignore | Bump webpack-dev-server from 5.2.4 to 5.2.5 |
-| [commit cpprefjp/kunai, 9540c5f] | ignore | Bump http-proxy-middleware from 2.0.9 to 2.0.10 |
-| [commit cpprefjp/crsearch, b2e1cf3] | ignore | Bump uuid and webpack-dev-server |
-| [commit cpprefjp/kunai, af88627] | ignore | Bump uuid and webpack-dev-server |
-| [commit cpprefjp/crsearch, 17d83f9] | ignore | Bump svgo from 3.3.3 to 3.3.4 |
-| [commit cpprefjp/crsearch, 27638a5] | ignore | Bump fast-uri from 3.1.2 to 3.1.4 |
-| [commit cpprefjp/crsearch, 2c3e92b] | ignore | Bump immutable from 4.3.8 to 4.3.9 |
-| [commit cpprefjp/kunai, 421b007] | ignore | Bump shell-quote from 1.8.4 to 1.10.0 |
-| [commit cpprefjp/kunai, 7c4bdaa] | ignore | Bump fast-uri from 3.1.2 to 3.1.4 |
-| [commit cpprefjp/kunai, 851c46c] | ignore | Bump svgo from 4.0.1 to 4.0.2 |
-| [commit cpprefjp/kunai, ade94ba] | ignore | Bump immutable from 5.1.6 to 5.1.9 |
-| [commit cpprefjp/crsearch, c3fd436] | ignore | Bump shell-quote from 1.8.4 to 1.10.0 |
-| [commit cpprefjp/kunai, 565c0d1] | ignore | Bump postcss from 8.5.15 to 8.5.25 |
-| [commit cpprefjp/crsearch, 8507d02] | ignore | Bump postcss from 8.5.16 to 8.5.25 |
-| [commit cpprefjp/crsearch, 05a2254] | ignore | Bump fast-uri from 3.1.4 to 3.1.5 |
-| [commit cpprefjp/kunai, 5be3d48] | ignore | Bump fast-uri from 3.1.4 to 3.1.5 |
-| [commit cpprefjp/crsearch, 0d414ec] | ignore | Bump js-yaml from 4.2.0 to 4.3.1 |
-| [commit cpprefjp/kunai, 46cbe19] | ignore | Bump js-yaml from 4.2.0 to 4.3.1 |
-| [commit cpprefjp/crsearch, 7370057] | ignore | Bump brace-expansion from 1.1.11 to 1.1.18 |
-| [commit cpprefjp/kunai, a54b0d7] | ignore | Bump brace-expansion |
-| [commit cpprefjp/site, 3a27311] | ignore | build(deps): bump actions/setup-python from 5 to 7 |
-| [commit cpprefjp/site, 3cb6b60] | ignore | build(deps): bump actions/cache from 3 to 6 |
-| [commit cpprefjp/site, 76d06b6] | ignore | build(deps): bump actions/checkout from 4 to 7 |
-| [commit cpprefjp/site, 98c7b94] | ignore | build(deps): bump actions/github-script from 7 to 9 |
-| [commit cpprefjp/kunai, 8f22a64] | ignore | Bump postcss-selector-parser from 7.1.1 to 7.1.5 |
-| [commit cpprefjp/kunai, 955c2ec] | ignore | Bump browserslist from 4.28.1 to 4.28.8 |
-| [commit cpprefjp/crsearch, 193125b] | ignore | Bump browserslist from 4.28.1 to 4.28.8 |
-| [commit cpprefjp/crsearch, 994bb33] | ignore | Bump fast-uri from 3.1.5 to 3.1.7 |
-| [commit cpprefjp/crsearch, d57cebc] | ignore | Bump postcss-selector-parser |
-| [commit cpprefjp/kunai, e7dded8] | ignore | Bump fast-uri from 3.1.5 to 3.1.7 |
-| [commit cpprefjp/kunai, 0729b73] | ignore | Bump svgo from 4.0.2 to 4.1.0 |
-| [commit cpprefjp/kunai, 24a5356] | ignore | Bump js-yaml from 4.3.1 to 4.3.2 |
-| [commit cpprefjp/crsearch, 800264d] | ignore | Bump svgo from 3.3.4 to 3.3.5 |
-| [commit cpprefjp/crsearch, de31d3e] | ignore | Bump js-yaml from 4.3.1 to 4.3.2 |
-| [commit cpprefjp/kunai, 0a5f41d] | ignore | Bump brace-expansion |
-| [commit cpprefjp/kunai, 5d92045] | ignore | Bump webpack-dev-middleware from 8.0.3 to 8.3.0 |
-| [commit cpprefjp/crsearch, 76b312a] | ignore | Bump webpack-dev-middleware from 8.0.3 to 8.3.0 |
-| [commit cpprefjp/crsearch, ae87de2] | ignore | Bump brace-expansion from 1.1.18 to 1.1.21 |
-| [commit cpprefjp/crsearch, 3ccd0e5] | ignore | Bump compression from 1.8.1 to 1.8.2 |
-| [commit cpprefjp/kunai, 5b5d03e] | ignore | Bump postcss-selector-parser from 7.1.5 to 7.1.6 |
-| [commit cpprefjp/kunai, 6ed5de8] | ignore | Bump proxy-addr from 2.0.7 to 2.0.8 |
-| [commit cpprefjp/crsearch, 78c0c82] | ignore | Bump source-map-js from 1.2.1 to 1.2.2 |
-| [commit cpprefjp/crsearch, 942d2f7] | ignore | Bump handlebars from 4.7.9 to 4.7.10 |
-| [commit cpprefjp/kunai, 98531b7] | ignore | Bump shell-quote from 1.10.0 to 1.12.0 |
-| [commit cpprefjp/kunai, 9f79c9c] | ignore | Bump source-map-js from 1.2.1 to 1.2.2 |
-| [commit cpprefjp/kunai, ac0cd04] | ignore | Bump compression from 1.8.1 to 1.8.2 |
-| [commit cpprefjp/crsearch, c2a3311] | ignore | Bump proxy-addr from 2.0.7 to 2.0.8 |
-| [commit cpprefjp/kunai, c4ac03a] | ignore | Bump handlebars from 4.7.9 to 4.7.10 |
-| [commit cpprefjp/crsearch, dd1c4b1] | ignore | Bump shell-quote from 1.10.0 to 1.12.0 |
-| [commit cpprefjp/crsearch, ff026d4] | ignore | Bump postcss-selector-parser, postcss-calc, postcss-discard-comments, stylehacks, postcss-merge-rules, postcss-minify-selectors and postcss-unique-selectors |
-| [commit cpprefjp/kunai, 5f3e469] | ignore | Bump launch-editor from 2.14.1 to 2.14.2 |
-| [commit cpprefjp/crsearch, 0caf894] | ignore | Bump serialize-javascript from 7.0.5 to 7.1.4 |
-| [commit cpprefjp/crsearch, 3912bb4] | ignore | Bump fast-uri from 3.1.7 to 3.1.9 |
-| [commit cpprefjp/crsearch, 8b45b7b] | ignore | Bump launch-editor from 2.14.1 to 2.14.2 |
-| [commit cpprefjp/crsearch, e7b58cd] | ignore | Bump qs from 6.15.3 to 6.17.1 |
-| [commit cpprefjp/kunai, 9644460] | ignore | Bump fast-uri from 3.1.7 to 3.1.9 |
-| [commit cpprefjp/kunai, 1110788] | ignore | Bump qs from 6.15.3 to 6.17.1 |
-| [commit cpprefjp/kunai, 1415153] | ignore | Bump serialize-javascript from 7.0.5 to 7.1.4 |
 
