@@ -114,7 +114,7 @@
 | [commit cpprefjp/site, f1e3797] | ignore | access_context::unprivileged : タイトル修正 |
 | [commit cpprefjp/site, 33bac4e] | ignore | リンクミスを修正 #1609 |
 | [commit cpprefjp/site, 699d6be] | ignore | meta: trivially relocatable関係を削除 |
-| [commit cpprefjp/site, 9d89e50] | cpprefjp/link:1, cpprefjp/addref:3 | 不足していた関数is_string_literal, reflect_constant_array, reflect_constant_stringを追加 |
+| [commit cpprefjp/site, 9d89e50] | cpprefjp/addref:3 | 不足していた関数is_string_literal, reflect_constant_array, reflect_constant_stringを追加 |
 | [commit cpprefjp/site, ed10402] | ignore | is_override : overrideキーワードの有無に関係なくオーバーライド関係を判定するよう修正 |
 | [commit cpprefjp/site, 6688b15] | ignore | reflection : ハッシュ値計算の例を追加 |
 | [commit cpprefjp/site, 7424626] | ignore | define_static_arrayを使用 |
@@ -138,7 +138,7 @@
 | [commit cpprefjp/site, 8b40265] | ignore | reflection : スプライスに使用する変数をconstexprに修正 |
 | [commit cpprefjp/site, 97f4d83] | ignore | alignment_of : 対象が狭かったのを修正 |
 | [commit cpprefjp/site, a410a76] | ignore | subobjects_of : 出力ミスを修正 |
-| [commit cpprefjp/site, bacfeed] | cpprefjp/link:1, cpprefjp/fixm:2, cpprefjp/addref:1 | has_inaccessible_subobjectsが抜けていたので追加 |
+| [commit cpprefjp/site, bacfeed] | cpprefjp/fixm:2, cpprefjp/addref:1 | has_inaccessible_subobjectsが抜けていたので追加 |
 | [commit cpprefjp/site, dbaaaf2] | ignore | reflection : 不足していた閉じカッコを修正 |
 | [commit cpprefjp/site, ed56543] | ignore | members_of : 出力ミスを修正 |
 | [commit cpprefjp/site, f866378] | ignore | reflection : 非静的データメンバ → メンバ変数 |
@@ -154,7 +154,7 @@
 | [commit cpprefjp/site, 2bc3273] | ignore | define_static_array : 条件に寄って静的な長さが返える仕様に対応 |
 | [commit cpprefjp/site, 65bcfa9] | cpprefjp/fixm:1, ignore:2 | meta / type_traits : is_consteval_onlyを削除 |
 | [commit cpprefjp/site, 69ef5b8, d166934] | cpprefjp/link:2, cpprefjp/fixm:1, cpprefjp/addref:2 | meta / type_traits : is_structuralを追加 |
-| [commit cpprefjp/site, f5e76f9] | cpprefjp/link:1, cpprefjp/addref:6 | meta : 関数追加 |
+| [commit cpprefjp/site, f5e76f9] | cpprefjp/addref:6 | meta : 関数追加 |
 | [commit cpprefjp/site, 24d7b17] | ignore | annotations_of : constに関して出力を修正 |
 | [commit cpprefjp/site, 2ad61e1] | ignore | annotations_of : アノテーションの値が reflect_constant() で変換されるとき、テンプレート引数と同様に、クラス型には const が付く |
 | [commit cpprefjp/site, ff9af99] | ignore | reflect_constant : パラメータ型のconst参照が外れた仕様修正に対応 |
@@ -202,7 +202,7 @@
 | [commit cpprefjp/site, cff2211] | cpprefjp/link:2, cpprefjp/addref:24 | C++26対応としてindirectとpolymorphicのリファレンスを作成 #1430 |
 | [commit cpprefjp/site, 224ccb4] | ignore | indirect : pImplイディオムへの言及・サンプルコードを追加 |
 | [commit cpprefjp/site, c5bbec9] | cpprefjp/link:2, cpprefjp/fixm:2 | function_ref : 二重の間接呼び出しを回避する仕様変更に対応 (close #1636) |
-| [commit cpprefjp/site, fa97998] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++26 : 「#lineディレクティブの制約を現実の実装に合わせて緩和する」を追加 (close #1624) |
+| [commit cpprefjp/site, fa97998] | cpprefjp/compiler:1, cpprefjp/addlang:1 | C++26 : 「#lineディレクティブの制約を現実の実装に合わせて緩和する」を追加 (close #1624) |
 | [commit cpprefjp/site, 8a7bf38] | cpprefjp/link:2, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++26 : 「テンプレートテンプレートパラメータに対するクラステンプレートパラメータ引数推論」を追加 (close #1626) |
 | [commit cpprefjp/site, 8b9733e] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++23 : 「文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決」を追加 (close #1031) |
 | [commit cpprefjp/site, efc5d64] | cpprefjp/link:2, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++26 : 「可変引数テンプレートの半順序を再検討する」を追加 (close #1625) |
@@ -298,7 +298,7 @@
 | [commit cpprefjp/site, 8b99463] | cpprefjp/fixl:5 | mdspan : C++26 LWG Issueへの対応としてインデックス値をmoveするよう修正 |
 | [commit cpprefjp/site, 8eaa43e] | cpprefjp/fixm:6 | filesystem::path : system_encodedをnative_encodedに名称変更 |
 | [commit cpprefjp/site, 9183ee4, 1d4e6f4, 10a449f] | cpprefjp/fixl:1 | assert : C++26 LWG Issue対応としてco_awaitなどを使えないことを記載 |
-| [commit cpprefjp/site, 91933dd, 1237e35, 3b3886c, e69db88] | cpprefjp/link:2, cpprefjp/fixm:1, cpprefjp/fixl:1 | format : C++26 LWG Issue対応としてwchar_tの場合にto_charsの出力をワイド文字に変換することを明確化 |
+| [commit cpprefjp/site, 91933dd, 1237e35, 3b3886c, e69db88] | cpprefjp/fixl:1 | format : C++26 LWG Issue対応としてwchar_tの場合にto_charsの出力をワイド文字に変換することを明確化 |
 | [commit cpprefjp/site, 9224194] | cpprefjp/link:1 | await_transform : LWG Issueを記載 |
 | [commit cpprefjp/site, 9fb78e9, 31eff93, 64f7562] | cpprefjp/link:3, cpprefjp/fixm:1 | any / optional / variant : LWG Issueを記載 |
 | [commit cpprefjp/site, a4fff6e] | ignore | meta : 文字列を返す関数がNULL終端された値を返すことを記載 |
@@ -481,7 +481,7 @@
 | [commit cpprefjp/site, 2789468] | cpprefjp/fixl:1 | localeのコンストラクタ : ほぼ空だったので仕様を書き直した |
 | [commit cpprefjp/site, 283883e] | cpprefjp/link:1 | basic_const_iterator::common_type : LWG Issueを追加 |
 | [commit cpprefjp/site, 2e5610a] | cpprefjp/link:1, cpprefjp/addref:1 | basic_format_args : C++23対応として推論補助を追加。DRなのでC++20でも動作する |
-| [commit cpprefjp/site, 34bcddf] | cpprefjp/link:1, cpprefjp/addref:8 | cinttypesのリファレンスを作成。constexpr対応などでバージョン追従が必要だった |
+| [commit cpprefjp/site, 34bcddf] | cpprefjp/addref:8 | cinttypesのリファレンスを作成。constexpr対応などでバージョン追従が必要だった |
 | [commit cpprefjp/site, 3540576] | cpprefjp/link:2, cpprefjp/addref:7 | cstdargのリファレンスを作成 (C23対応などで変更追従が必要になったため) |
 | [commit cpprefjp/site, 386f336] | cpprefjp/fixl:1 | fpos : 等値比較の戻り値がC++23で変更された |
 | [commit cpprefjp/site, 3b64daa] | cpprefjp/link:1, cpprefjp/fixm:1 | take_viewのbegin, end : 効果として、size_rangeではないがsized_sentinel_forを満たす場合の分岐が追加 |
@@ -572,7 +572,7 @@
 | [commit cpprefjp/site, e560be5] | cpprefjp/link:2 | (make_)const_sentinel : LWG Issueを追加 |
 | [commit cpprefjp/site, e5ef23d] | cpprefjp/link:1 | iota_view::size : LWG Issueを記載 |
 | [commit cpprefjp/site, f70f7c1] | cpprefjp/link:2 | expected: LWG Issueを記載 |
-| [commit cpprefjp/site, 1510043, 3da3850] | cpprefjp/link:3, cpprefjp/fixl:1 | char_traits : C++23で例外送出してはならない対象が明確化された |
+| [commit cpprefjp/site, 1510043, 3da3850] | cpprefjp/fixl:1 | char_traits : C++23で例外送出してはならない対象が明確化された |
 | [commit cpprefjp/site, 2db4eb0] | cpprefjp/fixs:34, cpprefjp/fixm:14 | フリースタンディングの書き方がよくなくて以降の説明がフリースタンディングに紐づくように見えていたのでセクションと箇条書きを見直し |
 | [commit cpprefjp/site, 3eb1bac, dfbe784] | cpprefjp/link:1, cpprefjp/fixm:1 | priority_queueのコンストラクタ : 制約を追加 |
 | [commit cpprefjp/site, 5213119] | cpprefjp/link:1 | cstdlib : qsortを追加 |
@@ -580,7 +580,7 @@
 | [commit cpprefjp/site, 6e7137d] | cpprefjp/fixl:7 | fstreamのコンストラクタとopen: C++23で制約を追加 |
 | [commit cpprefjp/site, 787de63] | cpprefjp/fixm:1 | virewable_range : 制約を見直し |
 | [commit cpprefjp/site, b534073] | cpprefjp/fixm:2 | (forward_)list::unique : 事前条件を追加し、効果と計算量が整理された |
-| [commit cpprefjp/site, be790f0] | cpprefjp/link:1, cpprefjp/addref:1 | bsearch, qsortの事前条件をC++23で緩和。qsortはページ作成もした |
+| [commit cpprefjp/site, be790f0] | cpprefjp/addref:1 | bsearch, qsortの事前条件をC++23で緩和。qsortはページ作成もした |
 | [commit cpprefjp/site, 00647ee] | cpprefjp/fixm:1 | path::operator/ : Hidden Friendsに変更 |
 | [commit cpprefjp/site, 0a918f1] | cpprefjp/fixm:1 | cpp17-iterator : 制約のチェック順が変わった |
 | [commit cpprefjp/site, 0fd920e, b2013ba] | cpprefjp/link:3, cpprefjp/fixm:3 | future, promise, shared_future : 参照だけ書いて適格要件を書いてなかった |
@@ -735,7 +735,7 @@
 | [commit cpprefjp/site, ea23b34] | cpprefjp/fixl:1 | priority_queue : 適格要件とvalue_compareをC++17で追加 |
 | [commit cpprefjp/site, ea2c390] | cpprefjp/link:1 | sample : LWG Issueを記載 |
 | [commit cpprefjp/site, ec582a6] | cpprefjp/link:2 | LWG Issueを追加 |
-| [commit cpprefjp/site, f0b93f9, 478bf17] | cpprefjp/fixm:2, cpprefjp/fixl:1 | basic_istreamの入力ストリーム演算子 : C++17での制約追加とforward仕様を追加 |
+| [commit cpprefjp/site, f0b93f9, 478bf17] | cpprefjp/fixl:1 | basic_istreamの入力ストリーム演算子 : C++17での制約追加とforward仕様を追加 |
 | [commit cpprefjp/site, f126626] | cpprefjp/fixl:1 | functionのコンストラクタ : C++17のいくつかのLWG Issueに対応し、効果と例外条件のC++17動作を記載 |
 | [commit cpprefjp/site, f1caa64] | cpprefjp/fixm:1 | is_trivially_destructible : トリビアルに破棄可能な条件が見直された |
 | [commit cpprefjp/site, f703be8] | cpprefjp/fixm:1 | pairのtuple_element : 適格要件が追加された |
@@ -747,8 +747,8 @@
 | [commit cpprefjp/site, aea94b0] | cpprefjp/link:8, cpprefjp/fixm:5, cpprefjp/fixl:14, cpprefjp/addref:130 | localeヘッダのリファレンスを完成させた |
 | [commit cpprefjp/site, bab3116] | cpprefjp/fixs:737, cpprefjp/fixm:1 | C++98とC++03が混在していたのでC++98に基本的に統一。C++03はDR程度なので言語バージョン専用ページはいまのところ作らない |
 | [commit cpprefjp/site, c9437fe] | cpprefjp/link:1 | variantの代入演算子 : LWG Issueを追加 |
-| [commit cpprefjp/site, e8a7d23] | cpprefjp/link:1, cpprefjp/fixl:1, cpprefjp/addref:2 | num_get : 残りのメンバ関数ページを作成 |
-| [commit cpprefjp/site, f6f34f3] | cpprefjp/link:1, cpprefjp/fixl:2, cpprefjp/addref:11 | basic_filebuf : 残りのメンバ関数ページを作成 |
+| [commit cpprefjp/site, e8a7d23] | cpprefjp/fixl:1, cpprefjp/addref:2 | num_get : 残りのメンバ関数ページを作成 |
+| [commit cpprefjp/site, f6f34f3] | cpprefjp/fixl:2, cpprefjp/addref:11 | basic_filebuf : 残りのメンバ関数ページを作成 |
 | [commit cpprefjp/site, 0f11c90] | cpprefjp/fixl:1 | offset : マクロの展開結果をnoexceptに渡した結果がtrueであることがC++11で規定された |
 | [commit cpprefjp/site, 1a004bc] | cpprefjp/link:1 | packaged_task : LWG Issueを追加 |
 | [commit cpprefjp/site, 1cb4251] | cpprefjp/fixm:1 | partition_copy : C++14で要件名を修正 |
@@ -921,28 +921,28 @@
 | [commit cpprefjp/site, 6c24f27] | cpprefjp/link:1, cpprefjp/addref:1 | C++29対応としてview_interfaceにatメンバ関数を追加 (close #1698) |
 | [commit cpprefjp/site, bb858fc] | cpprefjp/link:9, cpprefjp/compiler:1, cpprefjp/fixl:8, cpprefjp/addlang:1 | C++23 : 「auto(x)による一時オブジェクトへの変換」を追加 (close #1254) |
 | [commit cpprefjp/site, da36b28] | ignore | C++23 auto_cast : コード修飾を追加 |
-| [commit cpprefjp/site, 0117fc4] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addlang:1 | C++29 : 「仮想関数への事前条件・事後条件の指定を許可」を追加 (close #1692) |
-| [commit cpprefjp/site, 8600f47] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「整数からポインタへの変換とポインタの由来の扱いを規定」を追加 (close #1683) |
-| [commit cpprefjp/site, 8bce7e1] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「名前付きユニバーサルキャラクタ名で使用できる別名を拡張」を追加 (close #1687) |
-| [commit cpprefjp/site, 9a108a9] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「浮動小数点演算のオーバーフローと無限大・NaNの扱いを明確化」を追加 (close #1680) |
-| [commit cpprefjp/site, 9e03efe] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「アトミック操作とvolatileアクセスでの無効なポインタ値の扱いを規定」を追加 (close #1694) |
-| [commit cpprefjp/site, a1789e1] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「無効なポインタ値の読み書き・コピーを定義された動作とする」を追加 (close #1684) |
-| [commit cpprefjp/site, ddd9901] | cpprefjp/link:2, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「テンプレートテンプレートパラメータのパックへのインデックスアクセスを許可」を追加 (close #1695) |
-| [commit cpprefjp/site, fd3a8e3] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「requires式の複合要件で条件付きnoexcept指定を許可」 (close #1691) |
+| [commit cpprefjp/site, 0117fc4] | cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addlang:1 | C++29 : 「仮想関数への事前条件・事後条件の指定を許可」を追加 (close #1692) |
+| [commit cpprefjp/site, 8600f47] | cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「整数からポインタへの変換とポインタの由来の扱いを規定」を追加 (close #1683) |
+| [commit cpprefjp/site, 8bce7e1] | cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「名前付きユニバーサルキャラクタ名で使用できる別名を拡張」を追加 (close #1687) |
+| [commit cpprefjp/site, 9a108a9] | cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「浮動小数点演算のオーバーフローと無限大・NaNの扱いを明確化」を追加 (close #1680) |
+| [commit cpprefjp/site, 9e03efe] | cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「アトミック操作とvolatileアクセスでの無効なポインタ値の扱いを規定」を追加 (close #1694) |
+| [commit cpprefjp/site, a1789e1] | cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「無効なポインタ値の読み書き・コピーを定義された動作とする」を追加 (close #1684) |
+| [commit cpprefjp/site, ddd9901] | cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「テンプレートテンプレートパラメータのパックへのインデックスアクセスを許可」を追加 (close #1695) |
+| [commit cpprefjp/site, fd3a8e3] | cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「requires式の複合要件で条件付きnoexcept指定を許可」 (close #1691) |
 | [commit cpprefjp/site, 0f612fb] | ignore | コード修飾を追加 |
-| [commit cpprefjp/site, 357185b] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「例外を送出しうる例外指定をもつ解放関数を不適格とする」を追加 (close #1690) |
-| [commit cpprefjp/site, 5d6b411] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addlang:1 | C++29 : 「数学互換記法の文字を識別子として許可」を追加 (close #1685) |
-| [commit cpprefjp/site, 7221418] | cpprefjp/link:2, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「ラムダ式のキャプチャが書かれた順に初期化されることを保証」を追加 (close #1688) |
-| [commit cpprefjp/site, 83bfc3a] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/fixm:2, cpprefjp/addlang:1 | C++29 : 「未定義動作とIFNDRの一覧を規格の付録に追加」を追加 (close #1678) |
-| [commit cpprefjp/site, 9c94547] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addlang:1 | C++29 : 「基底クラスのメンバ変数に対する指示付き初期化を許可」を追加 (close #1679) |
-| [commit cpprefjp/site, 9ea8b9e] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addlang:1 | C++29 : 「default定義できる代入演算子のシグネチャを制限」を追加 (close #1682) |
-| [commit cpprefjp/site, f5abb21] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29: 「extern "C"の中でのテンプレートの宣言を許可」を追加 (close #1689) |
-| [commit cpprefjp/site, 00fc718] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「コルーチンのpromise型で`return_value`と`return_void`の両方の宣言を許可」を追加 (close #1686) |
-| [commit cpprefjp/site, 0dd78be, 141917f, 5254c5f, 866071a] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addlang:1 | C++29 : 「consteval-only型の規則をconsteval-only値の規則へ置き換え」を追加。DRではない (close #1693) |
+| [commit cpprefjp/site, 357185b] | cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「例外を送出しうる例外指定をもつ解放関数を不適格とする」を追加 (close #1690) |
+| [commit cpprefjp/site, 5d6b411] | cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addlang:1 | C++29 : 「数学互換記法の文字を識別子として許可」を追加 (close #1685) |
+| [commit cpprefjp/site, 7221418] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「ラムダ式のキャプチャが書かれた順に初期化されることを保証」を追加 (close #1688) |
+| [commit cpprefjp/site, 83bfc3a] | cpprefjp/compiler:1, cpprefjp/fixm:2, cpprefjp/addlang:1 | C++29 : 「未定義動作とIFNDRの一覧を規格の付録に追加」を追加 (close #1678) |
+| [commit cpprefjp/site, 9c94547] | cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addlang:1 | C++29 : 「基底クラスのメンバ変数に対する指示付き初期化を許可」を追加 (close #1679) |
+| [commit cpprefjp/site, 9ea8b9e] | cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addlang:1 | C++29 : 「default定義できる代入演算子のシグネチャを制限」を追加 (close #1682) |
+| [commit cpprefjp/site, f5abb21] | cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29: 「extern "C"の中でのテンプレートの宣言を許可」を追加 (close #1689) |
+| [commit cpprefjp/site, 00fc718] | cpprefjp/compiler:1, cpprefjp/addlang:1 | C++29 : 「コルーチンのpromise型で`return_value`と`return_void`の両方の宣言を許可」を追加 (close #1686) |
+| [commit cpprefjp/site, 0dd78be, 141917f, 5254c5f, 866071a] | cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addlang:1 | C++29 : 「consteval-only型の規則をconsteval-only値の規則へ置き換え」を追加。DRではない (close #1693) |
 | [commit cpprefjp/site, 49d6dd7] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/addlang:1 | C++26 : 「SFINAEが適用される「直接文脈」を定義」を追加 (close #1629) |
 | [commit cpprefjp/site, 6ca95c9] | cpprefjp/link:1, cpprefjp/fixl:3, cpprefjp/addref:1 | error_code / error_category : C++29対応としてformatter特殊化を追加。エラーメッセージのエンコーディングを規定 (close #1700) |
-| [commit cpprefjp/site, 813115d, 4c8ab89] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addlang:1 | C++29: 「`#embed`に`offset`パラメータを追加」を追加 (close #1696) |
-| [commit cpprefjp/site, 9fde0d0] | cpprefjp/link:2, cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addref:1, cpprefjp/addlang:1 | C++23とC++26の生存期間周りに対応 (close #1409, #1100, #1628) |
+| [commit cpprefjp/site, 813115d, 4c8ab89] | cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addlang:1 | C++29: 「`#embed`に`offset`パラメータを追加」を追加 (close #1696) |
+| [commit cpprefjp/site, 9fde0d0] | cpprefjp/link:1, cpprefjp/compiler:1, cpprefjp/fixl:1, cpprefjp/addref:1, cpprefjp/addlang:1 | C++23とC++26の生存期間周りに対応 (close #1409, #1100, #1628) |
 | [commit cpprefjp/site, d01d13d] | cpprefjp/link:2 | リンク切れのページを差し替え (close #1754) |
 | [commit cpprefjp/site, d36f0d4] | cpprefjp/link:1, cpprefjp/addref:2 | expected : C++29対応としてhas_errorメンバ関数を追加 (close #1697) |
 | [commit cpprefjp/site, 0581b1a] | cpprefjp/link:3, cpprefjp/compiler:1, cpprefjp/fixl:5, cpprefjp/addlang:1 | C++23 : 「メンバ関数の第1パラメータとして`*this`を宣言できるようにする」を追加 (close #1026) |
@@ -963,7 +963,7 @@
 | [commit cpprefjp/site, cf56957] | cpprefjp/fixm:1 | syncstream : リンク追加 |
 | [commit cpprefjp/site, ea70073] | cpprefjp/link:1, cpprefjp/addref:32 | stdexceptの残りのページを作成 (close #1549) |
 | [commit cpprefjp/site, eb20496] | cpprefjp/link:2, cpprefjp/addref:4 | cstdlib : 文字コード変換関連を追加 |
-| [commit cpprefjp/site, f8e8b99] | cpprefjp/link:1, cpprefjp/addref:5 | cucharの残りのリファレンスを追加 |
+| [commit cpprefjp/site, f8e8b99] | cpprefjp/addref:5 | cucharの残りのリファレンスを追加 |
 | [commit cpprefjp/site, 5937648] | cpprefjp/fixl:1 | shared_ptrのコンストラクタ : aliasing constructorの例を追加 |
 | [commit cpprefjp/site, b323fa1] | cpprefjp/fixl:1 | no_unique_address : 用途を調査して、説明と例を追加 (close #1544) |
 | [commit cpprefjp/site, d796347] | cpprefjp/fixs:2613 | 動作確認されていないICCを削除 |
@@ -1025,7 +1025,8 @@
 | [commit cpprefjp/site, a74f1c9] | cpprefjp/compiler:4 | bit : GCCで動作確認 |
 | [commit cpprefjp/site, 213f89d] | cpprefjp/fixm:1 | MSVC : 次のリリースで、C++23が正式機能となる |
 | [commit cpprefjp/site, 6c10528] | cpprefjp/link:1 | リンク切れを修正 (close #1785) |
-| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7, f9a5a6e, 61fb542, 5053419, 3d2f610, 011940c, 5076a48, e84d0d7, e7a023c, 7929ccf, 272eede, a73ff94, e576be3, b0cbaba, 5eaa64e] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
+| [commit cpprefjp/site_generator, 160e85e, 2ce6b71, 46c8876, 533bf5f, e2af656, f4185da, f95588d] | ignore | markdown_to_htmlとの履歴統合により再出現したコミット。過去年にcpprefjp/markdown_to_htmlとして計上済み |
+| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7, f9a5a6e, 61fb542, 5053419, 3d2f610, 011940c, 5076a48, e84d0d7, e7a023c, 7929ccf, 272eede, a73ff94, e576be3, b0cbaba, 5eaa64e, 4f4a3bd] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
 
 
 ## [rotarymars](https://github.com/rotarymars)
@@ -1303,15 +1304,15 @@
 | [commit cpprefjp/site, f9f66da] | cpprefjp/fixm:1 | string_view/basic_string_view: meta aliasタグ追加(#1545) |
 | [commit cpprefjp/site, 01edba7] | cpprefjp/link:1, cpprefjp/addref:1 | execution: P3552R3 inline_scheduler(#1521) |
 | [commit cpprefjp/site, 445cdf9] | ignore | execution/task/connect: fix meta id-type |
-| [commit cpprefjp/site, 54d6125] | cpprefjp/link:1, cpprefjp/addref:4 | execution: P3552R3 task_scheduler(#1521) |
-| [commit cpprefjp/site, 5e6fb6f] | cpprefjp/link:1, cpprefjp/addref:4 | execution: P3552R3 task(#1521) |
-| [commit cpprefjp/site, c54cea5] | cpprefjp/link:1, cpprefjp/addref:1 | execution/task_scheduler: 調整(#1521) |
+| [commit cpprefjp/site, 54d6125] | cpprefjp/addref:4 | execution: P3552R3 task_scheduler(#1521) |
+| [commit cpprefjp/site, 5e6fb6f] | cpprefjp/addref:4 | execution: P3552R3 task(#1521) |
+| [commit cpprefjp/site, c54cea5] | cpprefjp/addref:1 | execution/task_scheduler: 調整(#1521) |
 | [commit cpprefjp/site, e0b5a73] | ignore | execution/task: 調整(#1521) |
-| [commit cpprefjp/site, edecb0a] | cpprefjp/link:1, cpprefjp/addref:1 | execution: P3552R3 taski::state(#1521) |
-| [commit cpprefjp/site, 0a2e154] | cpprefjp/link:1, cpprefjp/addref:14 | execution: P3552R3 task::promise_type(#1521) |
+| [commit cpprefjp/site, edecb0a] | cpprefjp/addref:1 | execution: P3552R3 taski::state(#1521) |
+| [commit cpprefjp/site, 0a2e154] | cpprefjp/addref:14 | execution: P3552R3 task::promise_type(#1521) |
 | [commit cpprefjp/site, f4f82e5] | ignore | execution/task/promise_type: fix markup |
 | [commit cpprefjp/site, 086802a] | cpprefjp/fixl:1 | execution/task/promise_type: LWG4345適用(#1521) |
-| [commit cpprefjp/site, 3a507f9] | cpprefjp/link:1, cpprefjp/addref:1 | execution: P3552R3 change_coroutine_scheduler(#1521) |
+| [commit cpprefjp/site, 3a507f9] | cpprefjp/addref:1 | execution: P3552R3 change_coroutine_scheduler(#1521) |
 | [commit cpprefjp/site, 5884c57] | cpprefjp/fixm:1 | lang/cpp20/coroutines: meta aliasタグ追加 |
 | [commit cpprefjp/site, 7c22ac0] | cpprefjp/link:1, cpprefjp/addref:1 | execution: P3552R3 with_error(#1521) |
 | [commit cpprefjp/site, 5bff1a1] | cpprefjp/fixl:1 | execution/when_all: LWG4438適用 |
@@ -1353,19 +1354,19 @@
 | [commit cpprefjp/site, e105e57] | cpprefjp/fixl:1 | execution/let_value: P3373R4対応 |
 | [commit cpprefjp/site, a22cc94] | cpprefjp/link:1, cpprefjp/addref:1 | execution/inlinable_receiver: P3986R1対応 |
 | [commit cpprefjp/site, 3b295e4] | cpprefjp/fixl:3 | execution/parallel_scheduler: P3804R2対応 |
-| [commit cpprefjp/site, abaf19a] | cpprefjp/link:4, cpprefjp/fixl:9, cpprefjp/addref:5, ignore:5 | execution: P3826R5対応(#1644) |
-| [commit cpprefjp/site, 6b219a1] | cpprefjp/link:2, cpprefjp/fixm:3, cpprefjp/addref:2 | execution: 説明専用エティティを利用 |
+| [commit cpprefjp/site, abaf19a] | cpprefjp/link:2, cpprefjp/fixl:9, cpprefjp/addref:5, ignore:5 | execution: P3826R5対応(#1644) |
+| [commit cpprefjp/site, 6b219a1] | cpprefjp/link:1, cpprefjp/fixm:3, cpprefjp/addref:2 | execution: 説明専用エティティを利用 |
 | [commit cpprefjp/site, a664e2e] | cpprefjp/fixl:3, ignore | execution/task: P3980R1対応(#1645) |
 | [commit cpprefjp/site, 0dc008c] | ignore | execution/affine_on: fix markdown(#1648) |
 | [commit cpprefjp/site, 115f17d] | cpprefjp/fixl:3 | execution: P4151R1対応(#1650) |
-| [commit cpprefjp/site, 14088f2] | cpprefjp/link:2, cpprefjp/fixl:7, cpprefjp/addref:2, ignore | execution: P3941R4対応(#1648) |
+| [commit cpprefjp/site, 14088f2] | cpprefjp/fixl:7, cpprefjp/addref:2, ignore | execution: P3941R4対応(#1648) |
 | [commit cpprefjp/site, 3fdae67] | cpprefjp/fixl:3 | execution/task_scheduler: P3927R2対応(#1649) |
 | [commit cpprefjp/site, ccd0fed] | ignore | execution/get_start_scheduler: 参照を修正(#1648) |
-| [commit cpprefjp/site, 6ce3ca0] | cpprefjp/link:1, cpprefjp/fixm:4, cpprefjp/fixl:6, cpprefjp/addref:1, ignore | execution: P4154R0対応(#1652) |
+| [commit cpprefjp/site, 6ce3ca0] | cpprefjp/fixm:4, cpprefjp/fixl:6, cpprefjp/addref:1, ignore | execution: P4154R0対応(#1652) |
 | [commit cpprefjp/site, 73888e9] | ignore | execution/receiver-of: meta exposition-onlyタグ追加(#1651) |
 | [commit cpprefjp/site, 76bf3f5] | cpprefjp/fixl:31 | execution: P4154R0対応(#1652) |
 | [commit cpprefjp/site, b131ba6] | cpprefjp/link:1 | execution/sender: 関連項目を調整(#1651) |
-| [commit cpprefjp/site, f6a60a9] | cpprefjp/link:2, cpprefjp/fixl:2, cpprefjp/addref:2, ignore:2 | execution: P4159R0対応(#1651) |
+| [commit cpprefjp/site, f6a60a9] | cpprefjp/fixl:2, cpprefjp/addref:2, ignore:2 | execution: P4159R0対応(#1651) |
 | [commit cpprefjp/site, 89a5cc0] | cpprefjp/fixm:1 | executoin/continue_on: receiver_t置換ミス修正(#1652) |
 | [commit cpprefjp/site, a86c4d8] | cpprefjp/fixm:2 | execution: 説明増補,表現調整など |
 | [commit cpprefjp/site, ba2cd88] | ignore | execution/inline_scheduler: 例示コードを改善 |
@@ -1484,6 +1485,7 @@
 | [commit cpprefjp/site, 838f075] | ignore | Cpp17Allocator : 空白が消えていたところを修正 (Co-author) |
 | [commit cpprefjp/site, 9d80985] | ignore | Cpp17Allocator : false_typeへのリンクを修正 (Co-author) |
 | [commit cpprefjp/site, b4dca2f] | cpprefjp/link:1 | コード修飾のリンクを修正 |
+| [commit cpprefjp/site_generator, 5603611, 962b439] | ignore | markdown_to_htmlとの履歴統合により再出現したコミット。過去年にcpprefjp/markdown_to_htmlとして計上済み |
 
 
 ## [take-cheeze](https://github.com/take-cheeze)
@@ -1613,10 +1615,10 @@
 | [commit cpprefjp/site, 77b58d3] | cpprefjp/addref:1 | add new ref `csignal/raise` |
 | [commit cpprefjp/site, 9fac2fe] | cpprefjp/link:1, cpprefjp/addref:1 | new library `csignal` |
 | [commit cpprefjp/site, a24cca5] | cpprefjp/link:1, cpprefjp/addref:1 | add new ref `csignal/signal` |
-| [commit cpprefjp/site, af07750] | cpprefjp/link:2, cpprefjp/addref:6, ignore:2 | add 6 page defines signal types macro |
+| [commit cpprefjp/site, af07750] | cpprefjp/link:1, cpprefjp/addref:6, ignore:2 | add 6 page defines signal types macro |
 | [commit cpprefjp/site, ef9e9b1] | cpprefjp/fixm:1 | ご指摘頂いた箇所の修正 |
 | [commit cpprefjp/site, 77db2de] | cpprefjp/addref:1 | add new ref `csignal/sig_atomic_t.md` |
-| [commit cpprefjp/site, f3a41a5] | cpprefjp/link:1, cpprefjp/addref:3 | add new pages `sig_dfl`,`sig_err`,`sig_ign` |
+| [commit cpprefjp/site, f3a41a5] | cpprefjp/addref:3 | add new pages `sig_dfl`,`sig_err`,`sig_ign` |
 | [commit cpprefjp/site, 40b5a09, a3e6c02] | cpprefjp/link:1, cpprefjp/fixm:2, cpprefjp/addref:5 | `csetjmp`リファレンスの追加 |
 | [commit cpprefjp/site, c211f63] | cpprefjp/compiler:2 | 表記ゆれの修正 |
 | [commit cpprefjp/site, cbbdbf5] | cpprefjp/compiler:2 | バージョン情報の記載の追加 |
@@ -1653,6 +1655,7 @@
 | [commit cpprefjp/site, 6030868] | cpprefjp/typo:3 | fix(regex): タイポ修正 "空文字{ => 列}で" |
 | [commit cpprefjp/site, d52962b] | cpprefjp/fixs:3, cpprefjp/fixm:2 | refactor: 用語を統一 "{ヌル => 空}文" |
 | [commit cpprefjp/site, f1090f2, 39695e1, 828812e, 49d191b, 56695bc, ffb8d64, 3da7c5d] | cpprefjp/fixl:1 | if_constexpr : CWG2518適用を前提とした記述に修正 (#1260) (Co-author) |
+| [commit cpprefjp/site_generator, 09e3f63, 4332fb9, 66b84e4, 941d376] | ignore | markdown_to_htmlとの履歴統合により再出現したコミット。過去年にcpprefjp/markdown_to_htmlとして計上済み |
 
 
 ## [teruyamato0731](https://github.com/teruyamato0731)
