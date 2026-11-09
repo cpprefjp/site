@@ -362,7 +362,7 @@
 | P2287R6: [基底クラスのメンバ変数に対する指示付き初期化を許可](/lang/cpp29/designated-initializers_for_base_classes.md) | `B{.a=1, .b=2}`のように、集成体の指示付き初期化で基底クラスのメンバ変数を直接指定できるようにする。基底クラス部分を初期化する指示なし初期化子との混在も許可する | 17 | | | |
 | P2953R5: [default定義できる代入演算子のシグネチャを制限](/lang/cpp29/adding_restrictions_to_defaulted_assignment_operator_functions.md) | `A& operator=(const A&) && = default`のような右辺値修飾やCV修飾された代入演算子のdefault定義を不適格とする。これらの代入演算子を自分で定義することは引き続きできる | 17 | | | |
 | P3899R3: [浮動小数点演算のオーバーフローと無限大・NaNの扱いを明確化](/lang/cpp29/clarify_the_behavior_of_floating-point_overflow.md) | 無限大を表現できる浮動小数点型では、オーバーフローは未定義動作ではなく無限大を生成すると規定する。オーバーフローやNaNを新たに生成する演算は定数式にならず、無限大・NaNの伝播は定数式として扱える | 15 (partial) | | | |
-| P3668R4: [後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md) | 後置`++`／`--`を`= default`で定義（前置版から自動生成）できるようにする | | | | |
+| P3668R4: [後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md) | 後置`++`／`--`を`= default`で定義（前置版から自動生成）できるようにする | | 24 | | |
 | P2434R5: [整数からポインタへの変換とポインタの由来の扱いを規定](/lang/cpp29/nondeterministic_pointer_provenance.md) | 整数からポインタへの変換では、その整数へ変換できるポインタ値のうち、プログラムの動作が定義される値が選択されると規定する | | | | |
 | P3347R6: [無効なポインタ値の読み書き・コピーを定義された動作とする](/lang/cpp29/invalid_pointer_operations.md) | 無効なポインタ値の使用のうち、間接参照は未定義動作、比較などは処理系定義のままとし、読み込み・書き込み・コピーなどそれ以外の操作を定義された動作とする | | | | |
 | P3658R1: [数学互換記法の文字を識別子として許可](/lang/cpp29/adjust_identifier_following_new_Unicode_recommendations.md) | Unicodeの新しい勧告に従い、`∇f`や`x²`のような数学記法の文字（ID_Compat_Math_Start／Continueプロパティを持つ文字）を識別子に使用できるようにする | 17 | 16 | | |
