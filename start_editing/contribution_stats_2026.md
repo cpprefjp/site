@@ -974,7 +974,7 @@
 | [commit cpprefjp/site, a74f1c9] | cpprefjp/compiler:4 | bit : GCCで動作確認 |
 | [commit cpprefjp/site, 213f89d] | cpprefjp/fixm:1 | MSVC : 次のリリースで、C++23が正式機能となる |
 | [commit cpprefjp/site, 6c10528] | cpprefjp/link:1 | リンク切れを修正 (close #1785) |
-| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7, f9a5a6e] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
+| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7, f9a5a6e, 61fb542] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
 
 
 ## [rotarymars](https://github.com/rotarymars)
