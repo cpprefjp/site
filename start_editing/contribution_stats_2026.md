@@ -1026,7 +1026,7 @@
 | [commit cpprefjp/site, 213f89d] | cpprefjp/fixm:1 | MSVC : 次のリリースで、C++23が正式機能となる |
 | [commit cpprefjp/site, 6c10528] | cpprefjp/link:1 | リンク切れを修正 (close #1785) |
 | [commit cpprefjp/site_generator, 160e85e, 2ce6b71, 46c8876, 533bf5f, e2af656, f4185da, f95588d] | ignore | markdown_to_htmlとの履歴統合により再出現したコミット。過去年にcpprefjp/markdown_to_htmlとして計上済み |
-| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7, f9a5a6e, 61fb542, 5053419, 3d2f610, 011940c, 5076a48, e84d0d7, e7a023c, 7929ccf, 272eede, a73ff94, e576be3, b0cbaba, 5eaa64e, 4f4a3bd, 03d4d11] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
+| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7, f9a5a6e, 61fb542, 5053419, 3d2f610, 011940c, 5076a48, e84d0d7, e7a023c, 7929ccf, 272eede, a73ff94, e576be3, b0cbaba, 5eaa64e, 4f4a3bd, 03d4d11, afff35f] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
 
 
 ## [rotarymars](https://github.com/rotarymars)
