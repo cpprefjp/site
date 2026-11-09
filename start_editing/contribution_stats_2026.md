@@ -1431,7 +1431,7 @@
 | [commit cpprefjp/crsearch, 8531cef] | tool/updatelib:1 | Bump js-yaml from 4.1.1 to 4.2.0 (dependabotのPRを動作確認してマージ) |
 | [commit cpprefjp/crsearch, 9deca11] | ignore | Add me to codeowners |
 | [commit cpprefjp/kunai, a064089] | tool/updatelib:1 | Bump serialize-javascript and css-minimizer-webpack-plugin (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/kunai, b0efad8] | tool/improves:1 | Add CI for docker |
+| [commit cpprefjp/kunai, b0efad8] | tool/addl:1 | Add CI for docker |
 | [commit cpprefjp/kunai, c6f17e7] | tool/updatelib:1 | Bump webpack-dev-server from 5.2.4 to 5.2.5 (dependabotのPRを動作確認してマージ) |
 | [commit cpprefjp/kunai, e56c8db] | ignore | Fix DOCKER_IT |
 | [commit cpprefjp/crsearch, 4437532] | tool/updatelib:1 | Bump webpack-dev-server from 5.2.4 to 5.2.5 (dependabotのPRを動作確認してマージ) |
