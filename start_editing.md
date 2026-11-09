@@ -359,11 +359,12 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 
 - <https://github.com/cpprefjp/site>
 - <https://github.com/cpprefjp/site_generator>
-- <https://github.com/cpprefjp/markdown_to_html>
 - <https://github.com/cpprefjp/kunai>
 - <https://github.com/cpprefjp/kunai_config>
 - <https://github.com/cpprefjp/crsearch>
 - <https://github.com/boostjp/site>
+
+<https://github.com/cpprefjp/markdown_to_html>は、site_generatorに統合されてarchiveされたため、2026年分から集計対象外としています。統合以降の作業はsite_generator側で集計します。
 
 
 ### cpprefjp

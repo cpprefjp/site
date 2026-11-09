@@ -36,7 +36,7 @@
 | [commit cpprefjp/site_generator, b522ad6] | tool/adds:1 | exposition-onlyの斜体・バッジ表示に対応 |
 | [commit cpprefjp/site, bfd1134] | cpprefjp/fixm:1 | boolean-testable : 説明専用として登録 |
 | [commit cpprefjp/site, c26fda2] | cpprefjp/link:1 | リンク切れを修正 #1561 |
-| [commit cpprefjp/site_generator, c99ca1e] [commit cpprefjp/markdown_to_html, c99ca1e] | tool/improves:1 | exposition-onlyの斜体・バッジ表示に対応 |
+| [commit cpprefjp/site_generator, c99ca1e] | tool/improves:1 | exposition-onlyの斜体・バッジ表示に対応 |
 | [commit cpprefjp/site, ca315ba] | cpprefjp/link:1 | リンク切れを修正 |
 | [commit cpprefjp/site, bf58add] | cpprefjp/link:1 | C++26 : ライブラリ概要を2025-12 mailingに対応 (#1565) |
 | [commit cpprefjp/site, 52f1c84] | cpprefjp/fixs:1 | out_of_range : 見出しミスを修正 |
@@ -1026,7 +1026,7 @@
 | [commit cpprefjp/site, 213f89d] | cpprefjp/fixm:1 | MSVC : 次のリリースで、C++23が正式機能となる |
 | [commit cpprefjp/site, 6c10528] | cpprefjp/link:1 | リンク切れを修正 (close #1785) |
 | [commit cpprefjp/site_generator, 160e85e, 2ce6b71, 46c8876, 533bf5f, e2af656, f4185da, f95588d] | ignore | markdown_to_htmlとの履歴統合により再出現したコミット。過去年にcpprefjp/markdown_to_htmlとして計上済み |
-| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7, f9a5a6e, 61fb542, 5053419, 3d2f610, 011940c, 5076a48, e84d0d7, e7a023c, 7929ccf, 272eede, a73ff94, e576be3, b0cbaba, 5eaa64e, 4f4a3bd, 03d4d11, afff35f] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
+| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7, f9a5a6e, 61fb542, 5053419, 3d2f610, 011940c, 5076a48, e84d0d7, e7a023c, 7929ccf, 272eede, a73ff94, e576be3, b0cbaba, 5eaa64e, 4f4a3bd, 03d4d11, afff35f, d1fca52] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
 
 
 ## [rotarymars](https://github.com/rotarymars)
@@ -1502,11 +1502,11 @@
 | [commit cpprefjp/site_generator, 4eee9e4] | tool/addl:1 | Add CI |
 | [commit cpprefjp/crsearch, 6775ba3] | ignore | Bump follow-redirects from 1.15.9 to 1.16.0 (依存ライブラリの依存ライブラリの更新のため対象外) |
 | [commit cpprefjp/crsearch, 7869a69] | tool/updatelib:1 | Bump serialize-javascript, terser-webpack-plugin and css-minimizer-webpack-plugin (dependabotのPRを動作確認してマージ) |
-| [commit cpprefjp/site_generator, 802af99] [commit cpprefjp/markdown_to_html, 802af99] | ignore | Fix error |
+| [commit cpprefjp/site_generator, 802af99] | ignore | Fix error |
 | [commit cpprefjp/crsearch, 938837b] | ignore | Bump fast-uri from 3.0.3 to 3.1.2 (依存ライブラリの依存ライブラリの更新のため対象外) |
 | [commit cpprefjp/site_generator, a3baa11] | ignore | More ownership |
 | [commit cpprefjp/site_generator, a9ca74e] | tool/updatelib:4, tool/updatelangs:1 | Updates for dependabot |
-| [commit cpprefjp/site_generator, addee97] [commit cpprefjp/markdown_to_html, addee97] | tool/updatelib:1 | Update for markdown 3.8 |
+| [commit cpprefjp/site_generator, addee97] | tool/updatelib:1 | Update for markdown 3.8 |
 | [commit cpprefjp/site_generator, aee9f0e] | ignore | Fix for tty |
 | [commit cpprefjp/crsearch, bbc1ccf] | ignore | Bump qs and express (依存ライブラリの依存ライブラリの更新のため対象外) |
 | [commit cpprefjp/site_generator, c0cf27c] | ignore | Fix |
