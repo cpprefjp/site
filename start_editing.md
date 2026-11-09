@@ -310,7 +310,8 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 4. スポンサーの追加・削除・修正
 5. 画像の追加・削除・修正
 6. 巻き戻した変更 (revert)
-7. package-lock.jsonの更新
+7. `package-lock.json`の更新
+    - ただし`npm audit`によるセキュリティ修正は、`package-lock.json`のみの変更であっても`tool/security`の対象とする
 
 貢献ポイントの集計方法として、以下の注意事項があります
 
@@ -375,9 +376,9 @@ CIスクリプト、site_generator、kunaiなど。
 | tool/improvel   | 50 | コード改善 : large |
 | tool/updatelib  | 20 | 外部依存ライブラリのアップデート (直接使用のライブラリ単位) |
 | tool/security   | 50 | セキュリティアップデート (npm audit) |
-| tool/updatelang | 10 | 使用言語のアップデート : small (とくにコード変更なく更新できた) |
-| tool/updatelang | 30 | 使用言語のアップデート : medium (多少のコード修正で更新できた) |
-| tool/updatelang | 50 | 使用言語のアップデート : large (大きいまたはむずかしいコード修正をして更新できた) |
+| tool/updatelangs | 10 | 使用言語のアップデート : small (とくにコード変更なく更新できた) |
+| tool/updatelangm | 30 | 使用言語のアップデート : medium (多少のコード修正で更新できた) |
+| tool/updatelangl | 50 | 使用言語のアップデート : large (大きいまたはむずかしいコード修正をして更新できた) |
 | tool/adds       | 30 | 新たな仕組みの導入 small : (C++バージョン追加、カテゴリ追加など) |
 | tool/addm       | 50 | 新たな仕組みの導入 medium |
 | tool/addl       | 100 | 新たな仕組みの導入 large : キーワード自動リンク、相対リンク対応など |

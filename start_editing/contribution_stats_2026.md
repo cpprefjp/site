@@ -974,7 +974,7 @@
 | [commit cpprefjp/site, a74f1c9] | cpprefjp/compiler:4 | bit : GCCで動作確認 |
 | [commit cpprefjp/site, 213f89d] | cpprefjp/fixm:1 | MSVC : 次のリリースで、C++23が正式機能となる |
 | [commit cpprefjp/site, 6c10528] | cpprefjp/link:1 | リンク切れを修正 (close #1785) |
-| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
+| [commit cpprefjp/site, 82e6010, 36edbb5, e5269ea, b5138ad, e28b3a7, f9a5a6e] | ignore | 2026年分の貢献ポイントを集計 (集計作業のため対象外) |
 
 
 ## [rotarymars](https://github.com/rotarymars)
@@ -1395,7 +1395,7 @@
 | [commit cpprefjp/site, 07133f4] | cpprefjp/link:1 | reference_constructs_from_temporary : GCCのバグについて記載 |
 | [commit cpprefjp/site, d3cf0fe] | cpprefjp/fixm:1 | is_enumerable_type : 列挙可能型になる条件を修正 |
 | [commit cpprefjp/site, 5a3486a, ba79093, cdc5723, 780c255] | cpprefjp/fixs:1, cpprefjp/fixm:1 | constant_wrapper : `\|`演算子の表示崩れを修正 (Co-author) |
-| [commit cpprefjp/kunai, ac7f862] | tool/improves:1 | Dockerfile の node をバージョンアップ |
+| [commit cpprefjp/kunai, ac7f862] | tool/updatelangs:1 | Dockerfile の node をバージョンアップ |
 | [commit cpprefjp/site, 34460d3] | cpprefjp/link:3, ignore | cache_latest_view : ファイル名を修正 |
 | [commit cpprefjp/site, 4717f99] | cpprefjp/fixm:1 | execution::on : 説明用のコードを修正 |
 | [commit cpprefjp/site, 5564d0f] | cpprefjp/typo:1 | get_completion_scheduler : typo修正 |
@@ -1488,16 +1488,16 @@
 | [commit cpprefjp/site_generator, 4eee9e4] | tool/adds:1 | Add CI |
 | [commit cpprefjp/site_generator, 802af99] [commit cpprefjp/markdown_to_html, 802af99] | ignore | Fix error |
 | [commit cpprefjp/site_generator, a3baa11] | ignore | More ownership |
-| [commit cpprefjp/site_generator, a9ca74e] | tool/improves:1, tool/updatelib:4 | Updates for dependabot |
+| [commit cpprefjp/site_generator, a9ca74e] | tool/updatelib:4, tool/updatelangs:1 | Updates for dependabot |
 | [commit cpprefjp/site_generator, addee97] [commit cpprefjp/markdown_to_html, addee97] | tool/updatelib:1 | Update for markdown 3.8 |
 | [commit cpprefjp/site_generator, aee9f0e] | ignore | Fix for tty |
 | [commit cpprefjp/site_generator, c0cf27c] | ignore | Fix |
 | [commit cpprefjp/site_generator, c1b9d74] | tool/improves:1 | Bump md2html |
 | [commit cpprefjp/site_generator, c72a50b] | tool/fixbug:1 | Fix ownership |
 | [commit cpprefjp/site_generator, bfb4188] | tool/improves:1 | Remove submodule |
-| [commit cpprefjp/kunai, e77f3a3] | tool/improvem:1, tool/security:1 | Run npm audit fix |
+| [commit cpprefjp/kunai, e77f3a3] | tool/security:1 | Run npm audit fix |
 | [commit cpprefjp/kunai, 356a5cc] | ignore | Add me to codeowner for review notification |
-| [commit cpprefjp/kunai, 39aa059] | tool/improves:1 | Use node 24 in CI |
+| [commit cpprefjp/kunai, 39aa059] | tool/updatelangs:1 | Use node 24 in CI |
 | [commit cpprefjp/crsearch, 9deca11] | ignore | Add me to codeowners |
 | [commit cpprefjp/kunai, b0efad8] | tool/adds:1 | Add CI for docker |
 | [commit cpprefjp/kunai, e56c8db] | tool/fixbug:1 | Fix DOCKER_IT |
