@@ -35,7 +35,7 @@ hoge b; //32バイト境界にアライメントする
 ```
 
 - `alignas(定数)`は、定数の値でアライメントをする。0または0として評価される値を指定したときは何も起きない。
-- `alignas(型)`は、`alignas(alignof(型))`と等価である。ある型 A のアライメントを別の型 B にも適用したいとき`alignas(A) B hoge;`のように書ける。
+- `alignas(型)`は、`alignas(alignof(型))`と等価である。ある型 A のアライメントを別の型 B にも適用したいとき`alignas(A) B hoge;`のように書ける。ただし、A のアライメントは B のアライメント以上でなければならない。
 
 ただしGCC 4.9では`alignas(0)`は使えず、下記のエラーを出力する。
 
@@ -43,14 +43,18 @@ hoge b; //32バイト境界にアライメントする
 error: requested alignment is not a positive power of 2
 ```
 
+また、ひとつの宣言に指定したすべての`alignas`を合わせた効果が、`alignas`を指定しなかった場合に要求されるアライメントよりも弱い場合、プログラムは不適格となる。例えば`int`のアライメントが4である環境では、`alignas(1) int i;`は不適格である。一方、`alignas(1) alignas(4) int i;`は、合わせた効果が4バイト境界へのアライメントとなるため適格である。
+
+なお、GCCは16.2時点で`alignas(1) int i;`をエラーにも警告にもしないが、Clangではエラーとなる。
+
 
 ## 例
 ```cpp example
 #include <iostream>
 
 struct test {
-  alignas(1) int i1, i1_n;
-  alignas(2) int i2, i2_n;
+  alignas(1) char c1, c1_n;
+  alignas(2) char c2, c2_n;
   alignas(4) int i4, i4_n;
   alignas(8) int i8, i8_n;
   alignas(16) int i16, i16_n;
@@ -70,8 +74,8 @@ int main()
   test t;
 
   std::cout <<
-    "alignas(1) int i1:   " << distance(&t.i1_n, &t.i1) << std::endl <<
-    "alignas(2) int i2:   " << distance(&t.i2_n, &t.i2) << std::endl <<
+    "alignas(1) char c1:  " << distance(&t.c1_n, &t.c1) << std::endl <<
+    "alignas(2) char c2:  " << distance(&t.c2_n, &t.c2) << std::endl <<
     "alignas(4) int i4:   " << distance(&t.i4_n, &t.i4) << std::endl <<
     "alignas(8) int i8:   " << distance(&t.i8_n, &t.i8) << std::endl <<
     "alignas(16) int i16: " << distance(&t.i16_n, &t.i16) << std::endl;
@@ -86,8 +90,8 @@ int main()
 
 ### 出力
 ```
-alignas(1) int i1:   4
-alignas(2) int i2:   4
+alignas(1) char c1:  1
+alignas(2) char c2:  2
 alignas(4) int i4:   4
 alignas(8) int i8:   8
 alignas(16) int i16: 16
