@@ -126,7 +126,7 @@ constexpr int f(bool b)
 
 
 ### constexprメンバ関数
-- `constexpr`メンバ関数は自動的に`const`修飾され、明示的な`const`修飾はできない
+- `constexpr`メンバ関数は自動的に`const`修飾される (明示的に`const`修飾することもできる)
 - 仮想関数は、`constexpr`関数として定義できない
 
 

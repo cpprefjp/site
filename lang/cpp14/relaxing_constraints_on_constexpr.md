@@ -170,7 +170,7 @@ constexpr int f(int x)
 
 
 ### `constexpr`非静的メンバ関数の、暗黙の`const`修飾を削除
-C++11では、`constexpr`非静的メンバ関数は、暗黙で`const`が付けられ、明示的に`const`を付けることもできなかった：
+C++11では、`constexpr`非静的メンバ関数は、暗黙で`const`が付けられていた (明示的に`const`を付けることもできる)：
 
 ```cpp
 struct X {
@@ -181,7 +181,36 @@ struct X {
 
 C++14ではこの仕様が削除され、`const`か非`const`かを、明示的に指定することになった。
 
-※この変更によって、既存コードの互換性は壊れない。
+※この変更は破壊的変更であり、C++11で有効だったコードがC++14では不適格となる場合がある (N3598、C++14規格のAnnex C `[diff.cpp11.dcl.dcl]`)。例えば、`const`を付けずに宣言した`constexpr`非静的メンバ関数を`const`オブジェクトに対して呼び出すコードは、C++14では不適格となるため、明示的に`const`を付ける必要がある：
+
+```cpp
+struct X {
+  int v;
+  constexpr X(int v) : v(v) {}
+  constexpr int f() { return v; } // C++14ではconst修飾されない
+};
+
+constexpr X x(1);
+constexpr int a = x.f(); // C++11 : OK
+                         // C++14 : コンパイルエラー！
+                         // xはconstオブジェクトだが、f()はconst修飾されていない
+```
+
+また、`constexpr const int& f();`と`int& f();`のように、C++11では`const`修飾の有無が異なるオーバーロードとなっていた宣言の組は、C++14では戻り値型のみが異なる同一関数の宣言となり、不適格となる。
+
+さらに、コンパイルは通るものの動作が変わる場合もある。`constexpr`非静的メンバ関数内の`this`の型が、C++11では`const X*`、C++14では`X*`となるため、`this`を引数とするオーバーロード解決の結果が変わることがある：
+
+```cpp
+struct X;
+constexpr int h(const X*) { return 2; }
+constexpr int h(X*) { return 1; }
+
+struct X {
+  constexpr X() {}
+  constexpr int f() { return h(this); } // C++11 : h(const X*)が呼ばれ、2を返す
+                                        // C++14 : h(X*)が呼ばれ、1を返す
+};
+```
 
 
 ### `constexpr`コンストラクタがbodyを持てるようになった
@@ -213,3 +242,4 @@ C++14では、`constexpr`関数、`constexpr`メンバ関数、暗黙の`const`�
 - [N3597 Relaxing constraints on `constexpr` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3597.html)
 - [N3598 `constexpr` member functions and implicit `const`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3598.html)
 - [N3652 Relaxing constraints on `constexpr` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3652.html)
+- [C++14 Annex C `[diff.cpp11.dcl.dcl]`](https://timsong-cpp.github.io/cppwp/n4140/diff.cpp11.dcl.dcl)
