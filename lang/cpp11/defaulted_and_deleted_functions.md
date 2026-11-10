@@ -82,7 +82,7 @@ int main()
 
 
 ## 仕様
-- `= default`は「明示的なデフォルト定義 (explicitly-defaulted definition)」と呼ばれる機能である。この機能は、暗黙定義される非インライン、かつ非仮想の特殊メンバ関数の挙動をそのままにして、実装に対してより効率的な定義の使用を求めることを許可するものである：
+- `= default`は「明示的なデフォルト定義 (explicitly-defaulted definition)」と呼ばれる機能である。この機能は、暗黙定義される特殊メンバ関数の挙動をそのままにして、`inline`や`virtual`といった修飾を明示的に指定すること、および実装に対してより効率的な定義の使用を求めることを許可するものである：
 
     ```cpp
     struct sometype {
@@ -91,15 +91,15 @@ int main()
       // デフォルト動作のコピーコンストラクタを使用する
       sometype(const sometype&) = default;
 
-      // デフォルト動作のデストラクタを使用する。
-      // ただし、このデストラクタは仮想関数とする。
-      virtual ~sometype() = default;
+      // デストラクタは仮想関数として宣言する
+      virtual ~sometype();
     };
 
     // デフォルト動作のデフォルトコンストラクタを使用する
     sometype::sometype() = default;
 
-    // デストラクタをインライン関数にする
+    // デフォルト動作のデストラクタを使用する。
+    // ただし、このデストラクタはインライン関数とする。
     inline sometype::~sometype() = default;
     ```
 
