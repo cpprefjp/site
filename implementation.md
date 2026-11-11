@@ -296,6 +296,13 @@
 - 2026 Update 12以降は`/std:c++23`オプションを使用する
 - 2022 Update 14以降は`/std:c++23preview`オプションを使用する。2026 Update 12以降では`/std:c++23`の別名となり、非推奨となった
 - それ以前は`/std:c++latest`オプションを使用する
+
+以下の機能は、C++23のモードを指定しても既定では有効にならないため、個別にオプションを指定する。
+
+- [`<cmath>`](/reference/cmath.md)・[`<cstdlib>`](/reference/cstdlib.md)の`constexpr`対応 (P0533R9) は、2026 Update 12で実装された。有効化には`/Zc:cmath`オプションを使用する。将来のバージョンでは`/std:c++23`が`/Zc:cmath`を含むようになる予定である
+- `constexpr`関数の即時関数への昇格 (P2564R3) は、2026 Update 12で実装され、C++23以降のモードでは既定で有効である。C++20のモードで有効化するには`/Zc:immediateEscalation`オプションを使用する
+
+- [Visual Studio 2026 リリースノート](https://learn.microsoft.com/ja-jp/visualstudio/releases/2026/release-notes)
 - [MSVC Build Tools version 14.52 release candidate now available - C++ Team Blog](https://devblogs.microsoft.com/cppblog/msvc-build-tools-version-14-52-release-candidate-now-available/)
 
 

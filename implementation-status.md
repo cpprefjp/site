@@ -268,7 +268,7 @@
 | P2246R1: [静的な診断メッセージの文字エンコーディング](/lang/cpp23/character_encoding_of_diagnostic_text.md) | `static_assert`や`[[deprecated]]`などの診断メッセージの文字集合に関する要件をなくす | 16 | Yes | 2022.2 | 2022 |
 | P2448R2: [`constexpr`関数が定数実行できない場合でも適格とする](/lang/cpp23/relaxing_some_constexpr_restrictions.md) | | 13 | 17 (partial)<br/>19 | 2024.0 (partial) | No |
 | P2647R1: [`constexpr`関数内での`static constexpr`変数を許可](/lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.md) | `constexpr`関数のローカルで定数を定義できるようにする | 13 | 16 | 2023.2 | 2026 Update 6 |
-| P2564R3: [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md) | `consteval`呼び出しを含む`constexpr`関数を条件付きで`consteval`関数とみなすようにする | 14 | 17 | 2024.0 | - |
+| P2564R3: [`constexpr`関数内で`consteval`関数を呼び出せない問題を緩和](/lang/cpp23/consteval_needs_to_propagate_up.md) | `consteval`呼び出しを含む`constexpr`関数を条件付きで`consteval`関数とみなすようにする | 14 | 17 | 2024.0 | 2026 Update 12 |
 | P1102R2: [ラムダ式で`()`を省略できる条件を緩和](/lang/cpp23/down_with_lambda_parens.md) | 修飾や戻り値型をともなってもパラメータリストが空であれば`()`を省略できる | 11 | 13 | 2022.2 | 2022 Update 14 |
 | P2173R1: [ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md) | ラムダ式のいくつかの箇所に属性を記述できるようにする | 9 | 13 | 2022.2 | 2022 Update 14 |
 | P1774R8: [コード内容の仮定をコンパイラに伝えるassume属性](/lang/cpp23/portable_assumptions.md) | 最適化のために、コードの仮定をコンパイラに伝える属性を標準化する | 13 | 19 | No | No |
@@ -365,7 +365,7 @@
 | P3668R4: [後置インクリメント・デクリメント演算のdefault定義](/lang/cpp29/defaulting_postfix_increment_and_decrement_operations.md) | 後置`++`／`--`を`= default`で定義（前置版から自動生成）できるようにする | | 24 | | |
 | P2434R5: [整数からポインタへの変換とポインタの由来の扱いを規定](/lang/cpp29/nondeterministic_pointer_provenance.md) | 整数からポインタへの変換では、その整数へ変換できるポインタ値のうち、プログラムの動作が定義される値が選択されると規定する | | | | |
 | P3347R6: [無効なポインタ値の読み書き・コピーを定義された動作とする](/lang/cpp29/invalid_pointer_operations.md) | 無効なポインタ値の使用のうち、間接参照は未定義動作、比較などは処理系定義のままとし、読み込み・書き込み・コピーなどそれ以外の操作を定義された動作とする | | | | |
-| P3658R1: [数学互換記法の文字を識別子として許可](/lang/cpp29/adjust_identifier_following_new_Unicode_recommendations.md) | Unicodeの新しい勧告に従い、`∇f`や`x²`のような数学記法の文字（ID_Compat_Math_Start／Continueプロパティを持つ文字）を識別子に使用できるようにする | 17 | 16 | | |
+| P3658R1: [数学互換記法の文字を識別子として許可](/lang/cpp29/adjust_identifier_following_new_Unicode_recommendations.md) | Unicodeの新しい勧告に従い、`∇f`や`x²`のような数学記法の文字（ID_Compat_Math_Start／Continueプロパティを持つ文字）を識別子に使用できるようにする | 17 | 16 | | 2026 Update 12: C++23モード以降で有効 |
 | P3950R1: [コルーチンのpromise型で`return_value`と`return_void`の両方の宣言を許可](/lang/cpp29/return_value_and_return_void_are_not_mutually_exclusive.md) | 1つのコルーチン内に、値をともなう`co_return`文とともなわない`co_return`文を混在させられるようにする | 17 | | | |
 | P3733R1: [名前付きユニバーサルキャラクタ名で使用できる別名を拡張](/lang/cpp29/more_named_universal_character_escapes.md) | `\N{…}`に指定できる文字名の別名の分類制限を撤廃し、`\N{NBSP}`のような略称 (abbreviation) なども使用できるようにする | 17 | 23 | | |
 | P3847R1: [ラムダ式のキャプチャが書かれた順に初期化されることを保証](/lang/cpp29/lexical_order_for_lambdas.md) | 明示的なキャプチャに対応するクロージャ型のメンバ変数が、キャプチャを書いた順に宣言・初期化され、逆順に破棄されることを保証する | Yes | Yes | | Yes |
