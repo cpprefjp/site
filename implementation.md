@@ -149,7 +149,7 @@
 
 | 表記          | 製品名 [Visual Studio バージョン] <sup><a id="note_ref-t1-1" href="#note-t1-1">†1</a></sup> | VC++ バージョン <sup><a id="note_ref-t1-2" href="#note-t1-2">†2</a></sup> | `_MSC_VER` | `_MSC_FULL_VER` |
 |---------------|----------------------------------------|-----------------|------------|-----------------|
-| 2026 Update 12 | Visual Studio 2026 Version 18.12      | 14.52           | 1952       | 195237025       |
+| 2026 Update 12 | Visual Studio 2026 Version 18.12.0    | 14.52           | 1952       | 195237029       |
 | 2026 Update 11 | Visual Studio 2026 Version 18.11.4    | 14.51           | 1951       | 195136263       |
 | 2026 Update 11 | Visual Studio 2026 Version 18.11.3    | 14.51           | 1951       | 195136260       |
 | 2026 Update 11 | Visual Studio 2026 Version 18.11.2    | 14.51           | 1951       | 195136260       |
@@ -176,7 +176,7 @@
 | 2026 Update 6  | Visual Studio 2026 Version 18.6.3     | 14.51           | 1951       | 195136246       |
 | 2026 Update 6  | Visual Studio 2026 Version 18.6.2     | 14.51           | 1951       | 195136246       |
 | 2026 Update 6  | Visual Studio 2026 Version 18.6.1     | 14.51           | 1951       | 195136244       |
-| 2026 Update 6  | Visual Studio 2026 Version 18.6       | 14.51           | 1951       | 195136246       |
+| 2026 Update 6  | Visual Studio 2026 Version 18.6.0     | 14.51           | 1951       | 195136243       |
 | 2026 Update 5  | Visual Studio 2026 Version 18.5.3     | 14.50           | 1950       | 195035730       |
 | 2026 Update 5  | Visual Studio 2026 Version 18.5.2     | 14.50           | 1950       | 195035730       |
 | 2026 Update 5  | Visual Studio 2026 Version 18.5.1     | 14.50           | 1950       | 195035729       |
@@ -192,7 +192,7 @@
 | 2026 Update 3  | Visual Studio 2026 Version 18.3.0     | 14.50           | 1950       | 195035724       |
 | 2026 Update 2  | Visual Studio 2026 Version 18.2.2     | 14.50           | 1950       | 195035724       |
 | 2026 Update 2  | Visual Studio 2026 Version 18.2.1     | 14.50           | 1950       | 195035723       |
-| 2026 Update 2  | Visual Studio 2026 Version 18.2       | 14.50           | 1950       | 195035723       |
+| 2026 Update 2  | Visual Studio 2026 Version 18.2.0     | 14.50           | 1950       | 195035722       |
 | 2026 Update 1  | Visual Studio 2026 Version 18.1.1     | 14.50           | 1950       | 195035721       |
 | 2026 Update 1  | Visual Studio 2026 Version 18.1.0     | 14.50           | 1950       | 195035720       |
 | 2026           | Visual Studio 2026 Version 18.0.2     | 14.50           | 1950       | 195035719       |
