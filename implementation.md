@@ -147,7 +147,7 @@
 
 以下に当サイトにおけるバージョン表記と、製品・バージョン等の対応を示す。
 
-| 表記          | 製品名 [Visual Studio バージョン] <sup><a id="note_ref-t1-1" href="#note-t1-1">†1</a></sup> | VC++ バージョン <sup><a id="note_ref-t1-2" href="#note-t1-2">†2</a></sup> | `_MSC_VER` | `_MSC_FULL_VER` |
+| 表記          | 製品名 [Visual Studio バージョン] <sup><a id="note_ref-t1-1" href="#note-t1-1">†1</a></sup> | VC++ バージョン <sup><a id="note_ref-t1-2" href="#note-t1-2">†2</a></sup> | `_MSC_VER` | `_MSC_FULL_VER` <sup><a id="note_ref-t1-5" href="#note-t1-5">†5</a></sup> |
 |---------------|----------------------------------------|-----------------|------------|-----------------|
 | 2026 Update 12 | Visual Studio 2026 Version 18.12.0    | 14.52           | 1952       | 195237029       |
 | 2026 Update 11 | Visual Studio 2026 Version 18.11.4    | 14.51           | 1951       | 195136263       |
@@ -309,6 +309,8 @@
 	- [Description of Visual Studio 2013 Update 1](https://support.microsoft.com/en-us/help/2911573/description-of-visual-studio-2013-update-1)
 4. **<a id="note-t1-4" href="#note_ref-t1-4">^</a>** 2017は2015とバイナリ互換が保たれているためメジャーバージョンアップは行われなかった。その結果、製品バージョンとVisual C++バージョンが一致しなくなった。
   [Binary Compatibility and Pain-free Upgrade: Why Moving to Visual Studio 2017 is almost “too easy”](https://blogs.msdn.microsoft.com/vcblog/2017/03/07/binary-compatibility-and-pain-free-upgrade-why-moving-to-visual-studio-2017-is-almost-too-easy/)
+5. **<a id="note-t1-5" href="#note_ref-t1-5">^</a>** `_MSC_FULL_VER`の列は、`_MSC_VER`が更新されないままバージョンアップされた例があるために設けている。2019 Update 8 (バージョン 16.8) と2019 Update 9 (バージョン 16.9) は、VC++バージョンも`_MSC_VER`も同じ値であり、`_MSC_FULL_VER`でしか区別できない。
+    ただしこの値の調査は手間がかかるため、記載は任意とする。わからない場合は空欄のままでよい。
 
 - 2015以降、Visual Studioの既定のインストールではVisual C++は入らなくなった。Visual StudioのインストーラでVisual C++コンポーネントを選択する必要がある。
   [Visual Studio 2015 の Visual C++](https://docs.microsoft.com/ja-JP/previous-versions/60k1461a(v=vs.140)?redirectedfrom=MSDN) の [警告] を参照。
