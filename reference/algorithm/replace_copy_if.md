@@ -125,7 +125,6 @@ int main() {
 #include <algorithm>
 #include <iostream>
 #include <vector>
-#include <iterator>
 
 struct Point {
   int x;
@@ -146,14 +145,19 @@ int main() {
     {1, 2},
   };
 
-  // 値が{1, 2}の要素をすべて{9, 9}に置き換えたものを出力する
+  // 値が{1, 2}の要素をすべて{9, 9}に置き換えたものをresultにコピーする
+  std::vector<Point> result(v.size());
   std::replace_copy_if(
     v.begin(),
     v.end(),
-    std::ostream_iterator<Point>(std::cout, "\n"),
+    result.begin(),
     [](const Point& p) { return p.x == 1 && p.y == 2; },
     {9, 9}
   );
+
+  for (const Point& p : result) {
+    std::cout << p << std::endl;
+  }
 }
 ```
 * std::replace_copy_if[color ff0000]
