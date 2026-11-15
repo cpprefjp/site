@@ -11,12 +11,16 @@ namespace std::contracts {
 ```
 
 ## 概要
-契約違反が発生した際に呼び出されるデフォルトのハンドラー関数。
+デフォルトの契約違反ハンドラを呼び出す。
 
-この関数は、契約違反が発生した際に、[`contract_violation`](contract_violation.md)オブジェクトを受け取り、デフォルトの処理を実行する。
+ユーザーが定義した契約違反ハンドラ`::handle_contract_violation`の中から、[`contract_violation`](contract_violation.md)オブジェクトを渡してデフォルトの処理を実行させるために使用できる。
 
 ## 効果
-契約違反の情報を標準エラー出力に出力し、[`std::terminate()`](/reference/exception/terminate.md)を呼び出す。
+デフォルトの契約違反ハンドラを引数`violation`で呼び出す。
+
+## 備考
+- デフォルトの契約違反ハンドラは処理系によって提供され、その具体的な動作は処理系に委ねられている
+- デフォルトの契約違反ハンドラは、[`contract_violation`](contract_violation.md)オブジェクトの内容を適切に整形した診断メッセージを出力し、その後正常にリターンすることが推奨されている
 
 ## バージョン
 ### 言語
