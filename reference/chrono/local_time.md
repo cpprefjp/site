@@ -92,7 +92,8 @@ using namespace std::chrono_literals;
 int main()
 {
   // local_timeは、システム時間のエポックからの経過時間によって構築できる
-  chrono::local_time<chrono::system_clock::duration> now {chrono::system_clock::now().time_since_epoch()};
+  chrono::system_clock::time_point sys_now = chrono::system_clock::now();
+  chrono::local_time<chrono::system_clock::duration> now {sys_now.time_since_epoch()};
 
   // 秒単位の時間点 (日付と時間が出力される)
   chrono::local_seconds sec_tp = chrono::floor<chrono::seconds>(now);
@@ -103,10 +104,11 @@ int main()
   std::cout << day_tp << std::endl;
 
   // 以下は、日本のタイムゾーンで日時を出力する方法：
+  // (zoned_timeにlocal_timeを渡すとタイムゾーンの変換は行われないため、システム時間を渡す)
   // 1. コンピュータに設定されたタイムゾーンとして日時を出力
-  std::cout << chrono::zoned_time{chrono::current_zone(), now} << std::endl;
+  std::cout << chrono::zoned_time{chrono::current_zone(), sys_now} << std::endl;
   // 2. 日本のタイムゾーンとして日時を出力
-  std::cout << chrono::zoned_time{"Asia/Tokyo", now} << std::endl;
+  std::cout << chrono::zoned_time{"Asia/Tokyo", sys_now} << std::endl;
 
   // year_month_dayオブジェクトからローカル時間を構築
   chrono::local_days ld{2020y/3/1};
