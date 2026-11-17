@@ -30,7 +30,7 @@ namespace std {
 
 
 ## 効果
-現在の値`p`と`expected`が等しければ、`*p`を`desired`で置き換え、そうでなければ`*p`を`*expected`で置き換える。
+現在の値`*p`と`*expected`が等価であれば`*p`を`desired`で置き換え、そうでなければ`*expected`を`*p`の値で置き換える。
 
 等しい場合は`success`メモリオーダー、そうでなければ`failure`メモリオーダーに従って、アトミックに値の置き換えが行われる。
 
@@ -46,6 +46,8 @@ namespace std {
 
 ## 備考
 等値比較は、2つの`shared_ptr`オブジェクトが同じポインタを保持し、リソースを共有していれば`true`となる。
+
+この関数は、値が交換可能な場合でもCAS (compare-and-swap) 操作が失敗する可能性がある (Spurious Failure)。
 
 ## 非推奨・削除の詳細
 

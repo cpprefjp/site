@@ -30,7 +30,7 @@ namespace std {
 
 
 ## 効果
-現在の値`p`と`expected`が等しければ、`*p`を`desired`で置き換え、そうでなければ`*p`を`*expected`で置き換える。
+現在の値`*p`と`*expected`が等価であれば`*p`を`desired`で置き換え、そうでなければ`*expected`を`*p`の値で置き換える。
 
 等しい場合は`success`メモリオーダー、そうでなければ`failure`メモリオーダーに従って、アトミックに値の置き換えが行われる。
 
