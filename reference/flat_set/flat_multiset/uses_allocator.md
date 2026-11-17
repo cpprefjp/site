@@ -6,9 +6,9 @@
 
 ```cpp
 namespace std {
-  template <class Key, class T, class Compare, class KeyContainer,
+  template <class Key, class Compare, class KeyContainer,
             class Alloc>
-  struct uses_allocator<flat_multiset<Key, T, Compare, KeyContainer>,
+  struct uses_allocator<flat_multiset<Key, Compare, KeyContainer>,
                         Alloc>
     : bool_constant<uses_allocator_v<KeyContainer, Alloc>> { };
 }
