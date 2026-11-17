@@ -6,9 +6,9 @@
 
 ```cpp
 namespace std {
-  template <class BidirectinalIterator, class Allocator>
-  void swap(const match_results<BidirectionalIterator, Allocator>& m1,
-            const match_results<BidirectionalIterator, Allocator>& m2);
+  template <class BidirectionalIterator, class Allocator>
+  void swap(match_results<BidirectionalIterator, Allocator>& m1,
+            match_results<BidirectionalIterator, Allocator>& m2);
 }
 ```
 
