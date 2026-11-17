@@ -21,22 +21,22 @@ bool try_lock_until(const chrono::time_point<Clock, Duration>& abs_time);
 
 ## 効果
 ```cpp
-pm->try_lock_until_shared(abs_time);
+pm->try_lock_shared_until(abs_time);
 ```
 
 ※`pm`はメンバ変数として保持している、ミューテックスオブジェクトへのポインタ
 
 
 ## 事後条件
-[`owns_lock()`](owns_lock.md)の値が、`pm->try_lock_until_shared(abs_time)`の戻り値になること
+[`owns_lock()`](owns_lock.md)の値が、`pm->try_lock_shared_until(abs_time)`の戻り値になること
 
 
 ## 戻り値
-`pm->try_lock_until_shared(abs_time)`の戻り値が返る
+`pm->try_lock_shared_until(abs_time)`の戻り値が返る
 
 
 ## 例外
-この関数は、`pm->try_lock_until_shared()` 関数内で投げられうるあらゆる例外を投げる可能性がある。 
+この関数は、`pm->try_lock_shared_until()` 関数内で投げられうるあらゆる例外を投げる可能性がある。 
 
 そのほかに、以下のerror conditionを持つ[`system_error`](/reference/system_error/system_error.md)例外オブジェクトを送出する可能性がある：
 
