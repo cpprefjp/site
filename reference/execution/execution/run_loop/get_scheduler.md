@@ -27,6 +27,7 @@ run-loop-scheduler get_scheduler() noexcept;
 #include <cassert>
 #include <concepts>
 #include <execution>
+#include <stop_token>
 namespace ex = std::execution;
 
 int main()
@@ -38,10 +39,16 @@ int main()
   ex::sender auto sndr = ex::schedule(sch);
 
   // スケジュールSenderの完了シグネチャ集合を確認
-  using Sigs = ex::completion_signatures_of_t<decltype(sndr)>;
-  static_assert(std::same_as<Sigs,
+  // 停止要求を受け付けない環境では、値完了のみとなる
+  using Sigs1 = ex::completion_signatures_of_t<decltype(sndr), ex::env<>>;
+  static_assert(std::same_as<Sigs1,
+    ex::completion_signatures<ex::set_value_t()>>);
+
+  // 停止要求を受け付ける環境では、停止完了も含まれる
+  using Env = ex::env<ex::prop<std::get_stop_token_t, std::inplace_stop_token>>;
+  using Sigs2 = ex::completion_signatures_of_t<decltype(sndr), Env>;
+  static_assert(std::same_as<Sigs2,
     ex::completion_signatures<ex::set_value_t(),
-                              ex::set_error_t(std::exception_ptr),
                               ex::set_stopped_t()>>);
 
   // スケジュールSender属性の値完了Schedulerを確認
@@ -56,12 +63,14 @@ int main()
 * ex::schedule[link ../schedule.md]
 * ex::completion_signatures_of_t[link ../completion_signatures_of_t.md]
 * ex::completion_signatures[link ../completion_signatures.md]
+* ex::env[link ../env.md]
 * ex::set_value_t[link ../set_value.md]
-* ex::set_error_t[link ../set_error.md]
+* ex::prop[link ../prop.md]
+* std::get_stop_token_t[link /reference/execution/get_stop_token.md]
+* std::inplace_stop_token[link /reference/stop_token/inplace_stop_token.md]
 * ex::set_stopped_t[link ../set_stopped.md]
 * ex::get_completion_scheduler[link ../get_completion_scheduler.md]
 * ex::get_env[link ../get_env.md]
-* std::exception_ptr[link /reference/exception/exception_ptr.md]
 
 ### 出力
 ```
