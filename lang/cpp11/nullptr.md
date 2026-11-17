@@ -44,12 +44,14 @@ C++98まで、ヌルポインタを表すために`0`数値リテラルや[`NULL
 
 - `bool operator==(nullptr_t, nullptr_t);`
 - `bool operator!=(nullptr_t, nullptr_t);`
-- `bool operator<(nullptr_t, nullptr_t);`
-- `bool operator<=(nullptr_t, nullptr_t);`
-- `bool operator>(nullptr_t, nullptr_t);`
-- `bool operator>=(nullptr_t, nullptr_t);`
+- `bool operator<(nullptr_t, nullptr_t);` (C++14で削除)
+- `bool operator<=(nullptr_t, nullptr_t);` (C++14で削除)
+- `bool operator>(nullptr_t, nullptr_t);` (C++14で削除)
+- `bool operator>=(nullptr_t, nullptr_t);` (C++14で削除)
 
 2つの[`nullptr_t`][nullptr_t]型を比較した場合、`==`、`<=`、`>=`演算子の結果は`true`となり、それ以外の演算子は`false`となる。
+
+C++14では、[CWG Issue 1512](https://cplusplus.github.io/CWG/issues/1512.html) (N3624) の解決により、[`nullptr_t`][nullptr_t]型同士の`<`、`<=`、`>`、`>=`による比較は削除され、`==`と`!=`のみが可能となった。この変更は欠陥報告 (DR) として扱われるため、現在のGCCやClangはC++11モードでもこれらの比較をコンパイルエラーとする。
 
 
 ## 例
@@ -133,3 +135,6 @@ private:
 - [N1601 A name for the null pointer: `nullptr` (revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1601.pdf)
 - [N2214 A name for the null pointer: `nullptr` (revision 3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2214.pdf)
 - [N2431 A name for the null pointer: `nullptr` (revision 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2431.pdf)
+- [CWG Issue 1512. Pointer comparison vs qualification conversions](https://cplusplus.github.io/CWG/issues/1512.html)
+- [N3624 Core Issue 1512: Pointer comparison vs qualification conversions (revision 3)](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3624.html)
+    - C++14で、`nullptr_t`型同士の関係演算 (`<`、`<=`、`>`、`>=`) が削除された
