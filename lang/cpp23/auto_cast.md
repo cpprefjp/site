@@ -39,9 +39,9 @@ int x = 0;
 const int& r = x;
 int a[3]{};
 
-auto(r);  // int型のprvalue
-auto(a);  // int*型のprvalue
-auto{x};  // int型のprvalue。auto(x)と同じ
+(void)auto(r);  // int型のprvalue
+(void)auto(a);  // int*型のprvalue
+auto{x};        // int型のprvalue。auto(x)と同じ
 ```
 
 - `auto()`のように初期化子が空の場合と、`auto{a, b}`のように要素が2つ以上ある場合は型を推論できないため、不適格となる
