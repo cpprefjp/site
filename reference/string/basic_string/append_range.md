@@ -7,7 +7,7 @@
 
 ```cpp
 template <container-compatible-range<charT> R>
-constexpr void append_range(R&& rg); // C++23
+constexpr basic_string& append_range(R&& rg); // C++23
 ```
 
 ## 概要
@@ -15,7 +15,13 @@ Rangeの要素を末尾へ追加する。
 
 
 ## 効果
-[`append`](append.md)`(basic_string(`[`from_range`](../../ranges/from_range_t.md)`,` [`forward`](../../utility/forward.md)`<R>(rg),` [`get_allocator()`](get_allocator.md)`));`
+以下と等価：
+
+`return` [`append`](append.md)`(basic_string(`[`from_range`](../../ranges/from_range_t.md)`,` [`forward`](../../utility/forward.md)`<R>(rg),` [`get_allocator()`](get_allocator.md)`));`
+
+
+## 戻り値
+`*this`
 
 
 ## 例
