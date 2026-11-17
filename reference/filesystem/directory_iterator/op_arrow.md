@@ -6,7 +6,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-const directory_entry& operator->() const;
+const directory_entry* operator->() const;
 ```
 * directory_entry[link /reference/filesystem/directory_entry.md]
 
@@ -15,7 +15,7 @@ const directory_entry& operator->() const;
 
 
 ## 戻り値
-`*this`によってキャッシュされたファイルの各種属性を付加した[`directory_entry`](/reference/filesystem/directory_entry.md)オブジェクトを返す。
+`*this`によってキャッシュされたファイルの各種属性を付加した[`directory_entry`](/reference/filesystem/directory_entry.md)オブジェクトへのポインタを返す。
 
 
 ## 例
