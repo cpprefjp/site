@@ -57,10 +57,10 @@ shared_lock(shared_lock&& u) noexcept;                            // (9)
 - (1) : [`owns_lock()`](owns_lock.md) `== false`
 - (2) : [`owns_lock()`](owns_lock.md) `== true`
 - (3) : [`owns_lock()`](owns_lock.md) `== false`
-- (4) : [`owns_lock()`](owns_lock.md) `== m.try_lock()`
+- (4) : [`owns_lock()`](owns_lock.md) `== m.try_lock_shared()`
 - (5) : [`owns_lock()`](owns_lock.md) `== true`
-- (6) : [`owns_lock()`](owns_lock.md) `== m.try_lock_until(abs_time)`
-- (7) : [`owns_lock()`](owns_lock.md) `== m.try_lock_for(rel_time)`
+- (6) : [`owns_lock()`](owns_lock.md) `== m.try_lock_shared_until(abs_time)`
+- (7) : [`owns_lock()`](owns_lock.md) `== m.try_lock_shared_for(rel_time)`
 - (9) : `u`は共有ミューテックスオブジェクトへの有効なポインタを指さず、[`owns_lock()`](owns_lock.md) `== false`となる。
 
 
