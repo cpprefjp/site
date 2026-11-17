@@ -48,8 +48,8 @@ shared_lock(shared_lock&& u) noexcept;                            // (9)
 - (3) : 共有ミューテックスオブジェクトへの参照を受け取り、共有ロックの取得操作をここでは呼び出さない。共有ミューテックスオブジェクトへのポインタを保持する。
 - (4) : 共有ミューテックスオブジェクトへの参照を受け取り、`m.try_lock_shared()`を呼び出す。共有ミューテックスオブジェクトへのポインタを保持する。
 - (5) : 共有ロック取得済みの共有ミューテックスオブジェクトへの参照を受け取り、共有ロックの取得操作を呼び出さない。共有ミューテックスオブジェクトへのポインタを保持する。
-- (6) : 共有ミューテックスオブジェクトへの参照を受け取り、`m.try_lock_until_shared(abs_time)`を呼び出す。共有ミューテックスオブジェクトへのポインタを保持する。
-- (7) : 共有ミューテックスオブジェクトへの参照を受け取り、`m.try_lock_for_shared(rel_time)`を呼び出す。共有ミューテックスオブジェクトへのポインタを保持する。
+- (6) : 共有ミューテックスオブジェクトへの参照を受け取り、`m.try_lock_shared_until(abs_time)`を呼び出す。共有ミューテックスオブジェクトへのポインタを保持する。
+- (7) : 共有ミューテックスオブジェクトへの参照を受け取り、`m.try_lock_shared_for(rel_time)`を呼び出す。共有ミューテックスオブジェクトへのポインタを保持する。
 - (9) : ムーブコンストラクタ。`shared_lock`オブジェクト`u`が保持している共有ミューテックスの所有権を、自分のオブジェクトに移動する。共有ミューテックスオブジェクトへのポインタおよび[`owns_lock()`](owns_lock.md)の状態を`u`から移動する。
 
 
@@ -108,14 +108,14 @@ int main()
     chrono::steady_clock::time_point tp = chrono::steady_clock::now() + chrono::seconds(3);
 
     // (6)
-    // コンストラクタ内でmtx.try_lock_until_shared(tp)を呼び出す
+    // コンストラクタ内でmtx.try_lock_shared_until(tp)を呼び出す
     std::shared_lock<std::shared_timed_mutex> lk(mtx, tp);
   }
   {
     std::chrono::seconds d(3);
 
     // (7)
-    // コンストラクタ内でmtx.try_lock_for_shared(d)を呼び出す
+    // コンストラクタ内でmtx.try_lock_shared_for(d)を呼び出す
     std::shared_lock<std::shared_timed_mutex> lk(mtx, d);
   }
   {
