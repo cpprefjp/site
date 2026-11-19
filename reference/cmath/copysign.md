@@ -119,32 +119,25 @@ int main()
 namespace std {
   float copysign(float x, float y)
   {
-    float absolute_value = std::isnan(x) ?
-                           std::numeric_limits<float>::quiet_NaN() :
-                           std::abs(x);
-    return y >= 0 ? absolute_value : -absolute_value;
+    float absolute_value = std::abs(x);
+    return std::signbit(y) ? -absolute_value : absolute_value;
   }
 
   double copysign(double x, double y)
   {
-    double absolute_value = std::isnan(x) ?
-                            std::numeric_limits<double>::quiet_NaN() :
-                            std::abs(x);
-    return y >= 0 ? absolute_value : -absolute_value;
+    double absolute_value = std::abs(x);
+    return std::signbit(y) ? -absolute_value : absolute_value;
   }
 
   long double copysign(long double x, long double y)
   {
-    long double absolute_value = std::isnan(x) ?
-                                 std::numeric_limits<long double>::quiet_NaN() :
-                                 std::abs(x);
-    return y >= 0 ? absolute_value : -absolute_value;
+    long double absolute_value = std::abs(x);
+    return std::signbit(y) ? -absolute_value : absolute_value;
   }
 }
 ```
 * std::abs[link abs.md]
-* std::isnan[link isnan.md]
-* quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
+* std::signbit[link signbit.md]
 
 
 ## バージョン
