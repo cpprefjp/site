@@ -237,12 +237,13 @@ struct X {
 };
 
 int main() {
+  // 要素はnameメンバ変数をキーとして昇順に並んでいる
   std::vector<X> v = {
-    {1, "Carol"},
     {3, "Alice"},
     {4, "Bob"},
-    {5, "Eve"},
-    {6, "Dave"}
+    {1, "Carol"},
+    {6, "Dave"},
+    {5, "Eve"}
   };
   const std::string key = "Bob";
 
@@ -277,8 +278,8 @@ int main() {
 
 #### 出力
 ```
-id=4 name=Bob pos=2
-id=4 name=Bob pos=2
+id=4 name=Bob pos=1
+id=4 name=Bob pos=1
 ```
 
 ## バージョン
