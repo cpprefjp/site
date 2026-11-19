@@ -88,6 +88,7 @@ namespace std {
 #include <iostream>
 #include <thread>
 #include <mutex>
+#include <vector>
 
 constexpr int NWORKERS = 2;  // ワーカ数
 constexpr int NPHASES  = 3;  // フェーズ数
@@ -103,9 +104,10 @@ int main()
   // バリア同期: 初期カウント値=ワーカ数+1(メインスレッド)
   std::barrier<> sync{NWORKERS+1};
 
-  // ワーカスレッド群をFire-and-Forget起動
+  // ワーカスレッド群を起動
+  std::vector<std::thread> workers;
   for (int id = 1; id <= NWORKERS; id++) {
-    std::thread([&,id]{
+    workers.emplace_back([&,id]{
       for (int phase = 1; phase <= NPHASES; phase++) {
         { // ワーカスレッドのフェーズタスクを実行
           std::lock_guard lk{cout_mtx};
@@ -115,7 +117,7 @@ int main()
         // 合流ポイント: メインスレッド＋他ワーカスレッドと同期
         sync.arrive_and_wait();
       }
-    }).detach();
+    });
   }
 
   // メインスレッド処理
@@ -128,11 +130,17 @@ int main()
     // 合流ポイント: 全ワーカスレッドと同期
     sync.arrive_and_wait();
   }
+
+  // バリアsyncの破棄前に、全ワーカスレッドの終了を待機する
+  for (std::thread& t : workers) {
+    t.join();
+  }
 }
 ```
 * std::barrier[color ff0000]
 * arrive_and_wait()[link barrier/arrive_and_wait.md]
-* detach()[link /reference/thread/thread/detach.md]
+* emplace_back[link /reference/vector/vector/emplace_back.md]
+* t.join()[link /reference/thread/thread/join.md]
 
 ### 出力例
 ```
