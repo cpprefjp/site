@@ -59,7 +59,7 @@ int main() {
   std::barrier<> sync1{2};
 
   // 完了関数付きのバリアを定義
-  std::barrier sync2{2, []{
+  std::barrier sync2{2, []() noexcept {
     // 完了関数はバリアに関与するいずれか一つのスレッド上でのみ実行されることが保証される
     std::cout << "finished @" << std::this_thread::get_id() << std::endl;
   }};
