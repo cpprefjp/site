@@ -187,13 +187,14 @@ struct X {
 };
 
 int main() {
+  // nameの順に並んでいる
   std::vector<X> v = {
-    {1, "Carol"},
     {3, "Alice"},
     {4, "Bob"},
     {4, "Bob"},
-    {5, "Eve"},
-    {6, "Dave"}
+    {1, "Carol"},
+    {6, "Dave"},
+    {5, "Eve"}
   };
   const std::string key = "Bob";
 
