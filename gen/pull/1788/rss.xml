@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-11-20T03:12:02.187001</updated>
+  <id>ff65210c-4123-4115-91f4-1c89f867e912</id>
+
+  
+    <entry>
+      <title>file_time -- fixing file_time wrong output example</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/file_time.html"/>
+      <id>248171dbdbadc7087be28f91ed22ba5843b30888:reference/chrono/file_time.md</id>
+      <updated>2026-11-19T12:50:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/file_time.md b/reference/chrono/file_time.md
+index de27171de..921a839a3 100644
+--- a/reference/chrono/file_time.md
++++ b/reference/chrono/file_time.md
+@@ -147,7 +147,7 @@ int main()
+ 
+ #### 出力例
+ ```
+-2019-10-24 11:15:10
++2019-10-24 20:15:10
+ 2019-10-24 11:15:10
+ UTC
+ 540
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>copysign -- fixing copysign wrong implementation example</title>
+      <link href="https://cpprefjp.github.io/reference/cmath/copysign.html"/>
+      <id>05b2049b4764f55e7b3105cf81781616c2ee7cf6:reference/cmath/copysign.md</id>
+      <updated>2026-11-19T12:49:17+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/copysign.md b/reference/cmath/copysign.md
+index 39312958c..c84e758f9 100644
+--- a/reference/cmath/copysign.md
++++ b/reference/cmath/copysign.md
+@@ -119,32 +119,25 @@ int main()
+ namespace std {
+   float copysign(float x, float y)
+   {
+-    float absolute_value = std::isnan(x) ?
+-                           std::numeric_limits&amp;lt;float&amp;gt;::quiet_NaN() :
+-                           std::abs(x);
+-    return y &amp;gt;= 0 ? absolute_value : -absolute_value;
++    float absolute_value = std::abs(x);
++    return std::signbit(y) ? -absolute_value : absolute_value;
+   }
+ 
+   double copysign(double x, double y)
+   {
+-    double absolute_value = std::isnan(x) ?
+-                            std::numeric_limits&amp;lt;double&amp;gt;::quiet_NaN() :
+-                            std::abs(x);
+-    return y &amp;gt;= 0 ? absolute_value : -absolute_value;
++    double absolute_value = std::abs(x);
++    return std::signbit(y) ? -absolute_value : absolute_value;
+   }
+ 
+   long double copysign(long double x, long double y)
+   {
+-    long double absolute_value = std::isnan(x) ?
+-                                 std::numeric_limits&amp;lt;long double&amp;gt;::quiet_NaN() :
+-                                 std::abs(x);
+-    return y &amp;gt;= 0 ? absolute_value : -absolute_value;
++    long double absolute_value = std::abs(x);
++    return std::signbit(y) ? -absolute_value : absolute_value;
+   }
+ }
+ ```
+ * std::abs[link abs.md]
+-* std::isnan[link isnan.md]
+-* quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
++* std::signbit[link signbit.md]
+ 
+ 
+ ## バージョン
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- fixing barrier constructor wrong sample</title>
+      <link href="https://cpprefjp.github.io/reference/barrier/barrier/op_constructor.html"/>
+      <id>dbd60ff0be210941add4f596ba373fec716494f4:reference/barrier/barrier/op_constructor.md</id>
+      <updated>2026-11-19T12:42:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/barrier/barrier/op_constructor.md b/reference/barrier/barrier/op_constructor.md
+index 409bac4b6..7ba478cf8 100644
+--- a/reference/barrier/barrier/op_constructor.md
++++ b/reference/barrier/barrier/op_constructor.md
+@@ -59,7 +59,7 @@ int main() {
+   std::barrier&amp;lt;&amp;gt; sync1{2};
+ 
+   // 完了関数付きのバリアを定義
+-  std::barrier sync2{2, []{
++  std::barrier sync2{2, []() noexcept {
+     // 完了関数はバリアに関与するいずれか一つのスレッド上でのみ実行されることが保証される
+     std::cout &amp;lt;&amp;lt; &amp;#34;finished @&amp;#34; &amp;lt;&amp;lt; std::this_thread::get_id() &amp;lt;&amp;lt; std::endl;
+   }};
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>barrier -- fixing barrier wrong sample</title>
+      <link href="https://cpprefjp.github.io/reference/barrier/barrier.html"/>
+      <id>b4a60cfba2b374fcb2b1bf5117e8f00fde81c8c9:reference/barrier/barrier.md</id>
+      <updated>2026-11-19T12:40:30+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/barrier/barrier.md b/reference/barrier/barrier.md
+index b281b44fc..37e46416e 100644
+--- a/reference/barrier/barrier.md
++++ b/reference/barrier/barrier.md
+@@ -88,6 +88,7 @@ namespace std {
+ #include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;thread&amp;gt;
+ #include &amp;lt;mutex&amp;gt;
++#include &amp;lt;vector&amp;gt;
+ 
+ constexpr int NWORKERS = 2;  // ワーカ数
+ constexpr int NPHASES  = 3;  // フェーズ数
+@@ -103,9 +104,10 @@ int main()
+   // バリア同期: 初期カウント値=ワーカ数+1(メインスレッド)
+   std::barrier&amp;lt;&amp;gt; sync{NWORKERS+1};
+ 
+-  // ワーカスレッド群をFire-and-Forget起動
++  // ワーカスレッド群を起動
++  std::vector&amp;lt;std::thread&amp;gt; workers;
+   for (int id = 1; id &amp;lt;= NWORKERS; id++) {
+-    std::thread([&amp;amp;,id]{
++    workers.emplace_back([&amp;amp;,id]{
+       for (int phase = 1; phase &amp;lt;= NPHASES; phase++) {
+         { // ワーカスレッドのフェーズタスクを実行
+           std::lock_guard lk{cout_mtx};
+@@ -115,7 +117,7 @@ int main()
+         // 合流ポイント: メインスレッド＋他ワーカスレッドと同期
+         sync.arrive_and_wait();
+       }
+-    }).detach();
++    });
+   }
+ 
+   // メインスレッド処理
+@@ -128,11 +130,17 @@ int main()
+     // 合流ポイント: 全ワーカスレッドと同期
+     sync.arrive_and_wait();
+   }
++
++  // バリアsyncの破棄前に、全ワーカスレッドの終了を待機する
++  for (std::thread&amp;amp; t : workers) {
++    t.join();
++  }
+ }
+ ```
+ * std::barrier[color ff0000]
+ * arrive_and_wait()[link barrier/arrive_and_wait.md]
+-* detach()[link /reference/thread/thread/detach.md]
++* emplace_back[link /reference/vector/vector/emplace_back.md]
++* t.join()[link /reference/thread/thread/join.md]
+ 
+ ### 出力例
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
