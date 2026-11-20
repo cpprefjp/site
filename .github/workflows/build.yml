@@ -134,10 +134,24 @@ jobs:
           core.setOutput('repo_full', repo_full);
           core.setOutput('ubranch', encodeURIComponent(branch));
 
+    # 編集者アイコン表示用の「メールアドレス → GitHub アカウント名」キャッシュ。
+    # site_generator は毎回新しくチェックアウトされるので、ビルド間で引き継ぐ。
+    # キャッシュはイミュータブルなので run_id 付きのキーで毎回保存し、
+    # 復元時は restore-keys で最新のものを使う。
+    - name: Restore GitHub users cache
+      uses: actions/cache/restore@v6
+      with:
+        path: site_generator/settings.cpprefjp.github_users.cache
+        key: github-users-${{ github.run_id }}-${{ github.run_attempt }}
+        restore-keys: github-users-
+
     # あとはスクリプトで頑張る
     - name: Run script build.sh
       run: ../.trusted/.github/workflows/script/build.sh ${{ inputs.arguments }}
       env:
+        # 編集者の GitHub アカウント名を GitHub API で引く際の認証に使う
+        # (未認証だとレート制限が 60 リクエスト/時しかない)
+        GITHUB_TOKEN: ${{ github.token }}
         base_git_url: ${{ github.event.pull_request.base.repo.clone_url }}
         base_git_ref: ${{ github.event.pull_request.base.ref }}
         commit_base: ${{ steps.preview_vars.outputs.sha0 }}
@@ -146,6 +160,14 @@ jobs:
         preview_repo_url: https://github.com/${{ steps.preview_vars.outputs.repo_full }}
         preview_ubranch: ${{ steps.preview_vars.outputs.ubranch }}
       working-directory: site_generator
+
+    # キャッシュの保存はデプロイ時のみ行う (PR のプレビュー生成では復元だけする)
+    - name: "(Deploy) Save GitHub users cache"
+      if: inputs.arguments == '' && !cancelled()
+      uses: actions/cache/save@v6
+      with:
+        path: site_generator/settings.cpprefjp.github_users.cache
+        key: github-users-${{ github.run_id }}-${{ github.run_attempt }}
 
     # Preview 用
     - name: "(Preview build) Publish result in gh-pages"
