@@ -149,6 +149,7 @@
 
 | 表記          | 製品名 [Visual Studio バージョン] <sup><a id="note_ref-t1-1" href="#note-t1-1">†1</a></sup> | VC++ バージョン <sup><a id="note_ref-t1-2" href="#note-t1-2">†2</a></sup> | `_MSC_VER` | `_MSC_FULL_VER` <sup><a id="note_ref-t1-5" href="#note-t1-5">†5</a></sup> |
 |---------------|----------------------------------------|-----------------|------------|-----------------|
+| 2026 Update 12 | Visual Studio 2026 Version 18.12.1    | 14.52           | 1952       | 195237029       |
 | 2026 Update 12 | Visual Studio 2026 Version 18.12.0    | 14.52           | 1952       | 195237029       |
 | 2026 Update 11 | Visual Studio 2026 Version 18.11.4    | 14.51           | 1951       | 195136263       |
 | 2026 Update 11 | Visual Studio 2026 Version 18.11.3    | 14.51           | 1951       | 195136260       |
